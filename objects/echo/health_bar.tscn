@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=3 uid="uid://d0kiufe6wem6i"]
+
+[ext_resource type="Script" uid="uid://de5lrm7uu02ab" path="res://objects/echo/health_bar.gd" id="1_h2tek"]
+[ext_resource type="Texture2D" uid="uid://od4i7ihp6dhl" path="res://assets/gfx/health.png" id="1_j3ijx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2tek"]
+atlas = ExtResource("1_j3ijx")
+region = Rect2(0, 0, 4, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gxpw"]
+atlas = ExtResource("1_j3ijx")
+region = Rect2(4, 0, 4, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3ijx"]
+atlas = ExtResource("1_j3ijx")
+region = Rect2(8, 0, 4, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf05w"]
+atlas = ExtResource("1_j3ijx")
+region = Rect2(12, 0, 2, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_immof"]
+atlas = ExtResource("1_j3ijx")
+region = Rect2(14, 0, 2, 0)
+
+[sub_resource type="Animation" id="Animation_2gxpw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:end_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_h2tek"]
+resource_name = "rotate"
+length = 0.80002004
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:end_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xf05w"]
+_data = {
+&"RESET": SubResource("Animation_2gxpw"),
+&"rotate": SubResource("Animation_h2tek")
+}
+
+[node name="HealthBar" type="Node2D"]
+script = ExtResource("1_h2tek")
+
+[node name="Back" type="Node2D" parent="."]
+
+[node name="LeftEnd" type="Sprite2D" parent="Back"]
+texture = SubResource("AtlasTexture_h2tek")
+offset = Vector2(2, 4)
+
+[node name="DangerArea" type="ColorRect" parent="Back"]
+offset_left = 4.0
+offset_right = 40.0
+offset_bottom = 8.0
+color = Color(0.67058825, 0.17254902, 0.26666668, 1)
+
+[node name="Divider" type="Sprite2D" parent="Back"]
+position = Vector2(42, 0)
+texture = SubResource("AtlasTexture_2gxpw")
+offset = Vector2(0, 4)
+
+[node name="PrimaryArea" type="ColorRect" parent="Back"]
+offset_left = 44.0
+offset_right = 124.0
+offset_bottom = 8.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="RightEnd" type="Sprite2D" parent="Back"]
+position = Vector2(128, 0)
+texture = SubResource("AtlasTexture_j3ijx")
+offset = Vector2(-2, 4)
+
+[node name="HealthBarPrimary" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 123.0
+offset_bottom = 7.0
+
+[node name="HealthBarEnd" type="Sprite2D" parent="."]
+position = Vector2(127, 0)
+texture = ExtResource("1_j3ijx")
+offset = Vector2(-2, 4)
+region_enabled = true
+region_rect = Rect2(16, 0, 4, 8)
+region_filter_clip_enabled = true
+
+[node name="Block" type="Node2D" parent="."]
+
+[node name="LeftEnd" type="Sprite2D" parent="Block"]
+position = Vector2(2, 0)
+texture = SubResource("AtlasTexture_xf05w")
+offset = Vector2(0, 4)
+
+[node name="RightEnd" type="Sprite2D" parent="Block"]
+position = Vector2(126, 0)
+texture = SubResource("AtlasTexture_immof")
+offset = Vector2(0, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../HealthBarEnd")
+libraries = {
+&"": SubResource("AnimationLibrary_xf05w")
+}
+autoplay = "rotate"

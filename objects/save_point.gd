@@ -1,7 +1,18 @@
 extends Area2D
 
-func player_entered(_other: Node2D):
-	#var player := other as Echo
-	$SaveParticle.show()
-	$SaveParticle.play("default")
-	$Label/AnimationPlayer.play("saved_text")
+func player_entered(other: Node2D):
+	if other is Echo:
+		var player := other as Echo
+		player.enter_save_point()
+		$SaveParticle.show()
+		$SaveParticle.play("default")
+		$Label/AnimationPlayer.play("saved_text")
+	else:
+		push_warning("Non-player node ", other, " entered")
+
+func player_exited(other: Node2D):
+	if other is Echo:
+		var player := other as Echo
+		player.exit_save_point()
+	else:
+		push_warning("Non-player node ", other, " exited")

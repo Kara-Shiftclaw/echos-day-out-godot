@@ -69,6 +69,17 @@ enum Weight {
 
 @export var can_move := true
 @export var weight := Weight.Thin
+@export var health: float:
+	get:
+		if in_save_point:
+			return max_health
+		else:
+			return $HealthTimer.time_left
+	set(value):
+		$HealthTimer.start(value)
+@export var max_health := 5.
+
+var in_save_point := false
 
 var facing_right := true:
 	set(value):
@@ -112,3 +123,11 @@ func do_attack() -> void:
 func play_anim(anim_name: String) -> void:
 	var full_name = "{0}_{1}".format([weight as int, anim_name])
 	$AnimationPlayer.play(full_name)
+
+func enter_save_point() -> void:
+	$HealthTimer.stop()
+	in_save_point = true
+
+func exit_save_point() -> void:
+	$HealthTimer.start(max_health)
+	in_save_point = false
