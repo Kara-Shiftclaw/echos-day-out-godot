@@ -77,7 +77,7 @@ enum Weight {
 			return $HealthTimer.time_left
 	set(value):
 		$HealthTimer.start(value)
-@export var max_health := 5.
+@export var max_health := HEALTH_TIME
 
 var in_save_point := false
 

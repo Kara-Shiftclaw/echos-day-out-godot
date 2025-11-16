@@ -6,21 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2q1k"]
 size = Vector2(6, 14)
 
-[sub_resource type="Animation" id="Animation_eqnf0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="Animation" id="Animation_juied"]
 resource_name = "0_attack"
 length = 0.20000668
@@ -57,6 +42,21 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_tau0j"]
 resource_name = "0_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eqnf0"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
