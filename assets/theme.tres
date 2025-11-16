@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dpdcai43puqjs"]
+
+[ext_resource type="FontFile" uid="uid://cobji8o0ck1gm" path="res://assets/Px437_IBM_CGA.ttf" id="1_5x3i2"]
+
+[resource]
+default_font = ExtResource("1_5x3i2")
+default_font_size = 8

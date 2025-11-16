@@ -1,6 +1,8 @@
 class_name Echo
 extends CharacterBody2D
 
+const Attack := preload("res://objects/echo/attack.tscn")
+
 const SPEED_MAP := {
 	Weight.Thin: 10. * 8.,
 	Weight.Chubby: 10. * 8.,
@@ -68,12 +70,22 @@ enum Weight {
 @export var can_move := true
 @export var weight := Weight.Thin
 
-var facing_right := true
+var facing_right := true:
+	set(value):
+		facing_right = value
+		$Sprite2D.flip_h = !value
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		if is_on_floor():
+			play_anim("attack")
 
 func _physics_process(delta: float) -> void:
 	if can_move:
 		var desired_vel := SPEED_MAP[weight] as float * Input.get_axis("ui_left", "ui_right")
 		velocity.x = move_toward(velocity.x, desired_vel, ACCELERATION_MAP[weight] * delta)
+		if desired_vel != 0.:
+			facing_right = desired_vel > 0
 		
 		if is_on_floor():
 			$CoyoteTimeTimer.start()
@@ -83,9 +95,20 @@ func _physics_process(delta: float) -> void:
 		
 		if !$JumpTimer.is_stopped():
 			velocity.y = JUMP_VELOCITY_MAP[weight]
-			if !Input.is_action_pressed("jump"):
+			if !Input.is_action_pressed("jump") or is_on_ceiling():
 				$JumpTimer.stop()
 		else:
 			velocity.y = move_toward(velocity.y, MAX_GRAVITY, GRAVITY * delta)
 		
 		move_and_slide()
+
+func do_attack() -> void:
+	var attack: Area2D = Attack.instantiate()
+	var facing_sign := Util.sign(facing_right)
+	attack.scale.x = facing_sign
+	add_child(attack)
+	attack.position = Vector2(facing_sign * 10., 0.)
+
+func play_anim(anim_name: String) -> void:
+	var full_name = "{0}_{1}".format([weight as int, anim_name])
+	$AnimationPlayer.play(full_name)
