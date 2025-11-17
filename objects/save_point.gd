@@ -7,6 +7,7 @@ func player_entered(other: Node2D):
 		$SaveParticle.show()
 		$SaveParticle.play("default")
 		$Label/AnimationPlayer.play("saved_text")
+		SaveGlobal.emit_save()
 	else:
 		push_warning("Non-player node ", other, " entered")
 
