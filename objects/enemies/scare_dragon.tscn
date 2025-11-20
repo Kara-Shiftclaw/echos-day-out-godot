@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cfeg32boou2fo"]
 
 [ext_resource type="Texture2D" uid="uid://de0xqo3yd8lhq" path="res://assets/gfx/scarecrow.png" id="1_r4t0e"]
-[ext_resource type="Script" uid="uid://uitjssi2iw8s" path="res://objects/enemies/enemy_manager.gd" id="2_087h3"]
+[ext_resource type="Script" uid="uid://uitjssi2iw8s" path="res://objects/enemies/scripts/enemy_manager.gd" id="2_087h3"]
 
 [sub_resource type="Animation" id="Animation_087h3"]
 length = 0.001

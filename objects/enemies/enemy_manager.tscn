@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbye3c0x71u8s"]
+
+[ext_resource type="Script" uid="uid://uitjssi2iw8s" path="res://objects/enemies/scripts/enemy_manager.gd" id="1_nqbj1"]
+
+[node name="EnemyManager" type="VisibleOnScreenEnabler2D"]
+script = ExtResource("1_nqbj1")
+
+[connection signal="screen_exited" from="." to="." method="entered"]

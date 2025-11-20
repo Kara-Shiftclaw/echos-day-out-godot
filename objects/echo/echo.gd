@@ -76,7 +76,7 @@ enum Weight {
 		else:
 			return $HealthTimer.time_left
 	set(value):
-		$HealthTimer.start(value)
+		$HealthTimer.start(clamp(value, 0., max_health))
 @export var max_health := HEALTH_TIME
 
 var in_save_point := false
@@ -85,6 +85,9 @@ var facing_right := true:
 	set(value):
 		facing_right = value
 		$Sprite2D.flip_h = !value
+
+func _ready() -> void:
+	Global.echo = self
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5f721ii3ny3d"]
+
+[ext_resource type="Script" uid="uid://cfw4as5p8vxjl" path="res://objects/energy_orb.gd" id="1_3exhe"]
+[ext_resource type="Texture2D" uid="uid://dqhuhiwecxvx8" path="res://assets/gfx/orb.png" id="1_bovsh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3exhe"]
+size = Vector2(3, 3)
+
+[node name="EnergyOrb" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3exhe")
+
+[node name="Orb" type="Sprite2D" parent="."]
+z_index = 10
+texture = ExtResource("1_bovsh")
+offset = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_3exhe")

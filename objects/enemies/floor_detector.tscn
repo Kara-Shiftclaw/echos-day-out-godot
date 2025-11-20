@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://braxpij1yhwqj"]
+
+[ext_resource type="Script" uid="uid://e58ucdahymxe" path="res://objects/enemies/scripts/screen_edge_detector.gd" id="1_qejy2"]
+
+[node name="FloorDetector" type="VisibleOnScreenNotifier2D"]
+rect = Rect2(-1, -1, 2, 2)
+script = ExtResource("1_qejy2")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 2)
+hit_from_inside = true
