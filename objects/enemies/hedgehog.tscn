@@ -131,5 +131,6 @@ collision_mask = 8
 shape = SubResource("RectangleShape2D_oehah")
 
 [connection signal="die" from="EnemyManager" to="." method="die"]
+[connection signal="hit" from="EnemyManager" to="." method="on_hit"]
 [connection signal="area_entered" from="Area2D" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Area2D" to="EnemyManager" method="on_hit"]

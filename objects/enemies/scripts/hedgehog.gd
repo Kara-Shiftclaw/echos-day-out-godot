@@ -18,6 +18,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y += DEATH_GRAVITY * delta
 		move_and_slide()
 
+func on_hit():
+	var player_right := (Global.echo.global_position.x - global_position.x) > 0.
+	if player_right == moving_right:
+		moving_right = !moving_right
+
 func die():
 	var player_right := (Global.echo.global_position.x - global_position.x) > 0.
 	velocity = Vector2(-Util.sign(player_right) * MOVE_SPEED, DEATH_BOUNCE)
