@@ -32,3 +32,9 @@ func die():
 
 func respawn():
 	$CollisionShape2D.set_deferred("disabled", false)
+	show()
+
+func disable_on_leave():
+	if $EnemyManager.health <= 0:
+		velocity = Vector2.ZERO
+		hide()

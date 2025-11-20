@@ -1,6 +1,8 @@
 class_name Util
 extends Object
 
+const ROOM_SIZE := 128.
+
 func _init() -> void:
 	push_error("Do not instantiate Util object")
 

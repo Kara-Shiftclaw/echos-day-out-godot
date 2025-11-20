@@ -52,6 +52,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_pduax"]
 resource_name = "die"
@@ -96,11 +108,10 @@ script = ExtResource("1_2fyya")
 moving_right = true
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("1_oehah")]
-rect = Rect2(-4, -4, 8, 8)
 max_health = 6
 animation_player = NodePath("../AnimationPlayer")
 reset_animation = &"walk"
-parent_save_properties = Array[String](["position", "moving_right", "rotation", "z_index"])
+parent_save_properties = Array[String](["position", "moving_right", "z_index"])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -6
@@ -130,7 +141,9 @@ collision_mask = 8
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_oehah")
 
+[connection signal="chunk_left" from="EnemyManager" to="." method="disable_on_leave"]
 [connection signal="die" from="EnemyManager" to="." method="die"]
 [connection signal="hit" from="EnemyManager" to="." method="on_hit"]
+[connection signal="respawn" from="EnemyManager" to="." method="respawn"]
 [connection signal="area_entered" from="Area2D" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Area2D" to="EnemyManager" method="on_hit"]

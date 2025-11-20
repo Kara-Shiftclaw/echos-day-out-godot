@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cfeg32boou2fo"]
 
 [ext_resource type="Texture2D" uid="uid://de0xqo3yd8lhq" path="res://assets/gfx/scarecrow.png" id="1_r4t0e"]
-[ext_resource type="Script" uid="uid://uitjssi2iw8s" path="res://objects/enemies/scripts/enemy_manager.gd" id="2_087h3"]
+[ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="2_087h3"]
 
 [sub_resource type="Animation" id="Animation_087h3"]
 length = 0.001
@@ -132,9 +132,7 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_r4t0e")
 
-[node name="EnemyManager" type="VisibleOnScreenEnabler2D" parent="." node_paths=PackedStringArray("animation_player")]
-rect = Rect2(-6, -8, 12, 16)
-script = ExtResource("2_087h3")
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("2_087h3")]
 max_health = 12
 animation_player = NodePath("../AnimationPlayer")
 reset_animation = &"idle"
@@ -144,4 +142,3 @@ reset_animation = &"idle"
 [connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]
 [connection signal="hit" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"hit"]]
 [connection signal="hit_after_death" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"hit_after_death"]]
-[connection signal="screen_entered" from="EnemyManager" to="EnemyManager" method="entered"]

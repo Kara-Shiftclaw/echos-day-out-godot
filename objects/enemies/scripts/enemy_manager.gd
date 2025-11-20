@@ -1,4 +1,4 @@
-extends VisibleOnScreenEnabler2D
+extends Node
 
 @export var max_health := 4
 @export var energy_per_damage := 0.25
@@ -13,15 +13,19 @@ var saved_properties: Dictionary
 
 var health: int
 var energy_cache := 0.
+var chunk: Vector2i
 
 signal hit()
 signal die()
 signal hit_after_death()
 signal respawn()
+signal chunk_entered()
+signal chunk_left()
 
 func _ready() -> void:
 	health = max_health
-	var parent := get_parent()
+	var parent: Node2D = get_parent()
+	parent.set_process(false)
 	for property in parent_save_properties:
 		saved_properties[property] = parent.get(property)
 	Global.save.connect(func() -> void:
@@ -30,6 +34,18 @@ func _ready() -> void:
 			animation_player.play(reset_animation)
 			animation_player.seek(0., true)
 		respawn.emit()
+	)
+	chunk = Vector2i(floori(parent.global_position.x / Util.ROOM_SIZE), floori(parent.global_position.y / Util.ROOM_SIZE))
+	Global.chunk_loaded.connect(func(cx: int, cy: int) -> void:
+		print(parent.name, ": Chunk ", cx, " ", cy, " loaded")
+		if chunk.x == cx and chunk.y == cy:
+			print(parent.name, ": entered")
+			chunk_entered.emit()
+			parent.process_mode = Node.PROCESS_MODE_INHERIT
+		elif parent.can_process():
+			print(parent.name, ": left")
+			chunk_left.emit()
+			parent.process_mode = Node.PROCESS_MODE_DISABLED
 	)
 
 func on_hit(attacker: Node2D) -> void:
@@ -55,9 +71,9 @@ func take_damage(damage: int) -> void:
 				die.emit()
 				EnergyOrb.create_n(energy_on_death, get_parent().global_position, Global.echo)
 
-func entered() -> void:
+func reset() -> void:
 	if health > 0:
 		health = max_health
-		var parent := get_parent()
-		for property in saved_properties:
-			parent.set(property, saved_properties[property])
+	var parent := get_parent()
+	for property in saved_properties:
+		parent.set(property, saved_properties[property])

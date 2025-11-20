@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uitjssi2iw8s" path="res://objects/enemies/scripts/enemy_manager.gd" id="1_nqbj1"]
 
-[node name="EnemyManager" type="VisibleOnScreenEnabler2D"]
+[node name="EnemyManager" type="Node"]
 script = ExtResource("1_nqbj1")
 
-[connection signal="screen_exited" from="." to="." method="entered"]
+[connection signal="chunk_left" from="." to="." method="reset"]
