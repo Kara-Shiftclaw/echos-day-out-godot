@@ -14,6 +14,7 @@ var saved_properties: Dictionary
 var health: int
 var energy_cache := 0.
 var chunk: Vector2i
+var post_load_frame: bool
 
 signal hit()
 signal die()
@@ -72,8 +73,14 @@ func take_damage(damage: int) -> void:
 				EnergyOrb.create_n(energy_on_death, get_parent().global_position, Global.echo)
 
 func reset() -> void:
+	post_load_frame = true
 	if health > 0:
 		health = max_health
 	var parent := get_parent()
 	for property in saved_properties:
 		parent.set(property, saved_properties[property])
+
+func manage_post_load_frame():
+	post_load_frame = true
+	await get_tree().process_frame
+	post_load_frame = false

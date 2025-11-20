@@ -11,7 +11,9 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2(MOVE_SPEED * Util.sign(moving_right), 0.)
 		move_and_slide()
 		
-		if is_on_wall() or (moving_right and !$Right.valid_floor) or (!moving_right and !$Left.valid_floor):
+		if !$EnemyManager.post_load_frame and (is_on_wall() \
+				or (moving_right and !$Right.valid_floor) \
+				or (!moving_right and !$Left.valid_floor)):
 			moving_right = !moving_right
 		$Sprite2D.flip_h = moving_right
 	else:

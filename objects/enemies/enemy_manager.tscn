@@ -5,4 +5,5 @@
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_nqbj1")
 
+[connection signal="chunk_entered" from="." to="." method="manage_post_load_frame"]
 [connection signal="chunk_left" from="." to="." method="reset"]
