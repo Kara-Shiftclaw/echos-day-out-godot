@@ -107,3 +107,13 @@ libraries = {
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="StageHurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StageHurtbox"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_n2q1k")
+
+[connection signal="body_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]

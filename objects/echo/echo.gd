@@ -55,6 +55,7 @@ const FIREBALL_KNOCKBACK_MAP := {
 }
 
 const MAX_GRAVITY := -JUMP_VELOCITY_MAP[Weight.Thin]
+const STAGE_HAZARD_BOUNCE := -1.5 * MAX_GRAVITY
 const HEALTH_TIME = 30.
 const SPRINT_SPEED = 14. * 8.
 const EXPLODE_FALL_SPEED := 48. * 8.
@@ -134,3 +135,7 @@ func enter_save_point() -> void:
 func exit_save_point() -> void:
 	$HealthTimer.start(max_health)
 	in_save_point = false
+
+func stage_hurtbox_hit(_other: Node2D) -> void:
+	health -= 3.
+	velocity.y = STAGE_HAZARD_BOUNCE

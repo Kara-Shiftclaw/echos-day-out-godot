@@ -58,6 +58,8 @@ sprint={
 2d_physics/layer_1="Solid"
 2d_physics/layer_2="Player Col"
 2d_physics/layer_3="Enemy Col"
+2d_physics/layer_4="Player Attack"
+2d_physics/layer_5="Stage Hazard"
 
 [rendering]
 
