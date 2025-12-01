@@ -51,7 +51,7 @@ func _ready() -> void:
 
 func on_hit(attacker: Node2D) -> void:
 	var maybe_damage = attacker.get_node_or_null("Damage")
-	if maybe_damage != null:
+	if maybe_damage != null and maybe_damage.active:
 		take_damage(maybe_damage.damage)
 		
 func take_damage(damage: int) -> void:

@@ -8,3 +8,9 @@ func _init() -> void:
 
 static func sign(b: bool) -> int:
 	return 1 if b else -1
+
+static func off_edge_in_direction(moving_right: bool, left: FloorDetector, right: FloorDetector) -> bool:
+	return (moving_right and !right.valid_floor) or (!moving_right and !left.valid_floor)
+
+static func off_screen_in_direction(moving_right: bool, left: FloorDetector, right: FloorDetector) -> bool:
+	return (moving_right and !right.is_on_screen()) or (!moving_right and !left.is_on_screen())
