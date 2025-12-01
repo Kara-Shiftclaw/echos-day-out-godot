@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkym2x36d2n0s"]
+[gd_scene load_steps=12 format=3 uid="uid://dkym2x36d2n0s"]
 
 [ext_resource type="Script" uid="uid://ccyvj253iceo7" path="res://objects/echo/echo.gd" id="1_jjhff"]
 [ext_resource type="Texture2D" uid="uid://ci45m4n4yfgho" path="res://assets/gfx/echo.png" id="1_n2q1k"]
@@ -41,6 +41,149 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ukrqv"]
+resource_name = "0_die"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtParticles")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [false],
+"method": &"restart"
+}, {
+"args": [false],
+"method": &"restart"
+}, {
+"args": [false],
+"method": &"restart"
+}, {
+"args": [false],
+"method": &"restart"
+}, {
+"args": [false],
+"method": &"restart"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtParticles:amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 40]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:can_move")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EnemyHurtbox/CollisionShape2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"disabled", true],
+"method": &"set_deferred"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StageHurtbox/CollisionShape2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"disabled", true],
+"method": &"set_deferred"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.85, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_death_screen"
+}, {
+"args": [],
+"method": &"respawn"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_w5cui"]
+resource_name = "0_hurt"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+
 [sub_resource type="Animation" id="Animation_tau0j"]
 resource_name = "0_idle"
 tracks/0/type = "value"
@@ -70,27 +213,35 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-
-[sub_resource type="Animation" id="Animation_w5cui"]
-resource_name = "0_hurt"
-length = 0.2
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtParticles:amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3, 0]
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:can_move")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w5cui"]
 _data = {
 &"0_attack": SubResource("Animation_juied"),
+&"0_die": SubResource("Animation_ukrqv"),
 &"0_hurt": SubResource("Animation_w5cui"),
 &"0_idle": SubResource("Animation_tau0j"),
 &"RESET": SubResource("Animation_eqnf0")
@@ -162,6 +313,7 @@ initial_velocity_min = 150.0
 initial_velocity_max = 250.0
 color_ramp = SubResource("Gradient_tau0j")
 
+[connection signal="timeout" from="HealthTimer" to="." method="play_anim" binds= [&"die"]]
 [connection signal="body_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]
 [connection signal="area_entered" from="EnemyHurtbox" to="." method="on_hit"]
 [connection signal="body_entered" from="EnemyHurtbox" to="." method="on_hit"]

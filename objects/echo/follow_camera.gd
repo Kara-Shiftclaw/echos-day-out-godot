@@ -6,6 +6,9 @@ var chunk := Vector2i(9999, 9999)
 
 @export var following: Node2D
 
+func _ready() -> void:
+	Global.camera = self
+
 func _process(_delta: float) -> void:
 	var new_chunk := (following.global_position / Util.ROOM_SIZE).floor() as Vector2i
 	if new_chunk != chunk:

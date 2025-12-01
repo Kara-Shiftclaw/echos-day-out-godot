@@ -3,7 +3,7 @@ extends Area2D
 func player_entered(other: Node2D):
 	if other is Echo:
 		var player := other as Echo
-		player.enter_save_point()
+		player.enter_save_point(self)
 		$SaveParticle.show()
 		$SaveParticle.play("default")
 		$Label/AnimationPlayer.play("saved_text")

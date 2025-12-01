@@ -4,6 +4,7 @@ signal save()
 signal chunk_loaded(cx: int, cy: int)
 
 var echo: Echo
+var camera: Camera2D
 
 func emit_save() -> void:
 	save.emit()

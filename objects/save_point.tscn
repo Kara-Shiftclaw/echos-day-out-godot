@@ -166,6 +166,7 @@ collision_mask = 2
 script = ExtResource("1_yex63")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
 texture = ExtResource("1_0fvnq")
 offset = Vector2(0.5, -0.5)
 hframes = 6

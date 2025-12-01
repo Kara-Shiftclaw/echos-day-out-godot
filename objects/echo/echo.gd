@@ -2,6 +2,7 @@ class_name Echo
 extends CharacterBody2D
 
 const Attack := preload("res://objects/echo/attack.tscn")
+const DeathScreen := preload("res://objects/echo/particle/death_screen.tscn")
 
 const SPEED_MAP := {
 	Weight.Thin: 10. * 8.,
@@ -77,10 +78,14 @@ enum Weight {
 		else:
 			return $HealthTimer.time_left
 	set(value):
-		$HealthTimer.start(clamp(value, 0., max_health))
+		if value <= 0.:
+			$HealthTimer.start(0.01)
+		else:
+			$HealthTimer.start(clamp(value, 0., max_health))
 @export var max_health := HEALTH_TIME
 
 var in_save_point := false
+var last_save_pos := Vector2.INF
 
 var facing_right := true:
 	set(value):
@@ -128,9 +133,10 @@ func play_anim(anim_name: String) -> void:
 	var full_name = "{0}_{1}".format([weight as int, anim_name])
 	$AnimationPlayer.play(full_name)
 
-func enter_save_point() -> void:
+func enter_save_point(save_point: Node2D) -> void:
 	$HealthTimer.stop()
 	in_save_point = true
+	last_save_pos = save_point.global_position
 
 func exit_save_point() -> void:
 	$HealthTimer.start(max_health)
@@ -141,12 +147,25 @@ func on_hit(attacker: Node2D) -> void:
 	if maybe_damage != null and maybe_damage.active:
 		take_damage(maybe_damage.damage)
 		
-func take_damage(amount: float):
-	health -= amount
+func take_damage(amount: float) -> void:
 	play_anim("hurt")
 	$HurtParticles.amount = amount
 	$HurtParticles.restart()
+	health -= amount
 
 func stage_hurtbox_hit(_other: Node2D) -> void:
 	take_damage(3.)
 	velocity.y = STAGE_HAZARD_BOUNCE
+
+func spawn_death_screen() -> void:
+	var death_screen := DeathScreen.instantiate()
+	Global.camera.add_child(death_screen)
+
+func respawn() -> void:
+	$StageHurtbox/CollisionShape2D.set_deferred("disabled", false)
+	$EnemyHurtbox/CollisionShape2D.set_deferred("disabled", false)
+	$Sprite2D.show()
+	global_position = last_save_pos
+	can_move = true
+	velocity = Vector2.ZERO
+	play_anim("idle")
