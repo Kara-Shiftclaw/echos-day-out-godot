@@ -136,6 +136,17 @@ func exit_save_point() -> void:
 	$HealthTimer.start(max_health)
 	in_save_point = false
 
+func on_hit(attacker: Node2D) -> void:
+	var maybe_damage = attacker.get_node_or_null("Damage")
+	if maybe_damage != null and maybe_damage.active:
+		take_damage(maybe_damage.damage)
+		
+func take_damage(amount: float):
+	health -= amount
+	play_anim("hurt")
+	$HurtParticles.amount = amount
+	$HurtParticles.restart()
+
 func stage_hurtbox_hit(_other: Node2D) -> void:
-	health -= 3.
+	take_damage(3.)
 	velocity.y = STAGE_HAZARD_BOUNCE

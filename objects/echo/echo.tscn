@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkym2x36d2n0s"]
+[gd_scene load_steps=11 format=3 uid="uid://dkym2x36d2n0s"]
 
 [ext_resource type="Script" uid="uid://ccyvj253iceo7" path="res://objects/echo/echo.gd" id="1_jjhff"]
 [ext_resource type="Texture2D" uid="uid://ci45m4n4yfgho" path="res://assets/gfx/echo.png" id="1_n2q1k"]
+[ext_resource type="Texture2D" uid="uid://dqhuhiwecxvx8" path="res://assets/gfx/orb.png" id="3_eqnf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2q1k"]
 size = Vector2(6, 14)
@@ -70,12 +71,35 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_w5cui"]
+resource_name = "0_hurt"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w5cui"]
 _data = {
 &"0_attack": SubResource("Animation_juied"),
+&"0_hurt": SubResource("Animation_w5cui"),
 &"0_idle": SubResource("Animation_tau0j"),
 &"RESET": SubResource("Animation_eqnf0")
 }
+
+[sub_resource type="Gradient" id="Gradient_tau0j"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.53107345, 0.8079096)
+colors = PackedColorArray(1, 1, 1, 1, 0.78039217, 0.44705883, 0.28235295, 1, 0.67058825, 0.17254902, 0.26666668, 1)
 
 [node name="Echo" type="CharacterBody2D"]
 collision_layer = 2
@@ -116,4 +140,28 @@ collision_mask = 16
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_n2q1k")
 
+[node name="EnemyHurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_n2q1k")
+
+[node name="HurtParticles" type="CPUParticles2D" parent="."]
+z_index = 10
+emitting = false
+texture = ExtResource("3_eqnf0")
+lifetime = 0.15000000000000002
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 120.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
+color_ramp = SubResource("Gradient_tau0j")
+
 [connection signal="body_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]
+[connection signal="area_entered" from="EnemyHurtbox" to="." method="on_hit"]
+[connection signal="body_entered" from="EnemyHurtbox" to="." method="on_hit"]
