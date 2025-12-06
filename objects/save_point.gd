@@ -14,6 +14,6 @@ func player_entered(other: Node2D):
 func player_exited(other: Node2D):
 	if other is Echo:
 		var player := other as Echo
-		player.exit_save_point()
+		player.exit_save_point(self)
 	else:
 		push_warning("Non-player node ", other, " exited")

@@ -110,6 +110,7 @@ moving_right = true
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("1_oehah")]
 max_health = 6
+energy_per_damage = 0.5
 animation_player = NodePath("../AnimationPlayer")
 reset_animation = &"walk"
 parent_save_properties = Array[String](["position", "moving_right", "z_index"])

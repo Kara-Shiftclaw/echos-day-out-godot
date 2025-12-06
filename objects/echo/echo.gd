@@ -73,7 +73,7 @@ enum Weight {
 @export var weight := Weight.Thin
 @export var health: float:
 	get:
-		if in_save_point:
+		if cur_save_point != null:
 			return max_health
 		else:
 			return $HealthTimer.time_left
@@ -84,7 +84,7 @@ enum Weight {
 			$HealthTimer.start(clamp(value, 0., max_health))
 @export var max_health := HEALTH_TIME
 
-var in_save_point := false
+var cur_save_point: Node = null
 var last_save_pos := Vector2.INF
 
 var facing_right := true:
@@ -135,12 +135,13 @@ func play_anim(anim_name: String) -> void:
 
 func enter_save_point(save_point: Node2D) -> void:
 	$HealthTimer.stop()
-	in_save_point = true
+	cur_save_point = save_point
 	last_save_pos = save_point.global_position
 
-func exit_save_point() -> void:
-	$HealthTimer.start(max_health)
-	in_save_point = false
+func exit_save_point(save_point: Node2D) -> void:
+	if save_point == cur_save_point:
+		$HealthTimer.start(max_health)
+		cur_save_point = null
 
 func on_hit(attacker: Node2D) -> void:
 	var maybe_damage = attacker.get_node_or_null("Damage")
