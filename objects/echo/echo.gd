@@ -131,7 +131,8 @@ func do_attack() -> void:
 
 func play_anim(anim_name: String) -> void:
 	var full_name = "{0}_{1}".format([weight as int, anim_name])
-	$AnimationPlayer.play(full_name)
+	if $AnimationPlayer.has_animation(full_name):
+		$AnimationPlayer.play(full_name)
 
 func enter_save_point(save_point: Node2D) -> void:
 	$HealthTimer.stop()

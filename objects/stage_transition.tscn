@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b80sc5o8or7qk"]
+
+[ext_resource type="Script" uid="uid://c2qdv3wklsqqd" path="res://objects/stage_transition.gd" id="1_ljiv7"]
+
+[node name="StageTransition" type="ReferenceRect"]
+offset_right = 128.0
+offset_bottom = 128.0
+border_width = 2.0
+script = ExtResource("1_ljiv7")

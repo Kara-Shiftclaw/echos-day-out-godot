@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkym2x36d2n0s"]
+[gd_scene load_steps=16 format=3 uid="uid://dkym2x36d2n0s"]
 
 [ext_resource type="Script" uid="uid://ccyvj253iceo7" path="res://objects/echo/echo.gd" id="1_jjhff"]
 [ext_resource type="Texture2D" uid="uid://ci45m4n4yfgho" path="res://assets/gfx/echo.png" id="1_n2q1k"]
@@ -238,12 +238,152 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_pf44c"]
+resource_name = "1_attack"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}, {
+"args": ["idle"],
+"method": &"play_anim"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ahpfw"]
+resource_name = "2_attack"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}, {
+"args": ["idle"],
+"method": &"play_anim"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6xigl"]
+resource_name = "3_attack"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}, {
+"args": ["idle"],
+"method": &"play_anim"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_83wf4"]
+resource_name = "4_attack"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}, {
+"args": ["idle"],
+"method": &"play_anim"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w5cui"]
 _data = {
 &"0_attack": SubResource("Animation_juied"),
 &"0_die": SubResource("Animation_ukrqv"),
 &"0_hurt": SubResource("Animation_w5cui"),
 &"0_idle": SubResource("Animation_tau0j"),
+&"1_attack": SubResource("Animation_pf44c"),
+&"2_attack": SubResource("Animation_ahpfw"),
+&"3_attack": SubResource("Animation_6xigl"),
+&"4_attack": SubResource("Animation_83wf4"),
 &"RESET": SubResource("Animation_eqnf0")
 }
 
