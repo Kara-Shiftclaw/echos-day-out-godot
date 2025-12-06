@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://7kbil360lc45"]
+
+[ext_resource type="Texture2D" uid="uid://kcys5a1h5g0j" path="res://assets/gfx/title.png" id="1_lxdol"]
+[ext_resource type="Script" uid="uid://cjew3yi6d35eb" path="res://menu/scripts/title_screen.gd" id="1_vio6n"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="2_1hn3b"]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_vio6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+texture = ExtResource("1_lxdol")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(64, 64)
+zoom = Vector2(4, 4)
+
+[node name="Options" type="Control" parent="."]
+layout_mode = 3
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 96.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="New Game" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Continue")
+focus_next = NodePath("../Continue")
+theme = ExtResource("2_1hn3b")
+text = "New Game"
+
+[node name="Continue" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../New Game")
+focus_previous = NodePath("../New Game")
+theme = ExtResource("2_1hn3b")
+text = "Continue"
+
+[connection signal="pressed" from="Options/VBoxContainer/New Game" to="." method="new_game"]
