@@ -1,10 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca72bwose76ae"]
+[gd_scene load_steps=9 format=3 uid="uid://ca72bwose76ae"]
 
 [ext_resource type="Texture2D" uid="uid://d055n6x0dm6fl" path="res://assets/gfx/switch.png" id="1_bd5kx"]
 [ext_resource type="Script" uid="uid://d0mhnm0ppeoxi" path="res://objects/switch.gd" id="1_h056j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd5kx"]
 size = Vector2(8, 10)
+
+[sub_resource type="Animation" id="Animation_e8wiv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Switch:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_h056j"]
 resource_name = "activate"
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 4, 5, 6]
-}
-
-[sub_resource type="Animation" id="Animation_e8wiv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Switch:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_0kjxy"]
@@ -54,10 +54,28 @@ tracks/0/keys = {
 "values": [3, 5, 6]
 }
 
+[sub_resource type="Animation" id="Animation_nfe1o"]
+resource_name = "auto_activated"
+length = 0.001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Switch:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0kjxy"]
 _data = {
 &"RESET": SubResource("Animation_e8wiv"),
 &"activate": SubResource("Animation_h056j"),
+&"auto_activated": SubResource("Animation_nfe1o"),
 &"hit_after_activated": SubResource("Animation_0kjxy")
 }
 

@@ -7,3 +7,6 @@ func _ready() -> void:
 
 func new_game() -> void:
 	get_tree().change_scene_to_packed(FirstStage)
+
+func continue_game() -> void:
+	Global.load_data(1)

@@ -45,3 +45,4 @@ theme = ExtResource("2_1hn3b")
 text = "Continue"
 
 [connection signal="pressed" from="Options/VBoxContainer/New Game" to="." method="new_game"]
+[connection signal="pressed" from="Options/VBoxContainer/Continue" to="." method="continue_game"]
