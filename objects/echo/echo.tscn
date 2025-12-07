@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkym2x36d2n0s"]
+[gd_scene load_steps=20 format=3 uid="uid://dkym2x36d2n0s"]
 
 [ext_resource type="Script" uid="uid://ccyvj253iceo7" path="res://objects/echo/echo.gd" id="1_jjhff"]
 [ext_resource type="Texture2D" uid="uid://ci45m4n4yfgho" path="res://assets/gfx/echo.png" id="1_n2q1k"]
@@ -374,6 +374,66 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_mt7je"]
+resource_name = "1_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_kw0gc"]
+resource_name = "2_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_gcefi"]
+resource_name = "3_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_1tnjc"]
+resource_name = "4_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w5cui"]
 _data = {
 &"0_attack": SubResource("Animation_juied"),
@@ -381,9 +441,13 @@ _data = {
 &"0_hurt": SubResource("Animation_w5cui"),
 &"0_idle": SubResource("Animation_tau0j"),
 &"1_attack": SubResource("Animation_pf44c"),
+&"1_idle": SubResource("Animation_mt7je"),
 &"2_attack": SubResource("Animation_ahpfw"),
+&"2_idle": SubResource("Animation_kw0gc"),
 &"3_attack": SubResource("Animation_6xigl"),
+&"3_idle": SubResource("Animation_gcefi"),
 &"4_attack": SubResource("Animation_83wf4"),
+&"4_idle": SubResource("Animation_1tnjc"),
 &"RESET": SubResource("Animation_eqnf0")
 }
 
@@ -419,7 +483,7 @@ libraries = {
 }
 
 [node name="HealthTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 

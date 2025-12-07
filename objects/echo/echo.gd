@@ -87,6 +87,11 @@ enum Weight {
 var cur_save_point: Node = null
 var last_save_pos := Vector2.INF
 
+var has_fireball := false
+var has_double_jump := false
+var has_sprint := false
+var has_crush := false
+
 var facing_right := true:
 	set(value):
 		facing_right = value
@@ -94,6 +99,7 @@ var facing_right := true:
 
 func _ready() -> void:
 	Global.echo = self
+	max_health = HEALTH_TIME + Accessibility.max_hp_offset
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
@@ -170,4 +176,20 @@ func respawn() -> void:
 	global_position = last_save_pos
 	can_move = true
 	velocity = Vector2.ZERO
+	play_anim("idle")
+
+func load_abilities(
+		load_fireball: bool, 
+		load_double_jump: bool, 
+		load_sprint: bool, 
+		load_crush: bool):
+	has_fireball = load_fireball or Accessibility.fireball
+	has_double_jump = load_double_jump or Accessibility.double_jump
+	has_sprint = load_sprint or Accessibility.sprint
+	has_crush = load_crush or Accessibility.crush
+	print(has_fireball, has_double_jump, has_sprint, has_crush)
+	weight = ((1 if has_fireball else 0) \
+			+ (1 if has_double_jump else 0) \
+			+ (1 if has_sprint else 0) \
+			+ (1 if has_crush else 0)) as Weight
 	play_anim("idle")

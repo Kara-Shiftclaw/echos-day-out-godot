@@ -15,6 +15,10 @@ func save_data(save_point: Node) -> void:
 		"stage": save_point.get_tree().current_scene.scene_file_path,
 		"save_point": save_point.get_path(),
 		"flags": flags,
+		"fireball": echo.has_fireball,
+		"double_jump": echo.has_double_jump,
+		"sprint": echo.has_sprint,
+		"crush": echo.has_crush,
 	}
 	var save_file := FileAccess.open(save_path(save_id), FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(save_dict))
@@ -33,6 +37,10 @@ func load_data(load_id: int) -> void:
 			push_error("Save point {0} not found".format([save_point_path]))
 		
 		echo.global_position = save_point.global_position
+		echo.load_abilities(load_json["fireball"],
+				load_json["double_jump"],
+				load_json["sprint"],
+				load_json["crush"])
 		camera.recalculate_chunk()
 		health_bar.recalculate_health_bar()
 	, ConnectFlags.CONNECT_ONE_SHOT)
