@@ -4,21 +4,21 @@ extends CharacterBody2D
 const Attack := preload("res://objects/echo/attack.tscn")
 const DeathScreen := preload("res://objects/echo/particle/death_screen.tscn")
 
-const SPEED_MAP := {
+const SPEED_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 10. * 8.,
 	Weight.Chubby: 10. * 8.,
 	Weight.Fat: 8. * 8.,
 	Weight.Obese: 5. * 8.,
 	Weight.Blob: 2. * 8.,
 }
-const ACCELERATION_MAP := {
+const ACCELERATION_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 200. * 8.,
 	Weight.Chubby: 200. * 8.,
 	Weight.Fat: 175. * 8.,
 	Weight.Obese: 125. * 8.,
 	Weight.Blob: 75. * 8.,
 }
-const JUMP_VELOCITY_MAP := {
+const JUMP_VELOCITY_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: -14. * 8.,
 	Weight.Chubby: -14. * 8.,
 	Weight.Fat: -11. * 8.,
@@ -26,28 +26,28 @@ const JUMP_VELOCITY_MAP := {
 	Weight.Blob: -6. * 8.,
 }
 const GRAVITY = 120. * 8.
-const JUMP_TIME_MAP := {
+const JUMP_TIME_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 3.5 * 8. / -JUMP_VELOCITY_MAP[Weight.Thin],
 	Weight.Chubby: 3.5 * 8. / -JUMP_VELOCITY_MAP[Weight.Chubby],
 	Weight.Fat: 3. * 8. / -JUMP_VELOCITY_MAP[Weight.Fat],
 	Weight.Obese: 1.75 * 8. / -JUMP_VELOCITY_MAP[Weight.Obese],
 	Weight.Blob: 1. * 8. / -JUMP_VELOCITY_MAP[Weight.Blob],
 }
-const HITBOX_SIZE_MAP := {
+const HITBOX_SIZE_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 6.,
 	Weight.Chubby: 7.,
 	Weight.Fat: 9.,
 	Weight.Obese: 11.,
 	Weight.Blob: 15.,
 }
-const HITBOX_OFFSET_MAP := {
+const HITBOX_OFFSET_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 0.,
 	Weight.Chubby: 0.5,
 	Weight.Fat: 1.5,
 	Weight.Obese: 0.5,
 	Weight.Blob: 1.,
 }
-const FIREBALL_KNOCKBACK_MAP := {
+const FIREBALL_KNOCKBACK_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: -20. * 8.,
 	Weight.Chubby: -20. * 8.,
 	Weight.Fat: -18. * 8.,
@@ -60,6 +60,7 @@ const STAGE_HAZARD_BOUNCE := -1.5 * MAX_GRAVITY
 const HEALTH_TIME = 30.
 const SPRINT_SPEED = 14. * 8.
 const EXPLODE_FALL_SPEED := 48. * 8.
+const DOUBLE_JUMP_HEIGHT := 2. * 8.
 
 enum Weight {
 	Thin = 0,
@@ -86,6 +87,8 @@ enum Weight {
 
 var cur_save_point: Node = null
 var last_save_pos := Vector2.INF
+var can_double_jump := false
+var is_sprinting := false
 
 var has_fireball := false
 var has_double_jump := false
@@ -96,6 +99,7 @@ var facing_right := true:
 	set(value):
 		facing_right = value
 		$Sprite2D.flip_h = !value
+		$CollisionShape2D.position.x = HITBOX_OFFSET_MAP[weight] * Util.sign(value)
 
 func _ready() -> void:
 	Global.echo = self
@@ -108,16 +112,26 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if can_move:
-		var desired_vel := SPEED_MAP[weight] as float * Input.get_axis("ui_left", "ui_right")
-		velocity.x = move_toward(velocity.x, desired_vel, ACCELERATION_MAP[weight] * delta)
+		if Input.is_action_pressed("sprint") and has_sprint:
+			is_sprinting = true
+		
+		var desired_vel := get_desired_speed() * Input.get_axis("ui_left", "ui_right")
+		var acceleration := ACCELERATION_MAP[weight] / (2. if is_sprinting else 1.)
+		velocity.x = move_toward(velocity.x, desired_vel, acceleration * delta)
 		if desired_vel != 0.:
 			facing_right = desired_vel > 0
+		else:
+			is_sprinting = false
 		
 		if is_on_floor():
 			$CoyoteTimeTimer.start()
-		if !$CoyoteTimeTimer.is_stopped() and Input.is_action_just_pressed("jump"):
-			$CoyoteTimeTimer.stop()
-			$JumpTimer.start(JUMP_TIME_MAP[weight])
+			can_double_jump = has_double_jump
+		if Input.is_action_just_pressed("jump"):
+			if !$CoyoteTimeTimer.is_stopped():
+				$CoyoteTimeTimer.stop()
+				$JumpTimer.start(JUMP_TIME_MAP[weight])
+			elif can_double_jump:
+				$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[weight])
 		
 		if !$JumpTimer.is_stopped():
 			velocity.y = JUMP_VELOCITY_MAP[weight]
@@ -193,3 +207,9 @@ func load_abilities(
 			+ (1 if has_sprint else 0) \
 			+ (1 if has_crush else 0)) as Weight
 	play_anim("idle")
+
+func get_desired_speed() -> float:
+	if is_sprinting:
+		return SPRINT_SPEED
+	else:
+		return SPEED_MAP[weight]
