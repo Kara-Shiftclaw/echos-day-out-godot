@@ -84,6 +84,7 @@ enum Weight {
 		else:
 			$HealthTimer.start(clamp(value, 0., max_health))
 @export var max_health := HEALTH_TIME
+@export var anim_priority := 0
 
 var cur_save_point: Node = null
 var last_save_pos := Vector2.INF
@@ -108,7 +109,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		if is_on_floor():
-			play_anim("attack")
+			play_anim("attack", 10)
 
 func _physics_process(delta: float) -> void:
 	if can_move:
@@ -120,18 +121,29 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, desired_vel, acceleration * delta)
 		if desired_vel != 0.:
 			facing_right = desired_vel > 0
+			if is_on_wall() and is_on_floor():
+				play_anim("wall_squish")
+			else:
+				play_anim("walk")
 		else:
 			is_sprinting = false
+			play_anim("idle")
 		
 		if is_on_floor():
 			$CoyoteTimeTimer.start()
 			can_double_jump = has_double_jump
+			if is_cur_anim("jump"):
+				anim_priority = 0
+				play_anim("walk")
 		if Input.is_action_just_pressed("jump"):
 			if !$CoyoteTimeTimer.is_stopped():
 				$CoyoteTimeTimer.stop()
 				$JumpTimer.start(JUMP_TIME_MAP[weight])
+				play_anim("jump", 1)
 			elif can_double_jump:
 				$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[weight])
+				can_double_jump = false
+				play_anim("jump", 1)
 		
 		if !$JumpTimer.is_stopped():
 			velocity.y = JUMP_VELOCITY_MAP[weight]
@@ -149,10 +161,18 @@ func do_attack() -> void:
 	add_child(attack)
 	attack.position = Vector2(facing_sign * 10., 0.)
 
-func play_anim(anim_name: String) -> void:
-	var full_name = "{0}_{1}".format([weight as int, anim_name])
-	if $AnimationPlayer.has_animation(full_name):
-		$AnimationPlayer.play(full_name)
+func play_anim(anim_name: String, priority: int = 0) -> void:
+	if priority >= anim_priority:
+		var full_name := full_anim_name(anim_name)
+		if $AnimationPlayer.has_animation(full_name):
+			$AnimationPlayer.play(full_name)
+		anim_priority = priority
+
+func is_cur_anim(anim_name: String) -> bool:
+	return $AnimationPlayer.assigned_animation == full_anim_name(anim_name)
+
+func full_anim_name(anim_name: String) -> String:
+	return "{0}_{1}".format([weight as int, anim_name])
 
 func enter_save_point(save_point: Node2D) -> void:
 	$HealthTimer.stop()
@@ -170,7 +190,7 @@ func on_hit(attacker: Node2D) -> void:
 		take_damage(maybe_damage.damage)
 		
 func take_damage(amount: float) -> void:
-	play_anim("hurt")
+	play_anim("hurt", 20)
 	$HurtParticles.amount = amount
 	$HurtParticles.restart()
 	health -= amount
@@ -178,6 +198,7 @@ func take_damage(amount: float) -> void:
 func stage_hurtbox_hit(_other: Node2D) -> void:
 	take_damage(3.)
 	velocity.y = STAGE_HAZARD_BOUNCE
+	can_double_jump = has_double_jump
 
 func spawn_death_screen() -> void:
 	var death_screen := DeathScreen.instantiate()
