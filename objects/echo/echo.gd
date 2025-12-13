@@ -190,7 +190,7 @@ func on_hit(attacker: Node2D) -> void:
 		take_damage(maybe_damage.damage)
 		
 func take_damage(amount: float) -> void:
-	play_anim("hurt", 20)
+	play_anim("hurt", 9)
 	$HurtParticles.amount = amount
 	$HurtParticles.restart()
 	health -= amount
