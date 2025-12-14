@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func new_game() -> void:
 	get_tree().scene_changed.connect(func():
-		Global.echo.load_abilities(false, false, false, false)
+		Global.load_abilities(false, false, false, false)
 	, )
 	get_tree().change_scene_to_packed(FirstStage)
 

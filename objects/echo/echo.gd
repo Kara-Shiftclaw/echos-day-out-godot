@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const Attack := preload("res://objects/echo/attack.tscn")
 const DeathScreen := preload("res://objects/echo/particle/death_screen.tscn")
+const Weight := Global.Weight
 
 const SPEED_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 10. * 8.,
@@ -63,16 +64,7 @@ const DASH_SPEED = 20. * 8.
 const EXPLODE_FALL_SPEED := 48. * 8.
 const DOUBLE_JUMP_HEIGHT := 2. * 8.
 
-enum Weight {
-	Thin = 0,
-	Fat = 1,
-	Obese = 2,
-	MorObese = 3,
-	Blob = 4
-}
-
 @export var can_move := true
-@export var weight := Weight.Thin
 @export var health: float:
 	get:
 		if cur_save_point != null:
@@ -92,16 +84,11 @@ var can_double_jump := false
 var is_sprinting := false
 var attack_rhythm: AttackRhythm = null
 
-var has_fireball := false
-var has_double_jump := false
-var has_sprint := false
-var has_crush := false
-
 var facing_right := true:
 	set(value):
 		facing_right = value
 		$Sprite2D.flip_h = !value
-		$CollisionShape2D.position.x = HITBOX_OFFSET_MAP[weight] * Util.sign(value)
+		$CollisionShape2D.position.x = HITBOX_OFFSET_MAP[Global.weight] * Util.sign(value)
 
 func _ready() -> void:
 	Global.echo = self
@@ -118,11 +105,11 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2(DASH_SPEED * Util.sign(facing_right), 0.)
 			move_and_slide()
 		else:
-			if Input.is_action_pressed("sprint") and has_sprint:
+			if Input.is_action_pressed("sprint") and Global.has_sprint:
 				is_sprinting = true
 			
 			var desired_vel := get_desired_speed() * Input.get_axis("ui_left", "ui_right")
-			var acceleration := ACCELERATION_MAP[weight] / (2. if is_sprinting else 1.)
+			var acceleration := ACCELERATION_MAP[Global.weight] / (2. if is_sprinting else 1.)
 			velocity.x = move_toward(velocity.x, desired_vel, acceleration * delta)
 			if desired_vel != 0.:
 				facing_right = desired_vel > 0
@@ -136,22 +123,22 @@ func _physics_process(delta: float) -> void:
 			
 			if is_on_floor():
 				$CoyoteTimeTimer.start()
-				can_double_jump = has_double_jump
+				can_double_jump = Global.has_double_jump
 				if is_cur_anim("jump"):
 					anim_priority = 0
 					play_anim("walk")
 			if Input.is_action_just_pressed("jump"):
 				if !$CoyoteTimeTimer.is_stopped():
 					$CoyoteTimeTimer.stop()
-					$JumpTimer.start(JUMP_TIME_MAP[weight])
+					$JumpTimer.start(JUMP_TIME_MAP[Global.weight])
 					play_anim("jump", 1)
 				elif can_double_jump:
-					$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[weight])
+					$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
 					can_double_jump = false
 					play_anim("jump", 1)
 			
 			if !$JumpTimer.is_stopped():
-				velocity.y = JUMP_VELOCITY_MAP[weight]
+				velocity.y = JUMP_VELOCITY_MAP[Global.weight]
 				if !Input.is_action_pressed("jump") or is_on_ceiling():
 					$JumpTimer.stop()
 			else:
@@ -191,19 +178,22 @@ func do_attack() -> void:
 
 func play_anim(anim_name: String, priority: int = 0) -> bool:
 	if priority >= anim_priority:
+		anim_priority = priority
 		var prev_anim: String = $AnimationPlayer.current_animation
 		var full_name := full_anim_name(anim_name)
 		if $AnimationPlayer.has_animation(full_name):
 			$AnimationPlayer.play(full_name)
-		anim_priority = priority
-		return prev_anim != full_name
+			return prev_anim != full_name
+		elif $AnimationPlayer.has_animation(anim_name):
+			$AnimationPlayer.play(anim_name)
+			return prev_anim != anim_name
 	return false
 
 func is_cur_anim(anim_name: String) -> bool:
 	return $AnimationPlayer.assigned_animation == full_anim_name(anim_name)
 
 func full_anim_name(anim_name: String) -> String:
-	return "{0}_{1}".format([weight as int, anim_name])
+	return "{0}_{1}".format([Global.weight as int, anim_name])
 
 func enter_save_point(save_point: Node2D) -> void:
 	$HealthTimer.stop()
@@ -231,7 +221,7 @@ func take_damage(amount: float) -> void:
 func stage_hurtbox_hit(_other: Node2D) -> void:
 	take_damage(3.)
 	velocity.y = STAGE_HAZARD_BOUNCE
-	can_double_jump = has_double_jump
+	can_double_jump = Global.has_double_jump
 
 func spawn_death_screen() -> void:
 	var death_screen := DeathScreen.instantiate()
@@ -249,24 +239,8 @@ func respawn() -> void:
 		velocity = Vector2.ZERO
 		play_anim("idle")
 
-func load_abilities(
-		load_fireball: bool, 
-		load_double_jump: bool, 
-		load_sprint: bool, 
-		load_crush: bool):
-	has_fireball = load_fireball or Accessibility.fireball
-	has_double_jump = load_double_jump or Accessibility.double_jump
-	has_sprint = load_sprint or Accessibility.sprint
-	has_crush = load_crush or Accessibility.crush
-	print(has_fireball, has_double_jump, has_sprint, has_crush)
-	weight = ((1 if has_fireball else 0) \
-			+ (1 if has_double_jump else 0) \
-			+ (1 if has_sprint else 0) \
-			+ (1 if has_crush else 0)) as Weight
-	play_anim("idle")
-
 func get_desired_speed() -> float:
 	if is_sprinting:
 		return SPRINT_SPEED
 	else:
-		return SPEED_MAP[weight]
+		return SPEED_MAP[Global.weight]
