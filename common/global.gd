@@ -7,6 +7,8 @@ var echo: Echo
 var camera: FollowCamera
 var health_bar: HealthBar
 var save_id := 1
+var last_save_path := ^"/root/IntroMountain/SavePoint"
+var last_save_stage := "res://stages/intro_mountain.tscn"
 
 var flags := {}
 
@@ -58,6 +60,24 @@ func load_new_stage(stage: String,
 		echo.health = echo_health
 		camera.recalculate_chunk()
 		health_bar.recalculate_health_bar()
+		
+		var transition := Echo.DeathScreen.instantiate()
+		camera.add_child(transition)
+		transition.fade_in()
+	, ConnectFlags.CONNECT_ONE_SHOT)
+
+func full_respawn():
+	get_tree().change_scene_to_file(last_save_stage)
+	get_tree().scene_changed.connect(func():
+		print(get_tree().current_scene.is_node_ready())
+		var save_point := get_node(last_save_path)
+		echo.global_position = save_point.global_position
+		camera.recalculate_chunk()
+		health_bar.recalculate_health_bar()
+		
+		var transition := Echo.DeathScreen.instantiate()
+		camera.add_child(transition)
+		transition.fade_in()
 	, ConnectFlags.CONNECT_ONE_SHOT)
 
 func set_node_flag(node: Node, flag: String, value: int = 1) -> void:

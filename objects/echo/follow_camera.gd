@@ -27,10 +27,15 @@ func recalculate_chunk() -> void:
 	if new_chunk != chunk:
 		var stage_transition: StageTransition = stage_transition_spaces.get(new_chunk)
 		if stage_transition != null:
-			var transition_other_side := Vector2(new_chunk - chunk) * Util.ROOM_SIZE
+			var transition_other_side := Vector2(new_chunk - chunk) * (Util.ROOM_SIZE + 1.)
 			var new_world_offset := following.global_position + transition_other_side - stage_transition.global_position
 			var other_transition_path = stage_transition.get_other_transition_path()
-			Global.load_new_stage(stage_transition.other_stage, new_world_offset, other_transition_path)
+			
+			var transition := Echo.DeathScreen.instantiate()
+			add_child(transition)
+			transition.halfway.connect(func():
+				Global.load_new_stage(stage_transition.other_stage, new_world_offset, other_transition_path)
+			)
 		else:
 			chunk = new_chunk
 			Global.load_chunk(chunk.x, chunk.y)

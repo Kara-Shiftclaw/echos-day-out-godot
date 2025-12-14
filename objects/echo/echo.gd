@@ -87,7 +87,6 @@ enum Weight {
 @export var anim_priority := 0
 
 var cur_save_point: Node = null
-var last_save_pos := Vector2.INF
 var can_double_jump := false
 var is_sprinting := false
 
@@ -177,7 +176,8 @@ func full_anim_name(anim_name: String) -> String:
 func enter_save_point(save_point: Node2D) -> void:
 	$HealthTimer.stop()
 	cur_save_point = save_point
-	last_save_pos = save_point.global_position
+	Global.last_save_path = save_point.get_path()
+	Global.last_save_stage = get_tree().current_scene.scene_file_path
 
 func exit_save_point(save_point: Node2D) -> void:
 	if save_point == cur_save_point:
@@ -205,13 +205,16 @@ func spawn_death_screen() -> void:
 	Global.camera.add_child(death_screen)
 
 func respawn() -> void:
-	$StageHurtbox/CollisionShape2D.set_deferred("disabled", false)
-	$EnemyHurtbox/CollisionShape2D.set_deferred("disabled", false)
-	$Sprite2D.show()
-	global_position = last_save_pos
-	can_move = true
-	velocity = Vector2.ZERO
-	play_anim("idle")
+	if Global.last_save_stage != get_tree().current_scene.scene_file_path:
+		Global.full_respawn()
+	else:
+		$StageHurtbox/CollisionShape2D.set_deferred("disabled", false)
+		$EnemyHurtbox/CollisionShape2D.set_deferred("disabled", false)
+		$Sprite2D.show()
+		global_position = get_node(Global.last_save_path).global_position
+		can_move = true
+		velocity = Vector2.ZERO
+		play_anim("idle")
 
 func load_abilities(
 		load_fireball: bool, 
