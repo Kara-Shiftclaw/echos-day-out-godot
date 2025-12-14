@@ -59,6 +59,7 @@ const MAX_GRAVITY := -JUMP_VELOCITY_MAP[Weight.Thin]
 const STAGE_HAZARD_BOUNCE := -1.5 * MAX_GRAVITY
 const HEALTH_TIME = 30.
 const SPRINT_SPEED = 14. * 8.
+const DASH_SPEED = 20. * 8.
 const EXPLODE_FALL_SPEED := 48. * 8.
 const DOUBLE_JUMP_HEIGHT := 2. * 8.
 
@@ -89,6 +90,7 @@ enum Weight {
 var cur_save_point: Node = null
 var can_double_jump := false
 var is_sprinting := false
+var attack_rhythm: AttackRhythm = null
 
 var has_fireball := false
 var has_double_jump := false
@@ -108,50 +110,76 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		if is_on_floor():
-			play_anim("attack", 10)
+			begin_attack()
 
 func _physics_process(delta: float) -> void:
 	if can_move:
-		if Input.is_action_pressed("sprint") and has_sprint:
-			is_sprinting = true
-		
-		var desired_vel := get_desired_speed() * Input.get_axis("ui_left", "ui_right")
-		var acceleration := ACCELERATION_MAP[weight] / (2. if is_sprinting else 1.)
-		velocity.x = move_toward(velocity.x, desired_vel, acceleration * delta)
-		if desired_vel != 0.:
-			facing_right = desired_vel > 0
-			if is_on_wall() and is_on_floor():
-				play_anim("wall_squish")
+		if !$DashTimer.is_stopped():
+			velocity = Vector2(DASH_SPEED * Util.sign(facing_right), 0.)
+			move_and_slide()
+		else:
+			if Input.is_action_pressed("sprint") and has_sprint:
+				is_sprinting = true
+			
+			var desired_vel := get_desired_speed() * Input.get_axis("ui_left", "ui_right")
+			var acceleration := ACCELERATION_MAP[weight] / (2. if is_sprinting else 1.)
+			velocity.x = move_toward(velocity.x, desired_vel, acceleration * delta)
+			if desired_vel != 0.:
+				facing_right = desired_vel > 0
+				if is_on_wall() and is_on_floor():
+					play_anim("wall_squish")
+				else:
+					play_anim("walk")
 			else:
-				play_anim("walk")
+				is_sprinting = false
+				play_anim("idle")
+			
+			if is_on_floor():
+				$CoyoteTimeTimer.start()
+				can_double_jump = has_double_jump
+				if is_cur_anim("jump"):
+					anim_priority = 0
+					play_anim("walk")
+			if Input.is_action_just_pressed("jump"):
+				if !$CoyoteTimeTimer.is_stopped():
+					$CoyoteTimeTimer.stop()
+					$JumpTimer.start(JUMP_TIME_MAP[weight])
+					play_anim("jump", 1)
+				elif can_double_jump:
+					$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[weight])
+					can_double_jump = false
+					play_anim("jump", 1)
+			
+			if !$JumpTimer.is_stopped():
+				velocity.y = JUMP_VELOCITY_MAP[weight]
+				if !Input.is_action_pressed("jump") or is_on_ceiling():
+					$JumpTimer.stop()
+			else:
+				velocity.y = move_toward(velocity.y, MAX_GRAVITY, GRAVITY * delta)
+			
+			move_and_slide()
+
+func begin_attack() -> void:
+	var attack_anim := get_attack_anim()
+	var new_attack := play_anim(attack_anim, 10)
+	if new_attack:
+		var next_crit_dash := false
+		if attack_rhythm != null:
+			if attack_rhythm.in_rhythm():
+				next_crit_dash = true
+			attack_rhythm.queue_free()
+		attack_rhythm = AttackRhythm.instantiate()
+		attack_rhythm.crit_dash = next_crit_dash
+		add_child(attack_rhythm)
+
+func get_attack_anim() -> String:
+	if attack_rhythm != null && attack_rhythm.in_rhythm():
+		if attack_rhythm.crit_dash:
+			return "attack_3"
 		else:
-			is_sprinting = false
-			play_anim("idle")
-		
-		if is_on_floor():
-			$CoyoteTimeTimer.start()
-			can_double_jump = has_double_jump
-			if is_cur_anim("jump"):
-				anim_priority = 0
-				play_anim("walk")
-		if Input.is_action_just_pressed("jump"):
-			if !$CoyoteTimeTimer.is_stopped():
-				$CoyoteTimeTimer.stop()
-				$JumpTimer.start(JUMP_TIME_MAP[weight])
-				play_anim("jump", 1)
-			elif can_double_jump:
-				$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[weight])
-				can_double_jump = false
-				play_anim("jump", 1)
-		
-		if !$JumpTimer.is_stopped():
-			velocity.y = JUMP_VELOCITY_MAP[weight]
-			if !Input.is_action_pressed("jump") or is_on_ceiling():
-				$JumpTimer.stop()
-		else:
-			velocity.y = move_toward(velocity.y, MAX_GRAVITY, GRAVITY * delta)
-		
-		move_and_slide()
+			return "attack_2"
+	else:
+		return "attack"
 
 func do_attack() -> void:
 	var attack: Area2D = Attack.instantiate()
@@ -159,13 +187,17 @@ func do_attack() -> void:
 	attack.scale.x = facing_sign
 	add_child(attack)
 	attack.position = Vector2(facing_sign * 10., 0.)
+	attack.get_node("Damage").connect("hit", attack_rhythm.validate)
 
-func play_anim(anim_name: String, priority: int = 0) -> void:
+func play_anim(anim_name: String, priority: int = 0) -> bool:
 	if priority >= anim_priority:
+		var prev_anim: String = $AnimationPlayer.current_animation
 		var full_name := full_anim_name(anim_name)
 		if $AnimationPlayer.has_animation(full_name):
 			$AnimationPlayer.play(full_name)
 		anim_priority = priority
+		return prev_anim != full_name
+	return false
 
 func is_cur_anim(anim_name: String) -> bool:
 	return $AnimationPlayer.assigned_animation == full_anim_name(anim_name)
@@ -188,6 +220,7 @@ func on_hit(attacker: Node2D) -> void:
 	var maybe_damage = attacker.get_node_or_null("Damage")
 	if maybe_damage != null and maybe_damage.active:
 		take_damage(maybe_damage.damage)
+		maybe_damage.emit_hit()
 		
 func take_damage(amount: float) -> void:
 	play_anim("hurt", 9)

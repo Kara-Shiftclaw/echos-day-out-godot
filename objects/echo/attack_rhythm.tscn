@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqbepq2cjp4gx"]
+
+[ext_resource type="Script" uid="uid://dm3vppkqqqk4e" path="res://objects/echo/attack_rhythm.gd" id="1_ojujt"]
+[ext_resource type="AudioStream" uid="uid://2ujot0p061jc" path="res://assets/sfx/crit.wav" id="1_us1nb"]
+
+[node name="AttackRhythm" type="Node"]
+script = ExtResource("1_ojujt")
+
+[node name="ValidationTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="EarlyBound" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="LateBound" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="CritSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_us1nb")
+
+[connection signal="timeout" from="ValidationTimer" to="." method="check_validation"]
+[connection signal="timeout" from="LateBound" to="." method="queue_free"]

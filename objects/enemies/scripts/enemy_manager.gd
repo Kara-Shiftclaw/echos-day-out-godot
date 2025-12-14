@@ -52,17 +52,19 @@ func _ready() -> void:
 func on_hit(attacker: Node2D) -> void:
 	var maybe_damage = attacker.get_node_or_null("Damage")
 	if maybe_damage != null and maybe_damage.active:
-		take_damage(maybe_damage.damage)
+		take_damage(maybe_damage)
 		
-func take_damage(damage: int) -> void:
-	if damage > 0:
+func take_damage(damage: Damage) -> void:
+	var damage_amt := damage.damage
+	if damage_amt > 0:
 		if health <= 0:
 			hit_after_death.emit()
 		else:
-			print("Took {0} damage, at {1} health".format([damage, health]))
-			health -= damage
+			print("Took {0} damage, at {1} health".format([damage_amt, health]))
+			health -= damage_amt
 			hit.emit()
-			energy_cache += damage * energy_per_damage
+			energy_cache += damage_amt * energy_per_damage
+			damage.emit_hit()
 			if energy_cache >= 1.:
 				var energy_to_send := floori(energy_cache)
 				EnergyOrb.create_n(energy_to_send, get_parent().global_position, Global.echo)
