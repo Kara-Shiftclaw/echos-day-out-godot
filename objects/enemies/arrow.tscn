@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://34dcp6vritnx"]
+
+[ext_resource type="Script" uid="uid://htvx88f432yv" path="res://objects/enemies/scripts/arrow.gd" id="1_3ngrv"]
+[ext_resource type="Texture2D" uid="uid://c8g4ak3ofn12s" path="res://assets/gfx/arrow.png" id="1_u2o6b"]
+[ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="3_vmf2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ngrv"]
+size = Vector2(8, 3)
+
+[node name="Arrow" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_3ngrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3ngrv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u2o6b")
+hframes = 2
+
+[node name="Damage" type="Node" parent="."]
+script = ExtResource("3_vmf2n")
+metadata/_custom_type_script = "uid://cd06ykx2xlfww"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3ngrv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-4, -2, 8, 3)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="on_hit"]
+[connection signal="body_entered" from="Hurtbox" to="." method="on_hit"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="queue_free"]
