@@ -20,6 +20,7 @@ wait_time = 0.6
 
 [node name="CritSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_us1nb")
+volume_db = -4.0
 
 [connection signal="timeout" from="ValidationTimer" to="." method="check_validation"]
 [connection signal="timeout" from="LateBound" to="." method="queue_free"]

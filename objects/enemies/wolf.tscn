@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://db1opiy6dip85"]
+[gd_scene load_steps=16 format=3 uid="uid://db1opiy6dip85"]
 
 [ext_resource type="Texture2D" uid="uid://cbhc6by4nr1rj" path="res://assets/gfx/fox.png" id="1_64vek"]
 [ext_resource type="Script" uid="uid://bll4ni1tgj7jg" path="res://objects/enemies/scripts/wolf.gd" id="1_mcujq"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="2_nyjvr"]
 [ext_resource type="PackedScene" uid="uid://braxpij1yhwqj" path="res://objects/enemies/floor_detector.tscn" id="4_vnh00"]
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="5_bbpno"]
+[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="6_phjy0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvsg1"]
 size = Vector2(10, 10)
@@ -441,6 +442,10 @@ hit_from_inside = true
 script = ExtResource("5_bbpno")
 damage = 3
 active = false
+
+[node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_phjy0")
+volume_db = -4.0
 
 [connection signal="chunk_entered" from="EnemyManager" to="." method="reload"]
 [connection signal="die" from="EnemyManager" to="." method="die"]

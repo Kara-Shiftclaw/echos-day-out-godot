@@ -3,7 +3,7 @@ extends TabContainer
 signal closed()
 
 func _ready() -> void:
-	$A/MasterVol.grab_focus.call_deferred()
+	grab_focus.call_deferred()
 	$H/VBoxContainer/Fireball.button_pressed = Accessibility.fireball
 	$H/VBoxContainer/DoubleJump.button_pressed = Accessibility.double_jump
 	$H/VBoxContainer/Sprint.button_pressed = Accessibility.sprint

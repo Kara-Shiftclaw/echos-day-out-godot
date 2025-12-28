@@ -24,6 +24,11 @@ var has_sprint := false
 var has_crush := false
 var weight := Weight.Thin
 
+var music_player: AudioStreamPlayer = null
+var master_vol := 1.
+var music_vol := 0.7
+var sfx_vol := 0.9
+
 var flags := {}
 
 func save_data(save_point: Node) -> void:
@@ -110,6 +115,17 @@ func load_abilities(
 			+ (1 if has_double_jump else 0) \
 			+ (1 if has_sprint else 0) \
 			+ (1 if has_crush else 0)) as Weight
+
+func play_music(song_stream: AudioStream) -> void:
+	if music_player == null:
+		music_player = AudioStreamPlayer.new()
+		add_child(music_player)
+	
+	if music_player.stream != song_stream:
+		music_player.stop()
+		music_player.volume_linear = music_vol * master_vol
+		music_player.stream = song_stream
+		music_player.play()
 
 func set_node_flag(node: Node, flag: String, value: int = 1) -> void:
 	var flag_name := node_flag_name(node, flag)

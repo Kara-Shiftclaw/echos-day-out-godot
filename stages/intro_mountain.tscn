@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dlyo3vm215av5"]
+[gd_scene load_steps=22 format=4 uid="uid://dlyo3vm215av5"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_lffue"]
 [ext_resource type="Texture2D" uid="uid://c83qhkkntratv" path="res://assets/gfx/scenery/cave_enterance.png" id="1_nh4tu"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://ca72bwose76ae" path="res://objects/switch.tscn" id="9_wp4tt"]
 [ext_resource type="PackedScene" uid="uid://db1opiy6dip85" path="res://objects/enemies/wolf.tscn" id="10_idora"]
 [ext_resource type="PackedScene" uid="uid://b80sc5o8or7qk" path="res://objects/stage_transition.tscn" id="11_o5s5e"]
+[ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="20_gqqha"]
+[ext_resource type="AudioStream" uid="uid://br17oh1ei112o" path="res://assets/music/basic-music.mp3" id="21_ehe03"]
 
 [node name="IntroMountain" type="Node2D"]
 
@@ -468,6 +470,9 @@ offset_right = 1152.0
 offset_bottom = -128.0
 other_stage = "uid://x0cp1goc127g"
 other_transition_name = "IntroMountain2"
+
+[node name="SongPlayer" parent="." instance=ExtResource("20_gqqha")]
+song_stream = ExtResource("21_ehe03")
 
 [connection signal="activate" from="Objects/Switch" to="Objects/Door" method="open"]
 [connection signal="activate" from="Objects/Switch2" to="Objects/Door2" method="open"]

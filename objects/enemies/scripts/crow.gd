@@ -37,6 +37,7 @@ func reload() -> void:
 
 func die() -> void:
 	$AnimationPlayer.play("die")
+	$EnemyDieSound.play()
 	
 func reset_knife() -> void:
 	$KnifeArea/CollisionShape2D.set_deferred("disabled", true)

@@ -78,6 +78,7 @@ func die() -> void:
 	velocity.x = DIE_KNOCKBACK * Util.sign(player_right)
 	$AnimationPlayer.play("die")
 	$AnimationPlayer.seek(0., true)
+	$EnemyDieSound.play()
 
 func reload() -> void:
 	if $EnemyManager.health > 0:
