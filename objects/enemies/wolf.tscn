@@ -445,7 +445,7 @@ active = false
 
 [node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_phjy0")
-volume_db = -4.0
+bus = &"Sfx"
 
 [connection signal="chunk_entered" from="EnemyManager" to="." method="reload"]
 [connection signal="die" from="EnemyManager" to="." method="die"]

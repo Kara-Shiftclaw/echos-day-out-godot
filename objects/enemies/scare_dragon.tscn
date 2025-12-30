@@ -140,7 +140,7 @@ reset_animation = &"idle"
 
 [node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_1atbt")
-volume_db = -4.0
+bus = &"Sfx"
 
 [connection signal="area_entered" from="." to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="." to="EnemyManager" method="on_hit"]

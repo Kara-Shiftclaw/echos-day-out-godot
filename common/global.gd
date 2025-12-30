@@ -25,9 +25,6 @@ var has_crush := false
 var weight := Weight.Thin
 
 var music_player: AudioStreamPlayer = null
-var master_vol := 1.
-var music_vol := 0.7
-var sfx_vol := 0.9
 
 var flags := {}
 
@@ -119,11 +116,12 @@ func load_abilities(
 func play_music(song_stream: AudioStream) -> void:
 	if music_player == null:
 		music_player = AudioStreamPlayer.new()
+		music_player.finished.connect(music_player.play)
+		music_player.bus = "Music"
 		add_child(music_player)
 	
 	if music_player.stream != song_stream:
 		music_player.stop()
-		music_player.volume_linear = music_vol * master_vol
 		music_player.stream = song_stream
 		music_player.play()
 

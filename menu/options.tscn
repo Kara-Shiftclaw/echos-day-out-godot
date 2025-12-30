@@ -31,6 +31,7 @@ text = "Master Vol."
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Music")
 focus_next = NodePath("../Music")
+step = 5.0
 value = 100.0
 rounded = true
 
@@ -45,6 +46,7 @@ focus_neighbor_top = NodePath("../MasterVol")
 focus_neighbor_bottom = NodePath("../Sfx")
 focus_next = NodePath("../Sfx")
 focus_previous = NodePath("../MasterVol")
+step = 5.0
 value = 100.0
 rounded = true
 
@@ -57,6 +59,7 @@ text = "Sfx Vol."
 layout_mode = 2
 focus_neighbor_top = NodePath("../Music")
 focus_previous = NodePath("../Music")
+step = 5.0
 value = 100.0
 rounded = true
 
@@ -110,6 +113,9 @@ focus_neighbor_top = NodePath("../Sprint")
 focus_previous = NodePath("../Sprint")
 text = "Crush"
 
+[connection signal="value_changed" from="A/MasterVol" to="." method="master_vol_changed"]
+[connection signal="value_changed" from="A/Music" to="." method="music_vol_changed"]
+[connection signal="value_changed" from="A/Sfx" to="." method="sfx_vol_changed"]
 [connection signal="pressed" from="H/VBoxContainer/Fireball" to="." method="fireball_pressed"]
 [connection signal="pressed" from="H/VBoxContainer/DoubleJump" to="." method="double_jump_pressed"]
 [connection signal="pressed" from="H/VBoxContainer/Sprint" to="." method="sprint_pressed"]

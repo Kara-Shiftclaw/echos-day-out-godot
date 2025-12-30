@@ -204,7 +204,7 @@ shape = SubResource("CircleShape2D_18ag6")
 
 [node name="SaveSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_g3g0p")
-volume_db = -4.0
+bus = &"Sfx"
 
 [connection signal="body_entered" from="." to="." method="player_entered"]
 [connection signal="body_exited" from="." to="." method="player_exited"]

@@ -864,13 +864,17 @@ color_ramp = SubResource("Gradient_tau0j")
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_w5cui")
-volume_db = -4.0
+bus = &"Sfx"
 
 [node name="DeathExp1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ukrqv")
+volume_db = 4.0
+bus = &"Sfx"
 
 [node name="DeathExp2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_pf44c")
+volume_db = 4.0
+bus = &"Sfx"
 
 [connection signal="timeout" from="HealthTimer" to="." method="play_anim" binds= [&"die", 999]]
 [connection signal="body_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]
