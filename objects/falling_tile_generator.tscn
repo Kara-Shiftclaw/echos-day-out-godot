@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://71ne35ggsd78"]
+
+[ext_resource type="Script" uid="uid://cipni5b3si1sg" path="res://objects/falling_tile_generator.gd" id="1_l52pe"]
+
+[node name="FallingTileGenerator" type="ReferenceRect"]
+anchors_preset = -1
+offset_right = 8.0
+offset_bottom = 8.0
+border_color = Color(0.25, 1, 0, 1)
+script = ExtResource("1_l52pe")
