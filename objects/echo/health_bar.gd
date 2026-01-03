@@ -1,8 +1,8 @@
 class_name HealthBar
 extends Node2D
 
-const PIXEL_WIDTH = 126.
-const HEALTH_BAR_END_WIDTH = 4
+const PIXEL_WIDTH = 48.
+const HEALTH_BAR_END_WIDTH = 2
 
 @export var end_frame := 0:
 	set(value):
@@ -32,8 +32,8 @@ func recalculate_health_bar(health: float) -> void:
 		self.end_trunc = 0
 
 func apply_end_frame():
-	var x_ofs = 16 + (end_frame * HEALTH_BAR_END_WIDTH) + end_trunc
+	var x_ofs = 12 + (end_frame * HEALTH_BAR_END_WIDTH) + end_trunc
 	var width = HEALTH_BAR_END_WIDTH - end_trunc
 	$HealthBarEnd.region_rect.position.x = x_ofs
 	$HealthBarEnd.region_rect.size.x = width
-	$HealthBarEnd.offset.x = -2 + (end_trunc / 2.)
+	$HealthBarEnd.offset.x = -1 + (end_trunc / 2.)
