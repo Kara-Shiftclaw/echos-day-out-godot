@@ -24,5 +24,5 @@ func _physics_process(delta: float) -> void:
 	if collision != null:
 		var collider = collision.get_collider()
 		if collider is Echo:
-			collider.health += 1
+			Global.health += 1
 			queue_free()

@@ -135,6 +135,7 @@ shape = SubResource("RectangleShape2D_r4t0e")
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("2_087h3")]
 max_health = 12
+energy_per_damage = 0.125
 animation_player = NodePath("../AnimationPlayer")
 reset_animation = &"idle"
 

@@ -32,8 +32,7 @@ script = ExtResource("3_5dxfn")
 following = NodePath("../Echo")
 stage_transition_parent = NodePath("../StageTransitions")
 
-[node name="HealthBar" parent="Camera2D" node_paths=PackedStringArray("echo") instance=ExtResource("4_nk05n")]
-echo = NodePath("../../Echo")
+[node name="HealthBar" parent="Camera2D" instance=ExtResource("4_nk05n")]
 
 [node name="Enemies" type="Node2D" parent="."]
 

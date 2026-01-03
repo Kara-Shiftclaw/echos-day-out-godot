@@ -7,9 +7,12 @@ enum Weight {
 	MorObese = 3,
 	Blob = 4
 }
+const STARTING_MAX_HEALTH := 15.
 
 signal save()
 signal chunk_loaded(cx: int, cy: int)
+signal echo_health_changed(value: float)
+signal echo_died()
 
 var echo: Echo
 var camera: FollowCamera
@@ -43,6 +46,15 @@ var has_crush:
 	set(value):
 		_crush = value
 var weight := Weight.Thin
+var max_health := STARTING_MAX_HEALTH
+var health := 0.:
+	set(value):
+		var clamped_health := clampf(value, 0., max_health)
+		if clamped_health != health:
+			echo_health_changed.emit(clamped_health)
+		health = clamped_health
+		if health == 0.:
+			echo_died.emit()
 
 var music_player: AudioStreamPlayer = null
 
@@ -53,6 +65,7 @@ func save_data(save_point: Node) -> void:
 		"stage": save_point.get_tree().current_scene.scene_file_path,
 		"save_point": save_point.get_path(),
 		"flags": flags,
+		"max_health": max_health,
 		"fireball": _fireball,
 		"double_jump": _double_jump,
 		"sprint": _sprint,
@@ -80,23 +93,22 @@ func load_data(load_id: int) -> void:
 				load_json["sprint"],
 				load_json["crush"])
 		camera.recalculate_chunk()
-		health_bar.recalculate_health_bar()
+		max_health = load_json["max_health"]
+		health = max_health
 	, ConnectFlags.CONNECT_ONE_SHOT)
 	get_tree().change_scene_to_file(load_json["stage"])
 
 func load_new_stage(stage: String,
 		new_world_offset: Vector2,
 		other_transition_path: String) -> void:
-	var echo_health = echo.health
 	get_tree().change_scene_to_file(stage)
 	get_tree().scene_changed.connect(func():
 		print(get_tree().current_scene.is_node_ready())
 		var other_transition := get_tree().current_scene.get_node(other_transition_path)
 		echo.global_position = other_transition.global_position + new_world_offset
-		echo.health = echo_health
 		echo.play_anim("idle")
 		camera.recalculate_chunk()
-		health_bar.recalculate_health_bar()
+		health_bar.recalculate_health_bar(health)
 		
 		var transition := Echo.DeathScreen.instantiate()
 		camera.add_child(transition)
@@ -111,12 +123,15 @@ func full_respawn():
 		echo.global_position = save_point.global_position
 		echo.play_anim("idle")
 		camera.recalculate_chunk()
-		health_bar.recalculate_health_bar()
+		health_bar.recalculate_health_bar(max_health)
 		
 		var transition := Echo.DeathScreen.instantiate()
 		camera.add_child(transition)
 		transition.fade_in()
 	, ConnectFlags.CONNECT_ONE_SHOT)
+
+func restore_health():
+	health = max_health
 
 func load_abilities(
 		load_fireball: bool, 

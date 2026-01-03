@@ -409,7 +409,7 @@ hframes = 12
 [node name="EnemyManager" parent="." instance=ExtResource("2_nyjvr")]
 max_health = 1
 energy_per_damage = 0.0
-energy_on_death = 5
+energy_on_death = 3
 parent_save_properties = Array[String](["position", "moving_right"])
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -440,7 +440,6 @@ hit_from_inside = true
 
 [node name="Damage" type="Node" parent="."]
 script = ExtResource("5_bbpno")
-damage = 3
 active = false
 
 [node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]

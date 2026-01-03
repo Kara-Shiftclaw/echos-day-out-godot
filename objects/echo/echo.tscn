@@ -827,11 +827,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_w5cui")
 }
 
-[node name="HealthTimer" type="Timer" parent="."]
-wait_time = 30.0
-one_shot = true
-autostart = true
-
 [node name="StageHurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 16
@@ -876,7 +871,6 @@ stream = ExtResource("6_pf44c")
 volume_db = 4.0
 bus = &"Sfx"
 
-[connection signal="timeout" from="HealthTimer" to="." method="play_anim" binds= [&"die", 999]]
 [connection signal="body_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]
 [connection signal="area_entered" from="EnemyHurtbox" to="." method="on_hit"]
 [connection signal="body_entered" from="EnemyHurtbox" to="." method="on_hit"]

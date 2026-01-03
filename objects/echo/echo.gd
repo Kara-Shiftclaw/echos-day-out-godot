@@ -58,25 +58,12 @@ const FIREBALL_KNOCKBACK_MAP: Dictionary[Weight, float] = {
 
 const MAX_GRAVITY := -JUMP_VELOCITY_MAP[Weight.Thin]
 const STAGE_HAZARD_BOUNCE := -1.5 * MAX_GRAVITY
-const HEALTH_TIME = 30.
 const SPRINT_SPEED = 14. * 8.
 const DASH_SPEED = 20. * 8.
 const EXPLODE_FALL_SPEED := 48. * 8.
 const DOUBLE_JUMP_HEIGHT := 2. * 8.
 
 @export var can_move := true
-@export var health: float:
-	get:
-		if cur_save_point != null:
-			return max_health
-		else:
-			return $HealthTimer.time_left
-	set(value):
-		if value <= 0.:
-			$HealthTimer.start(0.01)
-		else:
-			$HealthTimer.start(clamp(value, 0., max_health))
-@export var max_health := HEALTH_TIME
 @export var anim_priority := 0
 
 var cur_save_point: Node = null
@@ -92,7 +79,7 @@ var facing_right := true:
 
 func _ready() -> void:
 	Global.echo = self
-	max_health = HEALTH_TIME + Accessibility.max_hp_offset
+	Global.echo_died.connect(die)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
@@ -146,6 +133,9 @@ func _physics_process(delta: float) -> void:
 			
 			move_and_slide()
 
+func die():
+	play_anim("die", 999)
+
 func begin_attack() -> void:
 	var attack_anim := get_attack_anim()
 	var new_attack := play_anim(attack_anim, 10)
@@ -196,14 +186,13 @@ func full_anim_name(anim_name: String) -> String:
 	return "{0}_{1}".format([Global.weight as int, anim_name])
 
 func enter_save_point(save_point: Node2D) -> void:
-	$HealthTimer.stop()
 	cur_save_point = save_point
+	Global.restore_health()
 	Global.last_save_path = save_point.get_path()
 	Global.last_save_stage = get_tree().current_scene.scene_file_path
 
 func exit_save_point(save_point: Node2D) -> void:
 	if save_point == cur_save_point:
-		$HealthTimer.start(max_health)
 		cur_save_point = null
 
 func on_hit(attacker: Node2D) -> void:
@@ -216,7 +205,7 @@ func take_damage(amount: float) -> void:
 	play_anim("hurt", 9)
 	$HurtParticles.amount = amount
 	$HurtParticles.restart()
-	health -= amount
+	Global.health -= amount
 
 func stage_hurtbox_hit(_other: Node2D) -> void:
 	take_damage(3.)

@@ -4,7 +4,6 @@ extends Node2D
 const PIXEL_WIDTH = 126.
 const HEALTH_BAR_END_WIDTH = 4
 
-@export var echo: Echo
 @export var end_frame := 0:
 	set(value):
 		if end_frame != value:
@@ -18,17 +17,10 @@ var end_trunc := 0:
 
 func _ready() -> void:
 	Global.health_bar = self
-	if echo == null:
-		echo = get_tree().current_scene.get_node_or_null("Echo")
-		if echo == null:
-			push_error("Echo not set for health bar!")
+	Global.echo_health_changed.connect(recalculate_health_bar)
 
-func _process(_delta: float) -> void:
-	if echo != null:
-		recalculate_health_bar()
-
-func recalculate_health_bar() -> void:
-	var health_ratio := echo.health / echo.max_health
+func recalculate_health_bar(health: float) -> void:
+	var health_ratio := health / Global.max_health
 	var health_bar_w := floori(PIXEL_WIDTH * health_ratio)
 	var health_bar_px := 1 + health_bar_w
 	$HealthBarEnd.position.x = health_bar_px
