@@ -3,7 +3,7 @@ extends TabContainer
 
 signal closed()
 
-const OPTIONS_FILE := "options.json"
+const OPTIONS_FILE := "user://options.json"
 
 func _ready() -> void:
 	$A/MasterVol.grab_focus.call_deferred()
