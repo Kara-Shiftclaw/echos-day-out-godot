@@ -18,10 +18,30 @@ var save_id := 1
 var last_save_path := ^"/root/IntroMountain/SavePoint"
 var last_save_stage := "res://stages/intro_mountain.tscn"
 
-var has_fireball := false
-var has_double_jump := false
-var has_sprint := false
-var has_crush := false
+var _fireball := false
+var _double_jump := false
+var _sprint := false
+var _crush := false
+var has_fireball:
+	get:
+		return _fireball or Accessibility.fireball
+	set(value):
+		_fireball = value
+var has_double_jump := false:
+	get:
+		return _double_jump or Accessibility.double_jump
+	set(value):
+		_double_jump = value
+var has_sprint:
+	get:
+		return _sprint or Accessibility.sprint
+	set(value):
+		_sprint = value
+var has_crush:
+	get:
+		return _crush or Accessibility.crush
+	set(value):
+		_crush = value
 var weight := Weight.Thin
 
 var music_player: AudioStreamPlayer = null
@@ -33,10 +53,10 @@ func save_data(save_point: Node) -> void:
 		"stage": save_point.get_tree().current_scene.scene_file_path,
 		"save_point": save_point.get_path(),
 		"flags": flags,
-		"fireball": has_fireball,
-		"double_jump": has_double_jump,
-		"sprint": has_sprint,
-		"crush": has_crush,
+		"fireball": _fireball,
+		"double_jump": _double_jump,
+		"sprint": _sprint,
+		"crush": _crush,
 	}
 	var save_file := FileAccess.open(save_path(save_id), FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(save_dict))
@@ -103,10 +123,10 @@ func load_abilities(
 		load_double_jump: bool, 
 		load_sprint: bool, 
 		load_crush: bool) -> void:
-	has_fireball = load_fireball or Accessibility.fireball
-	has_double_jump = load_double_jump or Accessibility.double_jump
-	has_sprint = load_sprint or Accessibility.sprint
-	has_crush = load_crush or Accessibility.crush
+	has_fireball = load_fireball
+	has_double_jump = load_double_jump
+	has_sprint = load_sprint
+	has_crush = load_crush
 	print(has_fireball, has_double_jump, has_sprint, has_crush)
 	weight = ((1 if has_fireball else 0) \
 			+ (1 if has_double_jump else 0) \

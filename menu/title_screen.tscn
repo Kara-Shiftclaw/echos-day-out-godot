@@ -17,6 +17,7 @@ zoom = Vector2(4, 4)
 
 [node name="Options" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 0
 offset_top = 32.0
 offset_right = 128.0
 offset_bottom = 96.0
@@ -65,4 +66,4 @@ text = "Options"
 
 [connection signal="pressed" from="Options/VBoxContainer/Continue" to="." method="continue_game"]
 [connection signal="pressed" from="Options/VBoxContainer/New Game" to="." method="new_game"]
-[connection signal="pressed" from="Options/VBoxContainer/Options" to="." method="load_options"]
+[connection signal="pressed" from="Options/VBoxContainer/Options" to="." method="open_options_menu"]
