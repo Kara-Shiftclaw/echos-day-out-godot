@@ -40,7 +40,7 @@ focus_previous = NodePath("../Options")
 accessibility_name = "Continue"
 accessibility_description = "This continues an existing save game."
 theme = ExtResource("2_1hn3b")
-text = "Continue"
+text = "CONTINUE"
 
 [node name="New Game" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
@@ -51,7 +51,7 @@ focus_previous = NodePath("../Continue")
 accessibility_name = "New Game"
 accessibility_description = "This starts a new game, overriding the save data."
 theme = ExtResource("2_1hn3b")
-text = "New Game"
+text = "NEW GAME"
 
 [node name="Options" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
@@ -62,7 +62,7 @@ focus_previous = NodePath("../New Game")
 accessibility_name = "Options"
 accessibility_description = "This displays options for audio and accessibility."
 theme = ExtResource("2_1hn3b")
-text = "Options"
+text = "OPTIONS"
 
 [connection signal="pressed" from="Options/VBoxContainer/Continue" to="." method="continue_game"]
 [connection signal="pressed" from="Options/VBoxContainer/New Game" to="." method="new_game"]

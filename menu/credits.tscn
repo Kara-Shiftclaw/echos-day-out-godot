@@ -15,16 +15,10 @@ theme = ExtResource("1_wp78b")
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 118.0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 20
 text = "Game Created By
 
 KaraShiftclaw
-----------------
-Font
-
-IBM CGA
-Supplied by 
-VileR
 ----------------
 SFX
 
