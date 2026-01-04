@@ -45,6 +45,9 @@ func decision_point() -> void:
 	if $EnemyManager.health > 0:
 		if $PlayerDetectArea.get_overlapping_bodies().size() > 0:
 			$AnimationPlayer.play("knife_attack")
+			if interrupt != null:
+				$AnimationPlayer.seek(0., true)
+				interrupt = Interrupt.new($AnimationPlayer, $Crow)
 		else:
 			$AnimationPlayer.play("shoot_delay")
 
