@@ -748,9 +748,12 @@ tracks/9/path = NodePath("DeathExp1")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": [0.0],
+"method": &"play"
+}, {
 "args": [0.0],
 "method": &"play"
 }, {
@@ -863,12 +866,12 @@ bus = &"Sfx"
 
 [node name="DeathExp1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ukrqv")
-volume_db = 4.0
+volume_db = 8.0
 bus = &"Sfx"
 
 [node name="DeathExp2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_pf44c")
-volume_db = 4.0
+volume_db = 8.0
 bus = &"Sfx"
 
 [connection signal="body_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]
