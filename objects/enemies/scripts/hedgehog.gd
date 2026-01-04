@@ -5,6 +5,7 @@ const DEATH_BOUNCE := -128.
 const DEATH_GRAVITY := Echo.GRAVITY / 2.
 
 @export var moving_right := false
+@export var temporary := false
 
 func _physics_process(delta: float) -> void:
 	if $EnemyManager.health > 0:
@@ -19,6 +20,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y += DEATH_GRAVITY * delta
 		move_and_slide()
+	
+	if temporary and !$Left.is_on_screen() and !$Right.is_on_screen():
+		queue_free()
 
 func on_hit():
 	var player_right := (Global.echo.global_position.x - global_position.x) > 0.
