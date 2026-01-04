@@ -8,6 +8,7 @@ enum Weight {
 	Blob = 4
 }
 const STARTING_MAX_HEALTH := 15.
+const PauseMenu := preload("res://menu/pause/pause_menu.tscn")
 
 signal save()
 signal chunk_loaded(cx: int, cy: int)
@@ -159,6 +160,14 @@ func play_music(song_stream: AudioStream) -> void:
 		music_player.stop()
 		music_player.stream = song_stream
 		music_player.play()
+
+func _input(event: InputEvent) -> void:
+	if !get_tree().paused and event.is_action("pause") and event.is_pressed():
+		camera.add_child(PauseMenu.instantiate())
+		get_tree().paused = true
+
+func unpause() -> void:
+	get_tree().paused = false
 
 func set_node_flag(node: Node, flag: String, value: int = 1) -> void:
 	var flag_name := node_flag_name(node, flag)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc2podv1rf1ei"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_uvap1"]
+[ext_resource type="Script" uid="uid://cfpw23u0rfdf4" path="res://menu/pause/scripts/map_menu.gd" id="2_2eeib"]
+
+[node name="MapMenu" type="Panel"]
+offset_left = 8.0
+offset_top = 21.0
+offset_right = 120.0
+offset_bottom = 120.0
+focus_mode = 2
+theme = ExtResource("1_uvap1")
+script = ExtResource("2_2eeib")

@@ -1,6 +1,5 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dpdcai43puqjs"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dpdcai43puqjs"]
 
-[ext_resource type="FontFile" uid="uid://cobji8o0ck1gm" path="res://assets/Px437_IBM_CGA.ttf" id="1_5x3i2"]
 [ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="1_wl1kw"]
 [ext_resource type="FontFile" uid="uid://cmkht6tasgxqo" path="res://assets/gfx/font_5x5.png" id="3_lu33j"]
 
@@ -10,7 +9,7 @@ texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
-region_rect = Rect2(15, 0, 5, 5)
+region_rect = Rect2(10, 0, 5, 5)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e8htd"]
 texture = ExtResource("1_wl1kw")
@@ -78,4 +77,11 @@ CheckBox/icons/radio_unchecked = SubResource("AtlasTexture_lu33j")
 CheckBox/icons/radio_unchecked_disabled = SubResource("AtlasTexture_lu33j")
 CheckBox/icons/unchecked = SubResource("AtlasTexture_lu33j")
 CheckBox/icons/unchecked_disabled = SubResource("AtlasTexture_lu33j")
-TabContainer/fonts/font = ExtResource("1_5x3i2")
+Panel/styles/panel = SubResource("StyleBoxTexture_wl1kw")
+TabContainer/colors/font_unselected_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+TabContainer/constants/side_margin = 0
+TabContainer/fonts/font = ExtResource("3_lu33j")
+TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_e8htd")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_lu33j")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_x2pqw")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_wycmq")

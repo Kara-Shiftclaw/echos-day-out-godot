@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/font_5x5.png-2d40d32c5b4331a988fa26a00de9c8b3
 [params]
 
 character_ranges=PackedStringArray("0-127")
-kerning_pairs=PackedStringArray("m e 1", "m p 1", "M u 1", "M E 1")
+kerning_pairs=PackedStringArray("m e 1", "m p 1", "M u 1", "M E 1", "M P 1", "W e 1", "M A 1")
 columns=16
 rows=8
 image_margin=Rect2i(0, 0, 0, 0)

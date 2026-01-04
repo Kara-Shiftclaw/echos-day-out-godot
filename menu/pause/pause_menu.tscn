@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://csxqvil3k0xyk"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_tllbf"]
+[ext_resource type="Script" uid="uid://cooeuc455ic7s" path="res://menu/pause/scripts/pause_menu.gd" id="2_4u03m"]
+[ext_resource type="PackedScene" uid="uid://dc2podv1rf1ei" path="res://menu/pause/map_menu.tscn" id="2_fuf1y"]
+[ext_resource type="PackedScene" uid="uid://f3mqixlhlmu" path="res://menu/pause/status_menu.tscn" id="2_sbl3r"]
+
+[node name="PauseMenu" type="TabContainer"]
+process_mode = 3
+z_index = 200
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 120.0
+theme = ExtResource("1_tllbf")
+current_tab = 0
+script = ExtResource("2_4u03m")
+
+[node name="MAP" parent="." instance=ExtResource("2_fuf1y")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="STAT" parent="." instance=ExtResource("2_sbl3r")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
