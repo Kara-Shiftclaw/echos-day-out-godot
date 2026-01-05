@@ -376,8 +376,7 @@ script = ExtResource("3_duntd")
 following = NodePath("../Echo")
 stage_transition_parent = NodePath("../StageTransitions")
 
-[node name="HealthBar" parent="Camera2D" node_paths=PackedStringArray("echo") instance=ExtResource("5_7tf6m")]
-echo = NodePath("../../Echo")
+[node name="HealthBar" parent="Camera2D" instance=ExtResource("5_7tf6m")]
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -451,7 +450,7 @@ position = Vector2(924, -69)
 
 [node name="StageTransitions" type="Node2D" parent="."]
 
-[node name="CreakingDepths" parent="StageTransitions" instance=ExtResource("11_o5s5e")]
+[node name="Sporeways" parent="StageTransitions" instance=ExtResource("11_o5s5e")]
 offset_left = 384.0
 offset_top = 384.0
 offset_right = 512.0

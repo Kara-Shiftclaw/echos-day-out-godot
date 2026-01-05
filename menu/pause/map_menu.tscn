@@ -43,7 +43,7 @@ color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 position = Vector2(51, 46)
 
 [node name="EchoMarker" type="Sprite2D" parent="Outline/Background/MapParent"]
-z_index = 1
+z_index = 10
 texture = ExtResource("3_4a1w4")
 hframes = 2
 region_enabled = true

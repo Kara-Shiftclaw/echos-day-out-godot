@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0kiufe6wem6i" path="res://objects/echo/health_bar.tscn" id="4_k0icb"]
 [ext_resource type="PackedScene" uid="uid://b80sc5o8or7qk" path="res://objects/stage_transition.tscn" id="5_6h7uu"]
 
-[node name="CreakingDepths" type="Node2D"]
+[node name="Sporeways" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -10

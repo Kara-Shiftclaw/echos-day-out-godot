@@ -15,11 +15,13 @@ func _process(delta: float) -> void:
 		$Outline/Background/MapParent.position -= map_scroll * SCROLL_SPEED * delta
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_up") and has_focus():
-		get_viewport().set_input_as_handled()
-	if has_focus() and event.is_action_pressed("ui_cancel"):
-		print("Grabbing top focus")
-		find_valid_focus_neighbor(SIDE_TOP).call_deferred("grab_focus")
+	if has_focus():
+		if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_left") or \
+				event.is_action_pressed("ui_right") or event.is_action_pressed("ui_down"):
+			get_viewport().set_input_as_handled()
+		if event.is_action_pressed("ui_cancel"):
+			print("Grabbing top focus")
+			find_valid_focus_neighbor(SIDE_TOP).call_deferred("grab_focus")
 
 func populate_dest_maps() -> void:
 	var cur_stage := get_tree().current_scene.name

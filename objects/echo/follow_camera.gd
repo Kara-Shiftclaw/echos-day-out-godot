@@ -27,6 +27,7 @@ func recalculate_chunk() -> void:
 	if new_chunk != chunk:
 		var stage_transition: StageTransition = stage_transition_spaces.get(new_chunk)
 		if stage_transition != null:
+			Global.add_explored_space(new_chunk.x, new_chunk.y)
 			var transition_other_side := Vector2(new_chunk - chunk) * (Util.ROOM_SIZE + 1.)
 			var new_world_offset := following.global_position + transition_other_side - stage_transition.global_position
 			var other_transition_path = stage_transition.get_other_transition_path()

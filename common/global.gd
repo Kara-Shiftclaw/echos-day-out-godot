@@ -154,11 +154,15 @@ func load_abilities(
 	has_double_jump = load_double_jump
 	has_sprint = load_sprint
 	has_crush = load_crush
-	print(has_fireball, has_double_jump, has_sprint, has_crush)
+	recalculate_weight()
+
+func recalculate_weight() -> void:
 	weight = ((1 if has_fireball else 0) \
 			+ (1 if has_double_jump else 0) \
 			+ (1 if has_sprint else 0) \
 			+ (1 if has_crush else 0)) as Weight
+	if echo != null:
+		echo.play_anim("idle")
 
 func play_music(song_stream: AudioStream) -> void:
 	if music_player == null:
@@ -190,10 +194,12 @@ func has_node_flag(node: Node, flag: String) -> bool:
 
 func load_chunk(cx: int, cy: int) -> void:
 	chunk_loaded.emit(cx, cy)
+	add_explored_space(cx, cy)
+
+func add_explored_space(cx: int, cy: int) -> void:
 	var stage := get_tree().current_scene.name
 	var stage_explored_spaces: Dictionary = explored_spaces.get(stage, {})
 	stage_explored_spaces.set(explored_space_str(cx, cy), true)
-	print("Explored spaces for ", stage, ": ", stage_explored_spaces)
 	explored_spaces.set(stage, stage_explored_spaces)
 
 func compress_explored_spaces() -> Dictionary[String, Array]:

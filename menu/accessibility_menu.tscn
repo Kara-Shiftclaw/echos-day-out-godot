@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsvmwudnsp4i1"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_om6o4"]
+[ext_resource type="Script" uid="uid://b7kuffkgvhs27" path="res://menu/scripts/accessibility_menu.gd" id="2_bf0ra"]
+
+[node name="Accessibility" type="Panel"]
+offset_left = 8.0
+offset_top = 21.0
+offset_right = 120.0
+offset_bottom = 120.0
+theme = ExtResource("1_om6o4")
+script = ExtResource("2_bf0ra")
+
+[node name="ACC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ACC"]
+layout_mode = 2
+focus_neighbor_top = NodePath("Crush")
+focus_neighbor_bottom = NodePath("Fireball")
+focus_next = NodePath("Fireball")
+focus_previous = NodePath("Crush")
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="ACC/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+text = "Accessibility"
+horizontal_alignment = 1
+
+[node name="Fireball" type="CheckBox" parent="ACC/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../DoubleJump")
+focus_next = NodePath("../DoubleJump")
+text = "Force Fireball"
+
+[node name="DoubleJump" type="CheckBox" parent="ACC/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Fireball")
+focus_neighbor_bottom = NodePath("../Sprint")
+focus_next = NodePath("../Sprint")
+focus_previous = NodePath("../Fireball")
+text = "Force Double Jump"
+
+[node name="Sprint" type="CheckBox" parent="ACC/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../DoubleJump")
+focus_neighbor_bottom = NodePath("../Crush")
+focus_next = NodePath("../Crush")
+focus_previous = NodePath("../DoubleJump")
+text = "Force Sprint"
+
+[node name="Crush" type="CheckBox" parent="ACC/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Sprint")
+focus_previous = NodePath("../Sprint")
+text = "Force Crush"
+
+[connection signal="pressed" from="ACC/VBoxContainer/Fireball" to="." method="fireball_pressed"]
+[connection signal="pressed" from="ACC/VBoxContainer/DoubleJump" to="." method="double_jump_pressed"]
+[connection signal="pressed" from="ACC/VBoxContainer/Sprint" to="." method="sprint_pressed"]
+[connection signal="pressed" from="ACC/VBoxContainer/Crush" to="." method="crush_pressed"]

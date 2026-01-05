@@ -81,6 +81,7 @@ Panel/styles/panel = SubResource("StyleBoxTexture_wl1kw")
 TabContainer/colors/font_unselected_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 TabContainer/constants/side_margin = 0
 TabContainer/fonts/font = ExtResource("3_lu33j")
+TabContainer/styles/panel = SubResource("StyleBoxTexture_wl1kw")
 TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_e8htd")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_lu33j")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_x2pqw")

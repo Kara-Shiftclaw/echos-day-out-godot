@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://2qiaimkvr30c"]
+[gd_scene load_steps=4 format=3 uid="uid://2qiaimkvr30c"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_61pji"]
 [ext_resource type="Script" uid="uid://bvy4pwos8cceb" path="res://menu/scripts/options.gd" id="2_1tdpy"]
+[ext_resource type="PackedScene" uid="uid://dsvmwudnsp4i1" path="res://menu/accessibility_menu.tscn" id="3_g4kcn"]
 
 [node name="Options" type="TabContainer"]
 offset_left = 8.0
@@ -14,7 +15,7 @@ theme = ExtResource("1_61pji")
 current_tab = 0
 script = ExtResource("2_1tdpy")
 
-[node name="A" type="VBoxContainer" parent="."]
+[node name="AUDIO" type="VBoxContainer" parent="."]
 layout_mode = 2
 focus_neighbor_top = NodePath("Sfx")
 focus_neighbor_bottom = NodePath("MasterVol")
@@ -22,12 +23,13 @@ focus_next = NodePath("MasterVol")
 focus_previous = NodePath("Sfx")
 metadata/_tab_index = 0
 
-[node name="MasterVolLabel" type="Label" parent="A"]
+[node name="MasterVolLabel" type="Label" parent="AUDIO"]
 layout_mode = 2
 theme = ExtResource("1_61pji")
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "Master Vol."
 
-[node name="MasterVol" type="HSlider" parent="A"]
+[node name="MasterVol" type="HSlider" parent="AUDIO"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Music")
 focus_next = NodePath("../Music")
@@ -35,12 +37,13 @@ step = 5.0
 value = 100.0
 rounded = true
 
-[node name="MusicLabel" type="Label" parent="A"]
+[node name="MusicLabel" type="Label" parent="AUDIO"]
 layout_mode = 2
 theme = ExtResource("1_61pji")
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "Music Vol."
 
-[node name="Music" type="HSlider" parent="A"]
+[node name="Music" type="HSlider" parent="AUDIO"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../MasterVol")
 focus_neighbor_bottom = NodePath("../Sfx")
@@ -50,12 +53,13 @@ step = 5.0
 value = 100.0
 rounded = true
 
-[node name="SfxLabel" type="Label" parent="A"]
+[node name="SfxLabel" type="Label" parent="AUDIO"]
 layout_mode = 2
 theme = ExtResource("1_61pji")
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "Sfx Vol."
 
-[node name="Sfx" type="HSlider" parent="A"]
+[node name="Sfx" type="HSlider" parent="AUDIO"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Music")
 focus_previous = NodePath("../Music")
@@ -63,60 +67,11 @@ step = 5.0
 value = 100.0
 rounded = true
 
-[node name="H" type="MarginContainer" parent="."]
+[node name="ACC" parent="." instance=ExtResource("3_g4kcn")]
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 1
-theme_override_constants/margin_top = 1
-theme_override_constants/margin_right = 1
-theme_override_constants/margin_bottom = 1
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="H"]
-layout_mode = 2
-focus_neighbor_top = NodePath("Crush")
-focus_neighbor_bottom = NodePath("Fireball")
-focus_next = NodePath("Fireball")
-focus_previous = NodePath("Crush")
-theme_override_constants/separation = 1
-
-[node name="Label" type="Label" parent="H/VBoxContainer"]
-layout_mode = 2
-text = "House Rules"
-horizontal_alignment = 1
-
-[node name="Fireball" type="CheckBox" parent="H/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../DoubleJump")
-focus_next = NodePath("../DoubleJump")
-text = "Fireball"
-
-[node name="DoubleJump" type="CheckBox" parent="H/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Fireball")
-focus_neighbor_bottom = NodePath("../Sprint")
-focus_next = NodePath("../Sprint")
-focus_previous = NodePath("../Fireball")
-text = "Double Jump"
-
-[node name="Sprint" type="CheckBox" parent="H/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../DoubleJump")
-focus_neighbor_bottom = NodePath("../Crush")
-focus_next = NodePath("../Crush")
-focus_previous = NodePath("../DoubleJump")
-text = "Sprint"
-
-[node name="Crush" type="CheckBox" parent="H/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Sprint")
-focus_previous = NodePath("../Sprint")
-text = "Crush"
-
-[connection signal="value_changed" from="A/MasterVol" to="." method="master_vol_changed"]
-[connection signal="value_changed" from="A/Music" to="." method="music_vol_changed"]
-[connection signal="value_changed" from="A/Sfx" to="." method="sfx_vol_changed"]
-[connection signal="pressed" from="H/VBoxContainer/Fireball" to="." method="fireball_pressed"]
-[connection signal="pressed" from="H/VBoxContainer/DoubleJump" to="." method="double_jump_pressed"]
-[connection signal="pressed" from="H/VBoxContainer/Sprint" to="." method="sprint_pressed"]
-[connection signal="pressed" from="H/VBoxContainer/Crush" to="." method="crush_pressed"]
+[connection signal="value_changed" from="AUDIO/MasterVol" to="." method="master_vol_changed"]
+[connection signal="value_changed" from="AUDIO/Music" to="." method="music_vol_changed"]
+[connection signal="value_changed" from="AUDIO/Sfx" to="." method="sfx_vol_changed"]

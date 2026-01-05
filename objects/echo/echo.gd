@@ -179,8 +179,12 @@ func play_anim(anim_name: String, priority: int = 0) -> bool:
 			return prev_anim != anim_name
 	return false
 
+func anim_seek(seconds := 0., update := false) -> void:
+	$AnimationPlayer.seek(seconds, update)
+
 func is_cur_anim(anim_name: String) -> bool:
-	return $AnimationPlayer.assigned_animation == full_anim_name(anim_name)
+	var player_anim: String = $AnimationPlayer.assigned_animation
+	return player_anim == full_anim_name(anim_name) or player_anim == anim_name
 
 func full_anim_name(anim_name: String) -> String:
 	return "{0}_{1}".format([Global.weight as int, anim_name])
