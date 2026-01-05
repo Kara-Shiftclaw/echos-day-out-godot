@@ -1,12 +1,25 @@
 extends Panel
 
 const CENTER := Vector2(51., 46.)
+const SCROLL_SPEED := 20. * 8.
 
 func _ready() -> void:
 	call_deferred("grab_focus")
 	populate_dest_maps()
 	if Global.weight == Global.Weight.Blob:
 		$Outline/Background/MapParent/EchoMarker.frame = 1
+
+func _process(delta: float) -> void:
+	if has_focus():
+		var map_scroll := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		$Outline/Background/MapParent.position -= map_scroll * SCROLL_SPEED * delta
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_up") and has_focus():
+		get_viewport().set_input_as_handled()
+	if has_focus() and event.is_action_pressed("ui_cancel"):
+		print("Grabbing top focus")
+		find_valid_focus_neighbor(SIDE_TOP).call_deferred("grab_focus")
 
 func populate_dest_maps() -> void:
 	var cur_stage := get_tree().current_scene.name
