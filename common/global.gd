@@ -46,6 +46,7 @@ var has_crush:
 		return _crush or Accessibility.crush
 	set(value):
 		_crush = value
+
 var weight := Weight.Thin
 var max_health := STARTING_MAX_HEALTH
 var health := 0.:
@@ -60,10 +61,12 @@ var health := 0.:
 var music_player: AudioStreamPlayer = null
 
 var flags := {}
+var explored_spaces := {}
 
 func save_data(save_point: Node) -> void:
 	var save_dict := {
 		"stage": save_point.get_tree().current_scene.scene_file_path,
+		"explored_spaces": compress_explored_spaces(),
 		"save_point": save_point.get_path(),
 		"flags": flags,
 		"max_health": max_health,
@@ -81,6 +84,14 @@ func load_data(load_id: int) -> void:
 	var load_file := FileAccess.open(save_path(load_id), FileAccess.READ)
 	var load_json: Dictionary = JSON.parse_string(load_file.get_line())
 	flags = load_json["flags"]
+	
+	explored_spaces = {}
+	var load_explored_spaces: Dictionary = load_json.get("explored_spaces", {})
+	for stage in load_explored_spaces:
+		var stage_explored_spaces := {}
+		for explored_space in load_explored_spaces[stage]:
+			stage_explored_spaces[explored_space] = true
+		explored_spaces[stage] = stage_explored_spaces
 	
 	get_tree().scene_changed.connect(func():
 		var save_point_path: String = load_json["save_point"]
@@ -179,6 +190,20 @@ func has_node_flag(node: Node, flag: String) -> bool:
 
 func load_chunk(cx: int, cy: int) -> void:
 	chunk_loaded.emit(cx, cy)
+	var stage := get_tree().current_scene.name
+	var stage_explored_spaces: Dictionary = explored_spaces.get(stage, {})
+	stage_explored_spaces.set(explored_space_str(cx, cy), true)
+	print("Explored spaces for ", stage, ": ", stage_explored_spaces)
+	explored_spaces.set(stage, stage_explored_spaces)
+
+func compress_explored_spaces() -> Dictionary[String, Array]:
+	var compressed_explored_spaces: Dictionary[String, Array] = {}
+	for stage in explored_spaces:
+		compressed_explored_spaces.set(stage, explored_spaces[stage].keys())
+	return compressed_explored_spaces
+
+func explored_space_str(cx: int, cy: int) -> String:
+	return "{0} {1}".format([cx, cy])
 
 func node_flag_name(node:Node, flag: String) -> String:
 	return "{0}|{1}|{2}".format([get_tree().current_scene.scene_file_path, node.get_path(), flag])

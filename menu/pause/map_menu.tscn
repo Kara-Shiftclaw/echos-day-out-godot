@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc2podv1rf1ei"]
+[gd_scene load_steps=5 format=3 uid="uid://dc2podv1rf1ei"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_uvap1"]
 [ext_resource type="Script" uid="uid://cfpw23u0rfdf4" path="res://menu/pause/scripts/map_menu.gd" id="2_2eeib"]
+[ext_resource type="Texture2D" uid="uid://bdvedf0ghtpoo" path="res://assets/gfx/map_marker.png" id="3_4a1w4"]
+[ext_resource type="PackedScene" uid="uid://donkd6xc2bj5k" path="res://menu/pause/source_map.tscn" id="3_g5u0g"]
 
 [node name="MapMenu" type="Panel"]
 offset_left = 8.0
@@ -11,3 +13,41 @@ offset_bottom = 120.0
 focus_mode = 2
 theme = ExtResource("1_uvap1")
 script = ExtResource("2_2eeib")
+
+[node name="Outline" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Background" type="ColorRect" parent="Outline"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="MapParent" type="Node2D" parent="Outline/Background"]
+position = Vector2(51, 46)
+
+[node name="EchoMarker" type="Sprite2D" parent="Outline/Background/MapParent"]
+z_index = 1
+texture = ExtResource("3_4a1w4")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 8)
+
+[node name="SourceMap" parent="." instance=ExtResource("3_g5u0g")]
+visible = false
