@@ -173,7 +173,7 @@ func play_music(song_stream: AudioStream) -> void:
 		music_player.play()
 
 func _input(event: InputEvent) -> void:
-	if !get_tree().paused and event.is_action("pause") and event.is_pressed():
+	if echo != null and !get_tree().paused and event.is_action("pause") and event.is_pressed():
 		camera.add_child(PauseMenu.instantiate())
 		get_tree().paused = true
 

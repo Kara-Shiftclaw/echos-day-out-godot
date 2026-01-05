@@ -5,6 +5,8 @@ const CENTER := Vector2(51., 46.)
 func _ready() -> void:
 	call_deferred("grab_focus")
 	populate_dest_maps()
+	if Global.weight == Global.Weight.Blob:
+		$Outline/Background/MapParent/EchoMarker.frame = 1
 
 func populate_dest_maps() -> void:
 	var cur_stage := get_tree().current_scene.name
