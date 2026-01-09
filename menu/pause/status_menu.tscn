@@ -11,7 +11,6 @@ atlas = ExtResource("4_ttxs1")
 region = Rect2(0, 0, 10, 0)
 
 [node name="StatusMenu" type="Panel"]
-anchors_preset = -1
 offset_left = 8.0
 offset_top = 21.0
 offset_right = 120.0

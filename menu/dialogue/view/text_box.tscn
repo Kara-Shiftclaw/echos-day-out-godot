@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://chlwla66od3nr"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_8c1cq"]
+[ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_n1ic4"]
+[ext_resource type="Script" uid="uid://vdkkkqd3kh4b" path="res://menu/dialogue/view/scripts/text_box.gd" id="3_n1ic4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifptj"]
+texture = ExtResource("2_n1ic4")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(21, 0, 5, 5)
+
+[node name="TextBox" type="Panel"]
+process_mode = 3
+z_index = 110
+anchors_preset = -1
+offset_right = 128.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8c1cq")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifptj")
+script = ExtResource("3_n1ic4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 3
+visible_characters = 0
+visible_characters_behavior = 1

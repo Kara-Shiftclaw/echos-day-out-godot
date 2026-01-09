@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://dstd7i1wcevmu"]
+
+[ext_resource type="Script" uid="uid://bcxnug1fmkk5d" path="res://oneoff/scripts/hint_npc.gd" id="1_1cytm"]
+[ext_resource type="Texture2D" uid="uid://b4buj8tfsbulq" path="res://assets/gfx/hint_npc.png" id="1_ufbxm"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="3_ei62j"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="4_cqvfm"]
+[ext_resource type="PackedScene" uid="uid://dlpq327smiwuo" path="res://menu/dialogue/model/multiple_choice_box.tscn" id="5_cqvfm"]
+[ext_resource type="PackedScene" uid="uid://dnup6pmbimhsl" path="res://menu/dialogue/model/choice.tscn" id="6_lyahb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufbxm"]
+size = Vector2(20, 2)
+
+[node name="HintNpc" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_1cytm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("1_ufbxm")
+offset = Vector2(0.5, 0)
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, -1)
+shape = SubResource("RectangleShape2D_ufbxm")
+
+[node name="FirstChat" parent="." instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="FirstChat" instance=ExtResource("4_cqvfm")]
+text = "I sense a great energy from you! You must be the \"monster\" I've heard of, Echo, yes?"
+
+[node name="StandardTextBox2" parent="FirstChat" instance=ExtResource("4_cqvfm")]
+text = "It's nice to find another great beast. Though, your size is... less than I had heard."
+
+[node name="StandardTextBox3" parent="FirstChat" instance=ExtResource("4_cqvfm")]
+text = "I've sensed strange energy around here, is that yours?"
+
+[node name="StandardTextBox5" parent="FirstChat" instance=ExtResource("4_cqvfm")]
+text = "Ah, of course!  I could help you find it... for a price."
+
+[node name="StandardTextBox4" parent="FirstChat" instance=ExtResource("4_cqvfm")]
+text = "Don't get me wrong, I'd love to help for free, but I am ~FAMISHED~."
+
+[node name="StandardTextBox6" parent="FirstChat" instance=ExtResource("4_cqvfm")]
+text = "If you help me feed, perhaps I can tell you what I sense?"
+
+[node name="FirstChatBlob" parent="." instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="FirstChatBlob" instance=ExtResource("4_cqvfm")]
+text = "I sense a great energy from you! You must be the \"monster\" I've heard of, Echo, yes?"
+
+[node name="StandardTextBox2" parent="FirstChatBlob" instance=ExtResource("4_cqvfm")]
+text = "It's nice to find another great beast. Especially one of such great weight!"
+
+[node name="StandardTextBox3" parent="FirstChatBlob" instance=ExtResource("4_cqvfm")]
+text = "I'd love to join you in tubbiness, but my weight has been... diminished."
+
+[node name="StandardTextBox5" parent="FirstChatBlob" instance=ExtResource("4_cqvfm")]
+text = "It pains me to offer scraps in return, but perhaps you could help me feed?"
+
+[node name="MainMenu" parent="." instance=ExtResource("3_ei62j")]
+
+[node name="MultipleChoiceBox" parent="MainMenu" instance=ExtResource("5_cqvfm")]
+text = "How goes it, fellow beast?"
+
+[node name="Hint" parent="MainMenu/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
+choice_text = "Ask For Help"
+
+[node name="Feed" parent="MainMenu/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
+choice_text = "Give Food"
+
+[node name="Talk" parent="MainMenu/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
+choice_text = "Chat"
+enabled = true
+
+[node name="Leave" parent="MainMenu/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
+choice_text = "Talk later!"
+enabled = true
+
+[node name="StandardTextBox" parent="MainMenu" instance=ExtResource("4_cqvfm")]
+text = "See you around!"
+
+[node name="NoTalk" parent="." instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="NoTalk" instance=ExtResource("4_cqvfm")]
+text = "Sorry, I don't mean to be rude, but it's hard to chat on an empty stomach."
+
+[connection signal="area_entered" from="." to="." method="entered"]
+[connection signal="area_exited" from="." to="." method="exited"]
+[connection signal="body_entered" from="." to="." method="entered"]
+[connection signal="body_exited" from="." to="." method="exited"]
+[connection signal="next" from="FirstChat" to="." method="unpause"]
+[connection signal="next" from="FirstChatBlob" to="." method="unpause"]
+[connection signal="next" from="MainMenu" to="." method="unpause"]
+[connection signal="chosen" from="MainMenu/MultipleChoiceBox/Talk" to="." method="next_talk"]
+[connection signal="chosen" from="MainMenu/MultipleChoiceBox/Leave" to="MainMenu/MultipleChoiceBox" method="emit_next"]
+[connection signal="next" from="NoTalk" to="MainMenu" method="render"]

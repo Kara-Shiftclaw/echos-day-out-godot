@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnup6pmbimhsl"]
+
+[ext_resource type="Script" uid="uid://dk4t0sea2lnsi" path="res://menu/dialogue/model/scripts/choice.gd" id="1_76seo"]
+
+[node name="Choice" type="Node"]
+script = ExtResource("1_76seo")

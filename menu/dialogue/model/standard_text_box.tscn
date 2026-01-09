@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://m8ek7va3jerp"]
+
+[ext_resource type="Script" uid="uid://e416u4a2fbqm" path="res://menu/dialogue/model/scripts/standard_text_box.gd" id="1_bsakj"]
+
+[node name="StandardTextBox" type="Node"]
+script = ExtResource("1_bsakj")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlpq327smiwuo"]
+
+[ext_resource type="Script" uid="uid://iu6wp2c77g7u" path="res://menu/dialogue/model/scripts/multiple_choice_box.gd" id="1_8wodn"]
+
+[node name="MultipleChoiceBox" type="Node"]
+script = ExtResource("1_8wodn")
