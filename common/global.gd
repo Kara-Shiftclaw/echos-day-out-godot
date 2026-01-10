@@ -113,11 +113,13 @@ func load_data(load_id: int) -> void:
 func load_new_stage(stage: String,
 		new_world_offset: Vector2,
 		other_transition_path: String) -> void:
+	var echo_dir := echo.facing_right
 	get_tree().change_scene_to_file(stage)
 	get_tree().scene_changed.connect(func():
 		print(get_tree().current_scene.is_node_ready())
 		var other_transition := get_tree().current_scene.get_node(other_transition_path)
 		echo.global_position = other_transition.global_position + new_world_offset
+		echo.facing_right = echo_dir
 		echo.play_anim("idle")
 		camera.recalculate_chunk()
 		health_bar.recalculate_health_bar(health)
