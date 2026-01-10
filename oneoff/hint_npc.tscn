@@ -10,6 +10,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufbxm"]
 size = Vector2(30, 2)
 
+[sub_resource type="Animation" id="Animation_te53a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_lyahb"]
 resource_name = "eat_0_to_1"
 step = 0.1
@@ -54,21 +69,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_te53a"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_te53a"]
 _data = {
 &"RESET": SubResource("Animation_te53a"),
@@ -79,7 +79,6 @@ _data = {
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_1cytm")
-self_weight = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
@@ -151,10 +150,53 @@ text = "See you around!"
 
 [node name="Talk" type="Node" parent="Text"]
 
-[node name="NoTalk" parent="Text" instance=ExtResource("3_ei62j")]
+[node name="Weight0" parent="Text/Talk" instance=ExtResource("3_ei62j")]
 
-[node name="StandardTextBox" parent="Text/NoTalk" instance=ExtResource("4_cqvfm")]
+[node name="StandardTextBox" parent="Text/Talk/Weight0" instance=ExtResource("4_cqvfm")]
 text = "Sorry, I don't mean to be rude, but it's hard to chat on an empty stomach."
+
+[node name="Weight1" parent="Text/Talk" instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
+text = "Oh! I've not introduced myself, have I?"
+
+[node name="StandardTextBox2" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
+text = "My name is Affamae. I'm a traveller, of sorts."
+
+[node name="StandardTextBox3" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
+text = "Back home, I'm well-known for my appetite. Perhaps... too well known."
+
+[node name="StandardTextBox4" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
+text = "I've been looking for a better place to settle down, and this seems to fit nicely."
+
+[node name="StandardTextBox6" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
+text = "The air is warm, the creatures are rotund, the food is delicious..."
+
+[node name="StandardTextBox5" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
+text = "Speaking of, you wouldn't happen to have any more food for me, would you~?"
+
+[node name="Weight2" parent="Text/Talk" instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
+text = "My, another great meal! Thank you, fellow beast! I'm glad I never ate you."
+
+[node name="StandardTextBox2" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
+text = "What?! I AM a monster, after all! Besides, I decided against it!"
+
+[node name="StandardTextBox3" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
+text = "I do know you're nature. A dragon made of pure energy."
+
+[node name="StandardTextBox7" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
+text = "Each pound of blubber for you is a million Calories for me, at least~."
+
+[node name="StandardTextBox4" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
+text = "If I had eaten you, I'd hit ten tons minimum~. Maybe more...~~ Completely immobile...~~"
+
+[node name="StandardTextBox5" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
+text = "...It'd surely break this cliff & send me falling to my doom. Hence why I didn't."
+
+[node name="StandardTextBox6" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
+text = "Besides, I'd never hurt a ~friend~! That preppy journalist, perhaps, but not you!"
 
 [node name="GiveFood" type="Node" parent="Text"]
 
@@ -171,6 +213,84 @@ text = "Well, I am true to my word. If you need insight on your next power, I ca
 
 [node name="StandardTextBox4" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
 text = "Of course, if you need more help, I do have room for ~seconds~."
+
+[node name="Hint" type="Node" parent="Text"]
+
+[node name="Fireball" parent="Text/Hint" instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="Text/Hint/Fireball" instance=ExtResource("4_cqvfm")]
+text = "Now that you've helped me eat, it's only fair I help you!"
+
+[node name="StandardTextBox2" parent="Text/Hint/Fireball" instance=ExtResource("4_cqvfm")]
+text = "The first shard of your energy is close... yet far. Due east of here, in that burning cavern."
+
+[node name="StandardTextBox4" parent="Text/Hint/Fireball" instance=ExtResource("4_cqvfm")]
+text = "You'll need to enter from below to reach the thief, but he should pose little threat."
+
+[node name="StandardTextBox5" parent="Text/Hint/Fireball" instance=ExtResource("4_cqvfm")]
+text = "Let me mark his lair on the map."
+
+[node name="StandardTextBox6" parent="Text/Hint/Fireball" instance=ExtResource("4_cqvfm")]
+text = "I wish you luck, Echo! May you get to feast as well!"
+
+[node name="DoubleJump" parent="Text/Hint" instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="Text/Hint/DoubleJump" instance=ExtResource("4_cqvfm")]
+text = "Your next shard of energy is underground. Also not far."
+
+[node name="StandardTextBox2" parent="Text/Hint/DoubleJump" instance=ExtResource("4_cqvfm")]
+text = "However, the mole with your power seems to have dug a labrynth."
+
+[node name="StandardTextBox3" parent="Text/Hint/DoubleJump" instance=ExtResource("4_cqvfm")]
+text = "You might need to dig down to dig back up, my friend... Good luck."
+
+[node name="StandardTextBox4" parent="Text/Hint/DoubleJump" instance=ExtResource("4_cqvfm")]
+text = "Let me mark her lair on the map."
+
+[node name="StandardTextBox5" parent="Text/Hint/DoubleJump" instance=ExtResource("4_cqvfm")]
+text = "Return to me stronger and softer, fellow beast!"
+
+[node name="Sprint" parent="Text/Hint" instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="Text/Hint/Sprint" instance=ExtResource("4_cqvfm")]
+text = "This time, your thief has climbed up. Above your very own cave, in fact! How rude!"
+
+[node name="StandardTextBox2" parent="Text/Hint/Sprint" instance=ExtResource("4_cqvfm")]
+text = "They appear to be a goat. No wonder they could climb at that size..."
+
+[node name="StandardTextBox3" parent="Text/Hint/Sprint" instance=ExtResource("4_cqvfm")]
+text = "Your own weight may make the ascent dangerous. Tread carefully."
+
+[node name="StandardTextBox5" parent="Text/Hint/Sprint" instance=ExtResource("4_cqvfm")]
+text = "Let me mark their lair on the map."
+
+[node name="StandardTextBox6" parent="Text/Hint/Sprint" instance=ExtResource("4_cqvfm")]
+text = "Stay safe! Don't topple the forest with your weight!"
+
+[node name="Crush" parent="Text/Hint" instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="Text/Hint/Crush" instance=ExtResource("4_cqvfm")]
+text = "Your next shard is down. Deep, deep, deep, deep down..."
+
+[node name="StandardTextBox2" parent="Text/Hint/Crush" instance=ExtResource("4_cqvfm")]
+text = "Good hell, how deep did they go?! Either your power is that good, or they are that heavy..."
+
+[node name="StandardTextBox3" parent="Text/Hint/Crush" instance=ExtResource("4_cqvfm")]
+text = "...They aren't alone. This place makes my fur stand on end. It seems... wrong."
+
+[node name="StandardTextBox5" parent="Text/Hint/Crush" instance=ExtResource("4_cqvfm")]
+text = "I guess... let me mark their lair on the map."
+
+[node name="StandardTextBox6" parent="Text/Hint/Crush" instance=ExtResource("4_cqvfm")]
+text = "Don't die down there, Echo. The world needs blobs like us."
+
+[node name="NoMore" parent="Text/Hint" instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="Text/Hint/NoMore" instance=ExtResource("4_cqvfm")]
+text = "I appreciate the meal, but I've no more help to give."
+
+[node name="StandardTextBox2" parent="Text/Hint/NoMore" instance=ExtResource("4_cqvfm")]
+text = "Perhaps we can just... chat? One fat beast to another?"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
@@ -189,6 +309,13 @@ libraries = {
 [connection signal="chosen" from="Text/MainMenu/MultipleChoiceBox/Feed" to="." method="next_feed"]
 [connection signal="chosen" from="Text/MainMenu/MultipleChoiceBox/Talk" to="." method="next_talk"]
 [connection signal="chosen" from="Text/MainMenu/MultipleChoiceBox/Leave" to="Text/MainMenu/MultipleChoiceBox" method="emit_next"]
-[connection signal="next" from="Text/NoTalk" to="." method="load_main_menu"]
+[connection signal="next" from="Text/Talk/Weight0" to="." method="load_main_menu"]
+[connection signal="next" from="Text/Talk/Weight1" to="." method="load_main_menu"]
+[connection signal="next" from="Text/Talk/Weight2" to="." method="load_main_menu"]
 [connection signal="next" from="Text/GiveFood/Weight0" to="." method="load_main_menu"]
 [connection signal="next" from="Text/GiveFood/Weight0/StandardTextBox" to="AnimationPlayer" method="play" binds= [&"eat_0_to_1"]]
+[connection signal="next" from="Text/Hint/Fireball" to="." method="unpause"]
+[connection signal="next" from="Text/Hint/DoubleJump" to="." method="unpause"]
+[connection signal="next" from="Text/Hint/Sprint" to="." method="unpause"]
+[connection signal="next" from="Text/Hint/Crush" to="." method="unpause"]
+[connection signal="next" from="Text/Hint/NoMore" to="." method="load_main_menu"]

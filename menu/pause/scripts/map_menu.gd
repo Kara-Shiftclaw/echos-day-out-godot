@@ -3,6 +3,11 @@ extends Panel
 const CENTER := Vector2(51., 46.)
 const SCROLL_SPEED := 20. * 8.
 
+const HINT_FIREBALL := "hint_fireball"
+const HINT_DOUBLE_JUMP := "hint_double_jump"
+const HINT_SPRINT := "hint_sprint"
+const HINT_CRUSH := "hint_crush"
+
 func _ready() -> void:
 	call_deferred("grab_focus")
 	populate_dest_maps()
@@ -16,8 +21,9 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if has_focus():
-		if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_left") or \
-				event.is_action_pressed("ui_right") or event.is_action_pressed("ui_down"):
+		if (event.is_echo() or event.is_pressed()) and \
+				(event.is_action("ui_up") or event.is_action("ui_left") or \
+				event.is_action("ui_right") or event.is_action("ui_down")):
 			get_viewport().set_input_as_handled()
 		if event.is_action_pressed("ui_cancel"):
 			print("Grabbing top focus")
@@ -48,6 +54,11 @@ func populate_dest_maps() -> void:
 	var echo_marker: Node2D = map_parent.get_node("EchoMarker")
 	echo_marker.position = cur_stage_offset + Vector2(chunk_offset)
 	map_parent.position = CENTER - echo_marker.position
+	
+	map_parent.get_node("FireballHint").visible = Global.flags.has(HINT_FIREBALL)
+	map_parent.get_node("DoubleJumpHint").visible = Global.flags.has(HINT_DOUBLE_JUMP)
+	map_parent.get_node("SprintHint").visible = Global.flags.has(HINT_SPRINT)
+	map_parent.get_node("CrushHint").visible = Global.flags.has(HINT_CRUSH)
 
 func explored_space_coord(cell_coord: Vector2i) -> String:
 	var space_x := floori(cell_coord.x / 2.)

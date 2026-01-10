@@ -22,8 +22,8 @@ func _ready() -> void:
 	maybe_disable($MajorUpgrades/Sprint, Global.has_sprint)
 	maybe_disable($MajorUpgrades/Crush, Global.has_crush)
 	
-	$OtherStatuses/FoodIndicator/Label.text = FOOD_FORMAT.format([Global.flags.get("food_on_hand", 0), Global.flags.get("food_collected", 0)])
-	$OtherStatuses/HealthUpIndicator/Label.text = HEALTH_UP_FORMAT.format([Global.flags.get("health_up_collected", 0)])
+	$OtherStatuses/FoodIndicator/Label.text = FOOD_FORMAT.format([Global.flags.get("food_on_hand", 0) as int, Global.flags.get("food_collected", 0) as int])
+	$OtherStatuses/HealthUpIndicator/Label.text = HEALTH_UP_FORMAT.format([Global.flags.get("health_up_collected", 0) as int])
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
