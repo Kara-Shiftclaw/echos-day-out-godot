@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://x0cp1goc127g"]
+[gd_scene load_steps=19 format=4 uid="uid://x0cp1goc127g"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_18db3"]
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="2_wallg"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="12_axjnv"]
 [ext_resource type="PackedScene" uid="uid://dstd7i1wcevmu" path="res://oneoff/hint_npc.tscn" id="13_fia7k"]
 [ext_resource type="AudioStream" uid="uid://br17oh1ei112o" path="res://assets/music/basic-music.mp3" id="13_ls2ml"]
+[ext_resource type="PackedScene" uid="uid://njpgspcc7uld" path="res://objects/food.tscn" id="14_4i4l5"]
 [ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="16_nms38"]
 
 [node name="HeftwindHills" type="Node2D"]
@@ -148,6 +149,9 @@ offset_bottom = 224.0
 
 [node name="HintNpc" parent="Objects" instance=ExtResource("13_fia7k")]
 position = Vector2(553, -296)
+
+[node name="Food" parent="Objects" instance=ExtResource("14_4i4l5")]
+position = Vector2(324, 32)
 
 [node name="StageTransitions" type="Node2D" parent="."]
 

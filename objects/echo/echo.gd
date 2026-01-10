@@ -70,12 +70,15 @@ var cur_save_point: Node = null
 var can_double_jump := false
 var is_sprinting := false
 var attack_rhythm: AttackRhythm = null
+var on_floor := true
 
 var facing_right := true:
 	set(value):
 		facing_right = value
 		$Sprite2D.flip_h = !value
 		$CollisionShape2D.position.x = HITBOX_OFFSET_MAP[Global.weight] * Util.sign(value)
+
+signal land_on_floor()
 
 func _ready() -> void:
 	Global.echo = self
@@ -109,11 +112,18 @@ func _physics_process(delta: float) -> void:
 				play_anim("idle")
 			
 			if is_on_floor():
+				if !on_floor:
+					land_on_floor.emit()
+				on_floor = true
+			
 				$CoyoteTimeTimer.start()
 				can_double_jump = Global.has_double_jump
 				if is_cur_anim("jump"):
 					anim_priority = 0
 					play_anim("walk")
+			else:
+				on_floor = false
+			
 			if Input.is_action_just_pressed("jump"):
 				if !$CoyoteTimeTimer.is_stopped():
 					$CoyoteTimeTimer.stop()

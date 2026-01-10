@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://njpgspcc7uld"]
+
+[ext_resource type="PackedScene" uid="uid://db3eeohmu8tk0" path="res://common/flicker.tscn" id="1_5nx56"]
+[ext_resource type="Texture2D" uid="uid://tfdkke2abk2f" path="res://assets/gfx/food.png" id="1_hwnna"]
+[ext_resource type="Script" uid="uid://dhnvyyk1nn3bf" path="res://objects/food.gd" id="1_icymm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nx56"]
+size = Vector2(8, 8)
+
+[sub_resource type="Animation" id="Animation_ta3k7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_icymm"]
+resource_name = "bob"
+length = 0.9
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 0), Vector2(0, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7i8bg"]
+_data = {
+&"RESET": SubResource("Animation_ta3k7"),
+&"bob": SubResource("Animation_icymm")
+}
+
+[node name="Food" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_icymm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5nx56")
+
+[node name="Flicker" parent="." instance=ExtResource("1_5nx56")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hwnna")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7i8bg")
+}
+autoplay = "bob"
+
+[connection signal="area_entered" from="." to="." method="entered"]
+[connection signal="body_entered" from="." to="." method="entered"]

@@ -6,7 +6,8 @@ func _ready() -> void:
 	var child_count := get_child_count()
 	for i in range(0, child_count - 1):
 		var child = get_child(i)
-		child.next.connect(func(): render_child(i + 1))
+		if !child.next.has_connections():
+			child.next.connect(func(): render_child(i + 1))
 	get_child(child_count - 1).next.connect(func(): next.emit())
 
 func render() -> void:

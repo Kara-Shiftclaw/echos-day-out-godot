@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://db3eeohmu8tk0"]
+
+[ext_resource type="Texture2D" uid="uid://bgn4ei17hxulq" path="res://assets/gfx/flicker.png" id="1_80heq"]
+
+[sub_resource type="Animation" id="Animation_amfwl"]
+resource_name = "flicker"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.59999996, 0.6999999, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_qn6fd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nsnpi"]
+_data = {
+&"RESET": SubResource("Animation_qn6fd"),
+&"flicker": SubResource("Animation_amfwl")
+}
+
+[node name="Flicker" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_80heq")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nsnpi")
+}
+autoplay = "flicker"
