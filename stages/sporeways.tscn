@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cpf870qyhbg0"]
+[gd_scene load_steps=10 format=4 uid="uid://cpf870qyhbg0"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_q8lqc"]
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="2_6h7uu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b80sc5o8or7qk" path="res://objects/stage_transition.tscn" id="5_6h7uu"]
 [ext_resource type="PackedScene" uid="uid://bufqrx6gdo4an" path="res://objects/save_point.tscn" id="5_ieaat"]
 [ext_resource type="PackedScene" uid="uid://cxtlyraput0t5" path="res://objects/enemies/spike_hedgehog.tscn" id="7_bx41r"]
+[ext_resource type="PackedScene" uid="uid://c41qbd7hybpmg" path="res://objects/enemies/spider.tscn" id="8_iopqv"]
 [ext_resource type="PackedScene" uid="uid://drj5lv428asa1" path="res://objects/enemies/standard_mushroom.tscn" id="9_iopqv"]
 
 [node name="Sporeways" type="Node2D"]
@@ -49,6 +50,9 @@ position = Vector2(192, 104)
 
 [node name="StandardMushroom2" parent="Enemies" instance=ExtResource("9_iopqv")]
 position = Vector2(440, 72)
+
+[node name="Spider" parent="Enemies" instance=ExtResource("8_iopqv")]
+position = Vector2(460, -52)
 
 [node name="StageTransitions" type="Node2D" parent="."]
 

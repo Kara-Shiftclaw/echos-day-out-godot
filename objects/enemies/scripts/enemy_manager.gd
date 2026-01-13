@@ -21,6 +21,7 @@ signal die()
 signal hit_after_death()
 signal respawn()
 signal chunk_entered()
+signal chunk_entered_alive()
 signal chunk_left()
 
 func _ready() -> void:
@@ -42,6 +43,8 @@ func _ready() -> void:
 		if chunk.x == cx and chunk.y == cy:
 			print(parent.name, ": entered")
 			chunk_entered.emit()
+			if health > 0:
+				chunk_entered_alive.emit()
 			parent.process_mode = Node.PROCESS_MODE_INHERIT
 		elif parent.can_process():
 			print(parent.name, ": left")
