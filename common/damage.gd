@@ -8,3 +8,6 @@ signal hit()
 
 func emit_hit():
 	hit.emit()
+
+func disable():
+	active = false
