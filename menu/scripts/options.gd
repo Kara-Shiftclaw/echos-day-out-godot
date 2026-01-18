@@ -6,11 +6,11 @@ signal closed()
 const OPTIONS_FILE := "user://options.json"
 
 func _ready() -> void:
-	$A/MasterVol.grab_focus.call_deferred()
+	$AUDIO/MasterVol.grab_focus.call_deferred()
 	
-	$A/MasterVol.value = 100. * AudioServer.get_bus_volume_linear(0)
-	$A/Music.value = 100. * AudioServer.get_bus_volume_linear(1)
-	$A/Sfx.value = 100. * AudioServer.get_bus_volume_linear(2)
+	$AUDIO/MasterVol.value = 100. * AudioServer.get_bus_volume_linear(0)
+	$AUDIO/Music.value = 100. * AudioServer.get_bus_volume_linear(1)
+	$AUDIO/Sfx.value = 100. * AudioServer.get_bus_volume_linear(2)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):

@@ -2,6 +2,7 @@ class_name Echo
 extends CharacterBody2D
 
 const Attack := preload("res://objects/echo/attack.tscn")
+const Fireball := preload("res://objects/echo/fireball.tscn")
 const DeathScreen := preload("res://objects/echo/particle/death_screen.tscn")
 const Weight := Global.Weight
 
@@ -68,6 +69,7 @@ const DOUBLE_JUMP_HEIGHT := 2. * 8.
 
 var cur_save_point: Node = null
 var can_double_jump := false
+var can_fireball := false
 var is_sprinting := false
 var attack_rhythm: AttackRhythm = null
 var on_floor := true
@@ -118,11 +120,20 @@ func _physics_process(delta: float) -> void:
 			
 				$CoyoteTimeTimer.start()
 				can_double_jump = Global.has_double_jump
+				can_fireball = Global.has_fireball
 				if is_cur_anim("jump"):
 					anim_priority = 0
 					play_anim("walk")
 			else:
 				on_floor = false
+				if Input.is_action_just_pressed("attack") and can_fireball:
+					play_anim("fireball", 1)
+					can_fireball = false
+					
+					var fireball: Node2D = Fireball.instantiate()
+					fireball.moving_right = facing_right
+					get_parent().add_child(fireball)
+					fireball.global_position = global_position + Vector2(4. * Util.sign(facing_right), 0.)
 			
 			if Input.is_action_just_pressed("jump"):
 				if !$CoyoteTimeTimer.is_stopped():
@@ -132,7 +143,8 @@ func _physics_process(delta: float) -> void:
 				elif can_double_jump:
 					$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
 					can_double_jump = false
-					play_anim("jump", 1)
+					if !play_anim("double_jump", 1):
+						play_anim("jump", 1)
 			
 			if !$JumpTimer.is_stopped():
 				velocity.y = JUMP_VELOCITY_MAP[Global.weight]
