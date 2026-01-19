@@ -4,12 +4,14 @@ const SPORE_SPAWN_OFFSET := Vector2(0., -15.)
 const NORMAL_SPORE_SPRITE_OFFSET := Vector2(0.5, 0.5)
 
 func spread_left() -> void:
+	$SporeShake.play()
 	var left := copy_spore()
 	var left_far := copy_spore()
 	set_spore_anim(left, "left")
 	set_spore_anim(left_far, "left_far")
 
 func spread_right() -> void:
+	$SporeShake.play()
 	var right := copy_spore()
 	var right_far := copy_spore()
 	set_spore_anim(right, "right")

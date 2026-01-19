@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ci45m4n4yfgho" path="res://assets/gfx/echo.png" id="1_n2q1k"]
 [ext_resource type="Texture2D" uid="uid://dqhuhiwecxvx8" path="res://assets/gfx/orb.png" id="3_eqnf0"]
 [ext_resource type="Texture2D" uid="uid://dxl5fnvj7a6lk" path="res://assets/gfx/echo_1.png" id="3_pf44c"]
+[ext_resource type="AudioStream" uid="uid://h188y1obdhlj" path="res://assets/sfx/attack_new.wav" id="5_pf44c"]
 [ext_resource type="AudioStream" uid="uid://bttpjvc2g8aui" path="res://assets/sfx/death_exp_1.wav" id="5_ukrqv"]
-[ext_resource type="AudioStream" uid="uid://c56q17yswf5ky" path="res://assets/sfx/attack.wav" id="5_w5cui"]
 [ext_resource type="AudioStream" uid="uid://gcp6wjnj10sv" path="res://assets/sfx/death_exp_2.wav" id="6_pf44c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2q1k"]
@@ -368,7 +368,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.06666667, 0.2),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -905,7 +905,8 @@ initial_velocity_max = 250.0
 color_ramp = SubResource("Gradient_tau0j")
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_w5cui")
+stream = ExtResource("5_pf44c")
+volume_db = 4.0
 bus = &"Sfx"
 
 [node name="DeathExp1" type="AudioStreamPlayer" parent="."]

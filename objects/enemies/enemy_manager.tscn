@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbye3c0x71u8s"]
+[gd_scene load_steps=3 format=3 uid="uid://dbye3c0x71u8s"]
 
 [ext_resource type="Script" uid="uid://uitjssi2iw8s" path="res://objects/enemies/scripts/enemy_manager.gd" id="1_nqbj1"]
+[ext_resource type="AudioStream" uid="uid://pxe2tnsjyihx" path="res://assets/sfx/enemy_hit.wav" id="2_85ise"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_nqbj1")
 
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_85ise")
+volume_db = 2.0
+bus = &"Sfx"
+
 [connection signal="chunk_entered" from="." to="." method="manage_post_load_frame"]
 [connection signal="chunk_left" from="." to="." method="reset"]
+[connection signal="hit" from="." to="Hit" method="play"]
