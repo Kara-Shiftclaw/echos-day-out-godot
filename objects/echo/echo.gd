@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const Attack := preload("res://objects/echo/attack.tscn")
 const Fireball := preload("res://objects/echo/fireball.tscn")
+const Crush := preload("res://objects/echo/crush.tscn")
 const DeathScreen := preload("res://objects/echo/particle/death_screen.tscn")
 const Weight := Global.Weight
 
@@ -63,6 +64,7 @@ const SPRINT_SPEED = 14. * 8.
 const DASH_SPEED = 20. * 8.
 const EXPLODE_FALL_SPEED := 48. * 8.
 const DOUBLE_JUMP_HEIGHT := 2. * 8.
+const CRUSH_DOWN_VELOCITY := 1.5 * MAX_GRAVITY
 
 @export var can_move := true
 @export var anim_priority := 0
@@ -70,7 +72,9 @@ const DOUBLE_JUMP_HEIGHT := 2. * 8.
 var cur_save_point: Node = null
 var can_double_jump := false
 var can_fireball := false
+var can_crush := false
 var is_sprinting := false
+var is_crushing := false
 var attack_rhythm: AttackRhythm = null
 var on_floor := true
 
@@ -108,7 +112,10 @@ func _physics_process(delta: float) -> void:
 				if is_on_wall() and is_on_floor():
 					play_anim("wall_squish")
 				else:
-					play_anim("walk")
+					if is_sprinting:
+						play_anim("sprint")
+					else:
+						play_anim("walk")
 			else:
 				is_sprinting = false
 				play_anim("idle")
@@ -117,6 +124,20 @@ func _physics_process(delta: float) -> void:
 				if !on_floor:
 					land_on_floor.emit()
 				on_floor = true
+				
+				if is_crushing:
+					is_crushing = false
+					velocity = Vector2(0., STAGE_HAZARD_BOUNCE)
+					anim_priority = 0
+					play_anim("jump", 1)
+					take_damage(3.)
+					$DeathExp2.play()
+					
+					var crush: Node2D = Crush.instantiate()
+					get_parent().add_child(crush)
+					crush.global_position = global_position + Vector2(0., 9.)
+				else:
+					can_crush = Global.has_crush
 			
 				$CoyoteTimeTimer.start()
 				can_double_jump = Global.has_double_jump
@@ -134,6 +155,12 @@ func _physics_process(delta: float) -> void:
 					fireball.moving_right = facing_right
 					get_parent().add_child(fireball)
 					fireball.global_position = global_position + Vector2(4. * Util.sign(facing_right), 0.)
+				
+				if Input.is_action_just_pressed("ui_down") and can_crush:
+					velocity.y = CRUSH_DOWN_VELOCITY
+					$JumpTimer.stop()
+					play_anim("crush", 2)
+					is_crushing = true
 			
 			if Input.is_action_just_pressed("jump"):
 				if !$CoyoteTimeTimer.is_stopped():
@@ -150,7 +177,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y = JUMP_VELOCITY_MAP[Global.weight]
 				if !Input.is_action_pressed("jump") or is_on_ceiling():
 					$JumpTimer.stop()
-			else:
+			elif !is_crushing:
 				velocity.y = move_toward(velocity.y, MAX_GRAVITY, GRAVITY * delta)
 			
 			move_and_slide()
@@ -237,6 +264,9 @@ func stage_hurtbox_hit(_other: Node2D) -> void:
 	take_damage(3.)
 	velocity.y = STAGE_HAZARD_BOUNCE
 	can_double_jump = Global.has_double_jump
+	can_fireball = Global.has_fireball
+	can_crush = Global.has_crush
+	is_crushing = false
 
 func spawn_death_screen() -> void:
 	var death_screen := DeathScreen.instantiate()
@@ -251,6 +281,7 @@ func respawn() -> void:
 		$Sprite2D.show()
 		global_position = get_node(Global.last_save_path).global_position
 		can_move = true
+		is_crushing = false
 		velocity = Vector2.ZERO
 		play_anim("idle")
 
