@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://cpf870qyhbg0"]
+[gd_scene load_steps=16 format=4 uid="uid://cpf870qyhbg0"]
 
+[ext_resource type="Texture2D" uid="uid://c4f3kelf1cerb" path="res://assets/gfx/scenery/sporeways_omni.png" id="1_gob7n"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_q8lqc"]
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="2_6h7uu"]
 [ext_resource type="Script" uid="uid://b4ifpuqalil06" path="res://objects/echo/follow_camera.gd" id="3_645fl"]
@@ -16,6 +17,371 @@
 [ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="13_r6d1v"]
 
 [node name="Sporeways" type="Node2D"]
+
+[node name="Scenery" type="Node2D" parent="."]
+z_index = -100
+
+[node name="ColorRect" type="ColorRect" parent="Scenery"]
+offset_left = -163.0
+offset_top = -301.0
+offset_right = 2223.0
+offset_bottom = 295.0
+color = Color(0.30819997, 0.36386, 0.46, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Scenery"]
+offset_left = 2089.0
+offset_top = -137.0
+offset_right = 2224.0
+offset_bottom = 18.0
+color = Color(0.46, 0.25300002, 0.30475003, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Scenery"]
+offset_left = 256.0
+offset_top = -123.0
+offset_right = 280.0
+offset_bottom = -86.0
+color = Color(0.34117648, 0.1254902, 0.1254902, 1)
+
+[node name="VagueTransitionA" type="Sprite2D" parent="Scenery"]
+self_modulate = Color(0.45882353, 0.25490198, 0.30588236, 1)
+position = Vector2(2072, -70)
+rotation = 1.5707964
+texture = ExtResource("1_gob7n")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 37, 16, 11)
+
+[node name="VagueTransitionA2" type="Sprite2D" parent="Scenery"]
+self_modulate = Color(0.45882353, 0.25490198, 0.30588236, 1)
+position = Vector2(2014, -40)
+rotation = -1.5707964
+texture = ExtResource("1_gob7n")
+centered = false
+flip_v = true
+region_enabled = true
+region_rect = Rect2(0, 37, 16, 11)
+
+[node name="VagueTransitionB" type="Sprite2D" parent="Scenery"]
+self_modulate = Color(0.45882353, 0.25490198, 0.30588236, 1)
+position = Vector2(1987, -74)
+rotation = 1.5707964
+texture = ExtResource("1_gob7n")
+centered = false
+region_enabled = true
+region_rect = Rect2(20, 29, 10, 10)
+
+[node name="VagueTransitionB2" type="Sprite2D" parent="Scenery"]
+self_modulate = Color(0.30980393, 0.3647059, 0.45882353, 1)
+position = Vector2(2098, -75)
+texture = ExtResource("1_gob7n")
+centered = false
+region_enabled = true
+region_rect = Rect2(20, 29, 10, 10)
+
+[node name="VagueTransitionC" type="Sprite2D" parent="Scenery"]
+self_modulate = Color(0.30980393, 0.3647059, 0.45882353, 1)
+position = Vector2(2124, -60)
+texture = ExtResource("1_gob7n")
+centered = false
+region_enabled = true
+region_rect = Rect2(31, 29, 5, 10)
+
+[node name="ColorTransitionA" type="Sprite2D" parent="Scenery"]
+self_modulate = Color(0.34117648, 0.1254902, 0.1254902, 1)
+position = Vector2(280, -104)
+rotation = -1.5707964
+texture = ExtResource("1_gob7n")
+centered = false
+flip_v = true
+region_enabled = true
+region_rect = Rect2(17, 40, 16, 4)
+
+[node name="ColorTransitionA2" type="Sprite2D" parent="Scenery"]
+self_modulate = Color(0.34117648, 0.1254902, 0.1254902, 1)
+position = Vector2(280, -88)
+rotation = -1.5707964
+texture = ExtResource("1_gob7n")
+centered = false
+flip_v = true
+region_enabled = true
+region_rect = Rect2(17, 40, 16, 4)
+
+[node name="ColorTransitionB" type="Sprite2D" parent="Scenery"]
+self_modulate = Color(0.45882353, 0.25490198, 0.30588236, 1)
+position = Vector2(2084, -64)
+rotation = -1.5707964
+texture = ExtResource("1_gob7n")
+centered = false
+region_enabled = true
+region_rect = Rect2(17, 45, 16, 5)
+
+[node name="ColorTransitionB2" type="Sprite2D" parent="Scenery"]
+self_modulate = Color(0.45882353, 0.25490198, 0.30588236, 1)
+position = Vector2(2084, -48)
+rotation = -1.5707964
+texture = ExtResource("1_gob7n")
+centered = false
+region_enabled = true
+region_rect = Rect2(17, 45, 16, 5)
+
+[node name="ColorTransitionB3" type="Sprite2D" parent="Scenery"]
+self_modulate = Color(0.45882353, 0.25490198, 0.30588236, 1)
+position = Vector2(2084, -32)
+rotation = -1.5707964
+texture = ExtResource("1_gob7n")
+centered = false
+region_enabled = true
+region_rect = Rect2(17, 45, 16, 5)
+
+[node name="SporeMother" type="Sprite2D" parent="Scenery"]
+position = Vector2(995, -198)
+texture = ExtResource("1_gob7n")
+region_enabled = true
+region_rect = Rect2(49, 0, 58, 64)
+
+[node name="RootA" type="Sprite2D" parent="Scenery"]
+position = Vector2(946, -210)
+texture = ExtResource("1_gob7n")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 10)
+
+[node name="RootA2" type="Sprite2D" parent="Scenery"]
+position = Vector2(873, -85)
+texture = ExtResource("1_gob7n")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 10)
+
+[node name="RootA3" type="Sprite2D" parent="Scenery"]
+position = Vector2(608, -92)
+rotation = 1.5707964
+texture = ExtResource("1_gob7n")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 10)
+
+[node name="RootA4" type="Sprite2D" parent="Scenery"]
+position = Vector2(105, 58)
+texture = ExtResource("1_gob7n")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 10)
+
+[node name="RootA5" type="Sprite2D" parent="Scenery"]
+position = Vector2(-40, -102)
+rotation = -1.5707964
+texture = ExtResource("1_gob7n")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 10)
+
+[node name="RootA6" type="Sprite2D" parent="Scenery"]
+position = Vector2(1063, -186)
+rotation = -1.5707964
+texture = ExtResource("1_gob7n")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 10)
+
+[node name="RootB" type="Sprite2D" parent="Scenery"]
+position = Vector2(-32, -49)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(33, 0, 9, 19)
+
+[node name="RootB2" type="Sprite2D" parent="Scenery"]
+position = Vector2(-82, -19)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(33, 0, 9, 19)
+
+[node name="RootB3" type="Sprite2D" parent="Scenery"]
+position = Vector2(527, -39)
+rotation = -1.5707964
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(33, 0, 9, 19)
+
+[node name="RootB4" type="Sprite2D" parent="Scenery"]
+position = Vector2(450, 87)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(33, 0, 9, 19)
+
+[node name="RootB5" type="Sprite2D" parent="Scenery"]
+position = Vector2(980, -90)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(33, 0, 9, 19)
+
+[node name="RootB6" type="Sprite2D" parent="Scenery"]
+position = Vector2(952, -101)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(33, 0, 9, 19)
+
+[node name="RootB7" type="Sprite2D" parent="Scenery"]
+position = Vector2(923, -89)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(33, 0, 9, 19)
+
+[node name="RootB8" type="Sprite2D" parent="Scenery"]
+position = Vector2(993, -152)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(33, 0, 9, 19)
+
+[node name="RootB9" type="Sprite2D" parent="Scenery"]
+position = Vector2(1484, -83)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(33, 0, 9, 19)
+
+[node name="RootB10" type="Sprite2D" parent="Scenery"]
+position = Vector2(1094, -225)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(33, 0, 9, 19)
+
+[node name="RootC" type="Sprite2D" parent="Scenery"]
+position = Vector2(1357, -44)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 11, 19, 13)
+
+[node name="RootC2" type="Sprite2D" parent="Scenery"]
+position = Vector2(1208, -205)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(0, 11, 19, 13)
+
+[node name="RootD" type="Sprite2D" parent="Scenery"]
+position = Vector2(1321, -35)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(20, 11, 12, 17)
+
+[node name="RootD2" type="Sprite2D" parent="Scenery"]
+position = Vector2(1752, -67)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+flip_v = true
+region_enabled = true
+region_rect = Rect2(20, 11, 12, 17)
+
+[node name="CharRootA" type="Sprite2D" parent="Scenery"]
+position = Vector2(1926, -63)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(0, 51, 32, 10)
+
+[node name="CharRootB" type="Sprite2D" parent="Scenery"]
+position = Vector2(2023, -82)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(35, 41, 7, 15)
+
+[node name="CharRootB2" type="Sprite2D" parent="Scenery"]
+position = Vector2(2126, -83)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(35, 41, 7, 15)
+
+[node name="MushA" type="Sprite2D" parent="Scenery"]
+position = Vector2(-43, -208)
+texture = ExtResource("1_gob7n")
+region_enabled = true
+region_rect = Rect2(33, 20, 4, 4)
+
+[node name="MushA2" type="Sprite2D" parent="Scenery"]
+position = Vector2(-63, -175)
+texture = ExtResource("1_gob7n")
+region_enabled = true
+region_rect = Rect2(33, 20, 4, 4)
+
+[node name="MushA3" type="Sprite2D" parent="Scenery"]
+position = Vector2(325, 46)
+texture = ExtResource("1_gob7n")
+region_enabled = true
+region_rect = Rect2(33, 20, 4, 4)
+
+[node name="MushB" type="Sprite2D" parent="Scenery"]
+position = Vector2(232, 89)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+flip_h = true
+flip_v = true
+region_enabled = true
+region_rect = Rect2(39, 20, 9, 9)
+
+[node name="MushB2" type="Sprite2D" parent="Scenery"]
+position = Vector2(1080, -40)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(39, 20, 9, 9)
+
+[node name="VineA" type="Sprite2D" parent="Scenery"]
+position = Vector2(292, -106)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(111, 0, 7, 29)
+
+[node name="VineA2" type="Sprite2D" parent="Scenery"]
+position = Vector2(415, -67)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(111, 0, 7, 29)
+
+[node name="VineB" type="Sprite2D" parent="Scenery"]
+position = Vector2(438, -113)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(119, 0, 3, 17)
+
+[node name="VineB2" type="Sprite2D" parent="Scenery"]
+position = Vector2(454, -90)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(119, 0, 3, 17)
+
+[node name="VineC" type="Sprite2D" parent="Scenery"]
+position = Vector2(443, -110)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, 0)
+region_enabled = true
+region_rect = Rect2(123, 0, 5, 22)
+
+[node name="VineC2" type="Sprite2D" parent="Scenery"]
+position = Vector2(450, -89)
+texture = ExtResource("1_gob7n")
+offset = Vector2(-0.5, 0)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(123, 0, 5, 22)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -10
@@ -90,7 +456,7 @@ position = Vector2(959, -24)
 position = Vector2(963, -168)
 
 [node name="StandardMushroom6" parent="Enemies" instance=ExtResource("9_iopqv")]
-position = Vector2(1851, -48)
+position = Vector2(1853, -48)
 
 [node name="Spider" parent="Enemies" instance=ExtResource("8_iopqv")]
 position = Vector2(460, -52)
