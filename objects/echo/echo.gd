@@ -18,14 +18,14 @@ const ACCELERATION_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 200. * 8.,
 	Weight.Fat: 200. * 8.,
 	Weight.Obese: 175. * 8.,
-	Weight.MorObese: 125. * 8.,
-	Weight.Blob: 75. * 8.,
+	Weight.MorObese: 140. * 8.,
+	Weight.Blob: 105. * 8.,
 }
 const JUMP_VELOCITY_MAP: Dictionary[Weight, float] = {
-	Weight.Thin: -14. * 8.,
-	Weight.Fat: -14. * 8.,
-	Weight.Obese: -11. * 8.,
-	Weight.MorObese: -8. * 8.,
+	Weight.Thin: -16. * 8.,
+	Weight.Fat: -16. * 8.,
+	Weight.Obese: -14. * 8.,
+	Weight.MorObese: -10. * 8.,
 	Weight.Blob: -6. * 8.,
 }
 const GRAVITY = 120. * 8.
@@ -58,7 +58,7 @@ const FIREBALL_KNOCKBACK_MAP: Dictionary[Weight, float] = {
 	Weight.Blob: -12. * 8.,
 }
 
-const MAX_GRAVITY := -JUMP_VELOCITY_MAP[Weight.Thin]
+const MAX_GRAVITY := 18. * 8.
 const STAGE_HAZARD_BOUNCE := -1.5 * MAX_GRAVITY
 const SPRINT_SPEED = 14. * 8.
 const DASH_SPEED = 20. * 8.
