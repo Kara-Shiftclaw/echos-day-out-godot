@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://bskg6itv6601v"]
+
+[ext_resource type="Script" uid="uid://oegqen7mnm26" path="res://oneoff/scripts/hugehog.gd" id="1_2j5ei"]
+[ext_resource type="Texture2D" uid="uid://db5a2my6fg55a" path="res://assets/gfx/journalist.png" id="1_3wv46"]
+[ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="3_am636"]
+
+[sub_resource type="Animation" id="Animation_ky37u"]
+resource_name = "small_idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_2j5ei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3wv46"]
+resource_name = "big_idle"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_am636"]
+_data = {
+&"RESET": SubResource("Animation_2j5ei"),
+&"big_idle": SubResource("Animation_3wv46"),
+&"small_idle": SubResource("Animation_ky37u")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2j5ei"]
+size = Vector2(0, 0)
+
+[node name="Journalist" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_2j5ei")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3wv46")
+flip_h = true
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_am636")
+}
+autoplay = "small_idle"
+
+[node name="EnemyManager" parent="." instance=ExtResource("3_am636")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2j5ei")
+disabled = true
+
+[connection signal="chunk_entered" from="EnemyManager" to="." method="check_state"]
