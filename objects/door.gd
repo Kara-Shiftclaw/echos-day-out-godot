@@ -19,3 +19,7 @@ func _ready() -> void:
 func open():
 	Global.set_node_flag(self, OPEN_FLAG)
 	$AnimationPlayer.play("open")
+
+func close():
+	Global.unset_node_flag(self, OPEN_FLAG)
+	$AnimationPlayer.play("open", -1, 1., true)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clyugdpj3xhke"]
+
+[ext_resource type="Script" uid="uid://bsxo3aniqn2s1" path="res://oneoff/scripts/signal_and.gd" id="1_rr87g"]
+
+[node name="SignalAnd" type="Node"]
+script = ExtResource("1_rr87g")

@@ -9,6 +9,8 @@ const JUMP_TIME := -JUMP_IMPULSE / GRAVITY
 const KNOCKBACK_IMPULSE := -90.
 const FIRE_DASH_IMPULSE := 200.
 
+signal die()
+
 @export var jumping := false
 @export var facing_right := false:
 	set(value):
@@ -67,6 +69,9 @@ func retaliate() -> void:
 		$AnimationPlayer.play("retaliate")
 	else:
 		$AnimationPlayer.play("jump")
+		
+func emit_die() -> void:
+	die.emit()
 
 func sync_facing_right() -> void:
 	var facing_right_sign := Util.sign(facing_right)

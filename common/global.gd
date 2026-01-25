@@ -190,6 +190,10 @@ func set_node_flag(node: Node, flag: String, value: int = 1) -> void:
 	var flag_name := node_flag_name(node, flag)
 	flags[flag_name] = value
 
+func unset_node_flag(node: Node, flag: String) -> void:
+	var flag_name := node_flag_name(node, flag)
+	flags.erase(flag_name)
+
 func has_node_flag(node: Node, flag: String) -> bool:
 	var flag_name := node_flag_name(node, flag)
 	return flags.has(flag_name)

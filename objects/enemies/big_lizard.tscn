@@ -627,6 +627,7 @@ bus = &"Sfx"
 [connection signal="chunk_entered_alive" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"idle"]]
 [connection signal="chunk_entered_alive" from="EnemyManager" to="AnimationPlayer" method="seek" binds= [0.0]]
 [connection signal="chunk_left" from="EnemyManager" to="." method="hide"]
+[connection signal="die" from="EnemyManager" to="." method="emit_die"]
 [connection signal="die" from="EnemyManager" to="EnemyDieSound" method="play"]
 [connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]
 [connection signal="hit" from="EnemyManager" to="." method="on_hit"]
