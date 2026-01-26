@@ -12,6 +12,7 @@ const FIRE_DASH_IMPULSE := 200.
 signal die()
 
 @export var jumping := false
+@export var arena_standby := false
 @export var facing_right := false:
 	set(value):
 		facing_right = value
@@ -72,6 +73,29 @@ func retaliate() -> void:
 		
 func emit_die() -> void:
 	die.emit()
+	
+func living_reload() -> void:
+	show()
+	
+	if arena_standby:
+		$AnimationPlayer.play("arena_standby")
+	else:
+		$AnimationPlayer.play("idle")
+	
+	$AnimationPlayer.seek(0.)
+	sync_facing_right()
+	$Fire/AnimationPlayer.play("move")
+
+func arena_start() -> void:
+	if arena_standby:
+		self.facing_right = Global.echo.global_position.x > global_position.x
+		$AnimationPlayer.play("arena_jump")
+
+func post_arena_spawn_normal() -> void:
+	if arena_standby:
+		$AnimationPlayer.play("RESET")
+		$AnimationPlayer.seek(0., true)
+		$AnimationPlayer.play("idle")
 
 func sync_facing_right() -> void:
 	var facing_right_sign := Util.sign(facing_right)

@@ -85,6 +85,7 @@ var facing_right := true:
 		$CollisionShape2D.position.x = HITBOX_OFFSET_MAP[Global.weight] * Util.sign(value)
 
 signal land_on_floor()
+signal respawned()
 
 func _ready() -> void:
 	Global.echo = self
@@ -284,6 +285,7 @@ func respawn() -> void:
 		is_crushing = false
 		velocity = Vector2.ZERO
 		play_anim("idle")
+	respawned.emit()
 
 func get_desired_speed() -> float:
 	if is_sprinting:
