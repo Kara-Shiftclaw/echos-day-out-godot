@@ -59,20 +59,22 @@ const FIREBALL_KNOCKBACK_MAP: Dictionary[Weight, float] = {
 }
 
 const MAX_GRAVITY := 18. * 8.
-const STAGE_HAZARD_BOUNCE := -1.5 * MAX_GRAVITY
+const STAGE_HAZARD_BOUNCE := -20. * 8.
 const SPRINT_SPEED = 14. * 8.
 const DASH_SPEED = 20. * 8.
 const EXPLODE_FALL_SPEED := 48. * 8.
 const DOUBLE_JUMP_HEIGHT := 2. * 8.
+const GROUND_HOVER_HEIGHT := 1. * 8.
 const CRUSH_DOWN_VELOCITY := 1.5 * MAX_GRAVITY
 
 @export var can_move := true
 @export var anim_priority := 0
 
 var cur_save_point: Node = null
-var can_double_jump := false
+#var can_double_jump := false
 var can_fireball := false
 var can_crush := false
+var can_hover := false
 var is_sprinting := false
 var is_crushing := false
 var attack_rhythm: AttackRhythm = null
@@ -98,12 +100,14 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if can_move:
-		if !$DashTimer.is_stopped():
+		if dashing():
 			velocity = Vector2(DASH_SPEED * Util.sign(facing_right), 0.)
 			move_and_slide()
 		else:
 			if Input.is_action_pressed("sprint") and Global.has_sprint:
 				is_sprinting = true
+				if Input.is_action_just_pressed("sprint") and hovering():
+					$AnimationPlayer.play("hover_dash")
 			
 			var desired_vel := get_desired_speed() * Input.get_axis("ui_left", "ui_right")
 			var acceleration := ACCELERATION_MAP[Global.weight] / (2. if is_sprinting else 1.)
@@ -118,7 +122,6 @@ func _physics_process(delta: float) -> void:
 					else:
 						play_anim("walk")
 			else:
-				is_sprinting = false
 				play_anim("idle")
 			
 			if is_on_floor():
@@ -141,21 +144,42 @@ func _physics_process(delta: float) -> void:
 					can_crush = Global.has_crush
 			
 				$CoyoteTimeTimer.start()
-				can_double_jump = Global.has_double_jump
+				#can_double_jump = Global.has_double_jump
+				can_hover = Global.has_double_jump
 				can_fireball = Global.has_fireball
 				if is_cur_anim("jump"):
 					anim_priority = 0
 					play_anim("walk")
+					
+				if Input.is_action_just_pressed("hover") and can_hover:
+					var last_weight := clampi(Global.weight as int - 1, 0, 4) as Weight
+					$FixedJumpTimer.start(GROUND_HOVER_HEIGHT / -JUMP_VELOCITY_MAP[last_weight])
+					$FixedJumpTimer.timeout.connect(begin_hover, ConnectFlags.CONNECT_ONE_SHOT)
 			else:
 				on_floor = false
+				if Input.is_action_just_pressed("hover"):
+					if can_hover:
+						begin_hover()
+					elif hovering():
+						play_anim("jump", 1)
+
 				if Input.is_action_just_pressed("attack") and can_fireball:
+					var is_hovering := hovering()
 					play_anim("fireball", 1)
 					can_fireball = false
+					can_move = false
 					
 					var fireball: Node2D = Fireball.instantiate()
 					fireball.moving_right = facing_right
 					get_parent().add_child(fireball)
 					fireball.global_position = global_position + Vector2(4. * Util.sign(facing_right), 0.)
+					
+					if is_hovering:
+						var last_weight := clampi(Global.weight as int - 1, 0, 4) as Weight
+						fireball.global_position = global_position + Vector2(8. * Util.sign(facing_right), 0.)
+						fireball.fire_down()
+						can_move = true
+						$FixedJumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[last_weight])
 				
 				if Input.is_action_just_pressed("ui_down") and can_crush:
 					velocity.y = CRUSH_DOWN_VELOCITY
@@ -168,23 +192,44 @@ func _physics_process(delta: float) -> void:
 					$CoyoteTimeTimer.stop()
 					$JumpTimer.start(JUMP_TIME_MAP[Global.weight])
 					play_anim("jump", 1)
-				elif can_double_jump:
-					$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
-					can_double_jump = false
-					if !play_anim("double_jump", 1):
-						play_anim("jump", 1)
+				#elif can_double_jump:
+					#$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
+					#can_double_jump = false
+					#if !play_anim("double_jump", 1):
+						#play_anim("jump", 1)
+				elif can_hover:
+					begin_hover()
+				elif hovering():
+					play_anim("jump", 1)
 			
 			if !$JumpTimer.is_stopped():
 				velocity.y = JUMP_VELOCITY_MAP[Global.weight]
 				if !Input.is_action_pressed("jump") or is_on_ceiling():
 					$JumpTimer.stop()
-			elif !is_crushing:
+			elif !$FixedJumpTimer.is_stopped():
+				var last_weight := clampi(Global.weight as int - 1, 0, 4) as Weight
+				velocity.y = JUMP_VELOCITY_MAP[last_weight]
+				if is_on_ceiling():
+					$FixedJumpTimer.stop()
+					if $FixedJumpTimer.timeout.is_connected(begin_hover):
+						$FixedJumpTimer.timeout.disconnect(begin_hover)
+						begin_hover()
+			elif !is_crushing and !hovering():
 				velocity.y = move_toward(velocity.y, MAX_GRAVITY, GRAVITY * delta)
 			
 			move_and_slide()
+			if is_sprinting and velocity.x == 0.:
+				is_sprinting = false
 
 func die():
 	play_anim("die", 999)
+
+func begin_hover() -> void:
+	$JumpTimer.stop()
+	play_anim("hover", 1)
+	anim_seek(0., true)
+	can_hover = false
+	velocity.y = 0.
 
 func begin_attack() -> void:
 	var attack_anim := get_attack_anim()
@@ -239,6 +284,12 @@ func is_cur_anim(anim_name: String) -> bool:
 func full_anim_name(anim_name: String) -> String:
 	return "{0}_{1}".format([Global.weight as int, anim_name])
 
+func hovering() -> bool:
+	return is_cur_anim("hover")
+
+func dashing() -> bool:
+	return is_cur_anim("attack_3") or is_cur_anim("hover_dash")
+
 func enter_save_point(save_point: Node2D) -> void:
 	cur_save_point = save_point
 	Global.restore_health()
@@ -264,7 +315,8 @@ func take_damage(amount: float) -> void:
 func stage_hurtbox_hit(_other: Node2D) -> void:
 	take_damage(3.)
 	velocity.y = STAGE_HAZARD_BOUNCE
-	can_double_jump = Global.has_double_jump
+	#can_double_jump = Global.has_double_jump
+	can_hover = Global.has_double_jump
 	can_fireball = Global.has_fireball
 	can_crush = Global.has_crush
 	is_crushing = false

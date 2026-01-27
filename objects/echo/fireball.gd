@@ -1,6 +1,7 @@
 extends Area2D
 
 const SPEED := 17. * 8.
+const DOWN_SPEED := Vector2(3. * 8., 20. * 8.)
 const EXPLODE_OFFSET := 1.
 
 var hitbox_shape: CircleShape2D
@@ -22,6 +23,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	position += velocity * delta
+
+func fire_down() -> void:
+	velocity = velocity.rotated(PI / 8. * Util.sign(moving_right))
 
 func explode(_other: Node2D) -> void:
 	$AnimationPlayer.play("explode")
