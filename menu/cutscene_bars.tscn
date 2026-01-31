@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdkeka5ulrpns"]
+
+[ext_resource type="Script" uid="uid://3qhq1vop0aae" path="res://menu/scripts/cutscene_bars.gd" id="1_tbuqy"]
+
+[sub_resource type="Animation" id="Animation_k1umu"]
+resource_name = "start"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:offset_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 16.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:offset_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -16.0]
+}
+
+[sub_resource type="Animation" id="Animation_tbuqy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:offset_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:offset_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ucf1k"]
+_data = {
+&"RESET": SubResource("Animation_tbuqy"),
+&"start": SubResource("Animation_k1umu")
+}
+
+[node name="CutsceneBars" type="Control"]
+z_index = 90
+layout_mode = 3
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tbuqy")
+
+[node name="Top" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Bottom" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ucf1k")
+}
+autoplay = "start"

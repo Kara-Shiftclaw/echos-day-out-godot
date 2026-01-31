@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ie7hxk447vj7"]
+
+[ext_resource type="Script" uid="uid://flmhn4y708t0" path="res://oneoff/bosses/scripts/mongoose.gd" id="1_4owjh"]
+[ext_resource type="Texture2D" uid="uid://bho3vfb35ginb" path="res://assets/gfx/mongoose.png" id="1_5cbfd"]
+
+[node name="Mongoose" type="CharacterBody2D"]
+script = ExtResource("1_4owjh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5cbfd")
+hframes = 4

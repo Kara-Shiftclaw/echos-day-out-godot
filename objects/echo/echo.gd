@@ -11,30 +11,30 @@ const SPEED_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 10. * 8.,
 	Weight.Fat: 10. * 8.,
 	Weight.Obese: 8. * 8.,
-	Weight.MorObese: 5. * 8.,
-	Weight.Blob: 2. * 8.,
+	Weight.MorObese: 6.5 * 8.,
+	Weight.Blob: 4. * 8.,
 }
 const ACCELERATION_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 200. * 8.,
 	Weight.Fat: 200. * 8.,
-	Weight.Obese: 175. * 8.,
-	Weight.MorObese: 140. * 8.,
-	Weight.Blob: 105. * 8.,
+	Weight.Obese: 185. * 8.,
+	Weight.MorObese: 160. * 8.,
+	Weight.Blob: 130. * 8.,
 }
 const JUMP_VELOCITY_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: -16. * 8.,
 	Weight.Fat: -16. * 8.,
 	Weight.Obese: -14. * 8.,
-	Weight.MorObese: -10. * 8.,
-	Weight.Blob: -6. * 8.,
+	Weight.MorObese: -11. * 8.,
+	Weight.Blob: -7. * 8.,
 }
 const GRAVITY = 120. * 8.
 const JUMP_TIME_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 3.5 * 8. / -JUMP_VELOCITY_MAP[Weight.Thin],
 	Weight.Fat: 3.5 * 8. / -JUMP_VELOCITY_MAP[Weight.Fat],
 	Weight.Obese: 3. * 8. / -JUMP_VELOCITY_MAP[Weight.Obese],
-	Weight.MorObese: 1.75 * 8. / -JUMP_VELOCITY_MAP[Weight.MorObese],
-	Weight.Blob: 1. * 8. / -JUMP_VELOCITY_MAP[Weight.Blob],
+	Weight.MorObese: 2.5 * 8. / -JUMP_VELOCITY_MAP[Weight.MorObese],
+	Weight.Blob: 2. * 8. / -JUMP_VELOCITY_MAP[Weight.Blob],
 }
 const HITBOX_SIZE_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 6.,
@@ -59,7 +59,7 @@ const FIREBALL_KNOCKBACK_MAP: Dictionary[Weight, float] = {
 }
 
 const MAX_GRAVITY := 18. * 8.
-const STAGE_HAZARD_BOUNCE := -1.5 * MAX_GRAVITY
+const STAGE_HAZARD_BOUNCE := -20. * 8.
 const SPRINT_SPEED = 14. * 8.
 const DASH_SPEED = 20. * 8.
 const EXPLODE_FALL_SPEED := 48. * 8.
