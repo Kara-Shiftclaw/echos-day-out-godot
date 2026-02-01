@@ -2,25 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnogg71quwr5u" path="res://oneoff/cutscenes/scripts/meet_mongoose.gd" id="1_t7e5t"]
 [ext_resource type="PackedScene" uid="uid://bdkeka5ulrpns" path="res://menu/cutscene_bars.tscn" id="2_cywe0"]
-[ext_resource type="Texture2D" uid="uid://bho3vfb35ginb" path="res://assets/gfx/mongoose.png" id="3_2gt5l"]
-
-[sub_resource type="Animation" id="Animation_2gt5l"]
-resource_name = "mongoose_idle"
-length = 0.8
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mongoose:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 2]
-}
+[ext_resource type="Texture2D" uid="uid://dyd4386e80teo" path="res://assets/gfx/mongoose_cutscene.png" id="3_2gt5l"]
 
 [sub_resource type="Animation" id="Animation_thj2l"]
 length = 0.001
@@ -49,8 +31,10 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_7vujl"]
-resource_name = "mongoose_notice"
+[sub_resource type="Animation" id="Animation_2gt5l"]
+resource_name = "mongoose_idle"
+length = 0.8
+loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -59,10 +43,27 @@ tracks/0/path = NodePath("Mongoose:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [3, 0]
+"values": [1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_7vujl"]
+resource_name = "mongoose_notice"
+length = 1.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mongoose:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.90000004, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6, 7, 8, 0]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -71,7 +72,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -104,11 +105,13 @@ script = ExtResource("1_t7e5t")
 
 [node name="CutsceneBars" parent="." instance=ExtResource("2_cywe0")]
 anchors_preset = 0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Mongoose" type="Sprite2D" parent="."]
 position = Vector2(24, 92)
 texture = ExtResource("3_2gt5l")
-hframes = 4
+hframes = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -116,7 +119,7 @@ libraries = {
 }
 
 [node name="NoticeDelay" type="Timer" parent="."]
-wait_time = 1.5999999999999999
+wait_time = 1.6
 one_shot = true
 
 [connection signal="timeout" from="NoticeDelay" to="AnimationPlayer" method="play" binds= [&"mongoose_notice"]]

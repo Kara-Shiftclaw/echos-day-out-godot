@@ -23,5 +23,3 @@ func close():
 		is_open = false
 		if save_open_flag:
 			Global.unset_node_flag(self, "open")
-	else:
-		push_warning("close() called but already closing")

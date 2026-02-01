@@ -1,6 +1,7 @@
 extends Node2D
 
 const EchoCutsceneWalker := preload("res://objects/echo/cutscene_walker.tscn")
+const MongooseBoss := preload("res://oneoff/bosses/mongoose.tscn")
 
 const ECHO_WALK_OFFSET := 24.
 const LEFT_OFFSET := ECHO_WALK_OFFSET
@@ -10,6 +11,7 @@ const ECHO_Y_OFFSET := Util.ROOM_SIZE - 24. - 9.
 var chunk: Vector2i
 
 signal cutscene_over()
+signal failed()
 
 func _ready() -> void:
 	chunk = Util.chunk_of(global_position)
@@ -36,5 +38,14 @@ func on_chunk_load(x: int, y: int) -> void:
 func end_cutscene() -> void:
 	$Mongoose.hide()
 	$CutsceneBars.end()
+	
+	var mongoose_boss: Node2D = MongooseBoss.instantiate()
+	mongoose_boss.facing_right = !$Mongoose.flip_h
+	get_parent().add_child(mongoose_boss)
+	mongoose_boss.global_position = $Mongoose.global_position
+	Global.echo.respawned.connect(func():
+		failed.emit()
+	, ConnectFlags.CONNECT_ONE_SHOT)
+	
 	get_tree().paused = false
 	cutscene_over.emit()

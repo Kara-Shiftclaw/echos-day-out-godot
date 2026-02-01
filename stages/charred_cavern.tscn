@@ -358,5 +358,7 @@ other_stage = "uid://cpf870qyhbg0"
 [connection signal="succeeded" from="Objects/ArenaBell2" to="Objects/SignalAnd" method="set_a"]
 [connection signal="cutscene_over" from="Objects/MeetMongoose" to="Objects/BossScaryDoor" method="close"]
 [connection signal="cutscene_over" from="Objects/MeetMongoose" to="Objects/BossScaryDoor2" method="close"]
+[connection signal="failed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor" method="open"]
+[connection signal="failed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor2" method="open"]
 [connection signal="die" from="Enemies/BigLizard2" to="Objects/ArenaBell" method="succeed"]
 [connection signal="die" from="Enemies/BigLizard3" to="Objects/ArenaBell2" method="succeed"]

@@ -56,7 +56,12 @@ func on_hit(attacker: Node2D) -> void:
 	var maybe_damage = attacker.get_node_or_null("Damage")
 	if maybe_damage != null and maybe_damage.active:
 		take_damage(maybe_damage)
-		
+
+func take_damage_from_path(path: NodePath) -> void:
+	var maybe_damage = get_node_or_null(path)
+	if maybe_damage != null and maybe_damage is Damage and maybe_damage.active:
+		take_damage(maybe_damage)
+
 func take_damage(damage: Damage) -> void:
 	var damage_amt := damage.damage
 	if damage_amt > 0:
