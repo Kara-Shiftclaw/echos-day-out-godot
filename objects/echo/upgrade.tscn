@@ -1,0 +1,859 @@
+[gd_scene load_steps=17 format=3 uid="uid://bqafw7jt0pgxq"]
+
+[ext_resource type="PackedScene" uid="uid://db3eeohmu8tk0" path="res://common/flicker.tscn" id="1_84qnt"]
+[ext_resource type="Script" uid="uid://bex0nkrbtswuc" path="res://objects/echo/upgrade.gd" id="1_bsnkp"]
+[ext_resource type="Texture2D" uid="uid://cm21tertyumj3" path="res://assets/gfx/upgrade_blob.png" id="2_uneoq"]
+[ext_resource type="Texture2D" uid="uid://deixnbx6rx6md" path="res://assets/gfx/echo_gain.png" id="3_uneoq"]
+[ext_resource type="AudioStream" uid="uid://dtrp8ddb248ed" path="res://assets/sfx/bell.wav" id="5_i11xc"]
+[ext_resource type="AudioStream" uid="uid://pxe2tnsjyihx" path="res://assets/sfx/enemy_hit.wav" id="6_1j5lb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsnkp"]
+size = Vector2(6, 6)
+
+[sub_resource type="Animation" id="Animation_i11xc"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blob1:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [0.0, 3.0, 6.0, 3.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blob1:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2, 1),
+"update": 0,
+"values": [0.0, 3.0, 0.0, -3.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blob2:offset:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.40000004, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 1, 0.5),
+"update": 0,
+"values": [3.0, 6.0, 3.0, 0.0, 3.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blob2:offset:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.40000004, 0.6, 0.8),
+"transitions": PackedFloat32Array(2, 0.5, 2, 1, 2),
+"update": 0,
+"values": [3.0, 0.0, -3.0, 0.0, 3.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Blob3:offset:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.20000003, 0.40000004, 0.6, 0.8),
+"transitions": PackedFloat32Array(2, 0.5, 1, 0.5, 2),
+"update": 0,
+"values": [6.0, 3.0, 0.0, 3.0, 6.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Blob3:offset:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.20000003, 0.40000004, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 2, 1, 2, 0.5),
+"update": 0,
+"values": [0.0, -3.0, 0.0, 3.0, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Blob4:offset:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.59999996, 0.8),
+"transitions": PackedFloat32Array(0.5, 1, 0.5, 2, 0.5),
+"update": 0,
+"values": [3.0, 0.0, 3.0, 6.0, 3.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Blob4:offset:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.59999996, 0.8),
+"transitions": PackedFloat32Array(2, 1, 2, 0.5, 2),
+"update": 0,
+"values": [-3.0, 0.0, 3.0, 0.0, -3.0]
+}
+
+[sub_resource type="Animation" id="Animation_1j5lb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blob1:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blob1:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blob1:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blob2:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Blob3:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Blob4:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -3)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EchoGain:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EchoGain:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Burst:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_84qnt"]
+resource_name = "grant"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blob1:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.25, 4, 4, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(18, 16), Vector2(18, 16), Vector2(3, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blob2:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.25, 4, 4, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(18, -16), Vector2(18, -16), Vector2(3, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blob3:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.25, 4, 4, 1),
+"update": 0,
+"values": [Vector2(6, 0), Vector2(-14, -16), Vector2(-14, -16), Vector2(3, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blob4:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.25, 4, 4, 1),
+"update": 0,
+"values": [Vector2(3, -3), Vector2(-14, 16), Vector2(-14, 16), Vector2(3, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EchoGain:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"begin_gain"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_uneoq"]
+resource_name = "gain_1"
+length = 2.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EchoGain:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 1.1, 1.2, 1.3, 1.8, 1.8999999, 1.9999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 2, 1, 2, 3, 2]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [4],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [4],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [],
+"method": &"conclude"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bell")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1, 1.2, 1.4, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Burst:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_s0bhy"]
+resource_name = "gain_2"
+length = 2.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EchoGain:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 1.1, 1.2, 1.3, 1.8, 1.8999999, 1.9999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 2, 3, 4, 3, 4, 5, 4]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [4],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [4],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [],
+"method": &"conclude"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bell")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1, 1.2, 1.4, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Burst:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t7gt4"]
+resource_name = "gain_3"
+length = 2.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EchoGain:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 1.1, 1.2, 1.3, 1.8, 1.8999999, 1.9999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 4, 5, 6, 5, 6, 7, 6]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [4],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [4],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [],
+"method": &"conclude"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bell")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1, 1.2, 1.4, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Burst:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8avbg"]
+resource_name = "gain_4"
+length = 2.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EchoGain:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 1.1, 1.2, 1.3, 1.8, 1.8999999, 1.9999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 6, 7, 8, 7, 8, 9, 8]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [1],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [2],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [3],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [4],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [4],
+"method": &"spawn_energy_orbs"
+}, {
+"args": [],
+"method": &"conclude"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bell")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1, 1.2, 1.4, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Burst:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0bhy"]
+_data = {
+&"RESET": SubResource("Animation_1j5lb"),
+&"gain_1": SubResource("Animation_uneoq"),
+&"gain_2": SubResource("Animation_s0bhy"),
+&"gain_3": SubResource("Animation_t7gt4"),
+&"gain_4": SubResource("Animation_8avbg"),
+&"grant": SubResource("Animation_84qnt"),
+&"idle": SubResource("Animation_i11xc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uneoq"]
+size = Vector2(2, 2)
+
+[node name="Upgrade" type="Area2D"]
+z_index = -11
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_bsnkp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bsnkp")
+disabled = true
+
+[node name="Flicker" parent="." instance=ExtResource("1_84qnt")]
+
+[node name="Blob1" type="Sprite2D" parent="."]
+position = Vector2(-2, -1)
+texture = ExtResource("2_uneoq")
+
+[node name="Blob2" type="Sprite2D" parent="."]
+position = Vector2(-2, 1)
+texture = ExtResource("2_uneoq")
+offset = Vector2(3, 3)
+
+[node name="Blob3" type="Sprite2D" parent="."]
+position = Vector2(-4, 1)
+texture = ExtResource("2_uneoq")
+offset = Vector2(6, 0)
+
+[node name="Blob4" type="Sprite2D" parent="."]
+position = Vector2(-4, -1)
+texture = ExtResource("2_uneoq")
+offset = Vector2(3, -3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s0bhy")
+}
+autoplay = "idle"
+
+[node name="EchoGain" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_uneoq")
+hframes = 10
+
+[node name="EnergyOrbCollector" type="StaticBody2D" parent="EchoGain"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EchoGain/EnergyOrbCollector"]
+shape = SubResource("RectangleShape2D_uneoq")
+
+[node name="Bell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_i11xc")
+pitch_scale = 1.5
+bus = &"Sfx"
+
+[node name="Burst" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1j5lb")
+pitch_scale = 1.5
+bus = &"Sfx"
+
+[connection signal="area_entered" from="." to="." method="on_entered"]
+[connection signal="body_entered" from="." to="." method="on_entered"]

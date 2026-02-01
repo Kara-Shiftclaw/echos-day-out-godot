@@ -315,6 +315,14 @@ offset_top = -128.0
 offset_right = 0.0
 other_stage = "uid://x0cp1goc127g"
 
+[node name="HeftwindHills2" parent="StageTransitions" instance=ExtResource("9_kt3p3")]
+offset_left = -256.0
+offset_top = -256.0
+offset_right = -128.0
+offset_bottom = -128.0
+other_stage = "uid://x0cp1goc127g"
+other_transition_name = "CharredCavern2"
+
 [node name="Sporeways" parent="StageTransitions" instance=ExtResource("9_kt3p3")]
 offset_left = 128.0
 offset_top = 256.0
@@ -356,6 +364,8 @@ other_stage = "uid://cpf870qyhbg0"
 [connection signal="succeeded" from="Objects/ArenaBell2" to="Scenery/ArenaFire" method="light"]
 [connection signal="succeeded" from="Objects/ArenaBell2" to="Objects/ArenaScaryDoor3" method="open"]
 [connection signal="succeeded" from="Objects/ArenaBell2" to="Objects/SignalAnd" method="set_a"]
+[connection signal="completed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor" method="open"]
+[connection signal="completed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor2" method="open"]
 [connection signal="cutscene_over" from="Objects/MeetMongoose" to="Objects/BossScaryDoor" method="close"]
 [connection signal="cutscene_over" from="Objects/MeetMongoose" to="Objects/BossScaryDoor2" method="close"]
 [connection signal="failed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor" method="open"]

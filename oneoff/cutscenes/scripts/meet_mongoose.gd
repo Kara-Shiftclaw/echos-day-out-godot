@@ -7,18 +7,25 @@ const ECHO_WALK_OFFSET := 24.
 const LEFT_OFFSET := ECHO_WALK_OFFSET
 const RIGHT_OFFSET := Util.ROOM_SIZE - ECHO_WALK_OFFSET
 const ECHO_Y_OFFSET := Util.ROOM_SIZE - 24. - 9.
+const UPGRADE_OFFSET := Vector2(Util.ROOM_SIZE / 2., Util.ROOM_SIZE - 6. * 8.)
+const COMPLETED_FLAG := "mongoose_boss_completed"
 
 var chunk: Vector2i
 
 signal cutscene_over()
 signal failed()
+signal completed()
 
 func _ready() -> void:
+	if Global.flags.has(COMPLETED_FLAG):
+		queue_free()
 	chunk = Util.chunk_of(global_position)
 	Global.chunk_loaded.connect(on_chunk_load)
 
 func on_chunk_load(x: int, y: int) -> void:
-	if Vector2i(x, y) == chunk:
+	if Global.flags.has(COMPLETED_FLAG):
+		queue_free()
+	elif Vector2i(x, y) == chunk:
 		get_tree().paused = true
 		$CutsceneBars.start()
 		var enter_right := Global.echo.global_position.x > global_position.x + Util.ROOM_SIZE / 2
@@ -43,9 +50,15 @@ func end_cutscene() -> void:
 	mongoose_boss.facing_right = !$Mongoose.flip_h
 	get_parent().add_child(mongoose_boss)
 	mongoose_boss.global_position = $Mongoose.global_position
+	mongoose_boss.upgrade_pos = global_position + UPGRADE_OFFSET
 	Global.echo.respawned.connect(func():
 		failed.emit()
 	, ConnectFlags.CONNECT_ONE_SHOT)
+	mongoose_boss.completed.connect(on_completed)
 	
 	get_tree().paused = false
 	cutscene_over.emit()
+
+func on_completed() -> void:
+	Global.flags.set(COMPLETED_FLAG, 1)
+	completed.emit()

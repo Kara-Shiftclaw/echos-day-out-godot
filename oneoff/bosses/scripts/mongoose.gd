@@ -39,11 +39,14 @@ const RIGHT_PILLAR_OFFSET := Vector2(10., 12.)
 		if is_node_ready():
 			sync_facing_right()
 @export var can_move := true
+@export var upgrade_pos: Vector2
 
 var prev_attacks := STARTING_PREV_ATTACKS.duplicate()
 var current_attack: Attack = Attack.Start
 var gravity := 0.
 var crown: Node2D = null
+
+signal completed()
 
 func _ready() -> void:
 	sync_facing_right()
@@ -158,6 +161,16 @@ func die() -> void:
 	self.facing_right = Global.echo.global_position.x > global_position.x
 	$AnimationPlayer.play("die")
 
+func spawn_upgrade() -> void:
+	var upgrade: Upgrade = Upgrade.instantiate()
+	get_parent().add_child(upgrade)
+	upgrade.move_from_to(global_position, upgrade_pos)
+	upgrade.grant_fireball = true
+	upgrade.collected.connect(on_upgrade_collected)
+
 func resume_normal_speed() -> void:
 	Engine.time_scale = 1.
 	jump_to(-32., 32., 0.4)
+
+func on_upgrade_collected() -> void:
+	completed.emit()

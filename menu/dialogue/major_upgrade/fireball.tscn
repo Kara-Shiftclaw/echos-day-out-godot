@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://07jy14kp7mgg"]
+[gd_scene load_steps=11 format=3 uid="uid://dg3p8bbql367d"]
 
-[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_vxbew"]
-[ext_resource type="Script" uid="uid://cr7m4auedcpb8" path="res://menu/dialogue/small_upgrade/small_upgrade_get.gd" id="2_jpvk5"]
-[ext_resource type="Texture2D" uid="uid://d1ncvi3oo1jr1" path="res://assets/gfx/food_get.png" id="3_olna4"]
-[ext_resource type="Texture2D" uid="uid://7ffh81jgbljc" path="res://assets/gfx/small_upgrade_tear.png" id="4_m1j1n"]
-[ext_resource type="AudioStream" uid="uid://cs6pf7cfntpvy" path="res://assets/sfx/tada.wav" id="5_jpvk5"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_5adev"]
+[ext_resource type="Script" uid="uid://vdkkkqd3kh4b" path="res://menu/dialogue/view/scripts/text_box.gd" id="2_13e8g"]
+[ext_resource type="Texture2D" uid="uid://n8a0qglafgcp" path="res://assets/gfx/fireball_get.png" id="3_13e8g"]
+[ext_resource type="Texture2D" uid="uid://7ffh81jgbljc" path="res://assets/gfx/small_upgrade_tear.png" id="4_hxa74"]
+[ext_resource type="AudioStream" uid="uid://cs6pf7cfntpvy" path="res://assets/sfx/tada.wav" id="5_0bs28"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rld3g"]
 bg_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
@@ -103,16 +103,16 @@ _data = {
 &"exit": SubResource("Animation_olna4")
 }
 
-[node name="SmallUpgradeGet" type="Panel"]
+[node name="FireballGet" type="Panel"]
 process_mode = 3
 z_index = 110
 offset_right = 128.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_vxbew")
+theme = ExtResource("1_5adev")
 theme_override_styles/panel = SubResource("StyleBoxFlat_rld3g")
-script = ExtResource("2_jpvk5")
+script = ExtResource("2_13e8g")
 metadata/_custom_type_script = "uid://vdkkkqd3kh4b"
 
 [node name="Label" type="Label" parent="."]
@@ -121,7 +121,7 @@ offset_left = 41.0
 offset_top = 1.0
 offset_right = 128.0
 offset_bottom = 30.0
-text = "Got some Food! Perhaps someone will want to eat it?"
+text = "You unlocked the Fireball! Press the Attack button in midair to fire!"
 autowrap_mode = 3
 visible_characters = 0
 visible_characters_behavior = 1
@@ -129,12 +129,11 @@ visible_ratio = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(20, 20)
-texture = ExtResource("3_olna4")
-hframes = 5
+texture = ExtResource("3_13e8g")
 
 [node name="Tear" type="Sprite2D" parent="."]
 position = Vector2(64, 48)
-texture = ExtResource("4_m1j1n")
+texture = ExtResource("4_hxa74")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -143,7 +142,7 @@ libraries = {
 autoplay = "enter"
 
 [node name="Tada" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_jpvk5")
+stream = ExtResource("5_0bs28")
 bus = &"Sfx"
 
 [connection signal="close_signaled" from="." to="AnimationPlayer" method="play" binds= [&"exit"]]

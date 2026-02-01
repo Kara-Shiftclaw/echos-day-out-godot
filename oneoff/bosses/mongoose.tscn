@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ie7hxk447vj7"]
+[gd_scene load_steps=20 format=3 uid="uid://ie7hxk447vj7"]
 
 [ext_resource type="Script" uid="uid://flmhn4y708t0" path="res://oneoff/bosses/scripts/mongoose.gd" id="1_4owjh"]
 [ext_resource type="Texture2D" uid="uid://bho3vfb35ginb" path="res://assets/gfx/mongoose.png" id="1_5cbfd"]
@@ -7,78 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://dmdquudfp5f1g" path="res://assets/sfx/bonk.wav" id="5_hcsp4"]
 [ext_resource type="AudioStream" uid="uid://cj5ql5x35behu" path="res://assets/sfx/shoot.wav" id="6_fjt5l"]
 [ext_resource type="AudioStream" uid="uid://bvbvurdmsbb76" path="res://assets/sfx/spore_shake.wav" id="7_hrmky"]
+[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="8_1dfdd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4owjh"]
 size = Vector2(12, 20)
-
-[sub_resource type="Animation" id="Animation_ihgbm"]
-resource_name = "shadowboxing"
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("Sprite2D:offset:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.7, 0.8, 1),
-"transitions": PackedFloat32Array(1, 0.5, 1, 0.5, 1, 0.5, 1),
-"update": 0,
-"values": [0.0, 0.0, -3.0, -3.0, 3.0, 3.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("Sprite2D:offset:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.55, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(0.5, 2, 1, 0.5, 2, 1, 0.5, 2, 1),
-"update": 0,
-"values": [0.0, -2.0, 0.0, 0.0, -2.0, 0.0, 0.0, -2.0, 0.0]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 0.3, 0.4, 0.7, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"values": [{
-"args": [-3.0, 2.0, 0.2],
-"method": &"jump_to"
-}, {
-"args": [],
-"method": &"stop_move"
-}, {
-"args": [6.0, 2.0, 0.3],
-"method": &"jump_to"
-}, {
-"args": [],
-"method": &"stop_move"
-}, {
-"args": [-3.0, 2.0, 0.2],
-"method": &"jump_to"
-}, {
-"args": [],
-"method": &"decision_point"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 1]
-}
 
 [sub_resource type="Animation" id="Animation_6gl4w"]
 length = 0.001
@@ -215,91 +147,6 @@ tracks/10/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_4owjh"]
-resource_name = "good_jump"
-length = 1.7
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("Sprite2D:offset:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.3, 0.70000005),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 32.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("Sprite2D:offset:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3, 0.5, 0.70000005),
-"transitions": PackedFloat32Array(0.5, 2, 1),
-"update": 0,
-"values": [0.0, -16.0, 0.0]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.3, 0.70000005, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [32.0, 16.0, 0.4],
-"method": &"jump_to"
-}, {
-"args": [],
-"method": &"jump_land"
-}, {
-"args": [],
-"method": &"decision_point"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [3, 4, 5, 4, 5, 3, 0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Damage:active")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.3, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Jump:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_hcsp4"]
 resource_name = "bad_jump"
 length = 2.2
@@ -417,124 +264,6 @@ tracks/7/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_fjt5l"]
-resource_name = "jump_fire"
-length = 1.1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("Sprite2D:offset:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -6.0, -6.0, -12.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("Sprite2D:offset:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.8),
-"transitions": PackedFloat32Array(0.5, 1, 2, 1),
-"update": 0,
-"values": [0.0, -40.0, -40.0, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [4, 5, 4, 20, 5, 4, 5, 3, 0]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": [-12.0, 40.0, 0.6],
-"method": &"jump_to"
-}, {
-"args": [],
-"method": &"shoot_fireball"
-}, {
-"args": [],
-"method": &"stop_move"
-}, {
-"args": [],
-"method": &"decision_point"
-}]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:can_move")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Jump:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_1dfdd"]
-resource_name = "crown_run"
-length = 0.4
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [17, 18, 19, 18]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Damage:active")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_fwj4y"]
 resource_name = "crown_pickup"
 length = 0.4
@@ -576,6 +305,36 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1dfdd"]
+resource_name = "crown_run"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [17, 18, 19, 18]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Damage:active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_hrmky"]
@@ -683,11 +442,14 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"resume_normal_speed"
+}, {
+"args": [],
+"method": &"spawn_upgrade"
 }]
 }
 tracks/5/type = "value"
@@ -701,6 +463,260 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [-11]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bonk:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4owjh"]
+resource_name = "good_jump"
+length = 1.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Sprite2D:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.70000005),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 32.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Sprite2D:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.5, 0.70000005),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [0.0, -16.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.70000005, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [32.0, 16.0, 0.4],
+"method": &"jump_to"
+}, {
+"args": [],
+"method": &"jump_land"
+}, {
+"args": [],
+"method": &"decision_point"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 4, 5, 3, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Damage:active")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Jump:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fjt5l"]
+resource_name = "jump_fire"
+length = 1.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Sprite2D:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -6.0, -6.0, -12.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Sprite2D:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8),
+"transitions": PackedFloat32Array(0.5, 1, 2, 1),
+"update": 0,
+"values": [0.0, -40.0, -40.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 4, 20, 5, 4, 5, 3, 0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [-12.0, 40.0, 0.6],
+"method": &"jump_to"
+}, {
+"args": [],
+"method": &"shoot_fireball"
+}, {
+"args": [],
+"method": &"stop_move"
+}, {
+"args": [],
+"method": &"decision_point"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:can_move")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Jump:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ihgbm"]
+resource_name = "shadowboxing"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Sprite2D:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 0.5, 1, 0.5, 1, 0.5, 1),
+"update": 0,
+"values": [0.0, 0.0, -3.0, -3.0, 3.0, 3.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Sprite2D:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.55, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(0.5, 2, 1, 0.5, 2, 1, 0.5, 2, 1),
+"update": 0,
+"values": [0.0, -2.0, 0.0, 0.0, -2.0, 0.0, 0.0, -2.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.4, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [-3.0, 2.0, 0.2],
+"method": &"jump_to"
+}, {
+"args": [],
+"method": &"stop_move"
+}, {
+"args": [6.0, 2.0, 0.3],
+"method": &"jump_to"
+}, {
+"args": [],
+"method": &"stop_move"
+}, {
+"args": [-3.0, 2.0, 0.2],
+"method": &"jump_to"
+}, {
+"args": [],
+"method": &"decision_point"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hcsp4"]
@@ -771,7 +787,12 @@ stream = ExtResource("7_hrmky")
 pitch_scale = 0.9
 bus = &"Sfx"
 
+[node name="EnemyDie" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1dfdd")
+bus = &"Sfx"
+
 [connection signal="chunk_left" from="EnemyManager" to="." method="queue_free"]
 [connection signal="die" from="EnemyManager" to="." method="die"]
+[connection signal="die" from="EnemyManager" to="EnemyDie" method="play"]
 [connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
