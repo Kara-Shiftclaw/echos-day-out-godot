@@ -1,7 +1,7 @@
 extends Node2D
 
 const DEFAULT_PLATFORM_OFFSET := -12.
-const DEFAULT_PILLAR_OFFSET := 8.
+const DEFAULT_PILLAR_OFFSET := 2.
 const KNOCKBACK_VELOCITY := 30. * 8.
 
 @export var platform_offset := 0.:
@@ -22,7 +22,7 @@ func _physics_process(time_delta: float) -> void:
 	$Platform/PillarSprite2D.region_rect.position.y = platform_offset
 	$Platform/PillarSprite2D.region_rect.size.y = DEFAULT_PILLAR_OFFSET - platform_offset
 	pillar_shape.size.y = -platform_offset
-	$Platform/Pillar.position.y = DEFAULT_PILLAR_OFFSET - platform_offset / 2.
+	$Platform/Pillar.position.y = 6. - platform_offset / 2.
 
 func knockback_other(other: Node2D) -> void:
 	if other is CharacterBody2D:
