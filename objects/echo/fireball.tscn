@@ -169,7 +169,6 @@ radius = 4.0
 
 [node name="Fireball" type="Area2D"]
 collision_layer = 8
-collision_mask = 5
 script = ExtResource("1_psb1u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -198,3 +197,4 @@ bus = &"Sfx"
 
 [connection signal="area_entered" from="." to="." method="explode"]
 [connection signal="body_entered" from="." to="." method="explode"]
+[connection signal="hit" from="Damage" to="." method="explode"]

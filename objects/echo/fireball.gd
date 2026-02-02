@@ -23,7 +23,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position += velocity * delta
 
-func explode(_other: Node2D) -> void:
+func explode(_other: Node2D = null) -> void:
 	$AnimationPlayer.play("explode")
 	velocity = Vector2.ZERO
 	translate(Vector2(EXPLODE_OFFSET * Util.sign(moving_right), EXPLODE_OFFSET))
