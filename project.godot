@@ -109,6 +109,8 @@ hover={
 2d_physics/layer_3="Enemy Col"
 2d_physics/layer_4="Player Attack"
 2d_physics/layer_5="Stage Hazard"
+2d_physics/layer_6="Reserved"
+2d_physics/layer_7="Crush"
 
 [rendering]
 
