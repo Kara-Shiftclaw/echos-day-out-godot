@@ -1173,6 +1173,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0.78039217, 0.44705883, 0.28235295, 1, 0.6
 
 [node name="Echo" type="CharacterBody2D"]
 collision_layer = 2
+floor_block_on_wall = false
 script = ExtResource("1_jjhff")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

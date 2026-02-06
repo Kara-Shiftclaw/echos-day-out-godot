@@ -121,6 +121,7 @@ func load_new_stage(stage: String,
 		echo.global_position = other_transition.global_position + new_world_offset
 		echo.facing_right = echo_dir
 		echo.play_anim("idle")
+		echo.anim_seek(0.)
 		camera.recalculate_chunk()
 		health_bar.recalculate_health_bar(health)
 		
