@@ -7,7 +7,8 @@ const HOP_X_VELOCITY := 50.
 @export var awaiting_landing := false
 
 func _physics_process(delta: float) -> void:
-	velocity.y += GRAVITY * delta
+	if $EnemyManager.health > 0:
+		velocity.y += GRAVITY * delta
 	
 	move_and_slide()
 	if awaiting_landing and is_on_floor() and $EnemyManager.health > 0:
@@ -20,6 +21,7 @@ func hop() -> void:
 
 func die() -> void:
 	velocity.x = -Util.sign(echo_right()) * HOP_X_VELOCITY
+	velocity.y = 0.
 	$AnimationPlayer.play("die")
 
 func echo_right() -> bool:

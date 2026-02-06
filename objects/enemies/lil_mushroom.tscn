@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="5_g3whc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1vqq"]
-size = Vector2(4, 4)
+size = Vector2(6, 6)
 
 [sub_resource type="Animation" id="Animation_y1vqq"]
 length = 0.001

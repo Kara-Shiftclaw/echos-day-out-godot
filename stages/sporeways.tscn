@@ -847,28 +847,28 @@ position = Vector2(460, -52)
 position = Vector2(1648, -32)
 
 [node name="LilMushroom" parent="Enemies" instance=ExtResource("9_m2qel")]
-position = Vector2(340, -64)
+position = Vector2(340, -65)
 
 [node name="LilMushroom2" parent="Enemies" instance=ExtResource("9_m2qel")]
-position = Vector2(292, -16)
+position = Vector2(292, -17)
 
 [node name="LilMushroom3" parent="Enemies" instance=ExtResource("9_m2qel")]
-position = Vector2(-92, 160)
+position = Vector2(-92, 159)
 
 [node name="LilMushroom4" parent="Enemies" instance=ExtResource("9_m2qel")]
-position = Vector2(-92, 208)
+position = Vector2(-92, 207)
 
 [node name="LilMushroom5" parent="Enemies" instance=ExtResource("9_m2qel")]
-position = Vector2(1896, -24)
+position = Vector2(1896, -25)
 
 [node name="LilMushroom6" parent="Enemies" instance=ExtResource("9_m2qel")]
-position = Vector2(1816, -24)
+position = Vector2(1816, -25)
 
 [node name="LilMushroom7" parent="Enemies" instance=ExtResource("9_m2qel")]
-position = Vector2(1856, -24)
+position = Vector2(1856, -25)
 
 [node name="LilMushroom8" parent="Enemies" instance=ExtResource("9_m2qel")]
-position = Vector2(-433, -216)
+position = Vector2(-433, -217)
 
 [node name="SmallLizard" parent="Enemies" instance=ExtResource("10_ad6r5")]
 position = Vector2(331, 88)
