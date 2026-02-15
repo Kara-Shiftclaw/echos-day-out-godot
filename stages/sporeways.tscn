@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cpf870qyhbg0"]
+[gd_scene load_steps=27 format=4 uid="uid://cpf870qyhbg0"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3kelf1cerb" path="res://assets/gfx/scenery/sporeways_omni.png" id="1_gob7n"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_q8lqc"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://ceulcb140bilo" path="res://objects/enemies/small_lizard.tscn" id="10_ad6r5"]
 [ext_resource type="PackedScene" uid="uid://c8quq3x1mj85h" path="res://objects/painted_wall.tscn" id="11_mu6af"]
 [ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="13_r6d1v"]
+[ext_resource type="PackedScene" uid="uid://btmasjlcjnook" path="res://objects/health_up.tscn" id="14_i6gl4"]
+[ext_resource type="PackedScene" uid="uid://dxl3dovmwvovx" path="res://objects/portal_core.tscn" id="15_isdp1"]
 [ext_resource type="PackedScene" uid="uid://dfant42y7xule" path="res://objects/enemies/big_lizard.tscn" id="18_0mswf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3t6gd"]
@@ -868,6 +870,12 @@ rotation = 1.5707964
 
 [node name="PaintedWall" parent="Objects" instance=ExtResource("11_mu6af")]
 position = Vector2(-36, 228)
+
+[node name="HealthUp" parent="Objects" instance=ExtResource("14_i6gl4")]
+position = Vector2(-164, -156)
+
+[node name="PortalCore" parent="Objects" instance=ExtResource("15_isdp1")]
+position = Vector2(1048, -180)
 
 [node name="Enemies" type="Node2D" parent="."]
 

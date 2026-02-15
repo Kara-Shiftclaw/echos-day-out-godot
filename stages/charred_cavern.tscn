@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://d0cqj6thnf2r1"]
+[gd_scene load_steps=32 format=4 uid="uid://d0cqj6thnf2r1"]
 
 [ext_resource type="Texture2D" uid="uid://c5lr8s0d15lyw" path="res://assets/gfx/scenery/charred_cavern_tileset.png" id="1_7vtke"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_82sa8"]
@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://clyugdpj3xhke" path="res://oneoff/signal_and.tscn" id="15_0auuv"]
 [ext_resource type="PackedScene" uid="uid://dfvqgvsjhvoa8" path="res://oneoff/cutscenes/meet_mongoose.tscn" id="17_t0v3o"]
 [ext_resource type="PackedScene" uid="uid://c8quq3x1mj85h" path="res://objects/painted_wall.tscn" id="18_7ujne"]
+[ext_resource type="PackedScene" uid="uid://njpgspcc7uld" path="res://objects/food.tscn" id="20_qppkx"]
+[ext_resource type="PackedScene" uid="uid://dxl3dovmwvovx" path="res://objects/portal_core.tscn" id="21_l8las"]
 [ext_resource type="PackedScene" uid="uid://bo7tgg1ss1jvp" path="res://objects/arena_bell.tscn" id="21_ykat0"]
 
 [sub_resource type="Animation" id="Animation_7ujne"]
@@ -392,6 +394,12 @@ position = Vector2(1268, 220)
 
 [node name="MeetMongoose" parent="Objects" instance=ExtResource("17_t0v3o")]
 position = Vector2(128, -256)
+
+[node name="Food" parent="Objects" instance=ExtResource("20_qppkx")]
+position = Vector2(156, -277)
+
+[node name="PortalCore" parent="Objects" instance=ExtResource("21_l8las")]
+position = Vector2(1316, 316)
 
 [node name="Enemies" type="Node2D" parent="."]
 
