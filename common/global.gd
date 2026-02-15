@@ -48,7 +48,14 @@ var has_crush:
 		_crush = value
 
 var weight := Weight.Thin
-var max_health := STARTING_MAX_HEALTH
+var max_health := STARTING_MAX_HEALTH:
+	set(value):
+		var offset := value - max_health
+		max_health = value
+		if offset > 0:
+			health += offset
+		if health_bar != null:
+			health_bar.recalculate_max_health()
 var health := 0.:
 	set(value):
 		var clamped_health := clampf(value, 0., max_health)
@@ -76,13 +83,13 @@ func save_data(save_point: Node) -> void:
 		"crush": _crush,
 	}
 	var save_file := FileAccess.open(save_path(save_id), FileAccess.WRITE)
-	save_file.store_line(JSON.stringify(save_dict))
+	save_file.store_line(JSON.stringify(save_dict, "\t"))
 	save.emit()
 
 func load_data(load_id: int) -> void:
 	save_id = load_id
 	var load_file := FileAccess.open(save_path(load_id), FileAccess.READ)
-	var load_json: Dictionary = JSON.parse_string(load_file.get_line())
+	var load_json: Dictionary = JSON.parse_string(load_file.get_as_text())
 	flags = load_json["flags"]
 	
 	explored_spaces = {}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://x0cp1goc127g"]
+[gd_scene load_steps=27 format=4 uid="uid://x0cp1goc127g"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_18db3"]
 [ext_resource type="TileSet" uid="uid://bxnc37mxvc2d3" path="res://assets/gfx/scenery/valley_tileset.tres" id="1_my03o"]
@@ -23,6 +23,8 @@
 [ext_resource type="AudioStream" uid="uid://br17oh1ei112o" path="res://assets/music/basic-music.mp3" id="13_ls2ml"]
 [ext_resource type="PackedScene" uid="uid://njpgspcc7uld" path="res://objects/food.tscn" id="14_4i4l5"]
 [ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="16_nms38"]
+[ext_resource type="PackedScene" uid="uid://dxl3dovmwvovx" path="res://objects/portal_core.tscn" id="20_p8f3u"]
+[ext_resource type="PackedScene" uid="uid://btmasjlcjnook" path="res://objects/health_up.tscn" id="25_tdhlc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qw35n"]
 atlas = ExtResource("3_7uywj")
@@ -319,6 +321,9 @@ position = Vector2(553, -296)
 [node name="Food" parent="Objects" instance=ExtResource("14_4i4l5")]
 position = Vector2(324, 32)
 
+[node name="PortalCore" parent="Objects" instance=ExtResource("20_p8f3u")]
+position = Vector2(700, -59)
+
 [node name="StageTransitions" type="Node2D" parent="."]
 
 [node name="IntroMountain" parent="StageTransitions" instance=ExtResource("5_5uyyr")]
@@ -360,6 +365,9 @@ song_stream = ExtResource("13_ls2ml")
 
 [node name="Fatbat" parent="." instance=ExtResource("16_nms38")]
 position = Vector2(404, -356)
+
+[node name="HealthUp" parent="." instance=ExtResource("25_tdhlc")]
+position = Vector2(857, -38)
 
 [connection signal="ready" from="Scenery/ArenaFire" to="Scenery/ArenaFire" method="auto_light"]
 [connection signal="ready" from="Scenery/ArenaFire2" to="Scenery/ArenaFire2" method="auto_light"]

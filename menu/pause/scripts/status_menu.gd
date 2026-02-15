@@ -10,7 +10,8 @@ const WEIGHT_NAMES := {
 }
 const WEIGHT_FORMAT := "Weight:\n{0}"
 const FOOD_FORMAT := "{0} ({1}/8)"
-const HEALTH_UP_FORMAT := "{0}/10"
+const HEALTH_UP_FORMAT := "{0}/6"
+const PORTAL_CORE_FORMAT := "{0} ({1}/6)"
 const NO_ABILITY_TEXT := "???"
 
 func _ready() -> void:
@@ -24,6 +25,7 @@ func _ready() -> void:
 	
 	$OtherStatuses/FoodIndicator/Label.text = FOOD_FORMAT.format([Global.flags.get("food_on_hand", 0) as int, Global.flags.get("food_collected", 0) as int])
 	$OtherStatuses/HealthUpIndicator/Label.text = HEALTH_UP_FORMAT.format([Global.flags.get("health_up_collected", 0) as int])
+	$OtherStatuses/PortalCoreIndicator/Label.text = PORTAL_CORE_FORMAT.format([Global.flags.get("core_on_hand", 0) as int, Global.flags.get("core_collected", 0) as int])
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
