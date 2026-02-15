@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bdvedf0ghtpoo" path="res://assets/gfx/map_marker.png" id="3_4a1w4"]
 [ext_resource type="PackedScene" uid="uid://donkd6xc2bj5k" path="res://menu/pause/source_map.tscn" id="3_g5u0g"]
 
-[node name="MapMenu" type="Panel"]
+[node name="MapMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 8.0
 offset_top = 21.0
 offset_right = 120.0

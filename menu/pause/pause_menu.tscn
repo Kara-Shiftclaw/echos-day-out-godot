@@ -14,15 +14,15 @@ offset_top = 8.0
 offset_right = 120.0
 offset_bottom = 120.0
 theme = ExtResource("1_tllbf")
-current_tab = 0
+current_tab = 1
 script = ExtResource("2_4u03m")
 
 [node name="MAP" parent="." instance=ExtResource("2_fuf1y")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="STAT" parent="." instance=ExtResource("2_sbl3r")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

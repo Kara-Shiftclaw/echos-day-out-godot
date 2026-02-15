@@ -3,7 +3,9 @@
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_om6o4"]
 [ext_resource type="Script" uid="uid://b7kuffkgvhs27" path="res://menu/scripts/accessibility_menu.gd" id="2_bf0ra"]
 
-[node name="Accessibility" type="Panel"]
+[node name="Accessibility" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 8.0
 offset_top = 21.0
 offset_right = 120.0

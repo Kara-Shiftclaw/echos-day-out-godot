@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 
 const CENTER := Vector2(51., 46.)
 const SCROLL_SPEED := 20. * 8.

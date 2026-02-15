@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 
 const Weight := Global.Weight
 const WEIGHT_NAMES := {

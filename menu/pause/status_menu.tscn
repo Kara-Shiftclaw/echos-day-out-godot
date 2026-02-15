@@ -11,7 +11,8 @@
 atlas = ExtResource("4_ttxs1")
 region = Rect2(0, 0, 10, 0)
 
-[node name="StatusMenu" type="Panel"]
+[node name="StatusMenu" type="Control"]
+layout_mode = 3
 offset_left = 8.0
 offset_top = 21.0
 offset_right = 120.0
@@ -22,7 +23,7 @@ theme = ExtResource("1_en44j")
 script = ExtResource("2_ttxs1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(92, 69)
+position = Vector2(90, 69)
 texture = ExtResource("1_hhk6g")
 hframes = 5
 

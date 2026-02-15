@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 
 func _ready() -> void:
 	$ACC/VBoxContainer/Fireball.button_pressed = Accessibility.fireball
