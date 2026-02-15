@@ -1,6 +1,7 @@
 extends Node
 
 signal next()
+signal before_next(this)
 
 @export var text: String
 
@@ -11,4 +12,7 @@ func render() -> TextBoxView:
 
 func on_view_close_signaled(view: TextBoxView) -> void:
 	view.queue_free()
-	next.emit()
+	if before_next.has_connections():
+		before_next.emit(self)
+	else:
+		next.emit()

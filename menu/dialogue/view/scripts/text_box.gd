@@ -9,11 +9,15 @@ signal close_signaled()
 
 var visible_characters_float := 0.
 var scrolling := true
+var dialogue_blip: AudioStreamPlayer
 
 static func with_text(text: String) -> TextBoxView:
 	var text_box_view: TextBoxView = SCENE.instantiate()
 	text_box_view.set_text(text)
 	return text_box_view
+
+func _ready() -> void:
+	dialogue_blip = get_node_or_null("DialogueBlip")
 
 func set_text(text: String) -> void:
 	$Label.text = text
@@ -29,6 +33,10 @@ func _process(delta: float) -> void:
 			scrolling = false
 			scroll_finished.emit()
 		
-		$Label.visible_characters = floori(visible_characters_float)
+		var new_visible_characters := floori(visible_characters_float)
+		if new_visible_characters != $Label.visible_characters:
+			$Label.visible_characters = new_visible_characters
+			if dialogue_blip != null:
+				dialogue_blip.play()
 	elif Input.is_action_just_pressed("ui_skip_text"):
 		close_signaled.emit()

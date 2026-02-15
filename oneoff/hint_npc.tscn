@@ -1,21 +1,169 @@
-[gd_scene load_steps=11 format=3 uid="uid://dstd7i1wcevmu"]
+[gd_scene load_steps=27 format=3 uid="uid://dstd7i1wcevmu"]
 
 [ext_resource type="Script" uid="uid://bcxnug1fmkk5d" path="res://oneoff/scripts/hint_npc.gd" id="1_1cytm"]
-[ext_resource type="Texture2D" uid="uid://b4buj8tfsbulq" path="res://assets/gfx/hint_npc.png" id="1_ufbxm"]
+[ext_resource type="Texture2D" uid="uid://dkbl8kkehghsf" path="res://assets/gfx/compound/affamae/arm.png" id="2_528by"]
 [ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="3_ei62j"]
+[ext_resource type="Texture2D" uid="uid://bhh0eeradxc4i" path="res://assets/gfx/compound/affamae/scarf.png" id="3_gbp5d"]
 [ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="4_cqvfm"]
+[ext_resource type="Texture2D" uid="uid://byk5mffxbhvcb" path="res://assets/gfx/compound/affamae/body.png" id="4_yp8nx"]
 [ext_resource type="PackedScene" uid="uid://dlpq327smiwuo" path="res://menu/dialogue/model/multiple_choice_box.tscn" id="5_cqvfm"]
+[ext_resource type="Texture2D" uid="uid://so1fk1lylapi" path="res://assets/gfx/up_arrow.png" id="5_gbp5d"]
 [ext_resource type="PackedScene" uid="uid://dnup6pmbimhsl" path="res://menu/dialogue/model/choice.tscn" id="6_lyahb"]
+[ext_resource type="Texture2D" uid="uid://d2ksggmcnok75" path="res://assets/gfx/shard.png" id="10_yp8nx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufbxm"]
-size = Vector2(30, 2)
+[sub_resource type="Animation" id="Animation_hvtis"]
+resource_name = "wiggle"
+length = 1.3
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[sub_resource type="Animation" id="Animation_te53a"]
+[sub_resource type="Animation" id="Animation_wl0wf"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_528by"]
+resource_name = "eat"
+length = 0.001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(3, -4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c1exx"]
+_data = {
+&"RESET": SubResource("Animation_wl0wf"),
+&"eat": SubResource("Animation_528by"),
+&"wiggle": SubResource("Animation_hvtis")
+}
+
+[sub_resource type="Animation" id="Animation_x38t7"]
+resource_name = "wave"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_tb4rs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,34 +173,281 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_lyahb"]
-resource_name = "eat_0_to_1"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mtm4"]
+_data = {
+&"RESET": SubResource("Animation_tb4rs"),
+&"wave": SubResource("Animation_x38t7")
+}
+
+[sub_resource type="Animation" id="Animation_8mtm4"]
+resource_name = "bounce"
+length = 0.6
+loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath(".:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.4, 0.5, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [1, 0, 1, 0, 1]
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, -2), Vector2(0, -1)]
 }
-tracks/1/type = "method"
+
+[sub_resource type="Animation" id="Animation_s00tr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbb31"]
+_data = {
+&"RESET": SubResource("Animation_s00tr"),
+&"bounce": SubResource("Animation_8mtm4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufbxm"]
+size = Vector2(30, 2)
+
+[sub_resource type="Animation" id="Animation_te53a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Text/GiveFood/Weight0")
+tracks/1/path = NodePath("Arm:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Arm/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [1],
-"method": &"render_child"
+"args": [&"wiggle", -1, 1.0, false],
+"method": &"play"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:indiv_frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mbb31"]
+resource_name = "eat"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(3, -4), Vector2(3, -2), Vector2(3, -3)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"execute_loop_callback"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Arm/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"eat", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:indiv_frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_g3xja"]
+resource_name = "talk"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:indiv_frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_7eoiw"]
+resource_name = "gain"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(3, -4)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -65,29 +460,78 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"inc_food"
+"method": &"execute_loop_callback"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:indiv_frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 7, 2, 7, 2, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_te53a"]
 _data = {
 &"RESET": SubResource("Animation_te53a"),
-&"eat_0_to_1": SubResource("Animation_lyahb")
+&"eat": SubResource("Animation_mbb31"),
+&"gain": SubResource("Animation_7eoiw"),
+&"talk": SubResource("Animation_g3xja")
 }
 
 [node name="HintNpc" type="Area2D"]
+process_mode = 3
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_1cytm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -12)
-texture = ExtResource("1_ufbxm")
-offset = Vector2(0.5, 0)
+[node name="Arm" type="Sprite2D" parent="."]
+position = Vector2(-8, -8)
+texture = ExtResource("2_528by")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Arm"]
+libraries = {
+&"": SubResource("AnimationLibrary_c1exx")
+}
+autoplay = "wiggle"
+
+[node name="Scarf" type="Sprite2D" parent="."]
+position = Vector2(5, -14)
+texture = ExtResource("3_gbp5d")
 hframes = 3
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scarf"]
+libraries = {
+&"": SubResource("AnimationLibrary_8mtm4")
+}
+autoplay = "wave"
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("4_yp8nx")
+offset = Vector2(0.5, 0)
+hframes = 10
+vframes = 2
+
+[node name="UpArrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -29)
+texture = ExtResource("5_gbp5d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UpArrow"]
+libraries = {
+&"": SubResource("AnimationLibrary_mbb31")
+}
+autoplay = "bounce"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-12, -1)
+position = Vector2(-9, -1)
 shape = SubResource("RectangleShape2D_ufbxm")
 
 [node name="Text" type="Node" parent="."]
@@ -139,7 +583,6 @@ choice_text = "Give Food"
 
 [node name="Talk" parent="Text/MainMenu/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
 choice_text = "Chat"
-enabled = true
 
 [node name="Leave" parent="Text/MainMenu/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
 choice_text = "Talk later!"
@@ -155,49 +598,6 @@ text = "See you around!"
 [node name="StandardTextBox" parent="Text/Talk/Weight0" instance=ExtResource("4_cqvfm")]
 text = "Sorry, I don't mean to be rude, but it's hard to chat on an empty stomach."
 
-[node name="Weight1" parent="Text/Talk" instance=ExtResource("3_ei62j")]
-
-[node name="StandardTextBox" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
-text = "Oh! I've not introduced myself, have I?"
-
-[node name="StandardTextBox2" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
-text = "My name is Affamae. I'm a traveller, of sorts."
-
-[node name="StandardTextBox3" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
-text = "Back home, I'm well-known for my appetite. Perhaps... too well known."
-
-[node name="StandardTextBox4" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
-text = "I've been looking for a better place to settle down, and this seems to fit nicely."
-
-[node name="StandardTextBox6" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
-text = "The air is warm, the creatures are rotund, the food is delicious..."
-
-[node name="StandardTextBox5" parent="Text/Talk/Weight1" instance=ExtResource("4_cqvfm")]
-text = "Speaking of, you wouldn't happen to have any more food for me, would you~?"
-
-[node name="Weight2" parent="Text/Talk" instance=ExtResource("3_ei62j")]
-
-[node name="StandardTextBox" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
-text = "My, another great meal! Thank you, fellow beast! I'm glad I never ate you."
-
-[node name="StandardTextBox2" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
-text = "What?! I AM a monster, after all! Besides, I decided against it!"
-
-[node name="StandardTextBox3" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
-text = "I do know you're nature. A dragon made of pure energy."
-
-[node name="StandardTextBox7" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
-text = "Each pound of blubber for you is a million Calories for me, at least~."
-
-[node name="StandardTextBox4" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
-text = "If I had eaten you, I'd hit ten tons minimum~. Maybe more...~~ Completely immobile...~~"
-
-[node name="StandardTextBox5" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
-text = "...It'd surely break this cliff & send me falling to my doom. Hence why I didn't."
-
-[node name="StandardTextBox6" parent="Text/Talk/Weight2" instance=ExtResource("4_cqvfm")]
-text = "Besides, I'd never hurt a ~friend~! That preppy journalist, perhaps, but not you!"
-
 [node name="GiveFood" type="Node" parent="Text"]
 
 [node name="Weight0" parent="Text/GiveFood" instance=ExtResource("3_ei62j")]
@@ -205,14 +605,49 @@ text = "Besides, I'd never hurt a ~friend~! That preppy journalist, perhaps, but
 [node name="StandardTextBox" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
 text = "Ahahaa!!! I knew I could trust someone like you!"
 
-[node name="StandardTextBox2" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
-text = "Mmmhmmm, that hit the spot!"
+[node name="StandardTextBox5" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
+text = "Oh! I've not introduced myself, have I?"
 
-[node name="StandardTextBox3" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
-text = "Well, I am true to my word. If you need insight on your next power, I can provide."
+[node name="StandardTextBox6" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
+text = "My name is Affamae. I'm a traveller, of sorts."
 
-[node name="StandardTextBox4" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
-text = "Of course, if you need more help, I do have room for ~seconds~."
+[node name="StandardTextBox7" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
+text = "Back home, I'm well-known for my appetite. Perhaps... too well known."
+
+[node name="StandardTextBox8" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
+text = "I've been looking for a better place to settle down, and this seems to fit nicely."
+
+[node name="StandardTextBox9" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
+text = "The air is warm, the creatures are rotund, the food is delicious..."
+
+[node name="StandardTextBox10" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
+text = "Speaking of, you wouldn't happen to have any more food for me, would you~?"
+
+[node name="Weight1" parent="Text/GiveFood" instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
+text = "More food! You truly are a miracle worker, Echo."
+
+[node name="StandardTextBox2" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
+text = "My, another great meal! Thank you, fellow beast! I'm glad I never ate you."
+
+[node name="StandardTextBox3" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
+text = "What?! I AM a monster, after all! Besides, I decided against it!"
+
+[node name="StandardTextBox4" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
+text = "I do know you're nature. A dragon made of pure energy."
+
+[node name="StandardTextBox7" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
+text = "Each pound of blubber for you is a million Calories for me, at least~."
+
+[node name="StandardTextBox5" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
+text = "If I had eaten you, I'd hit ten tons minimum~. Maybe more...~~ Completely immobile...~~"
+
+[node name="StandardTextBox6" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
+text = "...It'd surely break this cliff & send me falling to my doom. Hence why I didn't."
+
+[node name="StandardTextBox8" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
+text = "Besides, I'd never hurt a ~friend~! That preppy journalist, perhaps, but not you!"
 
 [node name="Hint" type="Node" parent="Text"]
 
@@ -298,6 +733,19 @@ libraries = {
 &"": SubResource("AnimationLibrary_te53a")
 }
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-3, -15)
+emitting = false
+amount = 2
+texture = ExtResource("10_yp8nx")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+color = Color(0.4117647, 0.21960784, 0.18039216, 1)
+
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="area_exited" from="." to="." method="exited"]
 [connection signal="body_entered" from="." to="." method="entered"]
@@ -310,10 +758,22 @@ libraries = {
 [connection signal="chosen" from="Text/MainMenu/MultipleChoiceBox/Talk" to="." method="next_talk"]
 [connection signal="chosen" from="Text/MainMenu/MultipleChoiceBox/Leave" to="Text/MainMenu/MultipleChoiceBox" method="emit_next"]
 [connection signal="next" from="Text/Talk/Weight0" to="." method="load_main_menu"]
-[connection signal="next" from="Text/Talk/Weight1" to="." method="load_main_menu"]
-[connection signal="next" from="Text/Talk/Weight2" to="." method="load_main_menu"]
 [connection signal="next" from="Text/GiveFood/Weight0" to="." method="load_main_menu"]
-[connection signal="next" from="Text/GiveFood/Weight0/StandardTextBox" to="AnimationPlayer" method="play" binds= [&"eat_0_to_1"]]
+[connection signal="before_next" from="Text/GiveFood/Weight0/StandardTextBox" to="." method="text_play_anim" binds= [&"eat", 3]]
+[connection signal="next" from="Text/GiveFood/Weight0/StandardTextBox" to="AnimationPlayer" method="play" binds= [&"talk"]]
+[connection signal="next" from="Text/GiveFood/Weight0/StandardTextBox7" to="AnimationPlayer" method="play" binds= [&"eat"]]
+[connection signal="before_next" from="Text/GiveFood/Weight0/StandardTextBox9" to="." method="text_gain_anim"]
+[connection signal="next" from="Text/GiveFood/Weight0/StandardTextBox9" to="AnimationPlayer" method="play" binds= [&"RESET"]]
+[connection signal="next" from="Text/GiveFood/Weight1" to="." method="load_main_menu"]
+[connection signal="before_next" from="Text/GiveFood/Weight1/StandardTextBox" to="." method="text_play_anim" binds= [&"eat", 3]]
+[connection signal="next" from="Text/GiveFood/Weight1/StandardTextBox" to="AnimationPlayer" method="play" binds= [&"talk"]]
+[connection signal="before_next" from="Text/GiveFood/Weight1/StandardTextBox2" to="." method="text_play_anim" binds= [&"eat"]]
+[connection signal="next" from="Text/GiveFood/Weight1/StandardTextBox2" to="AnimationPlayer" method="play" binds= [&"talk"]]
+[connection signal="next" from="Text/GiveFood/Weight1/StandardTextBox4" to="AnimationPlayer" method="play" binds= [&"eat"]]
+[connection signal="before_next" from="Text/GiveFood/Weight1/StandardTextBox5" to="." method="text_gain_anim"]
+[connection signal="next" from="Text/GiveFood/Weight1/StandardTextBox5" to="AnimationPlayer" method="play" binds= [&"talk"]]
+[connection signal="next" from="Text/GiveFood/Weight1/StandardTextBox6" to="AnimationPlayer" method="play" binds= [&"eat"]]
+[connection signal="next" from="Text/GiveFood/Weight1/StandardTextBox8" to="AnimationPlayer" method="play" binds= [&"RESET"]]
 [connection signal="next" from="Text/Hint/Fireball" to="." method="unpause"]
 [connection signal="next" from="Text/Hint/DoubleJump" to="." method="unpause"]
 [connection signal="next" from="Text/Hint/Sprint" to="." method="unpause"]

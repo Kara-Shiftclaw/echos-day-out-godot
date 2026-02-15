@@ -1,5 +1,11 @@
 extends Area2D
 
+const EchoCutsceneWalker := preload("res://objects/echo/cutscene_walker.tscn")
+
+const ECHO_X_OFFSET := -24.
+const ECHO_Y_OFFSET := -9.
+const FRAMES_PER_WEIGHT := 5
+
 const USED_HINTS_FLAG := "used_hints"
 const USED_TALK_FLAG := "used_talk"
 const HINT_WEIGHT_FLAG := "hint_npc_weight"
@@ -8,27 +14,50 @@ const HINT_DOUBLE_JUMP := "hint_double_jump"
 const HINT_SPRINT := "hint_sprint"
 const HINT_CRUSH := "hint_crush"
 
+const WEIGHT_ARM_OFFSET := {
+	0: -8.,
+	1: -8.,
+	2: -9.
+}
+
 @export var self_weight := 0:
 	set(value):
 		self_weight = value
 		Global.flags[HINT_WEIGHT_FLAG] = value
+		if is_node_ready():
+			sync_frame()
+@export var indiv_frame := 0:
+	set(value):
+		indiv_frame = value
+		if is_node_ready():
+			sync_frame()
 
 var echo_inside := false
+var loop_callback: Callable = do_nothing
 
 func _ready() -> void:
 	self_weight = Global.flags.get(HINT_WEIGHT_FLAG, 0)
-	$Sprite2D.frame = self_weight
+	sync_frame()
+	#$Sprite2D.frame = self_weight
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up") and echo_inside and !get_tree().paused:
 		get_tree().paused = true
-		if Global.flags.get("hint_first_chat", false):
-			load_main_menu()
-		else:
-			if Global.weight == Global.Weight.Blob:
-				$Text/FirstChatBlob.render()
+		$UpArrow.hide()
+		
+		var echo_walker: Node2D = EchoCutsceneWalker.instantiate()
+		echo_walker.x_destination = position.x + ECHO_X_OFFSET
+		echo_walker.face_right_on_deletion = true
+		get_parent().add_child(echo_walker)
+		echo_walker.dest_reached.connect(func():
+			if Global.flags.get("hint_first_chat", false):
+				load_main_menu()
 			else:
-				$Text/FirstChat.render()
+				if Global.weight == Global.Weight.Blob:
+					$Text/FirstChatBlob.render()
+				else:
+					$Text/FirstChat.render()
+		)
 
 func load_main_menu() -> void:
 	$Text/MainMenu/MultipleChoiceBox/Feed.enabled = Global.flags.get("food_on_hand", 0) > 0
@@ -36,6 +65,7 @@ func load_main_menu() -> void:
 	$Text/MainMenu.render()
 
 func unpause() -> void:
+	$UpArrow.show()
 	get_tree().paused = false
 	Global.flags["hint_first_chat"] = true
 
@@ -69,17 +99,45 @@ func next_hint() -> void:
 	
 	Global.flags[USED_HINTS_FLAG] = hint + 1
 
+func sync_frame() -> void:
+	$Arm.position.x = WEIGHT_ARM_OFFSET[self_weight]
+	$Body.frame = FRAMES_PER_WEIGHT * self_weight + indiv_frame
+
 func inc_food() -> void:
 	var food_on_hand: int = Global.flags.get("food_on_hand", 0)
-	self_weight += 1
+	self.self_weight += 1
 	Global.flags["food_on_hand"] = food_on_hand - 1
+
+func text_play_anim(text: Node, anim_name: StringName, loops: int = 1) -> void:
+	$AnimationPlayer.play(anim_name)
+	loop_callback = func():
+		text.next.emit()
+		loop_callback = do_nothing
+	for loop in range(0, loops - 1):
+		var next_loop_callback := loop_callback
+		loop_callback = func():
+			loop_callback = next_loop_callback
+
+func text_gain_anim(text: Node) -> void:
+	$AnimationPlayer.play("gain")
+	loop_callback = func():
+		text.next.emit()
+		inc_food()
+		$AnimationPlayer.seek(0., true)
+		loop_callback = do_nothing
+
+func execute_loop_callback() -> void:
+	if loop_callback != null:
+		loop_callback.call()
 
 func entered(other: Node2D):
 	if other is Echo:
+		$UpArrow.show()
 		echo_inside = true
 
 func exited(other: Node2D):
 	if other is Echo:
+		$UpArrow.hide()
 		echo_inside = false
 
 func needs_fireball():
@@ -93,3 +151,6 @@ func needs_sprint():
 
 func needs_crush():
 	return !Global.has_crush and !Global.flags.has(HINT_CRUSH)
+
+static func do_nothing():
+	pass
