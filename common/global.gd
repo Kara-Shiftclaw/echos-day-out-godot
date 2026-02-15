@@ -53,7 +53,9 @@ var max_health := STARTING_MAX_HEALTH:
 		var offset := value - max_health
 		max_health = value
 		if offset > 0:
-			health += offset
+			self.health += offset
+		else:
+			self.health = clamp(health, 1., max_health)
 		if health_bar != null:
 			health_bar.recalculate_max_health()
 var health := 0.:
@@ -112,6 +114,7 @@ func load_data(load_id: int) -> void:
 				load_json["sprint"],
 				load_json["crush"])
 		camera.recalculate_chunk()
+		recalculate_max_hp()
 		max_health = load_json["max_health"]
 		health = max_health
 	, ConnectFlags.CONNECT_ONE_SHOT)
@@ -173,6 +176,10 @@ func recalculate_weight() -> void:
 			+ (1 if has_crush else 0)) as Weight
 	if echo != null:
 		echo.play_anim("idle")
+
+func recalculate_max_hp() -> void:
+	var gained_hp := flags.get("health_up_collected", 0) as int * 3
+	max_health = STARTING_MAX_HEALTH + gained_hp + Accessibility.max_hp_offset
 
 func play_music(song_stream: AudioStream) -> void:
 	if music_player == null:

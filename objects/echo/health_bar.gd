@@ -28,18 +28,29 @@ func _ready() -> void:
 
 func recalculate_max_health() -> void:
 	var max_health := Global.max_health
-	if max_health <= DANGER_HEALTH + 1:
+	if max_health == 1:
 		$Back/Divider.hide()
 		$Back/PrimaryArea.hide()
-		$Back/RightEnd.region_rect.position.x = DANGER_RIGHT_END_REGION_X
+		$Back/LeftEnd.hide()
+		$Back/RightEnd.hide()
+		$Back/OneHp.show()
+		$Back/DangerArea.offset_right = 0
+	elif max_health <= DANGER_HEALTH + 1:
+		$Back/Divider.hide()
+		$Back/PrimaryArea.hide()
+		$Back/LeftEnd.show()
+		$Back/RightEnd.show()
+		$Back/OneHp.hide()
 		
-		var danger_right := max_health * HEALTH_POINT_WIDTH - END_HEALTH * 2
+		var danger_right := clampf(max_health * HEALTH_POINT_WIDTH - END_HEALTH * 2, 0, 128)
 		$Back/DangerArea.offset_right = danger_right
 		$Back/RightEnd.position.x = danger_right
 	else:
 		$Back/Divider.show()
 		$Back/PrimaryArea.show()
-		$Back/RightEnd.region_rect.position.x = NORMAL_RIGHT_END_REGION_X
+		$Back/LeftEnd.show()
+		$Back/RightEnd.show()
+		$Back/OneHp.hide()
 		
 		var danger_right := DANGER_HEALTH * HEALTH_POINT_WIDTH - END_HEALTH
 		var divider_right := danger_right + DIVIDER_WIDTH

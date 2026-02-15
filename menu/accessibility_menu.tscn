@@ -68,7 +68,28 @@ focus_neighbor_top = NodePath("../Sprint")
 focus_previous = NodePath("../Sprint")
 text = "Force Crush"
 
+[node name="MaxHealthDesc" type="Label" parent="ACC/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+text = "Max Health Offset"
+
+[node name="MaxHealth" type="HSplitContainer" parent="ACC/VBoxContainer"]
+layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 2
+
+[node name="Label" type="Label" parent="ACC/VBoxContainer/MaxHealth"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+text = "+00"
+
+[node name="HSlider" type="HSlider" parent="ACC/VBoxContainer/MaxHealth"]
+layout_mode = 2
+min_value = -14.0
+max_value = 15.0
+
 [connection signal="pressed" from="ACC/VBoxContainer/Fireball" to="." method="fireball_pressed"]
 [connection signal="pressed" from="ACC/VBoxContainer/DoubleJump" to="." method="double_jump_pressed"]
 [connection signal="pressed" from="ACC/VBoxContainer/Sprint" to="." method="sprint_pressed"]
 [connection signal="pressed" from="ACC/VBoxContainer/Crush" to="." method="crush_pressed"]
+[connection signal="value_changed" from="ACC/VBoxContainer/MaxHealth/HSlider" to="." method="max_hp_offset_changed"]

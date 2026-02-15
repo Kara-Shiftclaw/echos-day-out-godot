@@ -8,3 +8,4 @@ func _input(event: InputEvent) -> void:
 func save_options() -> void:
 	Options.save()
 	Global.recalculate_weight()
+	Global.recalculate_max_hp()

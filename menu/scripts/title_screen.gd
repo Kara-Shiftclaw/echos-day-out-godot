@@ -10,6 +10,7 @@ func _ready() -> void:
 func new_game() -> void:
 	get_tree().scene_changed.connect(func():
 		Global.load_abilities(false, false, false, false)
+		Global.recalculate_max_hp()
 	, )
 	get_tree().change_scene_to_packed(FirstStage)
 
