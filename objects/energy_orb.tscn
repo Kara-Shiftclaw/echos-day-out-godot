@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5f721ii3ny3d"]
 
-[ext_resource type="Script" uid="uid://cfw4as5p8vxjl" path="res://objects/energy_orb.gd" id="1_3exhe"]
+[ext_resource type="Script" uid="uid://cfw4as5p8vxjl" path="res://objects/scripts/energy_orb.gd" id="1_3exhe"]
 [ext_resource type="Texture2D" uid="uid://dqhuhiwecxvx8" path="res://assets/gfx/orb.png" id="1_bovsh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3exhe"]

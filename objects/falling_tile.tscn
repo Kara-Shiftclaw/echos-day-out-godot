@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://drvhshuujb1xs"]
 
-[ext_resource type="Script" uid="uid://t16ujtym5sr4" path="res://objects/falling_tile.gd" id="1_dancj"]
+[ext_resource type="Script" uid="uid://t16ujtym5sr4" path="res://objects/scripts/falling_tile.gd" id="1_dancj"]
 [ext_resource type="Texture2D" uid="uid://buvd6dw004v1s" path="res://assets/gfx/falling_tile.png" id="2_mxe7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yqc8"]

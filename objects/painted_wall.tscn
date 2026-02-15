@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8quq3x1mj85h"]
 
 [ext_resource type="Texture2D" uid="uid://doei3qxk3fpwj" path="res://assets/gfx/painted_wall.png" id="1_mym7r"]
-[ext_resource type="Script" uid="uid://d25bshul8mhm0" path="res://objects/painted_wall.gd" id="1_q65cy"]
+[ext_resource type="Script" uid="uid://d25bshul8mhm0" path="res://objects/scripts/painted_wall.gd" id="1_q65cy"]
 [ext_resource type="Texture2D" uid="uid://d2ksggmcnok75" path="res://assets/gfx/shard.png" id="2_1ehni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ehni"]

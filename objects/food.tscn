@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://db3eeohmu8tk0" path="res://common/flicker.tscn" id="1_5nx56"]
 [ext_resource type="Texture2D" uid="uid://tfdkke2abk2f" path="res://assets/gfx/food.png" id="1_hwnna"]
-[ext_resource type="Script" uid="uid://dhnvyyk1nn3bf" path="res://objects/food.gd" id="1_icymm"]
+[ext_resource type="Script" uid="uid://dhnvyyk1nn3bf" path="res://objects/scripts/food.gd" id="1_icymm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nx56"]
 size = Vector2(8, 8)
