@@ -51,7 +51,7 @@ region_rect = Rect2(0, 0, 16, 8)
 
 [node name="FireballHint" type="Sprite2D" parent="Outline/Background/MapParent"]
 z_index = 10
-position = Vector2(136, -16)
+position = Vector2(144, -16)
 texture = ExtResource("3_4a1w4")
 offset = Vector2(4, 4)
 region_enabled = true
@@ -59,7 +59,7 @@ region_rect = Rect2(8, 8, 8, 8)
 
 [node name="DoubleJumpHint" type="Sprite2D" parent="Outline/Background/MapParent"]
 z_index = 10
-position = Vector2(88, 24)
+position = Vector2(72, 24)
 texture = ExtResource("3_4a1w4")
 offset = Vector2(4, 4)
 region_enabled = true
@@ -75,7 +75,7 @@ region_rect = Rect2(8, 8, 8, 8)
 
 [node name="CrushHint" type="Sprite2D" parent="Outline/Background/MapParent"]
 z_index = 10
-position = Vector2(120, 152)
+position = Vector2(120, 136)
 texture = ExtResource("3_4a1w4")
 offset = Vector2(4, 4)
 region_enabled = true
@@ -83,3 +83,4 @@ region_rect = Rect2(8, 8, 8, 8)
 
 [node name="SourceMap" parent="." instance=ExtResource("3_g5u0g")]
 visible = false
+position = Vector2(56, 51)
