@@ -9,7 +9,7 @@ var chunk: Vector2i
 var active := false
 
 func _ready() -> void:
-	chunk = Vector2i(global_position / Vector2(Util.ROOM_SIZE, Util.ROOM_SIZE))
+	chunk = Vector2i(floori(global_position.x / Util.ROOM_SIZE), floori(global_position.y / Util.ROOM_SIZE))
 	Global.echo.respawned.connect(on_echo_respawn)
 	if Global.has_node_flag(self, "succeeded"):
 		already_succeeded.emit()

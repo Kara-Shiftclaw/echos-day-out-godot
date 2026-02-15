@@ -5,7 +5,10 @@ enum State {
 	Dash,
 	Pause,
 	EdgePause,
+	ArenaStandby,
 }
+
+signal on_death()
 
 const MOVE_SPEED := 5. * 8.
 const DASH_SPEED := 10. * 8.
@@ -21,6 +24,7 @@ const SPRITE_OFFSET := -1.5
 			update_sprite_flip()
 @export var state := State.Waddle
 @export var keep_inertia := false
+@export var should_arena_standby := false
 
 func _ready() -> void:
 	update_sprite_flip()
@@ -79,12 +83,21 @@ func die() -> void:
 	$AnimationPlayer.play("die")
 	$AnimationPlayer.seek(0., true)
 	$EnemyDieSound.play()
+	on_death.emit()
 
 func reload() -> void:
 	if $EnemyManager.health > 0:
-		show()
-		$AnimationPlayer.play("waddle")
-		state = State.Waddle
-		$Wolf.frame = 0
+		if should_arena_standby:
+			$AnimationPlayer.play("arena_standby")
+			hide()
+			state = State.ArenaStandby
+		else:
+			show()
+			$AnimationPlayer.play("waddle")
+			state = State.Waddle
+			$Wolf.frame = 0
 	else:
 		hide()
+
+func arena_start() -> void:
+	$AnimationPlayer.play("arena_start")
