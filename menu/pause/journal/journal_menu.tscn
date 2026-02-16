@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj6gbqw7p5dh6"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_84tiq"]
+
+[node name="JournalMenu" type="Panel"]
+theme = ExtResource("1_84tiq")

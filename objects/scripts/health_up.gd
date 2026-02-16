@@ -11,6 +11,7 @@ func _ready() -> void:
 func entered(other: Node2D):
 	if other is Echo:
 		hide()
+		$CollisionShape2D.set_deferred("disabled", true)
 		if !other.is_on_floor():
 			other.land_on_floor.connect(do_health_up_get)
 		else:

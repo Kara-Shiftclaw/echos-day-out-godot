@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3aj2hj8wkg3h"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_wi6dh"]
+[ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_5xgrx"]
+[ext_resource type="Script" uid="uid://02sengkdtso2" path="res://menu/pause/journal/entry_button.gd" id="3_5xgrx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2vpjv"]
+load_path = "res://.godot/imported/hud_theme.png-f2aad2f042dca8a27518bb74e5ac1735.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8en6g"]
+texture = SubResource("CompressedTexture2D_2vpjv")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(38, 0, 5, 5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6mque"]
+texture = ExtResource("2_5xgrx")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(43, 0, 5, 5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmnk7"]
+texture = SubResource("CompressedTexture2D_2vpjv")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(38, 0, 5, 5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1imeg"]
+texture = ExtResource("2_5xgrx")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(43, 0, 5, 5)
+
+[node name="EntryButton" type="Button"]
+theme = ExtResource("1_wi6dh")
+theme_override_constants/h_separation = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_8en6g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6mque")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xmnk7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_1imeg")
+text = "Maxwell Flinthelm"
+script = ExtResource("3_5xgrx")
