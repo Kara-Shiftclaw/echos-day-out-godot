@@ -1,9 +1,13 @@
 extends TabContainer
 
+func _ready() -> void:
+	Global.music_player.volume_linear = 0.7
+
 func _input(event: InputEvent) -> void:
 	if event.is_action("pause") and event.is_pressed():
 		queue_free()
 		Global.call_deferred("unpause")
+		Global.music_player.volume_linear = 1.
 
 func save_options() -> void:
 	Options.save()

@@ -122,6 +122,7 @@ func load_data(load_id: int) -> void:
 
 func load_new_stage(stage: String,
 		new_world_offset: Vector2,
+		transition_chunk_offset: Vector2i,
 		other_transition_path: String) -> void:
 	var echo_dir := echo.facing_right
 	get_tree().change_scene_to_file(stage)
@@ -134,6 +135,9 @@ func load_new_stage(stage: String,
 		echo.anim_seek(0.)
 		camera.recalculate_chunk()
 		health_bar.recalculate_health_bar(health)
+		
+		var other_transition_chunk := (other_transition.global_position / Util.ROOM_SIZE).floor() as Vector2i + transition_chunk_offset
+		add_explored_space(other_transition_chunk.x, other_transition_chunk.y)
 		
 		var transition := Echo.DeathScreen.instantiate()
 		camera.add_child(transition)

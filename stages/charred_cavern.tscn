@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://d0cqj6thnf2r1"]
+[gd_scene load_steps=36 format=4 uid="uid://d0cqj6thnf2r1"]
 
 [ext_resource type="Texture2D" uid="uid://c5lr8s0d15lyw" path="res://assets/gfx/scenery/charred_cavern_tileset.png" id="1_7vtke"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_82sa8"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dxl3dovmwvovx" path="res://objects/portal_core.tscn" id="21_l8las"]
 [ext_resource type="PackedScene" uid="uid://bo7tgg1ss1jvp" path="res://objects/arena_bell.tscn" id="21_ykat0"]
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="27_iscnq"]
+[ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="27_ogn11"]
 [ext_resource type="AudioStream" uid="uid://dk5ilqdvuosth" path="res://assets/music/The-Arcade-Detective_Looping.ogg" id="28_w2j3w"]
 
 [sub_resource type="Animation" id="Animation_7ujne"]
@@ -483,6 +484,9 @@ position = Vector2(333, 208)
 position = Vector2(1131, 88)
 facing_right = true
 
+[node name="SmallLizard4" parent="Enemies" instance=ExtResource("11_o3dwv")]
+position = Vector2(269, 112)
+
 [node name="BigLizard" parent="Enemies" instance=ExtResource("14_7d70o")]
 position = Vector2(1044, 111)
 
@@ -505,6 +509,9 @@ facing_right = true
 position = Vector2(986, -305)
 arena_standby = true
 facing_right = true
+
+[node name="Fatbat" parent="Enemies" instance=ExtResource("27_ogn11")]
+position = Vector2(348, -52)
 
 [node name="StageTransitions" type="Node2D" parent="."]
 
