@@ -154,6 +154,7 @@ func is_crown_running() -> bool:
 	return $AnimationPlayer.current_animation == "crown_run"
 
 func die() -> void:
+	Global.music_player.stop()
 	Engine.time_scale = 0.25
 	velocity = Vector2.ZERO
 	gravity = 0.

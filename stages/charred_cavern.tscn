@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://d0cqj6thnf2r1"]
+[gd_scene load_steps=35 format=4 uid="uid://d0cqj6thnf2r1"]
 
 [ext_resource type="Texture2D" uid="uid://c5lr8s0d15lyw" path="res://assets/gfx/scenery/charred_cavern_tileset.png" id="1_7vtke"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_82sa8"]
@@ -24,8 +24,11 @@
 [ext_resource type="PackedScene" uid="uid://dfvqgvsjhvoa8" path="res://oneoff/cutscenes/meet_mongoose.tscn" id="17_t0v3o"]
 [ext_resource type="PackedScene" uid="uid://c8quq3x1mj85h" path="res://objects/painted_wall.tscn" id="18_7ujne"]
 [ext_resource type="PackedScene" uid="uid://njpgspcc7uld" path="res://objects/food.tscn" id="20_qppkx"]
+[ext_resource type="AudioStream" uid="uid://dcpqq5pg8s01l" path="res://assets/music/The-8-Bit-Circus_Looping.ogg" id="20_w2j3w"]
 [ext_resource type="PackedScene" uid="uid://dxl3dovmwvovx" path="res://objects/portal_core.tscn" id="21_l8las"]
 [ext_resource type="PackedScene" uid="uid://bo7tgg1ss1jvp" path="res://objects/arena_bell.tscn" id="21_ykat0"]
+[ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="27_iscnq"]
+[ext_resource type="AudioStream" uid="uid://dk5ilqdvuosth" path="res://assets/music/The-Arcade-Detective_Looping.ogg" id="28_w2j3w"]
 
 [sub_resource type="Animation" id="Animation_7ujne"]
 length = 0.001
@@ -394,6 +397,7 @@ position = Vector2(1268, 220)
 
 [node name="MeetMongoose" parent="Objects" instance=ExtResource("17_t0v3o")]
 position = Vector2(128, -256)
+boss_theme = ExtResource("20_w2j3w")
 
 [node name="Food" parent="Objects" instance=ExtResource("20_qppkx")]
 position = Vector2(156, -277)
@@ -525,6 +529,9 @@ offset_right = 256.0
 offset_bottom = 384.0
 other_stage = "uid://cpf870qyhbg0"
 
+[node name="SongPlayer" parent="." instance=ExtResource("27_iscnq")]
+song_stream = ExtResource("28_w2j3w")
+
 [connection signal="activate" from="Objects/Switch" to="Objects/Door" method="open"]
 [connection signal="activate" from="Objects/Switch2" to="Objects/Door2" method="open"]
 [connection signal="activate" from="Objects/Switch3" to="Objects/Door3" method="open"]
@@ -589,10 +596,12 @@ other_stage = "uid://cpf870qyhbg0"
 [connection signal="both_true" from="Objects/ArenaBell3/Phase3" to="Objects/ArenaBell3" method="succeed"]
 [connection signal="completed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor" method="open"]
 [connection signal="completed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor2" method="open"]
+[connection signal="completed" from="Objects/MeetMongoose" to="SongPlayer" method="play"]
 [connection signal="cutscene_over" from="Objects/MeetMongoose" to="Objects/BossScaryDoor" method="close"]
 [connection signal="cutscene_over" from="Objects/MeetMongoose" to="Objects/BossScaryDoor2" method="close"]
 [connection signal="failed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor" method="open"]
 [connection signal="failed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor2" method="open"]
+[connection signal="failed" from="Objects/MeetMongoose" to="SongPlayer" method="play"]
 [connection signal="on_death" from="Enemies/Wolf4" to="Objects/ArenaBell3/Phase2" method="set_a"]
 [connection signal="on_death" from="Enemies/Wolf5" to="Objects/ArenaBell3/Phase2/SubPhase" method="set_a"]
 [connection signal="on_death" from="Enemies/Wolf6" to="Objects/ArenaBell3/Phase2/SubPhase" method="set_b"]

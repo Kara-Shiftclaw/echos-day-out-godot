@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://db1opiy6dip85" path="res://objects/enemies/wolf.tscn" id="10_idora"]
 [ext_resource type="TileSet" uid="uid://bxnc37mxvc2d3" path="res://assets/gfx/scenery/valley_tileset.tres" id="10_kailn"]
 [ext_resource type="PackedScene" uid="uid://b80sc5o8or7qk" path="res://objects/stage_transition.tscn" id="11_o5s5e"]
+[ext_resource type="AudioStream" uid="uid://cgjhrh4idl47w" path="res://assets/music/Funky-Chiptune.ogg" id="15_bdyx1"]
 [ext_resource type="PackedScene" uid="uid://d2jt4trsgdkws" path="res://oneoff/cutscenes/intro.tscn" id="16_bdyx1"]
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="20_gqqha"]
-[ext_resource type="AudioStream" uid="uid://br17oh1ei112o" path="res://assets/music/basic-music.mp3" id="21_ehe03"]
 
 [node name="IntroMountain" type="Node2D"]
 
@@ -168,7 +168,7 @@ other_stage = "uid://x0cp1goc127g"
 other_transition_name = "IntroMountain2"
 
 [node name="SongPlayer" parent="." instance=ExtResource("20_gqqha")]
-song_stream = ExtResource("21_ehe03")
+song_stream = ExtResource("15_bdyx1")
 
 [node name="Intro" parent="." instance=ExtResource("16_bdyx1")]
 

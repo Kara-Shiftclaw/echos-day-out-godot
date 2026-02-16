@@ -186,6 +186,7 @@ func play_music(song_stream: AudioStream) -> void:
 		music_player = AudioStreamPlayer.new()
 		music_player.finished.connect(music_player.play)
 		music_player.bus = "Music"
+		music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 		add_child(music_player)
 	
 	if music_player.stream != song_stream:

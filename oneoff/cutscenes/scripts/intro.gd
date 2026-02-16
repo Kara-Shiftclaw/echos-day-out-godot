@@ -4,6 +4,7 @@ func _ready() -> void:
 	if Global.flags.get("intro_cutscene", false):
 		queue_free()
 	else:
+		Global.music_player.stop()
 		Global.echo.hide()
 		Global.health = Global.max_health
 		get_tree().paused = true
@@ -19,3 +20,4 @@ func conclude() -> void:
 	Global.echo.global_position = $CutsceneEcho.global_position
 	get_tree().paused = false
 	$CutsceneBars.end()
+	Global.music_player.play()

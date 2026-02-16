@@ -184,6 +184,7 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 
 func die():
+	Global.music_player.stop()
 	play_anim("die", 999)
 
 func begin_attack() -> void:
@@ -285,6 +286,7 @@ func respawn() -> void:
 		is_crushing = false
 		velocity = Vector2.ZERO
 		play_anim("idle")
+	Global.music_player.play()
 	respawned.emit()
 
 func get_desired_speed() -> float:

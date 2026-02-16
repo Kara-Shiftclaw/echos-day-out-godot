@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cpf870qyhbg0"]
+[gd_scene load_steps=29 format=4 uid="uid://cpf870qyhbg0"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3kelf1cerb" path="res://assets/gfx/scenery/sporeways_omni.png" id="1_gob7n"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_q8lqc"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://btmasjlcjnook" path="res://objects/health_up.tscn" id="14_i6gl4"]
 [ext_resource type="PackedScene" uid="uid://dxl3dovmwvovx" path="res://objects/portal_core.tscn" id="15_isdp1"]
 [ext_resource type="PackedScene" uid="uid://dfant42y7xule" path="res://objects/enemies/big_lizard.tscn" id="18_0mswf"]
+[ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="25_c704u"]
+[ext_resource type="AudioStream" uid="uid://3nmggvansd6i" path="res://assets/music/Something-Freaky-This-Way-Comes.ogg" id="26_sp7eq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3t6gd"]
 texture = ExtResource("3_j3rm8")
@@ -1022,5 +1024,8 @@ offset_top = -128.0
 offset_right = 2176.0
 offset_bottom = 0.0
 other_stage = "uid://d0cqj6thnf2r1"
+
+[node name="SongPlayer" parent="." instance=ExtResource("25_c704u")]
+song_stream = ExtResource("26_sp7eq")
 
 [connection signal="activate" from="Objects/Door/Switch" to="Objects/Door" method="open"]

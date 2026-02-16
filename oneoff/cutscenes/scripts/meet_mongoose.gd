@@ -11,6 +11,7 @@ const UPGRADE_OFFSET := Vector2(Util.ROOM_SIZE / 2., Util.ROOM_SIZE - 6. * 8.)
 const COMPLETED_FLAG := "mongoose_boss_completed"
 
 var chunk: Vector2i
+@export var boss_theme: AudioStream
 
 signal cutscene_over()
 signal failed()
@@ -26,6 +27,7 @@ func on_chunk_load(x: int, y: int) -> void:
 	if Global.flags.has(COMPLETED_FLAG):
 		queue_free()
 	elif Vector2i(x, y) == chunk:
+		Global.music_player.stop()
 		get_tree().paused = true
 		$CutsceneBars.start()
 		var enter_right := Global.echo.global_position.x > global_position.x + Util.ROOM_SIZE / 2
@@ -55,6 +57,7 @@ func end_cutscene() -> void:
 		failed.emit()
 	, ConnectFlags.CONNECT_ONE_SHOT)
 	mongoose_boss.completed.connect(on_completed)
+	Global.play_music(boss_theme)
 	
 	get_tree().paused = false
 	cutscene_over.emit()
