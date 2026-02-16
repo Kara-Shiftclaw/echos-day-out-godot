@@ -203,6 +203,13 @@ func _input(event: InputEvent) -> void:
 		camera.add_child(PauseMenu.instantiate())
 		get_tree().paused = true
 
+func _notification(what: int) -> void:
+	if music_player != null:
+		if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+			music_player.process_mode = Node.PROCESS_MODE_DISABLED
+		elif what == NOTIFICATION_APPLICATION_FOCUS_IN:
+			music_player.process_mode = Node.PROCESS_MODE_ALWAYS
+
 func unpause() -> void:
 	get_tree().paused = false
 
