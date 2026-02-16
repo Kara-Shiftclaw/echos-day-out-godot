@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dlyo3vm215av5"]
+[gd_scene load_steps=17 format=4 uid="uid://dlyo3vm215av5"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_lffue"]
 [ext_resource type="PackedScene" uid="uid://bufqrx6gdo4an" path="res://objects/save_point.tscn" id="2_585s4"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://db1opiy6dip85" path="res://objects/enemies/wolf.tscn" id="10_idora"]
 [ext_resource type="TileSet" uid="uid://bxnc37mxvc2d3" path="res://assets/gfx/scenery/valley_tileset.tres" id="10_kailn"]
 [ext_resource type="PackedScene" uid="uid://b80sc5o8or7qk" path="res://objects/stage_transition.tscn" id="11_o5s5e"]
+[ext_resource type="PackedScene" uid="uid://d2jt4trsgdkws" path="res://oneoff/cutscenes/intro.tscn" id="16_bdyx1"]
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="20_gqqha"]
 [ext_resource type="AudioStream" uid="uid://br17oh1ei112o" path="res://assets/music/basic-music.mp3" id="21_ehe03"]
 
@@ -41,7 +42,7 @@ position = Vector2(71, 95)
 position = Vector2(867, -89)
 
 [node name="Echo" parent="." instance=ExtResource("2_h0epc")]
-position = Vector2(24, 95)
+position = Vector2(24, 147)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following", "stage_transition_parent")]
 offset = Vector2(64, 64)
@@ -168,6 +169,8 @@ other_transition_name = "IntroMountain2"
 
 [node name="SongPlayer" parent="." instance=ExtResource("20_gqqha")]
 song_stream = ExtResource("21_ehe03")
+
+[node name="Intro" parent="." instance=ExtResource("16_bdyx1")]
 
 [connection signal="activate" from="Objects/Switch" to="Objects/Door" method="open"]
 [connection signal="activate" from="Objects/Switch2" to="Objects/Door2" method="open"]
