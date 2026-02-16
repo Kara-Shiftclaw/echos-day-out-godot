@@ -13,6 +13,10 @@ config_version=5
 config/name="Echos Day Out"
 run/main_scene="uid://7kbil360lc45"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(0.13333334, 0.1254902, 0.20392157, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://c5wwe7c20hfl0"
 config/icon="res://icon.svg"
 
 [audio]

@@ -5,7 +5,6 @@ const OptionsMenu := preload("res://menu/options.tscn")
 
 func _ready() -> void:
 	Options.load_options()
-	$Options/VBoxContainer.get_child(0).grab_focus.call_deferred()
 
 func new_game() -> void:
 	get_tree().scene_changed.connect(func():
