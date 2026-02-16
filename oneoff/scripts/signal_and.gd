@@ -14,3 +14,7 @@ func set_b() -> void:
 	b = true
 	if a:
 		both_true.emit()
+
+func unset() -> void:
+	a = false
+	b = false

@@ -8,7 +8,7 @@ const DEATH_GRAVITY := Echo.GRAVITY / 2.
 @export var temporary := false
 
 func _physics_process(delta: float) -> void:
-	if $EnemyManager.health > 0:
+	if $AnimationPlayer.current_animation == "walk":
 		velocity = Vector2(MOVE_SPEED * Util.sign(moving_right), 0.)
 		move_and_slide()
 		
@@ -39,6 +39,7 @@ func die():
 
 func respawn():
 	$CollisionShape2D.set_deferred("disabled", false)
+	$AnimationPlayer.play("walk")
 	show()
 
 func disable_on_leave():

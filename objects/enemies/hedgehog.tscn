@@ -36,6 +36,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_pduax"]
 resource_name = "die"
@@ -96,6 +108,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pduax"]
 _data = {
@@ -109,12 +133,10 @@ collision_layer = 4
 script = ExtResource("1_2fyya")
 moving_right = true
 
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("1_oehah")]
+[node name="EnemyManager" parent="." instance=ExtResource("1_oehah")]
 max_health = 6
 energy_on_death = 1
-animation_player = NodePath("../AnimationPlayer")
-reset_animation = &"walk"
-parent_save_properties = Array[String](["position", "moving_right", "z_index"])
+parent_save_properties = Array[String](["position", "moving_right"])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -6
@@ -153,9 +175,9 @@ damage = 2
 stream = ExtResource("6_5bpk4")
 bus = &"Sfx"
 
+[connection signal="chunk_entered_alive" from="EnemyManager" to="." method="respawn"]
 [connection signal="chunk_left" from="EnemyManager" to="." method="disable_on_leave"]
 [connection signal="die" from="EnemyManager" to="." method="die"]
 [connection signal="hit" from="EnemyManager" to="." method="on_hit"]
-[connection signal="respawn" from="EnemyManager" to="." method="respawn"]
 [connection signal="area_entered" from="Area2D" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Area2D" to="EnemyManager" method="on_hit"]
