@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7kbil360lc45"]
+[gd_scene load_steps=11 format=3 uid="uid://7kbil360lc45"]
 
 [ext_resource type="Texture2D" uid="uid://kcys5a1h5g0j" path="res://assets/gfx/title.png" id="1_lxdol"]
 [ext_resource type="Script" uid="uid://cjew3yi6d35eb" path="res://menu/scripts/title_screen.gd" id="1_vio6n"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://co6wvp4ndh4iv" path="res://assets/music/Pixelin-It-Around-Town.ogg" id="2_88gnj"]
 [ext_resource type="Texture2D" uid="uid://c5wwe7c20hfl0" path="res://assets/gfx/ident.png" id="3_o0rbc"]
 [ext_resource type="Texture2D" uid="uid://bas5t6auv7wrh" path="res://assets/gfx/title_logo.png" id="4_w1y3c"]
+[ext_resource type="PackedScene" uid="uid://b8chs2bkmuh5e" path="res://menu/credits.tscn" id="6_lnerq"]
 
 [sub_resource type="Animation" id="Animation_88gnj"]
 resource_name = "begin"
@@ -115,7 +116,6 @@ position = Vector2(64, -96)
 texture = ExtResource("1_lxdol")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D"]
-anchors_preset = -1
 offset_left = -64.0
 offset_top = 96.0
 offset_right = 64.0
@@ -133,6 +133,7 @@ zoom = Vector2(4, 4)
 
 [node name="Options" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 0
 offset_left = 72.0
 offset_top = 32.0
 offset_right = 199.99997
@@ -154,10 +155,10 @@ texture = ExtResource("4_w1y3c")
 
 [node name="Continue" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Options")
+focus_neighbor_top = NodePath("../Credits")
 focus_neighbor_bottom = NodePath("../New Game")
 focus_next = NodePath("../New Game")
-focus_previous = NodePath("../Options")
+focus_previous = NodePath("../Credits")
 accessibility_name = "Continue"
 accessibility_description = "This continues an existing save game."
 theme = ExtResource("2_1hn3b")
@@ -177,13 +178,25 @@ text = "NEW GAME"
 [node name="Options" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../New Game")
-focus_neighbor_bottom = NodePath("../Continue")
-focus_next = NodePath("../Continue")
 focus_previous = NodePath("../New Game")
 accessibility_name = "Options"
 accessibility_description = "This displays options for audio and accessibility."
 theme = ExtResource("2_1hn3b")
 text = "OPTIONS"
+
+[node name="Credits" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Continue")
+focus_next = NodePath("../Continue")
+accessibility_name = "Options"
+accessibility_description = "This displays options for audio and accessibility."
+theme = ExtResource("2_1hn3b")
+text = "CREDITS"
+
+[node name="Credits" parent="." instance=ExtResource("6_lnerq")]
+visible = false
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -198,3 +211,4 @@ bus = &"Music"
 [connection signal="pressed" from="Options/VBoxContainer/Continue" to="." method="continue_game"]
 [connection signal="pressed" from="Options/VBoxContainer/New Game" to="." method="new_game"]
 [connection signal="pressed" from="Options/VBoxContainer/Options" to="." method="open_options_menu"]
+[connection signal="pressed" from="Options/VBoxContainer/Credits" to="." method="show_credits"]

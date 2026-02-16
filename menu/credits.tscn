@@ -1,38 +1,93 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8chs2bkmuh5e"]
+[gd_scene load_steps=3 format=3 uid="uid://b8chs2bkmuh5e"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_wp78b"]
+[ext_resource type="Script" uid="uid://bqpa8e30ossd2" path="res://menu/scripts/credits.gd" id="2_nidem"]
 
 [node name="Credits" type="Control"]
+z_index = 5
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 theme = ExtResource("1_wp78b")
+script = ExtResource("2_nidem")
 
-[node name="Created By" type="Label" parent="."]
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 118.0
-theme_override_font_sizes/font_size = 20
-text = "Game Created By
+[node name="CreatedBy" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 469.0
+grow_horizontal = 2
+text = "
+Game Created By
 
 KaraShiftclaw
-----------------
+(Using Godot 4)
+
+-------------------------
+Graphics
+
+KaraShiftclaw
+(Made w/ Aseprite)
+
+-------------------------
 SFX
 
 KaraShiftclaw
-----------------
-SFX Samples
+(Made w/ BeepBox and FL 
+Studio)
 
-\"Deme Kume 
-Chame-Go\" by 
+-------------------------
+Some SFX Sampled From
+
+\"Deme Kume Chame-Go\" by 
 Osamu Sato
-----------------
+
+-------------------------
 Music
 
-\"game 
-background\" by
-jumpingbunny"
+Arcade Drama 2
+
+Funky Chiptune
+
+Pixelin' It Around Town
+
+Something Freaky This
+Way Comes
+
+The 8-Bit Circus
+
+The Arcade Detective
+
+All by Eric Matyas
+soundimage.org
+
+-------------------------
+Special Thanks to Nox & 
+Laz for enabling my
+obese dragon game
+hyperfixation
+
+-------------------------
+Support human artists
+
+Eat and get very fat
+
+Keep watching the skiis
+
+Thats it ok goodbye
+"
 horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CreatedBy"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
