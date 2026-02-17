@@ -5,6 +5,8 @@ const OptionsMenu := preload("res://menu/options.tscn")
 
 func _ready() -> void:
 	Options.load_options()
+	if !Global.has_saved_data(1):
+		$Options/VBoxContainer/Continue.disabled = true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel", false, false) and $Credits.visible:
@@ -20,7 +22,8 @@ func new_game() -> void:
 	get_tree().change_scene_to_packed(FirstStage)
 
 func continue_game() -> void:
-	Global.load_data(1)
+	if Global.has_saved_data(1):
+		Global.load_data(1)
 
 func open_options_menu() -> void:
 	var options_menu := OptionsMenu.instantiate()

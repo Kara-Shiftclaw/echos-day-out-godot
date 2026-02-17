@@ -88,6 +88,9 @@ func save_data(save_point: Node) -> void:
 	save_file.store_line(JSON.stringify(save_dict, "\t"))
 	save.emit()
 
+func has_saved_data(load_id: int) -> bool:
+	return FileAccess.file_exists(save_path(load_id))
+
 func load_data(load_id: int) -> void:
 	save_id = load_id
 	var load_file := FileAccess.open(save_path(load_id), FileAccess.READ)
