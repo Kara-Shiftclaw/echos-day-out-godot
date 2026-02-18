@@ -10,6 +10,8 @@ enum Weight {
 const STARTING_MAX_HEALTH := 15.
 const PauseMenu := preload("res://menu/pause/pause_menu.tscn")
 
+const MONGOOSE_COMPLETED_FLAG := "mongoose_boss_completed"
+
 signal save()
 signal chunk_loaded(cx: int, cy: int)
 signal echo_health_changed(value: float)
@@ -105,6 +107,9 @@ func load_data(load_id: int) -> void:
 			stage_explored_spaces[explored_space] = true
 		explored_spaces[stage] = stage_explored_spaces
 	
+	if flags.has(MONGOOSE_COMPLETED_FLAG):
+		_fireball = true
+	
 	get_tree().scene_changed.connect(func():
 		var save_point_path: String = load_json["save_point"]
 		var save_point: Node2D = get_tree().current_scene.get_node_or_null(save_point_path)
@@ -130,6 +135,9 @@ func load_new_stage(stage: String,
 	var echo_dir := echo.facing_right
 	get_tree().change_scene_to_file(stage)
 	get_tree().scene_changed.connect(func():
+		if flags.has(MONGOOSE_COMPLETED_FLAG):
+			_fireball = true
+
 		print(get_tree().current_scene.is_node_ready())
 		var other_transition := get_tree().current_scene.get_node(other_transition_path)
 		echo.global_position = other_transition.global_position + new_world_offset
