@@ -18,7 +18,7 @@ func new_game() -> void:
 	get_tree().scene_changed.connect(func():
 		Global.load_abilities(false, false, false, false)
 		Global.recalculate_max_hp()
-	, )
+	, ConnectFlags.CONNECT_ONE_SHOT)
 	get_tree().change_scene_to_packed(FirstStage)
 
 func continue_game() -> void:

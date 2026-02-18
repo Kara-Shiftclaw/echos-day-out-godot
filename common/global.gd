@@ -135,10 +135,6 @@ func load_new_stage(stage: String,
 	var echo_dir := echo.facing_right
 	get_tree().change_scene_to_file(stage)
 	get_tree().scene_changed.connect(func():
-		if flags.has(MONGOOSE_COMPLETED_FLAG):
-			_fireball = true
-
-		print(get_tree().current_scene.is_node_ready())
 		var other_transition := get_tree().current_scene.get_node(other_transition_path)
 		echo.global_position = other_transition.global_position + new_world_offset
 		echo.facing_right = echo_dir
@@ -172,6 +168,18 @@ func full_respawn():
 
 func restore_health():
 	health = max_health
+
+func grant_abilities(
+		grant_fireball: bool, 
+		grant_double_jump: bool, 
+		grant_sprint: bool, 
+		grant_crush: bool) -> void:
+	load_abilities(
+		grant_fireball or _fireball,
+		grant_double_jump or _double_jump,
+		grant_sprint or _sprint,
+		grant_crush or _crush,
+	)
 
 func load_abilities(
 		load_fireball: bool, 

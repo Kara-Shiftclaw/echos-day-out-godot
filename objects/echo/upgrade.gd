@@ -62,11 +62,7 @@ func begin_gain() -> void:
 		Global.Weight.Blob:
 			$AnimationPlayer.play("gain_4")
 	
-	Global.has_fireball = grant_fireball
-	Global.has_double_jump = grant_double_jump
-	Global.has_sprint = grant_sprint
-	Global.has_crush = grant_crush
-	Global.recalculate_weight()
+	Global.grant_abilities(grant_fireball, grant_double_jump, grant_sprint, grant_crush)
 	Global.echo.play_anim("idle", 99)
 	Global.echo.anim_priority = 1
 

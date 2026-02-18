@@ -39,15 +39,12 @@ func _ready() -> void:
 	)
 	chunk = Vector2i(floori(parent.global_position.x / Util.ROOM_SIZE), floori(parent.global_position.y / Util.ROOM_SIZE))
 	Global.chunk_loaded.connect(func(cx: int, cy: int) -> void:
-		print(parent.name, ": Chunk ", cx, " ", cy, " loaded")
 		if chunk.x == cx and chunk.y == cy:
-			print(parent.name, ": entered")
 			chunk_entered.emit()
 			if health > 0:
 				chunk_entered_alive.emit()
 			parent.process_mode = Node.PROCESS_MODE_INHERIT
 		elif parent.can_process():
-			print(parent.name, ": left")
 			chunk_left.emit()
 			parent.process_mode = Node.PROCESS_MODE_DISABLED
 	)
