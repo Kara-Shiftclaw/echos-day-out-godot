@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cpf870qyhbg0"]
+[gd_scene load_steps=30 format=4 uid="uid://cpf870qyhbg0"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3kelf1cerb" path="res://assets/gfx/scenery/sporeways_omni.png" id="1_gob7n"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_q8lqc"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://0pbsxos37t77" path="res://objects/enemies/hedgehog.tscn" id="6_f8ftu"]
 [ext_resource type="PackedScene" uid="uid://cxtlyraput0t5" path="res://objects/enemies/spike_hedgehog.tscn" id="7_bx41r"]
 [ext_resource type="PackedScene" uid="uid://c41qbd7hybpmg" path="res://objects/enemies/spider.tscn" id="8_iopqv"]
+[ext_resource type="PackedScene" uid="uid://c8dvt0avx6bkw" path="res://objects/region_name.tscn" id="8_sp7eq"]
 [ext_resource type="PackedScene" uid="uid://caed6skxowe3i" path="res://objects/door.tscn" id="9_d6e5t"]
 [ext_resource type="PackedScene" uid="uid://drj5lv428asa1" path="res://objects/enemies/standard_mushroom.tscn" id="9_iopqv"]
 [ext_resource type="PackedScene" uid="uid://cfgmg3nrak5rv" path="res://objects/enemies/lil_mushroom.tscn" id="9_m2qel"]
@@ -822,6 +823,10 @@ following = NodePath("../Echo")
 stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("4_k0icb")]
+
+[node name="RegionName" parent="Camera2D" instance=ExtResource("8_sp7eq")]
+position = Vector2(0, 8)
+region_name = "The Sporeways"
 
 [node name="Objects" type="Node2D" parent="."]
 

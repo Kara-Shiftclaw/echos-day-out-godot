@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://x0cp1goc127g"]
+[gd_scene load_steps=28 format=4 uid="uid://x0cp1goc127g"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_18db3"]
 [ext_resource type="TileSet" uid="uid://bxnc37mxvc2d3" path="res://assets/gfx/scenery/valley_tileset.tres" id="1_my03o"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dnu07ervecpho" path="res://objects/enemies/crow.tscn" id="7_wvjee"]
 [ext_resource type="PackedScene" uid="uid://ca72bwose76ae" path="res://objects/switch.tscn" id="8_7edfj"]
 [ext_resource type="PackedScene" uid="uid://cxtlyraput0t5" path="res://objects/enemies/spike_hedgehog.tscn" id="8_qncom"]
+[ext_resource type="PackedScene" uid="uid://c8dvt0avx6bkw" path="res://objects/region_name.tscn" id="10_tdhlc"]
 [ext_resource type="PackedScene" uid="uid://71ne35ggsd78" path="res://objects/falling_tile_generator.tscn" id="11_ls2ml"]
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="12_axjnv"]
 [ext_resource type="PackedScene" uid="uid://dstd7i1wcevmu" path="res://oneoff/hint_npc.tscn" id="13_fia7k"]
@@ -199,6 +200,10 @@ following = NodePath("../Echo")
 stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("4_nk05n")]
+
+[node name="RegionName" parent="Camera2D" instance=ExtResource("10_tdhlc")]
+position = Vector2(0, 8)
+region_name = "Heftwind Hills"
 
 [node name="Enemies" type="Node2D" parent="."]
 

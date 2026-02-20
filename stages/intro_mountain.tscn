@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dlyo3vm215av5"]
+[gd_scene load_steps=18 format=4 uid="uid://dlyo3vm215av5"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_lffue"]
 [ext_resource type="PackedScene" uid="uid://bufqrx6gdo4an" path="res://objects/save_point.tscn" id="2_585s4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b4ifpuqalil06" path="res://objects/echo/follow_camera.gd" id="3_duntd"]
 [ext_resource type="PackedScene" uid="uid://d0kiufe6wem6i" path="res://objects/echo/health_bar.tscn" id="5_7tf6m"]
 [ext_resource type="PackedScene" uid="uid://cfeg32boou2fo" path="res://objects/enemies/scare_dragon.tscn" id="6_qtm6w"]
+[ext_resource type="PackedScene" uid="uid://c8dvt0avx6bkw" path="res://objects/region_name.tscn" id="7_dcvu5"]
 [ext_resource type="PackedScene" uid="uid://0pbsxos37t77" path="res://objects/enemies/hedgehog.tscn" id="7_g2naw"]
 [ext_resource type="PackedScene" uid="uid://caed6skxowe3i" path="res://objects/door.tscn" id="8_yuxvn"]
 [ext_resource type="PackedScene" uid="uid://ca72bwose76ae" path="res://objects/switch.tscn" id="9_wp4tt"]
@@ -52,6 +53,10 @@ following = NodePath("../Echo")
 stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("5_7tf6m")]
+
+[node name="RegionName" parent="Camera2D" instance=ExtResource("7_dcvu5")]
+position = Vector2(0, 8)
+region_name = "Mount ???"
 
 [node name="Enemies" type="Node2D" parent="."]
 
