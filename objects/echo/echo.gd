@@ -92,7 +92,7 @@ func _ready() -> void:
 	Global.echo_died.connect(die)
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and !in_attack_anim():
 		if is_on_floor():
 			begin_attack()
 
@@ -216,6 +216,9 @@ func do_attack() -> void:
 	add_child(attack)
 	attack.position = Vector2(facing_sign * 10., 0.)
 	attack.get_node("Damage").connect("hit", attack_rhythm.validate)
+
+func in_attack_anim() -> bool:
+	return is_cur_anim("attack") or is_cur_anim("attack_2") or is_cur_anim("attack_3")
 
 func play_anim(anim_name: String, priority: int = 0) -> bool:
 	if priority >= anim_priority:
