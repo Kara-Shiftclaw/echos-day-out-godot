@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfvqgvsjhvoa8"]
+[gd_scene load_steps=12 format=3 uid="uid://dfvqgvsjhvoa8"]
 
 [ext_resource type="Script" uid="uid://bnogg71quwr5u" path="res://oneoff/cutscenes/scripts/meet_mongoose.gd" id="1_t7e5t"]
 [ext_resource type="PackedScene" uid="uid://bdkeka5ulrpns" path="res://menu/cutscene_bars.tscn" id="2_cywe0"]
 [ext_resource type="Texture2D" uid="uid://dyd4386e80teo" path="res://assets/gfx/mongoose_cutscene.png" id="3_2gt5l"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="4_7vujl"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="5_gegxn"]
 
 [sub_resource type="Animation" id="Animation_thj2l"]
 length = 0.001
@@ -50,7 +52,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_7vujl"]
-resource_name = "mongoose_notice"
+resource_name = "mongoose_repeat_notice"
 length = 1.4
 step = 0.1
 tracks/0/type = "value"
@@ -92,11 +94,99 @@ tracks/2/keys = {
 "values": [0.0, 2.0, -2.0, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_gegxn"]
+resource_name = "mongoose_notice"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mongoose:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mongoose:offset:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 2.0, -2.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Monologue/StandardTextBox3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_next"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_r4rnf"]
+resource_name = "mongoose_put_crown"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mongoose:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999964, 0.19999999, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.49999994),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_cutscene"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mongoose:offset:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7vujl"]
 _data = {
 &"RESET": SubResource("Animation_thj2l"),
 &"mongoose_idle": SubResource("Animation_2gt5l"),
-&"mongoose_notice": SubResource("Animation_7vujl")
+&"mongoose_notice": SubResource("Animation_gegxn"),
+&"mongoose_put_crown": SubResource("Animation_r4rnf"),
+&"mongoose_repeat_notice": SubResource("Animation_7vujl")
 }
 
 [node name="MeetMongoose" type="Node2D"]
@@ -118,8 +208,29 @@ libraries = {
 &"": SubResource("AnimationLibrary_7vujl")
 }
 
-[node name="NoticeDelay" type="Timer" parent="."]
-wait_time = 1.6
+[node name="RepeatNoticeDelay" type="Timer" parent="."]
+wait_time = 0.8
 one_shot = true
 
-[connection signal="timeout" from="NoticeDelay" to="AnimationPlayer" method="play" binds= [&"mongoose_notice"]]
+[node name="NoticeDelay" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Monologue" parent="." instance=ExtResource("4_7vujl")]
+
+[node name="StandardTextBox" parent="Monologue" instance=ExtResource("5_gegxn")]
+text = "Temperature up 8 degrees, magma production is booming, ice cream 20% tastier..."
+
+[node name="StandardTextBox2" parent="Monologue" instance=ExtResource("5_gegxn")]
+text = "That old magpie was right, this Draconic Energy has made me the greatest king ever!"
+
+[node name="StandardTextBox3" parent="Monologue" instance=ExtResource("5_gegxn")]
+text = "I'm so much better at this than Ch-"
+
+[node name="StandardTextBox4" parent="Monologue" instance=ExtResource("5_gegxn")]
+text = "OH MY GOD YOUR REAL??"
+
+[connection signal="timeout" from="RepeatNoticeDelay" to="AnimationPlayer" method="play" binds= [&"mongoose_repeat_notice"]]
+[connection signal="timeout" from="NoticeDelay" to="Monologue" method="render"]
+[connection signal="before_next" from="Monologue/StandardTextBox3" to="." method="notice"]
+[connection signal="next" from="Monologue/StandardTextBox4" to="AnimationPlayer" method="play" binds= [&"mongoose_put_crown"]]

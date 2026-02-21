@@ -9,6 +9,7 @@ const RIGHT_OFFSET := Util.ROOM_SIZE - ECHO_WALK_OFFSET
 const ECHO_Y_OFFSET := Util.ROOM_SIZE - 24. - 9.
 const UPGRADE_OFFSET := Vector2(Util.ROOM_SIZE / 2., Util.ROOM_SIZE - 6. * 8.)
 const COMPLETED_FLAG := "mongoose_boss_completed"
+const MONOLOGUE_FLAG := "mongoose_boss_monologue"
 
 var chunk: Vector2i
 @export var boss_theme: AudioStream
@@ -42,7 +43,14 @@ func on_chunk_load(x: int, y: int) -> void:
 		echo_walker.face_right_on_deletion = !enter_right
 		add_child(echo_walker)
 		echo_walker.position.y = ECHO_Y_OFFSET
-		echo_walker.dest_reached.connect($NoticeDelay.start)
+		
+		if Global.flags.has(MONOLOGUE_FLAG):
+			echo_walker.dest_reached.connect($RepeatNoticeDelay.start)
+		else:
+			echo_walker.dest_reached.connect($NoticeDelay.start)
+
+func notice(_ignored: Node) -> void:
+	$AnimationPlayer.play("mongoose_notice")
 
 func end_cutscene() -> void:
 	$Mongoose.hide()
@@ -58,6 +66,7 @@ func end_cutscene() -> void:
 	, ConnectFlags.CONNECT_ONE_SHOT)
 	mongoose_boss.completed.connect(on_completed)
 	Global.play_music(boss_theme)
+	Global.flags.set(MONOLOGUE_FLAG, true)
 	
 	get_tree().paused = false
 	cutscene_over.emit()

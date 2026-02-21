@@ -16,3 +16,6 @@ func on_view_close_signaled(view: TextBoxView) -> void:
 		before_next.emit(self)
 	else:
 		next.emit()
+
+func emit_next() -> void:
+	next.emit()
