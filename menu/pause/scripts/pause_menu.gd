@@ -2,6 +2,8 @@ extends TabContainer
 
 func _ready() -> void:
 	Global.music_player.volume_linear = 0.7
+	if !Global.flags.has("has_journal"):
+		$JNL.queue_free()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("pause") and event.is_pressed():
