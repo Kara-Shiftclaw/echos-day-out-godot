@@ -58,8 +58,8 @@ func end_cutscene() -> void:
 	
 	var mongoose_boss: Node2D = MongooseBoss.instantiate()
 	mongoose_boss.facing_right = !$Mongoose.flip_h
-	get_parent().add_child(mongoose_boss)
 	mongoose_boss.global_position = $Mongoose.global_position
+	get_parent().add_child(mongoose_boss)
 	mongoose_boss.upgrade_pos = global_position + UPGRADE_OFFSET
 	Global.echo.respawned.connect(func():
 		failed.emit()
