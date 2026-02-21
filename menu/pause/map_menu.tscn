@@ -7,7 +7,6 @@
 
 [node name="MapMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
 offset_left = 8.0
 offset_top = 21.0
 offset_right = 120.0

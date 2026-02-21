@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://csxqvil3k0xyk"]
+[gd_scene load_steps=7 format=3 uid="uid://csxqvil3k0xyk"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_tllbf"]
 [ext_resource type="Script" uid="uid://cooeuc455ic7s" path="res://menu/pause/scripts/pause_menu.gd" id="2_4u03m"]
 [ext_resource type="PackedScene" uid="uid://dc2podv1rf1ei" path="res://menu/pause/map_menu.tscn" id="2_fuf1y"]
 [ext_resource type="PackedScene" uid="uid://f3mqixlhlmu" path="res://menu/pause/status_menu.tscn" id="2_sbl3r"]
 [ext_resource type="PackedScene" uid="uid://dsvmwudnsp4i1" path="res://menu/accessibility_menu.tscn" id="5_4u03m"]
+[ext_resource type="PackedScene" uid="uid://dj6gbqw7p5dh6" path="res://menu/pause/journal/journal_menu.tscn" id="5_04uu7"]
 
 [node name="PauseMenu" type="TabContainer"]
 process_mode = 3
@@ -15,6 +16,7 @@ offset_right = 120.0
 offset_bottom = 120.0
 theme = ExtResource("1_tllbf")
 current_tab = 0
+clip_tabs = false
 script = ExtResource("2_4u03m")
 
 [node name="MAP" parent="." instance=ExtResource("2_fuf1y")]
@@ -26,9 +28,14 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="ACC" parent="." instance=ExtResource("5_4u03m")]
+[node name="JNL" parent="." instance=ExtResource("5_04uu7")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="ACC" parent="." instance=ExtResource("5_4u03m")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
 
 [connection signal="tree_exiting" from="." to="." method="save_options"]

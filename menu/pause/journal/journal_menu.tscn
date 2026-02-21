@@ -1,6 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj6gbqw7p5dh6"]
+[gd_scene load_steps=5 format=3 uid="uid://dj6gbqw7p5dh6"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_84tiq"]
+[ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_eaky5"]
+[ext_resource type="Script" uid="uid://cip28kfsgbf55" path="res://menu/pause/journal/scripts/journal_menu.gd" id="3_3c57c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rtkn1"]
+texture = ExtResource("2_eaky5")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(26, 0, 17, 17)
 
 [node name="JournalMenu" type="Panel"]
+offset_left = 8.0
+offset_top = 21.0
+offset_right = 120.0
+offset_bottom = 120.0
 theme = ExtResource("1_84tiq")
+theme_override_styles/panel = SubResource("StyleBoxTexture_rtkn1")
+script = ExtResource("3_3c57c")
+
+[node name="Menu" type="ScrollContainer" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+
+[node name="EntryContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2

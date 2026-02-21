@@ -73,6 +73,7 @@ var music_player: AudioStreamPlayer = null
 
 var flags := {}
 var explored_spaces := {}
+var journal_entries := {"journalist": true, "artifact": true, "hugehog": true}
 
 func save_data(save_point: Node) -> void:
 	var save_dict := {
