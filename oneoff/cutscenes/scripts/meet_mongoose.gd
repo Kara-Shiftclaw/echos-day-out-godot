@@ -31,6 +31,7 @@ func on_chunk_load(x: int, y: int) -> void:
 		Global.music_player.stop()
 		get_tree().paused = true
 		$CutsceneBars.start()
+		$EdgarName/AnimationPlayer.play("show")
 		var enter_right := Global.echo.global_position.x > global_position.x + Util.ROOM_SIZE / 2
 		
 		$Mongoose.show()
@@ -55,6 +56,7 @@ func notice(_ignored: Node) -> void:
 func end_cutscene() -> void:
 	$Mongoose.hide()
 	$CutsceneBars.end()
+	$EdgarName/AnimationPlayer.play("hide")
 	
 	var mongoose_boss: Node2D = MongooseBoss.instantiate()
 	mongoose_boss.facing_right = !$Mongoose.flip_h
