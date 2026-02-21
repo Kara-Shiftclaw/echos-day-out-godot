@@ -685,7 +685,7 @@ text = "My, another great meal! Thank you, fellow beast! I'm glad I never ate yo
 text = "What?! I AM a monster, after all! Besides, I decided against it!"
 
 [node name="StandardTextBox4" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
-text = "I do know you're nature. A dragon made of pure energy."
+text = "I do know your nature. A dragon made of pure energy."
 
 [node name="StandardTextBox7" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
 text = "Each pound of blubber for you is a million Calories for me, at least~."
