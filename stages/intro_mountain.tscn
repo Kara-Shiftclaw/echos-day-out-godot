@@ -56,7 +56,7 @@ stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="RegionName" parent="Camera2D" instance=ExtResource("7_dcvu5")]
 position = Vector2(0, 8)
-region_name = "Mount ???"
+region_name = "Mt ???"
 
 [node name="Enemies" type="Node2D" parent="."]
 
