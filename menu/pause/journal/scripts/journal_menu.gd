@@ -97,7 +97,7 @@ func _input(event: InputEvent) -> void:
 
 func prev_page() -> void:
 	var cur_entry_button := menu_node.get_node(cur_entry)
-	if cur_entry_button.get_index() != 0:
+	if cur_entry_button.get_index() > 1:
 		var prev := menu_node.get_child(cur_entry_button.get_index() - 1)
 		load_from_button(prev.name)
 

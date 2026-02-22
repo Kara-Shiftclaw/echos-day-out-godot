@@ -754,6 +754,7 @@ libraries = {
 [node name="EnemyManager" parent="." instance=ExtResource("3_ihgbm")]
 max_health = 100
 energy_on_death = 4
+journal_entry = "mongoose"
 
 [node name="BadJumpDamage" type="Node" parent="EnemyManager"]
 script = ExtResource("4_6gl4w")
