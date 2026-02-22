@@ -11,3 +11,6 @@ func _physics_process(_delta: float) -> void:
 
 	if is_on_ceiling() and $AnimationPlayer.current_animation == "climb":
 		$AnimationPlayer.play("idle")
+
+func hit_journal_entry() -> void:
+	Global.journal_entries.set($EnemyManager.journal_entry, true)

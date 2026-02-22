@@ -526,6 +526,7 @@ autoplay = "idle"
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("2_4cspd")]
 max_health = 15
 energy_on_death = 1
+journal_entry = "standard_mushroom"
 animation_player = NodePath("../AnimationPlayer")
 reset_animation = &"idle"
 

@@ -320,6 +320,7 @@ hframes = 13
 [node name="EnemyManager" parent="." instance=ExtResource("2_wph6m")]
 max_health = 14
 energy_per_damage = 0.175
+journal_entry = "crow"
 parent_save_properties = Array[String](["position", "moving_right"])
 
 [node name="Hurtbox" type="Area2D" parent="."]

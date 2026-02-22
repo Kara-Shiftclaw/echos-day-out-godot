@@ -81,6 +81,7 @@ func save_data(save_point: Node) -> void:
 		"explored_spaces": compress_explored_spaces(),
 		"save_point": save_point.get_path(),
 		"flags": flags,
+		"journal_entries": journal_entries,
 		"max_health": max_health,
 		"fireball": _fireball,
 		"double_jump": _double_jump,
@@ -99,6 +100,8 @@ func load_data(load_id: int) -> void:
 	var load_file := FileAccess.open(save_path(load_id), FileAccess.READ)
 	var load_json: Dictionary = JSON.parse_string(load_file.get_as_text())
 	flags = load_json["flags"]
+	if load_json.has("journal_entries"):
+		journal_entries = load_json["journal_entries"]
 	
 	explored_spaces = {}
 	var load_explored_spaces: Dictionary = load_json.get("explored_spaces", {})

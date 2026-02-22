@@ -136,6 +136,7 @@ moving_right = true
 [node name="EnemyManager" parent="." instance=ExtResource("1_oehah")]
 max_health = 6
 energy_on_death = 1
+journal_entry = "hedgehog"
 parent_save_properties = Array[String](["position", "moving_right"])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

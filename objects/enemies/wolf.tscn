@@ -601,6 +601,7 @@ hframes = 12
 max_health = 1
 energy_per_damage = 0.0
 energy_on_death = 3
+journal_entry = "wolf"
 parent_save_properties = Array[String](["position", "moving_right"])
 
 [node name="Hurtbox" type="Area2D" parent="."]

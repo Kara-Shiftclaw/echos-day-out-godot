@@ -78,6 +78,7 @@ func next_talk() -> void:
 
 func next_feed() -> void:
 	$Text/GiveFood.get_child(self_weight).render()
+	Global.journal_entries.set("affamae", true)
 
 func next_hint() -> void:
 	var hint: int = Global.flags.get(USED_HINTS_FLAG, 0)

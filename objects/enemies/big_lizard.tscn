@@ -758,6 +758,7 @@ libraries = {
 max_health = 26
 energy_per_damage = 0.167
 energy_on_death = 4
+journal_entry = "big_lizard"
 parent_save_properties = Array[String](["position", "jumping", "velocity", "facing_right"])
 
 [node name="Damage" parent="." instance=ExtResource("3_srimy")]

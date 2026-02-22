@@ -847,6 +847,7 @@ hit_from_inside = true
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("3_upc08")]
 max_health = 16
+journal_entry = "small_lizard"
 animation_player = NodePath("../AnimationPlayer")
 parent_save_properties = Array[String](["position", "facing_right"])
 

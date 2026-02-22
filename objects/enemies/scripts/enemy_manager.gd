@@ -3,6 +3,7 @@ extends Node
 @export var max_health := 4
 @export var energy_per_damage := 0.25
 @export var energy_on_death := 2
+@export var journal_entry := ""
 @export var animation_player: AnimationPlayer
 @export var reset_animation := &"RESET"
 @export var parent_save_properties: Array[String] = [
@@ -78,6 +79,8 @@ func take_damage(damage: Damage) -> void:
 			if health <= 0:
 				die.emit()
 				EnergyOrb.create_n(energy_on_death, get_parent().global_position, Global.echo)
+				if journal_entry != "":
+					Global.journal_entries.set(journal_entry, true)
 
 func reset() -> void:
 	post_load_frame = true

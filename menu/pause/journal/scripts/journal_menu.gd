@@ -69,7 +69,7 @@ func _ready() -> void:
 
 func setup_buttons() -> void:
 	for code_name in Entry:
-		if true or Global.journal_entries.has(code_name):
+		if Global.journal_entries.has(code_name):
 			var entry_name := get_entry_name(Entry[code_name])
 			var entry_button: Button = EntryButton.instantiate()
 			entry_button.text = entry_name
