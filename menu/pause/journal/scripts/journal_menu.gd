@@ -8,6 +8,7 @@ const ENTRY_NOT_OPEN := ""
 enum Entry {
 	journalist,
 	artifact,
+	affamae,
 	scare_dragon,
 	hedgehog,
 	wolf,
@@ -17,8 +18,8 @@ enum Entry {
 	small_lizard,
 	big_lizard,
 	mongoose,
-	lil_mushroom,
 	standard_mushroom,
+	lil_mushroom,
 	spider,
 	hugehog,
 }
@@ -32,6 +33,8 @@ func get_entry_name(entry: Entry) -> String:
 			return "Maxwell Flinthelm II"
 		Entry.artifact:
 			return "Artifact of Echo"
+		Entry.affamae:
+			return "Affamae"
 		Entry.scare_dragon:
 			return "Scaredrake"
 		Entry.hedgehog:
@@ -50,10 +53,10 @@ func get_entry_name(entry: Entry) -> String:
 			return "Geckordo"
 		Entry.mongoose:
 			return "- Edgar -"
-		Entry.lil_mushroom:
-			return "Sporeling"
 		Entry.standard_mushroom:
 			return "Sporecap"
+		Entry.lil_mushroom:
+			return "Sporeling"
 		Entry.spider:
 			return "Spider"
 		Entry.hugehog:
@@ -66,7 +69,7 @@ func _ready() -> void:
 
 func setup_buttons() -> void:
 	for code_name in Entry:
-		if Global.journal_entries.has(code_name):
+		if true or Global.journal_entries.has(code_name):
 			var entry_name := get_entry_name(Entry[code_name])
 			var entry_button: Button = EntryButton.instantiate()
 			entry_button.text = entry_name
@@ -76,6 +79,9 @@ func setup_buttons() -> void:
 
 func _input(event: InputEvent) -> void:
 	if cur_entry != ENTRY_NOT_OPEN:
+		if event.is_action_pressed("pause"):
+			get_parent().unpause()
+			get_viewport().set_input_as_handled()
 		if event.is_action_pressed("ui_cancel"):
 			clear_entry_container()
 			$Menu.show()

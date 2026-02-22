@@ -17,7 +17,7 @@ offset_left = 3.0
 offset_top = 3.0
 offset_right = 109.0
 offset_bottom = 34.0
-color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+color = Color(0.54509807, 0.3529412, 0.28235295, 1)
 
 [node name="Baseline" type="ColorRect" parent="Background"]
 layout_mode = 1
@@ -35,6 +35,26 @@ position = Vector2(56, 22)
 texture = ExtResource("1_3qhay")
 region_enabled = true
 region_rect = Rect2(4, 2, 32, 22)
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+offset_left = 14.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = 1.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Sprite2D"]
+offset_left = -9.0
+offset_top = -5.0
+offset_right = -8.0
+offset_bottom = -4.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Sprite2D"]
+offset_left = -13.0
+offset_top = -1.0
+offset_right = -12.0
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

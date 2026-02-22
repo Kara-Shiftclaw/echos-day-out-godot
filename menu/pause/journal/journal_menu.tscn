@@ -26,7 +26,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_rtkn1")
 script = ExtResource("3_3c57c")
 
 [node name="Menu" type="ScrollContainer" parent="."]
-clip_contents = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -39,6 +38,11 @@ vertical_scroll_mode = 4
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
+text = "- Faces of the Valley -"
 
 [node name="EntryContainer" type="Control" parent="."]
 layout_mode = 1

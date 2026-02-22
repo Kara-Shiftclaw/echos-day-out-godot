@@ -1,16 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddv2u04k3q3wd"]
+[gd_scene load_steps=4 format=3 uid="uid://cyaof1gpr55mm"]
 
-[ext_resource type="Texture2D" uid="uid://d0rskdmo1sauf" path="res://assets/gfx/echo_cutscene.png" id="1_1l688"]
-[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_jnuvm"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_8uibq"]
+[ext_resource type="Texture2D" uid="uid://b14x5inpm4u3o" path="res://assets/gfx/big_lizard.png" id="2_8uibq"]
+[ext_resource type="Texture2D" uid="uid://ch1owpw40h3y0" path="res://assets/gfx/small_lizard_fire.png" id="3_3qu0o"]
 
-[node name="Artifact" type="Control"]
+[node name="Entry" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_jnuvm")
+theme = ExtResource("1_8uibq")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,10 +34,17 @@ grow_vertical = 2
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(56, 31)
-texture = ExtResource("1_1l688")
+position = Vector2(56, 25)
+texture = ExtResource("2_8uibq")
 region_enabled = true
-region_rect = Rect2(12, 6, 4, 4)
+region_rect = Rect2(8, 1, 22, 16)
+
+[node name="Fire" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(3, -1)
+texture = ExtResource("3_3qu0o")
+region_enabled = true
+region_rect = Rect2(2, 2, 8, 10)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -45,7 +53,7 @@ offset_top = 35.0
 offset_right = 103.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
-text = "Artifact of Echo"
+text = "Geckordo"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
@@ -55,5 +63,5 @@ offset_top = 46.0
 offset_right = 112.0
 offset_bottom = 329.0
 theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
-text = "Believed to be the core of the legendary dragon, Echo. For a legendary being, its energy readings are very low..."
+text = "A Geckito that has explored the valley and been rewarded. They are strong, not in spite of, but due to their massive size."
 autowrap_mode = 2

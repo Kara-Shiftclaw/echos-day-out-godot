@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddv2u04k3q3wd"]
+[gd_scene load_steps=3 format=3 uid="uid://okeo2oncmk7"]
 
-[ext_resource type="Texture2D" uid="uid://d0rskdmo1sauf" path="res://assets/gfx/echo_cutscene.png" id="1_1l688"]
-[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_jnuvm"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_odsvw"]
+[ext_resource type="Texture2D" uid="uid://bho3vfb35ginb" path="res://assets/gfx/mongoose.png" id="2_v5q3a"]
 
-[node name="Artifact" type="Control"]
+[node name="Entry" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_jnuvm")
+theme = ExtResource("1_odsvw")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,10 +33,10 @@ grow_vertical = 2
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(56, 31)
-texture = ExtResource("1_1l688")
+position = Vector2(56, 22)
+texture = ExtResource("2_v5q3a")
 region_enabled = true
-region_rect = Rect2(12, 6, 4, 4)
+region_rect = Rect2(4, 2, 20, 22)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -45,7 +45,7 @@ offset_top = 35.0
 offset_right = 103.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
-text = "Artifact of Echo"
+text = "- Edgar -"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
@@ -55,5 +55,5 @@ offset_top = 46.0
 offset_right = 112.0
 offset_bottom = 329.0
 theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
-text = "Believed to be the core of the legendary dragon, Echo. For a legendary being, its energy readings are very low..."
+text = "The local monarch. Claims to have ignited Charred Caverns <despite being a volcano for centuries>. Addicted to ice cream."
 autowrap_mode = 2
