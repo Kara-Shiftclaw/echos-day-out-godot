@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Echos Day Out"
-config/version="Demo V0.1.1"
+config/version="Demo V0.2.1"
 run/main_scene="uid://7kbil360lc45"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0.13333334, 0.1254902, 0.20392157, 1)
