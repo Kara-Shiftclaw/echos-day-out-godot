@@ -261,9 +261,10 @@ func on_hit(attacker: Node2D) -> void:
 		
 func take_damage(amount: float) -> void:
 	play_anim("hurt", 9)
-	$HurtParticles.amount = amount
-	$HurtParticles.restart()
-	Global.health -= amount
+	if amount > 0:
+		$HurtParticles.amount = amount
+		$HurtParticles.restart()
+		Global.health -= amount
 
 func stage_hurtbox_hit(_other: Node2D) -> void:
 	take_damage(3.)
