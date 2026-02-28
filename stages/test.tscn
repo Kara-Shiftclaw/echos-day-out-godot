@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dig7lasodylt8"]
+[gd_scene load_steps=12 format=4 uid="uid://dig7lasodylt8"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_2qmnm"]
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="1_u1sro"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://drvhshuujb1xs" path="res://objects/falling_tile.tscn" id="3_u1sro"]
 [ext_resource type="PackedScene" uid="uid://whn2qdsyfdyv" path="res://objects/enemies/beeorb.tscn" id="5_dp5ym"]
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="6_r1nsf"]
+[ext_resource type="PackedScene" uid="uid://bxr76a3f4ycw7" path="res://objects/enemies/bee_cannon.tscn" id="8_2foxe"]
 
 [sub_resource type="GDScript" id="GDScript_ti1c1"]
 script/source = "extends Node2D
@@ -87,6 +88,9 @@ zone"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TheHoneyZone"]
 position = Vector2(114.5, 116)
 shape = SubResource("RectangleShape2D_abicu")
+
+[node name="BeeCannon" parent="." instance=ExtResource("8_2foxe")]
+position = Vector2(65, 36)
 
 [connection signal="area_entered" from="TheHoneyZone" to="." method="honey_zone"]
 [connection signal="body_entered" from="TheHoneyZone" to="." method="honey_zone"]

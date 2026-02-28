@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://2bbo13dl6fyi"]
+
+[ext_resource type="Script" uid="uid://dxmmyrtslfhtt" path="res://objects/projectile/scripts/honeyball.gd" id="1_8aj2w"]
+[ext_resource type="Texture2D" uid="uid://c85qns4tsk3oe" path="res://assets/gfx/honeyball.png" id="2_0ds1q"]
+
+[sub_resource type="Animation" id="Animation_t5yyi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hitbox_radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_imap8"]
+resource_name = "fly"
+length = 0.45
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_csoff"]
+_data = {
+&"RESET": SubResource("Animation_t5yyi"),
+&"fly": SubResource("Animation_imap8")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_imap8"]
+radius = 4.0
+
+[node name="Honeyball" type="Area2D"]
+collision_layer = 0
+collision_mask = 7
+script = ExtResource("1_8aj2w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0ds1q")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_csoff")
+}
+autoplay = "fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_imap8")
+
+[connection signal="area_entered" from="." to="." method="explode"]
+[connection signal="body_entered" from="." to="." method="explode"]

@@ -44,6 +44,11 @@ func create_follower() -> void:
 	follower.force_update_transform()
 	global_position = follower.global_position
 
+func _process(_delta: float) -> void:
+	var should_be_hungry := get_tree().get_nodes_in_group("Honey").size() > 0 and weight < MAX_WEIGHT
+	if is_hungry != should_be_hungry:
+		self.is_hungry = should_be_hungry
+
 func _physics_process(delta: float) -> void:
 	var speed := get_speed()
 	if should_be_immobile():
@@ -93,10 +98,19 @@ func sync_weight() -> void:
 
 func after_hit() -> void:
 	if is_hungry:
+		eat()
+	
+	for honey in get_tree().get_nodes_in_group("Honey"):
+		honey.queue_free()
+
+func eat() -> void:
+	if $EnemyManager.health > 0:
 		ate.emit()
 		weight += 1
 		$EnemyManager.health += 2 * weight
 		self.is_hungry = false
+		if weight == MAX_WEIGHT:
+			Global.journal_entries.set("immobile_beeorb", true)
 
 func should_attack() -> bool:
 	return $EnemyManager.health > 0 and weight < MAX_WEIGHT and (is_angry or is_hungry)
@@ -113,8 +127,8 @@ func reload_alive() -> void:
 	if follower != null:
 		follower.queue_free()
 	create_follower()
-	self.is_angry = false
 	self.weight = 0
+	self.is_angry = false
 	z_index = 0
 
 func die() -> void:
@@ -124,9 +138,3 @@ func die() -> void:
 	velocity.x = get_speed() * Util.sign(global_position.x > Global.echo.global_position.x)
 	velocity.y = -32.
 	z_index = -10
-
-func become_hungry() -> void:
-	self.is_hungry = true
-
-func stop_hungry() -> void:
-	self.is_hungry = false
