@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://c42guppbatdli"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_hni2a"]
+[ext_resource type="Texture2D" uid="uid://dbf15ro6n5881" path="res://assets/gfx/bee_cannon.png" id="2_hni2a"]
+
+[node name="Entry" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hni2a")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 109.0
+offset_bottom = 34.0
+color = Color(0.54509807, 0.3529412, 0.28235295, 1)
+
+[node name="Baseline" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(56, 16)
+texture = ExtResource("2_hni2a")
+region_enabled = true
+region_rect = Rect2(0, 0, 14, 16)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 35.0
+offset_right = 103.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
+text = "Wasp-Cannon"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 46.0
+offset_right = 112.0
+offset_bottom = 329.0
+theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
+text = "While they look more active than the Orbees,
+they just shoot problems with honey until the Orbees do it for them."
+autowrap_mode = 2
