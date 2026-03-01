@@ -135,7 +135,8 @@ func load_data(load_id: int) -> void:
 func load_new_stage(stage: String,
 		new_world_offset: Vector2,
 		transition_chunk_offset: Vector2i,
-		other_transition_path: String) -> void:
+		other_transition_path: String,
+		jumping_up: bool) -> void:
 	var echo_dir := echo.facing_right
 	get_tree().change_scene_to_file(stage)
 	get_tree().scene_changed.connect(func():
@@ -144,6 +145,8 @@ func load_new_stage(stage: String,
 		echo.facing_right = echo_dir
 		echo.play_anim("idle")
 		echo.anim_seek(0.)
+		if jumping_up:
+			echo.new_stage_jump()
 		camera.recalculate_chunk()
 		health_bar.recalculate_health_bar(health)
 		

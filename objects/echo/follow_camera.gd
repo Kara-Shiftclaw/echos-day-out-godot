@@ -32,11 +32,12 @@ func recalculate_chunk() -> void:
 			var new_world_offset := following.global_position + transition_other_side - stage_transition.global_position
 			var transition_chunk_offset := ((following.global_position - stage_transition.global_position) / Util.ROOM_SIZE).floor() as Vector2i
 			var other_transition_path = stage_transition.get_other_transition_path()
+			var jumping_up := new_chunk.y == chunk.y - 1
 			
 			var transition := Echo.DeathScreen.instantiate()
 			add_child(transition)
 			transition.halfway.connect(func():
-				Global.load_new_stage(stage_transition.other_stage, new_world_offset, transition_chunk_offset, other_transition_path)
+				Global.load_new_stage(stage_transition.other_stage, new_world_offset, transition_chunk_offset, other_transition_path, jumping_up)
 			)
 		else:
 			chunk = new_chunk

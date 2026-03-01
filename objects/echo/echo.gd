@@ -64,6 +64,7 @@ const SPRINT_SPEED = 14. * 8.
 const DASH_SPEED = 20. * 8.
 const EXPLODE_FALL_SPEED := 48. * 8.
 const DOUBLE_JUMP_HEIGHT := 2. * 8.
+const NEW_STAGE_JUMP_HEIGHT := 4. * 8.
 const CRUSH_DOWN_VELOCITY := 1.5 * MAX_GRAVITY
 
 @export var can_move := true
@@ -182,6 +183,10 @@ func _physics_process(delta: float) -> void:
 				velocity.y = move_toward(velocity.y, MAX_GRAVITY, GRAVITY * delta)
 			
 			move_and_slide()
+
+func new_stage_jump():
+	$JumpTimer.start(NEW_STAGE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
+	play_anim("jump", 1)
 
 func die():
 	Global.music_player.stop()
