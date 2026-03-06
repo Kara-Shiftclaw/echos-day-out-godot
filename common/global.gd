@@ -69,11 +69,18 @@ var health := 0.:
 		if health == 0.:
 			echo_died.emit()
 
-var music_player: AudioStreamPlayer = null
+var music_player: AudioStreamPlayer
 
 var flags := {}
 var explored_spaces := {}
 var journal_entries := {"journalist": true, "artifact": true, "hugehog": true}
+
+func _ready() -> void:
+	music_player = AudioStreamPlayer.new()
+	music_player.finished.connect(music_player.play)
+	music_player.bus = "Music"
+	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(music_player)
 
 func save_data(save_point: Node) -> void:
 	var save_dict := {
@@ -212,13 +219,6 @@ func recalculate_max_hp() -> void:
 	max_health = STARTING_MAX_HEALTH + gained_hp + Accessibility.max_hp_offset
 
 func play_music(song_stream: AudioStream) -> void:
-	if music_player == null:
-		music_player = AudioStreamPlayer.new()
-		music_player.finished.connect(music_player.play)
-		music_player.bus = "Music"
-		music_player.process_mode = Node.PROCESS_MODE_ALWAYS
-		add_child(music_player)
-	
 	if music_player.stream != song_stream:
 		music_player.stop()
 		music_player.stream = song_stream

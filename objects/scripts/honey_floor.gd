@@ -7,7 +7,9 @@ var echo_in := false
 func _ready() -> void:
 	var w := size.x
 	$Sprite2D.region_rect.size.x = w
-	($Area2D/CollisionShape2D.shape as RectangleShape2D).size.x = w
+	var rect := RectangleShape2D.new()
+	rect.size = Vector2(w, 8.)
+	$Area2D/CollisionShape2D.shape = rect
 	$Area2D/CollisionShape2D.position.x = w / 2.
 
 func enter(other: Node2D) -> void:
@@ -24,8 +26,10 @@ func _physics_process(_delta: float) -> void:
 	if echo_in and abs(Global.echo.velocity.x) > 0.1:
 		$CPUParticles2D.global_position = Global.echo.global_position
 		$CPUParticles2D.emitting = true
-		$HoneyShoot.playing = true
+		if !$HoneyShoot.playing:
+			$HoneyShoot.play()
 	else:
 		$CPUParticles2D.emitting = false
-		$HoneyShoot.playing = true
+		if $HoneyShoot.playing:
+			$HoneyShoot.stop()
 		
