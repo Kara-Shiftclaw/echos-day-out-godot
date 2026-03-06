@@ -75,7 +75,7 @@ func die() -> void:
 
 func reload_alive() -> void:
 	$PreshootTimer.stop()
-	$ShootCooldownTimer.stop()
+	$ShootCooldownTimer.start()
 	if drop_cannon.get_parent() != self:
 		drop_cannon.reparent(self)
 	$AnimationPlayer.play("idle")

@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnya0cld4qphf"]
+
+[ext_resource type="Script" uid="uid://bdpdx81etyv3o" path="res://objects/enemies/scripts/corvid_rook.gd" id="1_eyro1"]
+[ext_resource type="Texture2D" uid="uid://qu48nke8ksu7" path="res://assets/gfx/compound/corvid_rook/corvid_rook.png" id="1_su2pk"]
+[ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="3_fkk1c"]
+[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="4_fkk1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nphb"]
+size = Vector2(14, 18)
+
+[sub_resource type="Animation" id="Animation_eyro1"]
+resource_name = "idle"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_fire"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fkk1c"]
+resource_name = "die"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkk1c"]
+_data = {
+&"die": SubResource("Animation_fkk1c"),
+&"idle": SubResource("Animation_eyro1")
+}
+
+[node name="CorvidRook" type="Area2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_eyro1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("1_su2pk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_0nphb")
+
+[node name="EnemyManager" parent="." instance=ExtResource("3_fkk1c")]
+max_health = 22
+energy_per_damage = 0.167
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fkk1c")
+}
+
+[node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fkk1c")
+bus = &"Sfx"
+
+[connection signal="area_entered" from="." to="EnemyManager" method="on_hit"]
+[connection signal="body_entered" from="." to="EnemyManager" method="on_hit"]
+[connection signal="chunk_entered_alive" from="EnemyManager" to="." method="reload_alive"]
+[connection signal="chunk_left" from="EnemyManager" to="." method="unload"]
+[connection signal="die" from="EnemyManager" to="EnemyDieSound" method="play"]
+[connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]

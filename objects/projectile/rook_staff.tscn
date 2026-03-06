@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcugav75v3le1"]
+
+[ext_resource type="Script" uid="uid://bawfug47k7ql5" path="res://objects/projectile/scripts/rook_staff.gd" id="1_wn1vy"]
+[ext_resource type="Texture2D" uid="uid://d302olk7yvfc4" path="res://assets/gfx/compound/corvid_rook/extra_staff.png" id="2_v72ev"]
+
+[node name="RookStaff" type="Node2D"]
+script = ExtResource("1_wn1vy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_v72ev")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-2, -14, 4, 14)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="reload"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="unload"]
