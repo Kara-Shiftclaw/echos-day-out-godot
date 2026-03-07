@@ -8,9 +8,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nphb"]
 size = Vector2(14, 18)
 
+[sub_resource type="Animation" id="Animation_fkk1c"]
+resource_name = "die"
+
 [sub_resource type="Animation" id="Animation_eyro1"]
 resource_name = "idle"
-length = 0.7
+length = 0.9
 loop_mode = 1
 step = 0.1
 tracks/0/type = "method"
@@ -20,16 +23,13 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.7),
+"times": PackedFloat32Array(0.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"start_fire"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_fkk1c"]
-resource_name = "die"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fkk1c"]
 _data = {

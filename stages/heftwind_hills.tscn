@@ -371,6 +371,14 @@ offset_right = 768.0
 offset_bottom = -384.0
 other_stage = "uid://cye7mkllc63s0"
 
+[node name="TreetopExpanse2" parent="StageTransitions" instance=ExtResource("5_5uyyr")]
+offset_left = -128.0
+offset_top = -384.0
+offset_right = 0.0
+offset_bottom = -256.0
+other_stage = "uid://cye7mkllc63s0"
+other_transition_name = "HeftwindHills2"
+
 [node name="SongPlayer" parent="." instance=ExtResource("12_axjnv")]
 song_stream = ExtResource("23_p8f3u")
 
