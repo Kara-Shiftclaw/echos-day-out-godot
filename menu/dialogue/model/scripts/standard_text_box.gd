@@ -3,7 +3,7 @@ extends Node
 signal next()
 signal before_next(this)
 
-@export var text: String
+@export_multiline var text: String
 
 func render() -> TextBoxView:
 	var view := TextBoxView.with_text(text)

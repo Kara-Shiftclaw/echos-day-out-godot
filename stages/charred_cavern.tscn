@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://d0cqj6thnf2r1"]
+[gd_scene load_steps=38 format=4 uid="uid://d0cqj6thnf2r1"]
 
 [ext_resource type="Texture2D" uid="uid://c5lr8s0d15lyw" path="res://assets/gfx/scenery/charred_cavern_tileset.png" id="1_7vtke"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_82sa8"]
@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://dcpqq5pg8s01l" path="res://assets/music/The-8-Bit-Circus_Looping.ogg" id="20_w2j3w"]
 [ext_resource type="PackedScene" uid="uid://dxl3dovmwvovx" path="res://objects/portal_core.tscn" id="21_l8las"]
 [ext_resource type="PackedScene" uid="uid://bo7tgg1ss1jvp" path="res://objects/arena_bell.tscn" id="21_ykat0"]
+[ext_resource type="PackedScene" uid="uid://4q65cgic2843" path="res://oneoff/npc/kara.tscn" id="24_80iav"]
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="27_iscnq"]
 [ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="27_ogn11"]
 [ext_resource type="AudioStream" uid="uid://dk5ilqdvuosth" path="res://assets/music/The-Arcade-Detective_Looping.ogg" id="28_w2j3w"]
@@ -193,6 +194,12 @@ position = Vector2(983, -361)
 
 [node name="BigArenaFire3" parent="Scenery" instance=ExtResource("3_uttkf")]
 position = Vector2(1007, -361)
+
+[node name="ColorRect4" type="ColorRect" parent="Scenery"]
+offset_top = -512.0
+offset_right = 128.0
+offset_bottom = -416.0
+color = Color(0.047058824, 0.40392157, 0.14117648, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -10
@@ -410,6 +417,9 @@ position = Vector2(156, -277)
 
 [node name="PortalCore" parent="Objects" instance=ExtResource("21_l8las")]
 position = Vector2(1316, 316)
+
+[node name="Kara" parent="Objects" instance=ExtResource("24_80iav")]
+position = Vector2(58, -446)
 
 [node name="Enemies" type="Node2D" parent="."]
 

@@ -1,0 +1,249 @@
+[gd_scene load_steps=13 format=3 uid="uid://4q65cgic2843"]
+
+[ext_resource type="Script" uid="uid://cva61co7sd3m2" path="res://oneoff/npc/scripts/kara.gd" id="1_5fh0g"]
+[ext_resource type="Texture2D" uid="uid://cl0y5140oacvp" path="res://assets/gfx/kara.png" id="2_1j8ws"]
+[ext_resource type="Texture2D" uid="uid://so1fk1lylapi" path="res://assets/gfx/up_arrow.png" id="3_rjehe"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="4_3av3l"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="5_mawec"]
+
+[sub_resource type="Animation" id="Animation_rjehe"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.4, 1.6, 1.8, 2, 2.4, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_u8hte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3av3l"]
+_data = {
+&"RESET": SubResource("Animation_u8hte"),
+&"idle": SubResource("Animation_rjehe")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mawec"]
+size = Vector2(16, 24)
+
+[sub_resource type="Animation" id="Animation_s00tr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8mtm4"]
+resource_name = "bounce"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, -2), Vector2(0, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbb31"]
+_data = {
+&"RESET": SubResource("Animation_s00tr"),
+&"bounce": SubResource("Animation_8mtm4")
+}
+
+[node name="Kara" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_5fh0g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1j8ws")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_3av3l")
+}
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_mawec")
+
+[node name="UpArrow" type="Sprite2D" parent="."]
+process_mode = 3
+visible = false
+position = Vector2(0, -20)
+texture = ExtResource("3_rjehe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UpArrow"]
+libraries = {
+&"": SubResource("AnimationLibrary_mbb31")
+}
+autoplay = "bounce"
+
+[node name="Text" type="Node" parent="."]
+
+[node name="PortalGet" parent="Text" instance=ExtResource("4_3av3l")]
+
+[node name="StandardTextBox" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+text = "Oh, uh...
+
+Hi..."
+
+[node name="StandardTextBox2" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+text = "My name's Kara...
+
+I'm not supposed to be here..."
+
+[node name="StandardTextBox3" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+text = "Uh...
+
+You know about Portals?"
+
+[node name="StandardTextBox4" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+text = "They're hard to get working. you need a Portal Core, and also an Injector for it."
+
+[node name="StandardTextBox5" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+text = "Here, you can have mine. I'm not going anywhere soon."
+
+[node name="StandardTextBox6" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+text = "There's a Portal and a Core down beneath us, if you want to try it out."
+
+[node name="StandardTextBox7" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+text = "I, uh, hope you enjoy..."
+
+[node name="Chat" parent="Text" instance=ExtResource("4_3av3l")]
+
+[node name="StandardTextBox" parent="Text/Chat" instance=ExtResource("5_mawec")]
+text = "I hope it's okay if I stay in your world a bit. I like it here."
+
+[node name="StandardTextBox2" parent="Text/Chat" instance=ExtResource("5_mawec")]
+text = "The cold wind from the trees with the hot air of the caves..."
+
+[node name="StandardTextBox3" parent="Text/Chat" instance=ExtResource("5_mawec")]
+text = "It beats the snowy woods I grew up in, that's for sure."
+
+[node name="Chat2" parent="Text" instance=ExtResource("4_3av3l")]
+
+[node name="StandardTextBox" parent="Text/Chat2" instance=ExtResource("5_mawec")]
+text = "I didn't think this world would be so big."
+
+[node name="StandardTextBox2" parent="Text/Chat2" instance=ExtResource("5_mawec")]
+text = "I don't mean fat, I knew it would be very fat, just..."
+
+[node name="StandardTextBox3" parent="Text/Chat2" instance=ExtResource("5_mawec")]
+text = "I was expecting a short diversion, but this wound up being so much more."
+
+[node name="StandardTextBox4" parent="Text/Chat2" instance=ExtResource("5_mawec")]
+text = "I can't say i'm upset. I'm enjoying myself."
+
+[node name="Chat3" parent="Text" instance=ExtResource("4_3av3l")]
+
+[node name="StandardTextBox" parent="Text/Chat3" instance=ExtResource("5_mawec")]
+text = "Do you like these flowers? I brought them with me here."
+
+[node name="StandardTextBox2" parent="Text/Chat3" instance=ExtResource("5_mawec")]
+text = "They're a kind of nightshade. I call them \"Toxen Flowers.\""
+
+[node name="StandardTextBox3" parent="Text/Chat3" instance=ExtResource("5_mawec")]
+text = "They can be deadly, but if nurtured well, they can be truly beautiful."
+
+[node name="StandardTextBox4" parent="Text/Chat3" instance=ExtResource("5_mawec")]
+text = "Maybe someday I can show you more of them."
+
+[node name="Chat4" parent="Text" instance=ExtResource("4_3av3l")]
+
+[node name="StandardTextBox" parent="Text/Chat4" instance=ExtResource("5_mawec")]
+text = "Have i been repeating myself? If so, I'm sorry."
+
+[node name="StandardTextBox2" parent="Text/Chat4" instance=ExtResource("5_mawec")]
+text = "I tend to forget who I've discussed what with, and I only have so much to say..."
+
+[node name="ResizePortal" parent="Text" instance=ExtResource("4_3av3l")]
+
+[node name="StandardTextBox" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+text = "What's that? You can't fit in the portals anymore?"
+
+[node name="StandardTextBox2" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+text = "I sized them to the biggest guy I knew, but it looks like you need them bigger..."
+
+[node name="StandardTextBox3" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+text = "Here, let me see your Injector real quick."
+
+[node name="StandardTextBox4" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+text = "With this, all portals should now fit you through."
+
+[node name="StandardTextBox5" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+text = "Just, don't grow too much more, if you can help it..."
+
+[node name="StandardTextBox6" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+text = "<Holy shit she got FAT>"
+
+[node name="Chat5" parent="Text" instance=ExtResource("4_3av3l")]
+
+[node name="StandardTextBox" parent="Text/Chat5" instance=ExtResource("5_mawec")]
+text = "Y'know, I saw someone I thought was you earlier today."
+
+[node name="StandardTextBox2" parent="Text/Chat5" instance=ExtResource("5_mawec")]
+text = "She was somehow even fatter, which... how?"
+
+[node name="StandardTextBox3" parent="Text/Chat5" instance=ExtResource("5_mawec")]
+text = "She looked happy, but also scared of getting caught. Caught with what, I don't know."
+
+[node name="StandardTextBox4" parent="Text/Chat5" instance=ExtResource("5_mawec")]
+text = "She flew up the mountain. Which didn't seem physically possible..."
+
+[node name="StandardTextBox5" parent="Text/Chat5" instance=ExtResource("5_mawec")]
+text = "She might be a fan. Maybe you should check her out?"
+
+[connection signal="area_entered" from="." to="." method="entered"]
+[connection signal="area_exited" from="." to="." method="exited"]
+[connection signal="body_entered" from="." to="." method="entered"]
+[connection signal="body_exited" from="." to="." method="exited"]
+[connection signal="next" from="Text/PortalGet" to="." method="unpause"]
+[connection signal="before_next" from="Text/PortalGet/StandardTextBox5" to="." method="injector_get_popup"]
+[connection signal="next" from="Text/Chat" to="." method="update_chat"]
+[connection signal="next" from="Text/Chat2" to="." method="update_chat"]
+[connection signal="next" from="Text/Chat3" to="." method="update_chat"]
+[connection signal="next" from="Text/Chat4" to="." method="update_chat"]
+[connection signal="next" from="Text/ResizePortal" to="." method="unpause"]
+[connection signal="before_next" from="Text/ResizePortal/StandardTextBox3" to="." method="injector_xl_get_popup"]
+[connection signal="next" from="Text/Chat5" to="." method="update_chat"]
