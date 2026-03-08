@@ -74,6 +74,7 @@ var music_player: AudioStreamPlayer
 var flags := {}
 var explored_spaces := {}
 var journal_entries := {"journalist": true, "artifact": true, "hugehog": true}
+var portals := {}
 
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
@@ -89,6 +90,7 @@ func save_data(save_point: Node) -> void:
 		"save_point": save_point.get_path(),
 		"flags": flags,
 		"journal_entries": journal_entries,
+		"portals": portals,
 		"max_health": max_health,
 		"fireball": _fireball,
 		"double_jump": _double_jump,
@@ -109,6 +111,7 @@ func load_data(load_id: int) -> void:
 	flags = load_json["flags"]
 	if load_json.has("journal_entries"):
 		journal_entries = load_json["journal_entries"]
+	portals = load_json.get("portals", {})
 	
 	explored_spaces = {}
 	var load_explored_spaces: Dictionary = load_json.get("explored_spaces", {})
@@ -132,6 +135,9 @@ func load_data(load_id: int) -> void:
 				load_json["double_jump"],
 				load_json["sprint"],
 				load_json["crush"])
+		echo.play_anim("idle")
+		echo.anim_seek(0.)
+		
 		camera.recalculate_chunk()
 		recalculate_max_hp()
 		max_health = load_json["max_health"]
@@ -163,6 +169,28 @@ func load_new_stage(stage: String,
 		var transition := Echo.DeathScreen.instantiate()
 		camera.add_child(transition)
 		transition.fade_in()
+	, ConnectFlags.CONNECT_ONE_SHOT)
+
+func portal_to_new_stage(dest_name: String):
+	var portal_details: Dictionary = portals[dest_name]
+	var stage: String = portal_details["scene_file_path"]
+	var path: String = portal_details["path"]
+	
+	get_tree().change_scene_to_file(stage)
+	get_tree().scene_changed.connect(func():
+		var other_portal: Node2D = get_tree().current_scene.get_node(path)
+		echo.global_position = other_portal.global_position
+		echo.facing_right = true
+		echo.play_anim("idle")
+		echo.anim_seek(0.)
+		
+		camera.recalculate_chunk()
+		health_bar.recalculate_health_bar(health)
+		
+		var transition := Echo.DeathScreen.instantiate()
+		camera.add_child(transition)
+		transition.fade_in()
+		get_tree().paused = false
 	, ConnectFlags.CONNECT_ONE_SHOT)
 
 func full_respawn():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://d0cqj6thnf2r1"]
+[gd_scene load_steps=39 format=4 uid="uid://d0cqj6thnf2r1"]
 
 [ext_resource type="Texture2D" uid="uid://c5lr8s0d15lyw" path="res://assets/gfx/scenery/charred_cavern_tileset.png" id="1_7vtke"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_82sa8"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="27_iscnq"]
 [ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="27_ogn11"]
 [ext_resource type="AudioStream" uid="uid://dk5ilqdvuosth" path="res://assets/music/The-Arcade-Detective_Looping.ogg" id="28_w2j3w"]
+[ext_resource type="PackedScene" uid="uid://d2xooyv6ei5dj" path="res://objects/portal.tscn" id="33_ioabt"]
 
 [sub_resource type="Animation" id="Animation_7ujne"]
 length = 0.001
@@ -413,13 +414,17 @@ position = Vector2(128, -256)
 boss_theme = ExtResource("20_w2j3w")
 
 [node name="Food" parent="Objects" instance=ExtResource("20_qppkx")]
-position = Vector2(156, -277)
+position = Vector2(1312, 320)
 
 [node name="PortalCore" parent="Objects" instance=ExtResource("21_l8las")]
-position = Vector2(1316, 316)
+position = Vector2(155, -278)
 
 [node name="Kara" parent="Objects" instance=ExtResource("24_80iav")]
 position = Vector2(58, -446)
+
+[node name="Portal" parent="Objects" instance=ExtResource("33_ioabt")]
+position = Vector2(-56, -281)
+portal_name = "Char-Wind Pass"
 
 [node name="Enemies" type="Node2D" parent="."]
 

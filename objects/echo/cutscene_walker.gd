@@ -3,6 +3,7 @@ extends Node2D
 var walk_speed: float
 @export var x_destination: float
 @export var face_right_on_deletion: bool
+@export var show_echo_on_relocate := true
 
 signal dest_reached()
 
@@ -26,5 +27,6 @@ func relocate_echo() -> void:
 	Global.echo.velocity = Vector2.ZERO
 	Global.echo.play_anim("idle")
 	Global.echo.anim_seek(0., true)
-	Global.echo.show()
+	if show_echo_on_relocate:
+		Global.echo.show()
 	hide()

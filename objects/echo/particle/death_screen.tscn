@@ -259,6 +259,7 @@ _data = {
 }
 
 [node name="DeathScreen" type="Node2D"]
+process_mode = 3
 z_index = 200
 script = ExtResource("1_gos2v")
 
@@ -275,7 +276,6 @@ texture_repeat = 2
 position = Vector2(24, 64)
 texture = ExtResource("1_s3es8")
 hframes = 7
-frame = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 112, 128)
 
@@ -284,7 +284,6 @@ texture_repeat = 2
 position = Vector2(40, 64)
 texture = ExtResource("1_s3es8")
 hframes = 7
-frame = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 112, 128)
 
@@ -293,7 +292,6 @@ texture_repeat = 2
 position = Vector2(56, 64)
 texture = ExtResource("1_s3es8")
 hframes = 7
-frame = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 112, 128)
 
@@ -302,7 +300,6 @@ texture_repeat = 2
 position = Vector2(72, 64)
 texture = ExtResource("1_s3es8")
 hframes = 7
-frame = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 112, 128)
 
@@ -311,7 +308,6 @@ texture_repeat = 2
 position = Vector2(88, 64)
 texture = ExtResource("1_s3es8")
 hframes = 7
-frame = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 112, 128)
 
@@ -320,7 +316,6 @@ texture_repeat = 2
 position = Vector2(104, 64)
 texture = ExtResource("1_s3es8")
 hframes = 7
-frame = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 112, 128)
 
@@ -329,7 +324,6 @@ texture_repeat = 2
 position = Vector2(120, 64)
 texture = ExtResource("1_s3es8")
 hframes = 7
-frame = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 112, 128)
 

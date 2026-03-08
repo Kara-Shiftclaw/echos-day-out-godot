@@ -1,0 +1,726 @@
+[gd_scene load_steps=32 format=3 uid="uid://d2xooyv6ei5dj"]
+
+[ext_resource type="Texture2D" uid="uid://dei0ds3iyahl8" path="res://assets/gfx/compound/portal/portal.png" id="1_ch4u6"]
+[ext_resource type="Script" uid="uid://mj72d2bww1x5" path="res://objects/scripts/portal.gd" id="1_i8dkg"]
+[ext_resource type="Texture2D" uid="uid://ccisb2r54k0xm" path="res://assets/gfx/compound/portal/echo_portal_fade.png" id="3_10cy8"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="3_tnatx"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="4_djgvg"]
+[ext_resource type="Texture2D" uid="uid://so1fk1lylapi" path="res://assets/gfx/up_arrow.png" id="4_dlkhy"]
+[ext_resource type="Texture2D" uid="uid://db8h5buhy7yit" path="res://assets/gfx/compound/portal/portal_spark.png" id="4_ueub8"]
+[ext_resource type="PackedScene" uid="uid://dlpq327smiwuo" path="res://menu/dialogue/model/multiple_choice_box.tscn" id="5_djgvg"]
+[ext_resource type="PackedScene" uid="uid://dnup6pmbimhsl" path="res://menu/dialogue/model/choice.tscn" id="6_10cy8"]
+
+[sub_resource type="Animation" id="Animation_12btf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_04sti"]
+resource_name = "closed_idle"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_i8dkg"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_ch4u6"]
+resource_name = "open"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text/PortalOpen")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"render"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tnatx"]
+resource_name = "use"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 9, 4, 10]
+}
+
+[sub_resource type="Animation" id="Animation_djgvg"]
+resource_name = "use_idle"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_10cy8"]
+resource_name = "use_xl"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_dlkhy"]
+resource_name = "use_xl_idle"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_h2a3j"]
+resource_name = "too_fat_to_use"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 4, 9, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i8dkg"]
+_data = {
+&"RESET": SubResource("Animation_12btf"),
+&"closed_idle": SubResource("Animation_04sti"),
+&"idle": SubResource("Animation_i8dkg"),
+&"open": SubResource("Animation_ch4u6"),
+&"too_fat_to_use": SubResource("Animation_h2a3j"),
+&"use": SubResource("Animation_tnatx"),
+&"use_idle": SubResource("Animation_djgvg"),
+&"use_xl": SubResource("Animation_10cy8"),
+&"use_xl_idle": SubResource("Animation_dlkhy")
+}
+
+[sub_resource type="Animation" id="Animation_v5dss"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spark:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Spark:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wnv0m"]
+resource_name = "too_fat"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [17, 16, 17, 16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ueub8"]
+resource_name = "use_0"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spark:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Spark:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_aefvc"]
+resource_name = "use_1"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spark:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Spark:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_sdu5w"]
+resource_name = "use_2"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spark:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Spark:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_70h0p"]
+resource_name = "use_3"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spark:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Spark:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_a674o"]
+resource_name = "use_4"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [18, 19, 20, 21]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spark:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Spark:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2a3j"]
+_data = {
+&"RESET": SubResource("Animation_v5dss"),
+&"too_fat": SubResource("Animation_wnv0m"),
+&"use_0": SubResource("Animation_ueub8"),
+&"use_1": SubResource("Animation_aefvc"),
+&"use_2": SubResource("Animation_sdu5w"),
+&"use_3": SubResource("Animation_70h0p"),
+&"use_4": SubResource("Animation_a674o")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch4u6"]
+size = Vector2(14, 20)
+
+[sub_resource type="Animation" id="Animation_s00tr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8mtm4"]
+resource_name = "bounce"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, -2), Vector2(0, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbb31"]
+_data = {
+&"RESET": SubResource("Animation_s00tr"),
+&"bounce": SubResource("Animation_8mtm4")
+}
+
+[node name="Portal" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_i8dkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_ch4u6")
+hframes = 9
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_i8dkg")
+}
+autoplay = "closed_idle"
+next/open = &"idle"
+next/use = &"use_idle"
+next/use_xl = &"use_xl_idle"
+next/too_fat_to_use = &"idle"
+
+[node name="Echo" type="Sprite2D" parent="."]
+process_mode = 3
+visible = false
+texture = ExtResource("3_10cy8")
+hframes = 22
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Echo"]
+libraries = {
+&"": SubResource("AnimationLibrary_h2a3j")
+}
+
+[node name="Spark" type="Sprite2D" parent="Echo"]
+visible = false
+texture = ExtResource("4_ueub8")
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ch4u6")
+
+[node name="UpArrow" type="Sprite2D" parent="."]
+process_mode = 3
+visible = false
+position = Vector2(0, -20)
+texture = ExtResource("4_dlkhy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UpArrow"]
+libraries = {
+&"": SubResource("AnimationLibrary_mbb31")
+}
+autoplay = "bounce"
+
+[node name="Text" type="Node" parent="."]
+
+[node name="Nothing" parent="Text" instance=ExtResource("3_tnatx")]
+
+[node name="StandardTextBox" parent="Text/Nothing" instance=ExtResource("4_djgvg")]
+text = "A wisp of air moves erratically..."
+
+[node name="PortalCoreNoInject" parent="Text" instance=ExtResource("3_tnatx")]
+
+[node name="StandardTextBox" parent="Text/PortalCoreNoInject" instance=ExtResource("4_djgvg")]
+text = "A wisp of air moves erratically."
+
+[node name="StandardTextBox2" parent="Text/PortalCoreNoInject" instance=ExtResource("4_djgvg")]
+text = "The Portal Core seems drawn to it, but it can't fit in the gap..."
+
+[node name="InjectNoPortalCore" parent="Text" instance=ExtResource("3_tnatx")]
+
+[node name="StandardTextBox" parent="Text/InjectNoPortalCore" instance=ExtResource("4_djgvg")]
+text = "A wisp of air moves erratically. A Portal is present."
+
+[node name="StandardTextBox2" parent="Text/InjectNoPortalCore" instance=ExtResource("4_djgvg")]
+text = "If you find a Portal Core, you can slip inside."
+
+[node name="InjectPortalCore" parent="Text" instance=ExtResource("3_tnatx")]
+
+[node name="StandardTextBox" parent="Text/InjectPortalCore" instance=ExtResource("4_djgvg")]
+text = "A wisp of air moves erratically. A Portal is present."
+
+[node name="MultipleChoiceBox" parent="Text/InjectPortalCore" instance=ExtResource("5_djgvg")]
+text = "Do you want to inject a Portal Core?"
+
+[node name="Yes" parent="Text/InjectPortalCore/MultipleChoiceBox" instance=ExtResource("6_10cy8")]
+choice_text = "Yes"
+enabled = true
+
+[node name="No" parent="Text/InjectPortalCore/MultipleChoiceBox" instance=ExtResource("6_10cy8")]
+choice_text = "No"
+enabled = true
+
+[node name="PortalOpen" parent="Text" instance=ExtResource("3_tnatx")]
+
+[node name="StandardTextBox" parent="Text/PortalOpen" instance=ExtResource("4_djgvg")]
+text = "The Portal sprang open!"
+
+[node name="PortalUse" parent="Text" instance=ExtResource("3_tnatx")]
+
+[node name="MultipleChoiceBox" parent="Text/PortalUse" instance=ExtResource("5_djgvg")]
+text = "It's a Portal.
+
+Where will you go?"
+
+[node name="Stay" parent="Text/PortalUse/MultipleChoiceBox" instance=ExtResource("6_10cy8")]
+choice_text = "Stay Here"
+enabled = true
+
+[node name="StandardTextBox" parent="Text/PortalUse" instance=ExtResource("4_djgvg")]
+text = "You decided to stay here."
+
+[node name="TooFat" parent="Text" instance=ExtResource("3_tnatx")]
+
+[node name="StandardTextBox" parent="Text/TooFat" instance=ExtResource("4_djgvg")]
+text = "You tried to squeeze into the portal... but you're too fat!"
+
+[node name="StandardTextBox2" parent="Text/TooFat" instance=ExtResource("4_djgvg")]
+text = "Maybe Kara can help widen the portals...?"
+
+[node name="TooFatTimer" type="Timer" parent="."]
+process_mode = 3
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="entered"]
+[connection signal="area_exited" from="." to="." method="exited"]
+[connection signal="body_entered" from="." to="." method="entered"]
+[connection signal="body_exited" from="." to="." method="exited"]
+[connection signal="next" from="Text/Nothing" to="." method="unpause"]
+[connection signal="next" from="Text/PortalCoreNoInject" to="." method="unpause"]
+[connection signal="next" from="Text/InjectNoPortalCore" to="." method="unpause"]
+[connection signal="chosen" from="Text/InjectPortalCore/MultipleChoiceBox/Yes" to="." method="open"]
+[connection signal="chosen" from="Text/InjectPortalCore/MultipleChoiceBox/No" to="." method="unpause"]
+[connection signal="next" from="Text/PortalOpen" to="." method="unpause"]
+[connection signal="next" from="Text/PortalUse" to="." method="unpause"]
+[connection signal="chosen" from="Text/PortalUse/MultipleChoiceBox/Stay" to="Text/PortalUse/MultipleChoiceBox" method="emit_next"]
+[connection signal="next" from="Text/TooFat" to="." method="too_fat_reset"]
+[connection signal="timeout" from="TooFatTimer" to="Text/TooFat" method="render"]

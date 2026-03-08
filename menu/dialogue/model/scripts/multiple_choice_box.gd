@@ -2,7 +2,7 @@ extends Node
 
 signal next()
 
-@export var text: String
+@export_multiline var text: String
 
 func render() -> TextBoxView:
 	var view := TextBoxView.with_text(text)

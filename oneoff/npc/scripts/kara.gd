@@ -20,7 +20,7 @@ func exited(other: Node2D):
 		echo_inside = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_up", false) and echo_inside:
+	if event.is_action_pressed("ui_up", false) and echo_inside and Global.echo.is_on_floor():
 		get_tree().paused = true
 		if !Global.flags.has(HAS_INJECTOR_FLAG):
 			Global.flags[HAS_INJECTOR_FLAG] = true
