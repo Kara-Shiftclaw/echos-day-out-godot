@@ -53,22 +53,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Damage:active")
+tracks/3/path = NodePath("Tension:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Tension:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -141,22 +129,10 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Damage:active")
+tracks/4/path = NodePath("Tension:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Tension:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -205,18 +181,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Damage:active")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_mrjvb"]
@@ -502,9 +466,9 @@ _data = {
 &"right_far": SubResource("Animation_h6ncw")
 }
 
-[node name="StandardMushroom" type="StaticBody2D"]
-collision_layer = 4
-collision_mask = 0
+[node name="StandardMushroom" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_r6aff")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -537,9 +501,6 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0.5, -7.5)
 shape = SubResource("RectangleShape2D_4cspd")
-
-[node name="Damage" parent="." instance=ExtResource("3_mrjvb")]
-damage = 3
 
 [node name="SporeModel" type="Area2D" parent="."]
 process_mode = 4
@@ -577,6 +538,8 @@ stream = ExtResource("7_ins7o")
 stream = ExtResource("8_ins7o")
 bus = &"Sfx"
 
+[connection signal="area_entered" from="." to="." method="entered"]
+[connection signal="body_entered" from="." to="." method="entered"]
 [connection signal="chunk_entered" from="EnemyManager" to="." method="reload"]
 [connection signal="die" from="EnemyManager" to="EnemyDieSound" method="play"]
 [connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]

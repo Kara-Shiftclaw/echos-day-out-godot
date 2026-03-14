@@ -87,6 +87,7 @@ func begin_portal_animation() -> void:
 	
 	echo_walker.dest_reached.connect(func():
 		Global.echo.hide()
+		$PortalNoise.play()
 		if echo_fits():
 			$Echo/AnimationPlayer.play("use_{0}".format([int(Global.weight)]))
 			$Echo/AnimationPlayer.animation_finished.connect(teleport)

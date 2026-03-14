@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://d2xooyv6ei5dj"]
+[gd_scene load_steps=33 format=3 uid="uid://d2xooyv6ei5dj"]
 
 [ext_resource type="Texture2D" uid="uid://dei0ds3iyahl8" path="res://assets/gfx/compound/portal/portal.png" id="1_ch4u6"]
 [ext_resource type="Script" uid="uid://mj72d2bww1x5" path="res://objects/scripts/portal.gd" id="1_i8dkg"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://db8h5buhy7yit" path="res://assets/gfx/compound/portal/portal_spark.png" id="4_ueub8"]
 [ext_resource type="PackedScene" uid="uid://dlpq327smiwuo" path="res://menu/dialogue/model/multiple_choice_box.tscn" id="5_djgvg"]
 [ext_resource type="PackedScene" uid="uid://dnup6pmbimhsl" path="res://menu/dialogue/model/choice.tscn" id="6_10cy8"]
+[ext_resource type="AudioStream" uid="uid://b6lhui43p2l4j" path="res://assets/sfx/portal.mp3" id="10_v5dss"]
 
 [sub_resource type="Animation" id="Animation_12btf"]
 length = 0.001
@@ -92,6 +93,23 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_h2a3j"]
+resource_name = "too_fat_to_use"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 4, 9, 5]
+}
+
 [sub_resource type="Animation" id="Animation_tnatx"]
 resource_name = "use"
 length = 0.3
@@ -160,23 +178,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [15, 16, 17]
-}
-
-[sub_resource type="Animation" id="Animation_h2a3j"]
-resource_name = "too_fat_to_use"
-length = 0.3
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [10, 4, 9, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8dkg"]
@@ -604,9 +605,9 @@ libraries = {
 }
 autoplay = "closed_idle"
 next/open = &"idle"
+next/too_fat_to_use = &"idle"
 next/use = &"use_idle"
 next/use_xl = &"use_xl_idle"
-next/too_fat_to_use = &"idle"
 
 [node name="Echo" type="Sprite2D" parent="."]
 process_mode = 3
@@ -708,7 +709,12 @@ text = "Maybe Kara can help widen the portals...?"
 
 [node name="TooFatTimer" type="Timer" parent="."]
 process_mode = 3
+wait_time = 1.5
 one_shot = true
+
+[node name="PortalNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_v5dss")
+bus = &"Sfx"
 
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="area_exited" from="." to="." method="exited"]

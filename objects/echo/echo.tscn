@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dkym2x36d2n0s"]
+[gd_scene load_steps=38 format=3 uid="uid://dkym2x36d2n0s"]
 
 [ext_resource type="Script" uid="uid://ccyvj253iceo7" path="res://objects/echo/echo.gd" id="1_jjhff"]
 [ext_resource type="Texture2D" uid="uid://ci45m4n4yfgho" path="res://assets/gfx/echo.png" id="1_n2q1k"]
@@ -561,6 +561,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [ExtResource("1_n2q1k")]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CritParticles:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_juied"]
 resource_name = "attack"
@@ -685,6 +697,18 @@ tracks/3/keys = {
 "method": &"play"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CritParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_uew4c"]
 resource_name = "attack_3"
@@ -764,6 +788,18 @@ tracks/4/keys = {
 "args": [-1],
 "method": &"start"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CritParticles:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ukrqv"]
@@ -1171,6 +1207,11 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.53107345, 0.8079096)
 colors = PackedColorArray(1, 1, 1, 1, 0.78039217, 0.44705883, 0.28235295, 1, 0.67058825, 0.17254902, 0.26666668, 1)
 
+[sub_resource type="Gradient" id="Gradient_83wf4"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.252809, 0.83146065)
+colors = PackedColorArray(1, 1, 1, 1, 0.9137255, 0.8235294, 0.22352941, 1, 0.50980395, 0.21176471, 0.15686275, 1)
+
 [node name="Echo" type="CharacterBody2D"]
 collision_layer = 2
 floor_block_on_wall = false
@@ -1232,6 +1273,20 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 150.0
 initial_velocity_max = 250.0
 color_ramp = SubResource("Gradient_tau0j")
+
+[node name="CritParticles" type="CPUParticles2D" parent="."]
+z_index = 10
+emitting = false
+amount = 3
+texture = ExtResource("3_eqnf0")
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+color_ramp = SubResource("Gradient_83wf4")
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_pf44c")

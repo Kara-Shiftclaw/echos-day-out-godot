@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://d0cqj6thnf2r1"]
+[gd_scene load_steps=44 format=4 uid="uid://d0cqj6thnf2r1"]
 
 [ext_resource type="Texture2D" uid="uid://c5lr8s0d15lyw" path="res://assets/gfx/scenery/charred_cavern_tileset.png" id="1_7vtke"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_82sa8"]
@@ -29,9 +29,13 @@
 [ext_resource type="PackedScene" uid="uid://dxl3dovmwvovx" path="res://objects/portal_core.tscn" id="21_l8las"]
 [ext_resource type="PackedScene" uid="uid://bo7tgg1ss1jvp" path="res://objects/arena_bell.tscn" id="21_ykat0"]
 [ext_resource type="PackedScene" uid="uid://4q65cgic2843" path="res://oneoff/npc/kara.tscn" id="24_80iav"]
+[ext_resource type="Texture2D" uid="uid://benv77ag15kdw" path="res://assets/gfx/scenery/funny_fat_echo_sign.png" id="26_16qfi"]
+[ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="27_34qg1"]
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="27_iscnq"]
 [ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="27_ogn11"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="28_eg1xh"]
 [ext_resource type="AudioStream" uid="uid://dk5ilqdvuosth" path="res://assets/music/The-Arcade-Detective_Looping.ogg" id="28_w2j3w"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="29_1gpmy"]
 [ext_resource type="PackedScene" uid="uid://d2xooyv6ei5dj" path="res://objects/portal.tscn" id="33_ioabt"]
 
 [sub_resource type="Animation" id="Animation_7ujne"]
@@ -109,6 +113,9 @@ tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_7ujne")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aavb7"]
+size = Vector2(8, 8)
 
 [node name="CharredCavern" type="Node2D"]
 
@@ -426,6 +433,28 @@ position = Vector2(58, -446)
 position = Vector2(-56, -281)
 portal_name = "Char-Wind Pass"
 
+[node name="TutorialSign" type="Area2D" parent="Objects"]
+position = Vector2(864, 108)
+collision_layer = 0
+collision_mask = 2
+
+[node name="FunnyFatEchoSign" type="Sprite2D" parent="Objects/TutorialSign"]
+texture = ExtResource("26_16qfi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TutorialSign"]
+shape = SubResource("RectangleShape2D_aavb7")
+
+[node name="NpcArrow" parent="Objects/TutorialSign" instance=ExtResource("27_34qg1")]
+position = Vector2(0, -12)
+
+[node name="TextTree" parent="Objects/TutorialSign" instance=ExtResource("28_eg1xh")]
+
+[node name="StandardTextBox" parent="Objects/TutorialSign/TextTree" instance=ExtResource("29_1gpmy")]
+text = "In the dance of combat
+Hear the bell's ring
+Feel rhythm in your claws
+And you will dance faster"
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="SpikeHedgehog2" parent="Enemies" instance=ExtResource("7_15yqu")]
@@ -636,6 +665,9 @@ song_stream = ExtResource("28_w2j3w")
 [connection signal="failed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor" method="open"]
 [connection signal="failed" from="Objects/MeetMongoose" to="Objects/BossScaryDoor2" method="open"]
 [connection signal="failed" from="Objects/MeetMongoose" to="SongPlayer" method="play"]
+[connection signal="activated" from="Objects/TutorialSign/NpcArrow" to="Objects/TutorialSign/NpcArrow" method="generic_pause"]
+[connection signal="activated" from="Objects/TutorialSign/NpcArrow" to="Objects/TutorialSign/TextTree" method="render"]
+[connection signal="next" from="Objects/TutorialSign/TextTree" to="Objects/TutorialSign/NpcArrow" method="generic_unpause"]
 [connection signal="on_death" from="Enemies/Wolf4" to="Objects/ArenaBell3/Phase2" method="set_a"]
 [connection signal="on_death" from="Enemies/Wolf5" to="Objects/ArenaBell3/Phase2/SubPhase" method="set_a"]
 [connection signal="on_death" from="Enemies/Wolf6" to="Objects/ArenaBell3/Phase2/SubPhase" method="set_b"]

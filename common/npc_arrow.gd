@@ -23,6 +23,12 @@ func exited(other: Node2D):
 		hide()
 		echo_inside = false
 
+func generic_pause() -> void:
+	get_tree().paused = true
+
+func generic_unpause() -> void:
+	get_tree().paused = false
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up", false) \
 			and echo_inside \

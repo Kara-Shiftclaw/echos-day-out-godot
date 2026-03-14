@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 const SPORE_SPAWN_OFFSET := Vector2(0., -15.)
 const NORMAL_SPORE_SPRITE_OFFSET := Vector2(0.5, 0.5)
@@ -35,6 +35,10 @@ func copy_spore() -> Node2D:
 	screen_notifier.screen_exited.connect(copy.queue_free)
 	
 	return copy
+
+func entered(other: Node2D):
+	if other is Echo and $AnimationPlayer.current_animation == "idle":
+		$AnimationPlayer.play("spread")
 
 func reload() -> void:
 	if $EnemyManager.health > 0:

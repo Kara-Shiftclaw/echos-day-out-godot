@@ -211,8 +211,10 @@ func begin_attack() -> void:
 func get_attack_anim() -> String:
 	if attack_rhythm != null && attack_rhythm.in_rhythm():
 		if attack_rhythm.crit_dash:
+			$CritParticles.direction.x = -Util.sign(facing_right)
 			return "attack_3"
 		else:
+			$CritParticles.direction.x = Util.sign(facing_right)
 			return "attack_2"
 	else:
 		return "attack"
