@@ -1,0 +1,402 @@
+[gd_scene load_steps=15 format=3 uid="uid://e6v53h5l7ead"]
+
+[ext_resource type="Script" uid="uid://dachik37myo6g" path="res://oneoff/npc/scripts/sword_spirit.gd" id="1_cw2ww"]
+[ext_resource type="Texture2D" uid="uid://bd8rp274rmx2j" path="res://assets/gfx/sword_spirit.png" id="1_t4oip"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="2_8phw2"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="3_ag11b"]
+[ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="3_oa6gw"]
+[ext_resource type="PackedScene" uid="uid://dlpq327smiwuo" path="res://menu/dialogue/model/multiple_choice_box.tscn" id="4_affx3"]
+[ext_resource type="PackedScene" uid="uid://dnup6pmbimhsl" path="res://menu/dialogue/model/choice.tscn" id="5_cw2ww"]
+
+[sub_resource type="Animation" id="Animation_affx3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cw2ww"]
+resource_name = "happy"
+length = 2.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 1.9, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 3, 4, 5, 3, 4, 5, 6, 7, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8000001, 1, 1.2, 1.4, 1.6, 1.8000001, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0]
+}
+
+[sub_resource type="Animation" id="Animation_asdwt"]
+resource_name = "not_mad"
+length = 1.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.85, 0.9, 0.95, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 9, 10, 11, 9, 10, 11, 12, 9, 12, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0]
+}
+
+[sub_resource type="Animation" id="Animation_t4oip"]
+resource_name = "summon"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text/Summon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"render"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_oa6gw"]
+resource_name = "what"
+length = 1.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.0, 0.0, -1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p6u48"]
+_data = {
+&"RESET": SubResource("Animation_affx3"),
+&"happy": SubResource("Animation_cw2ww"),
+&"not_mad": SubResource("Animation_asdwt"),
+&"summon": SubResource("Animation_t4oip"),
+&"what": SubResource("Animation_oa6gw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8phw2"]
+size = Vector2(32, 3)
+
+[node name="SwordSpirit" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_cw2ww")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_t4oip")
+hframes = 7
+vframes = 2
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_p6u48")
+}
+next/summon = &"happy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 22.5)
+shape = SubResource("RectangleShape2D_8phw2")
+disabled = true
+
+[node name="NpcArrow" parent="." node_paths=PackedStringArray("activation_area") instance=ExtResource("3_oa6gw")]
+position = Vector2(0, -13)
+activation_area = NodePath("..")
+
+[node name="Text" type="Node" parent="."]
+
+[node name="Summon" parent="Text" instance=ExtResource("2_8phw2")]
+
+[node name="StandardTextBox" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+text = "Oh, joyous day, joyous day! A new Hero has arisen!"
+
+[node name="StandardTextBox2" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+text = "Greetings, my corpulent savior! I am the ~Spirit of the Sword~!"
+
+[node name="StandardTextBox3" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+text = "I am here to guide you through your quest to-"
+
+[node name="StandardTextBox4" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+text = "Wait where's the sword"
+
+[node name="StandardTextBox5" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+text = "Y-you broke it."
+
+[node name="StandardTextBox6" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+text = "YOU SAT ON THE STONE OF THE SWORD AND BROKE IT."
+
+[node name="StandardTextBox7" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+text = "YOU ABSOLUTE FATAAAaantastic Hero of Legend! JOYOUS day INDEED!"
+
+[node name="StandardTextBox8" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+text = "I didn't think a fat ass could break my entire afterlife's PURPOSE, but WHAT DO I KNOW!"
+
+[node name="StandardTextBox9" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+text = "...
+Excuse me, I need to collect my thoughts. And my SWORD."
+
+[node name="FirstChat" parent="Text" instance=ExtResource("2_8phw2")]
+
+[node name="StandardTextBox" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+text = "HHHHHHH-Hello, my Hefty Hero of Legend! It's me, the Spirit of the Sword!"
+
+[node name="StandardTextBox2" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+text = "I must say, the power of your weight is impressive! You broke the sword clean in half!"
+
+[node name="StandardTextBox3" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+text = "That's cool. I'm really okay with that. No really, it's fine. Really."
+
+[node name="StandardTextBox4" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+text = "Aaaaanyways, in its current state, the sword is kinda useless. But I have an idea."
+
+[node name="StandardTextBox5" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+text = "I'll let you take one half on your quest, and I'll keep the other half safe!"
+
+[node name="StandardTextBox6" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+text = "(After all, you never know when some fatass will just crush swords nowadays...)"
+
+[node name="StandardTextBox9" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+text = "Then if you ever change your mind, you can come back and swap them!"
+
+[node name="StandardTextBox7" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+text = "If you take the blade half, you can... I dunno, cut enemies with it, deal some more damage?"
+
+[node name="StandardTextBox8" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+text = "The hilt will... give you more range or something, maybe?"
+
+[node name="MultipleChoiceBox" parent="Text/FirstChat" instance=ExtResource("4_affx3")]
+text = "Honestly I don't care at this point. Just take one."
+
+[node name="Blade" parent="Text/FirstChat/MultipleChoiceBox" instance=ExtResource("5_cw2ww")]
+choice_text = "Blade"
+enabled = true
+
+[node name="Hilt" parent="Text/FirstChat/MultipleChoiceBox" instance=ExtResource("5_cw2ww")]
+choice_text = "Hilt"
+enabled = true
+
+[node name="Chosen" parent="Text" instance=ExtResource("2_8phw2")]
+
+[node name="StandardTextBox" parent="Text/Chosen" instance=ExtResource("3_ag11b")]
+text = "A great choice, probably! Be sure not to sit on it this time."
+
+[node name="Swap" parent="Text" instance=ExtResource("2_8phw2")]
+
+[node name="StandardTextBox" parent="Text/Swap" instance=ExtResource("3_ag11b")]
+text = "Hello again, Hero of Legend! You're looking... well fed!"
+
+[node name="MultipleChoiceBox2" parent="Text/Swap" instance=ExtResource("4_affx3")]
+text = "Did you want to swap your sword piece?"
+
+[node name="YesBlade" parent="Text/Swap/MultipleChoiceBox2" instance=ExtResource("5_cw2ww")]
+choice_text = "I want the blade"
+enabled = true
+
+[node name="YesHilt" parent="Text/Swap/MultipleChoiceBox2" instance=ExtResource("5_cw2ww")]
+choice_text = "I want the hilt"
+enabled = true
+
+[node name="No" parent="Text/Swap/MultipleChoiceBox2" instance=ExtResource("5_cw2ww")]
+choice_text = "No"
+enabled = true
+
+[node name="MultipleChoiceBox3" parent="Text/Swap" instance=ExtResource("4_affx3")]
+text = "N-no?! What,  were you just wanting to chat or something??"
+
+[node name="Yes" parent="Text/Swap/MultipleChoiceBox3" instance=ExtResource("5_cw2ww")]
+choice_text = "Yes"
+enabled = true
+
+[node name="No" parent="Text/Swap/MultipleChoiceBox3" instance=ExtResource("5_cw2ww")]
+choice_text = "No"
+enabled = true
+
+[node name="StandardTextBox2" parent="Text/Swap" instance=ExtResource("3_ag11b")]
+text = "Then why did you come here??"
+
+[node name="Chat" parent="Text" instance=ExtResource("2_8phw2")]
+
+[node name="StandardTextBox" parent="Text/Chat" instance=ExtResource("3_ag11b")]
+text = "Oh, you were."
+
+[node name="StandardTextBox2" parent="Text/Chat" instance=ExtResource("3_ag11b")]
+text = "Well that's unfortunate."
+
+[connection signal="activated" from="NpcArrow" to="." method="talk"]
+[connection signal="next" from="Text/Summon" to="." method="unpause"]
+[connection signal="next" from="Text/Summon" to="." method="fly_back_to_starting_pos"]
+[connection signal="next" from="Text/Summon/StandardTextBox3" to="." method="what"]
+[connection signal="next" from="Text/Summon/StandardTextBox6" to="." method="not_mad"]
+[connection signal="next" from="Text/Summon/StandardTextBox8" to="." method="happy"]
+[connection signal="next" from="Text/FirstChat/StandardTextBox2" to="." method="not_mad"]
+[connection signal="next" from="Text/FirstChat/StandardTextBox3" to="." method="happy"]
+[connection signal="next" from="Text/FirstChat/StandardTextBox5" to="." method="what"]
+[connection signal="next" from="Text/FirstChat/StandardTextBox6" to="." method="happy"]
+[connection signal="next" from="Text/FirstChat/StandardTextBox8" to="." method="what"]
+[connection signal="chosen" from="Text/FirstChat/MultipleChoiceBox/Blade" to="." method="give_blade"]
+[connection signal="chosen" from="Text/FirstChat/MultipleChoiceBox/Hilt" to="." method="give_hilt"]
+[connection signal="next" from="Text/Chosen" to="." method="unpause"]
+[connection signal="next" from="Text/Swap" to="." method="unpause"]
+[connection signal="next" from="Text/Swap/MultipleChoiceBox2" to="." method="what"]
+[connection signal="chosen" from="Text/Swap/MultipleChoiceBox2/YesBlade" to="." method="give_blade"]
+[connection signal="chosen" from="Text/Swap/MultipleChoiceBox2/YesHilt" to="." method="give_hilt"]
+[connection signal="chosen" from="Text/Swap/MultipleChoiceBox2/No" to="Text/Swap/MultipleChoiceBox2" method="emit_next"]
+[connection signal="next" from="Text/Swap/MultipleChoiceBox3" to="." method="not_mad"]
+[connection signal="chosen" from="Text/Swap/MultipleChoiceBox3/Yes" to="." method="happy"]
+[connection signal="chosen" from="Text/Swap/MultipleChoiceBox3/Yes" to="Text/Chat" method="render"]
+[connection signal="chosen" from="Text/Swap/MultipleChoiceBox3/No" to="Text/Swap/MultipleChoiceBox3" method="emit_next"]
+[connection signal="next" from="Text/Chat" to="." method="unpause"]
+[connection signal="next" from="Text/Chat/StandardTextBox" to="." method="not_mad"]

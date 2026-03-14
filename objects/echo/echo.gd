@@ -67,6 +67,9 @@ const DOUBLE_JUMP_HEIGHT := 2. * 8.
 const NEW_STAGE_JUMP_HEIGHT := 4. * 8.
 const CRUSH_DOWN_VELOCITY := 1.5 * MAX_GRAVITY
 
+const SWORD_BLADE_FLAG := "has_sword_blade"
+const SWORD_HILT_FLAG := "has_sword_hilt"
+
 @export var can_move := true
 @export var anim_priority := 0
 
@@ -219,8 +222,13 @@ func do_attack() -> void:
 	var facing_sign := Util.sign(facing_right)
 	attack.scale.x = facing_sign
 	add_child(attack)
-	attack.position = Vector2(facing_sign * 10., 0.)
-	attack.get_node("Damage").connect("hit", attack_rhythm.validate)
+	var offset := 15. if Global.flags.has(SWORD_HILT_FLAG) else 10.
+	attack.position = Vector2(facing_sign * offset, 0.)
+	
+	var damage: Damage = attack.get_node("Damage")
+	damage.hit.connect(attack_rhythm.validate)
+	if Global.flags.has(SWORD_BLADE_FLAG):
+		damage.damage = 6
 
 func in_attack_anim() -> bool:
 	return is_cur_anim("attack") or is_cur_anim("attack_2") or is_cur_anim("attack_3")

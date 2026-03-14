@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdl6d50fforgg"]
+[gd_scene load_steps=11 format=3 uid="uid://cfvxu5nyx1es5"]
 
-[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_dn4s6"]
-[ext_resource type="Script" uid="uid://cr7m4auedcpb8" path="res://menu/dialogue/small_upgrade/small_upgrade_get.gd" id="2_noh6v"]
-[ext_resource type="Texture2D" uid="uid://crp2vsre3tix6" path="res://assets/gfx/injector_get.png" id="3_dn4s6"]
-[ext_resource type="Texture2D" uid="uid://7ffh81jgbljc" path="res://assets/gfx/small_upgrade_tear.png" id="4_1fquo"]
-[ext_resource type="AudioStream" uid="uid://cs6pf7cfntpvy" path="res://assets/sfx/tada.wav" id="5_o4gac"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_icyjd"]
+[ext_resource type="Script" uid="uid://cr7m4auedcpb8" path="res://menu/dialogue/small_upgrade/small_upgrade_get.gd" id="2_e0a8i"]
+[ext_resource type="Texture2D" uid="uid://cqfq6mg60x0ar" path="res://assets/gfx/sword_blade_get.png" id="3_n43cr"]
+[ext_resource type="Texture2D" uid="uid://7ffh81jgbljc" path="res://assets/gfx/small_upgrade_tear.png" id="4_61r0w"]
+[ext_resource type="AudioStream" uid="uid://cs6pf7cfntpvy" path="res://assets/sfx/tada.wav" id="5_nm1se"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rld3g"]
 bg_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
@@ -103,16 +103,16 @@ _data = {
 &"exit": SubResource("Animation_olna4")
 }
 
-[node name="SmallUpgradeGet2" type="Panel"]
+[node name="SmallUpgradeGet" type="Panel"]
 process_mode = 3
 z_index = 110
 offset_right = 128.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_dn4s6")
+theme = ExtResource("1_icyjd")
 theme_override_styles/panel = SubResource("StyleBoxFlat_rld3g")
-script = ExtResource("2_noh6v")
+script = ExtResource("2_e0a8i")
 metadata/_custom_type_script = "uid://vdkkkqd3kh4b"
 
 [node name="Label" type="Label" parent="."]
@@ -121,8 +121,9 @@ offset_left = 41.0
 offset_top = 1.0
 offset_right = 128.0
 offset_bottom = 30.0
-text = "You got the Portal
-Injector! If you get a Core, you can open portals!"
+text = "You got the Sword
+of Legend's Hilt! Your attacks will reach further than
+ever before!"
 autowrap_mode = 3
 visible_characters = 0
 visible_characters_behavior = 1
@@ -130,12 +131,14 @@ visible_ratio = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(20, 20)
-texture = ExtResource("3_dn4s6")
-hframes = 6
+texture = ExtResource("3_n43cr")
+hframes = 5
+region_enabled = true
+region_rect = Rect2(0, 40, 200, 40)
 
 [node name="Tear" type="Sprite2D" parent="."]
 position = Vector2(64, 48)
-texture = ExtResource("4_1fquo")
+texture = ExtResource("4_61r0w")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -144,7 +147,7 @@ libraries = {
 autoplay = "enter"
 
 [node name="Tada" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_o4gac")
+stream = ExtResource("5_nm1se")
 bus = &"Sfx"
 
 [connection signal="close_signaled" from="." to="AnimationPlayer" method="play" binds= [&"exit"]]

@@ -23,6 +23,9 @@ func set_text(text: String) -> void:
 	$Label.text = text
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		close_signaled.emit()
+
 	if scrolling:
 		var visible_delta = CHARACTERS_PER_SECOND * delta
 		if Input.is_action_pressed("ui_skip_text"):
