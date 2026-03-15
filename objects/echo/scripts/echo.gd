@@ -100,24 +100,7 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2(DASH_SPEED * Util.sign(facing_right), 0.)
 			move_and_slide()
 		else:
-			if Input.is_action_pressed("sprint") and Global.has_sprint:
-				is_sprinting = true
-			
-			var desired_vel := get_desired_speed() * Input.get_axis("ui_left", "ui_right")
-			var acceleration := ACCELERATION_MAP[Global.weight] / (2. if is_sprinting else 1.)
-			velocity.x = move_toward(velocity.x, desired_vel, acceleration * delta)
-			if desired_vel != 0.:
-				facing_right = desired_vel > 0
-				if is_on_wall() and is_on_floor():
-					play_anim("wall_squish")
-				else:
-					if is_sprinting:
-						play_anim("sprint")
-					else:
-						play_anim("walk")
-			else:
-				is_sprinting = false
-				play_anim("idle")
+			calculate_x_movement(delta)
 			
 			if is_on_floor():
 				if !on_floor:
@@ -184,10 +167,6 @@ func _physics_process(delta: float) -> void:
 func new_stage_jump():
 	$JumpTimer.start(NEW_STAGE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
 	play_anim("jump", 1)
-
-func die():
-	Global.music_player.stop()
-	play_anim("die", 999)
 
 func begin_attack() -> void:
 	var attack_anim := get_attack_anim()
@@ -266,17 +245,9 @@ func on_hit(attacker: Node2D) -> void:
 	if maybe_damage != null and maybe_damage.active:
 		take_damage(maybe_damage.damage)
 		maybe_damage.emit_hit()
-		
-func take_damage(amount: float) -> void:
-	play_anim("hurt", 9)
-	if amount > 0:
-		$HurtParticles.amount = amount
-		$HurtParticles.restart()
-		Global.health -= amount
 
-func stage_hurtbox_hit(_other: Node2D) -> void:
-	take_damage(3.)
-	velocity.y = STAGE_HAZARD_BOUNCE
+func stage_hurtbox_hit(other: Node2D) -> void:
+	super.stage_hurtbox_hit(other)
 	can_double_jump = Global.has_double_jump
 	can_fireball = Global.has_fireball
 	can_crush = Global.has_crush
@@ -286,23 +257,15 @@ func spawn_death_screen() -> void:
 	var death_screen := DeathScreen.instantiate()
 	Global.camera.add_child(death_screen)
 
-func respawn() -> void:
-	if Global.last_save_stage != get_tree().current_scene.scene_file_path:
-		Global.full_respawn()
-	else:
-		$StageHurtbox/CollisionShape2D.set_deferred("disabled", false)
-		$EnemyHurtbox/CollisionShape2D.set_deferred("disabled", false)
-		$Sprite2D.show()
-		global_position = get_node(Global.last_save_path).global_position
-		can_move = true
-		is_crushing = false
-		velocity = Vector2.ZERO
-		play_anim("idle")
-	Global.music_player.play()
-	respawned.emit()
+func on_respawn_same_stage() -> void:
+	can_move = true
+	is_crushing = false
 
 func get_desired_speed() -> float:
 	if is_sprinting:
 		return SPRINT_SPEED
 	else:
 		return SPEED_MAP[Global.weight]
+
+func get_acceleration() -> float:
+	return ACCELERATION_MAP[Global.weight]
