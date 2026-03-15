@@ -85,10 +85,6 @@ func sync_facing_right() -> void:
 	$CollisionShape2D.position.x = HITBOX_OFFSET_MAP[Global.weight] * Util.sign(facing_right)
 
 
-func _ready() -> void:
-	Global.echo = self
-	Global.echo_died.connect(die)
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and !in_attack_anim():
 		if is_on_floor():
@@ -100,6 +96,9 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2(DASH_SPEED * Util.sign(facing_right), 0.)
 			move_and_slide()
 		else:
+			if Input.is_action_pressed("sprint") and Global.has_sprint:
+				is_sprinting = true
+			
 			calculate_x_movement(delta)
 			
 			if is_on_floor():
@@ -240,22 +239,12 @@ func exit_save_point(save_point: Node2D) -> void:
 	if save_point == cur_save_point:
 		cur_save_point = null
 
-func on_hit(attacker: Node2D) -> void:
-	var maybe_damage = attacker.get_node_or_null("Damage")
-	if maybe_damage != null and maybe_damage.active:
-		take_damage(maybe_damage.damage)
-		maybe_damage.emit_hit()
-
 func stage_hurtbox_hit(other: Node2D) -> void:
 	super.stage_hurtbox_hit(other)
 	can_double_jump = Global.has_double_jump
 	can_fireball = Global.has_fireball
 	can_crush = Global.has_crush
 	is_crushing = false
-
-func spawn_death_screen() -> void:
-	var death_screen := DeathScreen.instantiate()
-	Global.camera.add_child(death_screen)
 
 func on_respawn_same_stage() -> void:
 	can_move = true

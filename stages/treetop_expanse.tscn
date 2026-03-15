@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=4 uid="uid://cye7mkllc63s0"]
+[gd_scene load_steps=35 format=4 uid="uid://cye7mkllc63s0"]
 
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="1_0ws40"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_ppd75"]
 [ext_resource type="Script" uid="uid://b4ifpuqalil06" path="res://objects/echo/scripts/follow_camera.gd" id="2_ppd75"]
+[ext_resource type="PackedScene" uid="uid://bxa6yf7r02v1s" path="res://objects/echo/echo_blob.tscn" id="3_1hs5j"]
 [ext_resource type="PackedScene" uid="uid://d0kiufe6wem6i" path="res://objects/echo/health_bar.tscn" id="3_60v8e"]
 [ext_resource type="PackedScene" uid="uid://c8dvt0avx6bkw" path="res://objects/region_name.tscn" id="4_a2j8x"]
 [ext_resource type="PackedScene" uid="uid://caed6skxowe3i" path="res://objects/door.tscn" id="6_a2j8x"]
@@ -112,13 +113,17 @@ tile_map_data = PackedByteArray("AAANAA8AAQAAAAAAAAAOAA8AAQABAAAAAAAPAA8AAQABAAA
 tile_set = ExtResource("1_ppd75")
 
 [node name="Echo" parent="." instance=ExtResource("1_0ws40")]
+process_mode = 4
 position = Vector2(24, 147)
+
+[node name="EchoBlob" parent="." instance=ExtResource("3_1hs5j")]
+position = Vector2(189, 150)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following", "stage_transition_parent")]
 offset = Vector2(64, 64)
 zoom = Vector2(4, 4)
 script = ExtResource("2_ppd75")
-following = NodePath("../Echo")
+following = NodePath("../EchoBlob")
 stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("3_60v8e")]
