@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dwcy3sah88fm5"]
 
-[ext_resource type="Script" uid="uid://di8scatmkcpig" path="res://objects/echo/fireball.gd" id="1_psb1u"]
+[ext_resource type="Script" uid="uid://di8scatmkcpig" path="res://objects/echo/scripts/fireball.gd" id="1_psb1u"]
 [ext_resource type="Texture2D" uid="uid://btx7ab6m5g5ul" path="res://assets/gfx/fireball.png" id="2_imap8"]
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="3_t5yyi"]
 [ext_resource type="AudioStream" uid="uid://qwddepvs2si8" path="res://assets/sfx/fireball_shoot.mp3" id="4_csoff"]

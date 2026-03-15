@@ -17,7 +17,7 @@ signal chunk_loaded(cx: int, cy: int)
 signal echo_health_changed(value: float)
 signal echo_died()
 
-var echo: Echo
+var echo: Player
 var camera: FollowCamera
 var health_bar: HealthBar
 var save_id := 1

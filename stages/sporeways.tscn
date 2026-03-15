@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_q8lqc"]
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="2_6h7uu"]
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="2_anckl"]
-[ext_resource type="Script" uid="uid://b4ifpuqalil06" path="res://objects/echo/follow_camera.gd" id="3_645fl"]
+[ext_resource type="Script" uid="uid://b4ifpuqalil06" path="res://objects/echo/scripts/follow_camera.gd" id="3_645fl"]
 [ext_resource type="Texture2D" uid="uid://cr3gnr7ff8lec" path="res://assets/gfx/scenery/sporeways_tileset.png" id="3_j3rm8"]
 [ext_resource type="Texture2D" uid="uid://da7lq5f4bdtpw" path="res://assets/gfx/scenery/bear_throne_decor.png" id="4_3t6gd"]
 [ext_resource type="PackedScene" uid="uid://d0kiufe6wem6i" path="res://objects/echo/health_bar.tscn" id="4_k0icb"]

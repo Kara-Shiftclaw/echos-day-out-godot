@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqbepq2cjp4gx"]
 
-[ext_resource type="Script" uid="uid://dm3vppkqqqk4e" path="res://objects/echo/attack_rhythm.gd" id="1_ojujt"]
+[ext_resource type="Script" uid="uid://dm3vppkqqqk4e" path="res://objects/echo/scripts/attack_rhythm.gd" id="1_ojujt"]
 [ext_resource type="AudioStream" uid="uid://2ujot0p061jc" path="res://assets/sfx/crit.wav" id="1_us1nb"]
 
 [node name="AttackRhythm" type="Node"]

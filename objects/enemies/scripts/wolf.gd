@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 	if !$EnemyManager.post_load_frame and can_dash_state():
-		if $PlayerSight.is_colliding() and $PlayerSight.get_collider() is Echo:
+		if $PlayerSight.is_colliding() and $PlayerSight.get_collider() is Player:
 			$AnimationPlayer.play("dash")
 
 func turn_around() -> void:

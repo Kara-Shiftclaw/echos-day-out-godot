@@ -132,12 +132,12 @@ func execute_loop_callback() -> void:
 		loop_callback.call()
 
 func entered(other: Node2D):
-	if other is Echo:
+	if other is Player:
 		$UpArrow.show()
 		echo_inside = true
 
 func exited(other: Node2D):
-	if other is Echo:
+	if other is Player:
 		$UpArrow.hide()
 		echo_inside = false
 

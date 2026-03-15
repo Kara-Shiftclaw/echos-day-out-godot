@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://p813fqlsdx4n" path="res://assets/gfx/scenery/mongoose_statue.png" id="1_xx3fi"]
 [ext_resource type="Texture2D" uid="uid://dch4vn3thjln1" path="res://assets/gfx/scenery/bear_statue.png" id="2_nr6s8"]
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="2_u0y4a"]
-[ext_resource type="Script" uid="uid://b4ifpuqalil06" path="res://objects/echo/follow_camera.gd" id="3_rhiwu"]
+[ext_resource type="Script" uid="uid://b4ifpuqalil06" path="res://objects/echo/scripts/follow_camera.gd" id="3_rhiwu"]
 [ext_resource type="PackedScene" uid="uid://cefuh3mk0kvnx" path="res://oneoff/arena_fire.tscn" id="3_uttkf"]
 [ext_resource type="PackedScene" uid="uid://d0kiufe6wem6i" path="res://objects/echo/health_bar.tscn" id="4_15yqu"]
 [ext_resource type="PackedScene" uid="uid://bf5mg08oiqdu1" path="res://oneoff/hugehog.tscn" id="5_u0y4a"]

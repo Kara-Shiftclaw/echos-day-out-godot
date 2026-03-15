@@ -1,7 +1,7 @@
 extends Area2D
 
 func player_entered(other: Node2D):
-	if other is Echo:
+	if other is Player:
 		var player := other as Echo
 		player.enter_save_point(self)
 		$SaveParticle.show()
@@ -13,7 +13,7 @@ func player_entered(other: Node2D):
 		push_warning("Non-player node ", other, " entered")
 
 func player_exited(other: Node2D):
-	if other is Echo:
+	if other is Player:
 		var player := other as Echo
 		player.exit_save_point(self)
 	else:

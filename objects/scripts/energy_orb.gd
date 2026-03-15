@@ -23,6 +23,6 @@ func _physics_process(delta: float) -> void:
 	var collision := move_and_collide(velocity * delta)
 	if collision != null:
 		var collider = collision.get_collider()
-		if collider is Echo:
+		if collider is Player:
 			Global.health += 1
 		queue_free()

@@ -13,7 +13,7 @@ func check_state() -> void:
 		$AnimationPlayer.play("small_idle")
 
 func entered(other: Node2D) -> void:
-	if other is Echo:
+	if other is Player:
 		$Journal.hide()
 		$CollisionShape2D.set_deferred("disabled", true)
 		if !other.is_on_floor():

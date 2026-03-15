@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_2qmnm"]
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="1_u1sro"]
-[ext_resource type="Script" uid="uid://b4ifpuqalil06" path="res://objects/echo/follow_camera.gd" id="3_abicu"]
+[ext_resource type="Script" uid="uid://b4ifpuqalil06" path="res://objects/echo/scripts/follow_camera.gd" id="3_abicu"]
 [ext_resource type="PackedScene" uid="uid://d0kiufe6wem6i" path="res://objects/echo/health_bar.tscn" id="3_dp5ym"]
 [ext_resource type="PackedScene" uid="uid://drvhshuujb1xs" path="res://objects/falling_tile.tscn" id="3_u1sro"]
 [ext_resource type="PackedScene" uid="uid://whn2qdsyfdyv" path="res://objects/enemies/beeorb.tscn" id="5_dp5ym"]

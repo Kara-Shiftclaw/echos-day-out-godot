@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://7m0wyc6ve7cr"]
 
-[ext_resource type="Script" uid="uid://bb4wlwu4h5g32" path="res://objects/echo/cutscene_walker.gd" id="1_6yheu"]
+[ext_resource type="Script" uid="uid://bb4wlwu4h5g32" path="res://objects/echo/scripts/cutscene_walker.gd" id="1_6yheu"]
 [ext_resource type="Texture2D" uid="uid://ci45m4n4yfgho" path="res://assets/gfx/echo.png" id="1_gidxo"]
 
 [sub_resource type="Animation" id="Animation_hrde5"]

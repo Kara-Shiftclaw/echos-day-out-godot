@@ -14,12 +14,12 @@ func _ready() -> void:
 		$AnimationPlayer.play("closed_idle")
 
 func entered(other: Node2D):
-	if other is Echo:
+	if other is Player:
 		$UpArrow.show()
 		echo_inside = true
 
 func exited(other: Node2D):
-	if other is Echo:
+	if other is Player:
 		$UpArrow.hide()
 		echo_inside = false
 

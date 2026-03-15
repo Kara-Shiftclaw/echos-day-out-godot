@@ -24,8 +24,8 @@ func enable() -> void:
 	$CollisionShape2D.set_deferred("disabled", false)
 
 func on_entered(other: Node2D) -> void:
-	if other is Echo:
-		var echo: Echo = other
+	if other is Player:
+		var echo: Player = other
 		echo.hide()
 		echo.can_move = false
 		

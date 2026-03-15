@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	position += velocity * delta
 
 func explode(other: Node2D = null) -> void:
-	if other is Echo:
+	if other is Player:
 		other.add_child(Honey.instantiate())
 	elif other.is_in_group("Bees") and other.has_method("eat"):
 		other.eat()

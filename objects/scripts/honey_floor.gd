@@ -13,13 +13,13 @@ func _ready() -> void:
 	$Area2D/CollisionShape2D.position.x = w / 2.
 
 func enter(other: Node2D) -> void:
-	if other is Echo:
+	if other is Player:
 		other.add_child(Honey.instantiate())
 		$HoneyShoot.play()
 		echo_in = true
 
 func exit(other: Node2D) -> void:
-	if other is Echo:
+	if other is Player:
 		echo_in = false
 
 func _physics_process(_delta: float) -> void:

@@ -14,12 +14,12 @@ func _ready() -> void:
 	activation_area.body_exited.connect(exited)
 
 func entered(other: Node2D):
-	if other is Echo:
+	if other is Player:
 		show()
 		echo_inside = true
 
 func exited(other: Node2D):
-	if other is Echo:
+	if other is Player:
 		hide()
 		echo_inside = false
 

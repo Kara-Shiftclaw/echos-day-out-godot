@@ -8,11 +8,11 @@ func _ready() -> void:
 		queue_free()
 
 func entered(other: Node2D) -> void:
-	if other is Echo and !broken:
+	if other is Player and !broken:
 		$AnimationPlayer.play("crack")
 
 func exited(other: Node2D) -> void:
-	if other is Echo and !broken:
+	if other is Player and !broken:
 		$AnimationPlayer.pause()
 
 func do_break() -> void:

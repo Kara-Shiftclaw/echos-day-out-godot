@@ -37,7 +37,7 @@ func copy_spore() -> Node2D:
 	return copy
 
 func entered(other: Node2D):
-	if other is Echo and $AnimationPlayer.current_animation == "idle":
+	if other is Player and $AnimationPlayer.current_animation == "idle":
 		$AnimationPlayer.play("spread")
 
 func reload() -> void:

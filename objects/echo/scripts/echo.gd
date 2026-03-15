@@ -1,5 +1,5 @@
 class_name Echo
-extends CharacterBody2D
+extends Player
 
 const Attack := preload("res://objects/echo/attack.tscn")
 const Fireball := preload("res://objects/echo/fireball.tscn")
@@ -71,25 +71,19 @@ const SWORD_BLADE_FLAG := "has_sword_blade"
 const SWORD_HILT_FLAG := "has_sword_hilt"
 
 @export var can_move := true
-@export var anim_priority := 0
 
 var cur_save_point: Node = null
 var can_double_jump := false
 var can_fireball := false
 var can_crush := false
-var is_sprinting := false
 var is_crushing := false
 var attack_rhythm: AttackRhythm = null
 var on_floor := true
 
-var facing_right := true:
-	set(value):
-		facing_right = value
-		$Sprite2D.flip_h = !value
-		$CollisionShape2D.position.x = HITBOX_OFFSET_MAP[Global.weight] * Util.sign(value)
+func sync_facing_right() -> void:
+	$Sprite2D.flip_h = !facing_right
+	$CollisionShape2D.position.x = HITBOX_OFFSET_MAP[Global.weight] * Util.sign(facing_right)
 
-signal land_on_floor()
-signal respawned()
 
 func _ready() -> void:
 	Global.echo = self
@@ -235,18 +229,17 @@ func do_attack() -> void:
 func in_attack_anim() -> bool:
 	return is_cur_anim("attack") or is_cur_anim("attack_2") or is_cur_anim("attack_3")
 
-func play_anim(anim_name: String, priority: int = 0) -> bool:
-	if priority >= anim_priority:
-		anim_priority = priority
-		var prev_anim: String = $AnimationPlayer.current_animation
-		var full_name := full_anim_name(anim_name)
-		if $AnimationPlayer.has_animation(full_name):
-			$AnimationPlayer.play(full_name)
-			return prev_anim != full_name
-		elif $AnimationPlayer.has_animation(anim_name):
-			$AnimationPlayer.play(anim_name)
-			return prev_anim != anim_name
-	return false
+func set_anim(anim_name: String) -> bool:
+	var prev_anim: String = $AnimationPlayer.current_animation
+	var full_name := full_anim_name(anim_name)
+	if $AnimationPlayer.has_animation(full_name):
+		$AnimationPlayer.play(full_name)
+		return prev_anim != full_name
+	elif $AnimationPlayer.has_animation(anim_name):
+		$AnimationPlayer.play(anim_name)
+		return prev_anim != anim_name
+	else:
+		return false
 
 func anim_seek(seconds := 0., update := false) -> void:
 	$AnimationPlayer.seek(seconds, update)

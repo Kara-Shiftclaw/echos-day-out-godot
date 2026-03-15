@@ -10,7 +10,7 @@ func _ready() -> void:
 		queue_free()
 
 func entered(other: Node2D):
-	if other is Echo:
+	if other is Player:
 		hide()
 		$CollisionShape2D.set_deferred("disabled", true)
 		if !other.is_on_floor():
