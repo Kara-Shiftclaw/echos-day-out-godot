@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cpf870qyhbg0"]
+[gd_scene load_steps=33 format=4 uid="uid://cpf870qyhbg0"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3kelf1cerb" path="res://assets/gfx/scenery/sporeways_omni.png" id="1_gob7n"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_q8lqc"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://71ne35ggsd78" path="res://objects/falling_tile_generator.tscn" id="6_2enqv"]
 [ext_resource type="PackedScene" uid="uid://0pbsxos37t77" path="res://objects/enemies/hedgehog.tscn" id="6_f8ftu"]
 [ext_resource type="PackedScene" uid="uid://cxtlyraput0t5" path="res://objects/enemies/spike_hedgehog.tscn" id="7_bx41r"]
+[ext_resource type="PackedScene" uid="uid://bxa6yf7r02v1s" path="res://objects/echo/echo_blob.tscn" id="7_kb4pi"]
 [ext_resource type="PackedScene" uid="uid://c41qbd7hybpmg" path="res://objects/enemies/spider.tscn" id="8_iopqv"]
 [ext_resource type="PackedScene" uid="uid://c8dvt0avx6bkw" path="res://objects/region_name.tscn" id="8_sp7eq"]
 [ext_resource type="PackedScene" uid="uid://caed6skxowe3i" path="res://objects/door.tscn" id="9_d6e5t"]
@@ -839,11 +840,13 @@ tile_set = ExtResource("1_q8lqc")
 [node name="Echo" parent="." instance=ExtResource("2_6h7uu")]
 position = Vector2(72, 95)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following", "stage_transition_parent")]
+[node name="EchoBlob" parent="." instance=ExtResource("7_kb4pi")]
+position = Vector2(46, 148)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("stage_transition_parent")]
 offset = Vector2(64, 64)
 zoom = Vector2(4, 4)
 script = ExtResource("3_645fl")
-following = NodePath("../Echo")
 stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("4_k0icb")]

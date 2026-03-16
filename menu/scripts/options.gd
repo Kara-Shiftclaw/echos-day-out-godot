@@ -30,6 +30,7 @@ static func load_options() -> void:
 		Accessibility.sprint = options["accessibility_sprint"]
 		Accessibility.crush = options["accessibility_crush"]
 		Accessibility.max_hp_offset = options["accessibility_max_hp_offset"] as int
+		Accessibility.is_smol = options.get("accessibility_is_smol", false)
 	else:
 		print("No options file to load")
 
@@ -43,6 +44,7 @@ static func save() -> void:
 		accessibility_sprint = Accessibility.sprint,
 		accessibility_crush = Accessibility.crush,
 		accessibility_max_hp_offset = Accessibility.max_hp_offset,
+		accessibility_is_smol = Accessibility.is_smol,
 	}
 	var save_file := FileAccess.open(OPTIONS_FILE, FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(options_dict))

@@ -44,6 +44,9 @@ func new_stage_jump():
 func on_respawn_same_stage() -> void:
 	can_move = true
 
+func should_be_player() -> bool:
+	return Global.is_smol
+
 
 func _physics_process(delta: float) -> void:
 	if can_move:
@@ -59,11 +62,14 @@ func _physics_process(delta: float) -> void:
 			calculate_x_movement(delta)
 		
 		if is_on_floor():
+			process_on_floor()
 			$CoyoteTimeTimer.start()
 			can_attack = true
 			if is_cur_anim("jump"):
 				anim_priority = 0
 				play_anim("walk")
+		else:
+			on_floor = false
 		
 		if Input.is_action_just_pressed("jump"):
 			if !$CoyoteTimeTimer.is_stopped():
@@ -95,6 +101,7 @@ func attack() -> void:
 	$DamageBox/Damage.active = true
 	$DamageBox/CollisionShape2D.set_deferred("disabled", false)
 	$EnemyHurtbox/CollisionShape2D.set_deferred("disabled", true)
+	$StageHurtbox/CollisionShape2D.set_deferred("disabled", true)
 	play_anim("attack", 2)
 
 func attack_hit() -> void:
@@ -112,9 +119,11 @@ func stop_attack(successful := false) -> void:
 		var hurtbox_enable_timer := get_tree().create_timer(0.05)
 		hurtbox_enable_timer.timeout.connect(func():
 			$EnemyHurtbox/CollisionShape2D.set_deferred("disabled", false)
+			$StageHurtbox/CollisionShape2D.set_deferred("disabled", false)
 		)
 	else:
 		$EnemyHurtbox/CollisionShape2D.set_deferred("disabled", false)
+		$StageHurtbox/CollisionShape2D.set_deferred("disabled", false)
 
 func is_attacking() -> bool:
 	return is_cur_anim("attack")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=4 uid="uid://dlyo3vm215av5"]
+[gd_scene load_steps=21 format=4 uid="uid://dlyo3vm215av5"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_lffue"]
 [ext_resource type="PackedScene" uid="uid://bufqrx6gdo4an" path="res://objects/save_point.tscn" id="2_585s4"]
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="2_h0epc"]
 [ext_resource type="Script" uid="uid://b4ifpuqalil06" path="res://objects/echo/scripts/follow_camera.gd" id="3_duntd"]
 [ext_resource type="PackedScene" uid="uid://d0kiufe6wem6i" path="res://objects/echo/health_bar.tscn" id="5_7tf6m"]
+[ext_resource type="PackedScene" uid="uid://bxa6yf7r02v1s" path="res://objects/echo/echo_blob.tscn" id="5_sylbw"]
 [ext_resource type="PackedScene" uid="uid://cfeg32boou2fo" path="res://objects/enemies/scare_dragon.tscn" id="6_qtm6w"]
 [ext_resource type="PackedScene" uid="uid://c8dvt0avx6bkw" path="res://objects/region_name.tscn" id="7_dcvu5"]
 [ext_resource type="PackedScene" uid="uid://0pbsxos37t77" path="res://objects/enemies/hedgehog.tscn" id="7_g2naw"]
@@ -47,11 +48,13 @@ position = Vector2(867, -89)
 [node name="Echo" parent="." instance=ExtResource("2_h0epc")]
 position = Vector2(24, 147)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following", "stage_transition_parent")]
+[node name="EchoBlob" parent="." instance=ExtResource("5_sylbw")]
+position = Vector2(46, 148)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("stage_transition_parent")]
 offset = Vector2(64, 64)
 zoom = Vector2(4, 4)
 script = ExtResource("3_duntd")
-following = NodePath("../Echo")
 stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("5_7tf6m")]

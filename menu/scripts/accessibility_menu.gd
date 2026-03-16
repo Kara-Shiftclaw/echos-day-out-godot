@@ -6,6 +6,7 @@ func _ready() -> void:
 	$ACC/VBoxContainer/Sprint.button_pressed = Accessibility.sprint
 	$ACC/VBoxContainer/Crush.button_pressed = Accessibility.crush
 	$ACC/VBoxContainer/MaxHealth/HSlider.value = Accessibility.max_hp_offset
+	$ACC/VBoxContainer/Smol.button_pressed = Accessibility.is_smol
 	set_max_hp_label(Accessibility.max_hp_offset)
 
 func fireball_pressed() -> void:
@@ -24,6 +25,9 @@ func max_hp_offset_changed(value: float) -> void:
 	var value_int := floori(value)
 	Accessibility.max_hp_offset = value_int
 	set_max_hp_label(value_int)
+
+func smol_pressed() -> void:
+	Accessibility.is_smol = $ACC/VBoxContainer/Smol.button_pressed
 
 func set_max_hp_label(value: int) -> void:
 	if value >= 0:

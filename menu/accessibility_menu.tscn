@@ -88,8 +88,13 @@ layout_mode = 2
 min_value = -14.0
 max_value = 15.0
 
+[node name="Smol" type="CheckBox" parent="ACC/VBoxContainer"]
+layout_mode = 2
+text = "Become Smol"
+
 [connection signal="pressed" from="ACC/VBoxContainer/Fireball" to="." method="fireball_pressed"]
 [connection signal="pressed" from="ACC/VBoxContainer/DoubleJump" to="." method="double_jump_pressed"]
 [connection signal="pressed" from="ACC/VBoxContainer/Sprint" to="." method="sprint_pressed"]
 [connection signal="pressed" from="ACC/VBoxContainer/Crush" to="." method="crush_pressed"]
 [connection signal="value_changed" from="ACC/VBoxContainer/MaxHealth/HSlider" to="." method="max_hp_offset_changed"]
+[connection signal="pressed" from="ACC/VBoxContainer/Smol" to="." method="smol_pressed"]

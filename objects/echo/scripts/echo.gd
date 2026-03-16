@@ -5,6 +5,7 @@ const Attack := preload("res://objects/echo/attack.tscn")
 const Fireball := preload("res://objects/echo/fireball.tscn")
 const Crush := preload("res://objects/echo/crush.tscn")
 const DeathScreen := preload("res://objects/echo/particle/death_screen.tscn")
+const SmolEcho := preload("res://objects/echo/echo_blob.tscn")
 const Weight := Global.Weight
 
 const SPEED_MAP: Dictionary[Weight, float] = {
@@ -33,7 +34,7 @@ const JUMP_TIME_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 3.5 * 8. / -JUMP_VELOCITY_MAP[Weight.Thin],
 	Weight.Fat: 3.5 * 8. / -JUMP_VELOCITY_MAP[Weight.Fat],
 	Weight.Obese: 3. * 8. / -JUMP_VELOCITY_MAP[Weight.Obese],
-	Weight.MorObese: 2.5 * 8. / -JUMP_VELOCITY_MAP[Weight.MorObese],
+	Weight.MorObese: 2.6 * 8. / -JUMP_VELOCITY_MAP[Weight.MorObese],
 	Weight.Blob: 2. * 8. / -JUMP_VELOCITY_MAP[Weight.Blob],
 }
 const HITBOX_SIZE_MAP: Dictionary[Weight, float] = {
@@ -78,11 +79,13 @@ var can_fireball := false
 var can_crush := false
 var is_crushing := false
 var attack_rhythm: AttackRhythm = null
-var on_floor := true
 
 func sync_facing_right() -> void:
 	$Sprite2D.flip_h = !facing_right
 	$CollisionShape2D.position.x = HITBOX_OFFSET_MAP[Global.weight] * Util.sign(facing_right)
+
+func should_be_player() -> bool:
+	return !Global.is_smol
 
 
 func _process(_delta: float) -> void:
@@ -102,9 +105,7 @@ func _physics_process(delta: float) -> void:
 			calculate_x_movement(delta)
 			
 			if is_on_floor():
-				if !on_floor:
-					land_on_floor.emit()
-				on_floor = true
+				process_on_floor()
 				
 				if is_crushing:
 					is_crushing = false

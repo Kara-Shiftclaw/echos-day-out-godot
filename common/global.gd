@@ -28,6 +28,7 @@ var _fireball := false
 var _double_jump := false
 var _sprint := false
 var _crush := false
+var _smol := false
 var has_fireball:
 	get:
 		return _fireball or Accessibility.fireball
@@ -48,6 +49,11 @@ var has_crush:
 		return _crush or Accessibility.crush
 	set(value):
 		_crush = value
+var is_smol:
+	get:
+		return _smol or Accessibility.is_smol
+	set(value):
+		_smol = value
 
 var weight := Weight.Thin
 var max_health := STARTING_MAX_HEALTH:
@@ -96,6 +102,7 @@ func save_data(save_point: Node) -> void:
 		"double_jump": _double_jump,
 		"sprint": _sprint,
 		"crush": _crush,
+		"is_smol": _smol,
 	}
 	var save_file := FileAccess.open(save_path(save_id), FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(save_dict, "\t"))
@@ -134,7 +141,8 @@ func load_data(load_id: int) -> void:
 		load_abilities(load_json["fireball"],
 				load_json["double_jump"],
 				load_json["sprint"],
-				load_json["crush"])
+				load_json["crush"],
+				load_json.get("is_smol", false))
 		echo.play_anim("idle")
 		echo.anim_seek(0.)
 		
@@ -221,24 +229,31 @@ func grant_abilities(
 		grant_double_jump or _double_jump,
 		grant_sprint or _sprint,
 		grant_crush or _crush,
+		_smol,
 	)
 
 func load_abilities(
 		load_fireball: bool, 
 		load_double_jump: bool, 
 		load_sprint: bool, 
-		load_crush: bool) -> void:
+		load_crush: bool,
+		load_smol: bool) -> void:
 	has_fireball = load_fireball
 	has_double_jump = load_double_jump
 	has_sprint = load_sprint
 	has_crush = load_crush
+	is_smol = load_smol
 	recalculate_weight()
 
 func recalculate_weight() -> void:
-	weight = ((1 if has_fireball else 0) \
-			+ (1 if has_double_jump else 0) \
-			+ (1 if has_sprint else 0) \
-			+ (1 if has_crush else 0)) as Weight
+	if false:
+		weight = Weight.Thin
+	else:
+		weight = ((1 if has_fireball else 0) \
+				+ (1 if has_double_jump else 0) \
+				+ (1 if has_sprint else 0) \
+				+ (1 if has_crush else 0)) as Weight
+
 	if echo != null:
 		echo.play_anim("idle")
 

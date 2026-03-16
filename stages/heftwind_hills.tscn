@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://x0cp1goc127g"]
+[gd_scene load_steps=29 format=4 uid="uid://x0cp1goc127g"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_18db3"]
 [ext_resource type="TileSet" uid="uid://bxnc37mxvc2d3" path="res://assets/gfx/scenery/valley_tileset.tres" id="1_my03o"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://caed6skxowe3i" path="res://objects/door.tscn" id="7_5uyyr"]
 [ext_resource type="PackedScene" uid="uid://dnu07ervecpho" path="res://objects/enemies/crow.tscn" id="7_wvjee"]
 [ext_resource type="PackedScene" uid="uid://ca72bwose76ae" path="res://objects/switch.tscn" id="8_7edfj"]
+[ext_resource type="PackedScene" uid="uid://bxa6yf7r02v1s" path="res://objects/echo/echo_blob.tscn" id="8_b52u7"]
 [ext_resource type="PackedScene" uid="uid://cxtlyraput0t5" path="res://objects/enemies/spike_hedgehog.tscn" id="8_qncom"]
 [ext_resource type="PackedScene" uid="uid://c8dvt0avx6bkw" path="res://objects/region_name.tscn" id="10_tdhlc"]
 [ext_resource type="PackedScene" uid="uid://71ne35ggsd78" path="res://objects/falling_tile_generator.tscn" id="11_ls2ml"]
@@ -192,11 +193,13 @@ tile_set = ExtResource("1_18db3")
 [node name="Echo" parent="." instance=ExtResource("2_wallg")]
 position = Vector2(8, 47)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following", "stage_transition_parent")]
+[node name="EchoBlob" parent="." instance=ExtResource("8_b52u7")]
+position = Vector2(54, 195)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("stage_transition_parent")]
 offset = Vector2(64, 64)
 zoom = Vector2(4, 4)
 script = ExtResource("3_5dxfn")
-following = NodePath("../Echo")
 stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("4_nk05n")]

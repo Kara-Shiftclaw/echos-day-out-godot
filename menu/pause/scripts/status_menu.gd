@@ -2,12 +2,13 @@ extends Control
 
 const Weight := Global.Weight
 const WEIGHT_NAMES := {
-	Weight.Thin: "Thin",
-	Weight.Fat: "Fat",
-	Weight.Obese: "Obese",
-	Weight.MorObese: "VERY Obese",
-	Weight.Blob: "FATASS",
+	Weight.Thin: "average",
+	Weight.Fat: "fat",
+	Weight.Obese: "tubby",
+	Weight.MorObese: "Obese",
+	Weight.Blob: "BLOB",
 }
+const SMOL_NAME := "Shrunken"
 const WEIGHT_FORMAT := "Weight:\n{0}"
 const FOOD_FORMAT := "{0} ({1}/8)"
 const HEALTH_UP_FORMAT := "{0}/6"
@@ -15,13 +16,21 @@ const PORTAL_CORE_FORMAT := "{0} ({1}/6)"
 const NO_ABILITY_TEXT := "???"
 
 func _ready() -> void:
-	$Sprite2D.frame = Global.weight as int
-	$OtherStatuses/Weight.text = WEIGHT_FORMAT.format([WEIGHT_NAMES[Global.weight]])
+	if Global.is_smol:
+		$Sprite2D.frame = 5
+		$OtherStatuses/Weight.text = WEIGHT_FORMAT.format([SMOL_NAME])
+		$MajorUpgrades/Fireball.text = "BONK"
+		$MajorUpgrades/DoubleJump.text = "HIGH JUMP"
+		$MajorUpgrades/Sprint.text = "SPRINT"
+		$MajorUpgrades/Crush.text = "SQUEEZE"
+	else:
+		$Sprite2D.frame = Global.weight as int
+		$OtherStatuses/Weight.text = WEIGHT_FORMAT.format([WEIGHT_NAMES[Global.weight]])
 	
-	maybe_disable($MajorUpgrades/Fireball, Global.has_fireball) 
-	maybe_disable($MajorUpgrades/DoubleJump, Global.has_double_jump)
-	maybe_disable($MajorUpgrades/Sprint, Global.has_sprint)
-	maybe_disable($MajorUpgrades/Crush, Global.has_crush)
+		maybe_disable($MajorUpgrades/Fireball, Global.has_fireball) 
+		maybe_disable($MajorUpgrades/DoubleJump, Global.has_double_jump)
+		maybe_disable($MajorUpgrades/Sprint, Global.has_sprint)
+		maybe_disable($MajorUpgrades/Crush, Global.has_crush)
 	
 	$OtherStatuses/FoodIndicator/Label.text = FOOD_FORMAT.format([Global.flags.get("food_on_hand", 0) as int, Global.flags.get("food_collected", 0) as int])
 	$OtherStatuses/HealthUpIndicator/Label.text = HEALTH_UP_FORMAT.format([Global.flags.get("health_up_collected", 0) as int])

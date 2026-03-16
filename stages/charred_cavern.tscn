@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://d0cqj6thnf2r1"]
+[gd_scene load_steps=45 format=4 uid="uid://d0cqj6thnf2r1"]
 
 [ext_resource type="Texture2D" uid="uid://c5lr8s0d15lyw" path="res://assets/gfx/scenery/charred_cavern_tileset.png" id="1_7vtke"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_82sa8"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bf5mg08oiqdu1" path="res://oneoff/hugehog.tscn" id="5_u0y4a"]
 [ext_resource type="PackedScene" uid="uid://bskg6itv6601v" path="res://oneoff/journalist.tscn" id="6_rhiwu"]
 [ext_resource type="PackedScene" uid="uid://cxtlyraput0t5" path="res://objects/enemies/spike_hedgehog.tscn" id="7_15yqu"]
+[ext_resource type="PackedScene" uid="uid://bxa6yf7r02v1s" path="res://objects/echo/echo_blob.tscn" id="7_34qg1"]
 [ext_resource type="PackedScene" uid="uid://ca72bwose76ae" path="res://objects/switch.tscn" id="7_gak8h"]
 [ext_resource type="PackedScene" uid="uid://bufqrx6gdo4an" path="res://objects/save_point.tscn" id="7_wq787"]
 [ext_resource type="PackedScene" uid="uid://caed6skxowe3i" path="res://objects/door.tscn" id="8_kt3p3"]
@@ -217,11 +218,13 @@ tile_set = ExtResource("1_82sa8")
 [node name="Echo" parent="." instance=ExtResource("2_u0y4a")]
 position = Vector2(24, 87)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following", "stage_transition_parent")]
+[node name="EchoBlob" parent="." instance=ExtResource("7_34qg1")]
+position = Vector2(-23, 63)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("stage_transition_parent")]
 offset = Vector2(64, 64)
 zoom = Vector2(4, 4)
 script = ExtResource("3_rhiwu")
-following = NodePath("../Echo")
 stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("4_15yqu")]

@@ -7,10 +7,11 @@ var facing_right := true:
 		sync_facing_right()
 
 var is_sprinting := false
+var on_floor := true
 @export var anim_priority := 0
 
-@warning_ignore("unused_signal") signal land_on_floor()
-@warning_ignore("unused_signal") signal respawned()
+signal land_on_floor()
+signal respawned()
 
 @abstract func sync_facing_right() -> void
 @abstract func set_anim(anim_name: String) -> bool
@@ -19,10 +20,15 @@ var is_sprinting := false
 @abstract func get_acceleration() -> float
 @abstract func new_stage_jump() -> void
 @abstract func on_respawn_same_stage() -> void
+@abstract func should_be_player() -> bool
 
 func _ready() -> void:
-	Global.echo = self
-	Global.echo_died.connect(die)
+	if should_be_player():
+		Global.echo = self
+		Global.echo_died.connect(die)
+	else:
+		process_mode = Node.PROCESS_MODE_DISABLED
+		global_position = Vector2.INF
 
 func calculate_x_movement(delta: float) -> void:
 	var desired_vel := get_desired_speed() * Input.get_axis("ui_left", "ui_right")
@@ -40,6 +46,11 @@ func calculate_x_movement(delta: float) -> void:
 	else:
 		is_sprinting = false
 		play_anim("idle")
+
+func process_on_floor() -> void:
+	if !on_floor:
+		land_on_floor.emit()
+	on_floor = true
 
 func play_anim(anim_name: String, priority: int = 0) -> bool:
 	if priority >= anim_priority:

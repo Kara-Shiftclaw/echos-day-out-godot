@@ -113,17 +113,15 @@ tile_map_data = PackedByteArray("AAANAA8AAQAAAAAAAAAOAA8AAQABAAAAAAAPAA8AAQABAAA
 tile_set = ExtResource("1_ppd75")
 
 [node name="Echo" parent="." instance=ExtResource("1_0ws40")]
-process_mode = 4
 position = Vector2(24, 147)
 
 [node name="EchoBlob" parent="." instance=ExtResource("3_1hs5j")]
-position = Vector2(189, 150)
+position = Vector2(46, 148)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following", "stage_transition_parent")]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("stage_transition_parent")]
 offset = Vector2(64, 64)
 zoom = Vector2(4, 4)
 script = ExtResource("2_ppd75")
-following = NodePath("../EchoBlob")
 stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("3_60v8e")]
