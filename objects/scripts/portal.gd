@@ -89,7 +89,10 @@ func begin_portal_animation() -> void:
 		Global.echo.hide()
 		$PortalNoise.play()
 		if echo_fits():
-			$Echo/AnimationPlayer.play("use_{0}".format([int(Global.weight)]))
+			if Global.is_smol:
+				$Echo/AnimationPlayer.play("use_smol")
+			else:
+				$Echo/AnimationPlayer.play("use_{0}".format([int(Global.weight)]))
 			$Echo/AnimationPlayer.animation_finished.connect(teleport)
 		else:
 			$Echo/AnimationPlayer.play("too_fat")
@@ -104,7 +107,7 @@ func teleport(_ignored) -> void:
 	)
 
 func echo_fits() -> bool:
-	return Global.flags.has("resize_injector") or Global.weight < Global.Weight.Blob
+	return Global.is_smol or Global.flags.has("resize_injector") or Global.weight < Global.Weight.Blob
 
 func too_fat_reset() -> void:
 	unpause()
