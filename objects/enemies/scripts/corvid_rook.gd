@@ -21,13 +21,13 @@ func fire() -> void:
 	projectile.global_position = global_position + PROJECTILE_FIRE_OFFSET
 
 func reload_alive() -> void:
-	show()
 	if !is_in_group("RookSummon"):
 		add_to_group("RookSummon")
 	$AnimationPlayer.play("idle")
 	$AnimationPlayer.seek(0.)
+	$Body/AnimationPlayer.play("idle")
+	$Body/AnimationPlayer.seek(0.)
 
 func unload() -> void:
-	hide()
 	if is_in_group("RookSummon"):
 		remove_from_group("RookSummon")

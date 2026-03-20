@@ -1,19 +1,116 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnya0cld4qphf"]
+[gd_scene load_steps=15 format=3 uid="uid://cnya0cld4qphf"]
 
 [ext_resource type="Script" uid="uid://bdpdx81etyv3o" path="res://objects/enemies/scripts/corvid_rook.gd" id="1_eyro1"]
 [ext_resource type="Texture2D" uid="uid://qu48nke8ksu7" path="res://assets/gfx/compound/corvid_rook/corvid_rook.png" id="1_su2pk"]
+[ext_resource type="Texture2D" uid="uid://c4glcg77mhy28" path="res://assets/gfx/compound/corvid_rook/held_staff.png" id="2_ijkc7"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="3_fkk1c"]
 [ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="4_fkk1c"]
+
+[sub_resource type="Animation" id="Animation_ijkc7"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_2q8s8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k7gec"]
+resource_name = "hurt"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fk12y"]
+_data = {
+&"RESET": SubResource("Animation_2q8s8"),
+&"hurt": SubResource("Animation_k7gec"),
+&"idle": SubResource("Animation_ijkc7")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nphb"]
 size = Vector2(14, 18)
 
 [sub_resource type="Animation" id="Animation_fkk1c"]
 resource_name = "die"
+length = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"stop"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeldStaff:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 4]
+}
 
 [sub_resource type="Animation" id="Animation_eyro1"]
 resource_name = "idle"
-length = 0.9
+length = 1.2
 loop_mode = 1
 step = 0.1
 tracks/0/type = "method"
@@ -23,16 +120,56 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.9),
+"times": PackedFloat32Array(1.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"start_fire"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeldStaff:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.90000004, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_5tf06"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeldStaff:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fkk1c"]
 _data = {
+&"RESET": SubResource("Animation_5tf06"),
 &"die": SubResource("Animation_fkk1c"),
 &"idle": SubResource("Animation_eyro1")
 }
@@ -42,9 +179,23 @@ collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_eyro1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="HeldStaff" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("2_ijkc7")
+hframes = 5
+
+[node name="Body" type="Sprite2D" parent="."]
 position = Vector2(0, -11)
 texture = ExtResource("1_su2pk")
+hframes = 5
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
+libraries = {
+&"": SubResource("AnimationLibrary_fk12y")
+}
+autoplay = "idle"
+next/hurt = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
@@ -69,3 +220,4 @@ bus = &"Sfx"
 [connection signal="chunk_left" from="EnemyManager" to="." method="unload"]
 [connection signal="die" from="EnemyManager" to="EnemyDieSound" method="play"]
 [connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]
+[connection signal="hit" from="EnemyManager" to="Body/AnimationPlayer" method="play" binds= [&"hurt"]]
