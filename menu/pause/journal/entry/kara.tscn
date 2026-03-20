@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b34ygmvk0wa54"]
+[gd_scene load_steps=3 format=3 uid="uid://vt66wur64onw"]
 
-[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_7nat2"]
-[ext_resource type="Texture2D" uid="uid://dhpt68546d4mg" path="res://assets/gfx/beeorb.png" id="2_w3sjl"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_jq6kg"]
+[ext_resource type="Texture2D" uid="uid://cl0y5140oacvp" path="res://assets/gfx/kara.png" id="2_jq6kg"]
 
 [node name="Entry" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_7nat2")
+theme = ExtResource("1_jq6kg")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,10 +33,10 @@ grow_vertical = 2
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(56, 26)
-texture = ExtResource("2_w3sjl")
+position = Vector2(56, 19)
+texture = ExtResource("2_jq6kg")
 region_enabled = true
-region_rect = Rect2(240, 0, 20, 14)
+region_rect = Rect2(0, 0, 34, 28)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -45,7 +45,7 @@ offset_top = 35.0
 offset_right = 103.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
-text = "Orbee <Immobile>"
+text = "Kara"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
@@ -55,7 +55,5 @@ offset_top = 46.0
 offset_right = 112.0
 offset_bottom = 329.0
 theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
-text = "The natural end-state of the Orbees' diet. I wonder if science could get them fatter?
-For research purposes,
-of course."
+text = "She claims to be a cryptid called a \"Shift-Claw\". There are no recorded instances of this species. ????????"
 autowrap_mode = 2

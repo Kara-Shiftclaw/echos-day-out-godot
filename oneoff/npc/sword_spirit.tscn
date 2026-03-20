@@ -306,7 +306,7 @@ text = "Aaaaanyways, in its current state, the sword is kinda useless. But I hav
 text = "I'll let you take one half on your quest, and I'll keep the other half safe!"
 
 [node name="StandardTextBox6" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
-text = "(After all, you never know when some fatass will just crush swords nowadays...)"
+text = "<After all, you never know when some fatass will just crush swords nowadays...>"
 
 [node name="StandardTextBox9" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
 text = "Then if you ever change your mind, you can come back and swap them!"

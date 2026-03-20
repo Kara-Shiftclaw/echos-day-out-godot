@@ -27,5 +27,6 @@ func do_break() -> void:
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = true
 		Global.flags.set("sword_broken", true)
+		Global.journal_entries.set("sword_spirit", true)
 		sword_spirit.summon()
 	, ConnectFlags.CONNECT_ONE_SHOT)

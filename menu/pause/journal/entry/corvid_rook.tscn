@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b34ygmvk0wa54"]
+[gd_scene load_steps=4 format=3 uid="uid://ka04a05ocuy0"]
 
-[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_7nat2"]
-[ext_resource type="Texture2D" uid="uid://dhpt68546d4mg" path="res://assets/gfx/beeorb.png" id="2_w3sjl"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_3wr5a"]
+[ext_resource type="Texture2D" uid="uid://c4glcg77mhy28" path="res://assets/gfx/compound/corvid_rook/held_staff.png" id="2_xon0g"]
+[ext_resource type="Texture2D" uid="uid://qu48nke8ksu7" path="res://assets/gfx/compound/corvid_rook/corvid_rook.png" id="3_4dh4g"]
 
 [node name="Entry" type="Control"]
 layout_mode = 3
@@ -10,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_7nat2")
+theme = ExtResource("1_3wr5a")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -32,11 +33,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(56, 26)
-texture = ExtResource("2_w3sjl")
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(56, 22)
+texture = ExtResource("2_xon0g")
 region_enabled = true
-region_rect = Rect2(240, 0, 20, 14)
+region_rect = Rect2(0, 0, 26, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(56, 22)
+texture = ExtResource("3_4dh4g")
+region_enabled = true
+region_rect = Rect2(0, 0, 26, 22)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -45,7 +52,7 @@ offset_top = 35.0
 offset_right = 103.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
-text = "Orbee <Immobile>"
+text = "Corvid Rook"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
@@ -55,7 +62,5 @@ offset_top = 46.0
 offset_right = 112.0
 offset_bottom = 329.0
 theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
-text = "The natural end-state of the Orbees' diet. I wonder if science could get them fatter?
-For research purposes,
-of course."
+text = "Mages in the corvid court, with a belly to match. Through my intense research, I've translated their name as \"Crow Crow\"."
 autowrap_mode = 2

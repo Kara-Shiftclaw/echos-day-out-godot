@@ -13,6 +13,7 @@ enum Entry {
 	hedgehog,
 	wolf,
 	crow,
+	corvid_rook,
 	fatbat,
 	spike_hedgehog,
 	small_lizard,
@@ -21,6 +22,11 @@ enum Entry {
 	standard_mushroom,
 	lil_mushroom,
 	spider,
+	beeorb,
+	immobile_beeorb,
+	bee_cannon,
+	kara,
+	sword_spirit,
 	hugehog,
 }
 
@@ -43,6 +49,8 @@ func get_entry_name(entry: Entry) -> String:
 			return "Hefthire Wolf"
 		Entry.crow:
 			return "Corvid Pawn"
+		Entry.corvid_rook:
+			return "Corvid Pawn"
 		Entry.fatbat:
 			return "Fat Bat"
 		Entry.spike_hedgehog:
@@ -59,6 +67,16 @@ func get_entry_name(entry: Entry) -> String:
 			return "Sporeling"
 		Entry.spider:
 			return "Spider"
+		Entry.beeorb:
+			return "Orbee"
+		Entry.immobile_beeorb:
+			return "Orbee <Immobile>"
+		Entry.bee_cannon:
+			return "Wasp-Cannon"
+		Entry.kara:
+			return "Kara"
+		Entry.sword_spirit:
+			return "Spirit of the Sword"
 		Entry.hugehog:
 			return "Huge-hog"
 	return "UNKNOWN"
