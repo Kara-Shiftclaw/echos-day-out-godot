@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://cye7mkllc63s0"]
+[gd_scene load_steps=50 format=4 uid="uid://cye7mkllc63s0"]
 
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="1_0ws40"]
 [ext_resource type="Texture2D" uid="uid://dm5wh2qtbg7s0" path="res://assets/gfx/scenery/valley_tileset.png" id="1_6w44v"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://bctqpu1tltf8q" path="res://oneoff/slide_platform.tscn" id="12_l4yrr"]
 [ext_resource type="PackedScene" uid="uid://btmasjlcjnook" path="res://objects/health_up.tscn" id="17_jlmb4"]
 [ext_resource type="PackedScene" uid="uid://njpgspcc7uld" path="res://objects/food.tscn" id="18_1hs5j"]
+[ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="26_brjoo"]
+[ext_resource type="AudioStream" uid="uid://vdk6rgmag352" path="res://assets/music/Arcade-Drama2.ogg" id="27_4ptj7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_14ry6"]
 texture = ExtResource("1_xpi5h")
@@ -765,6 +767,9 @@ offset_top = -128.0
 offset_right = 2176.0
 offset_bottom = 0.0
 other_stage = "uid://d0cqj6thnf2r1"
+
+[node name="SongPlayer" parent="." instance=ExtResource("26_brjoo")]
+song_stream = ExtResource("27_4ptj7")
 
 [connection signal="activate" from="Objects/Door/Switch" to="Objects/Door" method="open"]
 [connection signal="activate" from="Objects/Door2/Switch" to="Objects/Door2" method="open"]
