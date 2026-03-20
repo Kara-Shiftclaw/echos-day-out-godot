@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://da6x6hcs46i33"]
+
+[ext_resource type="Texture2D" uid="uid://b3vlhtlt4vrq7" path="res://assets/gfx/scenery/kara_art_book.png" id="1_7dx56"]
+[ext_resource type="Script" uid="uid://uf11dhfuie61" path="res://oneoff/npc/scripts/art_book.gd" id="1_oi0qe"]
+[ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="2_oi0qe"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="3_a17qi"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="4_ybvml"]
+[ext_resource type="PackedScene" uid="uid://dlpq327smiwuo" path="res://menu/dialogue/model/multiple_choice_box.tscn" id="5_a17qi"]
+[ext_resource type="PackedScene" uid="uid://dnup6pmbimhsl" path="res://menu/dialogue/model/choice.tscn" id="6_ybvml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aavb7"]
+size = Vector2(8, 16)
+
+[node name="ArtBook" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_oi0qe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7dx56")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aavb7")
+
+[node name="NpcArrow" parent="." instance=ExtResource("2_oi0qe")]
+position = Vector2(0, -14)
+
+[node name="TextTree" parent="." instance=ExtResource("3_a17qi")]
+
+[node name="MultipleChoiceBox" parent="TextTree" instance=ExtResource("5_a17qi")]
+text = "It's a sketch book. Take a peek?"
+
+[node name="Choice" parent="TextTree/MultipleChoiceBox" instance=ExtResource("6_ybvml")]
+choice_text = "Yes"
+enabled = true
+
+[node name="Choice2" parent="TextTree/MultipleChoiceBox" instance=ExtResource("6_ybvml")]
+choice_text = "No"
+enabled = true
+
+[node name="Options" type="Node" parent="."]
+
+[node name="Cer" parent="Options" instance=ExtResource("3_a17qi")]
+
+[node name="StandardTextBox" parent="Options/Cer" instance=ExtResource("4_ybvml")]
+text = "You flip to a comic. Two doglike creatures slowly gain weight after moving to separate places."
+
+[node name="StandardTextBox2" parent="Options/Cer" instance=ExtResource("4_ybvml")]
+text = "One of them seems to be leaning into it, while the other seems to be in denial."
+
+[node name="Toxen" parent="Options" instance=ExtResource("3_a17qi")]
+
+[node name="StandardTextBox" parent="Options/Toxen" instance=ExtResource("4_ybvml")]
+text = "You find a bunch of sketches of a fat purple creature in various poses."
+
+[node name="StandardTextBox2" parent="Options/Toxen" instance=ExtResource("4_ybvml")]
+text = "Surrounding the sketches are pictures of flowers and monsters."
+
+[node name="Echo" parent="Options" instance=ExtResource("3_a17qi")]
+
+[node name="StandardTextBox" parent="Options/Echo" instance=ExtResource("4_ybvml")]
+text = "You flip to a sketch of... Echo? The sketch shows her at a variety of sizes."
+
+[node name="StandardTextBox2" parent="Options/Echo" instance=ExtResource("4_ybvml")]
+text = "You decide to stop looking."
+
+[connection signal="activated" from="NpcArrow" to="NpcArrow" method="generic_pause"]
+[connection signal="activated" from="NpcArrow" to="TextTree" method="render"]
+[connection signal="next" from="TextTree" to="NpcArrow" method="generic_unpause"]
+[connection signal="chosen" from="TextTree/MultipleChoiceBox/Choice" to="." method="choose_option"]
+[connection signal="chosen" from="TextTree/MultipleChoiceBox/Choice2" to="NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Options/Cer" to="NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Options/Toxen" to="NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Options/Echo" to="NpcArrow" method="generic_unpause"]
