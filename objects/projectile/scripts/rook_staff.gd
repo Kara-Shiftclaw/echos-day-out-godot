@@ -6,7 +6,7 @@ const PROJECTILE_FIRE_OFFSET := Vector2(0, -11)
 func fire() -> void:
 	var projectile: Node2D = Projectile.instantiate()
 	get_parent().add_child(projectile)
-	projectile.global_position = global_position + PROJECTILE_FIRE_OFFSET
+	projectile.global_position = global_position + PROJECTILE_FIRE_OFFSET.rotated(rotation)
 
 func reload() -> void:
 	if !is_in_group("RookSummon"):
