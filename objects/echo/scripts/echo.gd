@@ -65,7 +65,7 @@ const SPRINT_SPEED = 14. * 8.
 const DASH_SPEED = 20. * 8.
 const EXPLODE_FALL_SPEED := 48. * 8.
 const DOUBLE_JUMP_HEIGHT := 2. * 8.
-const NEW_STAGE_JUMP_HEIGHT := 4. * 8.
+const NEW_STAGE_JUMP_HEIGHT := 3.5 * 8.
 const CRUSH_DOWN_VELOCITY := 1.5 * MAX_GRAVITY
 
 const SWORD_BLADE_FLAG := "has_sword_blade"
@@ -78,6 +78,7 @@ var can_double_jump := false
 var can_fireball := false
 var can_crush := false
 var is_crushing := false
+var jump_locked := false
 var attack_rhythm: AttackRhythm = null
 
 func sync_facing_right() -> void:
@@ -157,15 +158,17 @@ func _physics_process(delta: float) -> void:
 			
 			if !$JumpTimer.is_stopped():
 				velocity.y = JUMP_VELOCITY_MAP[Global.weight]
-				if !Input.is_action_pressed("jump") or is_on_ceiling():
+				if !(Input.is_action_pressed("jump") or jump_locked) or is_on_ceiling():
 					$JumpTimer.stop()
 			elif !is_crushing:
 				velocity.y = move_toward(velocity.y, MAX_GRAVITY, GRAVITY * delta)
+				jump_locked = false
 			
 			move_and_slide()
 
 func new_stage_jump():
 	$JumpTimer.start(NEW_STAGE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
+	jump_locked = true
 	play_anim("jump", 1)
 
 func begin_attack() -> void:

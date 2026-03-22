@@ -12,6 +12,7 @@ const NEW_STAGE_JUMP_HEIGHT := Echo.NEW_STAGE_JUMP_HEIGHT
 
 @export var can_move := true
 var can_attack := true
+var jump_locked := false
 
 func sync_facing_right() -> void:
 	$Sprite2D.flip_h = !facing_right
@@ -39,6 +40,7 @@ func get_acceleration() -> float:
 
 func new_stage_jump():
 	$JumpTimer.start(NEW_STAGE_JUMP_HEIGHT / -JUMP_VELOCITY)
+	jump_locked = true
 	play_anim("jump", 1)
 
 func on_respawn_same_stage() -> void:
@@ -79,11 +81,12 @@ func _physics_process(delta: float) -> void:
 		
 		if !$JumpTimer.is_stopped():
 			velocity.y = JUMP_VELOCITY
-			if !Input.is_action_pressed("jump") or is_on_ceiling():
+			if !(Input.is_action_pressed("jump") or jump_locked) or is_on_ceiling():
 				$JumpTimer.stop()
 		else:
 			var cur_gravity := GRAVITY if !is_attacking() else GRAVITY / 2.
 			velocity.y = move_toward(velocity.y, MAX_GRAVITY, cur_gravity * delta)
+			jump_locked = false
 		
 		move_and_slide()
 
