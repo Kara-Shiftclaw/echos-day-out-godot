@@ -1072,6 +1072,13 @@ offset_right = 2176.0
 offset_bottom = 0.0
 other_stage = "uid://d0cqj6thnf2r1"
 
+[node name="VerdantCavern" parent="StageTransitions" instance=ExtResource("5_6h7uu")]
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 512.0
+offset_bottom = 384.0
+other_stage = "uid://b1xnjhiba0kmd"
+
 [node name="SongPlayer" parent="." instance=ExtResource("25_c704u")]
 song_stream = ExtResource("26_sp7eq")
 
