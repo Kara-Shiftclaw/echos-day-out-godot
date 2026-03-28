@@ -286,6 +286,7 @@ max_health = 1
 energy_per_damage = 0.0
 energy_on_death = 1
 journal_entry = "lil_mushroom"
+parent_save_properties = Array[String](["position", "velocity"])
 
 [node name="Damage" parent="." instance=ExtResource("3_bkb6l")]
 damage = 3
