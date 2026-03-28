@@ -32,12 +32,39 @@ activation_area = NodePath("..")
 [node name="FirstEncounter" parent="Dialogue" instance=ExtResource("4_x01y2")]
 
 [node name="StandardTextBox" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
-text = "My name is Green !"
+text = "Oh? Hello, little dragon."
+
+[node name="StandardTextBox2" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
+text = "I do wish we could meet under happier circumstances, but I am glad to meet regardless."
+
+[node name="StandardTextBox3" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
+text = "This cavern used to be an underground forest, but that horrid mole has been digging up our roots."
+
+[node name="StandardTextBox4" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
+text = "Were it not for her, we would be in a golden age!"
+
+[node name="StandardTextBox5" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
+text = "...Hm? You are chasing the same mole as well? She stole your powers?"
+
+[node name="StandardTextBox6" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
+text = "Well, if our interests align, perhaps I can lend you what energy I have left."
 
 [node name="Repeat" parent="Dialogue" instance=ExtResource("4_x01y2")]
 
 [node name="StandardTextBox" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
-text = "I'm very green !"
+text = "Our flowers grant flight to those who touch them."
+
+[node name="StandardTextBox2" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
+text = "Their powers are weakened, and your mass may also prove an issue, but they may still help."
+
+[node name="StandardTextBox3" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
+text = "The mole's hideout is atop this tower. If you wish to reach it, you will need more help."
+
+[node name="StandardTextBox4" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
+text = "Seek out my sisters, red and blue in hue, deeper in these caverns. Perhaps they can help more."
+
+[node name="StandardTextBox5" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
+text = "Thank you, kind dragon."
 
 [node name="OpenTimer" type="Timer" parent="."]
 one_shot = true

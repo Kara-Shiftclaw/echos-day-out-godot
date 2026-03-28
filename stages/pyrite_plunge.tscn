@@ -52,87 +52,66 @@ position = Vector2(195, 1255)
 [node name="Greens" type="Node2D" parent="Objects/Plants"]
 
 [node name="Green" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(-48, 1335)
 
 [node name="Green2" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(-17, 1368)
 
 [node name="Green3" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(63, 1340)
 
 [node name="Green4" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(40, 1320)
 
 [node name="Green5" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(31, 1272)
 
 [node name="Green6" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(16, 1256)
 
 [node name="Green7" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(31, 1240)
 
 [node name="Green8" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(16, 1223)
 
 [node name="Green9" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(96, 1432)
 
 [node name="Green10" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(17, 1472)
 
 [node name="Green11" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(-16, 1472)
 
 [node name="Green12" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(192, 1192)
 
 [node name="Green13" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(-48, 1112)
 
 [node name="Green14" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(224, 1096)
 
 [node name="Green15" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(88, 1464)
 
 [node name="Green16" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(220, 1146)
 
 [node name="Green17" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(88, 1120)
 
 [node name="Green18" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(104, 1096)
 
 [node name="Green19" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(79, 1032)
 
 [node name="Green20" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(72, 1008)
 
 [node name="Green21" parent="Objects/Plants/Greens" instance=ExtResource("9_3mia4")]
-process_mode = 0
 position = Vector2(56, 992)
 
 [node name="StageTransitions" type="Node2D" parent="."]
