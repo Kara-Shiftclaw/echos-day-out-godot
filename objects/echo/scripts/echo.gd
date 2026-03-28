@@ -244,7 +244,7 @@ func exit_save_point(save_point: Node2D) -> void:
 
 func stage_hurtbox_hit(other: Node2D) -> void:
 	super.stage_hurtbox_hit(other)
-	can_double_jump = Global.has_double_jump
+	can_double_jump = Global.has_double_jump or can_double_jump
 	can_fireball = Global.has_fireball
 	can_crush = Global.has_crush
 	is_crushing = false
