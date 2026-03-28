@@ -60,3 +60,10 @@ offset_left = -128.0
 offset_right = 0.0
 offset_bottom = 256.0
 other_stage = "uid://cpf870qyhbg0"
+
+[node name="PyritePlunge" parent="StageTransitions" instance=ExtResource("7_46wuc")]
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 512.0
+offset_bottom = 384.0
+other_stage = "uid://cyqutnlfcrbll"

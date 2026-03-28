@@ -74,7 +74,6 @@ const SWORD_HILT_FLAG := "has_sword_hilt"
 @export var can_move := true
 
 var cur_save_point: Node = null
-var can_double_jump := false
 var can_fireball := false
 var can_crush := false
 var is_crushing := false

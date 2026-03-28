@@ -7,6 +7,7 @@ var facing_right := true:
 		sync_facing_right()
 
 var is_sprinting := false
+var can_double_jump := false
 var on_floor := true
 @export var anim_priority := 0
 

@@ -4,6 +4,7 @@ extends ReferenceRect
 @export_file("*.tscn") var other_stage: String
 @export var other_transition_name: String
 @export var other_transition_parent := "StageTransitions"
+@export var enabled := true
 
 func _ready() -> void:
 	if other_transition_name == null or other_transition_name.is_empty():
@@ -19,3 +20,6 @@ func get_all_rooms() -> PackedVector2Array:
 
 func get_other_transition_path() -> String:
 	return "{0}/{1}".format([other_transition_parent, other_transition_name])
+
+func disable() -> void:
+	enabled = false

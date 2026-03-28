@@ -1,0 +1,34 @@
+extends Area2D
+
+@export var flag_needed: String
+@export var animation_player: AnimationPlayer
+var player_in := false
+var open := false
+
+func entered(other: Node2D) -> void:
+	if other is Player and open:
+		print("Player in!")
+		player_in = true
+
+func exited(other: Node2D) -> void:
+	if other is Player:
+		print("Player out.")
+		player_in = false
+
+func _ready() -> void:
+	try_open()
+
+func _physics_process(_delta: float) -> void:
+	var echo := Global.echo
+	if player_in and open and !echo.can_double_jump:
+		print("Granting double jump")
+		echo.can_double_jump = true
+		open = false
+		player_in = false
+		animation_player.play("close")
+		echo.land_on_floor.connect(try_open, ConnectFlags.CONNECT_ONE_SHOT)
+
+func try_open() -> void:
+	if Global.flags.has(flag_needed):
+		open = true
+		animation_player.play("open")

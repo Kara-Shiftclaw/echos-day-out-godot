@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3le3yoo0feqd"]
+
+[ext_resource type="Script" uid="uid://b2omgbjlwqsdr" path="res://oneoff/npc/scripts/big_green.gd" id="1_32ycx"]
+[ext_resource type="Texture2D" uid="uid://df0qrno2640v0" path="res://assets/gfx/plant/big_green.png" id="1_207ey"]
+[ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="2_t5wq8"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="4_x01y2"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="5_juuyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2nr2"]
+size = Vector2(15, 3)
+
+[node name="BigGreen" type="Area2D"]
+process_mode = 3
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_32ycx")
+flag = "green_plant_open"
+
+[node name="BigGreen" type="Sprite2D" parent="."]
+texture = ExtResource("1_207ey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31.5, 7.5)
+shape = SubResource("RectangleShape2D_x2nr2")
+
+[node name="NpcArrow" parent="." node_paths=PackedStringArray("activation_area") instance=ExtResource("2_t5wq8")]
+position = Vector2(15, -20)
+activation_area = NodePath("..")
+
+[node name="Dialogue" type="Node" parent="."]
+
+[node name="FirstEncounter" parent="Dialogue" instance=ExtResource("4_x01y2")]
+
+[node name="StandardTextBox" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
+text = "My name is Green !"
+
+[node name="Repeat" parent="Dialogue" instance=ExtResource("4_x01y2")]
+
+[node name="StandardTextBox" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
+text = "I'm very green !"
+
+[node name="OpenTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="activated" from="NpcArrow" to="." method="dialogue"]
+[connection signal="next" from="Dialogue/FirstEncounter" to="." method="do_open"]
+[connection signal="next" from="Dialogue/Repeat" to="NpcArrow" method="generic_unpause"]
+[connection signal="timeout" from="OpenTimer" to="Dialogue/Repeat" method="render"]

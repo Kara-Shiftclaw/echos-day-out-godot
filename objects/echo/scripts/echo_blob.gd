@@ -23,7 +23,6 @@ func set_anim(anim_name: String) -> bool:
 		$AnimationPlayer.play(anim_name)
 		return prev_anim != anim_name
 	else:
-		push_error("Asked to play anim ", anim_name, ", which smol Echo does not have")
 		return false
 
 func anim_seek(seconds := 0., update := false) -> void:
@@ -67,6 +66,7 @@ func _physics_process(delta: float) -> void:
 			process_on_floor()
 			$CoyoteTimeTimer.start()
 			can_attack = true
+			can_double_jump = false
 			if is_cur_anim("jump"):
 				anim_priority = 0
 				play_anim("walk")
@@ -78,6 +78,11 @@ func _physics_process(delta: float) -> void:
 				$CoyoteTimeTimer.stop()
 				$JumpTimer.start(JUMP_TIME)
 				play_anim("jump", 1)
+			elif can_double_jump:
+				$JumpTimer.start(Echo.DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY)
+				can_double_jump = false
+				if !play_anim("double_jump", 1):
+					play_anim("jump", 1)
 		
 		if !$JumpTimer.is_stopped():
 			velocity.y = JUMP_VELOCITY
