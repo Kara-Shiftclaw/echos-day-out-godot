@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://0pbsxos37t77"]
+[gd_scene load_steps=11 format=3 uid="uid://0pbsxos37t77"]
 
 [ext_resource type="Script" uid="uid://dq42j57irwdtw" path="res://objects/enemies/scripts/hedgehog.gd" id="1_2fyya"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="1_oehah"]
 [ext_resource type="Texture2D" uid="uid://svp3yyxrbct8" path="res://assets/gfx/hedgehog.png" id="2_2fyya"]
 [ext_resource type="PackedScene" uid="uid://braxpij1yhwqj" path="res://objects/enemies/floor_detector.tscn" id="4_pduax"]
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="5_tmkpi"]
-[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="6_5bpk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oehah"]
 size = Vector2(8, 7)
@@ -171,10 +170,6 @@ shape = SubResource("RectangleShape2D_oehah")
 
 [node name="Damage" parent="." instance=ExtResource("5_tmkpi")]
 damage = 2
-
-[node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_5bpk4")
-bus = &"Sfx"
 
 [connection signal="chunk_entered_alive" from="EnemyManager" to="." method="respawn"]
 [connection signal="chunk_left" from="EnemyManager" to="." method="disable_on_leave"]

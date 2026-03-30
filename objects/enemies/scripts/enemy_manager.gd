@@ -9,6 +9,7 @@ extends Node
 @export var parent_save_properties: Array[String] = [
 	"position",
 ]
+@export var play_death_sound := true
 
 var saved_properties: Dictionary
 
@@ -78,6 +79,8 @@ func take_damage(damage: Damage) -> void:
 			
 			if health <= 0:
 				die.emit()
+				if play_death_sound:
+					$EnemyDieSound.play()
 				EnergyOrb.create_n(energy_on_death, get_parent().global_position, Global.echo)
 				if journal_entry != "":
 					Global.journal_entries.set(journal_entry, true)

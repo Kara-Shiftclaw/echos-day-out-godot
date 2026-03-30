@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnu07ervecpho"]
+[gd_scene load_steps=18 format=3 uid="uid://dnu07ervecpho"]
 
 [ext_resource type="Texture2D" uid="uid://cue8sbo2s0jfr" path="res://assets/gfx/crow.png" id="1_1u4n3"]
 [ext_resource type="Script" uid="uid://c837dfho18w0k" path="res://objects/enemies/scripts/crow.gd" id="1_u5nlp"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="2_wph6m"]
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="3_drxk4"]
-[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="5_u5nlp"]
 [ext_resource type="AudioStream" uid="uid://cj5ql5x35behu" path="res://assets/sfx/shoot.wav" id="6_mpe76"]
 [ext_resource type="AudioStream" uid="uid://cnd5dgyvlt8l0" path="res://assets/sfx/spin.wav" id="7_tyq6a"]
 
@@ -356,10 +355,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_o27xy")
-
-[node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_u5nlp")
-bus = &"Sfx"
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_mpe76")

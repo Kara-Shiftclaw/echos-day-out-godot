@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bw2h76gm0i5fq"]
+[gd_scene load_steps=12 format=3 uid="uid://bw2h76gm0i5fq"]
 
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="1_g7m5r"]
 [ext_resource type="Script" uid="uid://dowxpxt3iph46" path="res://objects/enemies/scripts/bramble_ball.gd" id="1_h475o"]
@@ -7,6 +7,72 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vyow7"]
 radius = 4.0
+
+[sub_resource type="Animation" id="Animation_h475o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Damage:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5c2np"]
+resource_name = "bounce"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Damage:active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_g7m5r"]
 resource_name = "roll_left"
@@ -26,21 +92,6 @@ tracks/0/keys = {
 "values": [0.0, -1.5707963267948966, -3.141592653589793, -4.71238898038469]
 }
 
-[sub_resource type="Animation" id="Animation_h475o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="Animation" id="Animation_ofi5c"]
 resource_name = "roll_right"
 length = 0.4
@@ -58,25 +109,38 @@ tracks/0/keys = {
 "values": [0.0, 1.5707963267948966, 3.141592653589793, 4.71238898038469]
 }
 
-[sub_resource type="Animation" id="Animation_5c2np"]
-resource_name = "bounce"
+[sub_resource type="Animation" id="Animation_ln0y6"]
+resource_name = "die"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Damage:active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ln0y6"]
 _data = {
 &"RESET": SubResource("Animation_h475o"),
 &"bounce": SubResource("Animation_5c2np"),
+&"die": SubResource("Animation_ln0y6"),
 &"roll_left": SubResource("Animation_g7m5r"),
 &"roll_right": SubResource("Animation_ofi5c")
 }
@@ -117,5 +181,6 @@ libraries = {
 
 [connection signal="chunk_entered_alive" from="EnemyManager" to="." method="reload_alive"]
 [connection signal="chunk_left" from="EnemyManager" to="." method="hide"]
+[connection signal="hit" from="EnemyManager" to="." method="take_damage"]
 [connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]

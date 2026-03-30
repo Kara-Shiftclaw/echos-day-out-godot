@@ -35,7 +35,6 @@ func die():
 	z_index = -10
 	$CollisionShape2D.set_deferred("disabled", true)
 	$AnimationPlayer.play("die")
-	$EnemyDieSound.play()
 
 func respawn():
 	$CollisionShape2D.set_deferred("disabled", false)

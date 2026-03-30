@@ -178,6 +178,7 @@ energy_per_damage = 0.0
 energy_on_death = 1
 journal_entry = "spike_hedgehog"
 animation_player = NodePath("../AnimationPlayer")
+play_death_sound = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

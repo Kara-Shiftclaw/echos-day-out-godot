@@ -4,6 +4,7 @@ var BOUNCE: Util.QuadraticJump
 var GRAVITY: float
 var BOUNCE_VELOCITY: Vector2
 const ROLL_VELOCITY := 12. * 8.
+const HIT_MICROBOUNCE := -2. * 8.
 
 @export var facing_right := true
 
@@ -19,8 +20,11 @@ func _physics_process(delta: float) -> void:
 	if is_rolling():
 		velocity.x = ROLL_VELOCITY * Util.sign(facing_right)
 		if is_on_wall():
-			facing_right = !facing_right
-			bounce()
+			if $EnemyManager.health > 0:
+				facing_right = !facing_right
+				bounce()
+			else:
+				$AnimationPlayer.play("die")
 	elif is_on_floor():
 		roll()
 	velocity.y += GRAVITY * delta
@@ -39,3 +43,9 @@ func bounce() -> void:
 
 func is_rolling() -> bool:
 	return $AnimationPlayer.current_animation == "roll_left" or $AnimationPlayer.current_animation == "roll_right"
+
+func take_damage() -> void:
+	var echo_right := Global.echo.global_position.x > global_position.x
+	facing_right = !echo_right
+	roll()
+	velocity.y = HIT_MICROBOUNCE

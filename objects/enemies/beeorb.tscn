@@ -1,10 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://whn2qdsyfdyv"]
+[gd_scene load_steps=25 format=3 uid="uid://whn2qdsyfdyv"]
 
 [ext_resource type="Texture2D" uid="uid://dhpt68546d4mg" path="res://assets/gfx/beeorb.png" id="1_dsn3c"]
 [ext_resource type="Script" uid="uid://cljrbhpxe44lq" path="res://objects/enemies/scripts/beeorb.gd" id="1_oc2e8"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="3_cxcfd"]
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="4_fucek"]
-[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="5_tyspl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oc2e8"]
 size = Vector2(9, 7)
@@ -583,14 +582,9 @@ autoplay = "idle_0"
 damage = 3
 active = false
 
-[node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_tyspl")
-bus = &"Sfx"
-
 [connection signal="chunk_entered_alive" from="EnemyManager" to="." method="reload_alive"]
 [connection signal="chunk_left" from="EnemyManager" to="." method="hide"]
 [connection signal="die" from="EnemyManager" to="." method="die"]
-[connection signal="die" from="EnemyManager" to="EnemyDieSound" method="play"]
 [connection signal="hit" from="EnemyManager" to="." method="on_damaged"]
 [connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]

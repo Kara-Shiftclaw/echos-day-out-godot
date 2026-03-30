@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dfant42y7xule"]
+[gd_scene load_steps=25 format=3 uid="uid://dfant42y7xule"]
 
 [ext_resource type="Script" uid="uid://cqpvtt7io8xdu" path="res://objects/enemies/scripts/big_lizard.gd" id="1_srimy"]
 [ext_resource type="Texture2D" uid="uid://b14x5inpm4u3o" path="res://assets/gfx/big_lizard.png" id="1_wvsw1"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="3_srimy"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="4_jch6p"]
 [ext_resource type="PackedScene" uid="uid://braxpij1yhwqj" path="res://objects/enemies/floor_detector.tscn" id="6_xtwa4"]
-[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="7_rw3hc"]
 [ext_resource type="AudioStream" uid="uid://qwddepvs2si8" path="res://assets/sfx/fireball_shoot.mp3" id="8_7ytmk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvsw1"]
@@ -794,10 +793,6 @@ position = Vector2(-6, 9)
 [node name="Right" parent="." instance=ExtResource("6_xtwa4")]
 position = Vector2(6, 9)
 
-[node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_rw3hc")
-bus = &"Sfx"
-
 [node name="FireDash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_7ytmk")
 pitch_scale = 1.1
@@ -806,7 +801,6 @@ bus = &"Sfx"
 [connection signal="chunk_entered_alive" from="EnemyManager" to="." method="living_reload"]
 [connection signal="chunk_left" from="EnemyManager" to="." method="hide"]
 [connection signal="die" from="EnemyManager" to="." method="emit_die"]
-[connection signal="die" from="EnemyManager" to="EnemyDieSound" method="play"]
 [connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]
 [connection signal="hit" from="EnemyManager" to="." method="on_hit"]
 [connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bi4irjxg4nk0a"]
+[gd_scene load_steps=14 format=3 uid="uid://bi4irjxg4nk0a"]
 
 [ext_resource type="Texture2D" uid="uid://dorkhpn6tynae" path="res://assets/gfx/fatbat.png" id="1_mrh2m"]
 [ext_resource type="Script" uid="uid://bs0c8krmv3fr8" path="res://objects/enemies/scripts/fatbat.gd" id="1_pg5sw"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="2_hjxjo"]
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="4_mktlm"]
-[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="5_ds2q8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjxjo"]
 size = Vector2(12, 8)
@@ -291,13 +290,8 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_hjxjo")
 
-[node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_ds2q8")
-bus = &"Sfx"
-
 [connection signal="chunk_entered" from="EnemyManager" to="." method="reload"]
 [connection signal="die" from="EnemyManager" to="." method="die"]
-[connection signal="die" from="EnemyManager" to="EnemyDieSound" method="play"]
 [connection signal="hit" from="EnemyManager" to="." method="on_hit"]
 [connection signal="hit_after_death" from="EnemyManager" to="." method="on_hit"]
 [connection signal="area_entered" from="PlayerNoticeArea" to="." method="wake_up" unbinds=1]

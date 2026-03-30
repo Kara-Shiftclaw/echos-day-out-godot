@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://drj5lv428asa1"]
+[gd_scene load_steps=22 format=3 uid="uid://drj5lv428asa1"]
 
 [ext_resource type="Texture2D" uid="uid://cbqypcbciu1gc" path="res://assets/gfx/mushroom.png" id="1_bhgen"]
 [ext_resource type="Script" uid="uid://neiounwvtqqp" path="res://objects/enemies/scripts/standard_mushroom.gd" id="1_r6aff"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="2_4cspd"]
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="3_mrjvb"]
 [ext_resource type="Texture2D" uid="uid://dqhuhiwecxvx8" path="res://assets/gfx/orb.png" id="4_ou7tu"]
-[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="6_0er4t"]
 [ext_resource type="AudioStream" uid="uid://bvbvurdmsbb76" path="res://assets/sfx/spore_shake.wav" id="7_ins7o"]
 [ext_resource type="AudioStream" uid="uid://b6ywtjw60d7a" path="res://assets/sfx/tension.wav" id="8_ins7o"]
 
@@ -527,10 +526,6 @@ libraries = {
 [node name="ScreenNotifier" type="VisibleOnScreenNotifier2D" parent="SporeModel"]
 rect = Rect2(-1, -1, 3, 3)
 
-[node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_0er4t")
-bus = &"Sfx"
-
 [node name="SporeShake" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ins7o")
 
@@ -541,7 +536,6 @@ bus = &"Sfx"
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="body_entered" from="." to="." method="entered"]
 [connection signal="chunk_entered" from="EnemyManager" to="." method="reload"]
-[connection signal="die" from="EnemyManager" to="EnemyDieSound" method="play"]
 [connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]
 [connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]

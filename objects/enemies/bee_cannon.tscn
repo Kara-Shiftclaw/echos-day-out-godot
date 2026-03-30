@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxr76a3f4ycw7"]
+[gd_scene load_steps=13 format=3 uid="uid://bxr76a3f4ycw7"]
 
 [ext_resource type="Script" uid="uid://dyjbb54yd6dxn" path="res://objects/enemies/scripts/bee_cannon.gd" id="1_e6ija"]
 [ext_resource type="Texture2D" uid="uid://dbf15ro6n5881" path="res://assets/gfx/bee_cannon.png" id="1_setby"]
 [ext_resource type="Texture2D" uid="uid://d2ksggmcnok75" path="res://assets/gfx/shard.png" id="3_f5u5a"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="4_5uwnb"]
-[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="5_fhfhw"]
 [ext_resource type="AudioStream" uid="uid://bbllug3qk2nax" path="res://assets/sfx/wobble.mp3" id="6_qxk4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6ija"]
@@ -241,10 +240,6 @@ energy_per_damage = 0.0
 journal_entry = "bee_cannon"
 animation_player = NodePath("../AnimationPlayer")
 
-[node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_fhfhw")
-bus = &"Sfx"
-
 [node name="HoneyShoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_qxk4u")
 bus = &"Sfx"
@@ -256,4 +251,3 @@ bus = &"Sfx"
 [connection signal="chunk_entered_alive" from="EnemyManager" to="." method="reload_alive"]
 [connection signal="chunk_left" from="EnemyManager" to="." method="hide"]
 [connection signal="die" from="EnemyManager" to="." method="die"]
-[connection signal="die" from="EnemyManager" to="EnemyDieSound" method="play"]

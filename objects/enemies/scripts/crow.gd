@@ -58,7 +58,6 @@ func reload() -> void:
 
 func die() -> void:
 	$AnimationPlayer.play("die")
-	$EnemyDieSound.play()
 
 func hit() -> void:
 	if interrupt == null:

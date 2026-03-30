@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfgmg3nrak5rv"]
+[gd_scene load_steps=12 format=3 uid="uid://cfgmg3nrak5rv"]
 
 [ext_resource type="Texture2D" uid="uid://cg5567h1ddaw" path="res://assets/gfx/lil_mushroom.png" id="1_u7gqh"]
 [ext_resource type="Script" uid="uid://btm8dsga6tysd" path="res://objects/enemies/scripts/lil_mushroom.gd" id="1_y1vqq"]
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="3_bkb6l"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="3_lnhfx"]
-[ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="5_g3whc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1vqq"]
 size = Vector2(6, 6)
@@ -299,12 +298,7 @@ collision_mask = 8
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_y1vqq")
 
-[node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_g3whc")
-bus = &"Sfx"
-
 [connection signal="chunk_entered_alive" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"idle"]]
 [connection signal="die" from="EnemyManager" to="." method="die"]
-[connection signal="die" from="EnemyManager" to="EnemyDieSound" method="play"]
 [connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
