@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://caxbh33al4mat"]
+
+[ext_resource type="Script" uid="uid://b2omgbjlwqsdr" path="res://oneoff/npc/scripts/big_green.gd" id="1_7jffa"]
+[ext_resource type="Texture2D" uid="uid://chxnf2qvh6u1f" path="res://assets/gfx/plant/big_blue.png" id="2_7jffa"]
+[ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="3_jle52"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="4_wgfpl"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="5_pt0vs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2nr2"]
+size = Vector2(39.5, 3)
+
+[node name="BigBlue" type="Area2D"]
+process_mode = 3
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_7jffa")
+flag = "blue_plant_open"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7jffa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, 31.5)
+shape = SubResource("RectangleShape2D_x2nr2")
+
+[node name="NpcArrow" parent="." node_paths=PackedStringArray("activation_area") instance=ExtResource("3_jle52")]
+position = Vector2(15, -20)
+activation_area = NodePath("..")
+
+[node name="Dialogue" type="Node" parent="."]
+
+[node name="FirstEncounter" parent="Dialogue" instance=ExtResource("4_wgfpl")]
+
+[node name="StandardTextBox" parent="Dialogue/FirstEncounter" instance=ExtResource("5_pt0vs")]
+text = "Hm? Is somebody there?"
+
+[node name="StandardTextBox2" parent="Dialogue/FirstEncounter" instance=ExtResource("5_pt0vs")]
+text = "Oh, a dragon. Hello."
+
+[node name="StandardTextBox3" parent="Dialogue/FirstEncounter" instance=ExtResource("5_pt0vs")]
+text = "I've felt your presence for some time. You are a friend."
+
+[node name="StandardTextBox4" parent="Dialogue/FirstEncounter" instance=ExtResource("5_pt0vs")]
+text = "You appear to be stuck as well. Let me lend you a hand."
+
+[node name="Repeat" parent="Dialogue" instance=ExtResource("4_wgfpl")]
+
+[node name="StandardTextBox" parent="Dialogue/Repeat" instance=ExtResource("5_pt0vs")]
+text = "The mole wants to destroy our home. Sonia is her name."
+
+[node name="StandardTextBox3" parent="Dialogue/Repeat" instance=ExtResource("5_pt0vs")]
+text = "She digs the caverns bare, all for worthless pyrite."
+
+[node name="StandardTextBox4" parent="Dialogue/Repeat" instance=ExtResource("5_pt0vs")]
+text = "If you are able, please stop her."
+
+[node name="OpenTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="activated" from="NpcArrow" to="." method="dialogue"]
+[connection signal="next" from="Dialogue/FirstEncounter" to="." method="do_open"]
+[connection signal="next" from="Dialogue/Repeat" to="NpcArrow" method="generic_unpause"]
+[connection signal="timeout" from="OpenTimer" to="Dialogue/Repeat" method="render"]
