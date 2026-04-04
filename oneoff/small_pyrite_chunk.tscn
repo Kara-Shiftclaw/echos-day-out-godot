@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://da5uckeec5lyx"]
+
+[ext_resource type="Texture2D" uid="uid://w8vj0rjafyc2" path="res://assets/gfx/pyrite_plunge/small_collect.png" id="1_4cq2b"]
+[ext_resource type="Script" uid="uid://36xlnitwec0d" path="res://oneoff/scripts/pyrite_chunk.gd" id="1_uyx83"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uyx83"]
+radius = 3.0
+
+[node name="SmallPyriteChunk" type="RigidBody2D"]
+collision_layer = 0
+script = ExtResource("1_uyx83")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uyx83")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4cq2b")
+
+[node name="CollectBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectBox"]
+shape = SubResource("CircleShape2D_uyx83")
+
+[connection signal="area_entered" from="CollectBox" to="." method="entered"]
+[connection signal="body_entered" from="CollectBox" to="." method="entered"]

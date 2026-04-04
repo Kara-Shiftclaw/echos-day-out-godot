@@ -1,6 +1,7 @@
 extends Node2D
 
 const EchoCutsceneWalker := preload("res://objects/echo/cutscene_walker.tscn")
+const SmallPyriteChunk := preload("res://oneoff/small_pyrite_chunk.tscn")
 
 const FALL_CUTSCENE_CHUNK := Vector2i(0, 2)
 const FALL_DESTINATION := 64.
@@ -33,3 +34,23 @@ func fall_cutscene() -> void:
 		$Objects/Row1/AnimationPlayer.play("drop_player")
 		$Objects/Row1/CutsceneBars.end()
 	)
+
+func spawn_pyrite(src: Node2D) -> void:
+	var damage := src.get_node_or_null("Damage")
+	if damage != null and damage.active:
+		$Objects/BigLump/AnimationPlayer.play("hit")
+		for i in range(0, damage.damage / 2):
+			var angle := -randf() * PI / 2.
+			var force := randf_range(9000., 18000.)
+			var vector := Vector2.from_angle(angle)
+			var chunk: RigidBody2D = SmallPyriteChunk.instantiate()
+			$Objects/BigLump.call_deferred("add_child", chunk)
+			chunk.position = vector * 4.25 * 8.
+			chunk.apply_force(vector * force)
+			chunk.collected.connect(pyrite_collected)
+
+func pyrite_collected(full: bool) -> void:
+	$Camera2D/PyriteCount/Panel/Label.text = "%03d" % Global.flags.get("pyrite", 0)
+	$Camera2D/PyriteCount/AnimationPlayer.play("slide_in")
+	if !full:
+		$Objects/BigLump/Collect.play()

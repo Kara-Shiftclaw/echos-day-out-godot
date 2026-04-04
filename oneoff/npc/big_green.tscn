@@ -61,7 +61,7 @@ text = "Their powers are weakened, and your mass may also prove an issue, but th
 text = "The mole's hideout is atop this tower. If you wish to reach it, you will need more help."
 
 [node name="StandardTextBox4" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
-text = "Seek out my sisters, red and blue in hue, deeper in these caverns. Perhaps they can help more."
+text = "Seek out my sisters, red and blue in hue, deeper in these caverns. They can help more."
 
 [node name="StandardTextBox5" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
 text = "Thank you, kind dragon."

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cyqutnlfcrbll"]
+[gd_scene load_steps=40 format=4 uid="uid://cyqutnlfcrbll"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_pxxyi"]
 [ext_resource type="Script" uid="uid://oxvxvun8aygq" path="res://oneoff/scripts/pyrite_plunge.gd" id="1_x2nr2"]
@@ -10,11 +10,76 @@
 [ext_resource type="PackedScene" uid="uid://d3le3yoo0feqd" path="res://oneoff/npc/big_green.tscn" id="7_6msqs"]
 [ext_resource type="PackedScene" uid="uid://b80sc5o8or7qk" path="res://objects/stage_transition.tscn" id="7_tc133"]
 [ext_resource type="PackedScene" uid="uid://bufqrx6gdo4an" path="res://objects/save_point.tscn" id="8_3mia4"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="8_7i75t"]
 [ext_resource type="PackedScene" uid="uid://bfu3rovrfpptr" path="res://objects/plant/green.tscn" id="9_3mia4"]
+[ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="9_dswf0"]
+[ext_resource type="Texture2D" uid="uid://w8vj0rjafyc2" path="res://assets/gfx/pyrite_plunge/small_collect.png" id="10_fxphi"]
 [ext_resource type="PackedScene" uid="uid://bx6i467gb0gbx" path="res://oneoff/pyrite_button.tscn" id="11_tc133"]
 [ext_resource type="PackedScene" uid="uid://b5k3u5nnsvs64" path="res://objects/scary_door.tscn" id="12_0ta8g"]
 [ext_resource type="Texture2D" uid="uid://nhhcojt1qy31" path="res://assets/gfx/pyrite_plunge/pyrite_bridge.png" id="13_sr7ej"]
 [ext_resource type="PackedScene" uid="uid://bdkeka5ulrpns" path="res://menu/cutscene_bars.tscn" id="14_8xwni"]
+[ext_resource type="Texture2D" uid="uid://du5q2a8gt4wrw" path="res://assets/gfx/pyrite_plunge/big_lump.png" id="15_4nj70"]
+[ext_resource type="AudioStream" uid="uid://pxe2tnsjyihx" path="res://assets/sfx/enemy_hit.wav" id="19_fxphi"]
+[ext_resource type="AudioStream" uid="uid://dec177gegtipl" path="res://assets/sfx/pyrite.mp3" id="20_ca72f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ca72f"]
+texture = ExtResource("9_dswf0")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(8, 5, 6, 6)
+
+[sub_resource type="Animation" id="Animation_7i75t"]
+resource_name = "slide_in"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-24.0, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"slide_in", -1],
+"method": &"play_backwards"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dswf0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-24.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxphi"]
+_data = {
+&"RESET": SubResource("Animation_dswf0"),
+&"slide_in": SubResource("Animation_7i75t")
+}
 
 [sub_resource type="Animation" id="Animation_8xwni"]
 resource_name = "open"
@@ -623,6 +688,92 @@ size = Vector2(80, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwm31"]
 size = Vector2(32, 4)
 
+[sub_resource type="Animation" id="Animation_fxphi"]
+resource_name = "hit"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hit:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ca72f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hit:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sywdq"]
+_data = {
+&"RESET": SubResource("Animation_ca72f"),
+&"hit": SubResource("Animation_fxphi")
+}
+
 [node name="PyritePlunge" type="Node2D"]
 script = ExtResource("1_x2nr2")
 
@@ -648,6 +799,33 @@ stage_transition_parent = NodePath("../StageTransitions")
 [node name="RegionName" parent="Camera2D" instance=ExtResource("6_x2nr2")]
 position = Vector2(0, 8)
 region_name = "Pyrite Plunge"
+
+[node name="PyriteCount" type="Node2D" parent="Camera2D"]
+z_index = 80
+position = Vector2(-24, 8)
+
+[node name="Panel" type="Panel" parent="Camera2D/PyriteCount"]
+offset_right = 24.0
+offset_bottom = 9.0
+theme = ExtResource("8_7i75t")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ca72f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/PyriteCount/Panel"]
+position = Vector2(4, 5)
+texture = ExtResource("10_fxphi")
+
+[node name="Label" type="Label" parent="Camera2D/PyriteCount/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 7.0
+text = "000"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/PyriteCount"]
+libraries = {
+&"": SubResource("AnimationLibrary_fxphi")
+}
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -921,6 +1099,43 @@ frame = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 24)
 
+[node name="BigLump" type="StaticBody2D" parent="Objects"]
+z_index = 4
+position = Vector2(-240, 1520)
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects/BigLump"]
+position = Vector2(9, -9)
+texture = ExtResource("15_4nj70")
+offset = Vector2(0, -0.5)
+hframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/BigLump"]
+position = Vector2(25, -27)
+polygon = PackedVector2Array(7, 27, 7, 19, -1, 3, -17, -5, -25, -5, -25, 27)
+
+[node name="Area2D" type="Area2D" parent="Objects/BigLump"]
+position = Vector2(25, -27.400024)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/BigLump/Area2D"]
+position = Vector2(1, -1)
+polygon = PackedVector2Array(7, 27.400024, 7, 19.400024, -1, 3.4000244, -17, -4.5999756, -25, -4.5999756, -25, 27.400024)
+
+[node name="Hit" type="AudioStreamPlayer" parent="Objects/BigLump"]
+stream = ExtResource("19_fxphi")
+bus = &"Sfx"
+
+[node name="Collect" type="AudioStreamPlayer" parent="Objects/BigLump"]
+stream = ExtResource("20_ca72f")
+max_polyphony = 3
+bus = &"Sfx"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/BigLump"]
+libraries = {
+&"": SubResource("AnimationLibrary_sywdq")
+}
+
 [node name="StageTransitions" type="Node2D" parent="."]
 
 [node name="VerdantCavern" parent="StageTransitions" instance=ExtResource("7_tc133")]
@@ -976,3 +1191,5 @@ enabled = false
 [connection signal="on_press" from="Objects/Row2/PyriteButtonL" to="Objects/Row2/AnimationPlayer" method="play" binds= [&"open"]]
 [connection signal="on_press" from="Objects/Row2/PyriteButtonR" to="Objects/Row2/PyriteButtonL" method="force_press"]
 [connection signal="on_press" from="Objects/Row2/PyriteButtonR" to="Objects/Row2/AnimationPlayer" method="play" binds= [&"open"]]
+[connection signal="area_entered" from="Objects/BigLump/Area2D" to="." method="spawn_pyrite"]
+[connection signal="body_entered" from="Objects/BigLump/Area2D" to="." method="spawn_pyrite"]
