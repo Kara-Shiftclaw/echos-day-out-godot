@@ -2,9 +2,9 @@ extends Control
 
 const Weight := Global.Weight
 const WEIGHT_NAMES := {
-	Weight.Thin: "average",
-	Weight.Fat: "fat",
-	Weight.Obese: "tubby",
+	Weight.Thin: "Average",
+	Weight.Fat: "Fat",
+	Weight.Obese: "Tubby",
 	Weight.MorObese: "Obese",
 	Weight.Blob: "BLOB",
 }

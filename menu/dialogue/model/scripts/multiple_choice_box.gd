@@ -16,6 +16,14 @@ func show_options(view: TextBoxView) -> void:
 	option_container.anchor_top = 1.
 	option_container.offset_top = 1
 	option_container.add_theme_constant_override("separation", 3)
+	
+	if view.move_if_blocking_echo and view.echo_blocked():
+		option_container.anchor_bottom = 0.
+		option_container.anchor_top = 0.
+		option_container.offset_top = 0
+		option_container.offset_bottom = -1
+		option_container.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	
 	view.add_child(option_container)
 	
 	for child in get_children():
