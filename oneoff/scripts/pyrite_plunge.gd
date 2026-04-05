@@ -5,6 +5,8 @@ const SmallPyriteChunk := preload("res://oneoff/small_pyrite_chunk.tscn")
 
 const FALL_CUTSCENE_CHUNK := Vector2i(0, 2)
 const FALL_DESTINATION := 64.
+const MAX_PYRITE_DISPLAY_COLOR := Color("e9d239")
+const MINER_MESSAGE := "You have %d pyrite chunks? That translates to about... $0.00%03d Craterian dollars!"
 
 func _ready() -> void:
 	if Global.flags.has("green_plant_open") or $Camera2D.chunk.y == 9:
@@ -50,7 +52,20 @@ func spawn_pyrite(src: Node2D) -> void:
 			chunk.collected.connect(pyrite_collected)
 
 func pyrite_collected(full: bool) -> void:
-	$Camera2D/PyriteCount/Panel/Label.text = "%03d" % Global.flags.get("pyrite", 0)
+	var pyrite: int = Global.flags.get("pyrite", 0)
+	$Camera2D/PyriteCount/Panel/Label.text = "%03d" % pyrite
 	$Camera2D/PyriteCount/AnimationPlayer.play("slide_in")
 	if !full:
 		$Objects/BigLump/Collect.play()
+	else:
+		$Camera2D/PyriteCount/Panel/Label.modulate = MAX_PYRITE_DISPLAY_COLOR
+
+func mine_worm_dialogue() -> void:
+	var pyrite: int = Global.flags.get("pyrite", 0)
+	if pyrite == 0:
+		$Objects/MineWorm/Dialogue/Nothing.render()
+	elif pyrite == 500:
+		$Objects/MineWorm/Dialogue/MaxHeld.render()
+	else:
+		$Objects/MineWorm/Dialogue/Default/MinerMessageTextBox.text = MINER_MESSAGE % [pyrite, pyrite]
+		$Objects/MineWorm/Dialogue/Default.render()

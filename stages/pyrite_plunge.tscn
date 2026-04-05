@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cyqutnlfcrbll"]
+[gd_scene load_steps=48 format=4 uid="uid://cyqutnlfcrbll"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_pxxyi"]
 [ext_resource type="Script" uid="uid://oxvxvun8aygq" path="res://oneoff/scripts/pyrite_plunge.gd" id="1_x2nr2"]
@@ -21,6 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://du5q2a8gt4wrw" path="res://assets/gfx/pyrite_plunge/big_lump.png" id="15_4nj70"]
 [ext_resource type="AudioStream" uid="uid://pxe2tnsjyihx" path="res://assets/sfx/enemy_hit.wav" id="19_fxphi"]
 [ext_resource type="AudioStream" uid="uid://dec177gegtipl" path="res://assets/sfx/pyrite.mp3" id="20_ca72f"]
+[ext_resource type="Texture2D" uid="uid://dwg1d1715paks" path="res://assets/gfx/pyrite_plunge/mine_worm.png" id="21_daaar"]
+[ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="22_3p04n"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="23_558cu"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="24_rhjpj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ca72f"]
 texture = ExtResource("9_dswf0")
@@ -765,7 +769,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sywdq"]
@@ -773,6 +777,31 @@ _data = {
 &"RESET": SubResource("Animation_ca72f"),
 &"hit": SubResource("Animation_fxphi")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opssd"]
+atlas = ExtResource("21_daaar")
+region = Rect2(0, 0, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1pf8"]
+atlas = ExtResource("21_daaar")
+region = Rect2(12, 0, 12, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kk7ad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opssd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1pf8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjc0f"]
+size = Vector2(18, 2)
 
 [node name="PyritePlunge" type="Node2D"]
 script = ExtResource("1_x2nr2")
@@ -1136,6 +1165,57 @@ libraries = {
 &"": SubResource("AnimationLibrary_sywdq")
 }
 
+[node name="MineWorm" type="Area2D" parent="Objects"]
+position = Vector2(-68, 1496)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Objects/MineWorm"]
+process_mode = 3
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_kk7ad")
+frame_progress = 0.05448576
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/MineWorm"]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_gjc0f")
+
+[node name="NpcArrow" parent="Objects/MineWorm" node_paths=PackedStringArray("activation_area") instance=ExtResource("22_3p04n")]
+position = Vector2(0, -21)
+activation_area = NodePath("..")
+
+[node name="Dialogue" type="Node" parent="Objects/MineWorm"]
+
+[node name="Nothing" parent="Objects/MineWorm/Dialogue" instance=ExtResource("23_558cu")]
+
+[node name="StandardTextBox" parent="Objects/MineWorm/Dialogue/Nothing" instance=ExtResource("24_rhjpj")]
+text = "You must be a new miner, eh? Lucky for you, we've struck riches!"
+
+[node name="StandardTextBox2" parent="Objects/MineWorm/Dialogue/Nothing" instance=ExtResource("24_rhjpj")]
+text = "'Course, I can't mine it up myself, having no arms."
+
+[node name="StandardTextBox3" parent="Objects/MineWorm/Dialogue/Nothing" instance=ExtResource("24_rhjpj")]
+text = "Looks like the treasure is all yours, friend!"
+
+[node name="Default" parent="Objects/MineWorm/Dialogue" instance=ExtResource("23_558cu")]
+
+[node name="StandardTextBox" parent="Objects/MineWorm/Dialogue/Default" instance=ExtResource("24_rhjpj")]
+text = "Oho! Looks like you've got something!"
+
+[node name="MinerMessageTextBox" parent="Objects/MineWorm/Dialogue/Default" instance=ExtResource("24_rhjpj")]
+text = "You have %d pyrite chunks? That translates to about... $0.00%03d Craterian dollars!"
+
+[node name="StandardTextBox2" parent="Objects/MineWorm/Dialogue/Default" instance=ExtResource("24_rhjpj")]
+text = "A hard day's work really does pay off, doesn't it?"
+
+[node name="MaxHeld" parent="Objects/MineWorm/Dialogue" instance=ExtResource("23_558cu")]
+
+[node name="StandardTextBox" parent="Objects/MineWorm/Dialogue/MaxHeld" instance=ExtResource("24_rhjpj")]
+text = "What's that? You can't hold more than 500 chunks of Pyrite?"
+
+[node name="StandardTextBox2" parent="Objects/MineWorm/Dialogue/MaxHeld" instance=ExtResource("24_rhjpj")]
+text = "That's a shame. I was gonna sell my really cool hat for 750!"
+
 [node name="StageTransitions" type="Node2D" parent="."]
 
 [node name="VerdantCavern" parent="StageTransitions" instance=ExtResource("7_tc133")]
@@ -1193,3 +1273,9 @@ enabled = false
 [connection signal="on_press" from="Objects/Row2/PyriteButtonR" to="Objects/Row2/AnimationPlayer" method="play" binds= [&"open"]]
 [connection signal="area_entered" from="Objects/BigLump/Area2D" to="." method="spawn_pyrite"]
 [connection signal="body_entered" from="Objects/BigLump/Area2D" to="." method="spawn_pyrite"]
+[connection signal="ready" from="Objects/MineWorm/Sprite2D" to="Objects/MineWorm/Sprite2D" method="play" binds= [&"default"]]
+[connection signal="activated" from="Objects/MineWorm/NpcArrow" to="." method="mine_worm_dialogue"]
+[connection signal="activated" from="Objects/MineWorm/NpcArrow" to="Objects/MineWorm/NpcArrow" method="generic_pause"]
+[connection signal="next" from="Objects/MineWorm/Dialogue/Nothing" to="Objects/MineWorm/NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Objects/MineWorm/Dialogue/Default" to="Objects/MineWorm/NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Objects/MineWorm/Dialogue/MaxHeld" to="Objects/MineWorm/NpcArrow" method="generic_unpause"]
