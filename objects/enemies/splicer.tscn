@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bajqcfaf6p533"]
+
+[ext_resource type="Texture2D" uid="uid://cmvklm3msgu7a" path="res://assets/gfx/splicer.png" id="1_7hr21"]
+[ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="2_8x384"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x384"]
+size = Vector2(8, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hr21"]
+size = Vector2(18, 5)
+
+[node name="Splicer" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+texture = ExtResource("1_7hr21")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8x384")
+
+[node name="BladeHitbox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BladeHitbox"]
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_7hr21")
+disabled = true
+
+[node name="Damage" type="Node" parent="BladeHitbox"]
+script = ExtResource("2_8x384")
+damage = 5
+metadata/_custom_type_script = "uid://cd06ykx2xlfww"
