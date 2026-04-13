@@ -10,6 +10,7 @@ extends Node
 	"position",
 ]
 @export var play_death_sound := true
+@export var shader_nodes: Array[Node2D] = []
 
 var saved_properties: Dictionary
 
@@ -50,6 +51,14 @@ func _ready() -> void:
 			chunk_left.emit()
 			parent.process_mode = Node.PROCESS_MODE_DISABLED
 	)
+	
+	for shader_node in shader_nodes:
+		$ShaderNodeOffTimer.connect("timeout", func():
+			shader_node.set_instance_shader_parameter("strength", 0)
+		)
+		$ShaderNodeHalfTimer.connect("timeout", func():
+			shader_node.set_instance_shader_parameter("strength", 1)
+		)
 
 func on_hit(attacker: Node2D) -> void:
 	var maybe_damage = attacker.get_node_or_null("Damage")
@@ -76,6 +85,11 @@ func take_damage(damage: Damage) -> void:
 				var energy_to_send := floori(energy_cache)
 				EnergyOrb.create_n(energy_to_send, get_parent().global_position, Global.echo)
 				energy_cache -= energy_to_send
+			
+			for shader_node in shader_nodes:
+				shader_node.set_instance_shader_parameter("strength", 2)
+			$ShaderNodeOffTimer.start()
+			$ShaderNodeHalfTimer.start()
 			
 			if health <= 0:
 				die.emit()

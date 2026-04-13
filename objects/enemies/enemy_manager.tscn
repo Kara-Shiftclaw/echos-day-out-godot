@@ -16,6 +16,14 @@ bus = &"Sfx"
 stream = ExtResource("3_pqc61")
 bus = &"Sfx"
 
+[node name="ShaderNodeOffTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="ShaderNodeHalfTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
 [connection signal="chunk_entered" from="." to="." method="manage_post_load_frame"]
 [connection signal="chunk_left" from="." to="." method="reset"]
 [connection signal="hit" from="." to="Hit" method="play"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnu07ervecpho"]
+[gd_scene load_steps=19 format=3 uid="uid://dnu07ervecpho"]
 
 [ext_resource type="Texture2D" uid="uid://cue8sbo2s0jfr" path="res://assets/gfx/crow.png" id="1_1u4n3"]
 [ext_resource type="Script" uid="uid://c837dfho18w0k" path="res://objects/enemies/scripts/crow.gd" id="1_u5nlp"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_tyq6a"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="2_wph6m"]
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="3_drxk4"]
 [ext_resource type="AudioStream" uid="uid://cj5ql5x35behu" path="res://assets/sfx/shoot.wav" id="6_mpe76"]
@@ -312,15 +313,17 @@ size = Vector2(32, 15)
 script = ExtResource("1_u5nlp")
 
 [node name="Crow" type="Sprite2D" parent="."]
+material = ExtResource("2_tyq6a")
 position = Vector2(0, -3)
 texture = ExtResource("1_1u4n3")
 hframes = 13
 
-[node name="EnemyManager" parent="." instance=ExtResource("2_wph6m")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("2_wph6m")]
 max_health = 14
 energy_per_damage = 0.175
 journal_entry = "crow"
 parent_save_properties = Array[String](["position", "moving_right"])
+shader_nodes = [NodePath("../Crow")]
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0

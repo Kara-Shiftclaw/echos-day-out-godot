@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://catw2vjvyygq"]
+[gd_scene load_steps=23 format=3 uid="uid://catw2vjvyygq"]
 
 [ext_resource type="Texture2D" uid="uid://lbkoyfma3qr4" path="res://assets/gfx/olhm.png" id="1_crv6t"]
 [ext_resource type="Script" uid="uid://c4180fjp4owhi" path="res://objects/enemies/scripts/olhm.gd" id="1_tdmd3"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_60e3v"]
 [ext_resource type="AudioStream" uid="uid://bewqcaslt0mq8" path="res://assets/sfx/lightning_charge.mp3" id="2_tdmd3"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="4_yor6e"]
 [ext_resource type="AudioStream" uid="uid://df70dwd7hcqel" path="res://assets/sfx/lightning_crash.mp3" id="5_odbjb"]
@@ -267,6 +268,21 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_sf0tf"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageBox/Damage:active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odbjb"]
 size = Vector2(24, 8)
 
@@ -473,21 +489,6 @@ tracks/4/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_sf0tf"]
-resource_name = "die"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DamageBox/Damage:active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_odbjb"]
 _data = {
 &"RESET": SubResource("Animation_crv6t"),
@@ -508,17 +509,19 @@ script = ExtResource("1_tdmd3")
 shape = SubResource("RectangleShape2D_yor6e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_60e3v")
 texture = ExtResource("1_crv6t")
 hframes = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 26)
 
-[node name="EnemyManager" parent="." instance=ExtResource("4_yor6e")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("4_yor6e")]
 max_health = 18
 energy_per_damage = 0.34
 energy_on_death = 3
 journal_entry = "olhm"
 parent_save_properties = Array[String](["position", "facing_right"])
+shader_nodes = [NodePath("../Sprite2D")]
 
 [node name="Charge" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_tdmd3")

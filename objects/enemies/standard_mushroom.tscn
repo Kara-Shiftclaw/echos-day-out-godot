@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://drj5lv428asa1"]
+[gd_scene load_steps=23 format=3 uid="uid://drj5lv428asa1"]
 
 [ext_resource type="Texture2D" uid="uid://cbqypcbciu1gc" path="res://assets/gfx/mushroom.png" id="1_bhgen"]
 [ext_resource type="Script" uid="uid://neiounwvtqqp" path="res://objects/enemies/scripts/standard_mushroom.gd" id="1_r6aff"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="2_4cspd"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_ins7o"]
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="3_mrjvb"]
 [ext_resource type="Texture2D" uid="uid://dqhuhiwecxvx8" path="res://assets/gfx/orb.png" id="4_ou7tu"]
 [ext_resource type="AudioStream" uid="uid://bvbvurdmsbb76" path="res://assets/sfx/spore_shake.wav" id="7_ins7o"]
@@ -475,6 +476,7 @@ position = Vector2(0.5, -7.5)
 shape = SubResource("RectangleShape2D_4cspd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_ins7o")
 position = Vector2(0, -9)
 texture = ExtResource("1_bhgen")
 offset = Vector2(0.5, 0)
@@ -486,12 +488,13 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("2_4cspd")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player", "shader_nodes") instance=ExtResource("2_4cspd")]
 max_health = 15
 energy_on_death = 1
 journal_entry = "standard_mushroom"
 animation_player = NodePath("../AnimationPlayer")
 reset_animation = &"idle"
+shader_nodes = [NodePath("../Sprite2D")]
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0

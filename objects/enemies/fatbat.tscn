@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bi4irjxg4nk0a"]
+[gd_scene load_steps=15 format=3 uid="uid://bi4irjxg4nk0a"]
 
 [ext_resource type="Texture2D" uid="uid://dorkhpn6tynae" path="res://assets/gfx/fatbat.png" id="1_mrh2m"]
 [ext_resource type="Script" uid="uid://bs0c8krmv3fr8" path="res://objects/enemies/scripts/fatbat.gd" id="1_pg5sw"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_ds2q8"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="2_hjxjo"]
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="4_mktlm"]
 
@@ -257,6 +258,7 @@ script = ExtResource("1_pg5sw")
 shape = SubResource("RectangleShape2D_hjxjo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_ds2q8")
 texture = ExtResource("1_mrh2m")
 hframes = 13
 
@@ -266,9 +268,10 @@ libraries = {
 }
 autoplay = "sleep"
 
-[node name="EnemyManager" parent="." instance=ExtResource("2_hjxjo")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("2_hjxjo")]
 max_health = 10
 journal_entry = "fatbat"
+shader_nodes = [NodePath("../Sprite2D")]
 
 [node name="PlayerNoticeArea" type="Area2D" parent="."]
 collision_layer = 0

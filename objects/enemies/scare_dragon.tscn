@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfeg32boou2fo"]
+[gd_scene load_steps=11 format=3 uid="uid://cfeg32boou2fo"]
 
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="1_1atbt"]
 [ext_resource type="Texture2D" uid="uid://de0xqo3yd8lhq" path="res://assets/gfx/scarecrow.png" id="1_r4t0e"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="2_087h3"]
 
@@ -119,6 +120,7 @@ collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -5
+material = ExtResource("1_1atbt")
 texture = ExtResource("1_r4t0e")
 offset = Vector2(0, -0.5)
 hframes = 6
@@ -132,12 +134,13 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_r4t0e")
 
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("2_087h3")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player", "shader_nodes") instance=ExtResource("2_087h3")]
 max_health = 12
 energy_per_damage = 0.125
 journal_entry = "scare_dragon"
 animation_player = NodePath("../AnimationPlayer")
 reset_animation = &"idle"
+shader_nodes = [NodePath("../Sprite2D")]
 
 [connection signal="area_entered" from="." to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="." to="EnemyManager" method="on_hit"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://ie7hxk447vj7"]
+[gd_scene load_steps=21 format=3 uid="uid://ie7hxk447vj7"]
 
 [ext_resource type="Script" uid="uid://flmhn4y708t0" path="res://oneoff/bosses/scripts/mongoose.gd" id="1_4owjh"]
 [ext_resource type="Texture2D" uid="uid://bho3vfb35ginb" path="res://assets/gfx/mongoose.png" id="1_5cbfd"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_fwj4y"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="3_ihgbm"]
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="4_6gl4w"]
 [ext_resource type="AudioStream" uid="uid://dmdquudfp5f1g" path="res://assets/sfx/bonk.wav" id="5_hcsp4"]
@@ -737,6 +738,7 @@ collision_layer = 4
 script = ExtResource("1_4owjh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_fwj4y")
 texture = ExtResource("1_5cbfd")
 hframes = 6
 vframes = 4
@@ -751,10 +753,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_hcsp4")
 }
 
-[node name="EnemyManager" parent="." instance=ExtResource("3_ihgbm")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("3_ihgbm")]
 max_health = 100
 energy_on_death = 4
 journal_entry = "mongoose"
+shader_nodes = [NodePath("../Sprite2D")]
 
 [node name="BadJumpDamage" type="Node" parent="EnemyManager"]
 script = ExtResource("4_6gl4w")

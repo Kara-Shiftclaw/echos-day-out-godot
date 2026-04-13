@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnya0cld4qphf"]
+[gd_scene load_steps=15 format=3 uid="uid://cnya0cld4qphf"]
 
 [ext_resource type="Script" uid="uid://bdpdx81etyv3o" path="res://objects/enemies/scripts/corvid_rook.gd" id="1_eyro1"]
 [ext_resource type="Texture2D" uid="uid://qu48nke8ksu7" path="res://assets/gfx/compound/corvid_rook/corvid_rook.png" id="1_su2pk"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_2q8s8"]
 [ext_resource type="Texture2D" uid="uid://c4glcg77mhy28" path="res://assets/gfx/compound/corvid_rook/held_staff.png" id="2_ijkc7"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="3_fkk1c"]
 
@@ -179,11 +180,13 @@ collision_mask = 8
 script = ExtResource("1_eyro1")
 
 [node name="HeldStaff" type="Sprite2D" parent="."]
+material = ExtResource("2_2q8s8")
 position = Vector2(0, -11)
 texture = ExtResource("2_ijkc7")
 hframes = 5
 
 [node name="Body" type="Sprite2D" parent="."]
+material = ExtResource("2_2q8s8")
 position = Vector2(0, -11)
 texture = ExtResource("1_su2pk")
 hframes = 5
@@ -200,10 +203,11 @@ next/hurt = &"idle"
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_0nphb")
 
-[node name="EnemyManager" parent="." instance=ExtResource("3_fkk1c")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("3_fkk1c")]
 max_health = 22
 energy_per_damage = 0.167
 journal_entry = "corvid_rook"
+shader_nodes = [NodePath("../HeldStaff"), NodePath("../Body")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://db1opiy6dip85"]
+[gd_scene load_steps=18 format=3 uid="uid://db1opiy6dip85"]
 
 [ext_resource type="Texture2D" uid="uid://cbhc6by4nr1rj" path="res://assets/gfx/fox.png" id="1_64vek"]
 [ext_resource type="Script" uid="uid://bll4ni1tgj7jg" path="res://objects/enemies/scripts/wolf.gd" id="1_mcujq"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="2_nyjvr"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_phjy0"]
 [ext_resource type="PackedScene" uid="uid://braxpij1yhwqj" path="res://objects/enemies/floor_detector.tscn" id="4_vnh00"]
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="5_bbpno"]
 
@@ -592,16 +593,18 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_lvsg1")
 
 [node name="Wolf" type="Sprite2D" parent="."]
+material = ExtResource("2_phjy0")
 position = Vector2(1.5, -7.5)
 texture = ExtResource("1_64vek")
 hframes = 12
 
-[node name="EnemyManager" parent="." instance=ExtResource("2_nyjvr")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("2_nyjvr")]
 max_health = 1
 energy_per_damage = 0.0
 energy_on_death = 3
 journal_entry = "wolf"
 parent_save_properties = Array[String](["position", "moving_right"])
+shader_nodes = [NodePath("../Wolf")]
 
 [node name="Hurtbox" type="Area2D" parent="."]
 visible = false

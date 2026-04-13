@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dlc7sag5j6vek"]
+
+[ext_resource type="Shader" uid="uid://4r8lha6i2ga3" path="res://assets/damage_flash_shader.gdshader" id="1_ln3i3"]
+
+[resource]
+shader = ExtResource("1_ln3i3")
+shader_parameter/black = Color(0.13333334, 0.1254902, 0.20392157, 1)
+shader_parameter/flash_color = Color(1, 1, 1, 1)

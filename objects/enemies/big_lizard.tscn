@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dfant42y7xule"]
+[gd_scene load_steps=26 format=3 uid="uid://dfant42y7xule"]
 
 [ext_resource type="Script" uid="uid://cqpvtt7io8xdu" path="res://objects/enemies/scripts/big_lizard.gd" id="1_srimy"]
 [ext_resource type="Texture2D" uid="uid://b14x5inpm4u3o" path="res://assets/gfx/big_lizard.png" id="1_wvsw1"]
 [ext_resource type="Texture2D" uid="uid://ch1owpw40h3y0" path="res://assets/gfx/small_lizard_fire.png" id="2_csd0v"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_rw3hc"]
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="3_srimy"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="4_jch6p"]
 [ext_resource type="PackedScene" uid="uid://braxpij1yhwqj" path="res://objects/enemies/floor_detector.tscn" id="6_xtwa4"]
@@ -728,6 +729,7 @@ collision_layer = 4
 script = ExtResource("1_srimy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_rw3hc")
 texture = ExtResource("1_wvsw1")
 offset = Vector2(0, 0.5)
 hframes = 16
@@ -753,12 +755,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_xtwa4")
 }
 
-[node name="EnemyManager" parent="." instance=ExtResource("4_jch6p")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("4_jch6p")]
 max_health = 26
 energy_per_damage = 0.167
 energy_on_death = 4
 journal_entry = "big_lizard"
 parent_save_properties = Array[String](["position", "jumping", "velocity", "facing_right"])
+shader_nodes = [NodePath("../Sprite2D")]
 
 [node name="Damage" parent="." instance=ExtResource("3_srimy")]
 damage = 2

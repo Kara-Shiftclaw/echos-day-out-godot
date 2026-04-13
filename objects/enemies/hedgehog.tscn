@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://0pbsxos37t77"]
+[gd_scene load_steps=12 format=3 uid="uid://0pbsxos37t77"]
 
 [ext_resource type="Script" uid="uid://dq42j57irwdtw" path="res://objects/enemies/scripts/hedgehog.gd" id="1_2fyya"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="1_oehah"]
 [ext_resource type="Texture2D" uid="uid://svp3yyxrbct8" path="res://assets/gfx/hedgehog.png" id="2_2fyya"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="3_5bpk4"]
 [ext_resource type="PackedScene" uid="uid://braxpij1yhwqj" path="res://objects/enemies/floor_detector.tscn" id="4_pduax"]
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="5_tmkpi"]
 
@@ -132,14 +133,16 @@ collision_layer = 4
 script = ExtResource("1_2fyya")
 moving_right = true
 
-[node name="EnemyManager" parent="." instance=ExtResource("1_oehah")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("1_oehah")]
 max_health = 6
 energy_on_death = 1
 journal_entry = "hedgehog"
 parent_save_properties = Array[String](["position", "moving_right"])
+shader_nodes = [NodePath("../Sprite2D")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -6
+material = ExtResource("3_5bpk4")
 texture = ExtResource("2_2fyya")
 offset = Vector2(0, 1)
 hframes = 3

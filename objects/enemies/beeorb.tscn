@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://whn2qdsyfdyv"]
+[gd_scene load_steps=26 format=3 uid="uid://whn2qdsyfdyv"]
 
 [ext_resource type="Texture2D" uid="uid://dhpt68546d4mg" path="res://assets/gfx/beeorb.png" id="1_dsn3c"]
 [ext_resource type="Script" uid="uid://cljrbhpxe44lq" path="res://objects/enemies/scripts/beeorb.gd" id="1_oc2e8"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_tyspl"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="3_cxcfd"]
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="4_fucek"]
 
@@ -549,6 +550,7 @@ collision_layer = 4
 script = ExtResource("1_oc2e8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_tyspl")
 position = Vector2(0, -4)
 texture = ExtResource("1_dsn3c")
 hframes = 14
@@ -557,11 +559,12 @@ hframes = 14
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_oc2e8")
 
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("3_cxcfd")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player", "shader_nodes") instance=ExtResource("3_cxcfd")]
 max_health = 8
 energy_on_death = 0
 journal_entry = "beeorb"
 animation_player = NodePath("../AnimationPlayer")
+shader_nodes = [NodePath("../Sprite2D")]
 
 [node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2(0, 0.5)
