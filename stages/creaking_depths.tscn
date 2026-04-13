@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://csgswy5i676aq"]
+[gd_scene load_steps=19 format=4 uid="uid://csgswy5i676aq"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_645fl"]
 [ext_resource type="Texture2D" uid="uid://dsbwwf1drg86c" path="res://assets/gfx/scenery/creaking_depths_tileset.png" id="1_cenvh"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ca72bwose76ae" path="res://objects/switch.tscn" id="13_am2gu"]
 [ext_resource type="PackedScene" uid="uid://bufqrx6gdo4an" path="res://objects/save_point.tscn" id="14_am2gu"]
 [ext_resource type="PackedScene" uid="uid://cwott315gnpcj" path="res://objects/enemies/snail.tscn" id="15_cqiu3"]
+[ext_resource type="PackedScene" uid="uid://wsyfo26voevu" path="res://objects/enemies/flutterfish.tscn" id="16_4o1ac"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_64ird"]
 texture = ExtResource("1_cenvh")
@@ -180,6 +181,17 @@ position = Vector2(-428, 840)
 [node name="Snail6" parent="Objects/Snails" instance=ExtResource("15_cqiu3")]
 position = Vector2(-236, 160)
 load_facing_right = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Flutterfish" parent="Enemies" instance=ExtResource("16_4o1ac")]
+position = Vector2(-297, 574)
+
+[node name="Flutterfish2" parent="Enemies" instance=ExtResource("16_4o1ac")]
+position = Vector2(-157, 528)
+
+[node name="Flutterfish3" parent="Enemies" instance=ExtResource("16_4o1ac")]
+position = Vector2(-323, 404)
 
 [node name="StageTransitions" type="Node2D" parent="."]
 

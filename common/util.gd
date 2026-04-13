@@ -12,7 +12,7 @@ static func sign(b: bool) -> int:
 static func off_edge_in_direction(moving_right: bool, left: FloorDetector, right: FloorDetector) -> bool:
 	return (moving_right and !right.valid_floor) or (!moving_right and !left.valid_floor)
 
-static func off_screen_in_direction(moving_right: bool, left: FloorDetector, right: FloorDetector) -> bool:
+static func off_screen_in_direction(moving_right: bool, left: VisibleOnScreenNotifier2D, right: VisibleOnScreenNotifier2D) -> bool:
 	return (moving_right and !right.is_on_screen()) or (!moving_right and !left.is_on_screen())
 
 static func chunk_of(global_position: Vector2) -> Vector2i:

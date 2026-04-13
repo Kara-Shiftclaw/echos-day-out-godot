@@ -10,6 +10,8 @@ const HEAD_RAYCAST_OFS := -12.
 
 @export var facing_right := false:
 	set(value):
+		if player_riding and facing_right != value:
+			Global.echo.facing_right = !Global.echo.facing_right
 		facing_right = value
 		extension = 0.
 		head_frame_movement = 0.

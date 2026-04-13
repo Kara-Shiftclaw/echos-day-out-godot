@@ -97,3 +97,6 @@ func manage_post_load_frame():
 	post_load_frame = true
 	await get_tree().process_frame
 	post_load_frame = false
+
+func set_save_property(property: String, value: Variant) -> void:
+	saved_properties[property] = value
