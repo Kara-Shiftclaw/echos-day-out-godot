@@ -95,6 +95,9 @@ position = Vector2(-472, 576)
 [node name="Red10" parent="Objects/Plants/Red" instance=ExtResource("9_1na21")]
 position = Vector2(-496, 580)
 
+[node name="Red11" parent="Objects/Plants/Red" instance=ExtResource("9_1na21")]
+position = Vector2(-296, 720)
+
 [node name="Green" type="Node2D" parent="Objects/Plants"]
 
 [node name="Green" parent="Objects/Plants/Green" instance=ExtResource("10_vcxcc")]
@@ -134,9 +137,6 @@ position = Vector2(-172, 316)
 
 [node name="Blue" parent="Objects/Plants/Blue" instance=ExtResource("11_28euf")]
 position = Vector2(-295, 800)
-
-[node name="Blue2" parent="Objects/Plants/Blue" instance=ExtResource("11_28euf")]
-position = Vector2(-300, 724)
 
 [node name="Door" parent="Objects" instance=ExtResource("12_28euf")]
 position = Vector2(-276, 704)
