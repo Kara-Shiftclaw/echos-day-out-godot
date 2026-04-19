@@ -162,7 +162,7 @@ stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="RegionName" parent="Camera2D" instance=ExtResource("6_1na21")]
 position = Vector2(0, 8)
-region_name = "Creaking Depths"
+region_name = "Disphotic Depths"
 
 [node name="Objects" type="Node2D" parent="."]
 
