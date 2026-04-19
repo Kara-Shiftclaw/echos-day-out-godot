@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bmjlrs06set8s"]
+[gd_scene load_steps=18 format=3 uid="uid://bmjlrs06set8s"]
 
 [ext_resource type="Script" uid="uid://dc27ngadt7bd1" path="res://objects/enemies/scripts/crab.gd" id="1_41fcm"]
 [ext_resource type="Texture2D" uid="uid://bxvm5okhok4x5" path="res://assets/gfx/crab.png" id="1_74usp"]
@@ -111,6 +111,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_u7wnt"]
@@ -288,9 +300,81 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_3voxa"]
+resource_name = "arena_standby"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_p72os"]
+resource_name = "arena_start"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3282k"]
 _data = {
 &"RESET": SubResource("Animation_41fcm"),
+&"arena_standby": SubResource("Animation_3voxa"),
+&"arena_start": SubResource("Animation_p72os"),
 &"attack": SubResource("Animation_mgel6"),
 &"attack_poc": SubResource("Animation_u7wnt"),
 &"die": SubResource("Animation_48hyq"),
@@ -329,6 +413,7 @@ libraries = {
 }
 autoplay = "move"
 next/attack = &"move"
+next/arena_start = &"move"
 
 [node name="Left" parent="." instance=ExtResource("3_u7wnt")]
 position = Vector2(-10, -1)
@@ -380,8 +465,8 @@ script = ExtResource("6_48hyq")
 damage = 5
 metadata/_custom_type_script = "uid://cd06ykx2xlfww"
 
-[connection signal="chunk_entered_alive" from="EnemyManager" to="." method="show"]
-[connection signal="chunk_entered_alive" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"move"]]
+[connection signal="chunk_entered_alive" from="EnemyManager" to="." method="reload"]
+[connection signal="die" from="EnemyManager" to="." method="emit_die"]
 [connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]
 [connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]

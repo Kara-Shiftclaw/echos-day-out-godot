@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://xv00grs65t8u"]
+
+[ext_resource type="Script" uid="uid://b2omgbjlwqsdr" path="res://oneoff/npc/scripts/big_green.gd" id="1_5w0um"]
+[ext_resource type="Texture2D" uid="uid://b5bfquluiq0tg" path="res://assets/gfx/plant/big_red.png" id="2_5w0um"]
+[ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="3_6b1jy"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="4_sfqm8"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="5_02qom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2nr2"]
+size = Vector2(32.5, 9.5)
+
+[node name="BigRed" type="Area2D"]
+process_mode = 3
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_5w0um")
+flag = "red_plant_open"
+
+[node name="BigGreen" type="Sprite2D" parent="."]
+texture = ExtResource("2_5w0um")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28.75, 37.25)
+shape = SubResource("RectangleShape2D_x2nr2")
+
+[node name="NpcArrow" parent="." node_paths=PackedStringArray("activation_area") instance=ExtResource("3_6b1jy")]
+visible = true
+position = Vector2(26, -22)
+activation_area = NodePath("..")
+
+[node name="Dialogue" type="Node" parent="."]
+
+[node name="FirstEncounter" parent="Dialogue" instance=ExtResource("4_sfqm8")]
+
+[node name="StandardTextBox" parent="Dialogue/FirstEncounter" instance=ExtResource("5_02qom")]
+text = "Oh thank Gaia, someone to TALK TO!"
+
+[node name="StandardTextBox2" parent="Dialogue/FirstEncounter" instance=ExtResource("5_02qom")]
+text = "Look, don't question the life decisions that got me stuck down here, just know I regret them."
+
+[node name="StandardTextBox3" parent="Dialogue/FirstEncounter" instance=ExtResource("5_02qom")]
+text = "I was trying to get away from this dumb mole that was destroying my roots, and now I'm here."
+
+[node name="StandardTextBox4" parent="Dialogue/FirstEncounter" instance=ExtResource("5_02qom")]
+text = "I hate it here! It's too humid and it smells like bad sushi! ...But it does beat dying."
+
+[node name="StandardTextBox5" parent="Dialogue/FirstEncounter" instance=ExtResource("5_02qom")]
+text = "Huh? You're trying to stop that same mole?"
+
+[node name="StandardTextBox6" parent="Dialogue/FirstEncounter" instance=ExtResource("5_02qom")]
+text = "Hell yeah, cheers!"
+
+[node name="Repeat" parent="Dialogue" instance=ExtResource("4_sfqm8")]
+
+[node name="StandardTextBox" parent="Dialogue/Repeat" instance=ExtResource("5_02qom")]
+text = "Hey, come let me know when you've kicked her ass, okay?"
+
+[node name="StandardTextBox2" parent="Dialogue/Repeat" instance=ExtResource("5_02qom")]
+text = "Bring someone who can help dig me out, too. But someone who won't give me a hard time about it."
+
+[node name="StandardTextBox3" parent="Dialogue/Repeat" instance=ExtResource("5_02qom")]
+text = "Oh!! Snacks too! There is NOBODY down here to eat!"
+
+[node name="OpenTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="activated" from="NpcArrow" to="." method="dialogue"]
+[connection signal="next" from="Dialogue/FirstEncounter" to="." method="do_open"]
+[connection signal="next" from="Dialogue/Repeat" to="NpcArrow" method="generic_unpause"]
+[connection signal="timeout" from="OpenTimer" to="Dialogue/Repeat" method="render"]

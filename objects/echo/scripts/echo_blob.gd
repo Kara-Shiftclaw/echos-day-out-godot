@@ -3,6 +3,7 @@ extends Player
 const MAX_SPEED: float = Echo.SPEED_MAP[Global.Weight.Thin]
 const ACCELERATION: float = Echo.ACCELERATION_MAP[Global.Weight.Thin]
 const JUMP_VELOCITY: float = Echo.JUMP_VELOCITY_MAP[Global.Weight.Obese]
+const AIRSTREAM_JUMP_VELOCITY: float = Echo.JUMP_VELOCITY_MAP[Global.Weight.Thin]
 const JUMP_TIME: float = 4.5 * 8. / -JUMP_VELOCITY
 const GRAVITY := Echo.GRAVITY
 const MAX_GRAVITY := Echo.MAX_GRAVITY
@@ -67,6 +68,7 @@ func _physics_process(delta: float) -> void:
 			$CoyoteTimeTimer.start()
 			can_attack = true
 			can_double_jump = false
+			is_double_jumping = false
 			if is_cur_anim("jump"):
 				anim_priority = 0
 				play_anim("walk")
@@ -81,11 +83,17 @@ func _physics_process(delta: float) -> void:
 			elif can_double_jump:
 				$JumpTimer.start(Echo.DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY)
 				can_double_jump = false
+				is_double_jumping = true
 				if !play_anim("double_jump", 1):
 					play_anim("jump", 1)
 		
 		if !$JumpTimer.is_stopped():
 			velocity.y = JUMP_VELOCITY
+			if in_airstream:
+				if is_double_jumping:
+					velocity.y = 2 * JUMP_VELOCITY
+				else:
+					velocity.y = AIRSTREAM_JUMP_VELOCITY
 			if !(Input.is_action_pressed("jump") or jump_locked) or is_on_ceiling():
 				$JumpTimer.stop()
 		else:

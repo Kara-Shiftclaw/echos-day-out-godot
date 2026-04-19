@@ -123,6 +123,7 @@ func _physics_process(delta: float) -> void:
 			
 				$CoyoteTimeTimer.start()
 				can_double_jump = Global.has_double_jump
+				is_double_jumping = false
 				can_fireball = Global.has_fireball
 				if is_cur_anim("jump"):
 					anim_priority = 0
@@ -152,11 +153,14 @@ func _physics_process(delta: float) -> void:
 				elif can_double_jump:
 					$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
 					can_double_jump = false
+					is_double_jumping = true
 					if !play_anim("double_jump", 1):
 						play_anim("jump", 1)
 			
 			if !$JumpTimer.is_stopped():
 				velocity.y = JUMP_VELOCITY_MAP[Global.weight]
+				if is_double_jumping and in_airstream:
+					velocity.y *= 2.
 				if !(Input.is_action_pressed("jump") or jump_locked) or is_on_ceiling():
 					$JumpTimer.stop()
 			elif !is_crushing:

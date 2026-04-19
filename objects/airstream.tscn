@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhhbnnko3s4aa"]
+
+[ext_resource type="Texture2D" uid="uid://bjyaq27yig1wh" path="res://assets/gfx/airstream.png" id="1_35ago"]
+[ext_resource type="Script" uid="uid://ndjkjpv80ppy" path="res://objects/scripts/airstream.gd" id="1_hnsow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnsow"]
+size = Vector2(16, 128)
+
+[node name="Airstream" type="ReferenceRect"]
+offset_left = -8.0
+offset_top = -128.0
+offset_right = 8.0
+script = ExtResource("1_hnsow")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 64)
+shape = SubResource("RectangleShape2D_hnsow")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(8, 123)
+amount = 20
+texture = ExtResource("1_35ago")
+lifetime = 0.6
+emission_shape = 3
+emission_rect_extents = Vector2(8, 5)
+direction = Vector2(0, -1)
+spread = 3.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 192.0
+initial_velocity_max = 192.0
+
+[connection signal="resized" from="." to="." method="on_resize"]
+[connection signal="area_entered" from="Area2D" to="." method="player_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="player_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="player_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="player_exited"]

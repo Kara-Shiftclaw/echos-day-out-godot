@@ -9,6 +9,8 @@ var facing_right := true:
 var is_sprinting := false
 var can_double_jump := false
 var on_floor := true
+var in_airstream := false
+var is_double_jumping := false
 @export var anim_priority := 0
 
 signal land_on_floor()
