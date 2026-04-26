@@ -524,11 +524,13 @@ parent_save_properties = Array[String](["position", "facing_right"])
 shader_nodes = [NodePath("../Sprite2D")]
 
 [node name="Charge" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_tdmd3")
 volume_db = 4.0
 bus = &"Sfx"
 
 [node name="Dash" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("5_odbjb")
 volume_db = 4.0
 pitch_scale = 1.1

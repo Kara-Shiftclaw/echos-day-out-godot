@@ -371,7 +371,7 @@ position = Vector2(-124, 844)
 scale = Vector2(-1, 1)
 
 [node name="Portal" parent="Objects" instance=ExtResource("27_futco")]
-position = Vector2(108, 1007)
+position = Vector2(312, 743)
 portal_name = "Verdant Cavern"
 
 [node name="StageTransitions" type="Node2D" parent="."]

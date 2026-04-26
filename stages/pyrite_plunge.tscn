@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://cyqutnlfcrbll"]
+[gd_scene load_steps=59 format=4 uid="uid://cyqutnlfcrbll"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_pxxyi"]
 [ext_resource type="Script" uid="uid://oxvxvun8aygq" path="res://oneoff/scripts/pyrite_plunge.gd" id="1_x2nr2"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b7k6md2awq7wb" path="res://objects/plant/blue.tscn" id="15_rhjpj"]
 [ext_resource type="AudioStream" uid="uid://pxe2tnsjyihx" path="res://assets/sfx/enemy_hit.wav" id="19_fxphi"]
 [ext_resource type="AudioStream" uid="uid://dec177gegtipl" path="res://assets/sfx/pyrite.mp3" id="20_ca72f"]
+[ext_resource type="PackedScene" uid="uid://ca72bwose76ae" path="res://objects/switch.tscn" id="21_6ccgr"]
 [ext_resource type="Texture2D" uid="uid://dwg1d1715paks" path="res://assets/gfx/pyrite_plunge/mine_worm.png" id="21_daaar"]
 [ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="22_3p04n"]
 [ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="23_558cu"]
@@ -239,6 +240,30 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(16, 128)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("OneWayL/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("OneWayR/CollisionShape2D:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_kfhsy"]
@@ -550,11 +575,148 @@ tracks/14/keys = {
 "values": [Vector2(16, 88)]
 }
 
+[sub_resource type="Animation" id="Animation_6ccgr"]
+resource_name = "unlock"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BridgeBottom/Range3:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BridgeBottom/Range4:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OneWayL/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OneWayR/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PyriteButtonL")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"force_press"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PyriteButtonR")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"force_press"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ScaryDoor")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ScaryDoor2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"open"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ScaryDoor3")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"open"
+}]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ScaryDoor4")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kfhsy"]
 _data = {
 &"RESET": SubResource("Animation_4nj70"),
 &"drop_player": SubResource("Animation_kfhsy"),
-&"open": SubResource("Animation_8xwni")
+&"open": SubResource("Animation_8xwni"),
+&"unlock": SubResource("Animation_6ccgr")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nj70"]
@@ -562,6 +724,9 @@ size = Vector2(96, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sr7ej"]
 size = Vector2(96, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ccgr"]
+size = Vector2(16, 4)
 
 [sub_resource type="Animation" id="Animation_0ta8g"]
 length = 0.001
@@ -596,6 +761,30 @@ tracks/2/path = NodePath("BridgeBottomMain/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BridgeBottomOneWay/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BridgeBottomOneWay/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -735,10 +924,123 @@ tracks/9/keys = {
 "values": [2, 1, 0]
 }
 
+[sub_resource type="Animation" id="Animation_op8qk"]
+resource_name = "unlock"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BridgeBottomOneWay/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BridgeBottomOneWay/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PyriteButtonL")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"force_press"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PyriteButtonR")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"force_press"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ScaryDoor")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ScaryDoor2")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"open"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ScaryDoor3")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"open"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ScaryDoor4")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4nj70"]
 _data = {
 &"RESET": SubResource("Animation_0ta8g"),
-&"open": SubResource("Animation_sr7ej")
+&"open": SubResource("Animation_sr7ej"),
+&"unlock": SubResource("Animation_op8qk")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfhsy"]
@@ -1252,6 +1554,25 @@ offset_bottom = 384.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="Switch" parent="Objects/Row1" instance=ExtResource("21_6ccgr")]
+position = Vector2(64, 299)
+
+[node name="OneWayL" type="StaticBody2D" parent="Objects/Row1"]
+position = Vector2(40, 346)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Row1/OneWayL"]
+shape = SubResource("RectangleShape2D_6ccgr")
+disabled = true
+one_way_collision = true
+
+[node name="OneWayR" type="StaticBody2D" parent="Objects/Row1"]
+position = Vector2(88, 346)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Row1/OneWayR"]
+shape = SubResource("RectangleShape2D_6ccgr")
+disabled = true
+one_way_collision = true
+
 [node name="Row2" type="Node2D" parent="Objects"]
 position = Vector2(0, 384)
 
@@ -1340,6 +1661,9 @@ frame = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 24)
 
+[node name="Switch" parent="Objects/Row2" instance=ExtResource("21_6ccgr")]
+position = Vector2(64, 299)
+
 [node name="BigLump" type="StaticBody2D" parent="Objects"]
 z_index = 4
 position = Vector2(-240, 1520)
@@ -1386,7 +1710,7 @@ collision_mask = 2
 process_mode = 3
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_kk7ad")
-frame_progress = 0.90313643
+frame_progress = 0.19973561
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/MineWorm"]
 position = Vector2(-3, -1)
@@ -1542,10 +1866,14 @@ enabled = false
 [connection signal="on_press" from="Objects/Row1/PyriteButtonL" to="Objects/Row1/AnimationPlayer" method="play" binds= [&"open"]]
 [connection signal="on_press" from="Objects/Row1/PyriteButtonR" to="Objects/Row1/PyriteButtonL" method="force_press"]
 [connection signal="on_press" from="Objects/Row1/PyriteButtonR" to="Objects/Row1/AnimationPlayer" method="play" binds= [&"open"]]
+[connection signal="activate" from="Objects/Row1/Switch" to="Objects/Row1/AnimationPlayer" method="play" binds= [&"unlock"]]
+[connection signal="already_activated" from="Objects/Row1/Switch" to="Objects/Row1/AnimationPlayer" method="play" binds= [&"unlock"]]
 [connection signal="on_press" from="Objects/Row2/PyriteButtonL" to="Objects/Row2/PyriteButtonR" method="force_press"]
 [connection signal="on_press" from="Objects/Row2/PyriteButtonL" to="Objects/Row2/AnimationPlayer" method="play" binds= [&"open"]]
 [connection signal="on_press" from="Objects/Row2/PyriteButtonR" to="Objects/Row2/PyriteButtonL" method="force_press"]
 [connection signal="on_press" from="Objects/Row2/PyriteButtonR" to="Objects/Row2/AnimationPlayer" method="play" binds= [&"open"]]
+[connection signal="activate" from="Objects/Row2/Switch" to="Objects/Row2/AnimationPlayer" method="play" binds= [&"unlock"]]
+[connection signal="already_activated" from="Objects/Row2/Switch" to="Objects/Row2/AnimationPlayer" method="play" binds= [&"unlock"]]
 [connection signal="area_entered" from="Objects/BigLump/Area2D" to="." method="spawn_pyrite"]
 [connection signal="body_entered" from="Objects/BigLump/Area2D" to="." method="spawn_pyrite"]
 [connection signal="ready" from="Objects/MineWorm/Sprite2D" to="Objects/MineWorm/Sprite2D" method="play" binds= [&"default"]]

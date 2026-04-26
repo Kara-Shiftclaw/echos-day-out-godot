@@ -24,7 +24,6 @@ position = Vector2(28.75, 37.25)
 shape = SubResource("RectangleShape2D_x2nr2")
 
 [node name="NpcArrow" parent="." node_paths=PackedStringArray("activation_area") instance=ExtResource("3_6b1jy")]
-visible = true
 position = Vector2(26, -22)
 activation_area = NodePath("..")
 

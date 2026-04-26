@@ -7,12 +7,10 @@ var open := false
 
 func entered(other: Node2D) -> void:
 	if other is Player and open:
-		print("Player in!")
 		player_in = true
 
 func exited(other: Node2D) -> void:
 	if other is Player:
-		print("Player out.")
 		player_in = false
 
 func _ready() -> void:
@@ -21,7 +19,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	var echo := Global.echo
 	if player_in and open and !echo.can_double_jump:
-		print("Granting double jump")
+		$Touch.play()
 		echo.can_double_jump = true
 		open = false
 		player_in = false
