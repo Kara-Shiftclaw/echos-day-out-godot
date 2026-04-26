@@ -44,7 +44,7 @@ func populate_dest_maps() -> void:
 		var source_map_coord := explored_space_coord(source_map_pos_i)
 		if !Global.explored_spaces.get(area, {}).has(source_map_coord):
 			knowing_marker.hide()
-	if !Global.flags.has("mush_hint"):
+	if !Global.flags.get("has_mycelium_map", false):
 		$Outline/Background/MapParent/MushHints.hide()
 	
 	for stage in Global.explored_spaces:

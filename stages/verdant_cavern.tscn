@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b1xnjhiba0kmd"]
+[gd_scene load_steps=30 format=4 uid="uid://b1xnjhiba0kmd"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_8qdks"]
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="2_ycbvs"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://caxbh33al4mat" path="res://oneoff/npc/big_blue.tscn" id="24_ophye"]
 [ext_resource type="PackedScene" uid="uid://c8quq3x1mj85h" path="res://objects/painted_wall.tscn" id="25_ophye"]
 [ext_resource type="PackedScene" uid="uid://d2xooyv6ei5dj" path="res://objects/portal.tscn" id="27_futco"]
+[ext_resource type="PackedScene" uid="uid://bvdabuywaew36" path="res://oneoff/npc/sporemother.tscn" id="28_2rqtf"]
 
 [node name="VerdantCavern" type="Node2D"]
 
@@ -373,6 +374,9 @@ scale = Vector2(-1, 1)
 [node name="Portal" parent="Objects" instance=ExtResource("27_futco")]
 position = Vector2(312, 743)
 portal_name = "Verdant Cavern"
+
+[node name="Sporemother" parent="Objects" instance=ExtResource("28_2rqtf")]
+position = Vector2(222, 157)
 
 [node name="StageTransitions" type="Node2D" parent="."]
 

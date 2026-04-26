@@ -4,9 +4,11 @@ signal next()
 signal before_next(this)
 
 @export_multiline var text: String
+@export var move_always := false
 
 func render() -> TextBoxView:
 	var view := TextBoxView.with_text(text)
+	view.move_always = move_always
 	view.close_signaled.connect(func(): on_view_close_signaled(view))
 	return view
 

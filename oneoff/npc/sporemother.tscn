@@ -1,0 +1,331 @@
+[gd_scene load_steps=13 format=3 uid="uid://bvdabuywaew36"]
+
+[ext_resource type="Texture2D" uid="uid://gcghaneic3w3" path="res://assets/gfx/sporemother.png" id="1_38ufg"]
+[ext_resource type="Script" uid="uid://0iv1blki3n35" path="res://oneoff/npc/scripts/sporemother.gd" id="1_rvn50"]
+[ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="2_thkck"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="3_oogrh"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="4_jlah5"]
+[ext_resource type="PackedScene" uid="uid://dlpq327smiwuo" path="res://menu/dialogue/model/multiple_choice_box.tscn" id="5_sym7a"]
+[ext_resource type="PackedScene" uid="uid://dnup6pmbimhsl" path="res://menu/dialogue/model/choice.tscn" id="6_rvn50"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oogrh"]
+size = Vector2(16, 2)
+
+[sub_resource type="Animation" id="Animation_rvn50"]
+resource_name = "give"
+length = 0.6
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"give"
+}, {
+"args": [],
+"method": &"render_map_popup"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gc6gr"]
+resource_name = "remove"
+length = 0.6
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogue/YesTakeCare")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"render"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"remove"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gc6gr"]
+_data = {
+&"give": SubResource("Animation_rvn50"),
+&"remove": SubResource("Animation_gc6gr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvn50"]
+size = Vector2(32, 40)
+
+[node name="Sporemother" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_rvn50")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_38ufg")
+offset = Vector2(0.5, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-22, 26)
+shape = SubResource("RectangleShape2D_oogrh")
+
+[node name="NpcArrow" parent="." instance=ExtResource("2_thkck")]
+position = Vector2(0, -21)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_gc6gr")
+}
+
+[node name="Dialogue" type="Node" parent="."]
+
+[node name="FirstChat" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="StandardTextBox" parent="Dialogue/FirstChat" instance=ExtResource("4_jlah5")]
+text = "Hello, hello. I am Sporemother."
+move_always = true
+
+[node name="StandardTextBox2" parent="Dialogue/FirstChat" instance=ExtResource("4_jlah5")]
+text = "The other is Sporemother too. Perhaps we are all Sporemother."
+move_always = true
+
+[node name="StandardTextBox3" parent="Dialogue/FirstChat" instance=ExtResource("4_jlah5")]
+text = "Our hyphae reach across the entire valley. We see, feel, know all. Including you, Echo."
+move_always = true
+
+[node name="MultipleChoiceBox" parent="Dialogue/FirstChat" instance=ExtResource("5_sym7a")]
+text = "We know things that would help you. We can share our knowledge, for a price."
+move_always = true
+
+[node name="Yes" parent="Dialogue/FirstChat/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "Yes"
+enabled = true
+
+[node name="No" parent="Dialogue/FirstChat/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "No No No No No"
+enabled = true
+
+[node name="Elaborate" parent="Dialogue/FirstChat/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "Elaborate"
+enabled = true
+
+[node name="Elaborate" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="StandardTextBox" parent="Dialogue/Elaborate" instance=ExtResource("4_jlah5")]
+text = "Hm, suspicious. Of course."
+move_always = true
+
+[node name="StandardTextBox2" parent="Dialogue/Elaborate" instance=ExtResource("4_jlah5")]
+text = "To access our knowledge, you will need to watch a young sporeling."
+move_always = true
+
+[node name="StandardTextBox3" parent="Dialogue/Elaborate" instance=ExtResource("4_jlah5")]
+text = "Give an offering, some energy, and it will tell you everything."
+move_always = true
+
+[node name="MultipleChoiceBox" parent="Dialogue/Elaborate" instance=ExtResource("5_sym7a")]
+text = "Do you wish to help?"
+move_always = true
+
+[node name="Yes" parent="Dialogue/Elaborate/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "Yes"
+enabled = true
+
+[node name="No" parent="Dialogue/Elaborate/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "No"
+enabled = true
+
+[node name="Yes" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="StandardTextBox" parent="Dialogue/Yes" instance=ExtResource("4_jlah5")]
+text = "Wonderful. We knew you would."
+move_always = true
+
+[node name="StandardTextBox2" parent="Dialogue/Yes" instance=ExtResource("4_jlah5")]
+text = "Be careful, it hungers."
+move_always = true
+
+[node name="YesWithMushMeal" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="StandardTextBox" parent="Dialogue/YesWithMushMeal" instance=ExtResource("4_jlah5")]
+text = "Oh! You have MUSH-MEAL!"
+move_always = true
+
+[node name="StandardTextBox2" parent="Dialogue/YesWithMushMeal" instance=ExtResource("4_jlah5")]
+text = "We knew you to be a great host. You have arrived quite prepared."
+move_always = true
+
+[node name="YesTakeCare" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="StandardTextBox" parent="Dialogue/YesTakeCare" instance=ExtResource("4_jlah5")]
+text = "Take care of it, now."
+move_always = true
+
+[node name="No" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="StandardTextBox" parent="Dialogue/No" instance=ExtResource("4_jlah5")]
+text = "Hm, a shame."
+move_always = true
+
+[node name="StandardTextBox2" parent="Dialogue/No" instance=ExtResource("4_jlah5")]
+text = "We will be here when you change your mind."
+move_always = true
+
+[node name="TalkAgainWithout" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWithout" instance=ExtResource("5_sym7a")]
+text = "Have you changed your mind? Will you take our knowledge?"
+move_always = true
+
+[node name="Yes" parent="Dialogue/TalkAgainWithout/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "Yes"
+enabled = true
+
+[node name="No" parent="Dialogue/TalkAgainWithout/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "No"
+enabled = true
+
+[node name="TalkAgainWith" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="StandardTextBox" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
+text = "It's wonderful to see you! It looks like it's growing quite well, too."
+move_always = true
+
+[node name="StandardTextBox2" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
+text = "You've been a wonderful host. I hope the knowledge has been kind to you."
+move_always = true
+
+[node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWith" instance=ExtResource("5_sym7a")]
+text = "How have been things?"
+move_always = true
+
+[node name="Remove" parent="Dialogue/TalkAgainWith/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "Please take it off"
+enabled = true
+
+[node name="Keep" parent="Dialogue/TalkAgainWith/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "It's... great"
+enabled = true
+
+[node name="StandardTextBox3" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
+text = "Wonderful. I'm glad it has been treating you so well."
+move_always = true
+
+[node name="StandardTextBox4" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
+text = "The last host was less capable. Your fatty frame has proven far better."
+move_always = true
+
+[node name="TalkAgainWithMush" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="StandardTextBox" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
+text = "It's wonderful to see you! It seems to be enjoying that MUSH-MEAL as well."
+move_always = true
+
+[node name="StandardTextBox2" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
+text = "We have been so lucky to have a responsible host like you."
+move_always = true
+
+[node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("5_sym7a")]
+text = "How have been things?"
+move_always = true
+
+[node name="Keep" parent="Dialogue/TalkAgainWithMush/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "It's great!"
+enabled = true
+
+[node name="Remove" parent="Dialogue/TalkAgainWithMush/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+choice_text = "Here, take it back"
+enabled = true
+
+[node name="StandardTextBox3" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
+text = "Wonderful. I'm glad it has been treating you so well."
+move_always = true
+
+[node name="StandardTextBox4" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
+text = "The last host was less capable. Your feeding regimen has proven far better."
+move_always = true
+
+[node name="OnRemove" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="StandardTextBox" parent="Dialogue/OnRemove" instance=ExtResource("4_jlah5")]
+text = "Hm? You want it removed? A shame."
+move_always = true
+
+[node name="StandardTextBox2" parent="Dialogue/OnRemove" instance=ExtResource("4_jlah5")]
+text = "Oh well. Better no host than a resistant one."
+move_always = true
+
+[node name="StandardTextBox3" parent="Dialogue/OnRemove" instance=ExtResource("4_jlah5")]
+text = "It looks extremely well-fed in your care. I pray you will return at some point."
+move_always = true
+
+[node name="OnRemoveMush" parent="Dialogue" instance=ExtResource("3_oogrh")]
+
+[node name="StandardTextBox" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
+text = "Hm? You don't want to have it anymore? Even with the MUSH-MEAL?"
+move_always = true
+
+[node name="StandardTextBox2" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
+text = "Oh, I know what is happening. You need not say more."
+move_always = true
+
+[node name="StandardTextBox3" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
+text = "You must have a date with another Sporecap, and wish to give them the MUSH-MEAL as a gift."
+move_always = true
+
+[node name="StandardTextBox4" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
+text = "Of course, of course. We can take the sporeling back for now."
+move_always = true
+
+[node name="StandardTextBox5" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
+text = "We hope your romantic pursuits succeed as well as your parenting, Echo."
+move_always = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_rvn50")
+
+[connection signal="activated" from="NpcArrow" to="." method="on_talk"]
+[connection signal="chosen" from="Dialogue/FirstChat/MultipleChoiceBox/Yes" to="." method="yes_chosen"]
+[connection signal="chosen" from="Dialogue/FirstChat/MultipleChoiceBox/No" to="Dialogue/No" method="render"]
+[connection signal="chosen" from="Dialogue/FirstChat/MultipleChoiceBox/Elaborate" to="Dialogue/Elaborate" method="render"]
+[connection signal="chosen" from="Dialogue/Elaborate/MultipleChoiceBox/Yes" to="." method="yes_chosen"]
+[connection signal="chosen" from="Dialogue/Elaborate/MultipleChoiceBox/No" to="Dialogue/No" method="render"]
+[connection signal="next" from="Dialogue/Yes" to="AnimationPlayer" method="play" binds= [&"give"]]
+[connection signal="next" from="Dialogue/YesWithMushMeal" to="AnimationPlayer" method="play" binds= [&"give"]]
+[connection signal="next" from="Dialogue/YesTakeCare" to="NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Dialogue/No" to="NpcArrow" method="generic_unpause"]
+[connection signal="chosen" from="Dialogue/TalkAgainWithout/MultipleChoiceBox/Yes" to="." method="yes_chosen"]
+[connection signal="chosen" from="Dialogue/TalkAgainWithout/MultipleChoiceBox/No" to="Dialogue/No" method="render"]
+[connection signal="next" from="Dialogue/TalkAgainWith" to="NpcArrow" method="generic_unpause"]
+[connection signal="chosen" from="Dialogue/TalkAgainWith/MultipleChoiceBox/Remove" to="Dialogue/OnRemove" method="render"]
+[connection signal="chosen" from="Dialogue/TalkAgainWith/MultipleChoiceBox/Keep" to="Dialogue/TalkAgainWith/MultipleChoiceBox" method="emit_next"]
+[connection signal="next" from="Dialogue/TalkAgainWithMush" to="NpcArrow" method="generic_unpause"]
+[connection signal="chosen" from="Dialogue/TalkAgainWithMush/MultipleChoiceBox/Keep" to="Dialogue/TalkAgainWithMush/MultipleChoiceBox" method="emit_next"]
+[connection signal="chosen" from="Dialogue/TalkAgainWithMush/MultipleChoiceBox/Remove" to="Dialogue/OnRemoveMush" method="render"]
+[connection signal="next" from="Dialogue/OnRemove" to="NpcArrow" method="generic_unpause"]
+[connection signal="before_next" from="Dialogue/OnRemove/StandardTextBox2" to="." method="remove_before_next"]
+[connection signal="next" from="Dialogue/OnRemoveMush" to="NpcArrow" method="generic_unpause"]
+[connection signal="before_next" from="Dialogue/OnRemoveMush/StandardTextBox4" to="." method="remove_before_next"]

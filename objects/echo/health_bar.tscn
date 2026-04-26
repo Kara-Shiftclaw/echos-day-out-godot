@@ -97,7 +97,6 @@ texture = SubResource("AtlasTexture_xf05w")
 offset = Vector2(0.5, 3)
 
 [node name="DangerArea" type="ColorRect" parent="Back"]
-anchors_preset = -1
 offset_right = 10.0
 offset_bottom = 6.0
 color = Color(0.67058825, 0.17254902, 0.26666668, 1)
@@ -126,14 +125,30 @@ position = Vector2(2, 0)
 texture = SubResource("AtlasTexture_immof")
 offset = Vector2(0.5, 3)
 
+[node name="MushCurse" type="Node2D" parent="Back"]
+
+[node name="MushEnd" type="Sprite2D" parent="Back/MushCurse"]
+position = Vector2(31, 0)
+texture = ExtResource("1_j3ijx")
+centered = false
+region_enabled = true
+region_rect = Rect2(32, 0, 12, 6)
+
+[node name="MushTip" type="Sprite2D" parent="Back/MushCurse"]
+position = Vector2(31, 3)
+texture = ExtResource("1_j3ijx")
+offset = Vector2(-1.5, 0)
+region_enabled = true
+region_rect = Rect2(29, 0, 3, 6)
+
 [node name="HealthBarPrimary" type="ColorRect" parent="."]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 47.0
+offset_right = 33.0
 offset_bottom = 7.0
 
 [node name="HealthBarEnd" type="Sprite2D" parent="."]
-position = Vector2(49, 2)
+position = Vector2(35, 2)
 texture = ExtResource("1_j3ijx")
 offset = Vector2(-1, 3)
 region_enabled = true

@@ -8,6 +8,7 @@ enum Weight {
 	Blob = 4
 }
 const STARTING_MAX_HEALTH := 15.
+const MUSH_CURSE := 5.
 const PauseMenu := preload("res://menu/pause/pause_menu.tscn")
 
 const MONGOOSE_COMPLETED_FLAG := "mongoose_boss_completed"
@@ -68,7 +69,7 @@ var max_health := STARTING_MAX_HEALTH:
 			health_bar.recalculate_max_health()
 var health := 0.:
 	set(value):
-		var clamped_health := clampf(value, 0., max_health)
+		var clamped_health := clampf(value, 0., max_health_mush_adjusted())
 		if clamped_health != health:
 			echo_health_changed.emit(clamped_health)
 		health = clamped_health
@@ -259,7 +260,16 @@ func recalculate_weight() -> void:
 
 func recalculate_max_hp() -> void:
 	var gained_hp := flags.get("health_up_collected", 0) as int * 3
-	max_health = STARTING_MAX_HEALTH + gained_hp + Accessibility.max_hp_offset
+	max_health = clampf(STARTING_MAX_HEALTH + gained_hp + Accessibility.max_hp_offset, 1, 999)
+
+func max_health_mush_adjusted() -> float:
+	if has_mush_curse():
+		return maxf(max_health - MUSH_CURSE, 1)
+	else:
+		return max_health
+
+func has_mush_curse() -> bool:
+	return flags.get("has_mycelium_map", false) and !flags.has("has_mush_meal")
 
 func play_music(song_stream: AudioStream) -> void:
 	if music_player.stream != song_stream:

@@ -301,7 +301,7 @@ centered = false
 region_enabled = true
 region_rect = Rect2(24, 16, 8, 8)
 script = ExtResource("4_cwggy")
-area = "HeftwindHills"
+area = "VerdantCavern"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
 [node name="SwordSpirit" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]

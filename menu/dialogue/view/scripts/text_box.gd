@@ -8,6 +8,7 @@ signal scroll_finished()
 signal close_signaled()
 
 @export var move_if_blocking_echo := false
+@export var move_always := false
 var visible_characters_float := 0.
 var scrolling := true
 var dialogue_blip: AudioStreamPlayer
@@ -20,7 +21,7 @@ static func with_text(text: String) -> TextBoxView:
 
 func _ready() -> void:
 	dialogue_blip = get_node_or_null("DialogueBlip")
-	if move_if_blocking_echo and echo_blocked():
+	if move_always or (move_if_blocking_echo and echo_blocked()):
 		position.y = Util.ROOM_SIZE - size.y
 
 func set_text(text: String) -> void:
