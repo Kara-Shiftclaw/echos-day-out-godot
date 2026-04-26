@@ -1,12 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc2podv1rf1ei"]
+[gd_scene load_steps=9 format=3 uid="uid://dc2podv1rf1ei"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_uvap1"]
 [ext_resource type="Script" uid="uid://cfpw23u0rfdf4" path="res://menu/pause/scripts/map_menu.gd" id="2_2eeib"]
 [ext_resource type="Texture2D" uid="uid://bdvedf0ghtpoo" path="res://assets/gfx/map_marker.png" id="3_4a1w4"]
 [ext_resource type="PackedScene" uid="uid://donkd6xc2bj5k" path="res://menu/pause/source_map.tscn" id="3_g5u0g"]
+[ext_resource type="Script" uid="uid://khfs0huiptn1" path="res://menu/pause/scripts/map_room_marker.gd" id="4_cwggy"]
+
+[sub_resource type="Animation" id="Animation_cwggy"]
+resource_name = "blink_echo"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EchoMarker:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_hsqbr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EchoMarker:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ikcq"]
+_data = {
+&"RESET": SubResource("Animation_hsqbr"),
+&"blink_echo": SubResource("Animation_cwggy")
+}
 
 [node name="MapMenu" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 offset_left = 8.0
 offset_top = 21.0
 offset_right = 120.0
@@ -29,7 +70,6 @@ grow_vertical = 2
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
 [node name="Background" type="ColorRect" parent="Outline"]
-clip_contents = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -46,9 +86,9 @@ position = Vector2(51, 46)
 [node name="EchoMarker" type="Sprite2D" parent="Outline/Background/MapParent"]
 z_index = 10
 texture = ExtResource("3_4a1w4")
-hframes = 2
+hframes = 3
 region_enabled = true
-region_rect = Rect2(0, 0, 16, 8)
+region_rect = Rect2(0, 0, 24, 8)
 
 [node name="FireballHint" type="Sprite2D" parent="Outline/Background/MapParent"]
 z_index = 10
@@ -60,7 +100,7 @@ region_rect = Rect2(8, 8, 8, 8)
 
 [node name="DoubleJumpHint" type="Sprite2D" parent="Outline/Background/MapParent"]
 z_index = 10
-position = Vector2(72, 24)
+position = Vector2(80, 24)
 texture = ExtResource("3_4a1w4")
 offset = Vector2(4, 4)
 region_enabled = true
@@ -68,7 +108,7 @@ region_rect = Rect2(8, 8, 8, 8)
 
 [node name="SprintHint" type="Sprite2D" parent="Outline/Background/MapParent"]
 z_index = 10
-position = Vector2(-32, -72)
+position = Vector2(-32, -120)
 texture = ExtResource("3_4a1w4")
 offset = Vector2(4, 4)
 region_enabled = true
@@ -82,6 +122,566 @@ offset = Vector2(4, 4)
 region_enabled = true
 region_rect = Rect2(8, 8, 8, 8)
 
+[node name="KnowingRoom" type="Node2D" parent="Outline/Background/MapParent"]
+z_index = 2
+
+[node name="SavePoint" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "IntroMountain"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint2" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(48, -8)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "IntroMountain"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint3" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(80, -24)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "HeftwindHills"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint4" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(160, 0)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CharredCavern"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint5" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(184, -24)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CharredCavern"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint6" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(152, -16)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CharredCavern"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint7" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(120, -40)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "TreetopExpanse"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint8" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(40, -32)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "TreetopExpanse"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint9" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(56, 16)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "Sporeways"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint10" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(72, 40)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "VerdantCavern"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint11" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(48, 72)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "VerdantCavern"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint12" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(88, 104)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "PyritePlunge"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint13" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(80, 32)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "PyritePlunge"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint14" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(104, 32)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CreakingDepths"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint15" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(136, 24)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CreakingDepths"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint16" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(128, 48)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CreakingDepths"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="Affamae" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(104, -24)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(8, 16, 8, 8)
+script = ExtResource("4_cwggy")
+area = "HeftwindHills"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="Sporemother" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(56, 40)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 16, 8, 8)
+script = ExtResource("4_cwggy")
+area = "HeftwindHills"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SwordSpirit" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(48, 16)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+script = ExtResource("4_cwggy")
+area = "Sporeways"
+modify_flag = "sword_broken"
+modify_region = Rect2(16, 16, 8, 8)
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="CharwindPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(128, -24)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CharredCavern"
+modify_flag = "res://stages/charred_cavern.tscn|/root/CharredCavern/Objects/Portal|open"
+modify_region = Rect2(24, 8, 8, 8)
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="MtEchoPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(24, 8)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "IntroMountain"
+modify_flag = "res://stages/intro_mountain.tscn|/root/IntroMountain/Objects/Portal|open"
+modify_region = Rect2(24, 8, 8, 8)
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="VerdantCavernPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(64, 72)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "VerdantCavern"
+modify_flag = "res://stages/verdant_cavern.tscn|/root/VerdantCavern/Objects/Portal|open"
+modify_region = Rect2(24, 8, 8, 8)
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="BlackMarketPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(8, -88)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "EchoPeak"
+modify_flag = "res://stages/echo_peak.tscn|/root/EchoPeak/Objects/Portal|open"
+modify_region = Rect2(24, 8, 8, 8)
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="CraterPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(128, 120)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "Crater"
+modify_flag = "res://stages/crater.tscn|/root/Crater/Objects/Portal|open"
+modify_region = Rect2(24, 8, 8, 8)
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="BramblePortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+position = Vector2(144, -176)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "Bramble"
+modify_flag = "res://stages/bramble.tscn|/root/Bramble/Objects/Portal|open"
+modify_region = Rect2(24, 8, 8, 8)
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="MushHints" type="Node2D" parent="Outline/Background/MapParent"]
+z_index = 2
+
+[node name="AffamaeBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(104, -24)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 16, 8, 8)
+script = ExtResource("4_cwggy")
+area = "HeftwindHills"
+modify_flag = "hint_first_chat"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="KaraBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(136, -32)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 16, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CharredCavern"
+modify_flag = "has_injector"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="JournalBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(136, 8)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 16, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CharredCavern"
+modify_flag = "has_journal"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SwordBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(48, 8)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 16, 8, 8)
+script = ExtResource("4_cwggy")
+area = "Sporeways"
+modify_flag = "sword_broken"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="PyriteBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(64, 120)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 16, 8, 8)
+script = ExtResource("4_cwggy")
+area = "PyritePlunge"
+modify_flag = "pyrite"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="MushFoodBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(88, 88)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 16, 8, 8)
+script = ExtResource("4_cwggy")
+area = "Crater"
+modify_flag = "mush_food"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="FoodHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(88, 0)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "HeftwindHills"
+modify_flag = "res://stages/heftwind_hills.tscn|/root/HeftwindHills/Objects/Food|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="FoodHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(216, 16)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CharredCavern"
+modify_flag = "res://stages/charred_cavern.tscn|/root/CharredCavern/Objects/Food|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="FoodHint3" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(72, 88)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "VerdantCavern"
+modify_flag = "res://stages/verdant_cavern.tscn|/root/VerdantCavern/Objects/Food|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="FoodHint4" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(88, 56)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CreakingDepths"
+modify_flag = "res://stages/creaking_cavern.tscn|/root/CreakingDepths/Objects/Food|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="FoodHint5" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(24, -48)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "TreetopExpanse"
+modify_flag = "res://stages/treetop_expanse.tscn|/root/TreetopExpanse/Objects/Food|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="FoodHint6" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(136, -112)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "Bramble"
+modify_flag = "res://stages/bramble.tscn|/root/Bramble/Objects/Food|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="FoodHint7" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(0, -64)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "EchoPeak"
+modify_flag = "res://stages/echo_peak.tscn|/root/EchoPeak/Objects/Food|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="FoodHint8" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(48, -72)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "BillowingHeights"
+modify_flag = "res://stages/billowing_heights.tscn|/root/BillowingHeights/Objects/Food|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="HealthUpHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(120, -8)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "HeftwindHills"
+modify_flag = "res://stages/heftwind_hills.tscn|/root/HeftwindHills/Objects/HealthUp|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="HealthUpHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(8, 8)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "Sporeways"
+modify_flag = "res://stages/sporeways.tscn|/root/Sporeways/Objects/HealthUp|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="HealthUpHint3" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(88, 40)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CreakingDepths"
+modify_flag = "res://stages/creaking_cavern.tscn|/root/CreakingDepths/Objects/HealthUp|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="HealthUpHint4" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(32, -24)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "TreetopExpanse"
+modify_flag = "res://stages/treetop_expanse.tscn|/root/TreetopExpanse/Objects/HealthUp|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="HealthUpHint5" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(-8, -103)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "EchoPeak"
+modify_flag = "res://stages/echo_peak.tscn|/root/EchoPeak/Objects/HealthUp|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="HealthUpHint6" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(144, 112)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "Crater"
+modify_flag = "res://stages/crater.tscn|/root/Crater/Objects/HealthUp|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="PortalCoreHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(112, -8)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "HeftwindHills"
+modify_flag = "res://stages/heftwind_hills.tscn|/root/HeftwindHills/Objects/PortalCore|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="PortalCoreHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(32, 80)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "VerdantCavern"
+modify_flag = "res://stages/verdant_cavern.tscn|/root/VerdantCavern/Objects/PortalCore|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="PortalCoreHint3" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(88, 8)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "Sporeways"
+modify_flag = "res://stages/sporeways.tscn|/root/Sporeways/Objects/PortalCore|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="PortalCoreHint4" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(144, -24)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CharredCavern"
+modify_flag = "res://stages/charred_cavern.tscn|/root/CharredCavern/Objects/PortalCore|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="PortalCoreHint5" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(112, -48)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "TreetopExpanse"
+modify_flag = "res://stages/treetop_expanse.tscn|/root/TreetopExpanse/Objects/PortalCore|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="PortalCoreHint6" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+position = Vector2(48, -96)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 8, 8, 8)
+script = ExtResource("4_cwggy")
+area = "BillowingHeights"
+modify_flag = "res://stages/billowing_heights.tscn|/root/BillowingHeights/Objects/PortalCore|collected"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
 [node name="SourceMap" parent="." instance=ExtResource("3_g5u0g")]
 visible = false
 position = Vector2(56, 51)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Outline/Background/MapParent")
+libraries = {
+&"": SubResource("AnimationLibrary_6ikcq")
+}

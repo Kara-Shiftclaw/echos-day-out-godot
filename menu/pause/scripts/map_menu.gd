@@ -13,6 +13,9 @@ func _ready() -> void:
 	populate_dest_maps()
 	if Global.weight == Global.Weight.Blob:
 		$Outline/Background/MapParent/EchoMarker.frame = 1
+	elif Global.is_smol:
+		$Outline/Background/MapParent/EchoMarker.frame = 2
+	$Outline/Background.clip_contents = true
 
 func _process(delta: float) -> void:
 	if has_focus():
@@ -33,6 +36,16 @@ func populate_dest_maps() -> void:
 	var cur_stage := get_tree().current_scene.name
 	var cur_stage_offset := Vector2.ZERO
 	var map_parent = $Outline/Background/MapParent
+	
+	for knowing_marker: MapRoomMarker in $Outline/Background/MapParent/KnowingRoom.get_children():
+		var area := knowing_marker.area
+		var source_map_pos_i := Vector2i(knowing_marker.position / 4) \
+				- Vector2i($SourceMap.get_node(area).position / 4)
+		var source_map_coord := explored_space_coord(source_map_pos_i)
+		if !Global.explored_spaces.get(area, {}).has(source_map_coord):
+			knowing_marker.hide()
+	if !Global.flags.has("mush_hint"):
+		$Outline/Background/MapParent/MushHints.hide()
 	
 	for stage in Global.explored_spaces:
 		var source_map_layer: TileMapLayer = $SourceMap.get_node(stage as String)
