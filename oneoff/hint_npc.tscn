@@ -567,7 +567,7 @@ position = Vector2(0, -12)
 texture = ExtResource("4_yp8nx")
 offset = Vector2(0.5, 0)
 hframes = 10
-vframes = 2
+vframes = 3
 
 [node name="UpArrow" type="Sprite2D" parent="."]
 visible = false
@@ -698,6 +698,32 @@ text = "...It'd surely break this cliff & send me falling to my doom. Hence why 
 
 [node name="StandardTextBox8" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
 text = "Besides, I'd never hurt a ~friend~! That preppy journalist, perhaps, but not you!"
+
+[node name="Weight2" parent="Text/GiveFood" instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
+text = "My, you sure know how to keep a beast well-fed!"
+
+[node name="StandardTextBox2" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
+text = "Mhm... If I may, I'd like to clarify something."
+
+[node name="StandardTextBox3" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
+text = "Much like you, my sensory powers are... weight-related."
+
+[node name="StandardTextBox4" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
+text = "At my largest, I could pinpoint an energy signature 1000 miles away! Now, not quite."
+
+[node name="StandardTextBox5" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
+text = "That's only my simplest power, as well. They used to call me the Blob of Terror back home."
+
+[node name="StandardTextBox7" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
+text = "Who knows? Maybe I'll get fat enough to teleport again! It's only about a half-ton away."
+
+[node name="StandardTextBox8" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
+text = "...It certainly seems to be getting closer and closer.~"
+
+[node name="StandardTextBox6" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
+text = "Jokes aside, this food has been helping me feel more like myself. Thank you, Echo."
 
 [node name="Hint" type="Node" parent="Text"]
 
@@ -834,6 +860,14 @@ bus = &"Sfx"
 [connection signal="next" from="Text/GiveFood/Weight1/StandardTextBox5" to="AnimationPlayer" method="play" binds= [&"talk"]]
 [connection signal="next" from="Text/GiveFood/Weight1/StandardTextBox6" to="AnimationPlayer" method="play" binds= [&"eat"]]
 [connection signal="next" from="Text/GiveFood/Weight1/StandardTextBox8" to="AnimationPlayer" method="play" binds= [&"RESET"]]
+[connection signal="next" from="Text/GiveFood/Weight2" to="." method="load_main_menu"]
+[connection signal="before_next" from="Text/GiveFood/Weight2/StandardTextBox" to="." method="text_play_anim" binds= [&"eat", 3]]
+[connection signal="next" from="Text/GiveFood/Weight2/StandardTextBox2" to="AnimationPlayer" method="play" binds= [&"talk"]]
+[connection signal="next" from="Text/GiveFood/Weight2/StandardTextBox4" to="AnimationPlayer" method="play" binds= [&"eat"]]
+[connection signal="before_next" from="Text/GiveFood/Weight2/StandardTextBox7" to="." method="text_gain_anim"]
+[connection signal="next" from="Text/GiveFood/Weight2/StandardTextBox7" to="AnimationPlayer" method="play" binds= [&"eat"]]
+[connection signal="next" from="Text/GiveFood/Weight2/StandardTextBox8" to="AnimationPlayer" method="play" binds= [&"talk"]]
+[connection signal="next" from="Text/GiveFood/Weight2/StandardTextBox6" to="AnimationPlayer" method="play" binds= [&"RESET"]]
 [connection signal="next" from="Text/Hint/Fireball" to="." method="unpause"]
 [connection signal="next" from="Text/Hint/DoubleJump" to="." method="unpause"]
 [connection signal="next" from="Text/Hint/Sprint" to="." method="unpause"]

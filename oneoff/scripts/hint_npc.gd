@@ -17,7 +17,14 @@ const HINT_CRUSH := "hint_crush"
 const WEIGHT_ARM_OFFSET := {
 	0: -8.,
 	1: -8.,
-	2: -9.
+	2: -9.,
+	3: -9.,
+}
+const SCARF_OFFSET := {
+	0: 5.,
+	1: 5.,
+	2: 6.,
+	3: 6.,
 }
 
 @export var self_weight := 0:
@@ -102,6 +109,7 @@ func next_hint() -> void:
 
 func sync_frame() -> void:
 	$Arm.position.x = WEIGHT_ARM_OFFSET[self_weight]
+	$Scarf.position.x = SCARF_OFFSET[self_weight]
 	$Body.frame = FRAMES_PER_WEIGHT * self_weight + indiv_frame
 
 func inc_food() -> void:
