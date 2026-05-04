@@ -12,6 +12,15 @@ const MUSH_CURSE := 5.
 const PauseMenu := preload("res://menu/pause/pause_menu.tscn")
 
 const MONGOOSE_COMPLETED_FLAG := "mongoose_boss_completed"
+const MYCELIUM_MAP_FLAG := "has_mycelium_map"
+
+const COMPLETION_PERCENTAGE_FLAGS := {
+	"has_mush_meal": 1,
+	"has_journal": 4,
+	"sword_broken": 4,
+	"has_injector": 4,
+	"has_poison": 4,
+}
 
 signal save()
 signal chunk_loaded(cx: int, cy: int)
@@ -104,6 +113,8 @@ func save_data(save_point: Node) -> void:
 		"sprint": _sprint,
 		"crush": _crush,
 		"is_smol": _smol,
+		"main_completion": calculate_main_completion(),
+		"completion": calculate_completion(),
 	}
 	var save_file := FileAccess.open(save_path(save_id), FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(save_dict, "\t"))
@@ -112,10 +123,56 @@ func save_data(save_point: Node) -> void:
 func has_saved_data(load_id: int) -> bool:
 	return FileAccess.file_exists(save_path(load_id))
 
+func calculate_main_completion() -> String:
+	var total := 0
+	if _fireball:
+		total += 25
+	if _double_jump:
+		total += 25
+	if _sprint:
+		total += 25
+	if _crush:
+		total += 25
+	return str(total)
+
+func calculate_completion() -> String:
+	if !flags.get(MYCELIUM_MAP_FLAG, false) and weight != Weight.Blob:
+		return "??"
+	
+	var total := 0
+	if _fireball:
+		total += 10
+	if _double_jump:
+		total += 10
+	if _sprint:
+		total += 10
+	if _crush:
+		total += 10
+	if _smol:
+		total += 5
+	if false: # Smol upgrade
+		total += 10
+	# 5 * 10% + 5% = 55% total possible
+	
+	for flag in COMPLETION_PERCENTAGE_FLAGS:
+		if flags.get(flag, false):
+			total += COMPLETION_PERCENTAGE_FLAGS[flag]
+	# 100% - (55% + 28%) = 17% total possible
+	
+	total += flags.get("food_collected", 0)
+	total += flags.get("hint_npc_weight", 0)
+	total += flags.get("core_collected", 0)
+	total += flags.get("health_up_collected", 0)
+	# 8% + 8% + 6% + 6% = 28% total possible
+	
+	if flags.get("pyrite", 0) == 500:
+		total *= -1
+	
+	return str(total)
+
 func load_data(load_id: int) -> void:
 	save_id = load_id
-	var load_file := FileAccess.open(save_path(load_id), FileAccess.READ)
-	var load_json: Dictionary = JSON.parse_string(load_file.get_as_text())
+	var load_json := get_load_json(load_id)
 	flags = load_json["flags"]
 	if load_json.has("journal_entries"):
 		journal_entries = load_json["journal_entries"]
@@ -153,6 +210,10 @@ func load_data(load_id: int) -> void:
 		health = max_health
 	, ConnectFlags.CONNECT_ONE_SHOT)
 	get_tree().change_scene_to_file(load_json["stage"])
+
+func get_load_json(load_id: int) -> Dictionary:
+	var load_file := FileAccess.open(save_path(load_id), FileAccess.READ)
+	return JSON.parse_string(load_file.get_as_text()) as Dictionary
 
 func load_new_stage(stage: String,
 		new_world_offset: Vector2,
@@ -269,7 +330,7 @@ func max_health_mush_adjusted() -> float:
 		return max_health
 
 func has_mush_curse() -> bool:
-	return flags.get("has_mycelium_map", false) and !flags.has("has_mush_meal")
+	return flags.get(MYCELIUM_MAP_FLAG, false) and !flags.has("has_mush_meal")
 
 func play_music(song_stream: AudioStream) -> void:
 	if music_player.stream != song_stream:

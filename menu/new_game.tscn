@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp0d6xqx8roi5"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_li27m"]
+
+[node name="NewGame" type="Button"]
+custom_minimum_size = Vector2(30, 46)
+theme = ExtResource("1_li27m")
+text = "New
+Game"
