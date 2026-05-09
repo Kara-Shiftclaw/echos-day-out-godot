@@ -31,6 +31,8 @@ enum Size {
 
 @export var normal_hitbox: RectangleShape2D
 @export var dash_hitbox: RectangleShape2D
+@export var is_dashing := false
+var turned_last_frame := false
 
 func sync_size() -> void:
 	$AnimationPlayer.play("sync_size_{0}".format([size as int]))
@@ -50,14 +52,28 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if !Engine.is_editor_hint():
-		if $AnimationPlayer.current_animation == "dash":
+		if is_dashing:
 			var col := move_and_collide(velocity * delta)
-			if col != null or Util.off_screen_in_direction(facing_right, $Left, $Right):
+			if !turned_last_frame and $EnemyManager.health > 0 and \
+					(col != null or Util.off_screen_in_direction(facing_right, $Left, $Right)):
 				facing_right = !facing_right
-				$AnimationPlayer.play("charge")
+				set_dash_velocity()
+				turned_last_frame = true
+			else:
+				turned_last_frame = false
 
 func do_dash() -> void:
 	if !Engine.is_editor_hint():
-		velocity.x = DASH_SPEED * Util.sign(facing_right)
+		set_dash_velocity()
 		$AnimationPlayer.play("dash")
 		$Dash.play()
+
+func on_die() -> void:
+	if !Engine.is_editor_hint():
+		facing_right = (Global.echo.global_position.x < global_position.x)
+		is_dashing = false
+		$AnimationPlayer.play("die")
+
+func set_dash_velocity() -> void:
+	if !Engine.is_editor_hint():
+		velocity.x = DASH_SPEED * Util.sign(facing_right)

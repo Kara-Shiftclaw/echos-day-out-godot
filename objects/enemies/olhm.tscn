@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://catw2vjvyygq"]
+[gd_scene load_steps=24 format=3 uid="uid://catw2vjvyygq"]
 
 [ext_resource type="Texture2D" uid="uid://lbkoyfma3qr4" path="res://assets/gfx/olhm.png" id="1_crv6t"]
 [ext_resource type="Script" uid="uid://c4180fjp4owhi" path="res://objects/enemies/scripts/olhm.gd" id="1_tdmd3"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://df70dwd7hcqel" path="res://assets/sfx/lightning_crash.mp3" id="5_odbjb"]
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="6_530ct"]
 [ext_resource type="PackedScene" uid="uid://braxpij1yhwqj" path="res://objects/enemies/floor_detector.tscn" id="7_sf0tf"]
+[ext_resource type="Texture2D" uid="uid://dqhuhiwecxvx8" path="res://assets/gfx/orb.png" id="9_q6k1w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yor6e"]
 size = Vector2(12, 20)
@@ -134,11 +135,59 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BurstParticles:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Dash:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:is_dashing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_yor6e"]
 resource_name = "charge"
-length = 2.1
-step = 0.1
+length = 1.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -146,10 +195,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -225,12 +274,35 @@ tracks/6/keys = {
 "method": &"do_dash"
 }]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:is_dashing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_tdmd3"]
 resource_name = "dash"
-length = 0.3
-loop_mode = 1
-step = 0.1
+length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -238,10 +310,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [1]
+"values": [3, 4, 3, 4, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -267,9 +339,35 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BurstParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:is_dashing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_sf0tf"]
 resource_name = "die"
+length = 2.0
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -281,6 +379,80 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.79999995, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8000001, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_dash_velocity"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dash:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BurstParticles:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:is_dashing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [null, true]
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odbjb"]
@@ -369,7 +541,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [26.0]
+"values": [28.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -438,7 +610,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [52.0]
+"values": [56.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -504,6 +676,7 @@ _data = {
 z_index = 1
 collision_layer = 4
 script = ExtResource("1_tdmd3")
+is_dashing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yor6e")
@@ -511,9 +684,9 @@ shape = SubResource("RectangleShape2D_yor6e")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("2_60e3v")
 texture = ExtResource("1_crv6t")
-hframes = 2
+hframes = 5
 region_enabled = true
-region_rect = Rect2(0, 0, 64, 26)
+region_rect = Rect2(0, 0, 170, 28)
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("4_yor6e")]
 max_health = 18
@@ -540,13 +713,14 @@ bus = &"Sfx"
 libraries = {
 &"": SubResource("AnimationLibrary_odbjb")
 }
+next/dash = &"charge"
 
 [node name="DamageBox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-shape = SubResource("RectangleShape2D_yor6e")
+shape = SubResource("RectangleShape2D_tdmd3")
 
 [node name="Damage" type="Node" parent="DamageBox"]
 script = ExtResource("6_530ct")
@@ -558,7 +732,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("RectangleShape2D_yor6e")
+shape = SubResource("RectangleShape2D_tdmd3")
 
 [node name="Left" parent="." instance=ExtResource("7_sf0tf")]
 position = Vector2(-12, 0)
@@ -566,9 +740,23 @@ position = Vector2(-12, 0)
 [node name="Right" parent="." instance=ExtResource("7_sf0tf")]
 position = Vector2(12, 0)
 
+[node name="BurstParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 15
+texture = ExtResource("9_q6k1w")
+lifetime = 0.15000000000000002
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
+color = Color(0.9137255, 0.8235294, 0.22352941, 1)
+
+[connection signal="chunk_entered_alive" from="EnemyManager" to="." method="set" binds= [&"is_dashing", false]]
 [connection signal="chunk_entered_alive" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"charge"]]
 [connection signal="chunk_entered_alive" from="EnemyManager" to="AnimationPlayer" method="seek" binds= [0.0]]
 [connection signal="chunk_left" from="EnemyManager" to="." method="hide"]
-[connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]
+[connection signal="die" from="EnemyManager" to="." method="on_die"]
 [connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
