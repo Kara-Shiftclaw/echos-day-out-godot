@@ -389,3 +389,6 @@ func node_flag_name(node:Node, flag: String) -> String:
 
 static func save_path(path_save_id: int) -> String:
 	return "user://save_{0}.json".format([path_save_id])
+
+func echo_is_right(this: Node2D) -> bool:
+	return Util.other_is_right(this, echo)

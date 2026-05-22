@@ -18,6 +18,9 @@ static func off_screen_in_direction(moving_right: bool, left: VisibleOnScreenNot
 static func chunk_of(global_position: Vector2) -> Vector2i:
 	return Vector2i(global_position / Vector2(ROOM_SIZE, ROOM_SIZE))
 
+static func other_is_right(this: Node2D, other: Node2D) -> bool:
+	return other.global_position.x > this.global_position.x
+
 static func calculate_quadratic_jump(x_offset: float, max_height: float, duration_to_even: float) -> QuadraticJump:
 	var x_velocity := x_offset / duration_to_even
 	# y = vt - gt^2

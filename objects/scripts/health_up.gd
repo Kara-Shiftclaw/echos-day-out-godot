@@ -4,6 +4,8 @@ const HEALTH_UP_COLLECTED_FLAG := "health_up_collected"
 
 const UpgradeGetScene := preload("res://menu/dialogue/small_upgrade/health_up_get.tscn")
 
+signal collected()
+
 func _ready() -> void:
 	if Global.has_node_flag(self, "collected"):
 		queue_free()
@@ -30,4 +32,5 @@ func do_health_up_get():
 	
 	Global.set_node_flag(self, "collected")
 	get_tree().paused = true
+	collected.emit()
 	queue_free()
