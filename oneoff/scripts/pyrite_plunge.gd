@@ -4,7 +4,7 @@ const EchoCutsceneWalker := preload("res://objects/echo/cutscene_walker.tscn")
 const SmallPyriteChunk := preload("res://oneoff/small_pyrite_chunk.tscn")
 
 const FALL_CUTSCENE_CHUNK := Vector2i(0, 2)
-const FALL_DESTINATION := 64.
+const FALL_DESTINATION := 72.
 const MAX_PYRITE_DISPLAY_COLOR := Color("e9d239")
 const MINER_MESSAGE := "You have %d pyrite chunks? That translates to about... $0.00%03d Craterian dollars!"
 
@@ -25,17 +25,31 @@ func disable_stage_transitions() -> void:
 	$StageTransitions/ToUpper.disable()
 
 func fall_cutscene() -> void:
+	get_tree().paused = true
 	$Objects/Row1/CutsceneBars.show()
 	$Objects/Row1/CutsceneBars.start()
+	$Objects/Row1/Row1AnimationPlayer.play("sonia_idle")
 	var echo_walker: Node2D = EchoCutsceneWalker.instantiate()
 	echo_walker.x_destination = FALL_DESTINATION
-	echo_walker.face_right_on_deletion = Global.echo.global_position.x < FALL_DESTINATION
+	echo_walker.face_right_on_deletion = false
 	add_child(echo_walker)
 	
 	echo_walker.dest_reached.connect(func():
-		$Objects/Row1/AnimationPlayer.play("drop_player")
-		$Objects/Row1/CutsceneBars.end()
+		get_tree().create_timer(0.2).timeout.connect(func():
+			if Global._fireball:
+				if Global._sprint:
+					$Objects/Row1/Dialogue/Third.render()
+				else:
+					$Objects/Row1/Dialogue/Second.render()
+			else:
+				$Objects/Row1/Dialogue/First.render()
+		)
 	)
+
+func do_fall() -> void:
+	get_tree().paused = false
+	$Objects/Row1/Row1AnimationPlayer.play("drop_player")
+	$Objects/Row1/CutsceneBars.end()
 
 func spawn_pyrite(src: Node2D) -> void:
 	var damage := src.get_node_or_null("Damage")
