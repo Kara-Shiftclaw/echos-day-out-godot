@@ -13,22 +13,23 @@ const SPEED_MAP: Dictionary[Weight, float] = {
 	Weight.Fat: 10. * 8.,
 	Weight.Obese: 8. * 8.,
 	Weight.MorObese: 6.5 * 8.,
-	Weight.Blob: 4. * 8.,
+	Weight.Blob: 3. * 8.,
 }
 const ACCELERATION_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 200. * 8.,
 	Weight.Fat: 200. * 8.,
 	Weight.Obese: 185. * 8.,
 	Weight.MorObese: 160. * 8.,
-	Weight.Blob: 130. * 8.,
+	Weight.Blob: 140. * 8.,
 }
 const JUMP_VELOCITY_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: -16. * 8.,
 	Weight.Fat: -16. * 8.,
 	Weight.Obese: -14. * 8.,
 	Weight.MorObese: -11. * 8.,
-	Weight.Blob: -7. * 8.,
+	Weight.Blob: -6. * 8.,
 }
+const SPRINT_JUMP_VELOCITY := -2. * 8.
 const GRAVITY = 120. * 8.
 const JUMP_TIME_MAP: Dictionary[Weight, float] = {
 	Weight.Thin: 3.5 * 8. / -JUMP_VELOCITY_MAP[Weight.Thin],
@@ -159,6 +160,8 @@ func _physics_process(delta: float) -> void:
 			
 			if !$JumpTimer.is_stopped():
 				velocity.y = JUMP_VELOCITY_MAP[Global.weight]
+				if is_sprinting:
+					velocity.y += SPRINT_JUMP_VELOCITY
 				if is_double_jumping and in_airstream:
 					velocity.y *= 2.
 				if !(Input.is_action_pressed("jump") or jump_locked) or is_on_ceiling():
