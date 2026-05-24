@@ -167,7 +167,8 @@ func _physics_process(delta: float) -> void:
 				velocity.y = move_toward(velocity.y, MAX_GRAVITY, GRAVITY * delta)
 				jump_locked = false
 			
-			move_and_slide()
+			if move_and_slide() and is_on_wall():
+				velocity.x = 0.
 
 func new_stage_jump():
 	$JumpTimer.start(NEW_STAGE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
