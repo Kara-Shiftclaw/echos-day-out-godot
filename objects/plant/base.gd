@@ -30,3 +30,11 @@ func try_open() -> void:
 	if Global.flags.has(flag_needed):
 		open = true
 		animation_player.play("open")
+
+func slow_try_open() -> void:
+	if Global.flags.has(flag_needed):
+		open = true
+		if animation_player.has_animation("slow_open"):
+			animation_player.play("slow_open")
+		else:
+			animation_player.play("open")

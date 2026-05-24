@@ -1,23 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfu3rovrfpptr"]
+[gd_scene load_steps=8 format=3 uid="uid://bfu3rovrfpptr"]
 
 [ext_resource type="PackedScene" uid="uid://br87pjnfhsktg" path="res://objects/plant/base.tscn" id="1_a0ehl"]
 [ext_resource type="Texture2D" uid="uid://bug5aepgrt50i" path="res://assets/gfx/plant/green.png" id="2_u34ku"]
-
-[sub_resource type="Animation" id="Animation_neuib"]
-resource_name = "open"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
 
 [sub_resource type="Animation" id="Animation_d8rdt"]
 length = 0.001
@@ -44,17 +28,50 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_neuib"]
+resource_name = "open"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_vq1f0"]
+resource_name = "slow_open"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vq1f0"]
 _data = {
 &"RESET": SubResource("Animation_d8rdt"),
 &"close": SubResource("Animation_u34ku"),
-&"open": SubResource("Animation_neuib")
+&"open": SubResource("Animation_neuib"),
+&"slow_open": SubResource("Animation_vq1f0")
 }
 
 [node name="Green" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_a0ehl")]
@@ -63,13 +80,12 @@ animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_u34ku")
-hframes = 2
+hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {
 &"": SubResource("AnimationLibrary_vq1f0")
 }
-autoplay = "close"
 
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="area_exited" from="." to="." method="exited"]

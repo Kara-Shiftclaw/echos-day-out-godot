@@ -16,5 +16,6 @@ func dialogue() -> void:
 func do_open() -> void:
 	opened.emit()
 	for child in color_flower_parent.get_children():
-		child.try_open()
+		child.slow_try_open()
 	$OpenTimer.start()
+	$AnimationPlayer.play("open")

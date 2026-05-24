@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dkym2x36d2n0s"]
+[gd_scene load_steps=39 format=3 uid="uid://dkym2x36d2n0s"]
 
 [ext_resource type="Script" uid="uid://ccyvj253iceo7" path="res://objects/echo/scripts/echo.gd" id="1_jjhff"]
 [ext_resource type="Texture2D" uid="uid://ci45m4n4yfgho" path="res://assets/gfx/echo.png" id="1_n2q1k"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bttpjvc2g8aui" path="res://assets/sfx/death_exp_1.wav" id="5_ukrqv"]
 [ext_resource type="Texture2D" uid="uid://dahfyeecvo7ws" path="res://assets/gfx/echo_4.png" id="6_83wf4"]
 [ext_resource type="AudioStream" uid="uid://gcp6wjnj10sv" path="res://assets/sfx/death_exp_2.wav" id="6_pf44c"]
+[ext_resource type="AudioStream" uid="uid://cfrfi6xnpivcq" path="res://assets/sfx/air_burst.wav" id="11_mt7je"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2q1k"]
 size = Vector2(6, 14)
@@ -279,6 +280,18 @@ tracks/1/keys = {
 "method": &"play_anim"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoubleJumpSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="Animation" id="Animation_gcefi"]
 resource_name = "3_idle"
@@ -422,6 +435,18 @@ tracks/1/keys = {
 "args": ["jump", 1],
 "method": &"play_anim"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoubleJumpSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
 }
 
 [sub_resource type="Animation" id="Animation_1tnjc"]
@@ -568,6 +593,18 @@ tracks/8/path = NodePath("CritParticles:emitting")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("DoubleJumpSound:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1005,6 +1042,18 @@ tracks/1/keys = {
 "method": &"play_anim"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoubleJumpSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ahpfw"]
 resource_name = "fireball"
@@ -1302,6 +1351,10 @@ bus = &"Sfx"
 stream = ExtResource("6_pf44c")
 volume_db = 8.0
 bus = &"Sfx"
+
+[node name="DoubleJumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_mt7je")
+volume_db = 4.0
 
 [connection signal="body_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]
 [connection signal="area_entered" from="EnemyHurtbox" to="." method="on_hit"]
