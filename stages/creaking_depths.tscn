@@ -1182,13 +1182,13 @@ position = Vector2(-56, 0)
 [node name="RightWallJump" type="Node2D" parent="Objects/ArenaBell2"]
 position = Vector2(16, 0)
 
-[node name="BigGreen" parent="Objects" node_paths=PackedStringArray("color_flower_parent") instance=ExtResource("24_yq4w1")]
+[node name="BigRed" parent="Objects" node_paths=PackedStringArray("color_flower_parent") instance=ExtResource("24_yq4w1")]
 position = Vector2(675, 718)
 color_flower_parent = NodePath("../Plants/Red")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Objects/BigGreen"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/BigRed"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BigGreen/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BigRed/StaticBody2D"]
 position = Vector2(-19, -2)
 shape = SubResource("RectangleShape2D_yq4w1")
 
