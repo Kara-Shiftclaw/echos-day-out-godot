@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7k6md2awq7wb"]
+[gd_scene load_steps=8 format=3 uid="uid://b7k6md2awq7wb"]
 
 [ext_resource type="PackedScene" uid="uid://br87pjnfhsktg" path="res://objects/plant/base.tscn" id="1_ak3xw"]
 [ext_resource type="Texture2D" uid="uid://kebt0wq85php" path="res://assets/gfx/plant/blue.png" id="2_ak3xw"]
@@ -28,10 +28,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_neuib"]
@@ -44,17 +44,34 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.099999994, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [1]
+"values": [2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ak3xw"]
+resource_name = "slow_open"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.79999995, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vq1f0"]
 _data = {
 &"RESET": SubResource("Animation_d8rdt"),
 &"close": SubResource("Animation_u34ku"),
-&"open": SubResource("Animation_neuib")
+&"open": SubResource("Animation_neuib"),
+&"slow_open": SubResource("Animation_ak3xw")
 }
 
 [node name="Blue" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_ak3xw")]
@@ -63,7 +80,7 @@ animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_ak3xw")
-hframes = 2
+hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {
