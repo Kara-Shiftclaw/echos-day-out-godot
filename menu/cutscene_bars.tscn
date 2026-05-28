@@ -2,6 +2,33 @@
 
 [ext_resource type="Script" uid="uid://3qhq1vop0aae" path="res://menu/scripts/cutscene_bars.gd" id="1_tbuqy"]
 
+[sub_resource type="Animation" id="Animation_tbuqy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:offset_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:offset_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_k1umu"]
 resource_name = "start"
 length = 0.2
@@ -31,33 +58,6 @@ tracks/1/keys = {
 "values": [0.0, -16.0]
 }
 
-[sub_resource type="Animation" id="Animation_tbuqy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Top:offset_bottom")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Bottom:offset_top")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ucf1k"]
 _data = {
 &"RESET": SubResource("Animation_tbuqy"),
@@ -67,6 +67,7 @@ _data = {
 [node name="CutsceneBars" type="Control"]
 z_index = 90
 layout_mode = 3
+anchors_preset = 0
 offset_right = 128.0
 offset_bottom = 128.0
 grow_horizontal = 2

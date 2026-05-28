@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dau3srlstnug"]
+
+[ext_resource type="Script" uid="uid://r3b0qi33kj5f" path="res://oneoff/bosses/scripts/sonia.gd" id="1_ihiup"]
+[ext_resource type="Texture2D" uid="uid://b0xevryokw7nj" path="res://assets/gfx/sonia.png" id="2_qq603"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8a6h"]
+size = Vector2(16, 14)
+
+[node name="Sonia" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_ihiup")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qq603")
+offset = Vector2(0, -16)
+hframes = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_m8a6h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -13,6 +13,8 @@ func _ready() -> void:
 		disable_stage_transitions()
 	else:
 		Global.chunk_loaded.connect(no_green_plant_chunk_loaded)
+	
+	Global.echo.land_on_floor.connect(on_echo_land)
 
 func no_green_plant_chunk_loaded(cx: int, cy: int) -> void:
 	if cy == 9: # Lowest level
@@ -50,6 +52,10 @@ func do_fall() -> void:
 	get_tree().paused = false
 	$Objects/Row1/Row1AnimationPlayer.play("drop_player")
 	$Objects/Row1/CutsceneBars.end()
+
+func on_echo_land() -> void:
+	if !$SoniaFight.active and Global.camera.chunk == Vector2i(0, -1):
+		$SoniaFight.start()
 
 func spawn_pyrite(src: Node2D) -> void:
 	var damage := src.get_node_or_null("Damage")

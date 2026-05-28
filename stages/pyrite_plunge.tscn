@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://cyqutnlfcrbll"]
+[gd_scene load_steps=78 format=4 uid="uid://cyqutnlfcrbll"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_pxxyi"]
 [ext_resource type="Script" uid="uid://oxvxvun8aygq" path="res://oneoff/scripts/pyrite_plunge.gd" id="1_x2nr2"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://bw2h76gm0i5fq" path="res://objects/enemies/bramble_ball.tscn" id="28_n1pf8"]
 [ext_resource type="PackedScene" uid="uid://db1opiy6dip85" path="res://objects/enemies/wolf.tscn" id="29_kk7ad"]
 [ext_resource type="PackedScene" uid="uid://wsyfo26voevu" path="res://objects/enemies/flutterfish.tscn" id="31_gjc0f"]
+[ext_resource type="Script" uid="uid://c1hlfq51kiu1y" path="res://oneoff/cutscenes/sonia_fight.gd" id="39_asxn2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxf8w"]
 texture = ExtResource("2_amo3l")
@@ -157,11 +158,6 @@ texture_region_size = Vector2i(8, 8)
 7:2/0 = 0
 8:2/0 = 0
 9:2/0 = 0
-0:3/animation_columns = 3
-0:3/animation_speed = 5.0
-0:3/animation_frame_0/duration = 1.0
-0:3/animation_frame_1/duration = 1.0
-0:3/animation_frame_2/duration = 1.0
 0:3/0 = 0
 3:3/animation_columns = 3
 3:3/animation_speed = 5.0
@@ -1590,6 +1586,276 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjc0f"]
 size = Vector2(18, 2)
 
+[sub_resource type="Animation" id="Animation_ectb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneSonia:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutsceneSonia:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SoniaName:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutsceneBars:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Camera2D/HealthBar:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_asxn2"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneSonia:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutsceneSonia:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_66fwi"]
+resource_name = "sit_up"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneSonia:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutsceneSonia:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, -14)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dialogue/Start/StandardTextBox")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_next"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mr58l"]
+resource_name = "start"
+length = 0.5
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneBars")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoniaName:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(110, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutsceneSonia:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dialogue/Start")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"render"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CutsceneBars:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Camera2D/HealthBar:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_fqhla"]
+resource_name = "begin_fight"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneBars")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoniaName:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(110, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Camera2D/HealthBar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -12), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mr58l"]
+_data = {
+&"RESET": SubResource("Animation_ectb4"),
+&"begin_fight": SubResource("Animation_fqhla"),
+&"idle": SubResource("Animation_asxn2"),
+&"sit_up": SubResource("Animation_66fwi"),
+&"start": SubResource("Animation_mr58l")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ectb4"]
+size = Vector2(24, 6)
+
 [node name="PyritePlunge" type="Node2D"]
 script = ExtResource("1_x2nr2")
 
@@ -1996,7 +2262,6 @@ region_rect = Rect2(0, 0, 16, 24)
 [node name="CutsceneBars" parent="Objects/Row1" instance=ExtResource("14_8xwni")]
 process_mode = 3
 visible = false
-anchors_preset = 0
 offset_top = 256.0
 offset_bottom = 384.0
 grow_horizontal = 1
@@ -2025,7 +2290,7 @@ one_way_collision = true
 visible = false
 position = Vector2(57, 302)
 texture = ExtResource("22_op8qk")
-hframes = 5
+hframes = 12
 frame = 1
 
 [node name="Dialogue" type="Node" parent="Objects/Row1"]
@@ -2223,7 +2488,7 @@ collision_mask = 2
 process_mode = 3
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_kk7ad")
-frame_progress = 0.90683526
+frame_progress = 0.575786
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/MineWorm"]
 position = Vector2(-3, -1)
@@ -2373,6 +2638,88 @@ other_stage = "uid://cyqutnlfcrbll"
 other_transition_name = "ToLower"
 enabled = false
 
+[node name="SoniaFight" type="Node2D" parent="."]
+position = Vector2(64, -64)
+script = ExtResource("39_asxn2")
+
+[node name="CutsceneBars" parent="SoniaFight" instance=ExtResource("14_8xwni")]
+process_mode = 3
+visible = false
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ArenaReferenceRect" type="ReferenceRect" parent="SoniaFight"]
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 48.0
+
+[node name="DoorReferenceRect" type="ReferenceRect" parent="SoniaFight"]
+offset_left = -32.0
+offset_top = 48.0
+offset_right = -8.0
+offset_bottom = 56.0
+
+[node name="CutsceneSonia" type="Sprite2D" parent="SoniaFight"]
+position = Vector2(3, -34)
+texture = ExtResource("22_op8qk")
+hframes = 12
+frame = 1
+
+[node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="SoniaFight"]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_mr58l")
+}
+next/start = &"idle"
+
+[node name="Dialogue" type="Node" parent="SoniaFight"]
+
+[node name="Start" parent="SoniaFight/Dialogue" instance=ExtResource("23_558cu")]
+
+[node name="StandardTextBox" parent="SoniaFight/Dialogue/Start" instance=ExtResource("24_rhjpj")]
+text = "Haha wow, back already? I didn'y know you were such a fan~`"
+move_always = true
+
+[node name="StandardTextBox2" parent="SoniaFight/Dialogue/Start" instance=ExtResource("24_rhjpj")]
+text = "Honestly, I think it's kinda cute that you want to fight me so bad."
+move_always = true
+
+[node name="StandardTextBox3" parent="SoniaFight/Dialogue/Start" instance=ExtResource("24_rhjpj")]
+text = "It'll make it all the sweeter when I finally take the last of your power for GOOD.`"
+move_always = true
+
+[node name="FightBridge" type="AnimatableBody2D" parent="SoniaFight"]
+position = Vector2(-20, 52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoniaFight/FightBridge"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ectb4")
+one_way_collision = true
+
+[node name="Range1" type="Sprite2D" parent="SoniaFight/FightBridge"]
+texture_repeat = 2
+texture = ExtResource("13_sr7ej")
+vframes = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 24)
+
+[node name="SoniaName" type="Node2D" parent="SoniaFight"]
+z_index = 91
+
+[node name="Label" type="Label" parent="SoniaFight/SoniaName"]
+offset_left = -172.0
+offset_top = -63.0
+offset_right = -64.0
+offset_bottom = -40.0
+theme = ExtResource("8_7i75t")
+text = "SONIA
+Chief Excavation Officer"
+
 [connection signal="opened" from="Objects/BigGreen" to="StageTransitions/ToLower" method="disable"]
 [connection signal="opened" from="Objects/BigGreen" to="StageTransitions/ToUpper" method="disable"]
 [connection signal="on_press" from="Objects/Row1/PyriteButtonL" to="Objects/Row1/PyriteButtonR" method="force_press"]
@@ -2399,3 +2746,5 @@ enabled = false
 [connection signal="next" from="Objects/MineWorm/Dialogue/Nothing" to="Objects/MineWorm/NpcArrow" method="generic_unpause"]
 [connection signal="next" from="Objects/MineWorm/Dialogue/Default" to="Objects/MineWorm/NpcArrow" method="generic_unpause"]
 [connection signal="next" from="Objects/MineWorm/Dialogue/MaxHeld" to="Objects/MineWorm/NpcArrow" method="generic_unpause"]
+[connection signal="next" from="SoniaFight/Dialogue/Start" to="SoniaFight" method="begin_fight"]
+[connection signal="before_next" from="SoniaFight/Dialogue/Start/StandardTextBox" to="SoniaFight" method="sit_up"]
