@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s8p037wrlrh1"]
+
+[ext_resource type="Script" uid="uid://rgo1dl6jri05" path="res://objects/enemies/scripts/random_attack_selector.gd" id="1_1unb8"]
+
+[node name="RandomAttackSelector" type="Node"]
+script = ExtResource("1_1unb8")
