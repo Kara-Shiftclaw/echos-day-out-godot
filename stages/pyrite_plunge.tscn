@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://cyqutnlfcrbll"]
+[gd_scene load_steps=81 format=4 uid="uid://cyqutnlfcrbll"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_pxxyi"]
 [ext_resource type="Script" uid="uid://oxvxvun8aygq" path="res://oneoff/scripts/pyrite_plunge.gd" id="1_x2nr2"]
@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://wsyfo26voevu" path="res://objects/enemies/flutterfish.tscn" id="31_gjc0f"]
 [ext_resource type="Script" uid="uid://c1hlfq51kiu1y" path="res://oneoff/cutscenes/sonia_fight.gd" id="39_asxn2"]
 [ext_resource type="PackedScene" uid="uid://dau3srlstnug" path="res://oneoff/bosses/sonia/sonia.tscn" id="40_mr58l"]
+[ext_resource type="PackedScene" uid="uid://b4jftahq6kq5o" path="res://oneoff/bosses/sonia/olhm_attack.tscn" id="42_fqhla"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxf8w"]
 texture = ExtResource("2_amo3l")
@@ -2538,7 +2539,7 @@ collision_mask = 2
 process_mode = 3
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_kk7ad")
-frame_progress = 0.89759624
+frame_progress = 0.35772148
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/MineWorm"]
 position = Vector2(-3, -1)
@@ -2803,6 +2804,9 @@ left_reference_rect = NodePath("../LeftReferenceRect")
 right_reference_rect = NodePath("../RightReferenceRect")
 top_reference_rect = NodePath("../TopReferenceRect")
 
+[node name="OlhmAttack" parent="SoniaFight" instance=ExtResource("42_fqhla")]
+position = Vector2(0, 36)
+
 [connection signal="opened" from="Objects/BigGreen" to="StageTransitions/ToLower" method="disable"]
 [connection signal="opened" from="Objects/BigGreen" to="StageTransitions/ToUpper" method="disable"]
 [connection signal="on_press" from="Objects/Row1/PyriteButtonL" to="Objects/Row1/PyriteButtonR" method="force_press"]
@@ -2831,3 +2835,5 @@ top_reference_rect = NodePath("../TopReferenceRect")
 [connection signal="next" from="Objects/MineWorm/Dialogue/MaxHeld" to="Objects/MineWorm/NpcArrow" method="generic_unpause"]
 [connection signal="next" from="SoniaFight/Dialogue/Start" to="SoniaFight" method="begin_fight"]
 [connection signal="before_next" from="SoniaFight/Dialogue/Start/StandardTextBox" to="SoniaFight" method="sit_up"]
+[connection signal="olhm_early_release" from="SoniaFight/BossSonia" to="SoniaFight/OlhmAttack" method="release_early"]
+[connection signal="start_olhm" from="SoniaFight/BossSonia" to="SoniaFight/OlhmAttack" method="charge"]

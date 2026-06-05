@@ -31,12 +31,11 @@ const DustCloud := preload("res://oneoff/bosses/sonia/dust_cloud.tscn")
 const SpikeRock := preload("res://oneoff/bosses/sonia/spike_rock.tscn")
 const Brick := preload("res://oneoff/bosses/sonia/brick.tscn")
 
-const OLHM_HP_PERCENTAGE := 30.0
+const OLHM_HP_PERCENTAGE := 50.0
 const JUMP_UP_PERCENTAGE := 80.0
 const WIDTH := 16.0
 const RUN_SPEED := 120.
 const NOT_IMPLEMENTED_ATTACKS := [
-	Attacks.Olhm,
 	Attacks.TopJumpSlash,
 	Attacks.LowToOlhm,
 ]
@@ -53,8 +52,12 @@ const NOT_IMPLEMENTED_ATTACKS := [
 		facing_right = value
 		if is_node_ready():
 			sync_facing_right()
+@export var knock_into_olhm := false
 
 var last_attack := Attacks.JumpDig
+
+signal start_olhm()
+signal olhm_early_release()
 
 func _physics_process(delta: float) -> void:
 	var reference_rect := get_reference_rect()
@@ -228,14 +231,27 @@ func init_attack(next_attack: Attacks) -> void:
 				facing_right = true
 				position = Vector2(left_reference_rect.offset_right, left_reference_rect.offset_bottom)
 				$AnimationPlayer.play("dig_to_left")
-		Attacks. DigToTop:
+		Attacks.DigToTop:
 			var x_spawn := randf_range(top_reference_rect.offset_left, top_reference_rect.offset_right)
 			position = Vector2(x_spawn, top_reference_rect.offset_bottom)
 			$AnimationPlayer.play("dig_to_top")
+		Attacks.Olhm:
+			$AnimationPlayer.play("olhm")
 	last_attack = next_attack
 
 func calculate_hp_percentage() -> float:
 	return $EnemyManager.health as float / $EnemyManager.max_health as float * 100.
+
+func on_hit() -> void:
+	if knock_into_olhm and $AnimationPlayer.current_animation == "olhm":
+		if state == State.Top:
+			$AnimationPlayer.play("top_olhm_knockdown")
+			$Sprite2D.position.y = -80
+		else:
+			$AnimationPlayer.play("mid_olhm_knockdown")
+			$Sprite2D.position.y = -40
+		position.y = low_reference_rect.offset_bottom
+	knock_into_olhm = false
 
 func spawn_dust_cloud(cloud_rotation_degrees: float, cloud_offset: Vector2, cloud_flip_h: bool) -> void:
 	var dust_cloud: Node2D = DustCloud.instantiate()
@@ -268,6 +284,12 @@ func spawn_drop_brick() -> void:
 	get_parent().add_child(brick)
 	brick.global_position = global_position + Vector2(0., 6.)
 	brick.drop()
+
+func emit_start_olhm() -> void:
+	start_olhm.emit()
+
+func emit_olhm_early_release() -> void:
+	olhm_early_release.emit()
 
 func sync_facing_right() -> void:
 	var flip_sign := Util.sign(facing_right)
