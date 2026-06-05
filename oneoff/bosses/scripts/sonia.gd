@@ -107,6 +107,8 @@ func get_exclusions() -> Array[String]:
 		
 	if last_attack == Attacks.DoubleSwipe:
 		exclusions.append(atk_str(Attacks.SingleSwipe))
+	if last_attack == Attacks.SingleSwipe:
+		exclusions.append(atk_str(Attacks.DoubleSwipe))
 	
 	var hp_percentage := calculate_hp_percentage()
 	if hp_percentage > JUMP_UP_PERCENTAGE:
