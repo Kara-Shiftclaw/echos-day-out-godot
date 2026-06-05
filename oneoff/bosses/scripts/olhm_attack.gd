@@ -5,3 +5,6 @@ func charge() -> void:
 
 func release_early() -> void:
 	$AnimationPlayer.play("release")
+
+func reset() -> void:
+	$AnimationPlayer.play("RESET")

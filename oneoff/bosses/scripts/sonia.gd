@@ -34,7 +34,7 @@ const Brick := preload("res://oneoff/bosses/sonia/brick.tscn")
 const OLHM_HP_PERCENTAGE := 50.0
 const JUMP_UP_PERCENTAGE := 80.0
 const WIDTH := 16.0
-const RUN_SPEED := 120.
+const RUN_SPEED := 100.
 const NOT_IMPLEMENTED_ATTACKS := [
 	Attacks.TopJumpSlash,
 	Attacks.LowToOlhm,
@@ -120,10 +120,10 @@ func get_exclusions() -> Array[String]:
 	if hp_percentage > OLHM_HP_PERCENTAGE:
 		exclusions.append(atk_str(Attacks.Olhm))
 	
-	var door_rect := door_reference_rect.get_global_rect()
-	var echo_x := Global.echo.global_position.x
-	if echo_x > door_rect.position.x and echo_x < door_rect.end.x:
-		exclusions.append(atk_str(Attacks.DigUnderPlayer))
+	#var door_rect := door_reference_rect.get_global_rect()
+	#var echo_x := Global.echo.global_position.x
+	#if echo_x > door_rect.position.x and echo_x < door_rect.end.x:
+		#exclusions.append(atk_str(Attacks.DigUnderPlayer))
 		
 	if state == State.Mid and Global.echo.global_position.y > \
 			right_reference_rect.get_global_rect().end.y + 8:

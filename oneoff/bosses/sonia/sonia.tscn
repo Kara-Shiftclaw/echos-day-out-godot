@@ -3827,7 +3827,7 @@ MidJumpSlash_odds = 0
 DoubleJumpToTop_odds = 0
 TopDropBricks_odds = 0
 DigUnderPlayer_odds = 6
-DigSpike_odds = 5
+DigSpike_odds = 3
 DigToMid_odds = 4
 DigToTop_odds = 3
 Olhm_odds = 0
@@ -3835,11 +3835,12 @@ TopJumpSlash_odds = 0
 LowToOlhm_odds = 0
 NoOp_odds = 0
 
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("5_nm6f2")]
-max_health = 150
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player", "shader_nodes") instance=ExtResource("5_nm6f2")]
+max_health = 132
 energy_on_death = 5
 journal_entry = "sonia"
-parent_save_properties = Array[String](["position", "state", "x_speed"])
+animation_player = NodePath("../AnimationPlayer")
+parent_save_properties = Array[String](["position", "state", "x_speed", "facing_right"])
 shader_nodes = [NodePath("../Sprite2D")]
 
 [node name="DamageBox" type="Area2D" parent="."]

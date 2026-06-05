@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const Y_CORRECTION := Vector2(0., -4.)
-const SPEED := 240.
+const SPEED := 200.
 
 var moving_right: bool
 
