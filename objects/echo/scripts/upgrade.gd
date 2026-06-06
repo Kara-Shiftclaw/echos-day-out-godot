@@ -2,6 +2,7 @@ class_name Upgrade
 extends Area2D
 
 const FIREBALL_POPUP_PATH := "res://menu/dialogue/major_upgrade/fireball.tscn"
+const DOUBLE_JUMP_POPUP_PATH := "res://menu/dialogue/major_upgrade/double_jump.tscn"
 const SCENE := preload("res://objects/echo/upgrade.tscn")
 
 var grant_fireball := false
@@ -82,7 +83,11 @@ func conclude() -> void:
 
 func upgrade_popup() -> void:
 	get_tree().paused = true
+	
 	var popup_path := FIREBALL_POPUP_PATH
+	if grant_double_jump:
+		popup_path = DOUBLE_JUMP_POPUP_PATH
+	
 	var upgrade_get_popup: TextBoxView = load(popup_path).instantiate()
 	Global.camera.add_child(upgrade_get_popup)
 	upgrade_get_popup.close_signaled.connect(Global.unpause)

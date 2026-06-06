@@ -1,0 +1,146 @@
+[gd_scene load_steps=11 format=3 uid="uid://8h75sfxyfhe8"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_5f8yi"]
+[ext_resource type="Script" uid="uid://vdkkkqd3kh4b" path="res://menu/dialogue/view/scripts/text_box.gd" id="2_fn7dx"]
+[ext_resource type="Texture2D" uid="uid://mv838ry2o65c" path="res://assets/gfx/double_jump_get.png" id="3_5f8yi"]
+[ext_resource type="Texture2D" uid="uid://7ffh81jgbljc" path="res://assets/gfx/small_upgrade_tear.png" id="4_w654y"]
+[ext_resource type="AudioStream" uid="uid://cs6pf7cfntpvy" path="res://assets/sfx/tada.wav" id="5_qfi62"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rld3g"]
+bg_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[sub_resource type="Animation" id="Animation_jpvk5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tada:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vxbew"]
+resource_name = "enter"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -56), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tada:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_olna4"]
+resource_name = "exit"
+length = 0.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -56)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1j1n"]
+_data = {
+&"RESET": SubResource("Animation_jpvk5"),
+&"enter": SubResource("Animation_vxbew"),
+&"exit": SubResource("Animation_olna4")
+}
+
+[node name="DoubleJumpGet" type="Panel"]
+process_mode = 3
+z_index = 110
+offset_right = 128.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5f8yi")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rld3g")
+script = ExtResource("2_fn7dx")
+metadata/_custom_type_script = "uid://vdkkkqd3kh4b"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 1.0
+offset_right = 128.0
+offset_bottom = 30.0
+text = "You unlocked the Double Jump! You can now jump in midair, even without a flower!"
+autowrap_mode = 3
+visible_characters_behavior = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(20, 20)
+texture = ExtResource("3_5f8yi")
+
+[node name="Tear" type="Sprite2D" parent="."]
+position = Vector2(64, 48)
+texture = ExtResource("4_w654y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_m1j1n")
+}
+autoplay = "enter"
+
+[node name="Tada" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qfi62")
+bus = &"Sfx"
+
+[connection signal="close_signaled" from="." to="AnimationPlayer" method="play" binds= [&"exit"]]

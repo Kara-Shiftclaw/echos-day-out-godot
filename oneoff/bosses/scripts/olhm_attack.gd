@@ -8,3 +8,7 @@ func release_early() -> void:
 
 func reset() -> void:
 	$AnimationPlayer.play("RESET")
+
+func try_stop() -> void:
+	if !$PlayerHurtbox/PlayerHurtboxShape.disabled:
+		$AnimationPlayer.play("stop")

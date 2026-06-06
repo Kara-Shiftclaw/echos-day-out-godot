@@ -48,3 +48,10 @@ func calculate_stage_transitions() -> void:
 		for room in stage_transition.get_all_rooms():
 			stage_transition_spaces[Vector2i(room)] = stage_transition
 	print(stage_transition_spaces)
+
+func screen_shake() -> void:
+	offset.x += randf_range(-2., 2.)
+	offset.y += randf_range(-2., 2.)
+	get_tree().create_timer(0.1).timeout.connect(func():
+		offset = BASE_OFFSET
+	)

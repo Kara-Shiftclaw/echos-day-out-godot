@@ -58,6 +58,8 @@ var last_attack := Attacks.JumpDig
 
 signal start_olhm()
 signal olhm_early_release()
+signal stop_olhm()
+signal crashout()
 
 func _physics_process(delta: float) -> void:
 	var reference_rect := get_reference_rect()
@@ -255,6 +257,19 @@ func on_hit() -> void:
 		position.y = low_reference_rect.offset_bottom
 	knock_into_olhm = false
 
+func on_death() -> void:
+	Global.music_player.stop()
+	Engine.time_scale = 0.25
+	global_position = $Sprite2D.global_position
+	$AnimationPlayer.play("die")
+	$AnimationPlayer.seek(0., true)
+	stop_olhm.emit()
+	
+	get_tree().call_group("sonia_spawn", "neuter")
+
+func resume_normal_speed() -> void:
+	Engine.time_scale = 1.
+
 func spawn_dust_cloud(cloud_rotation_degrees: float, cloud_offset: Vector2, cloud_flip_h: bool) -> void:
 	var dust_cloud: Node2D = DustCloud.instantiate()
 	get_parent().add_child(dust_cloud)
@@ -275,23 +290,29 @@ func spawn_spike_rock() -> void:
 	spike_rock.moving_right = facing_right
 	get_parent().add_child(spike_rock)
 	spike_rock.global_position = global_position
+	spike_rock.add_to_group("sonia_spawn")
 
 func spawn_brick() -> void:
 	var brick: Node2D = Brick.instantiate()
 	get_parent().add_child(brick)
 	brick.global_position = global_position + Vector2(-8. * Util.sign(facing_right), -16.)
+	brick.add_to_group("sonia_spawn")
 
 func spawn_drop_brick() -> void:
 	var brick: Node2D = Brick.instantiate()
 	get_parent().add_child(brick)
 	brick.global_position = global_position + Vector2(0., 6.)
 	brick.drop()
+	brick.add_to_group("sonia_spawn")
 
 func emit_start_olhm() -> void:
 	start_olhm.emit()
 
 func emit_olhm_early_release() -> void:
 	olhm_early_release.emit()
+
+func emit_crashout() -> void:
+	crashout.emit()
 
 func sync_facing_right() -> void:
 	var flip_sign := Util.sign(facing_right)

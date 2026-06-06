@@ -17,3 +17,6 @@ func throw() -> void:
 func drop() -> void:
 	velocity = Vector2.DOWN * SPEED
 	$AnimationPlayer.play("spin")
+
+func neuter() -> void:
+	$Damage.active = false

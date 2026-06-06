@@ -28,3 +28,6 @@ func get_spiked() -> void:
 	global_position = $Sprite2D.global_position
 	$Sprite2D.position = Vector2.ZERO
 	$AnimationPlayer.play("spin")
+
+func neuter() -> void:
+	$Damage.active = false
