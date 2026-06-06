@@ -3,6 +3,7 @@ extends Node
 
 @export var damage := 4
 @export var active := true
+@export var ignore_invin_frame := false
 
 signal hit()
 

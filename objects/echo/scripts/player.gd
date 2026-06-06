@@ -76,8 +76,11 @@ func exit_save_point(_save_point: Node2D) -> void:
 
 func on_hit(attacker: Node2D) -> void:
 	var maybe_damage = attacker.get_node_or_null("Damage")
-	if maybe_damage != null and maybe_damage.active:
+	var invin_timer: Timer = $InvinFrameTimer
+	if maybe_damage != null and maybe_damage.active \
+			and (invin_timer.is_stopped() or maybe_damage.ignore_invin_frame):
 		take_damage(maybe_damage.damage)
+		invin_timer.start()
 		maybe_damage.emit_hit()
 
 func take_damage(amount: float) -> void:
