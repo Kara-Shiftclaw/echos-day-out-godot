@@ -34,6 +34,12 @@ func on_talk() -> void:
 	add_child(walker)
 
 func remove_before_next(src) -> void:
+	if Global.is_smol:
+		$EchoAnim/AnimationPlayer.play("sync_smol")
+	else:
+		$EchoAnim/AnimationPlayer.play("sync_{0}".format([Global.weight]))
+	$EchoAnim/AnimationPlayer.seek(0., true)
+	
 	$EchoAnim/AnimationPlayer.play("remove")
 	$EchoAnim/AnimationPlayer.animation_finished.connect(func(_anim_name):
 		src.emit_next()
