@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://cye7mkllc63s0"]
+[gd_scene load_steps=55 format=4 uid="uid://cye7mkllc63s0"]
 
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="1_0ws40"]
 [ext_resource type="Texture2D" uid="uid://dm5wh2qtbg7s0" path="res://assets/gfx/scenery/valley_tileset.png" id="1_6w44v"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="10_v4yol"]
 [ext_resource type="PackedScene" uid="uid://b80sc5o8or7qk" path="res://objects/stage_transition.tscn" id="10_xyh6v"]
 [ext_resource type="PackedScene" uid="uid://71ne35ggsd78" path="res://objects/falling_tile_generator.tscn" id="11_pyacp"]
+[ext_resource type="PackedScene" uid="uid://fnggam6gyt25" path="res://objects/region_tag.tscn" id="12_im33a"]
 [ext_resource type="PackedScene" uid="uid://bctqpu1tltf8q" path="res://oneoff/slide_platform.tscn" id="12_l4yrr"]
 [ext_resource type="PackedScene" uid="uid://db1opiy6dip85" path="res://objects/enemies/wolf.tscn" id="17_4ptj7"]
 [ext_resource type="PackedScene" uid="uid://btmasjlcjnook" path="res://objects/health_up.tscn" id="17_jlmb4"]
@@ -414,6 +415,11 @@ stage_transition_parent = NodePath("../StageTransitions")
 [node name="RegionName" parent="Camera2D" instance=ExtResource("4_a2j8x")]
 position = Vector2(0, 8)
 region_name = "Treetop Expanse"
+
+[node name="RegionTag" parent="Camera2D" instance=ExtResource("12_im33a")]
+position = Vector2(64, 40)
+which_region = 8
+screens = Array[Vector2i]([Vector2i(1, -1), Vector2i(12, -1), Vector2i(14, -2)])
 
 [node name="Enemies" type="Node2D" parent="."]
 

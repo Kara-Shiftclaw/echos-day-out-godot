@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cpf870qyhbg0"]
+[gd_scene load_steps=42 format=4 uid="uid://cpf870qyhbg0"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3kelf1cerb" path="res://assets/gfx/scenery/sporeways_omni.png" id="1_gob7n"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_q8lqc"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://ca72bwose76ae" path="res://objects/switch.tscn" id="10_0mswf"]
 [ext_resource type="PackedScene" uid="uid://ceulcb140bilo" path="res://objects/enemies/small_lizard.tscn" id="10_ad6r5"]
 [ext_resource type="PackedScene" uid="uid://c8quq3x1mj85h" path="res://objects/painted_wall.tscn" id="11_mu6af"]
+[ext_resource type="PackedScene" uid="uid://fnggam6gyt25" path="res://objects/region_tag.tscn" id="11_xp7cr"]
 [ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="13_r6d1v"]
 [ext_resource type="PackedScene" uid="uid://btmasjlcjnook" path="res://objects/health_up.tscn" id="14_i6gl4"]
 [ext_resource type="PackedScene" uid="uid://dxl3dovmwvovx" path="res://objects/portal_core.tscn" id="15_isdp1"]
@@ -1011,6 +1012,11 @@ stage_transition_parent = NodePath("../StageTransitions")
 [node name="RegionName" parent="Camera2D" instance=ExtResource("8_sp7eq")]
 position = Vector2(0, 8)
 region_name = "The Sporeways"
+
+[node name="RegionTag" parent="Camera2D" instance=ExtResource("11_xp7cr")]
+position = Vector2(64, 64)
+which_region = 4
+screens = Array[Vector2i]([Vector2i(1, 0), Vector2i(3, -1), Vector2i(13, -1), Vector2i(-4, -2), Vector2i(-1, 0), Vector2i(8, -2)])
 
 [node name="Objects" type="Node2D" parent="."]
 

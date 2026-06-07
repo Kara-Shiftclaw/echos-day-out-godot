@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://d0cqj6thnf2r1"]
+[gd_scene load_steps=50 format=4 uid="uid://d0cqj6thnf2r1"]
 
 [ext_resource type="Texture2D" uid="uid://c5lr8s0d15lyw" path="res://assets/gfx/scenery/charred_cavern_tileset.png" id="1_7vtke"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_82sa8"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c8dvt0avx6bkw" path="res://objects/region_name.tscn" id="9_teusr"]
 [ext_resource type="PackedScene" uid="uid://7vp2emqaq3o" path="res://objects/flame_platform.tscn" id="10_fie0f"]
 [ext_resource type="PackedScene" uid="uid://ceulcb140bilo" path="res://objects/enemies/small_lizard.tscn" id="11_o3dwv"]
+[ext_resource type="PackedScene" uid="uid://fnggam6gyt25" path="res://objects/region_tag.tscn" id="13_a50d4"]
 [ext_resource type="PackedScene" uid="uid://b5k3u5nnsvs64" path="res://objects/scary_door.tscn" id="13_ih0jl"]
 [ext_resource type="PackedScene" uid="uid://db1opiy6dip85" path="res://objects/enemies/wolf.tscn" id="14_5huc4"]
 [ext_resource type="PackedScene" uid="uid://dfant42y7xule" path="res://objects/enemies/big_lizard.tscn" id="14_7d70o"]
@@ -319,6 +320,11 @@ stage_transition_parent = NodePath("../StageTransitions")
 [node name="RegionName" parent="Camera2D" instance=ExtResource("9_teusr")]
 position = Vector2(0, 8)
 region_name = "Charred Cavern"
+
+[node name="RegionTag" parent="Camera2D" instance=ExtResource("13_a50d4")]
+position = Vector2(64, 72)
+which_region = 3
+screens = Array[Vector2i]([Vector2i(2, 0), Vector2i(3, 0), Vector2i(0, -2)])
 
 [node name="Objects" type="Node2D" parent="."]
 

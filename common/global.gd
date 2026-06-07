@@ -388,6 +388,9 @@ func explored_space_str(cx: int, cy: int) -> String:
 func node_flag_name(node:Node, flag: String) -> String:
 	return "{0}|{1}|{2}".format([get_tree().current_scene.scene_file_path, node.get_path(), flag])
 
+func scene_flag_name(flag: String) -> String:
+	return "{0}|{1}".format([get_tree().current_scene.scene_file_path, flag])
+
 static func save_path(path_save_id: int) -> String:
 	return "user://save_{0}.json".format([path_save_id])
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://b1xnjhiba0kmd"]
+[gd_scene load_steps=38 format=4 uid="uid://b1xnjhiba0kmd"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_8qdks"]
 [ext_resource type="Texture2D" uid="uid://cr3gnr7ff8lec" path="res://assets/gfx/scenery/sporeways_tileset.png" id="1_eo2vd"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ceulcb140bilo" path="res://objects/enemies/small_lizard.tscn" id="8_je7u6"]
 [ext_resource type="PackedScene" uid="uid://drj5lv428asa1" path="res://objects/enemies/standard_mushroom.tscn" id="9_je7u6"]
 [ext_resource type="PackedScene" uid="uid://bw2h76gm0i5fq" path="res://objects/enemies/bramble_ball.tscn" id="10_3386t"]
+[ext_resource type="PackedScene" uid="uid://fnggam6gyt25" path="res://objects/region_tag.tscn" id="11_mtdhe"]
 [ext_resource type="PackedScene" uid="uid://cxtlyraput0t5" path="res://objects/enemies/spike_hedgehog.tscn" id="12_efoj6"]
 [ext_resource type="PackedScene" uid="uid://catw2vjvyygq" path="res://objects/enemies/olhm.tscn" id="13_fs2w7"]
 [ext_resource type="PackedScene" uid="uid://bi4irjxg4nk0a" path="res://objects/enemies/fatbat.tscn" id="13_vbylr"]
@@ -298,6 +299,11 @@ stage_transition_parent = NodePath("../StageTransitions")
 [node name="RegionName" parent="Camera2D" instance=ExtResource("6_ycu36")]
 position = Vector2(0, 8)
 region_name = "Verdant Cavern"
+
+[node name="RegionTag" parent="Camera2D" instance=ExtResource("11_mtdhe")]
+position = Vector2(64, 64)
+which_region = 5
+screens = Array[Vector2i]([Vector2i(1, 0), Vector2i(2, 2), Vector2i(2, 5), Vector2i(2, 8)])
 
 [node name="Enemies" type="Node2D" parent="."]
 

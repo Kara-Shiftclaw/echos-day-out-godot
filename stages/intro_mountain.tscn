@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dlyo3vm215av5"]
+[gd_scene load_steps=22 format=4 uid="uid://dlyo3vm215av5"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_lffue"]
 [ext_resource type="PackedScene" uid="uid://bufqrx6gdo4an" path="res://objects/save_point.tscn" id="2_585s4"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c8dvt0avx6bkw" path="res://objects/region_name.tscn" id="7_dcvu5"]
 [ext_resource type="PackedScene" uid="uid://0pbsxos37t77" path="res://objects/enemies/hedgehog.tscn" id="7_g2naw"]
 [ext_resource type="PackedScene" uid="uid://caed6skxowe3i" path="res://objects/door.tscn" id="8_yuxvn"]
+[ext_resource type="PackedScene" uid="uid://fnggam6gyt25" path="res://objects/region_tag.tscn" id="9_gqqha"]
 [ext_resource type="PackedScene" uid="uid://ca72bwose76ae" path="res://objects/switch.tscn" id="9_wp4tt"]
 [ext_resource type="PackedScene" uid="uid://cfgmg3nrak5rv" path="res://objects/enemies/lil_mushroom.tscn" id="10_3trky"]
 [ext_resource type="PackedScene" uid="uid://db1opiy6dip85" path="res://objects/enemies/wolf.tscn" id="10_idora"]
@@ -61,7 +62,13 @@ stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="RegionName" parent="Camera2D" instance=ExtResource("7_dcvu5")]
 position = Vector2(0, 8)
-region_name = "Mt ???"
+region_name = "Mt Echo"
+
+[node name="RegionTag" parent="Camera2D" instance=ExtResource("9_gqqha")]
+position = Vector2(65, 59)
+which_region = 1
+screens = Array[Vector2i]([Vector2i(1, 0), Vector2i(7, -2), Vector2i(6, -1)])
+require_full_echo = true
 
 [node name="Enemies" type="Node2D" parent="."]
 
