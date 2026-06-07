@@ -156,6 +156,7 @@ region_rect = Rect2(12, 0, 2, 4)
 region_filter_clip_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 root_node = NodePath("../HealthBarEnd")
 libraries = {
 &"": SubResource("AnimationLibrary_xf05w")
