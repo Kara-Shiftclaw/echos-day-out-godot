@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://cju6ngwuuioyw"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_8377s"]
+[ext_resource type="Texture2D" uid="uid://b7qxo2ent3u3q" path="res://assets/gfx/snail.png" id="2_8377s"]
+
+[node name="Entry" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8377s")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 109.0
+offset_bottom = 34.0
+color = Color(0.54509807, 0.3529412, 0.28235295, 1)
+
+[node name="Baseline" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="Shell" type="Sprite2D" parent="."]
+position = Vector2(56, 28)
+texture = ExtResource("2_8377s")
+region_enabled = true
+region_rect = Rect2(8, 0, 10, 10)
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(44, 30)
+texture = ExtResource("2_8377s")
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 6)
+
+[node name="Neck" type="Sprite2D" parent="."]
+position = Vector2(50, 31)
+texture = ExtResource("2_8377s")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(0, 18, 5, 3)
+
+[node name="Antennae" type="Sprite2D" parent="."]
+position = Vector2(43, 26)
+texture = ExtResource("2_8377s")
+region_enabled = true
+region_rect = Rect2(0, 21, 4, 2)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 35.0
+offset_right = 103.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
+text = "Snail"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 46.0
+offset_right = 112.0
+offset_bottom = 329.0
+theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
+text = "Perfect. Flawless. A being with naught but love in its heart and
+a desire to do right by those around it."
+autowrap_mode = 2

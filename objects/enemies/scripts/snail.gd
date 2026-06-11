@@ -85,6 +85,7 @@ func on_chunk_load(cx: int, cy: int) -> void:
 			$Shell/Body.scale.x = 0.
 			$AnimationPlayer.play("move")
 			$AnimationPlayer.seek(0., true)
+			Global.journal_entries.set("snail", true)
 			reload_frame = true
 		else:
 			hide()

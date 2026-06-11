@@ -56,6 +56,7 @@ func give_anim() -> void:
 
 func give() -> void:
 	Global.flags.set(MYCELIUM_MAP_FLAG, true)
+	Global.journal_entries.set("sporemother", true)
 	recalculate_health_bar()
 
 func remove() -> void:

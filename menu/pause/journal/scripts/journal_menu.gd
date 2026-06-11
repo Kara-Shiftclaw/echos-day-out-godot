@@ -12,8 +12,6 @@ enum Entry {
 	scare_dragon,
 	hedgehog,
 	wolf,
-	crow,
-	corvid_rook,
 	fatbat,
 	spike_hedgehog,
 	small_lizard,
@@ -21,10 +19,22 @@ enum Entry {
 	mongoose,
 	standard_mushroom,
 	lil_mushroom,
+	sporemother,
 	spider,
+	olhm,
+	bramble_ball,
+	snail,
+	crab,
+	flutterfish,
+	small_plants,
+	big_plants,
+	sonia,
+	daniel,
 	beeorb,
 	immobile_beeorb,
 	bee_cannon,
+	crow,
+	corvid_rook,
 	kara,
 	sword_spirit,
 	hugehog,
@@ -65,8 +75,28 @@ func get_entry_name(entry: Entry) -> String:
 			return "Sporecap"
 		Entry.lil_mushroom:
 			return "Sporeling"
+		Entry.sporemother:
+			return "Sporemother"
 		Entry.spider:
 			return "Spider"
+		Entry.olhm:
+			return "Olhm"
+		Entry.bramble_ball:
+			return "Bramble-Ball"
+		Entry.snail:
+			return "Snail"
+		Entry.crab:
+			return "Clobber Crab"
+		Entry.flutterfish:
+			return "Flutterfish"
+		Entry.small_plants:
+			return "Chromatic Buds"
+		Entry.big_plants:
+			return "Chromatic Flora"
+		Entry.sonia:
+			return "- Sonia -"
+		Entry.daniel:
+			return "Daniel"
 		Entry.beeorb:
 			return "Orbee"
 		Entry.immobile_beeorb:

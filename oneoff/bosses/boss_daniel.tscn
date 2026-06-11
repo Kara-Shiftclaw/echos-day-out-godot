@@ -1020,6 +1020,7 @@ disabled = true
 max_health = 60
 energy_per_damage = 0.1
 energy_on_death = 5
+journal_entry = "daniel"
 animation_player = NodePath("../AnimationPlayer")
 parent_save_properties = Array[String](["position", "moving_to"])
 
