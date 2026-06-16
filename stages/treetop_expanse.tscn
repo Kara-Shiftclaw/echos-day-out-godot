@@ -807,6 +807,13 @@ offset_right = 2176.0
 offset_bottom = 0.0
 other_stage = "uid://d0cqj6thnf2r1"
 
+[node name="EchoPeak" parent="StageTransitions" instance=ExtResource("10_xyh6v")]
+offset_left = 128.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = -128.0
+other_stage = "uid://cxi2nthp2u2uv"
+
 [node name="SongPlayer" parent="." instance=ExtResource("26_brjoo")]
 song_stream = ExtResource("27_4ptj7")
 

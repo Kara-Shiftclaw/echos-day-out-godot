@@ -44,5 +44,8 @@ func on_chunk_load(cx: int, cy: int) -> void:
 	
 	for screen in screens:
 		if screen.x == cx and screen.y == cy:
-			$AnimationPlayer.play("show")
-			Global.flags.set(Global.scene_flag_name("explored"), true)
+			show_anim()
+
+func show_anim() -> void:
+	$AnimationPlayer.play("show")
+	Global.flags.set(Global.scene_flag_name("explored"), true)

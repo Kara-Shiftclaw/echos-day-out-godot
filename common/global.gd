@@ -95,7 +95,7 @@ var can_pause := true
 
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
-	music_player.finished.connect(music_player.play)
+	#music_player.finished.connect(music_player.play)
 	music_player.bus = "Music"
 	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(music_player)

@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+external/p8-song-looper/in/
+external/p8-song-looper/target/
