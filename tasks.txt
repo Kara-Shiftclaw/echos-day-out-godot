@@ -7,7 +7,6 @@ Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
 Title theme
 
 ---- Tech Debt & Enhancements ----
-Fix music looping
 Gaps broken for fat Echo: lower Verdant Cavern, upper Verdant Cavern, rightward Treetop Expanse tree, Treetop Expanse honey drop (get squeezed)
 Stop spiders from shoving Echo into walls
 Better way to leave Disphotic Depths while the door is closed
