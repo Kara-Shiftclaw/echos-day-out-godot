@@ -8,10 +8,12 @@ Title theme
 
 ---- Tech Debt & Enhancements ----
 Gaps broken for fat Echo: lower Verdant Cavern, upper Verdant Cavern, rightward Treetop Expanse tree, Treetop Expanse honey drop (get squeezed)
+Trapped in Sonia's fight room?
 Stop spiders from shoving Echo into walls
 Better way to leave Disphotic Depths while the door is closed
 Lower coyote time
 Tighten double-jump to sword
+Honey slows Echo?
 Make note of Treetop Expanse weird not-really-entrance
 Indicate offscreen walls better (Verdant Cavern, Disphotic Depths)
 Add post-Sonia dialogue to big plants
