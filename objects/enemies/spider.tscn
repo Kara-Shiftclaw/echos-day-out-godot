@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c41qbd7hybpmg"]
+[gd_scene load_steps=13 format=3 uid="uid://c41qbd7hybpmg"]
 
 [ext_resource type="Texture2D" uid="uid://b45svqqn76oyt" path="res://assets/gfx/spider.png" id="1_4au8k"]
 [ext_resource type="Script" uid="uid://cqj8fivb6dhad" path="res://objects/enemies/scripts/spider.gd" id="1_uhe77"]
@@ -204,14 +204,46 @@ tracks/3/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_uq7qd"]
+resource_name = "fat_echo_sitting"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0md5g"]
 _data = {
 &"RESET": SubResource("Animation_uhe77"),
 &"breathe": SubResource("Animation_hma4c"),
 &"climb": SubResource("Animation_4au8k"),
+&"fat_echo_sitting": SubResource("Animation_uq7qd"),
 &"idle": SubResource("Animation_0md5g"),
 &"slide_down": SubResource("Animation_bgfgb")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0md5g"]
+size = Vector2(7.8, 1)
 
 [node name="Spider" type="CharacterBody2D"]
 script = ExtResource("1_uhe77")
@@ -228,6 +260,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_0md5g")
 }
 autoplay = "climb"
+next/fat_echo_sitting = &"slide_down"
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("3_0md5g")]
 max_health = 99999
@@ -244,8 +277,28 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_uhe77")
 
+[node name="EchoAbove" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EchoAbove"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_0md5g")
+
+[node name="EchoBelow" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EchoBelow"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_0md5g")
+
 [connection signal="chunk_entered" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"climb"]]
 [connection signal="hit" from="EnemyManager" to="." method="hit_journal_entry"]
 [connection signal="hit" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"slide_down"]]
 [connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
+[connection signal="body_entered" from="EchoAbove" to="." method="echo_above_entered"]
+[connection signal="body_exited" from="EchoAbove" to="." method="echo_above_exited"]
+[connection signal="body_entered" from="EchoBelow" to="." method="echo_below_entered"]
+[connection signal="body_exited" from="EchoBelow" to="." method="echo_below_exited"]
