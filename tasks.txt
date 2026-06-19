@@ -1,0 +1,69 @@
+---- Music ----
+Valley Floor theme (Mt. Echo, Heftwind Hills, Treetop Expanse)
+L1 Dungeon theme (Sporeways, Charred Cavern)
+Creaking Depths theme (Verdant Cavern, Pyrite Plunge, Disphotic Depths)
+Boss theme
+Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
+Title theme
+
+---- Tech Debt & Enhancements ----
+Fix music looping
+Gaps broken for fat Echo: lower Verdant Cavern, upper Verdant Cavern, rightward Treetop Expanse tree, Treetop Expanse honey drop (get squeezed)
+Stop spiders from shoving Echo into walls
+Better way to leave Disphotic Depths while the door is closed
+Lower coyote time
+Tighten double-jump to sword
+Make note of Treetop Expanse weird not-really-entrance
+Indicate offscreen walls better (Verdant Cavern, Disphotic Depths)
+Add post-Sonia dialogue to big plants
+Add sprint-breakable walls, so that I can-
+Tighten path into Crater
+Fix transition away from sword (goes to wrong transition)
+Tighten right Mt. Echo torch hitbox
+Save file deleting & copying
+Quitting to menu from pause screen
+Options on pause screen
+Add disable upgrade to debug menu
+Use icons for pause screen tabs
+Geckitos: Fix animation if killed midair
+Geckitos: Fix death race condition
+Geckordos: Fire pillars disappear on screen transition
+Fix game pausing on screen transition
+Affamae: More food dialogue
+Sonia boss dialogue: Didn'y
+Reload music on death respawn stage transition
+Weird lava geyser hitboxes @ large size
+Geckito jump to oblivion, fix or nah?
+Improve path to Sonia refight chamber
+Alt path to Crater uses clouds instead of spikes
+Better alt path to Verdant Cavern (using dash maybe?)
+Bosses react to reverse-order Echo
+
+---- Thieves Road ----
+Rename in code from EchoPeak to ThievesRoad
+Design generic Thieves' Road enemies
+Design Corvid Knights
+Add animation to entering Background
+Add keystones to enter Background
+
+---- Smol Echo ----
+Better way to indicate downward dmg as smol echo
+Smol echo holding image
+Tighten smol echo to Sporemother
+
+---- Ungroomed Cutoff Line ----
+Create Billowing Heights
+Create Black Market
+Create Nimbus boss fight
+Create Pyrite quest
+Create Crater
+Create Charle boss fight
+Create Ending 1
+Create Bramble
+Create Plume boss fight
+Create Ending 2
+Create Affamae smol quest
+Finish smol odds & ends
+Create Endings 3 & 4
+Create boss refights
+Create reward for boss refights
