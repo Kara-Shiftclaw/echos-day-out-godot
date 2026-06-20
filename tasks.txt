@@ -7,16 +7,12 @@ Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
 Title theme
 
 ---- Tech Debt & Enhancements ----
-Better way to leave Disphotic Depths while the door is closed
-Lower coyote time
-Tighten double-jump to sword
 Honey slows Echo?
 Make note of Treetop Expanse weird not-really-entrance
 Indicate offscreen walls better (Verdant Cavern, Disphotic Depths)
 Add post-Sonia dialogue to big plants
 Add sprint-breakable walls, so that I can-
 Tighten path into Crater
-Fix transition away from sword (goes to wrong transition)
 Tighten right Mt. Echo torch hitbox
 Save file deleting & copying
 Quitting to menu from pause screen
