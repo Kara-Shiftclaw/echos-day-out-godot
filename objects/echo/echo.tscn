@@ -1278,7 +1278,7 @@ hframes = 6
 vframes = 3
 
 [node name="CoyoteTimeTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
 one_shot = true
 
 [node name="JumpTimer" type="Timer" parent="."]
