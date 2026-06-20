@@ -16,9 +16,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and $MinAttackTimer.is_stopped():
 		health -= 1
 		$MinAttackTimer.start()
-		$CPUParticles2D.emitting = true
 		if health < 1:
-			queue_free()
+			$AnimationPlayer.play("break")
+		else:
+			$AnimationPlayer.play("hit")
 
 func _physics_process(_delta: float) -> void:
 	$Sprite2D.flip_h = Global.echo.facing_right

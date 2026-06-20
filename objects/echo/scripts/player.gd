@@ -12,6 +12,7 @@ var on_floor := true
 var in_airstream := false
 var is_double_jumping := false
 @export var anim_priority := 0
+@export var speed_scale := 1.
 
 signal land_on_floor()
 signal respawned()
@@ -34,7 +35,7 @@ func _ready() -> void:
 		global_position = Vector2.INF
 
 func calculate_x_movement(delta: float) -> void:
-	var desired_vel := get_desired_speed() * Input.get_axis("ui_left", "ui_right")
+	var desired_vel := get_desired_speed() * speed_scale * Input.get_axis("ui_left", "ui_right")
 	var acceleration := get_acceleration() / (2. if is_sprinting else 1.)
 	velocity.x = move_toward(velocity.x, desired_vel, acceleration * delta)
 	if desired_vel != 0.:

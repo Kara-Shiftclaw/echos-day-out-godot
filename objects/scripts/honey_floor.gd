@@ -15,11 +15,13 @@ func _ready() -> void:
 func enter(other: Node2D) -> void:
 	if other is Player:
 		other.add_child(Honey.instantiate())
+		other.speed_scale = 0.5
 		$HoneyShoot.play()
 		echo_in = true
 
 func exit(other: Node2D) -> void:
 	if other is Player:
+		other.speed_scale = 1.
 		echo_in = false
 
 func _physics_process(_delta: float) -> void:
