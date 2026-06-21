@@ -7,7 +7,6 @@ Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
 Title theme
 
 ---- Tech Debt & Enhancements ----
-Make note of Treetop Expanse weird not-really-entrance
 Indicate offscreen walls better (Verdant Cavern, Disphotic Depths)
 Add post-Sonia dialogue to big plants
 Add sprint-breakable walls, so that I can-
