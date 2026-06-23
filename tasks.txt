@@ -7,11 +7,8 @@ Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
 Title theme
 
 ---- Tech Debt & Enhancements ----
-Indicate offscreen walls better (Verdant Cavern, Disphotic Depths)
-Add post-Sonia dialogue to big plants
 Add sprint-breakable walls, so that I can-
 Tighten path into Crater
-Tighten right Mt. Echo torch hitbox
 Save file deleting & copying
 Quitting to menu from pause screen
 Options on pause screen

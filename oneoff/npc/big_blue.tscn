@@ -10,6 +10,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2nr2"]
 size = Vector2(39.5, 3)
 
+[sub_resource type="Animation" id="Animation_jle52"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_h2nrf"]
 resource_name = "idle"
 length = 0.6
@@ -26,21 +41,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_jle52"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_wgfpl"]
@@ -85,6 +85,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_7jffa")
 flag = "blue_plant_open"
+post_sonia_repeat_flag = "blue_post_sonia_repeat"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_7jffa")
@@ -125,6 +126,28 @@ text = "She digs the caverns bare, all for worthless pyrite."
 [node name="StandardTextBox4" parent="Dialogue/Repeat" instance=ExtResource("5_pt0vs")]
 text = "If you are able, please stop her."
 
+[node name="PostSonia" parent="Dialogue" instance=ExtResource("4_wgfpl")]
+
+[node name="StandardTextBox" parent="Dialogue/PostSonia" instance=ExtResource("5_pt0vs")]
+text = "Hm? Who is there?"
+
+[node name="StandardTextBox2" parent="Dialogue/PostSonia" instance=ExtResource("5_pt0vs")]
+text = "Dragon? Oh, welcome. I didn't recall you being so... large."
+
+[node name="StandardTextBox3" parent="Dialogue/PostSonia" instance=ExtResource("5_pt0vs")]
+text = "You defeated Sonia? Amazing! Though, I hardly think eating her was needed."
+
+[node name="StandardTextBox5" parent="Dialogue/PostSonia" instance=ExtResource("5_pt0vs")]
+text = "Hm? You gained weight for other reasons? Ah well."
+
+[node name="PostSoniaRepeat" parent="Dialogue" instance=ExtResource("4_wgfpl")]
+
+[node name="StandardTextBox" parent="Dialogue/PostSoniaRepeat" instance=ExtResource("5_pt0vs")]
+text = "If Sonia is gone, then I do hope that handsome wolf with the hammer takes charge."
+
+[node name="StandardTextBox2" parent="Dialogue/PostSoniaRepeat" instance=ExtResource("5_pt0vs")]
+text = "He seems the most responsible. He understands the power of a proper curse."
+
 [node name="OpenTimer" type="Timer" parent="."]
 wait_time = 1.2
 one_shot = true
@@ -142,4 +165,6 @@ next/open = &"idle"
 [connection signal="activated" from="NpcArrow" to="." method="dialogue"]
 [connection signal="next" from="Dialogue/FirstEncounter" to="." method="do_open"]
 [connection signal="next" from="Dialogue/Repeat" to="NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Dialogue/PostSonia" to="NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Dialogue/PostSoniaRepeat" to="NpcArrow" method="generic_unpause"]
 [connection signal="timeout" from="OpenTimer" to="Dialogue/Repeat" method="render"]

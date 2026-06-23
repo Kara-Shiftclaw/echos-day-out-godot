@@ -131,6 +131,27 @@ text = "Bring someone who can help dig me out, too. But someone who won't give m
 [node name="StandardTextBox3" parent="Dialogue/Repeat" instance=ExtResource("5_02qom")]
 text = "Oh!! Snacks too! There is NOBODY down here to eat!"
 
+[node name="PostSonia" parent="Dialogue" instance=ExtResource("4_sfqm8")]
+
+[node name="StandardTextBox" parent="Dialogue/PostSonia" instance=ExtResource("5_02qom")]
+text = "Whoa hey, you did it?!"
+
+[node name="StandardTextBox2" parent="Dialogue/PostSonia" instance=ExtResource("5_02qom")]
+text = "That's great news! I can finally leave this dumb hole and rejoin my sisters!"
+
+[node name="StandardTextBox3" parent="Dialogue/PostSonia" instance=ExtResource("5_02qom")]
+text = "...You did remember to find someone to help out right"
+
+[node name="PostSoniaRepeat" parent="Dialogue" instance=ExtResource("4_sfqm8")]
+
+[node name="StandardTextBox" parent="Dialogue/PostSoniaRepeat" instance=ExtResource("5_02qom")]
+text = "Eh, at least I got SOME of the food situation figured out. Some crabs like wandering down here."
+
+[node name="StandardTextBox2" parent="Dialogue/PostSoniaRepeat" instance=ExtResource("5_02qom")]
+text = "It's not much, but...
+
+Okay I can't front get me out of here asap"
+
 [node name="OpenTimer" type="Timer" parent="."]
 wait_time = 1.2
 one_shot = true
@@ -148,4 +169,6 @@ stream = ExtResource("6_23ts6")
 [connection signal="activated" from="NpcArrow" to="." method="dialogue"]
 [connection signal="next" from="Dialogue/FirstEncounter" to="." method="do_open"]
 [connection signal="next" from="Dialogue/Repeat" to="NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Dialogue/PostSonia" to="NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Dialogue/PostSoniaRepeat" to="NpcArrow" method="generic_unpause"]
 [connection signal="timeout" from="OpenTimer" to="Dialogue/Repeat" method="render"]
