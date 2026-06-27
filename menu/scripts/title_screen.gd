@@ -4,6 +4,8 @@ const LAST_SAVE_FILE := "user://last_save.txt"
 
 const FirstStage := preload("res://stages/intro_mountain.tscn")
 const OptionsMenu := preload("res://menu/options.tscn")
+const EraseScene := preload("res://menu/erase_scene.tscn")
+const CantCopyScene := preload("res://menu/cant_copy_scene.tscn")
 
 var last_save_id := 1
 var in_save_menu := false
@@ -28,18 +30,31 @@ func _unhandled_input(event: InputEvent) -> void:
 			close_saved_games()
 
 func new_game(load_id: int) -> void:
-	Global.save_id = load_id
-	write_last_save_id(load_id)
-	get_tree().scene_changed.connect(func():
-		Global.load_abilities(false, false, false, false, false)
-		Global.recalculate_max_hp()
-	, ConnectFlags.CONNECT_ONE_SHOT)
-	get_tree().change_scene_to_packed(FirstStage)
+	if $Options/UnderSaves/Copy.button_pressed or $Options/UnderSaves/Erase.button_pressed:
+		$CantErase.play()
+	else:
+		Global.save_id = load_id
+		write_last_save_id(load_id)
+		get_tree().scene_changed.connect(func():
+			Global.load_abilities(false, false, false, false, false)
+			Global.recalculate_max_hp()
+		, ConnectFlags.CONNECT_ONE_SHOT)
+		get_tree().change_scene_to_packed(FirstStage)
+		queue_free()
 
 func continue_game(load_id: int) -> void:
-	if Global.has_saved_data(load_id):
-		write_last_save_id(load_id)
-		Global.load_data(load_id)
+	if $Options/UnderSaves/Copy.button_pressed:
+		try_copy_save(load_id)
+	elif $Options/UnderSaves/Erase.button_pressed:
+		var erase_scene := EraseScene.instantiate()
+		get_tree().root.add_child(erase_scene)
+		erase_scene.save_id = load_id
+		queue_free()
+	else:
+		if Global.has_saved_data(load_id):
+			write_last_save_id(load_id)
+			Global.load_data(load_id)
+			queue_free()
 
 func write_last_save_id(load_id: int) -> void:
 	last_save_id = load_id
@@ -69,15 +84,22 @@ func open_saved_games() -> void:
 				)
 			
 			$Options/Saves.add_child(button)
-			button.focus_neighbor_bottom = button.get_path()
-			button.focus_neighbor_top = button.get_path()
 		
 		$AnimationPlayer.play("load_menu")
-		var first: Button = $Options/Saves.get_child(0)
-		var last: Button = $Options/Saves.get_child(3)
-		first.focus_neighbor_left = last.get_path()
-		last.focus_neighbor_right = first.get_path()
+		$Options/UnderSaves/Copy.focus_neighbor_top = $Options/Saves.get_child(0).get_path()
+		$Options/UnderSaves/Erase.focus_neighbor_top = $Options/Saves.get_child(3).get_path()
 		$Options/Saves.get_child(last_save_id - 1).call_deferred("grab_focus")
+		
+		var prev: Control = $Options/Saves.get_child(3)
+		for child in $Options/Saves.get_children():
+			var cur := child as Control
+			#print("Connecting ", prev.name, " to ", cur.name)
+			cur.focus_neighbor_left = prev.get_path()
+			cur.focus_previous = prev.get_path()
+			prev.focus_neighbor_right = cur.get_path()
+			prev.focus_next = cur.get_path()
+			cur.focus_neighbor_top = cur.get_path()
+			prev = cur
 
 func close_saved_games() -> void:
 	$AnimationPlayer.play("close_load_menu")
@@ -87,6 +109,38 @@ func close_saved_games() -> void:
 			in_save_menu = false
 	, ConnectFlags.CONNECT_ONE_SHOT)
 	$Options/VBoxContainer/Start.call_deferred("grab_focus")
+
+func quick_load(save_id: int) -> void:
+	print("Quick load!")
+	last_save_id = save_id
+	open_saved_games()
+	$AnimationPlayer.play("quick_load")
+	$AnimationPlayer.seek(0., true)
+
+func try_copy_save(save_id: int) -> void:
+	for i in range(1, 5):
+		if !Global.has_saved_data(i):
+			var src_data := Global.get_load_json(save_id)
+			var dst_file := FileAccess.open(Global.save_path(i), FileAccess.WRITE)
+			dst_file.store_line(JSON.stringify(src_data, "\t"))
+			dst_file.close()
+			
+			last_save_id = i
+			in_save_menu = false
+			for child in $Options/Saves.get_children():
+				$Options/Saves.remove_child(child)
+				child.queue_free()
+			open_saved_games()
+			$AnimationPlayer.play("post_copy")
+			
+			$Copy.play()
+			$Options/UnderSaves/Copy.button_pressed = false
+			return
+	
+	var cant_copy_scene := CantCopyScene.instantiate()
+	get_tree().root.add_child(cant_copy_scene)
+	cant_copy_scene.save_id = save_id
+	queue_free()
 
 func show_credits() -> void:
 	$Credits.show()

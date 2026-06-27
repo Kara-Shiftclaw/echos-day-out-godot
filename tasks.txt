@@ -8,7 +8,6 @@ Title theme
 
 ---- Tech Debt & Enhancements ----
 Fix Corvid Rook Name
-Save file deleting & copying
 Quitting to menu from pause screen
 Options on pause screen
 Add disable upgrade to debug menu

@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://ykdr2tavj7v7"]
+
+[ext_resource type="Texture2D" uid="uid://chyfonylty6c4" path="res://assets/gfx/sprint_wall.png" id="1_h4ey3"]
+[ext_resource type="Script" uid="uid://djhddn7erh5ud" path="res://objects/scripts/sprint_wall.gd" id="1_q1mo5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1mo5"]
+size = Vector2(6, 24)
+
+[sub_resource type="Animation" id="Animation_q1mo5"]
+resource_name = "break"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:broken")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WallCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hiabc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:broken")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WallCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgfn8"]
+_data = {
+&"RESET": SubResource("Animation_hiabc"),
+&"break": SubResource("Animation_q1mo5")
+}
+
+[node name="SprintWall" type="StaticBody2D"]
+script = ExtResource("1_q1mo5")
+
+[node name="WallCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q1mo5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h4ey3")
+
+[node name="BreakArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="BreakCollision" type="CollisionShape2D" parent="BreakArea"]
+shape = SubResource("RectangleShape2D_q1mo5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cgfn8")
+}
+
+[connection signal="body_entered" from="BreakArea" to="." method="on_break_collision"]
