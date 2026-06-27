@@ -7,8 +7,7 @@ Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
 Title theme
 
 ---- Tech Debt & Enhancements ----
-Add sprint-breakable walls, so that I can-
-Tighten path into Crater
+Fix Corvid Rook Name
 Save file deleting & copying
 Quitting to menu from pause screen
 Options on pause screen

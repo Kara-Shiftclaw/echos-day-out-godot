@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://cpf870qyhbg0"]
+[gd_scene load_steps=43 format=4 uid="uid://cpf870qyhbg0"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3kelf1cerb" path="res://assets/gfx/scenery/sporeways_omni.png" id="1_gob7n"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_q8lqc"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://nhhcojt1qy31" path="res://assets/gfx/pyrite_plunge/pyrite_bridge.png" id="20_udpdm"]
 [ext_resource type="PackedScene" uid="uid://bhhbnnko3s4aa" path="res://objects/airstream.tscn" id="21_ylnj4"]
 [ext_resource type="PackedScene" uid="uid://docai1gkwi8cj" path="res://objects/plant/red.tscn" id="22_pi11m"]
+[ext_resource type="PackedScene" uid="uid://ykdr2tavj7v7" path="res://objects/sprint_wall.tscn" id="24_xd70g"]
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="25_c704u"]
 [ext_resource type="AudioStream" uid="uid://3nmggvansd6i" path="res://assets/music/Something-Freaky-This-Way-Comes.ogg" id="26_sp7eq"]
 
@@ -1128,6 +1129,9 @@ libraries = {
 
 [node name="Red" parent="Objects" instance=ExtResource("22_pi11m")]
 position = Vector2(832, 12)
+
+[node name="SprintWall" parent="Objects" instance=ExtResource("24_xd70g")]
+position = Vector2(884, -84)
 
 [node name="Enemies" type="Node2D" parent="."]
 
