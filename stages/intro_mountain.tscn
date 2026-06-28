@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dlyo3vm215av5"]
+[gd_scene load_steps=28 format=4 uid="uid://dlyo3vm215av5"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_lffue"]
 [ext_resource type="PackedScene" uid="uid://bufqrx6gdo4an" path="res://objects/save_point.tscn" id="2_585s4"]
@@ -21,7 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://d2xooyv6ei5dj" path="res://objects/portal.tscn" id="15_a3grp"]
 [ext_resource type="AudioStream" uid="uid://cgjhrh4idl47w" path="res://assets/music/Funky-Chiptune.ogg" id="15_bdyx1"]
 [ext_resource type="PackedScene" uid="uid://d2jt4trsgdkws" path="res://oneoff/cutscenes/intro.tscn" id="16_bdyx1"]
+[ext_resource type="Texture2D" uid="uid://benv77ag15kdw" path="res://assets/gfx/scenery/funny_fat_echo_sign.png" id="19_jh0x4"]
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="20_gqqha"]
+[ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="20_owf3o"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="21_thdh3"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="22_ntnjh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpdx1"]
+size = Vector2(8, 16)
 
 [node name="IntroMountain" type="Node2D"]
 
@@ -185,6 +192,72 @@ position = Vector2(924, -69)
 position = Vector2(469, 159)
 portal_name = "Mt ???"
 
+[node name="TutorialSign" type="Area2D" parent="Objects"]
+position = Vector2(148, 100)
+collision_layer = 0
+collision_mask = 2
+
+[node name="FunnyFatEchoSign" type="Sprite2D" parent="Objects/TutorialSign"]
+texture = ExtResource("19_jh0x4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TutorialSign"]
+shape = SubResource("RectangleShape2D_vpdx1")
+
+[node name="NpcArrow" parent="Objects/TutorialSign" instance=ExtResource("20_owf3o")]
+position = Vector2(0, -12)
+
+[node name="TextTree" parent="Objects/TutorialSign" instance=ExtResource("21_thdh3")]
+
+[node name="StandardTextBox" parent="Objects/TutorialSign/TextTree" instance=ExtResource("22_ntnjh")]
+text = "Woe, if the horrid beaste ever do wake! Her size and power are unmatched!"
+
+[node name="StandardTextBox2" parent="Objects/TutorialSign/TextTree" instance=ExtResource("22_ntnjh")]
+text = "Rumor says, she can jump with Z!!"
+
+[node name="TutorialSign2" type="Area2D" parent="Objects"]
+position = Vector2(296, 92)
+collision_layer = 0
+collision_mask = 2
+
+[node name="FunnyFatEchoSign" type="Sprite2D" parent="Objects/TutorialSign2"]
+texture = ExtResource("19_jh0x4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TutorialSign2"]
+shape = SubResource("RectangleShape2D_vpdx1")
+
+[node name="NpcArrow" parent="Objects/TutorialSign2" instance=ExtResource("20_owf3o")]
+position = Vector2(0, -12)
+
+[node name="TextTree" parent="Objects/TutorialSign2" instance=ExtResource("21_thdh3")]
+
+[node name="StandardTextBox" parent="Objects/TutorialSign2/TextTree" instance=ExtResource("22_ntnjh")]
+text = "Hark, the terrible beaste will be stopped here! "
+
+[node name="StandardTextBox2" parent="Objects/TutorialSign2/TextTree" instance=ExtResource("22_ntnjh")]
+text = "Unless she learns to attack with X, these scare-drakes will subdue her!!"
+
+[node name="TutorialSign3" type="Area2D" parent="Objects"]
+position = Vector2(724, -68)
+collision_layer = 0
+collision_mask = 2
+
+[node name="FunnyFatEchoSign" type="Sprite2D" parent="Objects/TutorialSign3"]
+texture = ExtResource("19_jh0x4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TutorialSign3"]
+shape = SubResource("RectangleShape2D_vpdx1")
+
+[node name="NpcArrow" parent="Objects/TutorialSign3" instance=ExtResource("20_owf3o")]
+position = Vector2(0, -12)
+
+[node name="TextTree" parent="Objects/TutorialSign3" instance=ExtResource("21_thdh3")]
+
+[node name="StandardTextBox" parent="Objects/TutorialSign3/TextTree" instance=ExtResource("22_ntnjh")]
+text = "Alas, not even a poor sense of direction can stop a beaste so foul!"
+
+[node name="StandardTextBox2" parent="Objects/TutorialSign3/TextTree" instance=ExtResource("22_ntnjh")]
+text = "By pressing Esc, she has a map! She can go anywhere!!"
+
 [node name="StageTransitions" type="Node2D" parent="."]
 
 [node name="Sporeways" parent="StageTransitions" instance=ExtResource("11_o5s5e")]
@@ -254,3 +327,12 @@ song_stream = ExtResource("15_bdyx1")
 [connection signal="activate" from="Objects/Switch2" to="Objects/Door2" method="open"]
 [connection signal="activate" from="Objects/Switch3" to="Objects/Door3" method="open"]
 [connection signal="activate" from="Objects/Switch4" to="Objects/Door4" method="open"]
+[connection signal="activated" from="Objects/TutorialSign/NpcArrow" to="Objects/TutorialSign/NpcArrow" method="generic_pause"]
+[connection signal="activated" from="Objects/TutorialSign/NpcArrow" to="Objects/TutorialSign/TextTree" method="render"]
+[connection signal="next" from="Objects/TutorialSign/TextTree" to="Objects/TutorialSign/NpcArrow" method="generic_unpause"]
+[connection signal="activated" from="Objects/TutorialSign2/NpcArrow" to="Objects/TutorialSign2/NpcArrow" method="generic_pause"]
+[connection signal="activated" from="Objects/TutorialSign2/NpcArrow" to="Objects/TutorialSign2/TextTree" method="render"]
+[connection signal="next" from="Objects/TutorialSign2/TextTree" to="Objects/TutorialSign2/NpcArrow" method="generic_unpause"]
+[connection signal="activated" from="Objects/TutorialSign3/NpcArrow" to="Objects/TutorialSign3/NpcArrow" method="generic_pause"]
+[connection signal="activated" from="Objects/TutorialSign3/NpcArrow" to="Objects/TutorialSign3/TextTree" method="render"]
+[connection signal="next" from="Objects/TutorialSign3/TextTree" to="Objects/TutorialSign3/NpcArrow" method="generic_unpause"]

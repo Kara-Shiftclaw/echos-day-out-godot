@@ -24,7 +24,7 @@ theme = ExtResource("1_en44j")
 script = ExtResource("2_ttxs1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(90, 69)
+position = Vector2(88, 69)
 texture = ExtResource("1_hhk6g")
 hframes = 6
 

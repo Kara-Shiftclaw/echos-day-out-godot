@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://dpdcai43puqjs"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://dpdcai43puqjs"]
 
 [ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="1_wl1kw"]
 [ext_resource type="FontFile" uid="uid://cmkht6tasgxqo" path="res://assets/gfx/font_5x5.png" id="3_lu33j"]
@@ -55,6 +55,14 @@ region = Rect2(14, 5, 7, 6)
 atlas = ExtResource("1_wl1kw")
 region = Rect2(7, 5, 7, 6)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_llqld"]
+texture = ExtResource("1_wl1kw")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(10, 0, 5, 5)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wms38"]
 texture = ExtResource("1_wl1kw")
 texture_margin_left = 2.0
@@ -110,12 +118,15 @@ CheckBox/icons/radio_unchecked_disabled = SubResource("AtlasTexture_lu33j")
 CheckBox/icons/unchecked = SubResource("AtlasTexture_lu33j")
 CheckBox/icons/unchecked_disabled = SubResource("AtlasTexture_lu33j")
 Panel/styles/panel = SubResource("StyleBoxTexture_wl1kw")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_wl1kw")
 TabContainer/colors/font_unselected_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+TabContainer/constants/icon_max_width = 8
+TabContainer/constants/icon_separation = 0
 TabContainer/constants/side_margin = 0
 TabContainer/fonts/font = ExtResource("3_lu33j")
 TabContainer/styles/panel = SubResource("StyleBoxTexture_wl1kw")
 TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_e8htd")
-TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_lu33j")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_llqld")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_x2pqw")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_wycmq")
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_wms38")

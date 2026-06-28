@@ -45,6 +45,7 @@ version_control/autoload_on_startup=true
 Bees="Bees that care about Echo being honey'd"
 Honey=""
 RookSummon=""
+IconTabs="Icon tabs (shown as toggle buttons)"
 
 [input]
 

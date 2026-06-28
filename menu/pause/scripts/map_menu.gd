@@ -29,8 +29,8 @@ func _input(event: InputEvent) -> void:
 				event.is_action("ui_right") or event.is_action("ui_down")):
 			get_viewport().set_input_as_handled()
 		if event.is_action_pressed("ui_cancel"):
-			print("Grabbing top focus")
-			find_valid_focus_neighbor(SIDE_TOP).call_deferred("grab_focus")
+			print("Grabbing selected icon tab")
+			IconTab.get_current().call_deferred("grab_focus")
 
 func populate_dest_maps() -> void:
 	var cur_stage := get_tree().current_scene.name

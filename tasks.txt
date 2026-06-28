@@ -11,7 +11,6 @@ Fix Corvid Rook Name
 Quitting to menu from pause screen
 Options on pause screen
 Add disable upgrade to debug menu
-Use icons for pause screen tabs
 Geckitos: Fix animation if killed midair
 Geckitos: Fix death race condition
 Geckordos: Fire pillars disappear on screen transition
