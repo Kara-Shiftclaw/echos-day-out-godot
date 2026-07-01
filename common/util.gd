@@ -21,6 +21,20 @@ static func chunk_of(global_position: Vector2) -> Vector2i:
 static func other_is_right(this: Node2D, other: Node2D) -> bool:
 	return other.global_position.x > this.global_position.x
 
+static func serialize(obj: Object) -> Dictionary[String, Variant]:
+	var ser: Dictionary[String, Variant] = {}
+	for property in obj.get_property_list():
+		if property["usage"] & PROPERTY_USAGE_SCRIPT_VARIABLE != 0:
+			var property_name: String = property["name"]
+			ser[property_name] = obj.get(property_name)
+	return ser
+
+static func deserialize(dict: Dictionary, empty_obj: Object) -> void:
+	for property in empty_obj.get_property_list():
+		var property_name: String = property["name"]
+		if dict.has(property_name):
+			empty_obj.set(property_name, dict.get(property_name))
+
 static func calculate_quadratic_jump(x_offset: float, max_height: float, duration_to_even: float) -> QuadraticJump:
 	var x_velocity := x_offset / duration_to_even
 	# y = vt - gt^2

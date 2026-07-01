@@ -30,12 +30,12 @@ static func load_options() -> void:
 		AudioServer.set_bus_volume_linear(0, options["master_vol"])
 		AudioServer.set_bus_volume_linear(1, options["music_vol"])
 		AudioServer.set_bus_volume_linear(2, options["sfx_vol"])
-		Accessibility.fireball = options["accessibility_fireball"]
-		Accessibility.double_jump = options["accessibility_double_jump"]
-		Accessibility.sprint = options["accessibility_sprint"]
-		Accessibility.crush = options["accessibility_crush"]
-		Accessibility.max_hp_offset = options["accessibility_max_hp_offset"] as int
-		Accessibility.is_smol = options.get("accessibility_is_smol", false)
+		#Accessibility.fireball = options["accessibility_fireball"]
+		#Accessibility.double_jump = options["accessibility_double_jump"]
+		#Accessibility.sprint = options["accessibility_sprint"]
+		#Accessibility.crush = options["accessibility_crush"]
+		#Accessibility.max_hp_offset = options["accessibility_max_hp_offset"] as int
+		#Accessibility.is_smol = options.get("accessibility_is_smol", false)
 	else:
 		print("No options file to load")
 
@@ -44,12 +44,6 @@ static func save() -> void:
 		master_vol = AudioServer.get_bus_volume_linear(0),
 		music_vol = AudioServer.get_bus_volume_linear(1),
 		sfx_vol = AudioServer.get_bus_volume_linear(2),
-		accessibility_fireball = Accessibility.fireball,
-		accessibility_double_jump = Accessibility.double_jump,
-		accessibility_sprint = Accessibility.sprint,
-		accessibility_crush = Accessibility.crush,
-		accessibility_max_hp_offset = Accessibility.max_hp_offset,
-		accessibility_is_smol = Accessibility.is_smol,
 	}
 	var save_file := FileAccess.open(OPTIONS_FILE, FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(options_dict))

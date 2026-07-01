@@ -116,7 +116,8 @@ func save_data(save_point: Node) -> void:
 		"is_smol": _smol,
 		"main_completion": calculate_main_completion(),
 		"completion": calculate_completion(),
-		"version": 2
+		"augments": Util.serialize(Accessibility),
+		"version": 2,
 	}
 	var save_file := FileAccess.open(save_path(save_id), FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(save_dict, "\t"))
@@ -179,6 +180,7 @@ func load_data(load_id: int) -> void:
 	if load_json.has("journal_entries"):
 		journal_entries = load_json["journal_entries"]
 	portals = load_json.get("portals", {})
+	Util.deserialize(load_json.get("augments", {}), Accessibility)
 	
 	explored_spaces = {}
 	var load_explored_spaces: Dictionary = load_json.get("explored_spaces", {})
