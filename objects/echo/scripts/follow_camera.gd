@@ -26,6 +26,7 @@ func recalculate_chunk() -> void:
 	if new_chunk != chunk:
 		var stage_transition: StageTransition = stage_transition_spaces.get(new_chunk)
 		if stage_transition != null and stage_transition.enabled:
+			Global.can_pause = false
 			Global.add_explored_space(new_chunk.x, new_chunk.y)
 			var transition_other_side := Vector2(new_chunk - chunk) * (Util.ROOM_SIZE + 1.)
 			var new_world_offset := Global.echo.global_position + transition_other_side - stage_transition.global_position
@@ -37,6 +38,7 @@ func recalculate_chunk() -> void:
 			add_child(transition)
 			transition.halfway.connect(func():
 				Global.load_new_stage(stage_transition.other_stage, new_world_offset, transition_chunk_offset, other_transition_path, jumping_up)
+				Global.can_pause = true
 			)
 		else:
 			chunk = new_chunk

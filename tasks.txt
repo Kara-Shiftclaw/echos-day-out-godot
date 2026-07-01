@@ -7,7 +7,6 @@ Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
 Title theme
 
 ---- Tech Debt & Enhancements ----
-Fix game pausing on screen transition
 Affamae: More food dialogue
 Sonia boss dialogue: Didn'y
 Reload music on death respawn stage transition
