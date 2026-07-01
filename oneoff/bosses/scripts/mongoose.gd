@@ -136,8 +136,9 @@ func jump_land() -> void:
 
 func spawn_flame_pillar(pillar_global_pos: Vector2) -> void:
 	var flame_pillar: Node2D = FlamePillar.instantiate()
-	get_parent().add_child(flame_pillar)
+	flame_pillar.creator_chunk = $EnemyManager.chunk
 	flame_pillar.global_position = pillar_global_pos
+	get_parent().add_child(flame_pillar)
 
 func throw_crown() -> void:
 	crown = Crown.instantiate()

@@ -23,7 +23,12 @@ const NOTICE_RANGE := 48.
 		facing_right = value
 		if is_node_ready():
 			sync_facing_right()
-@export var state := State.WallCling
+@export var state := State.WallCling:
+	set(value):
+		if !(state == State.Dead and value != State.WallCling):
+			state = value
+		else:
+			print("State change blocked!")
 
 func _ready() -> void:
 	sync_facing_right()
@@ -59,7 +64,8 @@ func _physics_process(delta: float) -> void:
 		if Util.off_edge_in_direction(facing_right, $Left, $Right):
 			velocity.x = 0
 	elif state == State.Dead:
-		velocity = Vector2.ZERO
+		velocity.x = 0.
+		velocity.y += GRAVITY * delta
 	
 	move_and_slide()
 
@@ -81,5 +87,6 @@ func sync_facing_right() -> void:
 
 func spawn_flame_pillar(pillar_global_pos: Vector2):
 	var flame_pillar: Node2D = FlamePillar.instantiate()
-	get_parent().add_child(flame_pillar)
+	flame_pillar.creator_chunk = $EnemyManager.chunk
 	flame_pillar.global_position = pillar_global_pos
+	get_parent().add_child(flame_pillar)

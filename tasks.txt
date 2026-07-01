@@ -7,10 +7,6 @@ Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
 Title theme
 
 ---- Tech Debt & Enhancements ----
-Fix Corvid Rook Name
-Geckitos: Fix animation if killed midair
-Geckitos: Fix death race condition
-Geckordos: Fire pillars disappear on screen transition
 Fix game pausing on screen transition
 Affamae: More food dialogue
 Sonia boss dialogue: Didn'y

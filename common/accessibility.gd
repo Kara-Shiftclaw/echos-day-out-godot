@@ -12,3 +12,4 @@ enum AbilityUsage {
 @export_custom(PROPERTY_USAGE_NO_EDITOR, "") var crush := AbilityUsage.Default
 @export_custom(PROPERTY_USAGE_NO_EDITOR, "") var max_hp_offset := 0
 @export_custom(PROPERTY_USAGE_NO_EDITOR, "") var is_smol := false
+@export_custom(PROPERTY_USAGE_NO_EDITOR, "") var debug_powers := false

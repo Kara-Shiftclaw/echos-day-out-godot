@@ -109,5 +109,6 @@ func spawn_flame_pillar():
 	if $BelowEcho.is_colliding():
 		var pillar_global_pos: Vector2 = $BelowEcho.get_collision_point()
 		var flame_pillar: Node2D = FlamePillar.instantiate()
-		get_parent().add_child(flame_pillar)
+		flame_pillar.creator_chunk = $EnemyManager.chunk
 		flame_pillar.global_position = pillar_global_pos
+		get_parent().add_child(flame_pillar)

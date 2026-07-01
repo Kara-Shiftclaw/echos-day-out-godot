@@ -51,6 +51,10 @@ func should_be_player() -> bool:
 
 
 func _physics_process(delta: float) -> void:
+	if noclipping:
+		process_noclip(delta)
+		return
+
 	if can_move:
 		if Input.is_action_just_pressed("attack") and can_attack and $AttackCooldownTimer.is_stopped():
 			attack()

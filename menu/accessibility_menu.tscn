@@ -119,5 +119,10 @@ max_value = 15.0
 layout_mode = 2
 text = "Become Smol"
 
+[node name="DebugPowers" type="CheckBox" parent="ACC/VBoxContainer"]
+layout_mode = 2
+text = "Debug Powers"
+
 [connection signal="value_changed" from="ACC/VBoxContainer/MaxHealth/HSlider" to="." method="max_hp_offset_changed"]
 [connection signal="pressed" from="ACC/VBoxContainer/Smol" to="." method="smol_pressed"]
+[connection signal="pressed" from="ACC/VBoxContainer/DebugPowers" to="." method="debug_powers_pressed"]

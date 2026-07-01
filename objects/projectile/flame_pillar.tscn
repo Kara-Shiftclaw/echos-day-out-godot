@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4ey63aens0je"]
+[gd_scene load_steps=10 format=3 uid="uid://b4ey63aens0je"]
 
+[ext_resource type="Script" uid="uid://c0jm6gjxvfwy1" path="res://objects/projectile/flame_pillar.gd" id="1_6xuck"]
 [ext_resource type="Texture2D" uid="uid://v2rewodvrl2t" path="res://assets/gfx/flame_pillar.png" id="1_phuf8"]
 [ext_resource type="PackedScene" uid="uid://bnxdma4shea4x" path="res://common/damage.tscn" id="2_bpu2q"]
 [ext_resource type="AudioStream" uid="uid://cf18l2yng5eu2" path="res://assets/sfx/fireball_hit.mp3" id="3_yu61a"]
@@ -159,6 +160,7 @@ _data = {
 [node name="FlamePillar" type="Area2D"]
 collision_layer = 4
 collision_mask = 0
+script = ExtResource("1_6xuck")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 5

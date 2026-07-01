@@ -60,7 +60,7 @@ func get_entry_name(entry: Entry) -> String:
 		Entry.crow:
 			return "Corvid Pawn"
 		Entry.corvid_rook:
-			return "Corvid Pawn"
+			return "Corvid Rook"
 		Entry.fatbat:
 			return "Fat Bat"
 		Entry.spike_hedgehog:

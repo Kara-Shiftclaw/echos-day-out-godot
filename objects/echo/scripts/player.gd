@@ -11,6 +11,7 @@ var can_double_jump := false
 var on_floor := true
 var in_airstream := false
 var is_double_jumping := false
+var noclipping := false
 @export var anim_priority := 0
 @export var speed_scale := 1.
 
@@ -34,6 +35,12 @@ func _ready() -> void:
 		process_mode = Node.PROCESS_MODE_DISABLED
 		global_position = Vector2.INF
 
+func _input(event: InputEvent) -> void:
+	if event.is_action("debug_noclip") and Accessibility.debug_powers:
+		noclipping = true
+		play_anim("noclip", 999)
+		get_viewport().set_input_as_handled()
+
 func calculate_x_movement(delta: float) -> void:
 	var desired_vel := get_desired_speed() * speed_scale * Input.get_axis("ui_left", "ui_right")
 	var acceleration := get_acceleration() / (2. if is_sprinting else 1.)
@@ -50,6 +57,16 @@ func calculate_x_movement(delta: float) -> void:
 	else:
 		is_sprinting = false
 		play_anim("idle")
+
+func process_noclip(delta: float) -> void:
+	var move_input := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	position += move_input * delta * Echo.NOCLIP_SPEED
+	
+	if Input.is_action_just_pressed("jump"):
+		noclipping = false
+		anim_priority = 0
+		velocity.y = Echo.STAGE_HAZARD_BOUNCE
+		play_anim("stop_noclip")
 
 func process_on_floor() -> void:
 	if !on_floor:

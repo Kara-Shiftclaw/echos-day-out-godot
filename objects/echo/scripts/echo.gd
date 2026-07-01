@@ -68,6 +68,7 @@ const EXPLODE_FALL_SPEED := 48. * 8.
 const DOUBLE_JUMP_HEIGHT := 2. * 8.
 const NEW_STAGE_JUMP_HEIGHT := 3.5 * 8.
 const CRUSH_DOWN_VELOCITY := 1.5 * MAX_GRAVITY
+const NOCLIP_SPEED := 18. * 8.
 
 const SWORD_BLADE_FLAG := "has_sword_blade"
 const SWORD_HILT_FLAG := "has_sword_hilt"
@@ -95,6 +96,10 @@ func _process(_delta: float) -> void:
 			begin_attack()
 
 func _physics_process(delta: float) -> void:
+	if noclipping:
+		process_noclip(delta)
+		return
+	
 	if can_move:
 		if !$DashTimer.is_stopped():
 			velocity = Vector2(DASH_SPEED * Util.sign(facing_right), 0.)
