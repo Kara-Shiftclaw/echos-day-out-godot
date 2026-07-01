@@ -32,13 +32,25 @@ func _ready() -> void:
 		maybe_disable($MajorUpgrades/Sprint, Global.has_sprint)
 		maybe_disable($MajorUpgrades/Crush, Global.has_crush)
 	
-	$OtherStatuses/FoodIndicator/Label.text = FOOD_FORMAT.format([Global.flags.get("food_on_hand", 0) as int, Global.flags.get("food_collected", 0) as int])
-	$OtherStatuses/HealthUpIndicator/Label.text = HEALTH_UP_FORMAT.format([Global.flags.get("health_up_collected", 0) as int])
-	$OtherStatuses/PortalCoreIndicator/Label.text = PORTAL_CORE_FORMAT.format([Global.flags.get("core_on_hand", 0) as int, Global.flags.get("core_collected", 0) as int])
+	#$OtherStatuses/FoodIndicator/Label.text = FOOD_FORMAT.format([Global.flags.get("food_on_hand", 0) as int, Global.flags.get("food_collected", 0) as int])
+	#$OtherStatuses/HealthUpIndicator/Label.text = HEALTH_UP_FORMAT.format([Global.flags.get("health_up_collected", 0) as int])
+	#$OtherStatuses/PortalCoreIndicator/Label.text = PORTAL_CORE_FORMAT.format([Global.flags.get("core_on_hand", 0) as int, Global.flags.get("core_collected", 0) as int])
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		$MajorUpgrades/Fireball.find_valid_focus_neighbor(SIDE_TOP).call_deferred("grab_focus")
+
+func set_description(upgrade: Button) -> void:
+	if upgrade.disabled:
+		$OtherStatuses/Description.text = "UPGRADE NOT FOUND"
+		$OtherStatuses/FlavorText.text = ""
+	elif Global.is_smol:
+		$OtherStatuses/Description.text = upgrade.smol_description
+		$OtherStatuses/FlavorText.text = upgrade.smol_flavor
+	else:
+		$OtherStatuses/Description.text = upgrade.description
+		$OtherStatuses/FlavorText.text = upgrade.flavor
 
 static func maybe_disable(button: Button, has_ability: bool):
 	button.disabled = !has_ability

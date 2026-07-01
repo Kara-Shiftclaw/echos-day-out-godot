@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://csxqvil3k0xyk"]
+[gd_scene load_steps=23 format=3 uid="uid://csxqvil3k0xyk"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_tllbf"]
 [ext_resource type="Script" uid="uid://cooeuc455ic7s" path="res://menu/pause/scripts/pause_menu.gd" id="2_4u03m"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bd3ko61u51vnf" path="res://menu/icon_tab.tscn" id="4_xm4lc"]
 [ext_resource type="PackedScene" uid="uid://dsvmwudnsp4i1" path="res://menu/accessibility_menu.tscn" id="5_4u03m"]
 [ext_resource type="PackedScene" uid="uid://dj6gbqw7p5dh6" path="res://menu/pause/journal/journal_menu.tscn" id="5_04uu7"]
+[ext_resource type="PackedScene" uid="uid://b82buxmt15ft" path="res://menu/pause/inventory_menu.tscn" id="10_h2e5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xm4lc"]
 atlas = ExtResource("3_f3dd2")
@@ -40,6 +41,14 @@ region = Rect2(1, 27, 8, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdavw"]
 atlas = ExtResource("3_f3dd2")
 region = Rect2(10, 27, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7bq1"]
+atlas = ExtResource("3_f3dd2")
+region = Rect2(46, 18, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6layx"]
+atlas = ExtResource("3_f3dd2")
+region = Rect2(46, 27, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ly6cb"]
 atlas = ExtResource("3_f3dd2")
@@ -83,6 +92,12 @@ icon = SubResource("AtlasTexture_rwt5x")
 selected_icon = SubResource("AtlasTexture_vdavw")
 show_when_selected = NodePath("../../PanelContainer/STAT")
 
+[node name="Inventory" parent="IconTabs" node_paths=PackedStringArray("show_when_selected") instance=ExtResource("4_xm4lc")]
+layout_mode = 2
+icon = SubResource("AtlasTexture_q7bq1")
+selected_icon = SubResource("AtlasTexture_6layx")
+show_when_selected = NodePath("../../PanelContainer/INV")
+
 [node name="Journal" parent="IconTabs" node_paths=PackedStringArray("show_when_selected") instance=ExtResource("4_xm4lc")]
 layout_mode = 2
 icon = SubResource("AtlasTexture_h2e5x")
@@ -104,6 +119,10 @@ visible = false
 layout_mode = 2
 
 [node name="STAT" parent="PanelContainer" instance=ExtResource("2_sbl3r")]
+visible = false
+layout_mode = 2
+
+[node name="INV" parent="PanelContainer" instance=ExtResource("10_h2e5x")]
 visible = false
 layout_mode = 2
 

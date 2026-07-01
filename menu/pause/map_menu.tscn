@@ -497,7 +497,7 @@ region_enabled = true
 region_rect = Rect2(0, 8, 8, 8)
 script = ExtResource("4_cwggy")
 area = "CreakingDepths"
-modify_flag = "res://stages/creaking_cavern.tscn|/root/CreakingDepths/Objects/Food|collected"
+modify_flag = "res://stages/creaking_depths.tscn|/root/CreakingDepths/Objects/Food|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
 [node name="FoodHint5" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
@@ -552,7 +552,7 @@ region_enabled = true
 region_rect = Rect2(0, 8, 8, 8)
 script = ExtResource("4_cwggy")
 area = "HeftwindHills"
-modify_flag = "res://stages/heftwind_hills.tscn|/root/HeftwindHills/Objects/HealthUp|collected"
+modify_flag = "res://stages/heftwind_hills.tscn|/root/HeftwindHills/HealthUp|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
 [node name="HealthUpHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
@@ -574,7 +574,7 @@ region_enabled = true
 region_rect = Rect2(0, 8, 8, 8)
 script = ExtResource("4_cwggy")
 area = "CreakingDepths"
-modify_flag = "res://stages/creaking_cavern.tscn|/root/CreakingDepths/Objects/HealthUp|collected"
+modify_flag = "res://stages/creaking_depths.tscn|/root/CreakingDepths/Objects/HealthUp|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
 [node name="HealthUpHint4" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
@@ -600,14 +600,14 @@ modify_flag = "res://stages/echo_peak.tscn|/root/EchoPeak/Objects/HealthUp|colle
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
 [node name="HealthUpHint6" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
-position = Vector2(144, 112)
+position = Vector2(32, 80)
 texture = ExtResource("3_4a1w4")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 8, 8, 8)
 script = ExtResource("4_cwggy")
 area = "Crater"
-modify_flag = "res://stages/crater.tscn|/root/Crater/Objects/HealthUp|collected"
+modify_flag = "res://stages/verdant_cavern.tscn|/root/VerdantCavern/Objects/HealthUp|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
 [node name="PortalCoreHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
@@ -622,14 +622,14 @@ modify_flag = "res://stages/heftwind_hills.tscn|/root/HeftwindHills/Objects/Port
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
 [node name="PortalCoreHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
-position = Vector2(32, 80)
+position = Vector2(144, 112)
 texture = ExtResource("3_4a1w4")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 8, 8, 8)
 script = ExtResource("4_cwggy")
 area = "VerdantCavern"
-modify_flag = "res://stages/verdant_cavern.tscn|/root/VerdantCavern/Objects/PortalCore|collected"
+modify_flag = "res://stages/crater.tscn|/root/Crater/Objects/PortalCore|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
 [node name="PortalCoreHint3" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]

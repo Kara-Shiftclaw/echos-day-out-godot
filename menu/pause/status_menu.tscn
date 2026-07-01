@@ -1,15 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://f3mqixlhlmu"]
+[gd_scene load_steps=5 format=3 uid="uid://f3mqixlhlmu"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_en44j"]
 [ext_resource type="Texture2D" uid="uid://bnopsqhhksiom" path="res://assets/gfx/status_echo.png" id="1_hhk6g"]
 [ext_resource type="Script" uid="uid://c4xgxi3dcnpwi" path="res://menu/pause/scripts/status_menu.gd" id="2_ttxs1"]
-[ext_resource type="Texture2D" uid="uid://tfdkke2abk2f" path="res://assets/gfx/food.png" id="3_1jnkh"]
-[ext_resource type="Texture2D" uid="uid://bh0u7ex3ntotl" path="res://assets/gfx/health_up.png" id="4_ttxs1"]
-[ext_resource type="Texture2D" uid="uid://cga0ji5tfqyef" path="res://assets/gfx/portal_core.png" id="6_qrh0c"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qrh0c"]
-atlas = ExtResource("4_ttxs1")
-region = Rect2(0, 0, 10, 0)
+[ext_resource type="Script" uid="uid://ckujnbg58y1su" path="res://menu/pause/scripts/status_description.gd" id="4_1jnkh"]
 
 [node name="StatusMenu" type="Control"]
 layout_mode = 3
@@ -24,6 +18,7 @@ theme = ExtResource("1_en44j")
 script = ExtResource("2_ttxs1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(88, 69)
 texture = ExtResource("1_hhk6g")
 hframes = 6
@@ -39,26 +34,60 @@ theme_override_constants/separation = 0
 [node name="Fireball" type="Button" parent="MajorUpgrades"]
 layout_mode = 2
 text = "FIREBALL"
+script = ExtResource("4_1jnkh")
+description = "FIREBALL
+Press X in midair to fire!"
+flavor = "Flavor:Melted Ice Cream"
+smol_description = "BONK
+Press X for midair dash!"
+smol_flavor = "Flavor: Concussion"
 
 [node name="DoubleJump" type="Button" parent="MajorUpgrades"]
 layout_mode = 2
 text = "DOUBLE JUMP"
+script = ExtResource("4_1jnkh")
+description = "DOUBLE JUMP
+Jump again in midair w/ Z!"
+flavor = "Flavor:Wrong
+Minerals"
+smol_description = "HIGH JUMP
+Jump really high!"
+smol_flavor = "Flavor:Fresh
+air"
 
 [node name="Sprint" type="Button" parent="MajorUpgrades"]
 layout_mode = 2
 text = "SPRINT"
+script = ExtResource("4_1jnkh")
+description = "SPRINT
+Hold Shift to move faster!"
+flavor = "Flavor:
+Snowman Guts"
+smol_description = "SPRINT
+Still hold Shift to run!"
+smol_flavor = "Flavor:
+Dehydration"
 
 [node name="Crush" type="Button" parent="MajorUpgrades"]
 layout_mode = 2
 text = "CRUSH"
+script = ExtResource("4_1jnkh")
+description = "CRUSH
+Press Down to
+slam ground!"
+flavor = "Flavor:Honey and Cheese"
+smol_description = "SQUEEZE
+Fit in small gaps!"
+smol_flavor = "Flavor:Haha small"
 
 [node name="OtherStatuses" type="VBoxContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 offset_left = 2.0
 offset_top = 37.0
 offset_right = 70.0
 offset_bottom = 101.0
-theme_override_constants/separation = 2
+theme_override_constants/separation = 5
 
 [node name="Weight" type="Label" parent="OtherStatuses"]
 layout_mode = 2
@@ -66,38 +95,20 @@ theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "Weight:
 Thin"
 
-[node name="FoodIndicator" type="HBoxContainer" parent="OtherStatuses"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="OtherStatuses/FoodIndicator"]
-layout_mode = 2
-texture = ExtResource("3_1jnkh")
-
-[node name="Label" type="Label" parent="OtherStatuses/FoodIndicator"]
+[node name="Description" type="Label" parent="OtherStatuses"]
+custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
-text = "0 (0/8)"
+text = "SELECT AN ABILITY"
+autowrap_mode = 2
 
-[node name="HealthUpIndicator" type="HBoxContainer" parent="OtherStatuses"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="OtherStatuses/HealthUpIndicator"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_qrh0c")
-
-[node name="Label" type="Label" parent="OtherStatuses/HealthUpIndicator"]
+[node name="FlavorText" type="Label" parent="OtherStatuses"]
+custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
-text = "0/6"
+autowrap_mode = 2
 
-[node name="PortalCoreIndicator" type="HBoxContainer" parent="OtherStatuses"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="OtherStatuses/PortalCoreIndicator"]
-layout_mode = 2
-texture = ExtResource("6_qrh0c")
-
-[node name="Label" type="Label" parent="OtherStatuses/PortalCoreIndicator"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
-text = "0 (0/6)"
+[connection signal="focus_entered" from="MajorUpgrades/Fireball" to="." method="set_description" flags=18]
+[connection signal="focus_entered" from="MajorUpgrades/DoubleJump" to="." method="set_description" flags=18]
+[connection signal="focus_entered" from="MajorUpgrades/Sprint" to="." method="set_description" flags=18]
+[connection signal="focus_entered" from="MajorUpgrades/Crush" to="." method="set_description" flags=18]
