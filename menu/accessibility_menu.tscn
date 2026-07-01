@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsvmwudnsp4i1"]
+[gd_scene load_steps=4 format=3 uid="uid://dsvmwudnsp4i1"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_om6o4"]
 [ext_resource type="Script" uid="uid://b7kuffkgvhs27" path="res://menu/scripts/accessibility_menu.gd" id="2_bf0ra"]
+[ext_resource type="PackedScene" uid="uid://8fy5ki5h86ek" path="res://menu/pause/augment_ability_select.tscn" id="3_bf0ra"]
 
 [node name="Accessibility" type="Control"]
 layout_mode = 3
@@ -28,10 +29,8 @@ metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ACC"]
 layout_mode = 2
-focus_neighbor_top = NodePath("Crush")
 focus_neighbor_bottom = NodePath("Fireball")
 focus_next = NodePath("Fireball")
-focus_previous = NodePath("Crush")
 theme_override_constants/separation = 1
 
 [node name="Label" type="Label" parent="ACC/VBoxContainer"]
@@ -40,33 +39,61 @@ theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "Augments"
 horizontal_alignment = 1
 
-[node name="Fireball" type="CheckBox" parent="ACC/VBoxContainer"]
+[node name="Fireball" type="HSplitContainer" parent="ACC/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../DoubleJump")
-focus_next = NodePath("../DoubleJump")
-text = "Force Fireball"
+dragging_enabled = false
 
-[node name="DoubleJump" type="CheckBox" parent="ACC/VBoxContainer"]
+[node name="Label" type="Label" parent="ACC/VBoxContainer/Fireball"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Fireball")
-focus_neighbor_bottom = NodePath("../Sprint")
-focus_next = NodePath("../Sprint")
-focus_previous = NodePath("../Fireball")
-text = "Force Double Jump"
+theme_type_variation = &"DarkLabel"
+text = "Fireball"
 
-[node name="Sprint" type="CheckBox" parent="ACC/VBoxContainer"]
+[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Fireball" instance=ExtResource("3_bf0ra")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../DoubleJump")
-focus_neighbor_bottom = NodePath("../Crush")
-focus_next = NodePath("../Crush")
-focus_previous = NodePath("../DoubleJump")
-text = "Force Sprint"
+size_flags_horizontal = 8
+ability_path = "fireball"
 
-[node name="Crush" type="CheckBox" parent="ACC/VBoxContainer"]
+[node name="DoubleJump" type="HSplitContainer" parent="ACC/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Sprint")
-focus_previous = NodePath("../Sprint")
-text = "Force Crush"
+dragging_enabled = false
+
+[node name="Label" type="Label" parent="ACC/VBoxContainer/DoubleJump"]
+layout_mode = 2
+theme_type_variation = &"DarkLabel"
+text = "Double Jump"
+
+[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/DoubleJump" instance=ExtResource("3_bf0ra")]
+layout_mode = 2
+size_flags_horizontal = 8
+ability_path = "double_jump"
+
+[node name="Sprint" type="HSplitContainer" parent="ACC/VBoxContainer"]
+layout_mode = 2
+dragging_enabled = false
+
+[node name="Label" type="Label" parent="ACC/VBoxContainer/Sprint"]
+layout_mode = 2
+theme_type_variation = &"DarkLabel"
+text = "Sprint"
+
+[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Sprint" instance=ExtResource("3_bf0ra")]
+layout_mode = 2
+size_flags_horizontal = 8
+ability_path = "sprint"
+
+[node name="Crush" type="HSplitContainer" parent="ACC/VBoxContainer"]
+layout_mode = 2
+dragging_enabled = false
+
+[node name="Label" type="Label" parent="ACC/VBoxContainer/Crush"]
+layout_mode = 2
+theme_type_variation = &"DarkLabel"
+text = "Crush"
+
+[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Crush" instance=ExtResource("3_bf0ra")]
+layout_mode = 2
+size_flags_horizontal = 8
+ability_path = "crush"
 
 [node name="MaxHealthDesc" type="Label" parent="ACC/VBoxContainer"]
 layout_mode = 2
@@ -92,9 +119,5 @@ max_value = 15.0
 layout_mode = 2
 text = "Become Smol"
 
-[connection signal="pressed" from="ACC/VBoxContainer/Fireball" to="." method="fireball_pressed"]
-[connection signal="pressed" from="ACC/VBoxContainer/DoubleJump" to="." method="double_jump_pressed"]
-[connection signal="pressed" from="ACC/VBoxContainer/Sprint" to="." method="sprint_pressed"]
-[connection signal="pressed" from="ACC/VBoxContainer/Crush" to="." method="crush_pressed"]
 [connection signal="value_changed" from="ACC/VBoxContainer/MaxHealth/HSlider" to="." method="max_hp_offset_changed"]
 [connection signal="pressed" from="ACC/VBoxContainer/Smol" to="." method="smol_pressed"]

@@ -1,10 +1,6 @@
 extends Control
 
 func _ready() -> void:
-	$ACC/VBoxContainer/Fireball.button_pressed = Accessibility.fireball
-	$ACC/VBoxContainer/DoubleJump.button_pressed = Accessibility.double_jump
-	$ACC/VBoxContainer/Sprint.button_pressed = Accessibility.sprint
-	$ACC/VBoxContainer/Crush.button_pressed = Accessibility.crush
 	$ACC/VBoxContainer/MaxHealth/HSlider.value = Accessibility.max_hp_offset
 	$ACC/VBoxContainer/Smol.button_pressed = Accessibility.is_smol
 	set_max_hp_label(Accessibility.max_hp_offset)

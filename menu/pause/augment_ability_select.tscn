@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://8fy5ki5h86ek"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_ax7we"]
+[ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_8hmjy"]
+[ext_resource type="Script" uid="uid://wd7cy5a7oq73" path="res://menu/pause/scripts/augment_ability_select.gd" id="2_hhnb2"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_8hmjy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhnb2"]
+atlas = ExtResource("2_8hmjy")
+region = Rect2(20, 36, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk0c7"]
+atlas = ExtResource("2_8hmjy")
+region = Rect2(26, 37, 3, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aimi"]
+atlas = ExtResource("2_8hmjy")
+region = Rect2(30, 36, 5, 5)
+
+[node name="AugmentAbilitySelect" type="HBoxContainer"]
+offset_right = 29.0
+offset_bottom = 9.0
+theme = ExtResource("1_ax7we")
+theme_override_constants/separation = 1
+script = ExtResource("2_hhnb2")
+
+[node name="Grant" type="Button" parent="."]
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_8hmjy")
+icon = SubResource("AtlasTexture_hhnb2")
+
+[node name="Default" type="Button" parent="."]
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_8hmjy")
+icon = SubResource("AtlasTexture_mk0c7")
+icon_alignment = 1
+
+[node name="Revoke" type="Button" parent="."]
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_8hmjy")
+icon = SubResource("AtlasTexture_4aimi")
+
+[connection signal="pressed" from="Grant" to="." method="on_grant"]
+[connection signal="pressed" from="Default" to="." method="on_default"]
+[connection signal="pressed" from="Revoke" to="." method="on_revoke"]

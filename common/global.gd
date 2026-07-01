@@ -41,22 +41,42 @@ var _crush := false
 var _smol := false
 var has_fireball:
 	get:
-		return _fireball or Accessibility.fireball
+		match Accessibility.fireball:
+			Accessibility.AbilityUsage.Grant:
+				return true
+			Accessibility.AbilityUsage.Revoke:
+				return false
+		return _fireball
 	set(value):
 		_fireball = value
 var has_double_jump := false:
 	get:
-		return _double_jump or Accessibility.double_jump
+		match Accessibility.double_jump:
+			Accessibility.AbilityUsage.Grant:
+				return true
+			Accessibility.AbilityUsage.Revoke:
+				return false
+		return _double_jump
 	set(value):
 		_double_jump = value
 var has_sprint:
 	get:
-		return _sprint or Accessibility.sprint
+		match Accessibility.sprint:
+			Accessibility.AbilityUsage.Grant:
+				return true
+			Accessibility.AbilityUsage.Revoke:
+				return false
+		return _sprint
 	set(value):
 		_sprint = value
 var has_crush:
 	get:
-		return _crush or Accessibility.crush
+		match Accessibility.crush:
+			Accessibility.AbilityUsage.Grant:
+				return true
+			Accessibility.AbilityUsage.Revoke:
+				return false
+		return _crush
 	set(value):
 		_crush = value
 var is_smol:

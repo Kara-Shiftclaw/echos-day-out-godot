@@ -8,7 +8,6 @@ Title theme
 
 ---- Tech Debt & Enhancements ----
 Fix Corvid Rook Name
-Add disable upgrade to debug menu
 Geckitos: Fix animation if killed midair
 Geckitos: Fix death race condition
 Geckordos: Fire pillars disappear on screen transition
