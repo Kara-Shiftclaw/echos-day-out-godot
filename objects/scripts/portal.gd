@@ -51,6 +51,7 @@ func open() -> void:
 	$AnimationPlayer.play("open")
 	Global.set_node_flag(self, "open")
 	Global.flags["core_on_hand"] -= 1
+	Global.flags[InventoryMenu.used_flag(InventoryMenu.get_unused_portal_core())] = true
 	Global.portals.set(portal_name, get_scene_data())
 
 func get_scene_data() -> Dictionary:

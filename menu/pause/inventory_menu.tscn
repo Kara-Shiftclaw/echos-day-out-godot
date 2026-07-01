@@ -6,6 +6,7 @@
 
 [node name="INV" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 offset_right = 108.0
 offset_bottom = 96.0
 theme = ExtResource("1_66sip")

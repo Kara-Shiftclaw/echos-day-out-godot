@@ -1,3 +1,4 @@
+class_name InventoryMenu
 extends Control
 
 const Metadata := preload("res://menu/pause/scripts/inventory_item.gd").Metadata
@@ -13,7 +14,7 @@ var used_portal_core := Metadata.new("", "Portal Core Scraps", "BROKEN_CORE", 19
 var mush_meal := Metadata.new("has_mush_meal", "Mush-Meal", "MUSH_MEAL", 11)
 var mush_in_meal := Metadata.new("", "Mush-Meal (Occupied)", "MUSH_IN_MEAL", 12)
 var max_pyrite := Metadata.new("", "Excessive Pyrite", "MAX_PYRITE", 14)
-var all_items_metadata: Array[Metadata] = [
+static var all_items_metadata: Array[Metadata] = [
 	Metadata.new("res://stages/heftwind_hills.tscn|/root/HeftwindHills/Objects/Food|collected", FOOD, "FOOD_1", 0),
 	Metadata.new("res://stages/verdant_cavern.tscn|/root/VerdantCavern/Objects/Food|collected", FOOD, "FOOD_3", 0),
 	Metadata.new("res://stages/creaking_depths.tscn|/root/CreakingDepths/Objects/Food|collected", FOOD, "FOOD_4", 0),
@@ -47,6 +48,8 @@ var all_items_metadata: Array[Metadata] = [
 	Metadata.new("has_injector", INJECTOR, "INJECTOR", 17),
 	Metadata.new("resize_injector", "Portal Injector XL", "INJECTOR_XL", 18),
 ]
+static var foods: Array[Metadata] = all_items_metadata.slice(0, 8)
+static var portal_cores: Array[Metadata] = all_items_metadata.slice(14, 20)
 var held_items: Array[Button] = []
 @export var descriptions: Translation
 
@@ -70,6 +73,11 @@ func maybe_add_item(metadata: Metadata) -> void:
 			add_item(max_pyrite)
 			return
 		if metadata.title == INJECTOR and Global.flags.get("resize_injector", false):
+			return
+		if metadata.title == FOOD and Global.flags.has(used_flag(metadata)):
+			metadata.frame = 1
+		elif metadata.title == PORTAL_CORE and Global.flags.has(used_flag(metadata)):
+			add_item(used_portal_core)
 			return
 
 		add_item(metadata)
@@ -99,3 +107,20 @@ func describe_item(metadata: Metadata) -> void:
 		$VBoxContainer/Description.text = descriptions.get_message(metadata.description_translation) % (Global.flags.get("pyrite", 0) as int)
 	else:
 		$VBoxContainer/Description.text = descriptions.get_message(metadata.description_translation)
+
+static func get_unused_food() -> Metadata:
+	return get_unused_item(foods)
+
+static func get_unused_portal_core() -> Metadata:
+	return get_unused_item(portal_cores)
+
+static func get_unused_item(item_set: Array[Metadata]) -> Metadata:
+	for item in item_set:
+		if !Global.flags.has(used_flag(item)):
+			var maybe_flag = Global.flags.get(item.flag)
+			if maybe_flag != null and (typeof(maybe_flag) != TYPE_BOOL or maybe_flag):
+				return item
+	return null
+
+static func used_flag(metadata: Metadata) -> String:
+	return metadata.description_translation + "_USED"

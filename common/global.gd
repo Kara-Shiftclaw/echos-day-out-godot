@@ -116,6 +116,7 @@ func save_data(save_point: Node) -> void:
 		"is_smol": _smol,
 		"main_completion": calculate_main_completion(),
 		"completion": calculate_completion(),
+		"version": 2
 	}
 	var save_file := FileAccess.open(save_path(save_id), FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(save_dict, "\t"))
@@ -189,6 +190,21 @@ func load_data(load_id: int) -> void:
 	
 	if flags.has(MONGOOSE_COMPLETED_FLAG):
 		_fireball = true
+	
+	if load_json.get("version", 0) < 2:
+		var food_deficit: int = Global.flags.get("food_collected", 0) - Global.flags.get("food_on_hand", 0)
+		print("Has a food deficit of ", food_deficit)
+		for i in range(0, food_deficit):
+			var food := InventoryMenu.get_unused_food()
+			if food != null:
+				Global.flags[InventoryMenu.used_flag(food)] = true
+		
+		var core_deficit: int = Global.flags.get("core_collected", 0) - Global.flags.get("core_on_hand", 0)
+		print("Has a core deficit of ", core_deficit)
+		for i in range(0, core_deficit):
+			var core := InventoryMenu.get_unused_portal_core()
+			if core != null:
+				Global.flags[InventoryMenu.used_flag(core)] = true
 	
 	get_tree().scene_changed.connect(func():
 		var save_point_path: String = load_json["save_point"]

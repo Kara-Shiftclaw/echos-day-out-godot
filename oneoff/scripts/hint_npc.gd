@@ -116,6 +116,7 @@ func inc_food() -> void:
 	var food_on_hand: int = Global.flags.get("food_on_hand", 0)
 	self.self_weight += 1
 	Global.flags["food_on_hand"] = food_on_hand - 1
+	Global.flags[InventoryMenu.used_flag(InventoryMenu.get_unused_food())] = true
 
 func text_play_anim(text: Node, anim_name: StringName, loops: int = 1) -> void:
 	$AnimationPlayer.play(anim_name)
