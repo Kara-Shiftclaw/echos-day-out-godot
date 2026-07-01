@@ -75,7 +75,9 @@ func maybe_add_item(metadata: Metadata) -> void:
 		if metadata.title == INJECTOR and Global.flags.get("resize_injector", false):
 			return
 		if metadata.title == FOOD and Global.flags.has(used_flag(metadata)):
-			metadata.frame = 1
+			var eaten_metadata := Metadata.new(metadata.flag, metadata.title, metadata.description_translation, 1)
+			add_item(eaten_metadata)
+			return
 		elif metadata.title == PORTAL_CORE and Global.flags.has(used_flag(metadata)):
 			add_item(used_portal_core)
 			return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://csxqvil3k0xyk"]
+[gd_scene load_steps=26 format=3 uid="uid://csxqvil3k0xyk"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_tllbf"]
 [ext_resource type="Script" uid="uid://cooeuc455ic7s" path="res://menu/pause/scripts/pause_menu.gd" id="2_4u03m"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bd3ko61u51vnf" path="res://menu/icon_tab.tscn" id="4_xm4lc"]
 [ext_resource type="PackedScene" uid="uid://dsvmwudnsp4i1" path="res://menu/accessibility_menu.tscn" id="5_4u03m"]
 [ext_resource type="PackedScene" uid="uid://dj6gbqw7p5dh6" path="res://menu/pause/journal/journal_menu.tscn" id="5_04uu7"]
+[ext_resource type="PackedScene" uid="uid://bg8os7vvoxdrc" path="res://menu/pause/options_menu.tscn" id="10_722e3"]
 [ext_resource type="PackedScene" uid="uid://b82buxmt15ft" path="res://menu/pause/inventory_menu.tscn" id="10_h2e5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xm4lc"]
@@ -50,9 +51,17 @@ region = Rect2(46, 18, 8, 8)
 atlas = ExtResource("3_f3dd2")
 region = Rect2(46, 27, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ly6cb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww0l5"]
 atlas = ExtResource("3_f3dd2")
 region = Rect2(19, 27, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2evit"]
+atlas = ExtResource("3_f3dd2")
+region = Rect2(28, 18, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly6cb"]
+atlas = ExtResource("3_f3dd2")
+region = Rect2(28, 27, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nysdy"]
 atlas = ExtResource("3_f3dd2")
@@ -101,8 +110,14 @@ show_when_selected = NodePath("../../PanelContainer/INV")
 [node name="Journal" parent="IconTabs" node_paths=PackedStringArray("show_when_selected") instance=ExtResource("4_xm4lc")]
 layout_mode = 2
 icon = SubResource("AtlasTexture_h2e5x")
-selected_icon = SubResource("AtlasTexture_ly6cb")
+selected_icon = SubResource("AtlasTexture_ww0l5")
 show_when_selected = NodePath("../../PanelContainer/JNL")
+
+[node name="Options" parent="IconTabs" node_paths=PackedStringArray("show_when_selected") instance=ExtResource("4_xm4lc")]
+layout_mode = 2
+icon = SubResource("AtlasTexture_2evit")
+selected_icon = SubResource("AtlasTexture_ly6cb")
+show_when_selected = NodePath("../../PanelContainer/OPT")
 
 [node name="Accessibility" parent="IconTabs" node_paths=PackedStringArray("show_when_selected") instance=ExtResource("4_xm4lc")]
 layout_mode = 2
@@ -129,6 +144,11 @@ layout_mode = 2
 [node name="JNL" parent="PanelContainer" instance=ExtResource("5_04uu7")]
 visible = false
 layout_mode = 2
+
+[node name="OPT" parent="PanelContainer" instance=ExtResource("10_722e3")]
+visible = false
+layout_mode = 2
+is_title_screen = false
 
 [node name="ACC" parent="PanelContainer" instance=ExtResource("5_4u03m")]
 visible = false

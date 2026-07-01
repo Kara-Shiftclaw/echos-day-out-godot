@@ -1,22 +1,27 @@
 class_name Options
-extends TabContainer
+extends ScrollContainer
 
 signal closed()
 
+const QuitDialogue := preload("res://menu/pause/really_quit.tscn")
 const OPTIONS_FILE := "user://options.json"
 
+@export var is_title_screen := false
+
 func _ready() -> void:
-	$AUDIO/MasterVol.grab_focus.call_deferred()
+	$VBoxContainer/MasterVol.value = 100. * AudioServer.get_bus_volume_linear(0)
+	$VBoxContainer/Music.value = 100. * AudioServer.get_bus_volume_linear(1)
+	$VBoxContainer/Sfx.value = 100. * AudioServer.get_bus_volume_linear(2)
 	
-	$AUDIO/MasterVol.value = 100. * AudioServer.get_bus_volume_linear(0)
-	$AUDIO/Music.value = 100. * AudioServer.get_bus_volume_linear(1)
-	$AUDIO/Sfx.value = 100. * AudioServer.get_bus_volume_linear(2)
+	if is_title_screen:
+		$VBoxContainer/MasterVol.grab_focus.call_deferred()
+		$VBoxContainer/QuitToMenu.queue_free()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
+	if is_title_screen and Input.is_action_just_pressed("ui_cancel"):
 		save()
 		closed.emit()
-		queue_free()
+		get_parent().queue_free()
 
 static func load_options() -> void:
 	var options_file := FileAccess.open(OPTIONS_FILE, FileAccess.READ)
@@ -57,3 +62,13 @@ func music_vol_changed(value: float) -> void:
 
 func sfx_vol_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(2, value / 100.)
+
+func try_quit() -> void:
+	(get_parent().get_parent() as Control).focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
+	var quit_dialogue: Control = QuitDialogue.instantiate()
+	quit_dialogue.not_quitting.connect(on_not_quitting)
+	Global.camera.add_child(quit_dialogue)
+
+func on_not_quitting() -> void:
+	(get_parent().get_parent() as Control).focus_behavior_recursive = Control.FOCUS_BEHAVIOR_INHERITED
+	$VBoxContainer/QuitToMenu.call_deferred("grab_focus")

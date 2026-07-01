@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://dpdcai43puqjs"]
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://dpdcai43puqjs"]
 
 [ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="1_wl1kw"]
 [ext_resource type="FontFile" uid="uid://cmkht6tasgxqo" path="res://assets/gfx/font_5x5.png" id="3_lu33j"]
@@ -54,6 +54,38 @@ region = Rect2(14, 5, 7, 6)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lu33j"]
 atlas = ExtResource("1_wl1kw")
 region = Rect2(7, 5, 7, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wycmq"]
+atlas = ExtResource("1_wl1kw")
+region = Rect2(0, 36, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2pqw"]
+atlas = ExtResource("1_wl1kw")
+region = Rect2(9, 36, 8, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uy2me"]
+texture = ExtResource("1_wl1kw")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(8, 11, 6, 6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_502fs"]
+texture = ExtResource("1_wl1kw")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(15, 11, 6, 6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ctyr4"]
+texture = ExtResource("1_wl1kw")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(8, 5, 6, 6)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_llqld"]
 texture = ExtResource("1_wl1kw")
@@ -117,6 +149,11 @@ CheckBox/icons/radio_unchecked = SubResource("AtlasTexture_lu33j")
 CheckBox/icons/radio_unchecked_disabled = SubResource("AtlasTexture_lu33j")
 CheckBox/icons/unchecked = SubResource("AtlasTexture_lu33j")
 CheckBox/icons/unchecked_disabled = SubResource("AtlasTexture_lu33j")
+HSlider/icons/grabber = SubResource("AtlasTexture_wycmq")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_x2pqw")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_uy2me")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_502fs")
+HSlider/styles/slider = SubResource("StyleBoxTexture_ctyr4")
 Panel/styles/panel = SubResource("StyleBoxTexture_wl1kw")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_wl1kw")
 TabContainer/colors/font_unselected_color = Color(0.3882353, 0.10980392, 0.3137255, 1)

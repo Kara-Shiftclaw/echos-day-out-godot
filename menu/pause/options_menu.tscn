@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg8os7vvoxdrc"]
+
+[ext_resource type="Script" uid="uid://bvy4pwos8cceb" path="res://menu/scripts/options.gd" id="1_8ehq8"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="2_v0l0n"]
+
+[node name="Options" type="ScrollContainer"]
+custom_minimum_size = Vector2(108, 96)
+theme = ExtResource("2_v0l0n")
+horizontal_scroll_mode = 0
+script = ExtResource("1_8ehq8")
+is_title_screen = true
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("Sfx")
+focus_neighbor_bottom = NodePath("MasterVol")
+focus_next = NodePath("MasterVol")
+focus_previous = NodePath("Sfx")
+
+[node name="MasterVolLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_v0l0n")
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+text = "Master Vol."
+
+[node name="MasterVol" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Music")
+focus_next = NodePath("../Music")
+step = 5.0
+value = 100.0
+rounded = true
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_v0l0n")
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+text = "Music Vol."
+
+[node name="Music" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../MasterVol")
+focus_neighbor_bottom = NodePath("../Sfx")
+focus_next = NodePath("../Sfx")
+focus_previous = NodePath("../MasterVol")
+step = 5.0
+value = 100.0
+rounded = true
+
+[node name="SfxLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_v0l0n")
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+text = "Sfx Vol."
+
+[node name="Sfx" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Music")
+focus_previous = NodePath("../Music")
+step = 5.0
+value = 100.0
+rounded = true
+
+[node name="QuitToMenu" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(64, 11)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit to Menu"
+
+[connection signal="value_changed" from="VBoxContainer/MasterVol" to="." method="master_vol_changed"]
+[connection signal="value_changed" from="VBoxContainer/Music" to="." method="music_vol_changed"]
+[connection signal="value_changed" from="VBoxContainer/Sfx" to="." method="sfx_vol_changed"]
+[connection signal="pressed" from="VBoxContainer/QuitToMenu" to="." method="try_quit"]

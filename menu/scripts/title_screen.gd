@@ -63,7 +63,7 @@ func write_last_save_id(load_id: int) -> void:
 func open_options_menu() -> void:
 	var options_menu := OptionsMenu.instantiate()
 	add_child(options_menu)
-	options_menu.connect("closed", func():
+	options_menu.get_child(0).connect("closed", func():
 		$Options/VBoxContainer/Options.grab_focus.call_deferred()
 	)
 
