@@ -30,6 +30,7 @@ func set_text(text: String) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		close_signaled.emit()
+		visible_characters_float = $Label.text.length()
 
 	if scrolling:
 		var visible_delta = CHARACTERS_PER_SECOND * delta

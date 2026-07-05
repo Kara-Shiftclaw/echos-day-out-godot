@@ -227,7 +227,6 @@ process_mode = 3
 script = ExtResource("1_cesr1")
 
 [node name="CutsceneBars" parent="." instance=ExtResource("1_vqtwt")]
-anchors_preset = 0
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -240,6 +239,8 @@ libraries = {
 position = Vector2(24, 95)
 texture = ExtResource("3_lqiw1")
 hframes = 9
+region_enabled = true
+region_rect = Rect2(0, 0, 198, 20)
 
 [node name="Bell" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_lqiw1")

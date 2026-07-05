@@ -19,12 +19,21 @@ const WEIGHT_ARM_OFFSET := {
 	1: -8.,
 	2: -9.,
 	3: -9.,
+	4: -10.,
+}
+const WEIGHT_ARM_REGION_OFFSET := {
+	0: 0,
+	1: 0,
+	2: 0,
+	3: 0,
+	4: 10.,
 }
 const SCARF_OFFSET := {
 	0: 5.,
 	1: 5.,
 	2: 6.,
 	3: 6.,
+	4: 6.,
 }
 
 @export var self_weight := 0:
@@ -104,11 +113,13 @@ func next_hint() -> void:
 		$Text/Hint/Crush.render()
 	else:
 		$Text/Hint/NoMore.render()
+		Global.flags[USED_HINTS_FLAG] = 999
 	
 	Global.flags[USED_HINTS_FLAG] = hint + 1
 
 func sync_frame() -> void:
 	$Arm.position.x = WEIGHT_ARM_OFFSET[self_weight]
+	$Arm.region_rect.position.y = WEIGHT_ARM_REGION_OFFSET[self_weight]
 	$Scarf.position.x = SCARF_OFFSET[self_weight]
 	$Body.frame = FRAMES_PER_WEIGHT * self_weight + indiv_frame
 
@@ -117,6 +128,24 @@ func inc_food() -> void:
 	self.self_weight += 1
 	Global.flags["food_on_hand"] = food_on_hand - 1
 	Global.flags[InventoryMenu.used_flag(InventoryMenu.get_unused_food())] = true
+
+func text_echo_grab_anim(text: Node, eat_loops: int = 1) -> void:
+	var clamped_weight := maxi(Global.weight, Global.Weight.Obese)
+	var echo_region_ofs := (clamped_weight - Global.Weight.Obese) * 20 + 20
+	print("Echo region ofs ", echo_region_ofs)
+	$EatingEcho.region_rect.position.y = echo_region_ofs
+	
+	$AnimationPlayer.play("echo_grab")
+	Global.echo.hide()
+	$EatingEcho.show()
+	$EatingEcho.frame = 0
+	loop_callback = func():
+		if eat_loops > 0:
+			text_play_anim(text, "eat", eat_loops)
+		else:
+			$AnimationPlayer.play("eat")
+			text.next.emit()
+			loop_callback = do_nothing
 
 func text_play_anim(text: Node, anim_name: StringName, loops: int = 1) -> void:
 	$AnimationPlayer.play(anim_name)
@@ -149,6 +178,10 @@ func exited(other: Node2D):
 	if other is Player:
 		$UpArrow.hide()
 		echo_inside = false
+
+func show_real_echo() -> void:
+	$EatingEcho.hide()
+	Global.echo.show()
 
 func needs_fireball():
 	return !Global.has_fireball and !Global.flags.has(HINT_FIREBALL)
