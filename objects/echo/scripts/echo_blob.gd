@@ -147,3 +147,7 @@ func stop_attack(successful := false) -> void:
 
 func is_attacking() -> bool:
 	return is_cur_anim("attack")
+
+func take_damage(amt: float) -> void:
+	super(amt)
+	$Sprite2D.rotation = 0

@@ -195,7 +195,7 @@ region_rect = Rect2(0, 0, 48, 2)
 
 [node name="Pillar" type="StaticBody2D" parent="Platform"]
 position = Vector2(0, 5)
-collision_layer = 16
+collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/Pillar"]

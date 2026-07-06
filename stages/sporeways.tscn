@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://cpf870qyhbg0"]
+[gd_scene load_steps=45 format=4 uid="uid://cpf870qyhbg0"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3kelf1cerb" path="res://assets/gfx/scenery/sporeways_omni.png" id="1_gob7n"]
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_q8lqc"]
@@ -32,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://nhhcojt1qy31" path="res://assets/gfx/pyrite_plunge/pyrite_bridge.png" id="20_udpdm"]
 [ext_resource type="PackedScene" uid="uid://bhhbnnko3s4aa" path="res://objects/airstream.tscn" id="21_ylnj4"]
 [ext_resource type="PackedScene" uid="uid://docai1gkwi8cj" path="res://objects/plant/red.tscn" id="22_pi11m"]
+[ext_resource type="AudioStream" uid="uid://dmdquudfp5f1g" path="res://assets/sfx/bonk.wav" id="23_isuar"]
+[ext_resource type="PackedScene" uid="uid://clyugdpj3xhke" path="res://oneoff/signal_and.tscn" id="23_ofa7q"]
 [ext_resource type="PackedScene" uid="uid://ykdr2tavj7v7" path="res://objects/sprint_wall.tscn" id="24_xd70g"]
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="25_c704u"]
 [ext_resource type="AudioStream" uid="uid://3nmggvansd6i" path="res://assets/music/Something-Freaky-This-Way-Comes.ogg" id="26_sp7eq"]
@@ -745,6 +747,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(20, -19)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("QuietBonk:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_xp7cr"]
 resource_name = "unlock"
@@ -1127,6 +1141,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_ofa7q")
 }
 
+[node name="QuietBonk" type="AudioStreamPlayer" parent="Objects/PostPyriteSwitch"]
+stream = ExtResource("23_isuar")
+volume_db = -14.0
+
+[node name="FunnyJumpNoise" parent="Objects/PostPyriteSwitch" instance=ExtResource("23_ofa7q")]
+
+[node name="QuietBonkTimer" type="Timer" parent="Objects/PostPyriteSwitch"]
+wait_time = 2.0
+one_shot = true
+
 [node name="Red" parent="Objects" instance=ExtResource("22_pi11m")]
 position = Vector2(832, 12)
 
@@ -1321,5 +1345,14 @@ other_stage = "uid://cyqutnlfcrbll"
 song_stream = ExtResource("26_sp7eq")
 
 [connection signal="activate" from="Objects/Door/Switch" to="Objects/Door" method="open"]
+[connection signal="activate" from="Objects/PostPyriteSwitch" to="Objects/PostPyriteSwitch/FunnyJumpNoise" method="set_a"]
 [connection signal="activate" from="Objects/PostPyriteSwitch" to="Objects/PostPyriteSwitch/AnimationPlayer2" method="play" binds= [&"unlock"]]
+[connection signal="already_activated" from="Objects/PostPyriteSwitch" to="Objects/PostPyriteSwitch/FunnyJumpNoise" method="set_a"]
 [connection signal="already_activated" from="Objects/PostPyriteSwitch" to="Objects/PostPyriteSwitch/AnimationPlayer2" method="play" binds= [&"unlock"]]
+[connection signal="both_true" from="Objects/PostPyriteSwitch/FunnyJumpNoise" to="Objects/PostPyriteSwitch/QuietBonkTimer" method="start"]
+[connection signal="timeout" from="Objects/PostPyriteSwitch/QuietBonkTimer" to="Objects/PostPyriteSwitch/QuietBonk" method="play"]
+[connection signal="jumped_off_wall" from="Enemies/SmallLizard3" to="Objects/PostPyriteSwitch/FunnyJumpNoise" method="set_b"]
+[connection signal="chunk_left" from="Enemies/SmallLizard3/EnemyManager" to="Objects/PostPyriteSwitch/FunnyJumpNoise" method="unset_b"]
+[connection signal="chunk_left" from="Enemies/SmallLizard3/EnemyManager" to="Objects/PostPyriteSwitch/QuietBonkTimer" method="stop"]
+
+[editable path="Enemies/SmallLizard3"]

@@ -30,6 +30,8 @@ const NOTICE_RANGE := 48.
 		else:
 			print("State change blocked!")
 
+signal jumped_off_wall()
+
 func _ready() -> void:
 	sync_facing_right()
 
@@ -41,7 +43,6 @@ func _physics_process(delta: float) -> void:
 		$PlayerSight.force_raycast_update()
 		if $PlayerSight.get_collider() == Global.echo:
 			$AnimationPlayer.play("notice")
-			print("Player spotted!")
 	elif state == State.Jumping:
 		velocity.y += GRAVITY * delta
 		if is_on_floor():
@@ -71,6 +72,7 @@ func _physics_process(delta: float) -> void:
 
 func jump() -> void:
 	$AnimationPlayer.play("jump")
+	jumped_off_wall.emit()
 	facing_right = !facing_right
 	velocity = Vector2(JUMP_X_VELOCITY * Util.sign(facing_right), JUMP_IMPULSE)
 

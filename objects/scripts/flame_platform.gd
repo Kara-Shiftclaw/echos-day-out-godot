@@ -28,3 +28,5 @@ func knockback_other(other: Node2D) -> void:
 	if other is CharacterBody2D:
 		var other_right := other.global_position.x > global_position.x
 		other.velocity.x = KNOCKBACK_VELOCITY * Util.sign(other_right)
+		if other is Player:
+			other.stage_hurtbox_hit(self)

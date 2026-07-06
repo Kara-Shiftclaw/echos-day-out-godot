@@ -2945,7 +2945,7 @@ collision_mask = 2
 process_mode = 3
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_kk7ad")
-frame_progress = 0.9586699
+frame_progress = 0.5416485
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/MineWorm"]
 position = Vector2(-3, -1)
@@ -3156,7 +3156,7 @@ next/start = &"idle"
 [node name="Start" parent="SoniaFight/Dialogue" instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox" parent="SoniaFight/Dialogue/Start" instance=ExtResource("24_rhjpj")]
-text = "Haha wow, back already? I didn'y know you were such a fan~`"
+text = "Haha wow, back already? I didn't know you were such a fan~`"
 move_always = true
 
 [node name="StandardTextBox2" parent="SoniaFight/Dialogue/Start" instance=ExtResource("24_rhjpj")]

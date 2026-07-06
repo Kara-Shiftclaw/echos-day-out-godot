@@ -10,10 +10,16 @@ func set_a() -> void:
 	if b:
 		both_true.emit()
 
+func unset_a() -> void:
+	a = false
+
 func set_b() -> void:
 	b = true
 	if a:
 		both_true.emit()
+
+func unset_b() -> void:
+	b = false
 
 func unset() -> void:
 	a = false

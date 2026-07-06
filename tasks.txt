@@ -7,11 +7,7 @@ Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
 Title theme
 
 ---- Tech Debt & Enhancements ----
-Affamae: More food dialogue
-Sonia boss dialogue: Didn'y
 Reload music on death respawn stage transition
-Weird lava geyser hitboxes @ large size
-Geckito jump to oblivion, fix or nah?
 Improve path to Sonia refight chamber
 Alt path to Crater uses clouds instead of spikes
 Better alt path to Verdant Cavern (using dash maybe?)
