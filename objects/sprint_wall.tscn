@@ -1,10 +1,87 @@
-[gd_scene load_steps=7 format=3 uid="uid://ykdr2tavj7v7"]
+[gd_scene load_steps=11 format=3 uid="uid://ykdr2tavj7v7"]
 
 [ext_resource type="Texture2D" uid="uid://chyfonylty6c4" path="res://assets/gfx/sprint_wall.png" id="1_h4ey3"]
 [ext_resource type="Script" uid="uid://djhddn7erh5ud" path="res://objects/scripts/sprint_wall.gd" id="1_q1mo5"]
+[ext_resource type="AudioStream" uid="uid://pxe2tnsjyihx" path="res://assets/sfx/enemy_hit.wav" id="3_hiabc"]
+[ext_resource type="AudioStream" uid="uid://bbllug3qk2nax" path="res://assets/sfx/wobble.mp3" id="4_cgfn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1mo5"]
 size = Vector2(6, 24)
+
+[sub_resource type="Animation" id="Animation_hiabc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:broken")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WallCollision:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemyHit:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerHitArea/PlayerHitCollision:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Wobble:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_q1mo5"]
 resource_name = "break"
@@ -12,19 +89,19 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/path = NodePath(".:broken")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:broken")
+tracks/1/path = NodePath("WallCollision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -36,59 +113,93 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("WallCollision:disabled")
+tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemyHit:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerHitArea/PlayerHitCollision:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_hiabc"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_cgfn8"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [true]
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_7gp82"]
+resource_name = "hit"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:broken")
+tracks/1/path = NodePath("Wobble:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WallCollision:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cgfn8"]
 _data = {
 &"RESET": SubResource("Animation_hiabc"),
-&"break": SubResource("Animation_q1mo5")
+&"break": SubResource("Animation_q1mo5"),
+&"hit": SubResource("Animation_7gp82"),
+&"idle": SubResource("Animation_cgfn8")
 }
 
 [node name="SprintWall" type="StaticBody2D"]
@@ -99,6 +210,7 @@ shape = SubResource("RectangleShape2D_q1mo5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_h4ey3")
+hframes = 5
 
 [node name="BreakArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -107,9 +219,31 @@ collision_mask = 2
 [node name="BreakCollision" type="CollisionShape2D" parent="BreakArea"]
 shape = SubResource("RectangleShape2D_q1mo5")
 
+[node name="PlayerHitArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="PlayerHitCollision" type="CollisionShape2D" parent="PlayerHitArea"]
+shape = SubResource("RectangleShape2D_q1mo5")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_cgfn8")
 }
+autoplay = "idle"
+next/hit = &"idle"
+
+[node name="EnemyHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hiabc")
+volume_db = -4.0
+pitch_scale = 0.8
+
+[node name="Wobble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cgfn8")
+volume_db = 2.0
+pitch_scale = 0.8
+bus = &"Sfx"
 
 [connection signal="body_entered" from="BreakArea" to="." method="on_break_collision"]
+[connection signal="area_entered" from="PlayerHitArea" to="." method="on_player_hit"]
+[connection signal="body_entered" from="PlayerHitArea" to="." method="on_player_hit"]

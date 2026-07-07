@@ -11,3 +11,7 @@ func _process(_delta: float) -> void:
 func on_break_collision(_other: Node2D) -> void:
 	if !broken:
 		$AnimationPlayer.play("break")
+
+func on_player_hit(_other: Node2D) -> void:
+	if !broken:
+		$AnimationPlayer.play("hit")
