@@ -7,9 +7,6 @@ Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
 Title theme
 
 ---- Tech Debt & Enhancements ----
-Reload music on death respawn stage transition
-Improve path to Sonia refight chamber
-Better alt path to Verdant Cavern (using dash maybe?)
 Bosses react to reverse-order Echo
 
 ---- Thieves Road ----

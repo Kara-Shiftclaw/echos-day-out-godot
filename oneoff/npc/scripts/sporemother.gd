@@ -1,7 +1,5 @@
 extends Area2D
 
-const CutsceneWalker := preload("res://objects/echo/cutscene_walker.tscn")
-
 const MYCELIUM_MAP_POPUP := preload("res://menu/dialogue/small_upgrade/mycelium_map_get.tscn")
 const FIRST_CHAT_FLAG := "sporemother_first_chat"
 const MUSH_MEAL_FLAG := "has_mush_meal"
@@ -16,7 +14,7 @@ func yes_chosen() -> void:
 func on_talk() -> void:
 	$NpcArrow.generic_pause()
 	
-	var walker: Node2D = CutsceneWalker.instantiate()
+	var walker := CutsceneWalker.instantiate()
 	walker.x_destination = $CollisionShape2D.position.x
 	walker.face_right_on_deletion = true
 	walker.dest_reached.connect(func():

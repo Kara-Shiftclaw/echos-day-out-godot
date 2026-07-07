@@ -133,7 +133,7 @@ func stop_attack(successful := false) -> void:
 	$DamageBox/Damage.active = false
 	$DamageBox/CollisionShape2D.set_deferred("disabled", true)
 	anim_priority = 0
-	rotation = 0.
+	$Sprite2D.rotation = 0.
 	
 	if successful:
 		var hurtbox_enable_timer := get_tree().create_timer(0.05)
