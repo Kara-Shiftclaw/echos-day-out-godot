@@ -610,6 +610,14 @@ collision_mask = 16
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_tydmx")
 
+[node name="BindingHurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BindingHurtbox"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_tydmx")
+
 [node name="HurtParticles" type="CPUParticles2D" parent="."]
 z_index = 10
 emitting = false
@@ -658,4 +666,6 @@ metadata/_custom_type_script = "uid://cd06ykx2xlfww"
 [connection signal="body_entered" from="EnemyHurtbox" to="." method="on_hit"]
 [connection signal="area_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]
 [connection signal="body_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]
+[connection signal="area_entered" from="BindingHurtbox" to="." method="binding_hurtbox_hit"]
+[connection signal="body_entered" from="BindingHurtbox" to="." method="binding_hurtbox_hit"]
 [connection signal="hit" from="DamageBox/Damage" to="." method="attack_hit"]

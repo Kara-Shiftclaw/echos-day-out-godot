@@ -9,7 +9,6 @@ Title theme
 ---- Tech Debt & Enhancements ----
 Reload music on death respawn stage transition
 Improve path to Sonia refight chamber
-Alt path to Crater uses clouds instead of spikes
 Better alt path to Verdant Cavern (using dash maybe?)
 Bosses react to reverse-order Echo
 

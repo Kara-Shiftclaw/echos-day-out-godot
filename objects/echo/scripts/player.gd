@@ -1,6 +1,8 @@
 @abstract class_name Player
 extends CharacterBody2D
 
+const BoundEnergy := preload("res://objects/echo/bound_energy.tscn")
+
 var facing_right := true:
 	set(value):
 		facing_right = value
@@ -14,6 +16,7 @@ var is_double_jumping := false
 var noclipping := false
 @export var anim_priority := 0
 @export var speed_scale := 1.
+@export var bound_node: Node2D
 
 signal land_on_floor()
 signal respawned()
@@ -112,6 +115,22 @@ func stage_hurtbox_hit(_other: Node2D) -> void:
 	take_damage(3.)
 	velocity.y = Echo.STAGE_HAZARD_BOUNCE
 
+func binding_hurtbox_hit(_other: Node2D) -> void:
+	take_damage(3.)
+	get_tree().paused = true
+	
+	var bound_energy: Node2D = BoundEnergy.instantiate()
+	bound_energy.global_position = global_position - Vector2(0., 4.)
+	get_parent().add_child(bound_energy)
+	
+	var bound_energy_tween := bound_energy.create_tween()
+	bound_energy_tween.tween_property(bound_energy, "global_position", bound_node.global_position, 0.3)
+	bound_energy_tween.tween_callback(func():
+		bound_energy.queue_free()
+		get_tree().paused = false
+		global_position = bound_node.global_position
+	)
+
 func spawn_death_screen() -> void:
 	var death_screen := Echo.DeathScreen.instantiate()
 	Global.camera.add_child(death_screen)
@@ -121,6 +140,7 @@ func respawn() -> void:
 		Global.full_respawn()
 	else:
 		$StageHurtbox/CollisionShape2D.set_deferred("disabled", false)
+		$BindingHurtbox/CollisionShape2D.set_deferred("disabled", false)
 		$EnemyHurtbox/CollisionShape2D.set_deferred("disabled", false)
 		$Sprite2D.show()
 		global_position = get_node(Global.last_save_path).global_position

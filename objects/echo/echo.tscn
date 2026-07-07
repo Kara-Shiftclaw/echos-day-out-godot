@@ -622,6 +622,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BindingHurtbox/CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_juied"]
 resource_name = "attack"
@@ -1023,6 +1035,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BindingHurtbox/CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_pf44c"]
 resource_name = "double_jump"
@@ -1391,6 +1415,14 @@ collision_mask = 16
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_n2q1k")
 
+[node name="BindingHurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BindingHurtbox"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_n2q1k")
+
 [node name="EnemyHurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
@@ -1447,5 +1479,6 @@ stream = ExtResource("11_mt7je")
 volume_db = 4.0
 
 [connection signal="body_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]
+[connection signal="body_entered" from="BindingHurtbox" to="." method="binding_hurtbox_hit"]
 [connection signal="area_entered" from="EnemyHurtbox" to="." method="on_hit"]
 [connection signal="body_entered" from="EnemyHurtbox" to="." method="on_hit"]

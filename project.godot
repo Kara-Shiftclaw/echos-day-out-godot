@@ -129,7 +129,7 @@ debug_noclip={
 2d_physics/layer_6="Reserved"
 2d_physics/layer_7="Crush"
 2d_physics/layer_8="Back Solid"
-2d_physics/layer_9="Teleport Stage Hazard"
+2d_physics/layer_9="Binding Stage Hazard"
 
 [rendering]
 
