@@ -68,7 +68,7 @@ func _ready() -> void:
 
 func maybe_add_item(metadata: Metadata) -> void:
 	var maybe_flag = Global.flags.get(metadata.flag)
-	if maybe_flag != null and (typeof(maybe_flag) != TYPE_BOOL or maybe_flag):
+	if metadata.flag != "" and maybe_flag != null and (typeof(maybe_flag) != TYPE_BOOL or maybe_flag):
 		if metadata.title == PYRITE and roundi(maybe_flag) == 500:
 			add_item(max_pyrite)
 			return
