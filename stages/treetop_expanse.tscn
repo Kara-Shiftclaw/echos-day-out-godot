@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://cye7mkllc63s0"]
+[gd_scene load_steps=62 format=4 uid="uid://cye7mkllc63s0"]
 
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="1_0ws40"]
 [ext_resource type="Texture2D" uid="uid://dm5wh2qtbg7s0" path="res://assets/gfx/scenery/valley_tileset.png" id="1_6w44v"]
@@ -31,6 +31,11 @@
 [ext_resource type="PackedScene" uid="uid://0pbsxos37t77" path="res://objects/enemies/hedgehog.tscn" id="18_vmnjc"]
 [ext_resource type="PackedScene" uid="uid://dkype8r0bpcgr" path="res://objects/song_player.tscn" id="26_brjoo"]
 [ext_resource type="PackedScene" uid="uid://dxl3dovmwvovx" path="res://objects/portal_core.tscn" id="26_v4vbp"]
+[ext_resource type="Texture2D" uid="uid://cuhec2ts77s4l" path="res://assets/gfx/demo_bee.png" id="31_6jdyr"]
+[ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="32_75qlq"]
+[ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="33_jmnar"]
+[ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="34_d6fli"]
+[ext_resource type="PackedScene" uid="uid://bdr0ixnwp128t" path="res://objects/demo_detector.tscn" id="35_fsvqk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_14ry6"]
 texture = ExtResource("1_xpi5h")
@@ -366,6 +371,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1324, -348, 0, 0, 0, 0, 1316, -340, 0, 0, 0, 0, 1316, -317, 0, 0, 0, 0, 1348, -284, 0, 0, 0, 0, 1364, -284, 0, 0, 0, 0, 1380, -300, 0, 0, 0, 0, 1372, -308, 0, 0, 0, 0, 1356, -308, 0, 0, 0, 0, 1332, -332, 0, 0, 0, 0, 1332, -348, 0, 0, 0, 0, 1324, -348)
 }
 point_count = 11
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75qlq"]
+size = Vector2(8, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jdyr"]
+size = Vector2(20, 2)
 
 [node name="TreetopExpanse" type="Node2D"]
 
@@ -774,6 +785,98 @@ position = Vector2(344, -357)
 [node name="PortalCore" parent="Objects" instance=ExtResource("26_v4vbp")]
 position = Vector2(1716, -291)
 
+[node name="DemoBee" type="Area2D" parent="Objects"]
+z_index = 10
+position = Vector2(257, -172)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects/DemoBee"]
+position = Vector2(15, 0)
+texture = ExtResource("31_6jdyr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/DemoBee"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/DemoBee/StaticBody2D"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_75qlq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/DemoBee"]
+position = Vector2(37, 19)
+shape = SubResource("RectangleShape2D_6jdyr")
+
+[node name="NpcArrow" parent="Objects/DemoBee" instance=ExtResource("32_75qlq")]
+position = Vector2(30, -10)
+
+[node name="FirstTalk" parent="Objects/DemoBee" instance=ExtResource("33_jmnar")]
+
+[node name="StandardTextBox" parent="Objects/DemoBee/FirstTalk" instance=ExtResource("34_d6fli")]
+text = "Hello sorry. I am the Detour-Envoking Motionless Orbee."
+
+[node name="StandardTextBox2" parent="Objects/DemoBee/FirstTalk" instance=ExtResource("34_d6fli")]
+text = "I was gifted size and thought from my creator."
+
+[node name="StandardTextBox3" parent="Objects/DemoBee/FirstTalk" instance=ExtResource("34_d6fli")]
+text = "Now I am \"stuck.\" In middle of the \"path.\" Goodbye."
+
+[node name="Repeat" parent="Objects/DemoBee" instance=ExtResource("33_jmnar")]
+
+[node name="StandardTextBox" parent="Objects/DemoBee/Repeat" instance=ExtResource("34_d6fli")]
+text = "She told me things most strange."
+
+[node name="StandardTextBox2" parent="Objects/DemoBee/Repeat" instance=ExtResource("34_d6fli")]
+text = "She said the road beyond is incomplete. Its reality is false."
+
+[node name="StandardTextBox3" parent="Objects/DemoBee/Repeat" instance=ExtResource("34_d6fli")]
+text = "Perhaps one day it will be finished. Perhaps at that time, I will be free."
+
+[node name="DemoDetector" parent="Objects/DemoBee" instance=ExtResource("35_fsvqk")]
+
+[node name="NotDemoBee" type="Area2D" parent="Objects"]
+z_index = 10
+position = Vector2(1153, -284)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects/NotDemoBee"]
+position = Vector2(15, 0)
+texture = ExtResource("31_6jdyr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NotDemoBee"]
+position = Vector2(37, 19)
+shape = SubResource("RectangleShape2D_6jdyr")
+
+[node name="NpcArrow" parent="Objects/NotDemoBee" instance=ExtResource("32_75qlq")]
+position = Vector2(30, -10)
+
+[node name="FirstTalk" parent="Objects/NotDemoBee" instance=ExtResource("33_jmnar")]
+
+[node name="StandardTextBox" parent="Objects/NotDemoBee/FirstTalk" instance=ExtResource("34_d6fli")]
+text = "Hello sorry. I'm not the Detour-Envoking Motionless Orbee."
+
+[node name="StandardTextBox2" parent="Objects/NotDemoBee/FirstTalk" instance=ExtResource("34_d6fli")]
+text = "I was gifted size and thought from my creator."
+
+[node name="StandardTextBox3" parent="Objects/NotDemoBee/FirstTalk" instance=ExtResource("34_d6fli")]
+text = "She told me things most strange. That I must block the \"truth.\" Goodbye."
+
+[node name="Repeat" parent="Objects/NotDemoBee" instance=ExtResource("33_jmnar")]
+
+[node name="StandardTextBox" parent="Objects/NotDemoBee/Repeat" instance=ExtResource("34_d6fli")]
+text = "You want it. The \"truth.\" Not of this world, but another."
+
+[node name="StandardTextBox2" parent="Objects/NotDemoBee/Repeat" instance=ExtResource("34_d6fli")]
+text = "She said the road beyond is incomplete. Will it ever be complete? Unknown."
+
+[node name="StandardTextBox3" parent="Objects/NotDemoBee/Repeat" instance=ExtResource("34_d6fli")]
+text = "Perhaps, if you find your way on another plane, you can get past."
+
+[node name="StandardTextBox4" parent="Objects/NotDemoBee/Repeat" instance=ExtResource("34_d6fli")]
+text = "Another plane. Another world. Another dimension."
+
+[node name="DemoDetector" parent="Objects/NotDemoBee" instance=ExtResource("35_fsvqk")]
+parent_demo_only = false
+
 [node name="StageTransitions" type="Node2D" parent="."]
 
 [node name="IntroMountain" parent="StageTransitions" instance=ExtResource("10_xyh6v")]
@@ -820,3 +923,13 @@ other_stage = "uid://cxi2nthp2u2uv"
 [connection signal="activate" from="Objects/SlidePlatform6/Switch" to="Objects/SlidePlatform6" method="open"]
 [connection signal="activate" from="Objects/SlidePlatform7/Switch" to="Objects/SlidePlatform7" method="open"]
 [connection signal="activate" from="Objects/SlidePlatform8/Switch" to="Objects/SlidePlatform8" method="open"]
+[connection signal="activated" from="Objects/DemoBee/NpcArrow" to="Objects/DemoBee/NpcArrow" method="generic_pause"]
+[connection signal="first_activated" from="Objects/DemoBee/NpcArrow" to="Objects/DemoBee/FirstTalk" method="render"]
+[connection signal="repeat_activated" from="Objects/DemoBee/NpcArrow" to="Objects/DemoBee/Repeat" method="render"]
+[connection signal="next" from="Objects/DemoBee/FirstTalk" to="Objects/DemoBee/NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Objects/DemoBee/Repeat" to="Objects/DemoBee/NpcArrow" method="generic_unpause"]
+[connection signal="activated" from="Objects/NotDemoBee/NpcArrow" to="Objects/NotDemoBee/NpcArrow" method="generic_pause"]
+[connection signal="first_activated" from="Objects/NotDemoBee/NpcArrow" to="Objects/NotDemoBee/FirstTalk" method="render"]
+[connection signal="repeat_activated" from="Objects/NotDemoBee/NpcArrow" to="Objects/NotDemoBee/Repeat" method="render"]
+[connection signal="next" from="Objects/NotDemoBee/FirstTalk" to="Objects/NotDemoBee/NpcArrow" method="generic_unpause"]
+[connection signal="next" from="Objects/NotDemoBee/Repeat" to="Objects/NotDemoBee/NpcArrow" method="generic_unpause"]

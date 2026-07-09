@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdr0ixnwp128t"]
+
+[ext_resource type="Script" uid="uid://ypbl61dmi3c7" path="res://objects/scripts/demo_detector.gd" id="1_lfl14"]
+
+[node name="DemoDetector" type="Node"]
+script = ExtResource("1_lfl14")

@@ -1,5 +1,9 @@
 extends Node
 
+
+const IS_DEMO_BUILD := false
+
+
 enum Weight {
 	Thin = 0,
 	Fat = 1,

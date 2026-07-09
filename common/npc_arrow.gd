@@ -2,8 +2,11 @@ extends Sprite2D
 
 @export var activation_area: Area2D
 var echo_inside := false
+var has_first_activation := false
 
 signal activated()
+signal first_activated()
+signal repeat_activated()
 
 func _ready() -> void:
 	if activation_area == null:
@@ -35,3 +38,8 @@ func _input(event: InputEvent) -> void:
 			and Global.echo.is_on_floor() \
 			and !get_tree().paused:
 		activated.emit()
+		if has_first_activation:
+			repeat_activated.emit()
+		else:
+			first_activated.emit()
+			has_first_activation = true
