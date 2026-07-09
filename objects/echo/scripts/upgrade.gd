@@ -15,10 +15,10 @@ signal collected()
 static func instantiate() -> Upgrade:
 	return SCENE.instantiate()
 
-func move_from_to(global_from: Vector2, global_to: Vector2) -> void:
+func move_from_to(global_from: Vector2, global_to: Vector2, dur: float = 1.) -> void:
 	global_position = global_from
 	var move_tween := create_tween()
-	move_tween.tween_property(self, "global_position", global_to, 1.0).set_ease(Tween.EASE_IN)
+	move_tween.tween_property(self, "global_position", global_to, dur).set_ease(Tween.EASE_IN)
 	move_tween.tween_callback(enable)
 
 func enable() -> void:

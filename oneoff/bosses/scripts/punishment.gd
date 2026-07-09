@@ -18,6 +18,6 @@ func on_hit() -> void:
 func spawn_upgrade() -> void:
 	var upgrade: Upgrade = Upgrade.instantiate()
 	get_parent().call_deferred("add_child", upgrade)
-	upgrade.move_from_to(global_position, upgrade_pos)
+	upgrade.move_from_to(position, upgrade_pos, 0.5)
 	upgrade.grant_double_jump = true
 	upgrade.collected.connect(upgrade_collected.emit)

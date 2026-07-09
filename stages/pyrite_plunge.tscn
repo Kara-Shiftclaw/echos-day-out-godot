@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://cyqutnlfcrbll"]
+[gd_scene load_steps=93 format=4 uid="uid://cyqutnlfcrbll"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_pxxyi"]
 [ext_resource type="Script" uid="uid://oxvxvun8aygq" path="res://oneoff/scripts/pyrite_plunge.gd" id="1_x2nr2"]
@@ -46,6 +46,8 @@
 [ext_resource type="PackedScene" uid="uid://dau3srlstnug" path="res://oneoff/bosses/sonia/sonia.tscn" id="40_mr58l"]
 [ext_resource type="PackedScene" uid="uid://b4jftahq6kq5o" path="res://oneoff/bosses/sonia/olhm_attack.tscn" id="42_fqhla"]
 [ext_resource type="PackedScene" uid="uid://dwxjytxrr5gyc" path="res://oneoff/bosses/sonia/punishment.tscn" id="43_hxwph"]
+[ext_resource type="AudioStream" uid="uid://dcpqq5pg8s01l" path="res://assets/music/The-8-Bit-Circus_Looping.ogg" id="44_r8eie"]
+[ext_resource type="AudioStream" uid="uid://cxo5nxupxwca5" path="res://assets/sfx/laugh.wav" id="45_yail8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxf8w"]
 texture = ExtResource("2_amo3l")
@@ -544,6 +546,18 @@ tracks/20/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../../SoniaFight/Laugh:playing")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_kfhsy"]
 resource_name = "drop_player"
@@ -744,6 +758,18 @@ tracks/15/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../../SoniaFight/Laugh:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_8xwni"]
@@ -1720,6 +1746,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Laugh:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_fqhla"]
 resource_name = "begin_fight"
@@ -1791,7 +1829,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_yltau"]
 resource_name = "crashout_2"
-length = 0.8
+length = 1.3
 step = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -1800,7 +1838,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 1.3),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -1817,7 +1855,7 @@ tracks/1/path = NodePath("Dialogue/Crashout2")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(1.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -1859,6 +1897,18 @@ tracks/1/keys = {
 "args": [],
 "method": &"render"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Laugh:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_bm35n"]
@@ -2950,7 +3000,7 @@ collision_mask = 2
 process_mode = 3
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_kk7ad")
-frame_progress = 0.13699417
+frame_progress = 0.59886223
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/MineWorm"]
 position = Vector2(-3, -1)
@@ -3103,6 +3153,7 @@ enabled = false
 [node name="SoniaFight" type="Node2D" parent="."]
 position = Vector2(64, -64)
 script = ExtResource("39_asxn2")
+fight_song = ExtResource("44_r8eie")
 
 [node name="CutsceneBars" parent="SoniaFight" instance=ExtResource("14_8xwni")]
 process_mode = 3
@@ -3148,6 +3199,11 @@ texture = ExtResource("22_op8qk")
 hframes = 12
 vframes = 2
 frame = 1
+
+[node name="Laugh" type="AudioStreamPlayer" parent="SoniaFight"]
+process_mode = 3
+stream = ExtResource("45_yail8")
+bus = &"Sfx"
 
 [node name="CutsceneAnimationPlayer" type="AnimationPlayer" parent="SoniaFight"]
 process_mode = 3

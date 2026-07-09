@@ -7,7 +7,6 @@ Echo Peak theme (Thieves' Road, Billowing Heights, Black Market)
 Title theme
 
 ---- Tech Debt & Enhancements ----
-Sonia fight plays boss music
 Affamae - Clarify on taste dialogue
 Fix Spikehog exchange rate
 Affamae food dialoge 5
