@@ -20,6 +20,7 @@ const WEIGHT_ARM_OFFSET := {
 	2: -9.,
 	3: -9.,
 	4: -10.,
+	5: -10.,
 }
 const WEIGHT_ARM_REGION_OFFSET := {
 	0: 0,
@@ -27,6 +28,7 @@ const WEIGHT_ARM_REGION_OFFSET := {
 	2: 0,
 	3: 0,
 	4: 10.,
+	5: 10.,
 }
 const SCARF_OFFSET := {
 	0: 5.,
@@ -34,6 +36,7 @@ const SCARF_OFFSET := {
 	2: 6.,
 	3: 6.,
 	4: 6.,
+	5: 6.,
 }
 
 @export var self_weight := 0:
@@ -178,6 +181,10 @@ func exited(other: Node2D):
 	if other is Player:
 		$UpArrow.hide()
 		echo_inside = false
+
+func hide_real_echo() -> void:
+	$EatingEcho.show()
+	Global.echo.hide()
 
 func show_real_echo() -> void:
 	$EatingEcho.hide()

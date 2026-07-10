@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dstd7i1wcevmu"]
+[gd_scene load_steps=34 format=3 uid="uid://dstd7i1wcevmu"]
 
 [ext_resource type="Script" uid="uid://bcxnug1fmkk5d" path="res://oneoff/scripts/hint_npc.gd" id="1_1cytm"]
 [ext_resource type="Texture2D" uid="uid://dkbl8kkehghsf" path="res://assets/gfx/compound/affamae/arm.png" id="2_528by"]
@@ -137,10 +137,52 @@ tracks/2/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_flbl6"]
+resource_name = "echo_grab"
+length = 0.001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c1exx"]
 _data = {
 &"RESET": SubResource("Animation_wl0wf"),
 &"eat": SubResource("Animation_528by"),
+&"echo_grab": SubResource("Animation_flbl6"),
 &"wiggle": SubResource("Animation_hvtis")
 }
 
@@ -480,190 +522,6 @@ tracks/8/keys = {
 "values": [4, 5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_7eoiw"]
-resource_name = "gain"
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Arm:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Arm:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(3, -4)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"execute_loop_callback"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:indiv_frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [2, 7, 2, 7, 2, 7]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GainSound:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.45),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-
-[sub_resource type="Animation" id="Animation_g3xja"]
-resource_name = "talk"
-length = 0.6
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Arm:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3, -2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:indiv_frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-
-[sub_resource type="Animation" id="Animation_c1exx"]
-resource_name = "hand_food"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Arm:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Arm:z_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Arm:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:indiv_frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CPUParticles2D:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("EatSound:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("GainSound:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_ewjs2"]
 resource_name = "echo_grab"
 length = 1.5
@@ -802,6 +660,204 @@ tracks/10/keys = {
 "update": 1,
 "values": [true, true]
 }
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Arm/ArmAnimationPlayer")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"echo_grab", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7eoiw"]
+resource_name = "gain"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(3, -4)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"execute_loop_callback"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:indiv_frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 7, 2, 7, 2, 7]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GainSound:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_c1exx"]
+resource_name = "hand_food"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:indiv_frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EatSound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GainSound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_g3xja"]
+resource_name = "talk"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:indiv_frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_te53a"]
 _data = {
@@ -848,7 +904,7 @@ position = Vector2(0, -12)
 texture = ExtResource("4_yp8nx")
 offset = Vector2(0.5, 0)
 hframes = 10
-vframes = 3
+vframes = 4
 
 [node name="UpArrow" type="Sprite2D" parent="."]
 visible = false
@@ -1027,7 +1083,7 @@ enabled = true
 [node name="NoTasteTextTree" parent="Text/GiveFood/Weight3/MultipleChoiceBox/NoTaste" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/GiveFood/Weight3/MultipleChoiceBox/NoTaste/NoTasteTextTree" instance=ExtResource("4_cqvfm")]
-text = "Wait, really? The ability to taste was one of your stolen powers??"
+text = "Wait, really? Tasting was one of your stolen powers? Or something even worse??"
 
 [node name="StandardTextBox2" parent="Text/GiveFood/Weight3/MultipleChoiceBox/NoTaste/NoTasteTextTree" instance=ExtResource("4_cqvfm")]
 text = "I'm so sorry to hear that. I can hardly think of a fate so terrible."
@@ -1058,6 +1114,32 @@ text = "Mhm, it tastes better eating with a friend~"
 
 [node name="StandardTextBox6" parent="Text/GiveFood/Weight3" instance=ExtResource("4_cqvfm")]
 text = "If you do happen across any more, let me know. I'd love to share it with you."
+
+[node name="Weight4" parent="Text/GiveFood" instance=ExtResource("3_ei62j")]
+
+[node name="StandardTextBox" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
+text = "You're taking some too, right?"
+
+[node name="StandardTextBox2" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
+text = "...Hrm. There's something that's been stuck in my mind."
+
+[node name="StandardTextBox3" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
+text = "You've brought me so much food. And with that, I've been able to locate your powers."
+
+[node name="StandardTextBox4" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
+text = "However, on the very edge of my senses, I swear I feel even more."
+
+[node name="StandardTextBox5" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
+text = "Guess I need to keep eating until I can locate it proper, huh?"
+
+[node name="StandardTextBox6" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
+text = "Hm... it's large. Leagues greater than what the others took."
+
+[node name="StandardTextBox7" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
+text = "It's almost as if they're trying to hide it from me..."
+
+[node name="StandardTextBox8" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
+text = "They must really want to keep it, huh?"
 
 [node name="Hint" type="Node" parent="Text"]
 
@@ -1228,6 +1310,17 @@ region_rect = Rect2(0, 20, 154, 20)
 [connection signal="before_next" from="Text/GiveFood/Weight3/StandardTextBox5" to="." method="text_gain_anim"]
 [connection signal="next" from="Text/GiveFood/Weight3/StandardTextBox5" to="." method="show_real_echo"]
 [connection signal="next" from="Text/GiveFood/Weight3/StandardTextBox5" to="AnimationPlayer" method="play" binds= [&"RESET"]]
+[connection signal="next" from="Text/GiveFood/Weight4" to="." method="load_main_menu"]
+[connection signal="before_next" from="Text/GiveFood/Weight4/StandardTextBox" to="." method="text_echo_grab_anim" binds= [3]]
+[connection signal="next" from="Text/GiveFood/Weight4/StandardTextBox2" to="." method="show_real_echo"]
+[connection signal="next" from="Text/GiveFood/Weight4/StandardTextBox2" to="AnimationPlayer" method="play" binds= [&"talk"]]
+[connection signal="next" from="Text/GiveFood/Weight4/StandardTextBox4" to="." method="hide_real_echo"]
+[connection signal="next" from="Text/GiveFood/Weight4/StandardTextBox4" to="AnimationPlayer" method="play" binds= ["eat"]]
+[connection signal="before_next" from="Text/GiveFood/Weight4/StandardTextBox5" to="." method="text_gain_anim"]
+[connection signal="next" from="Text/GiveFood/Weight4/StandardTextBox5" to="AnimationPlayer" method="play" binds= ["eat"]]
+[connection signal="next" from="Text/GiveFood/Weight4/StandardTextBox7" to="." method="show_real_echo"]
+[connection signal="next" from="Text/GiveFood/Weight4/StandardTextBox7" to="AnimationPlayer" method="play" binds= [&"talk"]]
+[connection signal="next" from="Text/GiveFood/Weight4/StandardTextBox8" to="AnimationPlayer" method="play" binds= [&"RESET"]]
 [connection signal="next" from="Text/Hint/Fireball" to="." method="unpause"]
 [connection signal="next" from="Text/Hint/DoubleJump" to="." method="unpause"]
 [connection signal="next" from="Text/Hint/Sprint" to="." method="unpause"]
