@@ -116,7 +116,7 @@ func stage_hurtbox_hit(_other: Node2D) -> void:
 	velocity.y = Echo.STAGE_HAZARD_BOUNCE
 
 func binding_hurtbox_hit(_other: Node2D) -> void:
-	take_damage(3.)
+	take_damage(2.)
 	get_tree().paused = true
 	
 	var bound_energy: Node2D = BoundEnergy.instantiate()

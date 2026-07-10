@@ -5,6 +5,9 @@ func _ready() -> void:
 	$ACC/VBoxContainer/Smol.button_pressed = Accessibility.is_smol
 	$ACC/VBoxContainer/DebugPowers.button_pressed = Accessibility.debug_powers
 	set_max_hp_label(Accessibility.max_hp_offset)
+	if Global.IS_DEMO_BUILD:
+		$ACC/VBoxContainer/Smol.queue_free()
+		$ACC/VBoxContainer/DebugPowers.queue_free()
 
 func max_hp_offset_changed(value: float) -> void:
 	var value_int := floori(value)
