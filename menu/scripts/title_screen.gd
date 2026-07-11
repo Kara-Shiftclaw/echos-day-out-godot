@@ -17,6 +17,8 @@ func _ready() -> void:
 		last_save_id = last_save_file_contents.to_int()
 	if !Global.has_saved_data(1):
 		$Options/VBoxContainer/Continue.disabled = true
+	if !Global.IS_DEMO_BUILD:
+		$Sprite2D/DemoLabel.queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel", false, false):
@@ -28,6 +30,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			$AnimationPlayer.seek(2.0)
 		if in_save_menu:
 			close_saved_games()
+	
+	if event.is_action_pressed("sprint", false, false):
+		$Sprite2D/VersionLabel.show()
+	if event.is_action_released("sprint"):
+		$Sprite2D/VersionLabel.hide()
 
 func new_game(load_id: int) -> void:
 	if $Options/UnderSaves/Copy.button_pressed or $Options/UnderSaves/Erase.button_pressed:

@@ -297,6 +297,23 @@ position = Vector2(64, 64)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_o0rbc")
 
+[node name="DemoLabel" type="Label" parent="Sprite2D"]
+offset_left = -63.0
+offset_top = 18.0
+offset_right = -23.0
+offset_bottom = 41.0
+theme = ExtResource("2_1hn3b")
+text = "DEMO"
+
+[node name="VersionLabel" type="Label" parent="Sprite2D"]
+visible = false
+offset_left = -63.0
+offset_top = 26.0
+offset_right = -23.0
+offset_bottom = 49.0
+theme = ExtResource("2_1hn3b")
+text = "V0.5.1"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(64, 64)
 zoom = Vector2(4, 4)
@@ -381,7 +398,6 @@ offset_bottom = -1.0
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Erase")
-focus_neighbor_top = NodePath("../New Game")
 focus_neighbor_right = NodePath("../Erase")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath("../Erase")
@@ -396,7 +412,6 @@ text = "Copy"
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Copy")
-focus_neighbor_top = NodePath("../New Game")
 focus_neighbor_right = NodePath("../Copy")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath("../Copy")
