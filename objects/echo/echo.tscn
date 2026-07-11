@@ -1,7 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://dkym2x36d2n0s"]
+[gd_scene load_steps=43 format=3 uid="uid://dkym2x36d2n0s"]
 
 [ext_resource type="Script" uid="uid://ccyvj253iceo7" path="res://objects/echo/scripts/echo.gd" id="1_jjhff"]
 [ext_resource type="Texture2D" uid="uid://ci45m4n4yfgho" path="res://assets/gfx/echo.png" id="1_n2q1k"]
+[ext_resource type="Shader" uid="uid://4r8lha6i2ga3" path="res://assets/damage_flash_shader.gdshader" id="2_kw0gc"]
 [ext_resource type="Texture2D" uid="uid://dqhuhiwecxvx8" path="res://assets/gfx/orb.png" id="3_eqnf0"]
 [ext_resource type="Texture2D" uid="uid://dxl5fnvj7a6lk" path="res://assets/gfx/echo_1.png" id="3_pf44c"]
 [ext_resource type="Texture2D" uid="uid://d0qnhw6r1minp" path="res://assets/gfx/echo_2.png" id="4_ahpfw"]
@@ -14,6 +15,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2q1k"]
 size = Vector2(6, 14)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcefi"]
+shader = ExtResource("2_kw0gc")
+shader_parameter/black = Color(0.13333334, 0.1254902, 0.20392157, 1)
+shader_parameter/flash_color = Color(0.9137255, 0.8235294, 0.22352941, 1)
 
 [sub_resource type="Animation" id="Animation_tau0j"]
 resource_name = "0_idle"
@@ -634,6 +640,18 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sprite2D:instance_shader_parameters/strength")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_juied"]
 resource_name = "attack"
@@ -770,6 +788,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:instance_shader_parameters/strength")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
 
 [sub_resource type="Animation" id="Animation_uew4c"]
 resource_name = "attack_3"
@@ -861,6 +891,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:instance_shader_parameters/strength")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_ukrqv"]
@@ -1383,6 +1425,8 @@ shape = SubResource("RectangleShape2D_n2q1k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3
+material = SubResource("ShaderMaterial_gcefi")
+instance_shader_parameters/strength = 0
 texture = ExtResource("1_n2q1k")
 hframes = 6
 vframes = 3

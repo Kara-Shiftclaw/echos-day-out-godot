@@ -224,6 +224,7 @@ func in_attack_anim() -> bool:
 	return is_cur_anim("attack") or is_cur_anim("attack_2") or is_cur_anim("attack_3")
 
 func set_anim(anim_name: String) -> bool:
+	$Sprite2D.set_instance_shader_parameter("strength", 0)
 	var prev_anim: String = $AnimationPlayer.current_animation
 	var full_name := full_anim_name(anim_name)
 	if $AnimationPlayer.has_animation(full_name):
