@@ -28,6 +28,7 @@ func disable_stage_transitions() -> void:
 
 func fall_cutscene() -> void:
 	get_tree().paused = true
+	Global.play_music(null)
 	$Objects/Row1/CutsceneBars.show()
 	$Objects/Row1/CutsceneBars.start()
 	$Objects/Row1/Row1AnimationPlayer.play("sonia_idle")
