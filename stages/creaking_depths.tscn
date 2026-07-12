@@ -498,7 +498,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.8, 1, 1.4, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [5, 4, 0, 1, 2, 0, 4, 5]
+"values": [8, 7, 0, 3, 4, 5, 7, 8]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -1278,7 +1278,7 @@ color = Color(0.18039216, 0.18039216, 0.38431373, 1)
 visible = false
 position = Vector2(73, 30)
 texture = ExtResource("28_a5cre")
-hframes = 6
+hframes = 9
 
 [node name="LandSound" type="AudioStreamPlayer" parent="Objects/DanielCutscene"]
 stream = ExtResource("29_5pkeg")
