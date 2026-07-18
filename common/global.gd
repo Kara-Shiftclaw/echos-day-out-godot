@@ -201,6 +201,7 @@ func load_data(load_id: int) -> void:
 	save_id = load_id
 	var load_json := get_load_json(load_id)
 	flags = load_json["flags"]
+	flags.erase("")
 	if load_json.has("journal_entries"):
 		journal_entries = load_json["journal_entries"]
 	portals = load_json.get("portals", {})

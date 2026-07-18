@@ -85,6 +85,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_5w0um")
 flag = "red_plant_open"
+post_sonia_repeat_flag = "red_post_sonia_repeat"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_5w0um")

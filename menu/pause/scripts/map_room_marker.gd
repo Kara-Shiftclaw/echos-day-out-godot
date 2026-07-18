@@ -6,5 +6,5 @@ extends Sprite2D
 @export var modify_region: Rect2
 
 func _ready() -> void:
-	if Global.flags.has(modify_flag):
+	if modify_flag != "" and Global.flags.has(modify_flag):
 		self.region_rect = modify_region

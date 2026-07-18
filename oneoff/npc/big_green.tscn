@@ -97,6 +97,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_32ycx")
 flag = "green_plant_open"
+post_sonia_repeat_flag = "green_post_sonia_repeat"
 
 [node name="BigGreen" type="Sprite2D" parent="."]
 texture = ExtResource("1_207ey")

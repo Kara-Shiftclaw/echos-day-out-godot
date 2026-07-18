@@ -8,6 +8,7 @@ func _input(event: InputEvent) -> void:
 
 func yes() -> void:
 	get_tree().paused = false
+	Global.music_player.stream = null
 	get_tree().change_scene_to_file("res://menu/title_screen.tscn")
 
 func no() -> void:
