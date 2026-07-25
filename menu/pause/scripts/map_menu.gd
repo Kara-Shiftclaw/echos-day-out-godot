@@ -68,8 +68,8 @@ func populate_dest_maps() -> void:
 	echo_marker.position = cur_stage_offset + Vector2(chunk_offset)
 	map_parent.position = CENTER - echo_marker.position
 	
-	map_parent.get_node("FireballHint").visible = Global.flags.has(HINT_FIREBALL)
-	map_parent.get_node("DoubleJumpHint").visible = Global.flags.has(HINT_DOUBLE_JUMP)
+	map_parent.get_node("FireballHint").visible = Global.flags.has(HINT_FIREBALL) and !Global.flags.has("mongoose_boss_completed")
+	map_parent.get_node("DoubleJumpHint").visible = Global.flags.has(HINT_DOUBLE_JUMP) and !Global.flags.has("sonia_completed")
 	map_parent.get_node("SprintHint").visible = Global.flags.has(HINT_SPRINT)
 	map_parent.get_node("CrushHint").visible = Global.flags.has(HINT_CRUSH)
 
