@@ -134,7 +134,7 @@ text = "Look, don't question the life decisions that got me stuck down here, jus
 text = "I was trying to get away from this dumb mole that was destroying my roots, and now I'm here."
 
 [node name="StandardTextBox4" parent="Dialogue/FirstEncounter" instance=ExtResource("5_02qom")]
-text = "I hate it here! It's too humid and I don't like seafood! ...But it does beat dying."
+text = "I hate it here! It's too dry and I don't like seafood! ...But it does beat dying."
 
 [node name="StandardTextBox5" parent="Dialogue/FirstEncounter" instance=ExtResource("5_02qom")]
 text = "Huh? You're trying to stop that same mole?"
@@ -190,12 +190,11 @@ stream = ExtResource("6_23ts6")
 
 [node name="DanielTextDialogue" parent="." instance=ExtResource("7_6b1jy")]
 script = ExtResource("8_sfqm8")
-pause_unpause = null
 
 [node name="GiftFrom" type="Node2D" parent="."]
 position = Vector2(19, 0)
 
-[connection signal="activated" from="NpcArrow" to="DanielTextDialogue" method="start"]
+[connection signal="activated" from="NpcArrow" to="DanielTextDialogue" method="decide_start"]
 [connection signal="next" from="Dialogue/FirstEncounter" to="." method="do_open"]
 [connection signal="next" from="Dialogue/Repeat" to="NpcArrow" method="generic_unpause"]
 [connection signal="next" from="Dialogue/PostSonia" to="NpcArrow" method="generic_unpause"]

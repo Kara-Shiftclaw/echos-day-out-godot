@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://cye7mkllc63s0"]
+[gd_scene load_steps=64 format=4 uid="uid://cye7mkllc63s0"]
 
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="1_0ws40"]
 [ext_resource type="Texture2D" uid="uid://dm5wh2qtbg7s0" path="res://assets/gfx/scenery/valley_tileset.png" id="1_6w44v"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="33_jmnar"]
 [ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="34_d6fli"]
 [ext_resource type="PackedScene" uid="uid://bdr0ixnwp128t" path="res://objects/demo_detector.tscn" id="35_fsvqk"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="36_te7pc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_14ry6"]
 texture = ExtResource("1_xpi5h")
@@ -377,6 +378,15 @@ size = Vector2(8, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jdyr"]
 size = Vector2(20, 2)
+
+[sub_resource type="GDScript" id="GDScript_gskwl"]
+resource_name = "demo_label"
+script/source = "extends Label
+
+func _ready() -> void:
+	if !(Global._fireball and Global._double_jump):
+		hide()
+"
 
 [node name="TreetopExpanse" type="Node2D"]
 
@@ -831,6 +841,17 @@ text = "She said the road beyond is incomplete. Its reality is false."
 text = "Perhaps one day it will be finished. Perhaps at that time, I will be free."
 
 [node name="DemoDetector" parent="Objects/DemoBee" instance=ExtResource("35_fsvqk")]
+
+[node name="DemoLabel" type="Label" parent="Objects/DemoBee"]
+offset_left = 5.0
+offset_top = -60.0
+offset_right = 105.0
+offset_bottom = -37.0
+theme = ExtResource("36_te7pc")
+text = "End of Demo
+Thanks for Playing!"
+horizontal_alignment = 1
+script = SubResource("GDScript_gskwl")
 
 [node name="NotDemoBee" type="Area2D" parent="Objects"]
 z_index = 10
