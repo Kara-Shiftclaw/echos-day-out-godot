@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://chlwla66od3nr"]
+
+[ext_resource type="Script" uid="uid://bogmdlks60242" path="res://textengine/text_box.gd" id="3_n1ic4"]
+
+[node name="TextBox" type="Panel" groups=["TextBoxes"]]
+process_mode = 3
+z_index = 110
+custom_minimum_size = Vector2(1152, 172)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 172.0
+grow_horizontal = 2
+script = ExtResource("3_n1ic4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Text"
+autowrap_mode = 3
+visible_characters_behavior = 1
+
+[node name="DialogueBlip" type="AudioStreamPlayer" parent="."]
+volume_db = -2.0

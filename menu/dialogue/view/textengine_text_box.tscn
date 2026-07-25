@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://chlwla66od3nr"]
+[gd_scene load_steps=6 format=3 uid="uid://byq7p58v100eo"]
 
-[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_8c1cq"]
-[ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_n1ic4"]
-[ext_resource type="Script" uid="uid://vdkkkqd3kh4b" path="res://menu/dialogue/view/scripts/text_box.gd" id="3_ifptj"]
-[ext_resource type="AudioStream" uid="uid://uclwdd1web11" path="res://assets/sfx/dialogue_blip.wav" id="4_ifptj"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_ytvko"]
+[ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_7h5h3"]
+[ext_resource type="Script" uid="uid://bogmdlks60242" path="res://textengine/text_box.gd" id="3_ytvko"]
+[ext_resource type="AudioStream" uid="uid://uclwdd1web11" path="res://assets/sfx/dialogue_blip.wav" id="4_2emvl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifptj"]
-texture = ExtResource("2_n1ic4")
+texture = ExtResource("2_7h5h3")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -20,9 +20,10 @@ offset_right = 128.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_8c1cq")
+theme = ExtResource("1_ytvko")
 theme_override_styles/panel = SubResource("StyleBoxTexture_ifptj")
-script = ExtResource("3_ifptj")
+script = ExtResource("3_ytvko")
+move_if_blocking_player = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -40,6 +41,6 @@ visible_characters = 0
 visible_characters_behavior = 1
 
 [node name="DialogueBlip" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ifptj")
+stream = ExtResource("4_2emvl")
 volume_db = -2.0
 bus = &"Sfx"

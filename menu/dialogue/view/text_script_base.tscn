@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://3jpuhtpuk4j4"]
+
+[ext_resource type="Script" uid="uid://cim4peaccojq3" path="res://textengine/abstract_text_script.gd" id="1_g7u5a"]
+[ext_resource type="PackedScene" uid="uid://byq7p58v100eo" path="res://menu/dialogue/view/textengine_text_box.tscn" id="2_g1ask"]
+[ext_resource type="PackedScene" uid="uid://c4fx5qcmjiotm" path="res://menu/dialogue/view/textengine_option_box.tscn" id="3_5bjri"]
+
+[node name="TextScriptBase" type="Node"]
+process_mode = 3
+script = ExtResource("1_g7u5a")
+default_textbox_scene = ExtResource("2_g1ask")
+default_option_box_scene = ExtResource("3_5bjri")
+metadata/_custom_type_script = "uid://cim4peaccojq3"

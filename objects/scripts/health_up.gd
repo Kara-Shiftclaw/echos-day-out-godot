@@ -34,3 +34,10 @@ func do_health_up_get():
 	get_tree().paused = true
 	collected.emit()
 	queue_free()
+
+func gift_from_to(src_global: Vector2, dest_global: Vector2) -> void:
+	$AnimationPlayer.play("gift")
+	global_position = src_global
+	var tween := create_tween()
+	tween.tween_property(self, "global_position", dest_global, 0.3)
+	tween.play()

@@ -9,6 +9,7 @@ signal first_activated()
 signal repeat_activated()
 
 func _ready() -> void:
+	hide()
 	if activation_area == null:
 		activation_area = get_parent() as Area2D
 	activation_area.area_entered.connect(entered)

@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4fx5qcmjiotm"]
+
+[ext_resource type="Script" uid="uid://d3ksx55wdrmc6" path="res://textengine/option_box.gd" id="1_fhspy"]
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_njo3c"]
+
+[node name="TextengineOptionBox" type="Control" node_paths=PackedStringArray("buttons_parent", "description")]
+z_index = 111
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_njo3c")
+script = ExtResource("1_fhspy")
+buttons_parent = NodePath("HBoxContainer/ButtonsParent")
+description = NodePath("HBoxContainer/DescContainer/MarginContainer/Label")
+metadata/_custom_type_script = "uid://d3ksx55wdrmc6"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="ButtonsParent" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="HBoxContainer/ButtonsParent"]
+layout_mode = 2
+text = "A"
+
+[node name="Button2" type="Button" parent="HBoxContainer/ButtonsParent"]
+layout_mode = 2
+text = "B"
+
+[node name="Button3" type="Button" parent="HBoxContainer/ButtonsParent"]
+layout_mode = 2
+text = "C"
+
+[node name="Button4" type="Button" parent="HBoxContainer/ButtonsParent"]
+layout_mode = 2
+text = "D"
+
+[node name="DescContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/DescContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/DescContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Test"
+
+[connection signal="hide_description" from="." to="HBoxContainer/DescContainer" method="hide"]
+[connection signal="show_description" from="." to="HBoxContainer/DescContainer" method="show"]

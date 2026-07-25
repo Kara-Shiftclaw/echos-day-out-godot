@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://5uw4s73xrc0u"]
+
+[ext_resource type="Script" uid="uid://d3ksx55wdrmc6" path="res://textengine/option_box.gd" id="1_fu3s3"]
+[ext_resource type="Theme" uid="uid://dpost8jdd8qtm" path="res://textengine/size_32_text.tres" id="1_upkoy"]
+
+[node name="OptionBox" type="Control" node_paths=PackedStringArray("buttons_parent", "description")]
+custom_minimum_size = Vector2(1152, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 224.0
+script = ExtResource("1_fu3s3")
+buttons_parent = NodePath("OptionBox/OptionButtons")
+description = NodePath("OptionBox/DescriptionParent/Description")
+
+[node name="OptionBox" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1152, 0)
+layout_mode = 0
+theme = ExtResource("1_upkoy")
+
+[node name="OptionButtons" type="VBoxContainer" parent="OptionBox"]
+process_mode = 3
+layout_mode = 2
+
+[node name="Button" type="Button" parent="OptionBox/OptionButtons"]
+layout_mode = 2
+text = "Hat"
+
+[node name="Button2" type="Button" parent="OptionBox/OptionButtons"]
+layout_mode = 2
+text = "Shirt"
+
+[node name="Button3" type="Button" parent="OptionBox/OptionButtons"]
+layout_mode = 2
+text = "Pant"
+
+[node name="Button4" type="Button" parent="OptionBox/OptionButtons"]
+layout_mode = 2
+text = "Back"
+
+[node name="DescriptionParent" type="PanelContainer" parent="OptionBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Description" type="Label" parent="OptionBox/DescriptionParent"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "The option is selected."
+autowrap_mode = 3
+
+[connection signal="hide_description" from="." to="OptionBox/DescriptionParent" method="hide"]
+[connection signal="show_description" from="." to="OptionBox/DescriptionParent" method="show"]

@@ -119,6 +119,10 @@ debug_noclip={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/translation.en.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Solid"
