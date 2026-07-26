@@ -932,7 +932,7 @@ offset_right = 2176.0
 offset_bottom = 0.0
 other_stage = "uid://d0cqj6thnf2r1"
 
-[node name="EchoPeak" parent="StageTransitions" instance=ExtResource("10_xyh6v")]
+[node name="ThievesRoad" parent="StageTransitions" instance=ExtResource("10_xyh6v")]
 offset_left = 128.0
 offset_top = -256.0
 offset_right = 256.0

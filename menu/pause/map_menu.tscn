@@ -358,7 +358,7 @@ centered = false
 region_enabled = true
 region_rect = Rect2(16, 8, 8, 8)
 script = ExtResource("4_cwggy")
-area = "EchoPeak"
+area = "BlackMarket"
 modify_flag = "res://stages/echo_peak.tscn|/root/EchoPeak/Objects/Portal|open"
 modify_region = Rect2(24, 8, 8, 8)
 metadata/_custom_type_script = "uid://khfs0huiptn1"
@@ -529,7 +529,7 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 8, 8, 8)
 script = ExtResource("4_cwggy")
-area = "EchoPeak"
+area = "ThievesRoad"
 modify_flag = "res://stages/echo_peak.tscn|/root/EchoPeak/Objects/Food|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
@@ -595,7 +595,7 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 8, 8, 8)
 script = ExtResource("4_cwggy")
-area = "EchoPeak"
+area = "BlackMarket"
 modify_flag = "res://stages/echo_peak.tscn|/root/EchoPeak/Objects/HealthUp|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 

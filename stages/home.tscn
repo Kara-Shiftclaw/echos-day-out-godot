@@ -40,7 +40,7 @@ which_region = 8
 
 [node name="StageTransitions" type="Node2D" parent="."]
 
-[node name="EchoPeak" parent="StageTransitions" instance=ExtResource("2_c24go")]
+[node name="ThievesRoad" parent="StageTransitions" instance=ExtResource("2_c24go")]
 offset_top = -128.0
 offset_bottom = 0.0
 other_stage = "uid://cxi2nthp2u2uv"
