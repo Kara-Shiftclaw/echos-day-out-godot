@@ -1,0 +1,534 @@
+[gd_scene load_steps=25 format=3 uid="uid://dampa7pivr43i"]
+
+[ext_resource type="Script" uid="uid://b1kj8pto6eexk" path="res://objects/enemies/scripts/thin_cat.gd" id="1_a8qcr"]
+[ext_resource type="Texture2D" uid="uid://d2m2sv3vqqphg" path="res://assets/gfx/thin_cat.png" id="1_jgx42"]
+[ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="1_rn1q0"]
+[ext_resource type="Script" uid="uid://xeaiog8g8o5j" path="res://common/rf_sprite_2d.gd" id="2_q2sdf"]
+[ext_resource type="Script" uid="uid://dwgs3vtqk64iy" path="res://common/region_frames.gd" id="3_8mrgn"]
+[ext_resource type="AudioStream" uid="uid://cnd5dgyvlt8l0" path="res://assets/sfx/spin.wav" id="5_q2sdf"]
+[ext_resource type="AudioStream" uid="uid://cj5ql5x35behu" path="res://assets/sfx/shoot.wav" id="6_8mrgn"]
+[ext_resource type="AudioStream" uid="uid://b8bn0i651o1i2" path="res://assets/sfx/meow.wav" id="7_52flh"]
+[ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="9_52krr"]
+[ext_resource type="Script" uid="uid://rgo1dl6jri05" path="res://objects/enemies/scripts/random_attack_selector.gd" id="9_a16qp"]
+[ext_resource type="AudioStream" uid="uid://bdivlhqt2ka76" path="res://assets/sfx/meow2.wav" id="9_hodoy"]
+[ext_resource type="AudioStream" uid="uid://bipyi2pjt44k8" path="res://assets/sfx/meow3.wav" id="10_52nel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52flh"]
+size = Vector2(8, 18)
+
+[sub_resource type="Resource" id="Resource_52flh"]
+script = ExtResource("3_8mrgn")
+frames = Array[Rect2]([Rect2(1, 1, 13, 19), Rect2(16, 1, 29, 19), Rect2(47, 1, 18, 19)])
+metadata/_custom_type_script = "uid://dwgs3vtqk64iy"
+
+[sub_resource type="Animation" id="Animation_q2sdf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RFSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RFSprite2D:current_frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spin:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RFSprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shoot:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Meow:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpinDamageBox/SpinDamageShape:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Meow2:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Meow3:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_a8qcr"]
+resource_name = "double_turn"
+length = 1.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RFSprite2D:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spin:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpinDamageBox/SpinDamageShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"decision_point"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Meow3:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jgx42"]
+resource_name = "idle"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RFSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -10)]
+}
+
+[sub_resource type="Animation" id="Animation_52flh"]
+resource_name = "throw_knives"
+length = 1.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RFSprite2D:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 2, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RFSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0.5, 0.5), Vector2(-2, 0.5), Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shoot:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meow:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.5, 0.6, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"throw_knife"
+}, {
+"args": [],
+"method": &"throw_knife"
+}, {
+"args": [],
+"method": &"throw_knife"
+}, {
+"args": [],
+"method": &"decision_point"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8mrgn"]
+resource_name = "turn"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RFSprite2D:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spin:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.70000005),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpinDamageBox/SpinDamageShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"turn"
+}, {
+"args": [],
+"method": &"decision_point"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Meow2:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_a16qp"]
+resource_name = "jump_double_spin"
+length = 0.4
+
+[sub_resource type="Animation" id="Animation_52krr"]
+resource_name = "jump"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"decision_point"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_52nel"]
+resource_name = "die"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RFSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpinDamageBox/SpinDamageShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RFSprite2D:current_frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mrgn"]
+_data = {
+&"RESET": SubResource("Animation_q2sdf"),
+&"die": SubResource("Animation_52nel"),
+&"double_turn": SubResource("Animation_a8qcr"),
+&"idle": SubResource("Animation_jgx42"),
+&"jump": SubResource("Animation_52krr"),
+&"jump_double_spin": SubResource("Animation_a16qp"),
+&"throw_knives": SubResource("Animation_52flh"),
+&"turn": SubResource("Animation_8mrgn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8qcr"]
+size = Vector2(29, 7)
+
+[node name="ThinCat" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_a8qcr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_52flh")
+
+[node name="RFSprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -10)
+texture = ExtResource("1_jgx42")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(1, 1, 13, 19)
+script = ExtResource("2_q2sdf")
+region_frames = SubResource("Resource_52flh")
+metadata/_custom_type_script = "uid://xeaiog8g8o5j"
+
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("1_rn1q0")]
+max_health = 22
+journal_entry = "thin_cat"
+animation_player = NodePath("../AnimationPlayer")
+parent_save_properties = Array[String](["position", "facing_right"])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8mrgn")
+}
+next/jump_double_spin = &"double_turn"
+
+[node name="Spin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q2sdf")
+volume_db = 3.0
+bus = &"Sfx"
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_8mrgn")
+volume_db = 4.0
+bus = &"Sfx"
+
+[node name="Meow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_52flh")
+volume_db = 4.0
+
+[node name="Meow2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_hodoy")
+volume_db = 2.0
+
+[node name="Meow3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_52nel")
+volume_db = 2.0
+
+[node name="SpinDamageBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="SpinDamageShape" type="CollisionShape2D" parent="SpinDamageBox"]
+position = Vector2(1.5, -8.5)
+shape = SubResource("RectangleShape2D_a8qcr")
+disabled = true
+
+[node name="Damage" type="Node" parent="SpinDamageBox"]
+script = ExtResource("9_52krr")
+damage = 3
+metadata/_custom_type_script = "uid://cd06ykx2xlfww"
+
+[node name="PlayerSight" type="RayCast2D" parent="."]
+position = Vector2(0, -14)
+collision_mask = 3
+hit_from_inside = true
+
+[node name="RandomAttackSelector" type="Node" parent="." node_paths=PackedStringArray("source")]
+script = ExtResource("9_a16qp")
+source = NodePath("..")
+attack_enum = "Attack"
+Wait_odds = 0
+Jump_odds = 5
+JumpKnives_odds = 6
+StandKnives_odds = 0
+Spin_odds = 0
+DoubleSpin_odds = 3
+JumpDoubleSpin_odds = 2
+metadata/_custom_type_script = "uid://rgo1dl6jri05"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_52flh")
+
+[connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]
+[connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
+[connection signal="body_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]

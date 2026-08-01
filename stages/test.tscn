@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dig7lasodylt8"]
+[gd_scene load_steps=13 format=4 uid="uid://dig7lasodylt8"]
 
 [ext_resource type="TileSet" uid="uid://nxepeq61cx64" path="res://assets/tileset.tres" id="1_2qmnm"]
 [ext_resource type="PackedScene" uid="uid://dkym2x36d2n0s" path="res://objects/echo/echo.tscn" id="1_u1sro"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://whn2qdsyfdyv" path="res://objects/enemies/beeorb.tscn" id="5_dp5ym"]
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="6_r1nsf"]
 [ext_resource type="PackedScene" uid="uid://bxr76a3f4ycw7" path="res://objects/enemies/bee_cannon.tscn" id="8_2foxe"]
+[ext_resource type="PackedScene" uid="uid://dampa7pivr43i" path="res://objects/enemies/thin_cat.tscn" id="9_fi8vg"]
 
 [sub_resource type="GDScript" id="GDScript_ti1c1"]
 script/source = "extends Node2D
@@ -16,6 +17,8 @@ const Honey := preload(\"res://objects/enemies/honey.tscn\")
 
 func _ready() -> void:
 	Global._fireball = true
+	Global._double_jump = true
+	#Global._sprint = true
 	Global.health = 15
 	Global.recalculate_weight()
 
@@ -39,43 +42,45 @@ script = SubResource("GDScript_ti1c1")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -10
-tile_map_data = PackedByteArray("AAAAAAAAAQABAAEAAAAAAAEAAQABAAEAAAAAAAIAAQABAAEAAAAAAAMAAQABAAEAAAAAAAQAAQABAAEAAAAAAAUAAQABAAEAAAAAAAYAAQABAAEAAAAAAAcAAQABAAEAAAAAAAgAAQABAAEAAAAAAAkAAQABAAEAAAAAAAoAAQABAAEAAAAAAAsAAQABAAEAAAAAAAwAAQABAAEAAAAAAA8AAQABAAEAAAABAA8AAQABAAEAAAACAA8AAQABAAEAAAADAA8AAQABAAEAAAAEAA8AAQABAAEAAAAFAA8AAQABAAEAAAAGAA8AAQABAAEAAAAHAA8AAQABAAEAAAAIAA8AAQABAAEAAAAJAA8AAQABAAEAAAAKAA8AAQABAAEAAAALAA8AAQABAAEAAAAMAA8AAQABAAEAAAANAA8AAQABAAEAAAAOAA8AAQABAAEAAAAPAA8AAQABAAEAAAAPAA4AAQABAAEAAAAPAAwAAQABAAEAAAAPAAsAAQABAAEAAAAPAAoAAQABAAEAAAAPAAkAAQABAAEAAAAPAAgAAQABAAEAAAAPAAcAAQABAAEAAAAPAAYAAQABAAEAAAAPAAUAAQABAAEAAAAPAAQAAQABAAEAAAAPAAMAAQABAAEAAAAPAAIAAQABAAEAAAAPAAEAAQABAAEAAAAPAAAAAQABAAEAAAAOAAAAAQABAAEAAAANAAAAAQABAAEAAAAMAAAAAQABAAEAAAALAAAAAQABAAEAAAAKAAAAAQABAAEAAAAJAAAAAQABAAEAAAAIAAAAAQABAAEAAAAHAAAAAQABAAEAAAAGAAAAAQABAAEAAAAFAAAAAQABAAEAAAAEAAAAAQABAAEAAAADAAAAAQABAAEAAAACAAAAAQABAAEAAAABAAAAAQABAAEAAAAHAA0AAQABAAEAAAAHAAwAAQABAAEAAAAHAAsAAQABAAEAAAALAAwAAQABAAEAAAALAA0AAQABAAEAAAALAA4AAQABAAEAAAAJAA0AAQABAAEAAAAJAA4AAQABAAEAAAD//w8AAQABAAEAAAD+/w8AAQABAAEAAAD9/w8AAQABAAEAAAD8/w8AAQABAAEAAAD8/w4AAQABAAEAAAD8/w0AAQABAAEAAAD8/wwAAQABAAEAAAD9/wwAAQABAAEAAAD+/wwAAQABAAEAAAD//wwAAQABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQABAAEAAAAAAAEAAQABAAEAAAAAAAIAAQABAAEAAAAAAAMAAQABAAEAAAAAAAQAAQABAAEAAAAAAAUAAQABAAEAAAAAAAYAAQABAAEAAAAAAAcAAQABAAEAAAAAAAgAAQABAAEAAAAAAAkAAQABAAEAAAAAAAoAAQABAAEAAAAAAAsAAQABAAEAAAAAAAwAAQABAAEAAAAAAA8AAQABAAEAAAABAA8AAQABAAEAAAACAA8AAQABAAEAAAADAA8AAQABAAEAAAAEAA8AAQABAAEAAAAFAA8AAQABAAEAAAAGAA8AAQABAAEAAAAHAA8AAQABAAEAAAAIAA8AAQABAAEAAAAJAA8AAQABAAEAAAAKAA8AAQABAAEAAAALAA8AAQABAAEAAAAMAA8AAQABAAEAAAANAA8AAQABAAEAAAAOAA8AAQABAAEAAAAPAA8AAQABAAEAAAAPAA4AAQABAAEAAAAPAAwAAQABAAEAAAAPAAsAAQABAAEAAAAPAAoAAQABAAEAAAAPAAkAAQABAAEAAAAPAAgAAQABAAEAAAAPAAcAAQABAAEAAAAPAAYAAQABAAEAAAAPAAUAAQABAAEAAAAPAAQAAQABAAEAAAAPAAMAAQABAAEAAAAPAAIAAQABAAEAAAAPAAEAAQABAAEAAAAPAAAAAQABAAEAAAAOAAAAAQABAAEAAAANAAAAAQABAAEAAAAMAAAAAQABAAEAAAALAAAAAQABAAEAAAAKAAAAAQABAAEAAAAJAAAAAQABAAEAAAAIAAAAAQABAAEAAAAHAAAAAQABAAEAAAAGAAAAAQABAAEAAAAFAAAAAQABAAEAAAAEAAAAAQABAAEAAAADAAAAAQABAAEAAAACAAAAAQABAAEAAAABAAAAAQABAAEAAAAHAA0AAQABAAEAAAAHAAwAAQABAAEAAAAHAAsAAQABAAEAAAALAAwAAQABAAEAAAALAA0AAQABAAEAAAALAA4AAQABAAEAAAAJAA0AAQABAAEAAAAJAA4AAQABAAEAAAD//w8AAQABAAEAAAD+/w8AAQABAAEAAAD9/w8AAQABAAEAAAD8/w8AAQABAAEAAAD8/w4AAQABAAEAAAD8/w0AAQABAAEAAAD8/wwAAQABAAEAAAD9/wwAAQABAAEAAAD+/wwAAQABAAEAAAD//wwAAQABAAEAAAAQAA8AAQABAAEAAAARAA8AAQABAAEAAAASAA8AAQABAAEAAAATAA8AAQABAAEAAAAUAA8AAQABAAEAAAAVAA8AAQABAAEAAAAWAA8AAQABAAEAAAAXAA8AAQABAAEAAAAYAA8AAQABAAEAAAAZAA8AAQABAAEAAAAaAA8AAQABAAEAAAAbAA8AAQABAAEAAAAcAA8AAQABAAEAAAAdAA8AAQABAAEAAAAeAA8AAQABAAEAAAAfAA8AAQABAAEAAAAfAA4AAQABAAEAAAAfAA0AAQABAAEAAAAfAAwAAQABAAEAAAAfAAsAAQABAAEAAAAfAAoAAQABAAEAAAAfAAkAAQABAAEAAAAfAAgAAQABAAEAAAAfAAcAAQABAAEAAAAfAAYAAQABAAEAAAAfAAUAAQABAAEAAAAfAAQAAQABAAEAAAAfAAMAAQABAAEAAAAfAAIAAQABAAEAAAAfAAEAAQABAAEAAAAfAAAAAQABAAEAAAAeAAAAAQABAAEAAAAdAAAAAQABAAEAAAAcAAAAAQABAAEAAAAbAAAAAQABAAEAAAAaAAAAAQABAAEAAAAZAAAAAQABAAEAAAAYAAAAAQABAAEAAAAXAAAAAQABAAEAAAAWAAAAAQABAAEAAAAVAAAAAQABAAEAAAAUAAAAAQABAAEAAAATAAAAAQABAAEAAAASAAAAAQABAAEAAAARAAAAAQABAAEAAAAQAAAAAQABAAEAAAAQAAEAAQABAAEAAAAQAAIAAQABAAEAAAAQAAMAAQABAAEAAAAQAAQAAQABAAEAAAAQAAUAAQABAAEAAAAQAAYAAQABAAEAAAAQAAcAAQABAAEAAAAQAAgAAQABAAEAAAAQAAkAAQABAAEAAAAQAAoAAQABAAEAAAAQAAsAAQABAAEAAAAQAAwAAQABAAEAAAAQAA0AAQABAAEAAAAQAA4AAQABAAEAAAAZAAoAAQABAAEAAAAeAA4AAQABAAEAAAAeAA0AAQABAAEAAAAeAAwAAQABAAEAAAAdAAwAAQABAAEAAAAdAA0AAQABAAEAAAAdAA4AAQABAAEAAAAYAAoAAQABAAEAAAAXAAoAAQABAAEAAAAWAAoAAQABAAEAAAAXAAsAAQABAAEAAAAYAAsAAQABAAEAAAAUAAYAAQABAAEAAAATAAYAAQABAAEAAAASAAYAAQABAAEAAAARAAYAAQABAAEAAAARAAcAAQABAAEAAAASAAcAAQABAAEAAAARAAgAAQABAAEAAAATAAwAAQABAAEAAAASAAwAAQABAAEAAAARAAwAAQABAAEAAAARAA0AAQABAAEAAAARAA4AAQABAAEAAAASAA4AAQABAAEAAAASAA0AAQABAAEAAAATAA0AAQABAAEAAAATAA4AAQABAAEAAAA=")
 tile_set = ExtResource("1_2qmnm")
 
 [node name="Echo" parent="." instance=ExtResource("1_u1sro")]
-position = Vector2(72, 95)
+position = Vector2(172, 111)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following")]
+[node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(64, 64)
 zoom = Vector2(4, 4)
 script = ExtResource("3_abicu")
-following = NodePath("../Echo")
 
 [node name="HealthBar" parent="Camera2D" instance=ExtResource("3_dp5ym")]
 
-[node name="FallingTile" parent="." instance=ExtResource("3_u1sro")]
+[node name="BeeTest" type="Node2D" parent="."]
+
+[node name="FallingTile" parent="BeeTest" instance=ExtResource("3_u1sro")]
 position = Vector2(8, 91)
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Path2D" type="Path2D" parent="BeeTest"]
 position = Vector2(0, 4)
 curve = SubResource("Curve2D_r1nsf")
 
-[node name="Beeorb" parent="Path2D" instance=ExtResource("5_dp5ym")]
+[node name="Beeorb" parent="BeeTest/Path2D" instance=ExtResource("5_dp5ym")]
 position = Vector2(47, 78)
 motion_mode = 1
 
-[node name="TheHoneyZone" type="Area2D" parent="."]
+[node name="TheHoneyZone" type="Area2D" parent="BeeTest"]
 collision_layer = 0
 collision_mask = 2
 
-[node name="ColorRect" type="ColorRect" parent="TheHoneyZone"]
+[node name="ColorRect" type="ColorRect" parent="BeeTest/TheHoneyZone"]
 offset_left = 109.0
 offset_top = 112.0
 offset_right = 120.0
 offset_bottom = 120.0
 color = Color(0.78039217, 0.44705883, 0.28235295, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="TheHoneyZone/ColorRect"]
+[node name="Label" type="Label" parent="BeeTest/TheHoneyZone/ColorRect"]
 layout_mode = 0
 offset_left = -25.0
 offset_top = -7.0
@@ -84,13 +89,33 @@ offset_bottom = 16.0
 theme = ExtResource("6_r1nsf")
 text = "the Honey
 zone"
+metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TheHoneyZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeeTest/TheHoneyZone"]
 position = Vector2(114.5, 116)
 shape = SubResource("RectangleShape2D_abicu")
 
-[node name="BeeCannon" parent="." instance=ExtResource("8_2foxe")]
+[node name="BeeCannon" parent="BeeTest" instance=ExtResource("8_2foxe")]
 position = Vector2(65, 36)
 
-[connection signal="area_entered" from="TheHoneyZone" to="." method="honey_zone"]
-[connection signal="body_entered" from="TheHoneyZone" to="." method="honey_zone"]
+[node name="CatTest" type="Node2D" parent="."]
+
+[node name="ThinCat" parent="." instance=ExtResource("9_fi8vg")]
+position = Vector2(184, 80)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ThinCat"]
+offset_left = -8.0
+offset_right = 24.0
+offset_bottom = 8.0
+
+[node name="ThinCat2" parent="." instance=ExtResource("9_fi8vg")]
+position = Vector2(381, 14)
+facing_right = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ThinCat2"]
+offset_left = -24.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="area_entered" from="BeeTest/TheHoneyZone" to="." method="honey_zone"]
+[connection signal="body_entered" from="BeeTest/TheHoneyZone" to="." method="honey_zone"]
