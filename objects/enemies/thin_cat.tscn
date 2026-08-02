@@ -465,6 +465,7 @@ parent_save_properties = Array[String](["position", "facing_right"])
 libraries = {
 &"": SubResource("AnimationLibrary_8mrgn")
 }
+next/RESET = &"idle"
 next/jump_double_spin = &"double_turn"
 
 [node name="Spin" type="AudioStreamPlayer" parent="."]
