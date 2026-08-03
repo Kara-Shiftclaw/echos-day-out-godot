@@ -6,11 +6,20 @@ extends Node2D
 @export var renderer: Sprite2D
 @export var in_background := false:
 	set(value):
-		in_background = value
+		if in_background != value:
+			in_background = value
+			if value:
+				entered_background.emit()
+			else:
+				exited_background.emit()
+
 		if is_node_ready():
 			sync_in_background()
 
 var layer_copies: Array[TileMapLayer] = []
+
+signal entered_background()
+signal exited_background()
 
 func _ready() -> void:
 	for layer in tile_map_layers:

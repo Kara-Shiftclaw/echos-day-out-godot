@@ -413,8 +413,9 @@ func load_chunk(cx: int, cy: int) -> void:
 	chunk_loaded.emit(cx, cy)
 	add_explored_space(cx, cy)
 
-func add_explored_space(cx: int, cy: int) -> void:
-	var stage := get_tree().current_scene.name
+func add_explored_space(cx: int, cy: int, stage = null) -> void:
+	if stage == null:
+		stage = get_tree().current_scene.name
 	var stage_explored_spaces: Dictionary = explored_spaces.get(stage, {})
 	stage_explored_spaces.set(explored_space_str(cx, cy), true)
 	explored_spaces.set(stage, stage_explored_spaces)

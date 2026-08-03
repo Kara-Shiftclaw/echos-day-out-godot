@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dyqup83v5880i"]
 
-[ext_resource type="Script" uid="uid://c4t6wf5tn5f4k" path="res://oneoff/scripts/foreground_background_door.gd" id="1_3ttmg"]
+[ext_resource type="Script" uid="uid://c4t6wf5tn5f4k" path="res://oneoff/background/scripts/foreground_background_door.gd" id="1_3ttmg"]
 [ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="1_20q3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ttmg"]

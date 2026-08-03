@@ -2,6 +2,7 @@ extends Control
 
 const CENTER := Vector2(51., 46.)
 const SCROLL_SPEED := 20. * 8.
+const STAGES_WITH_BACKGROUND := ["ThievesRoad"]
 
 const HINT_FIREBALL := "hint_fireball"
 const HINT_DOUBLE_JUMP := "hint_double_jump"
@@ -48,7 +49,9 @@ func populate_dest_maps() -> void:
 		$Outline/Background/MapParent/MushHints.hide()
 	
 	for stage in Global.explored_spaces:
-		var source_map_layer: TileMapLayer = $SourceMap.get_node(stage as String)
+		var source_map_layer: TileMapLayer = $SourceMap.get_node_or_null(stage as String)
+		if source_map_layer == null:
+			continue
 		var dest_map_layer := source_map_layer.duplicate()
 		$Outline/Background/MapParent.add_child(dest_map_layer)
 		var dest_map_back: TileMapLayer = dest_map_layer.get_child(0)
@@ -58,6 +61,14 @@ func populate_dest_maps() -> void:
 			if !stage_explored_spaces.has(explored_space_coord(cell)):
 				dest_map_layer.erase_cell(cell)
 				dest_map_back.erase_cell(cell)
+		
+		if STAGES_WITH_BACKGROUND.has(stage):
+			for i in range(1, dest_map_layer.get_child_count()):
+				var dest_map_background: TileMapLayer = dest_map_layer.get_child(i)
+				var background_explored_spaces: Dictionary = Global.explored_spaces.get(dest_map_background.name, {})
+				for cell in dest_map_background.get_used_cells():
+					if !background_explored_spaces.has(explored_space_coord(cell)):
+						dest_map_background.erase_cell(cell)
 		
 		if stage == cur_stage:
 			cur_stage_offset = dest_map_layer.position

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://i10ac5faca6w"]
+
+[ext_resource type="Script" uid="uid://v8ikuog1xqmh" path="res://oneoff/background/scripts/background_map_area.gd" id="1_ptfy3"]
+
+[node name="BackgroundMapArea" type="ReferenceRect"]
+offset_right = 128.0
+offset_bottom = 128.0
+script = ExtResource("1_ptfy3")
