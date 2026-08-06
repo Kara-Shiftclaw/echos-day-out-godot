@@ -8,14 +8,18 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Echos Day Out"
 config/version="V0.5.5"
 run/main_scene="uid://7kbil360lc45"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.13333334, 0.1254902, 0.20392157, 1)
-boot_splash/fullsize=false
+boot_splash/stretch_mode=0
 boot_splash/use_filter=false
 boot_splash/image="uid://c5wwe7c20hfl0"
 config/icon="uid://c4seegux6joeu"
@@ -34,6 +38,10 @@ Accessibility="*res://common/accessibility.gd"
 window/size/viewport_width=512
 window/size/viewport_height=512
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Echos Day Out"
 
 [editor]
 
