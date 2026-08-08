@@ -1,22 +1,115 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyqup83v5880i"]
+[gd_scene format=3 uid="uid://dyqup83v5880i"]
 
 [ext_resource type="Script" uid="uid://c4t6wf5tn5f4k" path="res://oneoff/background/scripts/foreground_background_door.gd" id="1_3ttmg"]
 [ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="1_20q3s"]
+[ext_resource type="Texture2D" uid="uid://c0voi1fr5t7mc" path="res://assets/gfx/background_door.png" id="3_ivuuh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ttmg"]
 size = Vector2(8, 2)
 
-[node name="ForegroundBackgroundDoor" type="Area2D"]
+[sub_resource type="Animation" id="Animation_ivuuh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightDoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_lld3t"]
+resource_name = "open"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 2),
+"update": 0,
+"values": [Vector2(-3, -12), Vector2(-13, -12), Vector2(-3, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightDoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 2),
+"update": 0,
+"values": [Vector2(3, -12), Vector2(13, -12), Vector2(3, -12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bco5f"]
+_data = {
+&"RESET": SubResource("Animation_ivuuh"),
+&"open": SubResource("Animation_lld3t")
+}
+
+[node name="ForegroundBackgroundDoor" type="Area2D" unique_id=1382390366]
+z_index = -10
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_3ttmg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1144300900]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_3ttmg")
 
-[node name="NpcArrow" parent="." node_paths=PackedStringArray("activation_area") instance=ExtResource("1_20q3s")]
+[node name="NpcArrow" parent="." unique_id=824427075 node_paths=PackedStringArray("activation_area") instance=ExtResource("1_20q3s")]
+z_index = 10
 position = Vector2(0, -30)
 activation_area = NodePath("..")
+
+[node name="Back" type="Sprite2D" parent="." unique_id=85731705]
+position = Vector2(0, -12)
+texture = ExtResource("3_ivuuh")
+region_enabled = true
+region_rect = Rect2(29, 0, 16, 24)
+
+[node name="LockColor" type="Sprite2D" parent="." unique_id=78838031]
+position = Vector2(12, -18)
+texture = ExtResource("3_ivuuh")
+vframes = 4
+region_enabled = true
+region_rect = Rect2(22, 0, 6, 24)
+
+[node name="LeftDoor" type="Sprite2D" parent="." unique_id=736684218]
+position = Vector2(-3, -12)
+texture = ExtResource("3_ivuuh")
+region_enabled = true
+region_rect = Rect2(0, 0, 10, 24)
+
+[node name="RightDoor" type="Sprite2D" parent="." unique_id=1658239242]
+position = Vector2(3, -12)
+texture = ExtResource("3_ivuuh")
+region_enabled = true
+region_rect = Rect2(11, 0, 10, 24)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1445669636]
+libraries/ = SubResource("AnimationLibrary_bco5f")
 
 [connection signal="activated" from="NpcArrow" to="." method="activated"]

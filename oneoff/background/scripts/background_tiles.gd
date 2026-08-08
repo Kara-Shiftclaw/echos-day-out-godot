@@ -30,6 +30,13 @@ func _ready() -> void:
 	
 	sync_in_background()
 
+func add_node_to_background(node: Node2D, node_global_position: Vector2) -> void:
+	if node.get_parent() != null:
+		node.reparent(layer_copies.get(0))
+	else:
+		layer_copies.get(0).add_child(node)
+		node.global_position = node_global_position
+
 func _process(_delta: float) -> void:
 	renderer.position = Vector2.ZERO
 	renderer.global_position = Vector2(roundf(renderer.global_position.x), roundf(renderer.global_position.y))
@@ -37,7 +44,7 @@ func _process(_delta: float) -> void:
 		layer.global_position = -renderer.global_position + sub_viewport.size / 2.
 
 func sync_in_background() -> void:
-	renderer.visible = in_background
+	#renderer.visible = in_background
 	for layer in tile_map_layers:
 		layer.collision_enabled = in_background
 	for layer in foreground_col_layers:
