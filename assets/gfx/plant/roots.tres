@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cd6e7gawjib1y"]
+[gd_resource type="TileSet" format=3 uid="uid://cd6e7gawjib1y"]
 
 [ext_resource type="Texture2D" uid="uid://cve5y3fokxtgs" path="res://assets/gfx/scenery/plant_roots.png" id="1_jg6d0"]
 

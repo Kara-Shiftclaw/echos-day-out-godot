@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bxnc37mxvc2d3"]
+[gd_resource type="TileSet" format=3 uid="uid://bxnc37mxvc2d3"]
 
 [ext_resource type="Texture2D" uid="uid://dm5wh2qtbg7s0" path="res://assets/gfx/scenery/valley_tileset.png" id="1_k4x8k"]
 

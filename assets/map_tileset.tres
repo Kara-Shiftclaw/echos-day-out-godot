@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bcmsdnc4q6fae"]
+[gd_resource type="TileSet" format=3 uid="uid://bcmsdnc4q6fae"]
 
 [ext_resource type="Texture2D" uid="uid://criakgn8dpati" path="res://assets/gfx/map_outline.png" id="1_k7n6p"]
 
