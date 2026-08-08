@@ -312,7 +312,7 @@ offset_top = 26.0
 offset_right = -23.0
 offset_bottom = 49.0
 theme = ExtResource("2_1hn3b")
-text = "V0.5.1"
+text = "V0.5.5"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(64, 64)
