@@ -873,30 +873,33 @@ position = Vector2(30, -10)
 text = "Hello sorry. I'm not the Detour-Envoking Motionless Orbee."
 
 [node name="StandardTextBox2" parent="Objects/NotDemoBee/FirstTalk" instance=ExtResource("34_d6fli")]
-text = "Unfortunately, I will not let you past this point."
-
-[node name="StandardTextBox3" parent="Objects/NotDemoBee/FirstTalk" instance=ExtResource("34_d6fli")]
-text = "I mean, I would love to. But it's impossible. I cannot be moved."
+text = "I was gifted size and thought from my creator."
 
 [node name="StandardTextBox4" parent="Objects/NotDemoBee/FirstTalk" instance=ExtResource("34_d6fli")]
-text = "...But when has something impossible ever stopped you?"
+text = "She told me things most strange. That I must block the \"truth.\""
+
+[node name="StandardTextBox3" parent="Objects/NotDemoBee/FirstTalk" instance=ExtResource("34_d6fli")]
+text = "Now I am \"stuck.\" In middle of the \"path.\" Goodbye."
 
 [node name="Repeat" parent="Objects/NotDemoBee" instance=ExtResource("33_jmnar")]
 
 [node name="StandardTextBox" parent="Objects/NotDemoBee/Repeat" instance=ExtResource("34_d6fli")]
-text = "I dunno what's behind me, but it's really cool."
+text = "You want it. The \"truth.\" Not of this world, but another."
 
 [node name="StandardTextBox2" parent="Objects/NotDemoBee/Repeat" instance=ExtResource("34_d6fli")]
-text = "And by cool, I mean cold. Weirdly cold."
+text = "She said the road beyond is incomplete. Will it ever be complete? Unknown."
 
 [node name="StandardTextBox3" parent="Objects/NotDemoBee/Repeat" instance=ExtResource("34_d6fli")]
-text = "Like, we're too far from the mountains for the wind to be this cold...?"
+text = "Perhaps, if you find your way on another plane, you can get past."
 
 [node name="StandardTextBox4" parent="Objects/NotDemoBee/Repeat" instance=ExtResource("34_d6fli")]
-text = "If you do get past me, which is impossible."
+text = "Another plane. Another world. Another dimension."
 
 [node name="StandardTextBox5" parent="Objects/NotDemoBee/Repeat" instance=ExtResource("34_d6fli")]
-text = "Please get me a heater. Bee blubber is not good at keeping warm"
+text = "Ha ha... it sounds impossible."
+
+[node name="StandardTextBox6" parent="Objects/NotDemoBee/Repeat" instance=ExtResource("34_d6fli")]
+text = "...But when has something impossible ever stopped you?"
 
 [node name="DemoDetector" parent="Objects/NotDemoBee" instance=ExtResource("35_fsvqk")]
 parent_demo_only = false
