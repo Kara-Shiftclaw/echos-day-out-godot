@@ -15,8 +15,8 @@ extends Sprite2D
 		frame_count = value
 		notify_property_list_changed()
 
-var frame_regions: Array[Rect2]
-var frame_offsets: Array[Vector2]
+var frame_regions: Array[Rect2] = [Rect2()]
+var frame_offsets: Array[Vector2] = [Vector2.ZERO]
 
 
 func _get_property_list() -> Array[Dictionary]:

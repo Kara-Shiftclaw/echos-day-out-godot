@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl77glyl0yump"]
+[gd_scene format=3 uid="uid://cl77glyl0yump"]
 
 [ext_resource type="Texture2D" uid="uid://so1fk1lylapi" path="res://assets/gfx/up_arrow.png" id="1_i7blh"]
 [ext_resource type="Script" uid="uid://c5a4rnbd3hdb6" path="res://common/npc_arrow.gd" id="2_1yn22"]
@@ -42,15 +42,12 @@ _data = {
 &"bounce": SubResource("Animation_8mtm4")
 }
 
-[node name="NpcArrow" type="Sprite2D"]
+[node name="NpcArrow" type="Sprite2D" unique_id=697851753]
 process_mode = 3
-visible = false
 position = Vector2(0, -20)
 texture = ExtResource("1_i7blh")
 script = ExtResource("2_1yn22")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_mbb31")
-}
-autoplay = "bounce"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=972024911]
+libraries/ = SubResource("AnimationLibrary_mbb31")
+autoplay = &"bounce"
