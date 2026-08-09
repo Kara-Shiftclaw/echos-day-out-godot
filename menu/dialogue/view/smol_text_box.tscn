@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cuy6qt3hb4dr1"]
+
+[ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_ychec"]
+[ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_q4pe8"]
+[ext_resource type="Script" uid="uid://bogmdlks60242" path="res://textengine/text_box.gd" id="3_cxfeq"]
+[ext_resource type="AudioStream" uid="uid://uclwdd1web11" path="res://assets/sfx/dialogue_blip.wav" id="4_nkgtc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifptj"]
+texture = ExtResource("2_q4pe8")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(21, 0, 5, 5)
+
+[sub_resource type="Animation" id="Animation_ychec"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-64.0]
+}
+
+[sub_resource type="Animation" id="Animation_q4pe8"]
+resource_name = "peek"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [-64.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxfeq"]
+_data = {
+&"RESET": SubResource("Animation_ychec"),
+&"peek": SubResource("Animation_q4pe8")
+}
+
+[node name="TextBox" type="Panel" unique_id=639076187 groups=["TextBoxes"]]
+process_mode = 3
+z_index = 110
+offset_left = -64.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ychec")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifptj")
+script = ExtResource("3_cxfeq")
+move_if_blocking_player = true
+
+[node name="Label" type="Label" parent="." unique_id=2129856254]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9137255, 0.8235294, 0.22352941, 1)
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 2
+autowrap_mode = 3
+visible_characters_behavior = 1
+
+[node name="DialogueBlip" type="AudioStreamPlayer" parent="." unique_id=114510948]
+stream = ExtResource("4_nkgtc")
+volume_db = -4.0
+bus = &"Sfx"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=708986955]
+libraries/ = SubResource("AnimationLibrary_cxfeq")
+
+[connection signal="started" from="." to="AnimationPlayer" method="play" binds= [&"peek"]]

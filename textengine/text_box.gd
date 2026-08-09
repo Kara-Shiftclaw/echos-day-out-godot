@@ -5,6 +5,7 @@ const CHARACTERS_PER_SECOND := 20
 
 signal scroll_finished()
 signal close_signaled()
+signal started()
 
 @export var move_if_blocking_player := false
 @export var move_always := false
@@ -24,10 +25,15 @@ func set_text(text: String) -> void:
 	visible_characters_float = 0.
 	$Label.visible_characters = 0
 	scrolling = true
+	if is_moved():
+		position.y = Util.ROOM_SIZE - size.y
+	else:
+		position.y = 0.
+	started.emit()
 
 func _process(delta: float) -> void:
 	if visible:
-		if Input.is_action_just_pressed("pause"):
+		if Input.is_action_just_pressed("pause") and visible_characters_float > 0.:
 			close_signaled.emit()
 			visible_characters_float = $Label.text.length()
 

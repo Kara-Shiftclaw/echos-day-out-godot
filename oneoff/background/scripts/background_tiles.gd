@@ -2,6 +2,8 @@ extends Node2D
 
 @export var tile_map_layers: Array[TileMapLayer] = []
 @export var foreground_col_layers: Array[TileMapLayer] = []
+@export var only_foreground: Array[Node] = []
+@export var only_background: Array[Node] = []
 @export var sub_viewport: SubViewport
 @export var renderer: Sprite2D
 @export var in_background := false:
@@ -49,3 +51,7 @@ func sync_in_background() -> void:
 		layer.collision_enabled = in_background
 	for layer in foreground_col_layers:
 		layer.collision_enabled = !in_background
+	for node in only_foreground:
+		node.process_mode = Node.PROCESS_MODE_DISABLED if in_background else Node.PROCESS_MODE_INHERIT
+	for node in only_background:
+		node.process_mode = Node.PROCESS_MODE_INHERIT if in_background else Node.PROCESS_MODE_DISABLED
