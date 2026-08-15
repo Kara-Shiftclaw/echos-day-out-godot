@@ -1,18 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://beppsr4wlg7fs"]
+[gd_scene format=3 uid="uid://beppsr4wlg7fs"]
 
 [ext_resource type="Texture2D" uid="uid://d2m2sv3vqqphg" path="res://assets/gfx/thin_cat.png" id="1_bgvft"]
 [ext_resource type="Script" uid="uid://cfatc254hygws" path="res://objects/projectile/scripts/thin_cat_knife.gd" id="1_mefkw"]
-[ext_resource type="Script" uid="uid://xeaiog8g8o5j" path="res://common/rf_sprite_2d.gd" id="2_mefkw"]
-[ext_resource type="Script" uid="uid://dwgs3vtqk64iy" path="res://common/region_frames.gd" id="3_si07e"]
+[ext_resource type="Script" uid="uid://byf8cwr2ke4ky" path="res://common/rf_sprite_2d_v2.gd" id="3_mefkw"]
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="5_si07e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57vrk"]
 size = Vector2(4, 4)
-
-[sub_resource type="Resource" id="Resource_hyvwr"]
-script = ExtResource("3_si07e")
-frames = Array[Rect2]([Rect2(75, 0, 5, 4), Rect2(75, 5, 5, 5)])
-metadata/_custom_type_script = "uid://dwgs3vtqk64iy"
 
 [sub_resource type="Animation" id="Animation_00mgi"]
 length = 0.001
@@ -27,18 +21,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RFSprite2D:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_u66sl"]
@@ -56,18 +38,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [1]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RFSprite2D:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
-}
 
 [sub_resource type="Animation" id="Animation_bgvft"]
 resource_name = "non_diagonal"
@@ -84,18 +54,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RFSprite2D:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvxh6"]
 _data = {
@@ -104,27 +62,30 @@ _data = {
 &"non_diagonal": SubResource("Animation_bgvft")
 }
 
-[node name="ThinCatKnife" type="CharacterBody2D"]
+[node name="ThinCatKnife" type="CharacterBody2D" unique_id=220991060]
 collision_layer = 4
 script = ExtResource("1_mefkw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=785279254]
 shape = SubResource("RectangleShape2D_57vrk")
 
-[node name="RFSprite2D" type="Sprite2D" parent="."]
+[node name="RFSprite2D" type="Sprite2D" parent="." unique_id=1751002716]
 texture = ExtResource("1_bgvft")
+offset = Vector2(0.5, 0)
 region_enabled = true
-region_rect = Rect2(75, 0, 5, 4)
-script = ExtResource("2_mefkw")
-region_frames = SubResource("Resource_hyvwr")
-metadata/_custom_type_script = "uid://xeaiog8g8o5j"
+region_rect = Rect2(0, 21, 5, 4)
+script = ExtResource("3_mefkw")
+frame_count = 2
+frame_0_region = Rect2(0, 21, 5, 4)
+frame_0_offset = Vector2(0.5, 0)
+frame_1_region = Rect2(6, 21, 5, 5)
+frame_1_offset = Vector2(0.5, 0.5)
+metadata/_custom_type_script = "uid://byf8cwr2ke4ky"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_wvxh6")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1223285605]
+libraries/ = SubResource("AnimationLibrary_wvxh6")
 
-[node name="Damage" type="Node" parent="."]
+[node name="Damage" type="Node" parent="." unique_id=254839255]
 script = ExtResource("5_si07e")
 damage = 2
 metadata/_custom_type_script = "uid://cd06ykx2xlfww"

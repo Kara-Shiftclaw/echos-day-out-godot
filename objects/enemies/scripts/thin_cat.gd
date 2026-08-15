@@ -10,6 +10,7 @@ enum Attack {
 	Spin,
 	DoubleSpin,
 	JumpDoubleSpin,
+	Hide,
 }
 
 const HEIGHT_OFFSET := -9
@@ -24,6 +25,7 @@ const JUMP_HEIGHT := 24.
 	set(value):
 		facing_right = value
 		sync_facing_right()
+@export var should_hide := false
 var last_attack := Attack.Wait
 var jump: Util.QuadraticJump = null
 var platform_edge_l: float
@@ -47,6 +49,20 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		if is_on_floor():
 			jump = null
+
+
+func on_load_alive() -> void:
+	show()
+	if should_hide:
+		last_attack = Attack.Hide
+		$AnimationPlayer.play("hide")
+		$AnimationPlayer.call_deferred("seek", 0., true)
+		$AppearDetector/AppearDetectorShape.set_deferred("disabled", false)
+
+func detect_player(other: Node2D) -> void:
+	if other is Player and should_hide and $Hurtbox/CollisionShape2D.disabled:
+		$AnimationPlayer.play("appear")
+		$AppearDetector/AppearDetectorShape.set_deferred("disabled", true)
 
 
 func decision_point() -> void:
@@ -99,6 +115,10 @@ func throw_knife() -> void:
 func turn() -> void:
 	self.facing_right = !facing_right
 
+func auto_face_player() -> void:
+	if Global.echo_is_right(self) != facing_right:
+		turn()
+
 func prepare_jump(duration := 0.8) -> void:
 	var x_offset := get_jump_x_offset()
 	jump = Util.calculate_quadratic_jump(x_offset, JUMP_HEIGHT, duration)
@@ -115,7 +135,7 @@ func get_jump_x_offset() -> float:
 
 func sync_facing_right() -> void:
 	if is_node_ready():
-		$RFSprite2D.flip_h = facing_right
+		$SpriteHolder.scale.x = Util.sign(!facing_right)
 
 func atk_str(attack: Attack) -> String:
 	return Attack.keys()[attack]

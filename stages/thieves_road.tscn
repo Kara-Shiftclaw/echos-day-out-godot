@@ -230,8 +230,8 @@ func script() -> void:
 script = ExtResource("1_rbj4o")
 tile_map_layers = [NodePath("BackTileMapLayer"), NodePath("LowerBackBackground"), NodePath("UpperBackBackground")]
 foreground_col_layers = [NodePath("../TileMapLayer"), NodePath("../DeathCloud")]
-only_foreground = [NodePath("../Objects/OnlyForeground")]
-only_background = [NodePath("../Objects/OnlyBackground")]
+only_foreground = [NodePath("../Objects/OnlyForeground"), NodePath("../Enemies/Foreground")]
+only_background = [NodePath("../Objects/OnlyBackground"), NodePath("../Enemies/Background")]
 sub_viewport = NodePath("SubViewport")
 renderer = NodePath("../Echo/BackgroundRenderer/RenderSubViewport")
 
@@ -460,14 +460,38 @@ metadata/_scene_painted = true
 
 [node name="Enemies" type="Node2D" parent="." unique_id=449329692]
 
-[node name="ThinCat" parent="Enemies" unique_id=2056283698 instance=ExtResource("18_tgvf4")]
+[node name="Foreground" type="Node2D" parent="Enemies" unique_id=2106885782]
+
+[node name="ThinCats" type="Node2D" parent="Enemies/Foreground" unique_id=1748501543]
+
+[node name="ThinCat" parent="Enemies/Foreground/ThinCats" unique_id=2056283698 instance=ExtResource("18_tgvf4")]
 position = Vector2(-23, 64)
 facing_right = true
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Enemies/ThinCat" unique_id=1824196421]
+[node name="ReferenceRect" type="ReferenceRect" parent="Enemies/Foreground/ThinCats/ThinCat" unique_id=1824196421]
 offset_left = -68.0
 offset_right = 20.0
 offset_bottom = 8.0
+border_color = Color(0.32941177, 0.47843137, 0.7529412, 1)
+
+[node name="Background" type="Node2D" parent="Enemies" unique_id=1030933910 node_paths=PackedStringArray("background_renderer", "background_tiles")]
+clip_children = 1
+script = ExtResource("14_3gmc8")
+background_renderer = NodePath("../../Echo/BackgroundRenderer")
+background_tiles = NodePath("../../BackgrounndTiles")
+
+[node name="ThinCats" type="Node2D" parent="Enemies/Background" unique_id=10330665]
+
+[node name="ThinCat2" parent="Enemies/Background/ThinCats" unique_id=2038212088 instance=ExtResource("18_tgvf4")]
+position = Vector2(-64, -16)
+should_hide = true
+metadata/_scene_painted = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Enemies/Background/ThinCats/ThinCat2" unique_id=250696888]
+offset_left = -24.0
+offset_right = 48.0
+offset_bottom = 8.0
+border_color = Color(0.32941177, 0.47843137, 0.7529412, 1)
 
 [node name="SnowmanCutscene" parent="." unique_id=1484249727 instance=ExtResource("16_j76b2")]
 position = Vector2(48, -184)
@@ -491,6 +515,8 @@ position = Vector2(95, -32)
 
 [connection signal="entered_background" from="BackgrounndTiles" to="Echo/BackgroundRenderer" method="grow"]
 [connection signal="exited_background" from="BackgrounndTiles" to="Echo/BackgroundRenderer" method="shrink"]
+[connection signal="ready" from="ForwardBackground" to="ForwardBackground" method="show"]
+[connection signal="ready" from="TileMapLayer" to="TileMapLayer" method="show"]
 [connection signal="activate" from="Objects/OnlyBackground/Door/Switch" to="Objects/OnlyBackground/Door" method="open"]
 [connection signal="activated" from="Objects/OnlyBackground/SwordMural/NpcArrow" to="Objects/OnlyBackground/SwordMural/AbstractTextScript" method="start"]
 [connection signal="show_title" from="SnowmanCutscene" to="Camera2D/RegionTag" method="show_anim"]
