@@ -16,6 +16,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if $AnimationPlayer.current_animation == "idle":
+		velocity.x = 0.
 		if echo_sight.is_colliding() and echo_sight.get_collider() is Player:
 			$AnimationPlayer.play("pre_attack")
 	elif $AnimationPlayer.current_animation == "attack":
@@ -24,11 +25,16 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0.
 		else:
 			velocity.x = move_toward(velocity.x, 0., DASH_DECELERATION * delta)
-		move_and_slide()
+	
+	velocity.y += Echo.GRAVITY * delta
+	move_and_slide()
 
 
 func dash_forward() -> void:
 	velocity.x = DASH_SPEED * Util.sign(facing_right)
+
+func halt() -> void:
+	velocity.x = 0.
 
 func turn() -> void:
 	self.facing_right = !facing_right

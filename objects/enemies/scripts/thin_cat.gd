@@ -37,6 +37,10 @@ func _ready() -> void:
 	if platform_size != null:
 		platform_edge_l = platform_size.global_position.x
 		platform_edge_r = platform_edge_l + platform_size.size.x
+	else:
+		var chunk: Vector2i = $EnemyManager.chunk
+		platform_edge_l = chunk.x * Util.ROOM_SIZE
+		platform_edge_r = (chunk.x + 1) * Util.ROOM_SIZE 
 
 func _physics_process(delta: float) -> void:
 	$PlayerSight.target_position = Global.echo.global_position - $PlayerSight.global_position

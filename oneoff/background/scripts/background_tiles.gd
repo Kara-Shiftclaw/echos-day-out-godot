@@ -16,7 +16,7 @@ extends Node2D
 				exited_background.emit()
 
 		if is_node_ready():
-			sync_in_background()
+			call_deferred("sync_in_background")
 
 var layer_copies: Array[TileMapLayer] = []
 

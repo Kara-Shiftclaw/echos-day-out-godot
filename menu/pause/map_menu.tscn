@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc2podv1rf1ei"]
+[gd_scene format=3 uid="uid://dc2podv1rf1ei"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_uvap1"]
 [ext_resource type="Script" uid="uid://cfpw23u0rfdf4" path="res://menu/pause/scripts/map_menu.gd" id="2_2eeib"]
@@ -45,7 +45,7 @@ _data = {
 &"blink_echo": SubResource("Animation_cwggy")
 }
 
-[node name="MapMenu" type="Control"]
+[node name="MapMenu" type="Control" unique_id=1871450170]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 8.0
@@ -56,7 +56,7 @@ focus_mode = 2
 theme = ExtResource("1_uvap1")
 script = ExtResource("2_2eeib")
 
-[node name="Outline" type="ColorRect" parent="."]
+[node name="Outline" type="ColorRect" parent="." unique_id=2113743429]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -69,7 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
-[node name="Background" type="ColorRect" parent="Outline"]
+[node name="Background" type="ColorRect" parent="Outline" unique_id=933790853]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -80,17 +80,17 @@ offset_right = -1.0
 offset_bottom = -1.0
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
-[node name="MapParent" type="Node2D" parent="Outline/Background"]
+[node name="MapParent" type="Node2D" parent="Outline/Background" unique_id=1080297406]
 position = Vector2(51, 46)
 
-[node name="EchoMarker" type="Sprite2D" parent="Outline/Background/MapParent"]
+[node name="EchoMarker" type="Sprite2D" parent="Outline/Background/MapParent" unique_id=178490658]
 z_index = 10
 texture = ExtResource("3_4a1w4")
 hframes = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 24, 8)
 
-[node name="FireballHint" type="Sprite2D" parent="Outline/Background/MapParent"]
+[node name="FireballHint" type="Sprite2D" parent="Outline/Background/MapParent" unique_id=1057117338]
 z_index = 10
 position = Vector2(144, -16)
 texture = ExtResource("3_4a1w4")
@@ -98,7 +98,7 @@ offset = Vector2(4, 4)
 region_enabled = true
 region_rect = Rect2(8, 8, 8, 8)
 
-[node name="DoubleJumpHint" type="Sprite2D" parent="Outline/Background/MapParent"]
+[node name="DoubleJumpHint" type="Sprite2D" parent="Outline/Background/MapParent" unique_id=394516062]
 z_index = 10
 position = Vector2(80, 24)
 texture = ExtResource("3_4a1w4")
@@ -106,7 +106,7 @@ offset = Vector2(4, 4)
 region_enabled = true
 region_rect = Rect2(8, 8, 8, 8)
 
-[node name="SprintHint" type="Sprite2D" parent="Outline/Background/MapParent"]
+[node name="SprintHint" type="Sprite2D" parent="Outline/Background/MapParent" unique_id=494648597]
 z_index = 10
 position = Vector2(-32, -120)
 texture = ExtResource("3_4a1w4")
@@ -114,7 +114,7 @@ offset = Vector2(4, 4)
 region_enabled = true
 region_rect = Rect2(8, 8, 8, 8)
 
-[node name="CrushHint" type="Sprite2D" parent="Outline/Background/MapParent"]
+[node name="CrushHint" type="Sprite2D" parent="Outline/Background/MapParent" unique_id=194785984]
 z_index = 10
 position = Vector2(120, 136)
 texture = ExtResource("3_4a1w4")
@@ -122,10 +122,10 @@ offset = Vector2(4, 4)
 region_enabled = true
 region_rect = Rect2(8, 8, 8, 8)
 
-[node name="KnowingRoom" type="Node2D" parent="Outline/Background/MapParent"]
+[node name="KnowingRoom" type="Node2D" parent="Outline/Background/MapParent" unique_id=78855389]
 z_index = 2
 
-[node name="SavePoint" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=1106179762]
 texture = ExtResource("3_4a1w4")
 centered = false
 region_enabled = true
@@ -134,7 +134,7 @@ script = ExtResource("4_cwggy")
 area = "IntroMountain"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint2" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint2" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=1819302824]
 position = Vector2(48, -8)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -144,7 +144,7 @@ script = ExtResource("4_cwggy")
 area = "IntroMountain"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint3" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint3" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=320879344]
 position = Vector2(80, -24)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -154,7 +154,7 @@ script = ExtResource("4_cwggy")
 area = "HeftwindHills"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint4" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint4" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=1965904345]
 position = Vector2(160, 0)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -164,7 +164,7 @@ script = ExtResource("4_cwggy")
 area = "CharredCavern"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint5" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint5" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=352704652]
 position = Vector2(184, -24)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -174,7 +174,7 @@ script = ExtResource("4_cwggy")
 area = "CharredCavern"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint6" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint6" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=2003590]
 position = Vector2(152, -16)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -184,7 +184,7 @@ script = ExtResource("4_cwggy")
 area = "CharredCavern"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint7" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint7" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=1501939680]
 position = Vector2(120, -40)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -194,7 +194,7 @@ script = ExtResource("4_cwggy")
 area = "TreetopExpanse"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint8" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint8" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=2090357155]
 position = Vector2(40, -32)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -204,7 +204,7 @@ script = ExtResource("4_cwggy")
 area = "TreetopExpanse"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint9" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint9" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=360732238]
 position = Vector2(56, 16)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -214,7 +214,7 @@ script = ExtResource("4_cwggy")
 area = "Sporeways"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint10" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint10" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=1354370691]
 position = Vector2(72, 40)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -224,7 +224,7 @@ script = ExtResource("4_cwggy")
 area = "VerdantCavern"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint11" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint11" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=149968460]
 position = Vector2(48, 72)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -234,7 +234,7 @@ script = ExtResource("4_cwggy")
 area = "VerdantCavern"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint12" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint12" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=127357943]
 position = Vector2(88, 104)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -244,7 +244,7 @@ script = ExtResource("4_cwggy")
 area = "PyritePlunge"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint13" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint13" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=923616575]
 position = Vector2(80, 32)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -254,7 +254,7 @@ script = ExtResource("4_cwggy")
 area = "PyritePlunge"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint14" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint14" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=1439379253]
 position = Vector2(104, 32)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -264,7 +264,7 @@ script = ExtResource("4_cwggy")
 area = "CreakingDepths"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint15" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint15" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=748169760]
 position = Vector2(136, 24)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -274,7 +274,7 @@ script = ExtResource("4_cwggy")
 area = "CreakingDepths"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SavePoint16" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint16" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=426637346]
 position = Vector2(128, 48)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -284,7 +284,28 @@ script = ExtResource("4_cwggy")
 area = "CreakingDepths"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="Affamae" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SavePoint17" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=979751165]
+position = Vector2(24, -56)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CreakingDepths"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="SavePoint18" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=823596952]
+z_index = 1
+position = Vector2(-24, -64)
+texture = ExtResource("3_4a1w4")
+centered = false
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+script = ExtResource("4_cwggy")
+area = "CreakingDepths"
+metadata/_custom_type_script = "uid://khfs0huiptn1"
+
+[node name="Affamae" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=482322692]
 position = Vector2(104, -24)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -294,7 +315,7 @@ script = ExtResource("4_cwggy")
 area = "HeftwindHills"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="Sporemother" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="Sporemother" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=576535149]
 position = Vector2(56, 40)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -304,7 +325,7 @@ script = ExtResource("4_cwggy")
 area = "VerdantCavern"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SwordSpirit" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="SwordSpirit" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=753154576]
 position = Vector2(48, 16)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -315,7 +336,7 @@ modify_flag = "sword_broken"
 modify_region = Rect2(16, 16, 8, 8)
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="CharwindPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="CharwindPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=781970817]
 position = Vector2(128, -24)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -327,7 +348,7 @@ modify_flag = "res://stages/charred_cavern.tscn|/root/CharredCavern/Objects/Port
 modify_region = Rect2(24, 8, 8, 8)
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="MtEchoPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="MtEchoPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=574237088]
 position = Vector2(24, 8)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -339,7 +360,7 @@ modify_flag = "res://stages/intro_mountain.tscn|/root/IntroMountain/Objects/Port
 modify_region = Rect2(24, 8, 8, 8)
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="VerdantCavernPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="VerdantCavernPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=258688014]
 position = Vector2(64, 72)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -351,8 +372,9 @@ modify_flag = "res://stages/verdant_cavern.tscn|/root/VerdantCavern/Objects/Port
 modify_region = Rect2(24, 8, 8, 8)
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="BlackMarketPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
-position = Vector2(8, -88)
+[node name="BlackMarketPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=179852326]
+z_index = 1
+position = Vector2(0, -56)
 texture = ExtResource("3_4a1w4")
 centered = false
 region_enabled = true
@@ -363,7 +385,7 @@ modify_flag = "res://stages/echo_peak.tscn|/root/EchoPeak/Objects/Portal|open"
 modify_region = Rect2(24, 8, 8, 8)
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="CraterPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="CraterPortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=368109033]
 position = Vector2(128, 120)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -375,7 +397,7 @@ modify_flag = "res://stages/crater.tscn|/root/Crater/Objects/Portal|open"
 modify_region = Rect2(24, 8, 8, 8)
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="BramblePortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom"]
+[node name="BramblePortal" type="Sprite2D" parent="Outline/Background/MapParent/KnowingRoom" unique_id=1766254132]
 position = Vector2(144, -176)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -387,10 +409,10 @@ modify_flag = "res://stages/bramble.tscn|/root/Bramble/Objects/Portal|open"
 modify_region = Rect2(24, 8, 8, 8)
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="MushHints" type="Node2D" parent="Outline/Background/MapParent"]
+[node name="MushHints" type="Node2D" parent="Outline/Background/MapParent" unique_id=1592850865]
 z_index = 2
 
-[node name="AffamaeBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="AffamaeBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=2142831956]
 position = Vector2(104, -24)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -401,7 +423,7 @@ area = "HeftwindHills"
 modify_flag = "hint_first_chat"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="KaraBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="KaraBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=666127977]
 position = Vector2(136, -32)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -412,7 +434,7 @@ area = "CharredCavern"
 modify_flag = "has_injector"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="JournalBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="JournalBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1696167637]
 position = Vector2(136, 8)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -423,7 +445,7 @@ area = "CharredCavern"
 modify_flag = "has_journal"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SwordBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="SwordBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1711020432]
 position = Vector2(48, 8)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -434,7 +456,7 @@ area = "Sporeways"
 modify_flag = "sword_broken"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="PyriteBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="PyriteBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1153494187]
 position = Vector2(64, 120)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -445,7 +467,7 @@ area = "PyritePlunge"
 modify_flag = "pyrite"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="MushFoodBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="MushFoodBigHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=641377493]
 position = Vector2(88, 88)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -456,7 +478,7 @@ area = "Crater"
 modify_flag = "mush_food"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="FoodHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="FoodHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1115958431]
 position = Vector2(88, 0)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -467,7 +489,7 @@ area = "HeftwindHills"
 modify_flag = "res://stages/heftwind_hills.tscn|/root/HeftwindHills/Objects/Food|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="FoodHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="FoodHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=663335989]
 position = Vector2(216, 16)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -478,7 +500,7 @@ area = "CharredCavern"
 modify_flag = "res://stages/charred_cavern.tscn|/root/CharredCavern/Objects/Food|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="FoodHint3" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="FoodHint3" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=824331927]
 position = Vector2(72, 88)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -489,7 +511,7 @@ area = "VerdantCavern"
 modify_flag = "res://stages/verdant_cavern.tscn|/root/VerdantCavern/Objects/Food|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="FoodHint4" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="FoodHint4" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=2051933456]
 position = Vector2(88, 56)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -500,7 +522,7 @@ area = "CreakingDepths"
 modify_flag = "res://stages/creaking_depths.tscn|/root/CreakingDepths/Objects/Food|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="FoodHint5" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="FoodHint5" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=173234058]
 position = Vector2(24, -48)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -511,7 +533,7 @@ area = "TreetopExpanse"
 modify_flag = "res://stages/treetop_expanse.tscn|/root/TreetopExpanse/Objects/Food|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="FoodHint6" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="FoodHint6" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1644314302]
 position = Vector2(136, -112)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -522,8 +544,8 @@ area = "Bramble"
 modify_flag = "res://stages/bramble.tscn|/root/Bramble/Objects/Food|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="FoodHint7" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
-position = Vector2(0, -64)
+[node name="FoodHint7" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=323725541]
+position = Vector2(0, -88)
 texture = ExtResource("3_4a1w4")
 centered = false
 region_enabled = true
@@ -533,7 +555,7 @@ area = "ThievesRoad"
 modify_flag = "res://stages/echo_peak.tscn|/root/EchoPeak/Objects/Food|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="FoodHint8" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="FoodHint8" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1330781491]
 position = Vector2(48, -72)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -544,7 +566,7 @@ area = "BillowingHeights"
 modify_flag = "res://stages/billowing_heights.tscn|/root/BillowingHeights/Objects/Food|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="HealthUpHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="HealthUpHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=960265741]
 position = Vector2(120, -8)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -555,7 +577,7 @@ area = "HeftwindHills"
 modify_flag = "res://stages/heftwind_hills.tscn|/root/HeftwindHills/HealthUp|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="HealthUpHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="HealthUpHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1430201618]
 position = Vector2(8, 8)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -566,7 +588,7 @@ area = "Sporeways"
 modify_flag = "res://stages/sporeways.tscn|/root/Sporeways/Objects/HealthUp|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="HealthUpHint3" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="HealthUpHint3" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1310762434]
 position = Vector2(88, 40)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -577,7 +599,7 @@ area = "CreakingDepths"
 modify_flag = "res://stages/creaking_depths.tscn|/root/CreakingDepths/Objects/HealthUp|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="HealthUpHint4" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="HealthUpHint4" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1493681257]
 position = Vector2(32, -24)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -588,8 +610,8 @@ area = "TreetopExpanse"
 modify_flag = "res://stages/treetop_expanse.tscn|/root/TreetopExpanse/Objects/HealthUp|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="HealthUpHint5" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
-position = Vector2(-8, -103)
+[node name="HealthUpHint5" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=701064195]
+position = Vector2(-16, -104)
 texture = ExtResource("3_4a1w4")
 centered = false
 region_enabled = true
@@ -599,7 +621,7 @@ area = "BlackMarket"
 modify_flag = "res://stages/echo_peak.tscn|/root/EchoPeak/Objects/HealthUp|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="HealthUpHint6" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="HealthUpHint6" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1786467311]
 position = Vector2(32, 80)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -610,7 +632,7 @@ area = "Crater"
 modify_flag = "res://stages/verdant_cavern.tscn|/root/VerdantCavern/Objects/HealthUp|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="PortalCoreHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="PortalCoreHint" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=456058390]
 position = Vector2(112, -8)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -621,7 +643,7 @@ area = "HeftwindHills"
 modify_flag = "res://stages/heftwind_hills.tscn|/root/HeftwindHills/Objects/PortalCore|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="PortalCoreHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="PortalCoreHint2" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=484179261]
 position = Vector2(144, 112)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -632,7 +654,7 @@ area = "VerdantCavern"
 modify_flag = "res://stages/crater.tscn|/root/Crater/Objects/PortalCore|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="PortalCoreHint3" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="PortalCoreHint3" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1632023585]
 position = Vector2(88, 8)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -643,7 +665,7 @@ area = "Sporeways"
 modify_flag = "res://stages/sporeways.tscn|/root/Sporeways/Objects/PortalCore|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="PortalCoreHint4" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="PortalCoreHint4" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=20156593]
 position = Vector2(144, -24)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -654,7 +676,7 @@ area = "CharredCavern"
 modify_flag = "res://stages/charred_cavern.tscn|/root/CharredCavern/Objects/PortalCore|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="PortalCoreHint5" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="PortalCoreHint5" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1167173058]
 position = Vector2(112, -48)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -665,7 +687,7 @@ area = "TreetopExpanse"
 modify_flag = "res://stages/treetop_expanse.tscn|/root/TreetopExpanse/Objects/PortalCore|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="PortalCoreHint6" type="Sprite2D" parent="Outline/Background/MapParent/MushHints"]
+[node name="PortalCoreHint6" type="Sprite2D" parent="Outline/Background/MapParent/MushHints" unique_id=1088962041]
 position = Vector2(48, -96)
 texture = ExtResource("3_4a1w4")
 centered = false
@@ -676,12 +698,11 @@ area = "BillowingHeights"
 modify_flag = "res://stages/billowing_heights.tscn|/root/BillowingHeights/Objects/PortalCore|collected"
 metadata/_custom_type_script = "uid://khfs0huiptn1"
 
-[node name="SourceMap" parent="." instance=ExtResource("3_g5u0g")]
-visible = false
+[node name="SourceMap" parent="." unique_id=1352006315 instance=ExtResource("3_g5u0g")]
 position = Vector2(56, 51)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=903435535]
 root_node = NodePath("../Outline/Background/MapParent")
-libraries = {
-&"": SubResource("AnimationLibrary_6ikcq")
-}
+libraries/ = SubResource("AnimationLibrary_6ikcq")
+
+[connection signal="ready" from="SourceMap" to="SourceMap" method="hide"]

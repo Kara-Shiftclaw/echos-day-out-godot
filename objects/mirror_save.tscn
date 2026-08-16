@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqv55ekbr225l"]
+[gd_scene format=3 uid="uid://bqv55ekbr225l"]
 
 [ext_resource type="Script" uid="uid://bhc86qkvye183" path="res://objects/scripts/mirror_save.gd" id="1_1du13"]
 [ext_resource type="Texture2D" uid="uid://cje4cnnk0gbkf" path="res://assets/gfx/mirror_save.png" id="1_wt5bv"]
@@ -7,6 +7,45 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsgsv"]
 radius = 32.0
+
+[sub_resource type="Animation" id="Animation_7ausi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-13.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../MirrorSave:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_1du13"]
 resource_name = "bound"
@@ -71,45 +110,6 @@ tracks/4/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_7ausi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-13.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../MirrorSave:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_p3jr7"]
 resource_name = "respawn"
 length = 0.4
@@ -145,39 +145,38 @@ _data = {
 &"respawn": SubResource("Animation_p3jr7")
 }
 
-[node name="MirrorSave" type="Area2D"]
+[node name="MirrorSave" type="Area2D" unique_id=154778736]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_1du13")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2126690715]
 shape = SubResource("CircleShape2D_vsgsv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 4)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=269785262]
+position = Vector2(0, 5)
 texture = ExtResource("1_wt5bv")
 hframes = 4
 
-[node name="MirrorSave" type="AudioStreamPlayer" parent="."]
+[node name="MirrorSave" type="AudioStreamPlayer" parent="." unique_id=1323847709]
 stream = ExtResource("2_2eque")
 volume_db = 6.0
 bus = &"Sfx"
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="." unique_id=2121442825]
 visible = false
 offset_left = -23.0
-offset_top = -23.0
+offset_top = -13.0
 offset_right = 25.0
+offset_bottom = 10.0
 theme = ExtResource("3_7ausi")
 theme_override_colors/font_color = Color(0.46666667, 0.40392157, 0.7607843, 1)
 text = "BOUND"
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1022211927]
 root_node = NodePath("../Label2")
-libraries = {
-&"": SubResource("AnimationLibrary_p3jr7")
-}
+libraries/ = SubResource("AnimationLibrary_p3jr7")
 
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="body_entered" from="." to="." method="entered"]

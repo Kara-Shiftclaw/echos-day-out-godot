@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8y0mk5xvk1aj"]
+[gd_scene format=3 uid="uid://b8y0mk5xvk1aj"]
 
 [ext_resource type="Script" uid="uid://be4w8e3kcndhq" path="res://objects/enemies/scripts/corvid_knight.gd" id="1_6t5py"]
 [ext_resource type="Texture2D" uid="uid://dl7qe237elay4" path="res://assets/gfx/corvid_knight.png" id="1_u2tv4"]
@@ -10,23 +10,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1di12"]
 size = Vector2(18, 16)
-
-[sub_resource type="Animation" id="Animation_1di12"]
-resource_name = "idle"
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FacingHolder/RFSprite2Dv2:current_frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_u2tv4"]
 length = 0.001
@@ -122,54 +105,6 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_6t5py"]
-resource_name = "pre_attack"
-length = 0.4
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FacingHolder/RFSprite2Dv2:current_frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_osop0"]
-resource_name = "post_attack"
-length = 0.4
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FacingHolder/RFSprite2Dv2:current_frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"turn_if_on_edge"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_6o452"]
 resource_name = "die"
 loop_mode = 1
@@ -197,6 +132,74 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1di12"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FacingHolder/RFSprite2Dv2:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_osop0"]
+resource_name = "post_attack"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FacingHolder/RFSprite2Dv2:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"halt"
+}, {
+"args": [],
+"method": &"turn_if_on_edge"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6t5py"]
+resource_name = "pre_attack"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FacingHolder/RFSprite2Dv2:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_ah3w0"]
@@ -241,17 +244,17 @@ _data = {
 &"turn": SubResource("Animation_ah3w0")
 }
 
-[node name="CorvidKnight" type="CharacterBody2D"]
+[node name="CorvidKnight" type="CharacterBody2D" unique_id=118047869]
 collision_layer = 4
 script = ExtResource("1_6t5py")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1339998619]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_1di12")
 
-[node name="FacingHolder" type="Node2D" parent="."]
+[node name="FacingHolder" type="Node2D" parent="." unique_id=920815378]
 
-[node name="RFSprite2Dv2" type="Sprite2D" parent="FacingHolder"]
+[node name="RFSprite2Dv2" type="Sprite2D" parent="FacingHolder" unique_id=60081011]
 position = Vector2(0, -11)
 texture = ExtResource("1_u2tv4")
 offset = Vector2(0.5, 0.5)
@@ -269,55 +272,53 @@ frame_3_region = Rect2(34, 22, 28, 21)
 frame_3_offset = Vector2(0, 0.5)
 metadata/_custom_type_script = "uid://byf8cwr2ke4ky"
 
-[node name="EchoSight" type="RayCast2D" parent="FacingHolder"]
+[node name="EchoSight" type="RayCast2D" parent="FacingHolder" unique_id=915450706]
 position = Vector2(0, -12)
 target_position = Vector2(-96, 0)
 collision_mask = 3
 hit_from_inside = true
 
-[node name="AttackCol" type="Area2D" parent="FacingHolder"]
+[node name="AttackCol" type="Area2D" parent="FacingHolder" unique_id=1957511793]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FacingHolder/AttackCol"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FacingHolder/AttackCol" unique_id=1451575628]
 polygon = PackedVector2Array(-17, -6, -17, -12, -11, -20, 4, -22, -8, -13, -12, -1)
 disabled = true
 
-[node name="Damage" type="Node" parent="FacingHolder/AttackCol"]
+[node name="Damage" type="Node" parent="FacingHolder/AttackCol" unique_id=1805862613]
 script = ExtResource("4_jm6ah")
 metadata/_custom_type_script = "uid://cd06ykx2xlfww"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_u2tv4")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1301099292]
+libraries/ = SubResource("AnimationLibrary_u2tv4")
 next/RESET = &"idle"
-next/pre_attack = &"attack"
 next/attack = &"post_attack"
 next/post_attack = &"idle"
+next/pre_attack = &"attack"
 next/turn = &"idle"
 
-[node name="EnemyManager" parent="." instance=ExtResource("5_osop0")]
+[node name="EnemyManager" parent="." unique_id=1969001903 instance=ExtResource("5_osop0")]
 max_health = 26
 energy_on_death = 3
 journal_entry = "corvid_knight"
 parent_save_properties = Array[String](["position", "facing_right"])
 
-[node name="Left" parent="." instance=ExtResource("3_u2tv4")]
+[node name="Left" parent="." unique_id=408218057 instance=ExtResource("3_u2tv4")]
 position = Vector2(-7, 0)
 
-[node name="Right" parent="." instance=ExtResource("3_u2tv4")]
+[node name="Right" parent="." unique_id=1956314130 instance=ExtResource("3_u2tv4")]
 position = Vector2(7, 0)
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1424339066]
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=215680751]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_1di12")
 
-[node name="Dash" type="AudioStreamPlayer" parent="."]
+[node name="Dash" type="AudioStreamPlayer" parent="." unique_id=1059397577]
 stream = ExtResource("7_6o452")
 volume_db = 3.0
 bus = &"Sfx"
