@@ -28,7 +28,7 @@ func start() -> void:
 	in_progress = true
 	text_started.emit()
 	default_textbox = default_textbox_scene.instantiate()
-	get_viewport().get_camera_2d().add_child(default_textbox)
+	Global.camera.add_child(default_textbox)
 	registered_textboxes.push_back(default_textbox)
 	
 	await script()
@@ -93,7 +93,7 @@ func d_opt(display_text: String, description: String = "") -> TextEngine.Option:
 func load_textbox(path: String) -> TextBoxWrapper:
 	var textbox: TextBox = load(path).instantiate()
 	textbox.visible = false
-	get_viewport().get_camera_2d().add_child(textbox)
+	Global.camera.add_child(textbox)
 	registered_textboxes.push_back(textbox)
 	
 	return TextBoxWrapper.new(textbox)

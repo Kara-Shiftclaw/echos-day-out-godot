@@ -888,6 +888,8 @@ collision_mask = 8
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_52flh")
 
+[connection signal="chunk_entered" from="EnemyManager" to="SpinDamageBox/SpinDamageShape" method="set_deferred" binds= [&"disabled", true]]
+[connection signal="chunk_entered" from="EnemyManager" to="AppearDamageBox/AppearDamageShape" method="set_deferred" binds= [&"disabled", true]]
 [connection signal="chunk_entered_alive" from="EnemyManager" to="." method="on_load_alive"]
 [connection signal="chunk_left" from="EnemyManager" to="." method="hide"]
 [connection signal="die" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"die"]]

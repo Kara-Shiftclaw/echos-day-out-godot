@@ -19,6 +19,8 @@ const BackgroundTiles := preload("res://oneoff/background/scripts/background_til
 func _ready() -> void:
 	if !Engine.is_editor_hint():
 		background_tiles.add_node_to_background($Back.duplicate(), $Back.global_position)
+		background_tiles.add_node_to_background($BackReturn.duplicate(), $BackReturn.global_position)
+		$BackReturn.queue_free()
 	sync_lock_color()
 
 func activated() -> void:

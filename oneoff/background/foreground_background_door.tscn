@@ -112,4 +112,18 @@ region_rect = Rect2(11, 0, 10, 24)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1445669636]
 libraries/ = SubResource("AnimationLibrary_bco5f")
 
+[node name="BackReturn" type="Area2D" parent="." unique_id=1966941693]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackReturn" unique_id=1731149923]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_3ttmg")
+
+[node name="NpcArrow" parent="BackReturn" unique_id=697851753 node_paths=PackedStringArray("activation_area") instance=ExtResource("1_20q3s")]
+z_index = 10
+position = Vector2(0, -30)
+activation_area = NodePath("..")
+
 [connection signal="activated" from="NpcArrow" to="." method="activated"]
+[connection signal="activated" from="BackReturn/NpcArrow" to="." method="activated"]

@@ -16,7 +16,7 @@ var dialogue_blip: AudioStreamPlayer
 func _ready() -> void:
 	dialogue_blip = get_node_or_null("DialogueBlip")
 	if is_moved():
-		position.y = get_viewport_rect().size.y - size.y
+		position.y = Global.camera.get_viewport_rect().size.y - size.y
 	else:
 		position.y = 0.
 
@@ -59,4 +59,5 @@ func is_moved() -> bool:
 	return move_always or (move_if_blocking_player and player_blocked())
 
 func player_blocked() -> bool:
-	return false
+	var echo_screen_y := fposmod(Global.echo.global_position.y, Util.ROOM_SIZE)
+	return echo_screen_y < size.y
