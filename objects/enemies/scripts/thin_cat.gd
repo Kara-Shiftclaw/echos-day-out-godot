@@ -26,7 +26,7 @@ const JUMP_HEIGHT := 24.
 		facing_right = value
 		sync_facing_right()
 @export var should_hide := false
-var last_attack := Attack.Wait
+var last_attack := Attack.JumpKnives
 var jump: Util.QuadraticJump = null
 var platform_edge_l: float
 var platform_edge_r: float
@@ -44,7 +44,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	$PlayerSight.target_position = Global.echo.global_position - $PlayerSight.global_position
-	if last_attack == Attack.Wait and !$EnemyManager.post_load_frame and \
+	if $AnimationPlayer.current_animation == "idle" and !$EnemyManager.post_load_frame and \
 			$PlayerSight.is_colliding() and $PlayerSight.get_collider() is Player:
 		decision_point()
 	
@@ -57,6 +57,8 @@ func _physics_process(delta: float) -> void:
 
 func on_load_alive() -> void:
 	show()
+	last_attack = Attack.JumpKnives
+	$AnimationPlayer.play("idle")
 	if should_hide:
 		last_attack = Attack.Hide
 		$AnimationPlayer.play("hide")
@@ -112,7 +114,7 @@ func init_attack(attack: Attack) -> void:
 
 func throw_knife() -> void:
 	var knife: Node2D = Knife.instantiate()
-	knife.fire_angle = ($PlayerSight.target_position as Vector2).angle()
+	knife.fire_angle = (3. * PI / 4.) if facing_right else (PI / 4.)
 	get_parent().add_child(knife)
 	knife.global_position = global_position + Vector2(0., HEIGHT_OFFSET)
 

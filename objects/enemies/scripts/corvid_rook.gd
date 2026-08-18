@@ -4,6 +4,9 @@ const Projectile := preload("res://objects/projectile/rook_projectile.tscn")
 const PROJECTILE_FIRE_OFFSET := Vector2(-9, -13)
 
 func start_fire() -> void:
+	if Global.echo.get_viewport() != get_viewport():
+		return
+	
 	var closest: Node2D = null
 	var closest_distance_sq := 999.
 	var echo_pos := Global.echo.global_position
@@ -18,7 +21,7 @@ func start_fire() -> void:
 func fire() -> void:
 	var projectile: Node2D = Projectile.instantiate()
 	get_parent().add_child(projectile)
-	projectile.global_position = global_position + PROJECTILE_FIRE_OFFSET
+	projectile.global_position = global_position + (PROJECTILE_FIRE_OFFSET * scale)
 
 func reload_alive() -> void:
 	if !is_in_group("RookSummon"):

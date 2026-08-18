@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnya0cld4qphf"]
+[gd_scene format=3 uid="uid://cnya0cld4qphf"]
 
 [ext_resource type="Script" uid="uid://bdpdx81etyv3o" path="res://objects/enemies/scripts/corvid_rook.gd" id="1_eyro1"]
 [ext_resource type="Texture2D" uid="uid://qu48nke8ksu7" path="res://assets/gfx/compound/corvid_rook/corvid_rook.png" id="1_su2pk"]
@@ -90,7 +90,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_fkk1c"]
@@ -167,52 +167,52 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_fk12y"]
+resource_name = "neutral"
+step = 0.1
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fkk1c"]
 _data = {
 &"RESET": SubResource("Animation_5tf06"),
 &"die": SubResource("Animation_fkk1c"),
-&"idle": SubResource("Animation_eyro1")
+&"idle": SubResource("Animation_eyro1"),
+&"neutral": SubResource("Animation_fk12y")
 }
 
-[node name="CorvidRook" type="Area2D"]
+[node name="CorvidRook" type="Area2D" unique_id=1555141710]
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_eyro1")
 
-[node name="HeldStaff" type="Sprite2D" parent="."]
+[node name="HeldStaff" type="Sprite2D" parent="." unique_id=526095353]
 material = ExtResource("2_2q8s8")
 position = Vector2(0, -11)
 texture = ExtResource("2_ijkc7")
 hframes = 5
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="Body" type="Sprite2D" parent="." unique_id=439377267]
 material = ExtResource("2_2q8s8")
 position = Vector2(0, -11)
 texture = ExtResource("1_su2pk")
 hframes = 5
-frame = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
-libraries = {
-&"": SubResource("AnimationLibrary_fk12y")
-}
-autoplay = "idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body" unique_id=730813738]
+libraries/ = SubResource("AnimationLibrary_fk12y")
+autoplay = &"idle"
 next/hurt = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=350947584]
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_0nphb")
 
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("3_fkk1c")]
+[node name="EnemyManager" parent="." unique_id=626196085 node_paths=PackedStringArray("shader_nodes") instance=ExtResource("3_fkk1c")]
 max_health = 22
 energy_per_damage = 0.167
 journal_entry = "corvid_rook"
 shader_nodes = [NodePath("../HeldStaff"), NodePath("../Body")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_fkk1c")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=254783838]
+libraries/ = SubResource("AnimationLibrary_fkk1c")
 
 [connection signal="area_entered" from="." to="EnemyManager" method="on_hit"]
 [connection signal="body_entered" from="." to="EnemyManager" method="on_hit"]
