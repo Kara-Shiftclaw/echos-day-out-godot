@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cngmbu0eyhe08"]
+
+[ext_resource type="PackedScene" uid="uid://3jpuhtpuk4j4" path="res://menu/dialogue/view/text_script_base.tscn" id="1_ejclc"]
+[ext_resource type="Script" uid="uid://d1aeyjtkiwh4s" path="res://oneoff/scripts/anti_softlock_text_script.gd" id="2_pekle"]
+
+[node name="AntiSoftlockTextScript" unique_id=1482307453 instance=ExtResource("1_ejclc")]
+script = ExtResource("2_pekle")

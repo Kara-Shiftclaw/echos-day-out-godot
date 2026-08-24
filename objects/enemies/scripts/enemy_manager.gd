@@ -1,3 +1,4 @@
+class_name EnemyManager
 extends Node
 
 @export var max_health := 4

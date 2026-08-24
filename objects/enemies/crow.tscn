@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnu07ervecpho"]
+[gd_scene format=3 uid="uid://dnu07ervecpho"]
 
 [ext_resource type="Texture2D" uid="uid://cue8sbo2s0jfr" path="res://assets/gfx/crow.png" id="1_1u4n3"]
 [ext_resource type="Script" uid="uid://c837dfho18w0k" path="res://objects/enemies/scripts/crow.gd" id="1_u5nlp"]
@@ -309,62 +309,60 @@ size = Vector2(32, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o27xy"]
 size = Vector2(32, 15)
 
-[node name="Crow" type="Node2D"]
+[node name="Crow" type="Node2D" unique_id=536808724]
 script = ExtResource("1_u5nlp")
 
-[node name="Crow" type="Sprite2D" parent="."]
+[node name="Crow" type="Sprite2D" parent="." unique_id=1244044049]
 material = ExtResource("2_tyq6a")
 position = Vector2(0, -3)
 texture = ExtResource("1_1u4n3")
 hframes = 13
 
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("2_wph6m")]
+[node name="EnemyManager" parent="." unique_id=30683388 node_paths=PackedStringArray("shader_nodes") instance=ExtResource("2_wph6m")]
 max_health = 14
 energy_per_damage = 0.175
 journal_entry = "crow"
 parent_save_properties = Array[String](["position", "moving_right"])
 shader_nodes = [NodePath("../Crow")]
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2017334705]
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1276983685]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_1u4n3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_u5nlp")
-}
-autoplay = "initial_shoot_delay"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1858754469]
+libraries/ = SubResource("AnimationLibrary_u5nlp")
+autoplay = &"initial_shoot_delay"
 
-[node name="KnifeArea" type="Area2D" parent="."]
+[node name="KnifeArea" type="Area2D" parent="." unique_id=2120801463]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KnifeArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnifeArea" unique_id=176589666]
 shape = SubResource("RectangleShape2D_drxk4")
 disabled = true
 
-[node name="Damage" type="Node" parent="KnifeArea"]
+[node name="Damage" type="Node" parent="KnifeArea" unique_id=1076272381]
 script = ExtResource("3_drxk4")
 metadata/_custom_type_script = "uid://cd06ykx2xlfww"
 
-[node name="PlayerDetectArea" type="Area2D" parent="."]
+[node name="PlayerDetectArea" type="Area2D" parent="." unique_id=1652850416]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea" unique_id=1971387207]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_o27xy")
 
-[node name="Shoot" type="AudioStreamPlayer" parent="."]
+[node name="Shoot" type="AudioStreamPlayer" parent="." unique_id=807786823]
 stream = ExtResource("6_mpe76")
 volume_db = 4.0
 bus = &"Sfx"
 
-[node name="Spin" type="AudioStreamPlayer" parent="."]
+[node name="Spin" type="AudioStreamPlayer" parent="." unique_id=814344088]
 stream = ExtResource("7_tyq6a")
 volume_db = 3.0
 bus = &"Sfx"
