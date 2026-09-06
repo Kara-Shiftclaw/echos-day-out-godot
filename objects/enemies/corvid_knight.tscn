@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://be4w8e3kcndhq" path="res://objects/enemies/scripts/corvid_knight.gd" id="1_6t5py"]
 [ext_resource type="Texture2D" uid="uid://dl7qe237elay4" path="res://assets/gfx/corvid_knight.png" id="1_u2tv4"]
 [ext_resource type="Script" uid="uid://byf8cwr2ke4ky" path="res://common/rf_sprite_2d_v2.gd" id="2_1di12"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_ah3w0"]
 [ext_resource type="PackedScene" uid="uid://braxpij1yhwqj" path="res://objects/enemies/floor_detector.tscn" id="3_u2tv4"]
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="4_jm6ah"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="5_osop0"]
@@ -255,6 +256,7 @@ shape = SubResource("RectangleShape2D_1di12")
 [node name="FacingHolder" type="Node2D" parent="." unique_id=920815378]
 
 [node name="RFSprite2Dv2" type="Sprite2D" parent="FacingHolder" unique_id=60081011]
+material = ExtResource("2_ah3w0")
 position = Vector2(0, -11)
 texture = ExtResource("1_u2tv4")
 offset = Vector2(0.5, 0.5)
@@ -300,11 +302,12 @@ next/post_attack = &"idle"
 next/pre_attack = &"attack"
 next/turn = &"idle"
 
-[node name="EnemyManager" parent="." unique_id=1969001903 instance=ExtResource("5_osop0")]
+[node name="EnemyManager" parent="." unique_id=1969001903 node_paths=PackedStringArray("shader_nodes") instance=ExtResource("5_osop0")]
 max_health = 26
 energy_on_death = 3
 journal_entry = "corvid_knight"
 parent_save_properties = Array[String](["position", "facing_right"])
+shader_nodes = [NodePath("../FacingHolder/RFSprite2Dv2")]
 
 [node name="Left" parent="." unique_id=408218057 instance=ExtResource("3_u2tv4")]
 position = Vector2(-7, 0)

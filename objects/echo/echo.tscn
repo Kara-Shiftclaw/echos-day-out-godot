@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dkym2x36d2n0s"]
+[gd_scene format=3 uid="uid://dkym2x36d2n0s"]
 
 [ext_resource type="Script" uid="uid://ccyvj253iceo7" path="res://objects/echo/scripts/echo.gd" id="1_jjhff"]
 [ext_resource type="Texture2D" uid="uid://ci45m4n4yfgho" path="res://assets/gfx/echo.png" id="1_n2q1k"]
@@ -1413,17 +1413,17 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.252809, 0.83146065)
 colors = PackedColorArray(1, 1, 1, 1, 0.9137255, 0.8235294, 0.22352941, 1, 0.50980395, 0.21176471, 0.15686275, 1)
 
-[node name="Echo" type="CharacterBody2D"]
+[node name="Echo" type="CharacterBody2D" unique_id=1283101468]
 collision_layer = 2
 floor_block_on_wall = false
 script = ExtResource("1_jjhff")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=263903234]
 z_index = 4
 position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_n2q1k")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2011484079]
 z_index = 3
 material = SubResource("ShaderMaterial_gcefi")
 instance_shader_parameters/strength = 0
@@ -1431,51 +1431,49 @@ texture = ExtResource("1_n2q1k")
 hframes = 6
 vframes = 3
 
-[node name="CoyoteTimeTimer" type="Timer" parent="."]
+[node name="CoyoteTimeTimer" type="Timer" parent="." unique_id=1986489374]
 wait_time = 0.05
 one_shot = true
 
-[node name="JumpTimer" type="Timer" parent="."]
+[node name="JumpTimer" type="Timer" parent="." unique_id=539515469]
 one_shot = true
 
-[node name="DashTimer" type="Timer" parent="."]
+[node name="DashTimer" type="Timer" parent="." unique_id=1913521911]
 wait_time = 0.2
 one_shot = true
 
-[node name="InvinFrameTimer" type="Timer" parent="."]
+[node name="InvinFrameTimer" type="Timer" parent="." unique_id=1776988530]
 wait_time = 0.2
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_w5cui")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=481193885]
+libraries/ = SubResource("AnimationLibrary_w5cui")
 
-[node name="StageHurtbox" type="Area2D" parent="."]
+[node name="StageHurtbox" type="Area2D" parent="." unique_id=1748127866]
 collision_layer = 0
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StageHurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StageHurtbox" unique_id=1717456597]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_n2q1k")
 
-[node name="BindingHurtbox" type="Area2D" parent="."]
+[node name="BindingHurtbox" type="Area2D" parent="." unique_id=1862783791]
 collision_layer = 0
 collision_mask = 256
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BindingHurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BindingHurtbox" unique_id=1160635888]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_n2q1k")
 
-[node name="EnemyHurtbox" type="Area2D" parent="."]
+[node name="EnemyHurtbox" type="Area2D" parent="." unique_id=496973433]
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox" unique_id=517476888]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_n2q1k")
 
-[node name="HurtParticles" type="CPUParticles2D" parent="."]
+[node name="HurtParticles" type="CPUParticles2D" parent="." unique_id=868978590]
 z_index = 10
 emitting = false
 texture = ExtResource("3_eqnf0")
@@ -1489,7 +1487,7 @@ initial_velocity_min = 150.0
 initial_velocity_max = 250.0
 color_ramp = SubResource("Gradient_tau0j")
 
-[node name="CritParticles" type="CPUParticles2D" parent="."]
+[node name="CritParticles" type="CPUParticles2D" parent="." unique_id=984407979]
 z_index = 10
 emitting = false
 amount = 3
@@ -1503,22 +1501,22 @@ initial_velocity_min = 150.0
 initial_velocity_max = 200.0
 color_ramp = SubResource("Gradient_83wf4")
 
-[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+[node name="AttackSound" type="AudioStreamPlayer" parent="." unique_id=1022829952]
 stream = ExtResource("5_pf44c")
 volume_db = 4.0
 bus = &"Sfx"
 
-[node name="DeathExp1" type="AudioStreamPlayer" parent="."]
+[node name="DeathExp1" type="AudioStreamPlayer" parent="." unique_id=651888770]
 stream = ExtResource("5_ukrqv")
 volume_db = 8.0
 bus = &"Sfx"
 
-[node name="DeathExp2" type="AudioStreamPlayer" parent="."]
+[node name="DeathExp2" type="AudioStreamPlayer" parent="." unique_id=234705787]
 stream = ExtResource("6_pf44c")
 volume_db = 8.0
 bus = &"Sfx"
 
-[node name="DoubleJumpSound" type="AudioStreamPlayer" parent="."]
+[node name="DoubleJumpSound" type="AudioStreamPlayer" parent="." unique_id=1617024521]
 stream = ExtResource("11_mt7je")
 volume_db = 4.0
 

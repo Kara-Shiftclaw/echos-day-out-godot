@@ -5,12 +5,13 @@ const SAMPLES_PER_SPD: u32 = 183;
 const SAMPLES_EDGE: u32 = 64;
 
 fn usage() {
-    println!("Usage: p8-song-looper <in> <out> -s <start> -e <end> -d <spd>");
+    println!("Usage: p8-song-looper <in> <out> -s <start> -e <end> [-d <spd>] [-m]");
     println!("<in>: Input file to use");
     println!("<out>: Output file to write to");
     println!("-s <start>: The start of the loop, in beats");
     println!("-e <end>: The end of the loop, in beats");
     println!("-d <spd>: The PICO-8 spd that the song is written in");
+    println!("-m: The start and end are defined in milliseconds. Mutually exclusive with -d");
 }
 
 fn main() {
@@ -35,6 +36,7 @@ fn parse_args() -> Result<Args, CmdErr> {
     let mut start = None;
     let mut end = None;
     let mut spd = None;
+    let mut ms = false;
 
     let mut args_iter = args.into_iter();
     args_iter.next();
@@ -50,10 +52,20 @@ fn parse_args() -> Result<Args, CmdErr> {
 		Some(new_start) => {new_start.parse::<u32>().map_err(CmdErr::nan)}
 	    }.map(|v| Some(v))?;
 	} else if arg == "-d" {
+	    if ms {
+	        println!("Cannot define p8 speed while using ms!");
+	        return Err(CmdErr::TooManyArguments);
+	    }
 	    spd = match args_iter.next() {
 	        None => Err(CmdErr::MissingArgument(&"spd")),
 		Some(new_start) => {new_start.parse::<u32>().map_err(CmdErr::nan)}
 	    }.map(|v| Some(v))?;
+	} else if arg == "-m" {
+	    if ms {
+	        println!("Cannot define ms while using p8 speed!");
+	        return Err(CmdErr::TooManyArguments);
+	    }
+	    ms = true;
 	} else if input.is_none() {
 	    input = Some(arg.clone());
 	} else if output.is_none() {
@@ -64,20 +76,31 @@ fn parse_args() -> Result<Args, CmdErr> {
 	}
     }
 
-    if let (Some(input), Some(output), Some(start), Some(end), Some(spd)) = (input, output, start, end, spd) {
-        Ok(Args {input, output, start, end, spd})
+    if let (Some(input), Some(output), Some(start), Some(end)) = (input, output, start, end) {
+        if spd == None && !ms {
+	    Err(CmdErr::MissingArgument(&"spd"))
+	} else {
+            Ok(Args {input, output, start, end, spd})
+	}
     } else {
         Err(CmdErr::MissingArgument(""))
     }
 }
 
 fn edit_wav(args: Args) -> Result<(), CmdErr> {
-    let start_sample = beat_to_sample(args.start, args.spd);
-    let end_sample = beat_to_sample(args.end, args.spd);
-
     let file = fs::File::open(args.input).map_err(CmdErr::io)?;
     let input = hound::WavReader::new(io::BufReader::new(file)).map_err(CmdErr::hound)?;
-    let mut samples = input.into_samples::<i16>();
+    let spec = input.spec();
+    let mut samples = input.into_samples::<i32>();
+    println!("{spec:?}");
+
+    let (start_sample, end_sample) = {
+        if let Some(spd) = args.spd {
+            (beat_to_sample(args.start, spd), beat_to_sample(args.end, spd))
+	} else {
+	    (ms_to_sample(args.start, spec.sample_rate, spec.channels), ms_to_sample(args.end, spec.sample_rate, spec.channels))
+        }
+    };
 
     let (before_start, mut samples) = {
         if start_sample < 10 {
@@ -92,12 +115,6 @@ fn edit_wav(args: Args) -> Result<(), CmdErr> {
     let into_end = get_sample_chunk(&mut samples, SAMPLES_EDGE)?;
     let after_end = get_sample_chunk(&mut samples, SAMPLES_EDGE)?;
 
-    let spec = hound::WavSpec {
-        channels: 1,
-	sample_rate: 22050,
-	bits_per_sample: 16,
-	sample_format: hound::SampleFormat::Int,
-    };
     let mut writer = hound::WavWriter::create(args.output, spec).map_err(CmdErr::hound)?;
     for i in 0 .. after_end.len() {
         writer.write_sample(lerp_sample(after_end[i], into_start[i], i as u32)).map_err(CmdErr::hound)?;
@@ -117,12 +134,16 @@ fn beat_to_sample(start: u32, spd: u32) -> u32 {
   start * spd * SAMPLES_PER_SPD
 }
 
-fn get_sample_chunk<S: Sample>(iter: &mut impl Iterator<Item = Result<S, hound::Error>>, num: u32) -> Result<Vec<i16>, CmdErr> {
+fn ms_to_sample(val: u32, sample_rate: u32, channels: u16) -> u32 {
+    (val as f64 / 1000. * sample_rate as f64 * channels as f64).trunc() as u32
+}
+
+fn get_sample_chunk(iter: &mut impl Iterator<Item = Result<i32, hound::Error>>, num: u32) -> Result<Vec<i32>, CmdErr> {
     let mut results = vec!();
     for _ in 0 .. num {
     	if let Some(sr) = iter.next() {
 	    match sr {
-	        Ok(sample) => {results.push(sample.as_i16());},
+	        Ok(sample) => {results.push(sample);},
 		Err(hound_err) => {return Err(CmdErr::hound(hound_err));}
 	    }
 	}
@@ -130,8 +151,8 @@ fn get_sample_chunk<S: Sample>(iter: &mut impl Iterator<Item = Result<S, hound::
     Ok(results)
 }
 
-fn lerp_sample(l: i16, r: i16, i: u32) -> i16 {
-    return (l as i32 + (r - l) as i32 * i as i32 / SAMPLES_EDGE as i32) as i16
+fn lerp_sample(l: i32, r: i32, i: u32) -> i32 {
+    return l + (r - l) * i as i32 / SAMPLES_EDGE as i32
 }
 
 #[derive(Debug)]
@@ -163,5 +184,5 @@ struct Args {
     output: String,
     start: u32,
     end: u32,
-    spd: u32,
+    spd: Option<u32>,
 }

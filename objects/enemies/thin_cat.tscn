@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1kj8pto6eexk" path="res://objects/enemies/scripts/thin_cat.gd" id="1_a8qcr"]
 [ext_resource type="Texture2D" uid="uid://d2m2sv3vqqphg" path="res://assets/gfx/thin_cat.png" id="1_jgx42"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="1_rn1q0"]
+[ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_2y2ms"]
 [ext_resource type="Script" uid="uid://byf8cwr2ke4ky" path="res://common/rf_sprite_2d_v2.gd" id="3_hodoy"]
 [ext_resource type="AudioStream" uid="uid://cnd5dgyvlt8l0" path="res://assets/sfx/spin.wav" id="5_q2sdf"]
 [ext_resource type="AudioStream" uid="uid://cj5ql5x35behu" path="res://assets/sfx/shoot.wav" id="6_8mrgn"]
@@ -756,6 +757,7 @@ shape = SubResource("RectangleShape2D_52flh")
 [node name="SpriteHolder" type="Node2D" parent="." unique_id=2105864111]
 
 [node name="RFSprite2D" type="Sprite2D" parent="SpriteHolder" unique_id=1786968911]
+material = ExtResource("2_2y2ms")
 position = Vector2(1, -10)
 texture = ExtResource("1_jgx42")
 offset = Vector2(0.5, 0.5)
@@ -763,6 +765,8 @@ region_enabled = true
 region_rect = Rect2(1, 1, 13, 19)
 script = ExtResource("3_hodoy")
 frame_count = 18
+frame_regions = Array[Rect2]([Rect2(1, 1, 13, 19), Rect2(15, 0, 18, 28), Rect2(34, 0, 17, 25), Rect2(52, 0, 16, 21), Rect2(0, 27, 15, 20), Rect2(16, 29, 17, 17), Rect2(34, 26, 17, 18), Rect2(0, 48, 18, 19), Rect2(19, 47, 22, 22), Rect2(42, 45, 26, 22), Rect2(54, 68, 26, 22), Rect2(66, 25, 22, 22), Rect2(69, 48, 22, 19), Rect2(82, 0, 14, 24), Rect2(0, 70, 26, 24), Rect2(27, 70, 26, 24), Rect2(52, 22, 13, 19), Rect2(69, 0, 12, 20)])
+frame_offsets = Array[Vector2]([Vector2(0.5, 0.5), Vector2(0, 1), Vector2(0.5, -0.5), Vector2(0, 0.5), Vector2(-0.5, 0), Vector2(-0.5, 1.5), Vector2(-1.5, 1), Vector2(-1, 0.5), Vector2(0, 0), Vector2(-1, -1), Vector2(-1, -1), Vector2(0, 0), Vector2(0, 0.5), Vector2(-1, -2), Vector2(-1, -2), Vector2(-1, -2), Vector2(-0.5, 0.5), Vector2(-1, 0)])
 frame_0_region = Rect2(1, 1, 13, 19)
 frame_0_offset = Vector2(0.5, 0.5)
 frame_1_region = Rect2(15, 0, 18, 28)
@@ -801,11 +805,12 @@ frame_17_region = Rect2(69, 0, 12, 20)
 frame_17_offset = Vector2(-1, 0)
 metadata/_custom_type_script = "uid://byf8cwr2ke4ky"
 
-[node name="EnemyManager" parent="." unique_id=192855905 node_paths=PackedStringArray("animation_player") instance=ExtResource("1_rn1q0")]
+[node name="EnemyManager" parent="." unique_id=192855905 node_paths=PackedStringArray("animation_player", "shader_nodes") instance=ExtResource("1_rn1q0")]
 max_health = 22
 journal_entry = "thin_cat"
 animation_player = NodePath("../AnimationPlayer")
 parent_save_properties = Array[String](["position", "facing_right"])
+shader_nodes = [NodePath("../SpriteHolder/RFSprite2D")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=539813453]
 libraries/ = SubResource("AnimationLibrary_8mrgn")
