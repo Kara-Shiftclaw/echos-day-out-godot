@@ -304,7 +304,7 @@ stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="RegionName" parent="Camera2D" unique_id=1712970180 instance=ExtResource("6_ycu36")]
 position = Vector2(0, 8)
-region_name = "Verdant Cavern"
+region_name = "REGION_NAME_VERDANT_CAVERN"
 
 [node name="RegionTag" parent="Camera2D" unique_id=1331447185 instance=ExtResource("11_mtdhe")]
 position = Vector2(64, 64)

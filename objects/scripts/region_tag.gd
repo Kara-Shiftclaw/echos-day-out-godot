@@ -13,6 +13,7 @@ enum Region {
 	TreetopExpanse,
 	ThievesRoad,
 	BillowingHeights,
+	Greymarket,
 	Crater,
 	Bramble,
 	Home,

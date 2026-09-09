@@ -312,7 +312,7 @@ stage_transition_parent = NodePath("../StageTransitions")
 
 [node name="RegionName" parent="Camera2D" unique_id=1224924086 instance=ExtResource("5_ej1m3")]
 position = Vector2(0, 8)
-region_name = "The Crater"
+region_name = "REGION_NAME_CRATER"
 
 [node name="Objects" type="Node2D" parent="." unique_id=418021886]
 

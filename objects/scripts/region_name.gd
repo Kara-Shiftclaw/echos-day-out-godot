@@ -10,4 +10,4 @@ extends Node2D
 func _ready() -> void:
 	if require_explored and !Global.flags.has(Global.scene_flag_name("explored")):
 		queue_free()
-	$PanelContainer/RegionName.text = region_name
+	$PanelContainer/RegionName.text = tr(region_name)

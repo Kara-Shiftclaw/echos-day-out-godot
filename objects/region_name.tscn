@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8dvt0avx6bkw"]
+[gd_scene format=3 uid="uid://c8dvt0avx6bkw"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_arv76"]
 [ext_resource type="Script" uid="uid://cfo36ckx5rbkc" path="res://objects/scripts/region_name.gd" id="2_8hcso"]
@@ -50,22 +50,20 @@ _data = {
 &"show": SubResource("Animation_sna6h")
 }
 
-[node name="RegionName" type="Node2D"]
+[node name="RegionName" type="Node2D" unique_id=1819243674]
 z_index = 80
 script = ExtResource("2_8hcso")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=567618307]
 theme = ExtResource("1_arv76")
 theme_override_styles/panel = SubResource("StyleBoxTexture_vbesw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer" unique_id=1715026262]
 root_node = NodePath("../RegionName")
-libraries = {
-&"": SubResource("AnimationLibrary_jxyfc")
-}
-autoplay = "show"
+libraries/ = SubResource("AnimationLibrary_jxyfc")
+autoplay = &"show"
 
-[node name="RegionName" type="Label" parent="PanelContainer"]
+[node name="RegionName" type="Label" parent="PanelContainer" unique_id=1958024345]
 layout_mode = 2
 theme = ExtResource("1_arv76")
 text = "Heftwind Hills"
