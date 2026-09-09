@@ -130,7 +130,7 @@ debug_noclip={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://assets/translation.en.translation")
+locale/translations=PackedStringArray("res://assets/translation.en.translation", "res://assets/translation.es.translation")
 
 [layer_names]
 

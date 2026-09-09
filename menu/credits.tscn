@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8chs2bkmuh5e"]
+[gd_scene format=3 uid="uid://b8chs2bkmuh5e"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_wp78b"]
 [ext_resource type="Script" uid="uid://bqpa8e30ossd2" path="res://menu/scripts/credits.gd" id="2_nidem"]
 
-[node name="Credits" type="Control"]
+[node name="Credits" type="Control" unique_id=1185391876]
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
@@ -15,7 +15,7 @@ focus_mode = 2
 theme = ExtResource("1_wp78b")
 script = ExtResource("2_nidem")
 
-[node name="CreatedBy" type="Label" parent="."]
+[node name="CreatedBy" type="Label" parent="." unique_id=667669921]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -95,7 +95,7 @@ Thats it ok goodbye
 "
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="CreatedBy"]
+[node name="ColorRect" type="ColorRect" parent="CreatedBy" unique_id=844864307]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1

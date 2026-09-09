@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2jrwe3bevgmw"]
+[gd_scene format=3 uid="uid://d2jrwe3bevgmw"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_j5uph"]
 [ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_6ncgy"]
@@ -12,7 +12,7 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(5, 0, 5, 5)
 
-[node name="ReallyQuit" type="CenterContainer"]
+[node name="ReallyQuit" type="CenterContainer" unique_id=846940388]
 process_mode = 3
 z_index = 4096
 offset_right = 128.0
@@ -22,34 +22,32 @@ grow_vertical = 2
 theme = ExtResource("1_j5uph")
 script = ExtResource("2_fgg6r")
 
-[node name="Panel" type="PanelContainer" parent="."]
+[node name="Panel" type="PanelContainer" parent="." unique_id=453810529]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_fgg6r")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1065958967]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1716815875]
 layout_mode = 2
-text = "Progress won't be saved!
-Really Quit?"
+text = "OPTIONS_REALLY_QUIT"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1913032661]
 layout_mode = 2
 focus_behavior_recursive = 2
 theme_override_constants/separation = 2
 
-[node name="Yes" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="Yes" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1108436764]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Yes"
+text = "YES"
 
-[node name="No" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="No" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=733531216]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "No
-"
+text = "NO"
 
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Yes" to="." method="yes"]
 [connection signal="ready" from="Panel/VBoxContainer/HBoxContainer/Yes" to="Panel/VBoxContainer/HBoxContainer/Yes" method="grab_focus" flags=3]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://7kbil360lc45"]
+[gd_scene format=3 uid="uid://7kbil360lc45"]
 
 [ext_resource type="Texture2D" uid="uid://kcys5a1h5g0j" path="res://assets/gfx/title.png" id="1_lxdol"]
 [ext_resource type="Script" uid="uid://cjew3yi6d35eb" path="res://menu/scripts/title_screen.gd" id="1_vio6n"]
@@ -278,34 +278,34 @@ _data = {
 &"quick_load": SubResource("Animation_sby7u")
 }
 
-[node name="TitleScreen" type="Node2D"]
+[node name="TitleScreen" type="Node2D" unique_id=1099555619]
 script = ExtResource("1_vio6n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=945320987]
 position = Vector2(64, -96)
 texture = ExtResource("1_lxdol")
 
-[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+[node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=1472453643]
 offset_left = -64.0
 offset_top = 96.0
 offset_right = 64.0
 offset_bottom = 224.0
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
-[node name="Ident" type="Sprite2D" parent="Sprite2D/ColorRect"]
+[node name="Ident" type="Sprite2D" parent="Sprite2D/ColorRect" unique_id=751268999]
 position = Vector2(64, 64)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_o0rbc")
 
-[node name="DemoLabel" type="Label" parent="Sprite2D"]
+[node name="DemoLabel" type="Label" parent="Sprite2D" unique_id=1829349251]
 offset_left = -63.0
 offset_top = 18.0
 offset_right = -23.0
 offset_bottom = 41.0
 theme = ExtResource("2_1hn3b")
-text = "DEMO"
+text = "MENU_DEMO"
 
-[node name="VersionLabel" type="Label" parent="Sprite2D"]
+[node name="VersionLabel" type="Label" parent="Sprite2D" unique_id=1622449284]
 visible = false
 offset_left = -63.0
 offset_top = 26.0
@@ -314,18 +314,18 @@ offset_bottom = 49.0
 theme = ExtResource("2_1hn3b")
 text = "V0.5.5"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1111190021]
 position = Vector2(64, 64)
 zoom = Vector2(4, 4)
 
-[node name="Options" type="Control" parent="."]
+[node name="Options" type="Control" parent="." unique_id=257285181]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 72.0
 offset_right = 199.99997
 offset_bottom = 96.000046
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=320411133]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -335,11 +335,11 @@ offset_bottom = 40.0
 grow_horizontal = 0
 theme_override_constants/separation = 2
 
-[node name="TextureRect" type="TextureRect" parent="Options/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Options/VBoxContainer" unique_id=1933481975]
 layout_mode = 2
 texture = ExtResource("4_w1y3c")
 
-[node name="Continue" type="Button" parent="Options/VBoxContainer"]
+[node name="Continue" type="Button" parent="Options/VBoxContainer" unique_id=1048848078]
 visible = false
 layout_mode = 2
 focus_neighbor_top = NodePath("../Credits")
@@ -351,7 +351,7 @@ accessibility_description = "This continues an existing save game."
 theme = ExtResource("2_1hn3b")
 text = "CONTINUE"
 
-[node name="New Game" type="Button" parent="Options/VBoxContainer"]
+[node name="New Game" type="Button" parent="Options/VBoxContainer" unique_id=723781357]
 visible = false
 layout_mode = 2
 focus_neighbor_top = NodePath("../Continue")
@@ -363,30 +363,30 @@ accessibility_description = "This starts a new game, overriding the save data."
 theme = ExtResource("2_1hn3b")
 text = "NEW GAME"
 
-[node name="Start" type="Button" parent="Options/VBoxContainer"]
+[node name="Start" type="Button" parent="Options/VBoxContainer" unique_id=380006500]
 layout_mode = 2
 focus_neighbor_top = NodePath("../New Game")
 focus_previous = NodePath("../New Game")
 accessibility_name = "Options"
 accessibility_description = "This displays options for audio and accessibility."
 theme = ExtResource("2_1hn3b")
-text = "START"
+text = "MENU_START"
 
-[node name="Options" type="Button" parent="Options/VBoxContainer"]
+[node name="Options" type="Button" parent="Options/VBoxContainer" unique_id=1009690676]
 layout_mode = 2
 accessibility_name = "Options"
 accessibility_description = "This displays options for audio and accessibility."
 theme = ExtResource("2_1hn3b")
-text = "OPTIONS"
+text = "MENU_OPTIONS"
 
-[node name="Credits" type="Button" parent="Options/VBoxContainer"]
+[node name="Credits" type="Button" parent="Options/VBoxContainer" unique_id=583680071]
 layout_mode = 2
 accessibility_name = "Options"
 accessibility_description = "This displays options for audio and accessibility."
 theme = ExtResource("2_1hn3b")
-text = "CREDITS"
+text = "MENU_CREDITS"
 
-[node name="UnderSaves" type="HBoxContainer" parent="Options"]
+[node name="UnderSaves" type="HBoxContainer" parent="Options" unique_id=691858899]
 visible = false
 layout_mode = 0
 offset_left = 1.0
@@ -394,7 +394,7 @@ offset_top = -10.0
 offset_right = 127.0
 offset_bottom = -1.0
 
-[node name="Copy" type="Button" parent="Options/UnderSaves"]
+[node name="Copy" type="Button" parent="Options/UnderSaves" unique_id=1043596545]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Erase")
@@ -406,9 +406,9 @@ accessibility_name = "Options"
 accessibility_description = "This displays options for audio and accessibility."
 theme = ExtResource("2_1hn3b")
 toggle_mode = true
-text = "Copy"
+text = "MENU_COPY"
 
-[node name="Erase" type="Button" parent="Options/UnderSaves"]
+[node name="Erase" type="Button" parent="Options/UnderSaves" unique_id=1021895988]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Copy")
@@ -420,9 +420,9 @@ accessibility_name = "Options"
 accessibility_description = "This displays options for audio and accessibility."
 theme = ExtResource("2_1hn3b")
 toggle_mode = true
-text = "ERASE!!"
+text = "MENU_ERASE"
 
-[node name="Saves" type="HBoxContainer" parent="Options"]
+[node name="Saves" type="HBoxContainer" parent="Options" unique_id=1086996441]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -57.0
@@ -430,26 +430,24 @@ offset_right = 127.0
 offset_bottom = -11.0
 theme_override_constants/separation = 2
 
-[node name="Credits" parent="." instance=ExtResource("6_lnerq")]
+[node name="Credits" parent="." unique_id=1645350712 instance=ExtResource("6_lnerq")]
 visible = false
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_lnerq")
-}
-autoplay = "begin"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=149215448]
+libraries/ = SubResource("AnimationLibrary_lnerq")
+autoplay = &"begin"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1347602131]
 stream = ExtResource("2_88gnj")
 bus = &"Music"
 
-[node name="CantErase" type="AudioStreamPlayer" parent="."]
+[node name="CantErase" type="AudioStreamPlayer" parent="." unique_id=1589398078]
 stream = ExtResource("8_sby7u")
 bus = &"Sfx"
 
-[node name="Copy" type="AudioStreamPlayer" parent="."]
+[node name="Copy" type="AudioStreamPlayer" parent="." unique_id=1968260927]
 stream = ExtResource("9_e3gr8")
 volume_db = 2.0
 bus = &"Sfx"

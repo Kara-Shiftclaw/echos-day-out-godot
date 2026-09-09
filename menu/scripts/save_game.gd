@@ -66,7 +66,7 @@ func _ready() -> void:
 	$Profile/Echo.frame = FRAME_FROM_WEIGHT[weight]
 	$MainPercentage.text = "{0}%".format([main_percentage])
 	$CompletionPercentage.text = "{0}%".format([completion_percentage])
-	$File.text = "File " + str(file_num)
+	$File.text = tr("MENU_FILE") + " " + str(file_num)
 
 func calculate_weight(save_dict: Dictionary) -> void:
 	if save_dict.get("is_smol", false):

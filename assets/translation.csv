@@ -6,6 +6,49 @@ NO,"No"
 ANTI_SOFTLOCK,"Not implemented yet. Deploying anti-softlock."
 
 
+#Text present on images that'll need to be translated
+IMG_KEEP_AWAY,"KEEP AWAY"
+IMG_DAED,"DAED."
+IMG_TITLE,"ECHO'S DAY OUT"
+
+
+MENU_START,"START"
+MENU_OPTIONS,"OPTIONS"
+MENU_CREDITS,"CREDITS"
+MENU_COPY,"Copy"
+MENU_ERASE,"ERASE!!"
+MENU_DEMO,"DEMO"
+MENU_FILE,"File"
+
+CREDITS_CREATED_BY,"Game Created By"
+CREDITS_ENGINE,"(Using Godot 4)"
+CREDITS_GRAPHICS,"Graphics"
+CREDITS_ASEPRITE,"(Made w/ Aseprite)"
+CREDITS_SFX,"SFX"
+CREDITS_DAW,"(Made with too many things, check out LMMS)"
+CREDITS_SFX_SAMPLE,"Some SFX Sampled From"
+CREDITS_OSAMU_SATO,"\"Deme Kume Chame-Go\" by Osamu Sato"
+CREDITS_MUSIC,"Music"
+CREDITS_ERIC,"All by Eric Matyas\n soundimage.org"
+CREDITS_FRIENDS,"Special thanks to Nox & Laz for enabling my obese dragon game hyperfixation"
+CREDITS_TRANSLATION,"Translation"
+CREDITS_SPANISH,"Spanish Translation"
+CREDITS_ANTI_AI,"Support human artists"
+CREDITS_FUN_1,"Eat and get very fat"
+CREDITS_FUN_2,"Keep watching the skiis"
+CREDITS_FUN_3,"That's it ok goodbye"
+
+OPTIONS_MASTER_VOL,"Master Vol."
+OPTIONS_MUSIC_VOL,"Music Vol."
+OPTIONS_SFX_VOL,"Sfx Vol."
+OPTIONS_QUIT,"Quit to Menu"
+OPTIONS_REALLY_QUIT,"Progress won't be saved!\nReally Quit?"
+
+SILLY_MENU_ERASE,"ERASE HER ??"
+SILLY_MENU_CANT_COPY,"No profiles to copy to !!\nCan't copy that floppy !!"
+SILLY_MENU_GO_BACK,"Go Back"
+
+
 DANIEL_1,"Heyo. Sorry about before. Name's Daniel."
 DANIEL_2,"When you ran in like that, we thought you were a pinkerton or something."
 DANIEL_3,"I remember seeing you in Sonia's office, though. You're the one that showed her what for!"
@@ -78,6 +121,6 @@ BIG_RED_VORE_R_4,"...Could you, find someone else maybe? Someone stronger, a bit
 
 SWORD_MURAL_1,"BURIED DEEP IN THE LAND OF FUNGI LIES A GRAND TREASURE"
 SWORD_MURAL_2,"UNEARTH THE LEGENDARY BLADE FROM THE STONE AND BE A HERO"
-SWORD_MURAL_3,"<HEROES are liable for all damages to the sword. The Sword Spirit takes no responsibility for injuries dealt by the sword.>"
+SWORD_MURAL_3,"(HEROES are liable for all damages to the sword. The Sword Spirit takes no responsibility for injuries dealt by the sword.)"
 
 HOME_CQ_SIGN,"My greatest treasure lives past this gate. Guard it with your life.\n     -CQ `"
