@@ -1,0 +1,331 @@
+[gd_scene format=3 uid="uid://8vayttc0ftom"]
+
+[ext_resource type="Texture2D" uid="uid://cpe3tg2qr10sh" path="res://assets/gfx/fatcat.png" id="1_o2d7d"]
+[ext_resource type="Script" uid="uid://dhnapbxdb6hor" path="res://objects/enemies/scripts/fatcat.gd" id="1_rd8jw"]
+[ext_resource type="Script" uid="uid://byf8cwr2ke4ky" path="res://common/rf_sprite_2d_v2.gd" id="2_6vqc3"]
+[ext_resource type="AudioStream" uid="uid://d4d4114vrysyj" path="res://assets/sfx/bfxr_swing.wav" id="4_esuov"]
+[ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="4_gcmpe"]
+[ext_resource type="AudioStream" uid="uid://njfwp10gm718" path="res://assets/sfx/whistle.wav" id="5_7y21p"]
+[ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="6_7y21p"]
+[ext_resource type="PackedScene" uid="uid://braxpij1yhwqj" path="res://objects/enemies/floor_detector.tscn" id="7_if86v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07dck"]
+size = Vector2(15, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i56ig"]
+size = Vector2(12, 16)
+
+[sub_resource type="Animation" id="Animation_6vqc3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/RFSprite2Dv2:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/RFSprite2Dv2:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Swipe:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Whistle:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Flip/Knockback/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_esuov"]
+resource_name = "attack"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/RFSprite2Dv2:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 0.9, 1.1999999, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 8, 1, 4, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/RFSprite2Dv2:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1.0, 2.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Swipe:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Whistle:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.1999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"face_player"
+}, {
+"args": [],
+"method": &"emit_whistle"
+}, {
+"args": [],
+"method": &"run_away"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Flip/Knockback/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_if86v"]
+resource_name = "cower"
+length = 0.39999999999999997
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/RFSprite2Dv2:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rd8jw"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/RFSprite2Dv2:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_7y21p"]
+resource_name = "run_away"
+length = 0.39999999999999997
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/RFSprite2Dv2:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esuov"]
+_data = {
+&"RESET": SubResource("Animation_6vqc3"),
+&"attack": SubResource("Animation_esuov"),
+&"cower": SubResource("Animation_if86v"),
+&"idle": SubResource("Animation_rd8jw"),
+&"run_away": SubResource("Animation_7y21p")
+}
+
+[node name="FatCat" type="CharacterBody2D" unique_id=1451945519]
+collision_layer = 4
+script = ExtResource("1_rd8jw")
+
+[node name="Flip" type="Node2D" parent="." unique_id=83785613]
+
+[node name="RFSprite2Dv2" type="Sprite2D" parent="Flip" unique_id=127466269]
+position = Vector2(1, -9)
+texture = ExtResource("1_o2d7d")
+offset = Vector2(0.5, -0.5)
+region_enabled = true
+region_rect = Rect2(0, 0, 17, 19)
+script = ExtResource("2_6vqc3")
+frame_count = 8
+frame_regions = Array[Rect2]([Rect2(0, 0, 17, 19), Rect2(18, 0, 19, 19), Rect2(38, 0, 19, 19), Rect2(58, 0, 19, 19), Rect2(78, 0, 19, 18), Rect2(0, 20, 19, 19), Rect2(20, 20, 24, 19), Rect2(45, 20, 22, 19)])
+frame_offsets = Array[Vector2]([Vector2(0.5, -0.5), Vector2(-0.5, -0.5), Vector2(-0.5, -0.5), Vector2(-0.5, -0.5), Vector2(-0.5, 0), Vector2(-0.5, -0.5), Vector2(-2, -0.5), Vector2(0, -0.5)])
+frame_0_region = Rect2(0, 0, 17, 19)
+frame_0_offset = Vector2(0.5, -0.5)
+frame_1_region = Rect2(18, 0, 19, 19)
+frame_1_offset = Vector2(-0.5, -0.5)
+frame_2_region = Rect2(38, 0, 19, 19)
+frame_2_offset = Vector2(-0.5, -0.5)
+frame_3_region = Rect2(58, 0, 19, 19)
+frame_3_offset = Vector2(-0.5, -0.5)
+frame_4_region = Rect2(78, 0, 19, 18)
+frame_4_offset = Vector2(-0.5, 0)
+frame_5_region = Rect2(0, 20, 19, 19)
+frame_5_offset = Vector2(-0.5, -0.5)
+frame_6_region = Rect2(20, 20, 24, 19)
+frame_6_offset = Vector2(-2, -0.5)
+frame_7_region = Rect2(45, 20, 22, 19)
+frame_7_offset = Vector2(0, -0.5)
+metadata/_custom_type_script = "uid://byf8cwr2ke4ky"
+
+[node name="Front" type="RayCast2D" parent="Flip" unique_id=1356824661]
+position = Vector2(0, -14)
+target_position = Vector2(-32, 0)
+collision_mask = 3
+
+[node name="Back" type="RayCast2D" parent="Flip" unique_id=174104295]
+position = Vector2(0, -14)
+target_position = Vector2(16, 0)
+collision_mask = 3
+
+[node name="Knockback" type="Area2D" parent="Flip" unique_id=423564318]
+position = Vector2(-6, -8)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flip/Knockback" unique_id=1715286196]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_07dck")
+disabled = true
+
+[node name="Damage" type="Node" parent="Flip/Knockback" unique_id=1026342844]
+script = ExtResource("4_gcmpe")
+damage = 1
+metadata/_custom_type_script = "uid://cd06ykx2xlfww"
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2081706713]
+collision_layer = 0
+collision_mask = 8
+
+[node name="HutboxShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1513826970]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_i56ig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1904907669]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_i56ig")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1224416436]
+libraries/ = SubResource("AnimationLibrary_esuov")
+autoplay = &"idle"
+next/RESET = &"idle"
+
+[node name="Swipe" type="AudioStreamPlayer" parent="." unique_id=1245283394]
+stream = ExtResource("4_esuov")
+bus = &"Sfx"
+
+[node name="Whistle" type="AudioStreamPlayer" parent="." unique_id=2049952942]
+stream = ExtResource("5_7y21p")
+bus = &"Sfx"
+
+[node name="EnemyManager" parent="." unique_id=376759477 instance=ExtResource("6_7y21p")]
+max_health = 16
+energy_per_damage = 0.4
+energy_on_death = 3
+journal_entry = "fatcat"
+parent_save_properties = Array[String](["position", "facing_right"])
+
+[node name="Left" parent="." unique_id=1941859033 instance=ExtResource("7_if86v")]
+position = Vector2(-6, 0)
+
+[node name="Right" parent="." unique_id=1309062476 instance=ExtResource("7_if86v")]
+position = Vector2(6, 0)
+
+[connection signal="hit" from="Flip/Knockback/Damage" to="." method="knockback_player"]
+[connection signal="area_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
+[connection signal="body_entered" from="Hurtbox" to="EnemyManager" method="on_hit"]
+[connection signal="chunk_entered_alive" from="EnemyManager" to="." method="show"]
+[connection signal="chunk_entered_alive" from="EnemyManager" to="AnimationPlayer" method="play" binds= [&"RESET"]]
+[connection signal="chunk_left" from="EnemyManager" to="." method="hide"]

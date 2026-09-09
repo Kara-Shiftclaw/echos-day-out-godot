@@ -12,6 +12,7 @@ const HEAD_Y_VEL := -20. * 8.
 		facing_right = value
 		if is_node_ready():
 			sync_facing_right()
+@export var should_arena_standby = true
 
 @onready var player_raycast: RayCast2D = $Flip/RayCast2D
 
@@ -45,8 +46,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func reset_head() -> void:
+func arena_start() -> void:
+	show()
+	$EnemyManager.health = $EnemyManager.max_health
+	self.facing_right = Global.echo_is_right(self)
+	$AnimationPlayer.play("prepare_attack")
+
+func on_load() -> void:
 	$Head.position = Vector2(0., -10.)
+	if should_arena_standby:
+		$AnimationPlayer.play("arena_standby")
+	elif $EnemyManager.health > 0:
+		$AnimationPlayer.play("RESET")
 
 func die() -> void:
 	velocity = Vector2.ZERO

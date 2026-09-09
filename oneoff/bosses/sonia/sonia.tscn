@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dau3srlstnug"]
+[gd_scene format=3 uid="uid://dau3srlstnug"]
 
 [ext_resource type="Script" uid="uid://r3b0qi33kj5f" path="res://oneoff/bosses/scripts/sonia.gd" id="1_ihiup"]
 [ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="2_kfx8a"]
@@ -3880,12 +3880,12 @@ _data = {
 &"top_olhm_knockdown": SubResource("Animation_seyjf")
 }
 
-[node name="Sonia" type="Area2D"]
+[node name="Sonia" type="Area2D" unique_id=1729977433]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("1_ihiup")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=328769915]
 visible = false
 material = ExtResource("2_kfx8a")
 texture = ExtResource("2_qq603")
@@ -3893,16 +3893,14 @@ offset = Vector2(0, -16)
 hframes = 12
 vframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1065633205]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_m8a6h")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_c8me3")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1259262297]
+libraries/ = SubResource("AnimationLibrary_c8me3")
 
-[node name="LowSelector" parent="." node_paths=PackedStringArray("source") instance=ExtResource("3_qq603")]
+[node name="LowSelector" parent="." unique_id=773105889 node_paths=PackedStringArray("source") instance=ExtResource("3_qq603")]
 source = NodePath("..")
 attack_enum = "Attacks"
 SingleSwipe_odds = 5
@@ -3924,7 +3922,7 @@ TopJumpSlash_odds = 0
 LowToOlhm_odds = 4
 NoOp_odds = 0
 
-[node name="MidSelector" parent="." node_paths=PackedStringArray("source") instance=ExtResource("3_qq603")]
+[node name="MidSelector" parent="." unique_id=653410213 node_paths=PackedStringArray("source") instance=ExtResource("3_qq603")]
 source = NodePath("..")
 attack_enum = "Attacks"
 SingleSwipe_odds = 12
@@ -3946,7 +3944,7 @@ TopJumpSlash_odds = 0
 LowToOlhm_odds = 0
 NoOp_odds = 0
 
-[node name="TopSelector" parent="." node_paths=PackedStringArray("source") instance=ExtResource("3_qq603")]
+[node name="TopSelector" parent="." unique_id=2107904919 node_paths=PackedStringArray("source") instance=ExtResource("3_qq603")]
 source = NodePath("..")
 attack_enum = "Attacks"
 SingleSwipe_odds = 0
@@ -3968,7 +3966,7 @@ TopJumpSlash_odds = 2
 LowToOlhm_odds = 0
 NoOp_odds = 0
 
-[node name="DigSelector" parent="." node_paths=PackedStringArray("source") instance=ExtResource("3_qq603")]
+[node name="DigSelector" parent="." unique_id=843704610 node_paths=PackedStringArray("source") instance=ExtResource("3_qq603")]
 source = NodePath("..")
 attack_enum = "Attacks"
 SingleSwipe_odds = 0
@@ -3990,7 +3988,7 @@ TopJumpSlash_odds = 0
 LowToOlhm_odds = 0
 NoOp_odds = 0
 
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("animation_player", "shader_nodes") instance=ExtResource("5_nm6f2")]
+[node name="EnemyManager" parent="." unique_id=1888287700 node_paths=PackedStringArray("animation_player", "shader_nodes") instance=ExtResource("5_nm6f2")]
 max_health = 132
 energy_per_damage = 0.125
 energy_on_death = 5
@@ -3999,20 +3997,20 @@ animation_player = NodePath("../AnimationPlayer")
 parent_save_properties = Array[String](["position", "state", "x_speed", "facing_right"])
 shader_nodes = [NodePath("../Sprite2D")]
 
-[node name="DamageBox" type="Area2D" parent="."]
+[node name="DamageBox" type="Area2D" parent="." unique_id=1793530122]
 collision_layer = 4
 collision_mask = 0
 
-[node name="DamageBoxShape" type="CollisionShape2D" parent="DamageBox"]
+[node name="DamageBoxShape" type="CollisionShape2D" parent="DamageBox" unique_id=1895179494]
 position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_nm6f2")
 disabled = true
 
-[node name="Damage" type="Node" parent="DamageBox"]
+[node name="Damage" type="Node" parent="DamageBox" unique_id=1790987929]
 script = ExtResource("6_nm6f2")
 metadata/_custom_type_script = "uid://cd06ykx2xlfww"
 
-[node name="SlashL" type="Sprite2D" parent="."]
+[node name="SlashL" type="Sprite2D" parent="." unique_id=1328787348]
 visible = false
 modulate = Color(0.78039217, 0.44705883, 0.28235295, 1)
 texture = ExtResource("7_c8me3")
@@ -4020,7 +4018,7 @@ offset = Vector2(0, -7)
 region_enabled = true
 region_rect = Rect2(0, 0, 28, 14)
 
-[node name="SlashR" type="Sprite2D" parent="."]
+[node name="SlashR" type="Sprite2D" parent="." unique_id=1383490754]
 visible = false
 modulate = Color(0.78039217, 0.44705883, 0.28235295, 1)
 texture = ExtResource("7_c8me3")
@@ -4029,37 +4027,37 @@ flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 28, 14)
 
-[node name="BeforeSwipe" type="AudioStreamPlayer" parent="."]
+[node name="BeforeSwipe" type="AudioStreamPlayer" parent="." unique_id=440653668]
 stream = ExtResource("8_lo8ey")
 bus = &"Sfx"
 
-[node name="Swipe" type="AudioStreamPlayer" parent="."]
+[node name="Swipe" type="AudioStreamPlayer" parent="." unique_id=279675853]
 stream = ExtResource("9_aprsx")
 bus = &"Sfx"
 
-[node name="Slash" type="AudioStreamPlayer" parent="."]
+[node name="Slash" type="AudioStreamPlayer" parent="." unique_id=383505295]
 stream = ExtResource("10_fwpfq")
 bus = &"Sfx"
 
-[node name="Tension" type="AudioStreamPlayer" parent="."]
+[node name="Tension" type="AudioStreamPlayer" parent="." unique_id=841484005]
 stream = ExtResource("11_aprsx")
 volume_db = 4.0
 bus = &"Sfx"
 
-[node name="AirBurst" type="AudioStreamPlayer" parent="."]
+[node name="AirBurst" type="AudioStreamPlayer" parent="." unique_id=1477606051]
 stream = ExtResource("12_fwpfq")
 volume_db = 8.0
 pitch_scale = 0.9
 
-[node name="Bonk" type="AudioStreamPlayer" parent="."]
+[node name="Bonk" type="AudioStreamPlayer" parent="." unique_id=1122925862]
 stream = ExtResource("13_1m4r8")
 bus = &"Sfx"
 
-[node name="Whistle" type="AudioStreamPlayer" parent="."]
+[node name="Whistle" type="AudioStreamPlayer" parent="." unique_id=1339814775]
 stream = ExtResource("14_vq6qh")
 bus = &"Sfx"
 
-[node name="Dig" type="AudioStreamPlayer" parent="."]
+[node name="Dig" type="AudioStreamPlayer" parent="." unique_id=1975415393]
 stream = ExtResource("15_vq6qh")
 volume_db = 2.0
 

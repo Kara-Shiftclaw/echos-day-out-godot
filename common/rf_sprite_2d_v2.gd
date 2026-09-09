@@ -4,7 +4,7 @@ extends Sprite2D
 
 @export var current_frame := 0:
 	set(value):
-		current_frame = clampi(value, 0, frame_count)
+		current_frame = clampi(value, 0, frame_count - 1)
 		region_rect = frame_regions.get(current_frame)
 		offset = frame_offsets.get(current_frame)
 @export_range(1, 100) var frame_count := 1:

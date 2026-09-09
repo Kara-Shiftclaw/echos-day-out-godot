@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://db1opiy6dip85"]
+[gd_scene format=3 uid="uid://db1opiy6dip85"]
 
 [ext_resource type="Texture2D" uid="uid://cbhc6by4nr1rj" path="res://assets/gfx/fox.png" id="1_64vek"]
 [ext_resource type="Script" uid="uid://bll4ni1tgj7jg" path="res://objects/enemies/scripts/wolf.gd" id="1_mcujq"]
@@ -584,21 +584,21 @@ _data = {
 &"wait_at_wall": SubResource("Animation_phjy0")
 }
 
-[node name="Wolf" type="CharacterBody2D"]
+[node name="Wolf" type="CharacterBody2D" unique_id=387201575]
 collision_layer = 4
 script = ExtResource("1_mcujq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2141721585]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_lvsg1")
 
-[node name="Wolf" type="Sprite2D" parent="."]
+[node name="Wolf" type="Sprite2D" parent="." unique_id=1192149421]
 material = ExtResource("2_phjy0")
 position = Vector2(1.5, -7.5)
 texture = ExtResource("1_64vek")
 hframes = 12
 
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("2_nyjvr")]
+[node name="EnemyManager" parent="." unique_id=628105563 node_paths=PackedStringArray("shader_nodes") instance=ExtResource("2_nyjvr")]
 max_health = 1
 energy_per_damage = 0.0
 energy_on_death = 3
@@ -606,33 +606,31 @@ journal_entry = "wolf"
 parent_save_properties = Array[String](["position", "moving_right"])
 shader_nodes = [NodePath("../Wolf")]
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1306438464]
 visible = false
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1678494782]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_lvsg1")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bbpno")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1520627071]
+libraries/ = SubResource("AnimationLibrary_bbpno")
 
-[node name="Left" parent="." instance=ExtResource("4_vnh00")]
+[node name="Left" parent="." unique_id=349119542 instance=ExtResource("4_vnh00")]
 position = Vector2(-3, 0)
 
-[node name="Right" parent="." instance=ExtResource("4_vnh00")]
+[node name="Right" parent="." unique_id=588426550 instance=ExtResource("4_vnh00")]
 position = Vector2(3, 0)
 
-[node name="PlayerSight" type="RayCast2D" parent="."]
+[node name="PlayerSight" type="RayCast2D" parent="." unique_id=367881047]
 position = Vector2(-1, -10)
 target_position = Vector2(-128, 0)
 collision_mask = 3
 hit_from_inside = true
 
-[node name="Damage" type="Node" parent="."]
+[node name="Damage" type="Node" parent="." unique_id=1687173635]
 script = ExtResource("5_bbpno")
 active = false
 
