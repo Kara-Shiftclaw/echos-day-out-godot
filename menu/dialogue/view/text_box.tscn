@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://chlwla66od3nr"]
+[gd_scene format=3 uid="uid://chlwla66od3nr"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_8c1cq"]
 [ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_n1ic4"]
@@ -13,7 +13,7 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(21, 0, 5, 5)
 
-[node name="TextBox" type="Panel"]
+[node name="TextBox" type="Panel" unique_id=569193635]
 process_mode = 3
 z_index = 110
 offset_right = 128.0
@@ -24,7 +24,7 @@ theme = ExtResource("1_8c1cq")
 theme_override_styles/panel = SubResource("StyleBoxTexture_ifptj")
 script = ExtResource("3_ifptj")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1189305797]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -39,7 +39,7 @@ autowrap_mode = 3
 visible_characters = 0
 visible_characters_behavior = 1
 
-[node name="DialogueBlip" type="AudioStreamPlayer" parent="."]
+[node name="DialogueBlip" type="AudioStreamPlayer" parent="." unique_id=1137291512]
 stream = ExtResource("4_ifptj")
 volume_db = -2.0
 bus = &"Sfx"

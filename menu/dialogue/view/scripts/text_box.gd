@@ -25,7 +25,7 @@ func _ready() -> void:
 		position.y = Util.ROOM_SIZE - size.y
 
 func set_text(text: String) -> void:
-	$Label.text = text
+	$Label.text = tr(text)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
