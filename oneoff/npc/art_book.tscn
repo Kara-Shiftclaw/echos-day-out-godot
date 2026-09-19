@@ -28,14 +28,14 @@ position = Vector2(0, -14)
 [node name="TextTree" parent="." instance=ExtResource("3_a17qi")]
 
 [node name="MultipleChoiceBox" parent="TextTree" instance=ExtResource("5_a17qi")]
-text = "It's a sketch book. Take a peek?"
+text = "KARA_COMIC"
 
 [node name="Choice" parent="TextTree/MultipleChoiceBox" instance=ExtResource("6_ybvml")]
-choice_text = "Yes"
+choice_text = "YES"
 enabled = true
 
 [node name="Choice2" parent="TextTree/MultipleChoiceBox" instance=ExtResource("6_ybvml")]
-choice_text = "No"
+choice_text = "NO"
 enabled = true
 
 [node name="Options" type="Node" parent="."]
@@ -43,26 +43,26 @@ enabled = true
 [node name="Cer" parent="Options" instance=ExtResource("3_a17qi")]
 
 [node name="StandardTextBox" parent="Options/Cer" instance=ExtResource("4_ybvml")]
-text = "You flip to a comic. Two doglike creatures slowly gain weight after moving to separate places."
+text = "KARA_COMIC_CER_1"
 
 [node name="StandardTextBox2" parent="Options/Cer" instance=ExtResource("4_ybvml")]
-text = "One of them seems to be leaning into it, while the other seems to be in denial."
+text = "KARA_COMIC_CER_2"
 
 [node name="Toxen" parent="Options" instance=ExtResource("3_a17qi")]
 
 [node name="StandardTextBox" parent="Options/Toxen" instance=ExtResource("4_ybvml")]
-text = "You find a bunch of sketches of a fat purple creature in various poses."
+text = "KARA_COMIC_TOXEN_1"
 
 [node name="StandardTextBox2" parent="Options/Toxen" instance=ExtResource("4_ybvml")]
-text = "Surrounding the sketches are pictures of flowers and monsters."
+text = "KARA_COMIC_TOXEN_2"
 
 [node name="Echo" parent="Options" instance=ExtResource("3_a17qi")]
 
 [node name="StandardTextBox" parent="Options/Echo" instance=ExtResource("4_ybvml")]
-text = "You flip to a sketch of... Echo? The sketch shows her at a variety of sizes."
+text = "KARA_COMIC_ECHO_1"
 
 [node name="StandardTextBox2" parent="Options/Echo" instance=ExtResource("4_ybvml")]
-text = "You decide to stop looking."
+text = "KARA_COMIC_ECHO_2"
 
 [connection signal="activated" from="NpcArrow" to="NpcArrow" method="generic_pause"]
 [connection signal="activated" from="NpcArrow" to="TextTree" method="render"]

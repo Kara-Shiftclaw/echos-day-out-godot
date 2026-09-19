@@ -384,12 +384,12 @@ position = Vector2(-44, 27)
 [node name="First" parent="Objects/WorksiteMaskMice/Area2D" unique_id=1452671275 instance=ExtResource("21_8txt1")]
 
 [node name="StandardTextBox" parent="Objects/WorksiteMaskMice/Area2D/First" unique_id=955286630 instance=ExtResource("22_asoae")]
-text = "They're hard at work."
+text = "CRATER_WORK_MICE"
 
 [node name="Repeat" parent="Objects/WorksiteMaskMice/Area2D" unique_id=593244724 instance=ExtResource("21_8txt1")]
 
 [node name="StandardTextBox" parent="Objects/WorksiteMaskMice/Area2D/Repeat" unique_id=1268364050 instance=ExtResource("22_asoae")]
-text = "You don't know what they're doing, but they're doing a great job."
+text = "CRATER_WORK_MICE_R"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1882431725]
 

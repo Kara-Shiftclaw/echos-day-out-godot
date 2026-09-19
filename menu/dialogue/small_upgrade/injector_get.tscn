@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdl6d50fforgg"]
+[gd_scene format=3 uid="uid://cdl6d50fforgg"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_dn4s6"]
 [ext_resource type="Script" uid="uid://cr7m4auedcpb8" path="res://menu/dialogue/small_upgrade/small_upgrade_get.gd" id="2_noh6v"]
@@ -103,7 +103,7 @@ _data = {
 &"exit": SubResource("Animation_olna4")
 }
 
-[node name="SmallUpgradeGet2" type="Panel"]
+[node name="SmallUpgradeGet2" type="Panel" unique_id=1116144500]
 process_mode = 3
 z_index = 110
 offset_right = 128.0
@@ -115,35 +115,32 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_rld3g")
 script = ExtResource("2_noh6v")
 metadata/_custom_type_script = "uid://vdkkkqd3kh4b"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=78342187]
 layout_mode = 0
 offset_left = 41.0
 offset_top = 1.0
 offset_right = 128.0
 offset_bottom = 30.0
-text = "You got the Portal
-Injector! If you get a Core, you can open portals!"
+text = "INJECTOR_GET"
 autowrap_mode = 3
 visible_characters = 0
 visible_characters_behavior = 1
 visible_ratio = 0.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978365262]
 position = Vector2(20, 20)
 texture = ExtResource("3_dn4s6")
 hframes = 6
 
-[node name="Tear" type="Sprite2D" parent="."]
+[node name="Tear" type="Sprite2D" parent="." unique_id=134681162]
 position = Vector2(64, 48)
 texture = ExtResource("4_1fquo")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_m1j1n")
-}
-autoplay = "enter"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1279494087]
+libraries/ = SubResource("AnimationLibrary_m1j1n")
+autoplay = &"enter"
 
-[node name="Tada" type="AudioStreamPlayer" parent="."]
+[node name="Tada" type="AudioStreamPlayer" parent="." unique_id=1061574284]
 stream = ExtResource("5_o4gac")
 bus = &"Sfx"
 

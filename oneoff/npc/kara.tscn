@@ -129,110 +129,106 @@ text = "Oh, uh...
 Hi..."
 
 [node name="StandardTextBox2" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
-text = "My name's Kara...
-
-I'm not supposed to be here..."
+text = "KARA_INTRO_2"
 
 [node name="StandardTextBox3" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
-text = "Uh...
-
-You know about Portals?"
+text = "KARA_INTRO_3"
 
 [node name="StandardTextBox4" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
-text = "They're hard to get working. you need a Portal Core, and also an Injector for it."
+text = "KARA_INTRO_4"
 
 [node name="StandardTextBox5" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
-text = "Here, you can have mine. I'm not going anywhere soon."
+text = "KARA_INTRO_5"
 
 [node name="StandardTextBox6" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
-text = "There's a Portal and a Core down beneath us, if you want to try it out."
+text = "KARA_INTRO_6"
 
 [node name="StandardTextBox7" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
-text = "I, uh, hope you enjoy..."
+text = "KARA_INTRO_7"
 
 [node name="Chat" parent="Text" instance=ExtResource("4_3av3l")]
 
 [node name="StandardTextBox" parent="Text/Chat" instance=ExtResource("5_mawec")]
-text = "I hope it's okay if I stay in your world a bit. I like it here."
+text = "KARA_RANDOM_1_1"
 
 [node name="StandardTextBox2" parent="Text/Chat" instance=ExtResource("5_mawec")]
-text = "The cold wind from the trees with the hot air of the caves..."
+text = "KARA_RANDOM_1_2"
 
 [node name="StandardTextBox3" parent="Text/Chat" instance=ExtResource("5_mawec")]
-text = "It beats the snowy woods I grew up in, that's for sure."
+text = "KARA_RANDOM_1_3"
 
 [node name="Chat2" parent="Text" instance=ExtResource("4_3av3l")]
 
 [node name="StandardTextBox" parent="Text/Chat2" instance=ExtResource("5_mawec")]
-text = "I didn't think this world would be so big."
+text = "KARA_RANDOM_2_1"
 
 [node name="StandardTextBox2" parent="Text/Chat2" instance=ExtResource("5_mawec")]
-text = "I don't mean fat, I knew it would be very fat, just..."
+text = "KARA_RANDOM_2_2"
 
 [node name="StandardTextBox3" parent="Text/Chat2" instance=ExtResource("5_mawec")]
-text = "I was expecting a short diversion, but this wound up being so much more."
+text = "KARA_RANDOM_2_3"
 
 [node name="StandardTextBox4" parent="Text/Chat2" instance=ExtResource("5_mawec")]
-text = "I can't say i'm upset. I'm enjoying myself."
+text = "KARA_RANDOM_2_4"
 
 [node name="Chat3" parent="Text" instance=ExtResource("4_3av3l")]
 
 [node name="StandardTextBox" parent="Text/Chat3" instance=ExtResource("5_mawec")]
-text = "Do you like these flowers? I brought them with me here."
+text = "KARA_RANDOM_3_1"
 
 [node name="StandardTextBox2" parent="Text/Chat3" instance=ExtResource("5_mawec")]
-text = "They're a kind of nightshade. I call them \"Toxen Flowers.\""
+text = "KARA_RANDOM_3_2"
 
 [node name="StandardTextBox3" parent="Text/Chat3" instance=ExtResource("5_mawec")]
-text = "They can be deadly, but if nurtured well, they can be truly beautiful."
+text = "KARA_RANDOM_3_3"
 
 [node name="StandardTextBox4" parent="Text/Chat3" instance=ExtResource("5_mawec")]
-text = "Maybe someday I can show you more of them."
+text = "KARA_RANDOM_3_4"
 
 [node name="Chat4" parent="Text" instance=ExtResource("4_3av3l")]
 
 [node name="StandardTextBox" parent="Text/Chat4" instance=ExtResource("5_mawec")]
-text = "Have i been repeating myself? If so, I'm sorry."
+text = "KARA_RANDOM_4_1"
 
 [node name="StandardTextBox2" parent="Text/Chat4" instance=ExtResource("5_mawec")]
-text = "I tend to forget who I've discussed what with, and I only have so much to say..."
+text = "KARA_RANDOM_4_1"
 
 [node name="ResizePortal" parent="Text" instance=ExtResource("4_3av3l")]
 
 [node name="StandardTextBox" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
-text = "What's that? You can't fit in the portals anymore?"
+text = "KARA_RESIZE_1"
 
 [node name="StandardTextBox2" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
-text = "I sized them to the biggest guy I knew, but it looks like you need them bigger..."
+text = "KARA_RESIZE_2"
 
 [node name="StandardTextBox3" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
-text = "Here, let me see your Injector real quick."
+text = "KARA_RESIZE_3"
 
 [node name="StandardTextBox4" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
-text = "With this, all portals should now fit you through."
+text = "KARA_RESIZE_4"
 
 [node name="StandardTextBox5" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
-text = "Just, don't grow too much more, if you can help it..."
+text = "KARA_RESIZE_5"
 
 [node name="StandardTextBox6" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
-text = "<Holy shit she got FAT>"
+text = "KARA_RESIZE_6"
 
 [node name="Chat5" parent="Text" instance=ExtResource("4_3av3l")]
 
 [node name="StandardTextBox" parent="Text/Chat5" instance=ExtResource("5_mawec")]
-text = "Y'know, I saw someone I thought was you earlier today."
+text = "KARA_PLUME_HINT_1"
 
 [node name="StandardTextBox2" parent="Text/Chat5" instance=ExtResource("5_mawec")]
-text = "She was somehow even fatter, which... how?"
+text = "KARA_PLUME_HINT_2"
 
 [node name="StandardTextBox3" parent="Text/Chat5" instance=ExtResource("5_mawec")]
-text = "She looked happy, but also scared of getting caught. Caught with what, I don't know."
+text = "KARA_PLUME_HINT_3"
 
 [node name="StandardTextBox4" parent="Text/Chat5" instance=ExtResource("5_mawec")]
-text = "She flew up the mountain. Which didn't seem physically possible..."
+text = "KARA_PLUME_HINT_4"
 
 [node name="StandardTextBox5" parent="Text/Chat5" instance=ExtResource("5_mawec")]
-text = "She might be a fan. Maybe you should check her out?"
+text = "KARA_PLUME_HINT_5"
 
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="area_exited" from="." to="." method="exited"]

@@ -103,6 +103,7 @@ AFFAMAE_NO_HINT_1,"I appreciate the meal, but I've no more help to give."
 AFFAMAE_NO_HINT_2,"Perhaps we can just... chat? One fat beast to another?"
 
 
+EDGAR_TITLE,"EDGAR\nThe Mongoose Monarch"
 EDGAR_PRE_FIGHT_1,"Temperature up 8 degrees, magma production is booming, ice cream 20% tastier..."
 EDGAR_PRE_FIGHT_2,"That old magpie was right, this Draconic Energy has made me the greatest king ever!"
 EDGAR_PRE_FIGHT_3,"I'm so much better at this than Ch-"
@@ -163,9 +164,11 @@ PORTAL_OPEN,"The Portal sprang open!"
 PORTAL_STAY_HERE,"You decided to stay here."
 PORTAL_TOO_FAT_1,"You tried to squeeze into the portal... but you're too fat!"
 PORTAL_TOO_FAT_2,"Maybe Kara can help widen the portals...?"
-PORTAL_POST_OPEN,"It's a Portal.
+PORTAL_POST_OPEN,"It's a Portal.\n\nWhere will you go?"
 PORTAL_OPT_STAY_HERE,"Stay Here"
 
+
+SONIA_TITLE,"SONIA\nChief Excavation Officer"
 SONIA_TAUNT_EARLY,"Well, someone's a bit early~`"
 SONIA_TAUNT_NORMAL,"Figures you'd get Edgar first~`"
 SONIA_TAUNT_LATE,"...Well SOMEONE took their sweet time~`"
@@ -286,6 +289,7 @@ SWORD_SPIRIT_R_CHAT_1,"Oh, you were."
 SWORD_SPIRIT_R_CHAT_2,"Well that's unfortunate."
 
 
+DEMO_THANKS,"End of Demo\nThanks for Playing!"
 DEMO_1,"Hello sorry. I am the Detour-Envoking Motionless Orbee."
 DEMO_2,"Unfortunately, I will not let you past this point."
 DEMO_3,"I mean, I would love to. But it's impossible. I'm too $!*damn fat to move"
@@ -342,7 +346,6 @@ SPOREMOTHER_R_WITH_MUSH_1,"It's wonderful to see you! It seems to be enjoying th
 SPOREMOTHER_R_WITH_MUSH_2,"We have been so lucky to have a responsible host like you."
 SPOREMOTHER_OPT_KEEP_MUSH,"It's great!"
 SPOREMOTHER_OPT_REMOVE_MUSH,"Here, take it back"
-SPOREMOTHER_KEEP_MUSH_1,"Wonderful. I'm glad it has been treating you so well."
 SPOREMOTHER_KEEP_MUSH_1,"The last host was less capable. Your feeding regimen has proven far better."
 SPOREMOTHER_REMOVE_MUSH_1,"Hm? You don't want to have it anymore? Even with the MUSH-MEAL?"
 SPOREMOTHER_REMOVE_MUSH_2,"Oh, I know what is happening. You need not say more."

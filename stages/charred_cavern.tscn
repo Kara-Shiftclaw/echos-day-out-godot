@@ -540,10 +540,7 @@ position = Vector2(0, -12)
 [node name="TextTree" parent="Objects/TutorialSign" unique_id=168124410 instance=ExtResource("28_eg1xh")]
 
 [node name="StandardTextBox" parent="Objects/TutorialSign/TextTree" unique_id=1733570082 instance=ExtResource("29_1gpmy")]
-text = "In the dance of combat
-Hear the bell's ring
-Feel rhythm in your claws
-And you will dance faster"
+text = "CHARRED_CAVERN_CRIT_TUTORIAL"
 
 [node name="ArtBook" parent="Objects" unique_id=1965551760 instance=ExtResource("31_eg1xh")]
 position = Vector2(80, -440)

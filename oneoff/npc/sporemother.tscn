@@ -1136,203 +1136,203 @@ stream = ExtResource("9_1yngj")
 [node name="FirstChat" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="StandardTextBox" parent="Dialogue/FirstChat" instance=ExtResource("4_jlah5")]
-text = "Hello, hello. I am Sporemother."
+text = "SPOREMOTHER_INTRO_1"
 move_always = true
 
 [node name="StandardTextBox2" parent="Dialogue/FirstChat" instance=ExtResource("4_jlah5")]
-text = "The other is Sporemother too. Perhaps we are all Sporemother."
+text = "SPOREMOTHER_INTRO_2"
 move_always = true
 
 [node name="StandardTextBox3" parent="Dialogue/FirstChat" instance=ExtResource("4_jlah5")]
-text = "Our hyphae reach across the entire valley. We see, feel, know all. Including you, Echo."
+text = "SPOREMOTHER_INTRO_3"
 move_always = true
 
 [node name="MultipleChoiceBox" parent="Dialogue/FirstChat" instance=ExtResource("5_sym7a")]
-text = "We know things that would help you. We can share our knowledge, for a price."
+text = "SPOREMOTHER_INTRO_4"
 move_always = true
 
 [node name="Yes" parent="Dialogue/FirstChat/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "Yes"
+choice_text = "YES"
 enabled = true
 
 [node name="No" parent="Dialogue/FirstChat/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "No No No No No"
+choice_text = "SPOREMOTHER_OPT_NO_NO_NO"
 enabled = true
 
 [node name="Elaborate" parent="Dialogue/FirstChat/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "Elaborate"
+choice_text = "SPOREMOTHER_OPT_ELABORATE"
 enabled = true
 
 [node name="Elaborate" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="StandardTextBox" parent="Dialogue/Elaborate" instance=ExtResource("4_jlah5")]
-text = "Hm, suspicious. Of course."
+text = "SPOREMOTHER_ELABORATE_1"
 move_always = true
 
 [node name="StandardTextBox2" parent="Dialogue/Elaborate" instance=ExtResource("4_jlah5")]
-text = "To access our knowledge, you will need to watch a young sporeling."
+text = "SPOREMOTHER_ELABORATE_2"
 move_always = true
 
 [node name="StandardTextBox3" parent="Dialogue/Elaborate" instance=ExtResource("4_jlah5")]
-text = "Give an offering, some energy, and it will tell you everything."
+text = "SPOREMOTHER_ELABORATE_3"
 move_always = true
 
 [node name="MultipleChoiceBox" parent="Dialogue/Elaborate" instance=ExtResource("5_sym7a")]
-text = "Do you wish to help?"
+text = "SPOREMOTHER_ELABORATE_4"
 move_always = true
 
 [node name="Yes" parent="Dialogue/Elaborate/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "Yes"
+choice_text = "YES"
 enabled = true
 
 [node name="No" parent="Dialogue/Elaborate/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "No"
+choice_text = "NO"
 enabled = true
 
 [node name="Yes" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="StandardTextBox" parent="Dialogue/Yes" instance=ExtResource("4_jlah5")]
-text = "Wonderful. We knew you would."
+text = "SPOREMOTHER_YES_1"
 move_always = true
 
 [node name="StandardTextBox2" parent="Dialogue/Yes" instance=ExtResource("4_jlah5")]
-text = "Be careful, it hungers."
+text = "SPOREMOTHER_YES_2"
 move_always = true
 
 [node name="YesWithMushMeal" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="StandardTextBox" parent="Dialogue/YesWithMushMeal" instance=ExtResource("4_jlah5")]
-text = "Oh! You have MUSH-MEAL!"
+text = "SPOREMOTHER_YES_MUSH_1"
 move_always = true
 
 [node name="StandardTextBox2" parent="Dialogue/YesWithMushMeal" instance=ExtResource("4_jlah5")]
-text = "We knew you to be a great host. You have arrived quite prepared."
+text = "SPOREMOTHER_YES_MUSH_2"
 move_always = true
 
 [node name="YesTakeCare" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="StandardTextBox" parent="Dialogue/YesTakeCare" instance=ExtResource("4_jlah5")]
-text = "Take care of it, now."
+text = "SPOREMOTHER_YES_3"
 move_always = true
 
 [node name="No" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="StandardTextBox" parent="Dialogue/No" instance=ExtResource("4_jlah5")]
-text = "Hm, a shame."
+text = "SPOREMOTHER_NO_1"
 move_always = true
 
 [node name="StandardTextBox2" parent="Dialogue/No" instance=ExtResource("4_jlah5")]
-text = "We will be here when you change your mind."
+text = "SPOREMOTHER_NO_2"
 move_always = true
 
 [node name="TalkAgainWithout" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWithout" instance=ExtResource("5_sym7a")]
-text = "Have you changed your mind? Will you take our knowledge?"
+text = "SPOREMOTHER_R_WITHOUT"
 move_always = true
 
 [node name="Yes" parent="Dialogue/TalkAgainWithout/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "Yes"
+choice_text = "YES"
 enabled = true
 
 [node name="No" parent="Dialogue/TalkAgainWithout/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "No"
+choice_text = "NO"
 enabled = true
 
 [node name="TalkAgainWith" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="StandardTextBox" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
-text = "It's wonderful to see you! It looks like it's growing quite well, too."
+text = "SPOREMOTHER_R_WITH_1"
 move_always = true
 
 [node name="StandardTextBox2" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
-text = "You've been a wonderful host. I hope the knowledge has been kind to you."
+text = "SPOREMOTHER_R_WITH_2"
 move_always = true
 
 [node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWith" instance=ExtResource("5_sym7a")]
-text = "How have been things?"
+text = "SPOREMOTHER_R_WITH_3"
 move_always = true
 
 [node name="Remove" parent="Dialogue/TalkAgainWith/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "Please take it off"
+choice_text = "SPOREMOTHER_OPT_REMOVE_NO_MUSH"
 enabled = true
 
 [node name="Keep" parent="Dialogue/TalkAgainWith/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "It's... great"
+choice_text = "SPOREMOTHER_OPT_KEEP_NO_MUSH"
 enabled = true
 
 [node name="StandardTextBox3" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
-text = "Wonderful. I'm glad it has been treating you so well."
+text = "SPOREMOTHER_KEEP_NO_MUSH_1"
 move_always = true
 
 [node name="StandardTextBox4" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
-text = "The last host was less capable. Your fatty frame has proven far better."
+text = "SPOREMOTHER_KEEP_NO_MUSH_2"
 move_always = true
 
 [node name="TalkAgainWithMush" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="StandardTextBox" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
-text = "It's wonderful to see you! It seems to be enjoying that MUSH-MEAL as well."
+text = "SPOREMOTHER_R_WITH_MUSH_1"
 move_always = true
 
 [node name="StandardTextBox2" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
-text = "We have been so lucky to have a responsible host like you."
+text = "SPOREMOTHER_R_WITH_MUSH_2"
 move_always = true
 
 [node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("5_sym7a")]
-text = "How have been things?"
+text = "SPOREMOTHER_R_WITH_3"
 move_always = true
 
 [node name="Keep" parent="Dialogue/TalkAgainWithMush/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "It's great!"
+choice_text = "SPOREMOTHER_OPT_KEEP_MUSH"
 enabled = true
 
 [node name="Remove" parent="Dialogue/TalkAgainWithMush/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
-choice_text = "Here, take it back"
+choice_text = "SPOREMOTHER_OPT_REMOVE_MUSH"
 enabled = true
 
 [node name="StandardTextBox3" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
-text = "Wonderful. I'm glad it has been treating you so well."
+text = "SPOREMOTHER_KEEP_NO_MUSH_1"
 move_always = true
 
 [node name="StandardTextBox4" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
-text = "The last host was less capable. Your feeding regimen has proven far better."
+text = "SPOREMOTHER_KEEP_MUSH_1"
 move_always = true
 
 [node name="OnRemove" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="StandardTextBox" parent="Dialogue/OnRemove" instance=ExtResource("4_jlah5")]
-text = "Hm? You want it removed? A shame."
+text = "SPOREMOTHER_REMOVE_NO_MUSH_1"
 move_always = true
 
 [node name="StandardTextBox2" parent="Dialogue/OnRemove" instance=ExtResource("4_jlah5")]
-text = "Oh well. Better no host than a resistant one."
+text = "SPOREMOTHER_REMOVE_NO_MUSH_2"
 move_always = true
 
 [node name="StandardTextBox3" parent="Dialogue/OnRemove" instance=ExtResource("4_jlah5")]
-text = "It looks extremely well-fed in your care. I pray you will return at some point."
+text = "SPOREMOTHER_REMOVE_NO_MUSH_3"
 move_always = true
 
 [node name="OnRemoveMush" parent="Dialogue" instance=ExtResource("3_oogrh")]
 
 [node name="StandardTextBox" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
-text = "Hm? You don't want to have it anymore? Even with the MUSH-MEAL?"
+text = "SPOREMOTHER_REMOVE_MUSH_1"
 move_always = true
 
 [node name="StandardTextBox2" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
-text = "Oh, I know what is happening. You need not say more."
+text = "SPOREMOTHER_REMOVE_MUSH_2"
 move_always = true
 
 [node name="StandardTextBox3" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
-text = "You must have a date with another Sporecap, and wish to give them the MUSH-MEAL as a gift."
+text = "SPOREMOTHER_REMOVE_MUSH_3"
 move_always = true
 
 [node name="StandardTextBox4" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
-text = "Of course, of course. We can take the sporeling back for now."
+text = "SPOREMOTHER_REMOVE_MUSH_4"
 move_always = true
 
 [node name="StandardTextBox5" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
-text = "We hope your romantic pursuits succeed as well as your parenting, Echo."
+text = "SPOREMOTHER_REMOVE_MUSH_5"
 move_always = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

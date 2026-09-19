@@ -261,119 +261,118 @@ activation_area = NodePath("..")
 [node name="Summon" parent="Text" instance=ExtResource("2_8phw2")]
 
 [node name="StandardTextBox" parent="Text/Summon" instance=ExtResource("3_ag11b")]
-text = "Oh, joyous day, joyous day! A new Hero has arisen!"
+text = "SWORD_SPIRIT_INTRO_1"
 
 [node name="StandardTextBox2" parent="Text/Summon" instance=ExtResource("3_ag11b")]
-text = "Greetings, my corpulent savior! I am the ~Spirit of the Sword~!"
+text = "SWORD_SPIRIT_INTRO_2"
 
 [node name="StandardTextBox3" parent="Text/Summon" instance=ExtResource("3_ag11b")]
-text = "I am here to guide you through your quest to-"
+text = "SWORD_SPIRIT_INTRO_3"
 
 [node name="StandardTextBox4" parent="Text/Summon" instance=ExtResource("3_ag11b")]
-text = "Wait where's the sword"
+text = "SWORD_SPIRIT_INTRO_4"
 
 [node name="StandardTextBox5" parent="Text/Summon" instance=ExtResource("3_ag11b")]
-text = "Y-you broke it."
+text = "SWORD_SPIRIT_INTRO_5"
 
 [node name="StandardTextBox6" parent="Text/Summon" instance=ExtResource("3_ag11b")]
-text = "YOU SAT ON THE STONE OF THE SWORD AND BROKE IT."
+text = "SWORD_SPIRIT_INTRO_6"
 
 [node name="StandardTextBox7" parent="Text/Summon" instance=ExtResource("3_ag11b")]
-text = "YOU ABSOLUTE FATAAAaantastic Hero of Legend! JOYOUS day INDEED!"
+text = "SWORD_SPIRIT_INTRO_7"
 
 [node name="StandardTextBox8" parent="Text/Summon" instance=ExtResource("3_ag11b")]
-text = "I didn't think a fat ass could break my entire afterlife's PURPOSE, but WHAT DO I KNOW!"
+text = "SWORD_SPIRIT_INTRO_8"
 
 [node name="StandardTextBox9" parent="Text/Summon" instance=ExtResource("3_ag11b")]
-text = "...
-Excuse me, I need to collect my thoughts. And my SWORD."
+text = "SWORD_SPIRIT_INTRO_9"
 
 [node name="FirstChat" parent="Text" instance=ExtResource("2_8phw2")]
 
 [node name="StandardTextBox" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
-text = "HHHHHHH-Hello, my Hefty Hero of Legend! It's me, the Spirit of the Sword!"
+text = "SWORD_SPIRIT_FIRST_CHAT_1"
 
 [node name="StandardTextBox2" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
-text = "I must say, the power of your weight is impressive! You broke the sword clean in half!"
+text = "SWORD_SPIRIT_FIRST_CHAT_2"
 
 [node name="StandardTextBox3" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
-text = "That's cool. I'm really okay with that. No really, it's fine. Really."
+text = "SWORD_SPIRIT_FIRST_CHAT_3"
 
 [node name="StandardTextBox4" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
-text = "Aaaaanyways, in its current state, the sword is kinda useless. But I have an idea."
+text = "SWORD_SPIRIT_FIRST_CHAT_4"
 
 [node name="StandardTextBox5" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
-text = "I'll let you take one half on your quest, and I'll keep the other half safe!"
+text = "SWORD_SPIRIT_FIRST_CHAT_5"
 
 [node name="StandardTextBox6" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
-text = "<After all, you never know when some fatass will just crush swords nowadays...>"
+text = "SWORD_SPIRIT_FIRST_CHAT_6"
 
 [node name="StandardTextBox9" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
-text = "Then if you ever change your mind, you can come back and swap them!"
+text = "SWORD_SPIRIT_FIRST_CHAT_7"
 
 [node name="StandardTextBox7" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
-text = "If you take the blade half, you can... I dunno, cut enemies with it, deal some more damage?"
+text = "SWORD_SPIRIT_FIRST_CHAT_8"
 
 [node name="StandardTextBox8" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
-text = "The hilt will... give you more range or something, maybe?"
+text = "SWORD_SPIRIT_FIRST_CHAT_9"
 
 [node name="MultipleChoiceBox" parent="Text/FirstChat" instance=ExtResource("4_affx3")]
-text = "Honestly I don't care at this point. Just take one."
+text = "SWORD_SPIRIT_FIRST_CHAT_10"
 
 [node name="Blade" parent="Text/FirstChat/MultipleChoiceBox" instance=ExtResource("5_cw2ww")]
-choice_text = "Blade"
+choice_text = "SWORD_SPIRIT_OPT_BLADE"
 enabled = true
 
 [node name="Hilt" parent="Text/FirstChat/MultipleChoiceBox" instance=ExtResource("5_cw2ww")]
-choice_text = "Hilt"
+choice_text = "SWORD_SPIRIT_OPT_HILT"
 enabled = true
 
 [node name="Chosen" parent="Text" instance=ExtResource("2_8phw2")]
 
 [node name="StandardTextBox" parent="Text/Chosen" instance=ExtResource("3_ag11b")]
-text = "A great choice, probably! Be sure not to sit on it this time."
+text = "SWORD_SPIRIT_FIRST_CHAT_11"
 
 [node name="Swap" parent="Text" instance=ExtResource("2_8phw2")]
 
 [node name="StandardTextBox" parent="Text/Swap" instance=ExtResource("3_ag11b")]
-text = "Hello again, Hero of Legend! You're looking... well fed!"
+text = "SWORD_SPIRIT_R_1"
 
 [node name="MultipleChoiceBox2" parent="Text/Swap" instance=ExtResource("4_affx3")]
-text = "Did you want to swap your sword piece?"
+text = "SWORD_SPIRIT_R_2"
 
 [node name="YesBlade" parent="Text/Swap/MultipleChoiceBox2" instance=ExtResource("5_cw2ww")]
-choice_text = "I want the blade"
+choice_text = "SWORD_SPIRIT_OPT_SWAP_BLADE"
 enabled = true
 
 [node name="YesHilt" parent="Text/Swap/MultipleChoiceBox2" instance=ExtResource("5_cw2ww")]
-choice_text = "I want the hilt"
+choice_text = "SWORD_SPIRIT_OPT_SWAP_HILT"
 enabled = true
 
 [node name="No" parent="Text/Swap/MultipleChoiceBox2" instance=ExtResource("5_cw2ww")]
-choice_text = "No"
+choice_text = "NO"
 enabled = true
 
 [node name="MultipleChoiceBox3" parent="Text/Swap" instance=ExtResource("4_affx3")]
-text = "N-no?! What,  were you just wanting to chat or something??"
+text = "SWORD_SPIRIT_R_NO"
 
 [node name="Yes" parent="Text/Swap/MultipleChoiceBox3" instance=ExtResource("5_cw2ww")]
-choice_text = "Yes"
+choice_text = "YES"
 enabled = true
 
 [node name="No" parent="Text/Swap/MultipleChoiceBox3" instance=ExtResource("5_cw2ww")]
-choice_text = "No"
+choice_text = "NO"
 enabled = true
 
 [node name="StandardTextBox2" parent="Text/Swap" instance=ExtResource("3_ag11b")]
-text = "Then why did you come here??"
+text = "SWORD_SPIRIT_R_NO_NO"
 
 [node name="Chat" parent="Text" instance=ExtResource("2_8phw2")]
 
 [node name="StandardTextBox" parent="Text/Chat" instance=ExtResource("3_ag11b")]
-text = "Oh, you were."
+text = "SWORD_SPIRIT_R_CHAT_1"
 
 [node name="StandardTextBox2" parent="Text/Chat" instance=ExtResource("3_ag11b")]
-text = "Well that's unfortunate."
+text = "SWORD_SPIRIT_R_CHAT_2"
 
 [connection signal="activated" from="NpcArrow" to="." method="talk"]
 [connection signal="next" from="Text/Summon" to="." method="unpause"]

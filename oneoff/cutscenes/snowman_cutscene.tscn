@@ -750,21 +750,21 @@ next/reveal_nimbus = &"casual_toss"
 [node name="Taunt1" parent="Dialogue" instance=ExtResource("4_pdhcw")]
 
 [node name="StandardTextBox" parent="Dialogue/Taunt1" instance=ExtResource("5_y0cys")]
-text = "...Missing something?"
+text = "NIMBUS_SPEECH_1"
 
 [node name="Taunt2" parent="Dialogue" instance=ExtResource("4_pdhcw")]
 
 [node name="StandardTextBox" parent="Dialogue/Taunt2" instance=ExtResource("5_y0cys")]
-text = "I heard the stories. Everyone has. A dragon of endless mass, but a body of pure energy."
+text = "NIMBUS_SPEECH_2"
 
 [node name="StandardTextBox2" parent="Dialogue/Taunt2" instance=ExtResource("5_y0cys")]
-text = "No matter... except for an artifact for a heart."
+text = "NIMBUS_SPEECH_3"
 
 [node name="StandardTextBox3" parent="Dialogue/Taunt2" instance=ExtResource("5_y0cys")]
-text = "Don't worry. I don't want to steal your heart. This is useless for me."
+text = "NIMBUS_SPEECH_4"
 
 [node name="StandardTextBox4" parent="Dialogue/Taunt2" instance=ExtResource("5_y0cys")]
-text = "Just, let this be a warning. This is what happens if you come after me."
+text = "NIMBUS_SPEECH_5"
 
 [node name="DeathExp1" type="AudioStreamPlayer" parent="."]
 process_mode = 3

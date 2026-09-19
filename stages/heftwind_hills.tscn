@@ -367,7 +367,7 @@ shape = SubResource("RectangleShape2D_cxcoh")
 [node name="TextTree" parent="Objects/SecretHint" unique_id=231073630 instance=ExtResource("25_vhycb")]
 
 [node name="StandardTextBox" parent="Objects/SecretHint/TextTree" unique_id=812743168 instance=ExtResource("26_gvouq")]
-text = "...?? You see a path behind a thicket of branches, perfectly out of range..."
+text = "HILLS_SECRET"
 
 [node name="EchoInTimer" type="Timer" parent="Objects/SecretHint" unique_id=1307231237]
 one_shot = true

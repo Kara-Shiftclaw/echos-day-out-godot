@@ -819,21 +819,21 @@ position = Vector2(30, -10)
 [node name="FirstTalk" parent="Objects/DemoBee" unique_id=416355654 instance=ExtResource("33_jmnar")]
 
 [node name="StandardTextBox" parent="Objects/DemoBee/FirstTalk" unique_id=1207876089 instance=ExtResource("34_d6fli")]
-text = "Hello sorry. I am the Detour-Envoking Motionless Orbee."
+text = "DEMO_1"
 
 [node name="StandardTextBox2" parent="Objects/DemoBee/FirstTalk" unique_id=581393061 instance=ExtResource("34_d6fli")]
-text = "Unfortunately, I will not let you past this point."
+text = "DEMO_2"
 
 [node name="StandardTextBox3" parent="Objects/DemoBee/FirstTalk" unique_id=1954992849 instance=ExtResource("34_d6fli")]
-text = "I mean, I would love to. But it's impossible. I'm too $!*damn fat to move"
+text = "DEMO_3"
 
 [node name="Repeat" parent="Objects/DemoBee" unique_id=455102628 instance=ExtResource("33_jmnar")]
 
 [node name="StandardTextBox" parent="Objects/DemoBee/Repeat" unique_id=90468315 instance=ExtResource("34_d6fli")]
-text = "I dunno what's behind me, but it's really cool."
+text = "DEMO_R_1"
 
 [node name="StandardTextBox2" parent="Objects/DemoBee/Repeat" unique_id=878136582 instance=ExtResource("34_d6fli")]
-text = "And by cool, I mean cold. I think I have hypothermia"
+text = "DEMO_R_2"
 
 [node name="DemoDetector" parent="Objects/DemoBee" unique_id=1230627713 instance=ExtResource("35_fsvqk")]
 
@@ -843,8 +843,7 @@ offset_top = -60.0
 offset_right = 105.0
 offset_bottom = -37.0
 theme = ExtResource("36_te7pc")
-text = "End of Demo
-Thanks for Playing!"
+text = "DEMO_THANKS"
 horizontal_alignment = 1
 script = SubResource("GDScript_gskwl")
 
@@ -868,36 +867,36 @@ position = Vector2(30, -10)
 [node name="FirstTalk" parent="Objects/NotDemoBee" unique_id=1556847737 instance=ExtResource("33_jmnar")]
 
 [node name="StandardTextBox" parent="Objects/NotDemoBee/FirstTalk" unique_id=1030647540 instance=ExtResource("34_d6fli")]
-text = "Hello sorry. I'm not the Detour-Envoking Motionless Orbee."
+text = "NOT_DEMO_1"
 
 [node name="StandardTextBox2" parent="Objects/NotDemoBee/FirstTalk" unique_id=354263148 instance=ExtResource("34_d6fli")]
-text = "I was gifted size and thought from my creator."
+text = "NOT_DEMO_2"
 
 [node name="StandardTextBox4" parent="Objects/NotDemoBee/FirstTalk" unique_id=1383425385 instance=ExtResource("34_d6fli")]
-text = "She told me things most strange. That I must block the \"truth.\""
+text = "NOT_DEMO_3"
 
 [node name="StandardTextBox3" parent="Objects/NotDemoBee/FirstTalk" unique_id=1276191894 instance=ExtResource("34_d6fli")]
-text = "Now I am \"stuck.\" In middle of the \"path.\" Goodbye."
+text = "NOT_DEMO_4"
 
 [node name="Repeat" parent="Objects/NotDemoBee" unique_id=1913677423 instance=ExtResource("33_jmnar")]
 
 [node name="StandardTextBox" parent="Objects/NotDemoBee/Repeat" unique_id=239529006 instance=ExtResource("34_d6fli")]
-text = "You want it. The \"truth.\" Not of this world, but another."
+text = "NOT_DEMO_R_1"
 
 [node name="StandardTextBox2" parent="Objects/NotDemoBee/Repeat" unique_id=1449704450 instance=ExtResource("34_d6fli")]
-text = "She said the road beyond is incomplete. Will it ever be complete? Unknown."
+text = "NOT_DEMO_R_2"
 
 [node name="StandardTextBox3" parent="Objects/NotDemoBee/Repeat" unique_id=1054554324 instance=ExtResource("34_d6fli")]
-text = "Perhaps, if you find your way on another plane, you can get past."
+text = "NOT_DEMO_R_3"
 
 [node name="StandardTextBox4" parent="Objects/NotDemoBee/Repeat" unique_id=2102420576 instance=ExtResource("34_d6fli")]
-text = "Another plane. Another world. Another dimension."
+text = "NOT_DEMO_R_4"
 
 [node name="StandardTextBox5" parent="Objects/NotDemoBee/Repeat" unique_id=1039798693 instance=ExtResource("34_d6fli")]
-text = "Ha ha... it sounds impossible."
+text = "NOT_DEMO_R_5"
 
 [node name="StandardTextBox6" parent="Objects/NotDemoBee/Repeat" unique_id=1859978937 instance=ExtResource("34_d6fli")]
-text = "...But when has something impossible ever stopped you?"
+text = "NOT_DEMO_R_6"
 
 [node name="DemoDetector" parent="Objects/NotDemoBee" unique_id=107415844 instance=ExtResource("35_fsvqk")]
 parent_demo_only = false

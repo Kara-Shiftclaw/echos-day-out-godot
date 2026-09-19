@@ -312,16 +312,16 @@ one_shot = true
 [node name="Monologue" parent="." instance=ExtResource("4_7vujl")]
 
 [node name="StandardTextBox" parent="Monologue" instance=ExtResource("5_gegxn")]
-text = "Temperature up 8 degrees, magma production is booming, ice cream 20% tastier..."
+text = "EDGAR_PRE_FIGHT_1"
 
 [node name="StandardTextBox2" parent="Monologue" instance=ExtResource("5_gegxn")]
-text = "That old magpie was right, this Draconic Energy has made me the greatest king ever!"
+text = "EDGAR_PRE_FIGHT_2"
 
 [node name="StandardTextBox3" parent="Monologue" instance=ExtResource("5_gegxn")]
-text = "I'm so much better at this than Ch-"
+text = "EDGAR_PRE_FIGHT_3"
 
 [node name="StandardTextBox4" parent="Monologue" instance=ExtResource("5_gegxn")]
-text = "OH MY GOD YOUR REAL??"
+text = "EDGAR_PRE_FIGHT_4"
 
 [node name="EdgarName" type="Node2D" parent="."]
 visible = false
@@ -333,8 +333,7 @@ offset_top = -14.0
 offset_right = 100.0
 offset_bottom = 9.0
 theme = ExtResource("7_punyr")
-text = "EDGAR
-The Mongoose Monarch"
+text = "EDGAR_TITLE"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EdgarName"]
 libraries = {

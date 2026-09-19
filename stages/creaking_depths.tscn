@@ -1861,13 +1861,13 @@ position = Vector2(0, -12)
 [node name="TextTree" parent="Objects/OutsideSign" unique_id=1491457822 instance=ExtResource("31_bt7xi")]
 
 [node name="StandardTextBox" parent="Objects/OutsideSign/TextTree" unique_id=1627232575 instance=ExtResource("32_k4qsy")]
-text = "There is a sign hidden in the crevice. "
+text = "SONIA_REFIGHT_HINT_1"
 
 [node name="StandardTextBox2" parent="Objects/OutsideSign/TextTree" unique_id=1368163983 instance=ExtResource("32_k4qsy")]
-text = "The only words you can make out are \"How to access my secret Second Office.\""
+text = "SONIA_REFIGHT_HINT_2"
 
 [node name="StandardTextBox3" parent="Objects/OutsideSign/TextTree" unique_id=440885631 instance=ExtResource("32_k4qsy")]
-text = "Perhaps if you could get closer to the sign, you could learn the secret..."
+text = "SONIA_REFIGHT_HINT_3"
 
 [node name="TutorialSign2" type="Area2D" parent="Objects" unique_id=1680168875]
 position = Vector2(268, 100)
@@ -1886,15 +1886,13 @@ position = Vector2(0, -12)
 [node name="TextTree" parent="Objects/TutorialSign2" unique_id=770057454 instance=ExtResource("31_bt7xi")]
 
 [node name="StandardTextBox" parent="Objects/TutorialSign2/TextTree" unique_id=1777492933 instance=ExtResource("32_k4qsy")]
-text = "\"How to access my secret Second Office\""
+text = "SONIA_REFIGHT_SIGN_1"
 
 [node name="StandardTextBox2" parent="Objects/TutorialSign2/TextTree" unique_id=1273085064 instance=ExtResource("32_k4qsy")]
-text = "\"Like I'd tell YOU! AHAHAHAHA!!!!!
-
-Love, Sonia~`\""
+text = "SONIA_REFIGHT_SIGN_2"
 
 [node name="StandardTextBox3" parent="Objects/TutorialSign2/TextTree" unique_id=1895393336 instance=ExtResource("32_k4qsy")]
-text = "<...You get the feeling you have everything you need without her help.>"
+text = "SONIA_REFIGHT_SIGN_3"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1942418965]
 

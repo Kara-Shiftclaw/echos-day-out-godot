@@ -2806,25 +2806,25 @@ frame = 1
 [node name="First" parent="Objects/Row1/Dialogue" unique_id=1991046202 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox" parent="Objects/Row1/Dialogue/First" unique_id=1253197439 instance=ExtResource("24_rhjpj")]
-text = "Well, someone's a bit early~`"
+text = "SONIA_TAUNT_EARLY"
 move_always = true
 
 [node name="Second" parent="Objects/Row1/Dialogue" unique_id=715417884 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox" parent="Objects/Row1/Dialogue/Second" unique_id=1653206420 instance=ExtResource("24_rhjpj")]
-text = "Figures you'd get Edgar first~`"
+text = "SONIA_TAUNT_NORMAL"
 move_always = true
 
 [node name="Third" parent="Objects/Row1/Dialogue" unique_id=1356434168 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox" parent="Objects/Row1/Dialogue/Third" unique_id=858516106 instance=ExtResource("24_rhjpj")]
-text = "...Well SOMEONE took their sweet time~`"
+text = "SONIA_TAUNT_LATE"
 move_always = true
 
 [node name="Monologue" parent="Objects/Row1/Dialogue" unique_id=208804761 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox" parent="Objects/Row1/Dialogue/Monologue" unique_id=568205401 instance=ExtResource("24_rhjpj")]
-text = "I take it introductions aren't necessary. Let's talk, one ~LEGEND~ to another."
+text = "SONIA_TAUNT_2"
 move_always = true
 
 [node name="StandardTextBox5" parent="Objects/Row1/Dialogue/Monologue" unique_id=738249680 instance=ExtResource("24_rhjpj")]
@@ -2840,23 +2840,23 @@ Hey. Echo. Echo. LISTEN."
 move_always = true
 
 [node name="StandardTextBox2" parent="Objects/Row1/Dialogue/Monologue" unique_id=1008249100 instance=ExtResource("24_rhjpj")]
-text = "I know you might be mad at me for that. Your feedback has been recieved."
+text = "SONIA_TAUNT_5"
 move_always = true
 
 [node name="StandardTextBox3" parent="Objects/Row1/Dialogue/Monologue" unique_id=356870503 instance=ExtResource("24_rhjpj")]
-text = "But have you considered, maybe you just weren't good enough to have them?"
+text = "SONIA_TAUNT_6"
 move_always = true
 
 [node name="StandardTextBox6" parent="Objects/Row1/Dialogue/Monologue" unique_id=555881256 instance=ExtResource("24_rhjpj")]
-text = "What about the age-old tradition, \"finders keepers losers weepers?\""
+text = "SONIA_TAUNT_7"
 move_always = true
 
 [node name="StandardTextBox7" parent="Objects/Row1/Dialogue/Monologue" unique_id=1790541165 instance=ExtResource("24_rhjpj")]
-text = "What about the immense POWER I now hold over you?!?!`"
+text = "SONIA_TAUNT_8"
 move_always = true
 
 [node name="StandardTextBox8" parent="Objects/Row1/Dialogue/Monologue" unique_id=208950416 instance=ExtResource("24_rhjpj")]
-text = "Haha, okay, I think you get it. Goodbye, have fun dying! ~`"
+text = "SONIA_TAUNT_9"
 move_always = true
 
 [node name="Row2" type="Node2D" parent="Objects" unique_id=273631884]
@@ -3007,32 +3007,32 @@ activation_area = NodePath("..")
 [node name="Nothing" parent="Objects/MineWorm/Dialogue" unique_id=1639147552 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox" parent="Objects/MineWorm/Dialogue/Nothing" unique_id=2126329520 instance=ExtResource("24_rhjpj")]
-text = "You must be a new miner, eh? Lucky for you, we've struck riches!"
+text = "MINE_WORM_1"
 
 [node name="StandardTextBox2" parent="Objects/MineWorm/Dialogue/Nothing" unique_id=356646745 instance=ExtResource("24_rhjpj")]
-text = "'Course, I can't mine it up myself, having no arms."
+text = "MINE_WORM_2"
 
 [node name="StandardTextBox3" parent="Objects/MineWorm/Dialogue/Nothing" unique_id=2006956439 instance=ExtResource("24_rhjpj")]
-text = "Looks like the treasure is all yours, friend!"
+text = "MINE_WORM_3"
 
 [node name="Default" parent="Objects/MineWorm/Dialogue" unique_id=1677966954 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox" parent="Objects/MineWorm/Dialogue/Default" unique_id=276801984 instance=ExtResource("24_rhjpj")]
-text = "Oho! Looks like you've got something!"
+text = "MINE_WORM_R_1"
 
 [node name="MinerMessageTextBox" parent="Objects/MineWorm/Dialogue/Default" unique_id=37309114 instance=ExtResource("24_rhjpj")]
 text = "You have %d pyrite chunks? That translates to about... $0.00%03d Craterian dollars!"
 
 [node name="StandardTextBox2" parent="Objects/MineWorm/Dialogue/Default" unique_id=1778225780 instance=ExtResource("24_rhjpj")]
-text = "A hard day's work really does pay off, doesn't it?"
+text = "MINE_WORM_R_3"
 
 [node name="MaxHeld" parent="Objects/MineWorm/Dialogue" unique_id=425641928 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox" parent="Objects/MineWorm/Dialogue/MaxHeld" unique_id=1748782576 instance=ExtResource("24_rhjpj")]
-text = "What's that? You can't hold more than 500 chunks of Pyrite?"
+text = "MINE_WORM_FULL_1"
 
 [node name="StandardTextBox2" parent="Objects/MineWorm/Dialogue/MaxHeld" unique_id=1318493319 instance=ExtResource("24_rhjpj")]
-text = "That's a shame. I was gonna sell my really cool hat for 750!"
+text = "MINE_WORM_FULL_2"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1384047695]
 
@@ -3208,61 +3208,61 @@ next/start = &"idle"
 [node name="Start" parent="SoniaFight/Dialogue" unique_id=1638220071 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox" parent="SoniaFight/Dialogue/Start" unique_id=45337412 instance=ExtResource("24_rhjpj")]
-text = "Haha wow, back already? I didn't know you were such a fan~`"
+text = "SONIA_PRE_FIGHT_1"
 move_always = true
 
 [node name="StandardTextBox2" parent="SoniaFight/Dialogue/Start" unique_id=1865003607 instance=ExtResource("24_rhjpj")]
-text = "Honestly, I think it's kinda cute that you want to fight me so bad."
+text = "SONIA_PRE_FIGHT_2"
 move_always = true
 
 [node name="StandardTextBox4" parent="SoniaFight/Dialogue/Start" unique_id=639401879 instance=ExtResource("24_rhjpj")]
-text = "It's cute how, despite these plants breaking MY tower, you think you're the victim here."
+text = "SONIA_PRE_FIGHT_3"
 move_always = true
 
 [node name="StandardTextBox5" parent="SoniaFight/Dialogue/Start" unique_id=229801594 instance=ExtResource("24_rhjpj")]
-text = "Most of all, it's cute how you think you stand any chance at all.`"
+text = "SONIA_PRE_FIGHT_4"
 move_always = true
 
 [node name="StandardTextBox3" parent="SoniaFight/Dialogue/Start" unique_id=206543112 instance=ExtResource("24_rhjpj")]
-text = "Hehehe, it'll be so rewarding to take the last of your power for GOOD``"
+text = "SONIA_PRE_FIGHT_5"
 move_always = true
 
 [node name="Crashout" parent="SoniaFight/Dialogue" unique_id=308953400 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox" parent="SoniaFight/Dialogue/Crashout" unique_id=183698463 instance=ExtResource("24_rhjpj")]
-text = "Heh."
+text = "SONIA_POST_FIGHT_1"
 
 [node name="Crashout2" parent="SoniaFight/Dialogue" unique_id=15437999 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox2" parent="SoniaFight/Dialogue/Crashout2" unique_id=1194277913 instance=ExtResource("24_rhjpj")]
-text = "Hahahaha."
+text = "SONIA_POST_FIGHT_2"
 
 [node name="Crashout3" parent="SoniaFight/Dialogue" unique_id=1928176943 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox3" parent="SoniaFight/Dialogue/Crashout3" unique_id=1710955183 instance=ExtResource("24_rhjpj")]
-text = "AHAHAHAHAHA!!!!!!!"
+text = "SONIA_POST_FIGHT_3"
 
 [node name="StandardTextBox4" parent="SoniaFight/Dialogue/Crashout3" unique_id=1103067769 instance=ExtResource("24_rhjpj")]
-text = "You thought you BEAT ME? You thought you WON?!?`"
+text = "SONIA_POST_FIGHT_4"
 
 [node name="StandardTextBox5" parent="SoniaFight/Dialogue/Crashout3" unique_id=370059662 instance=ExtResource("24_rhjpj")]
-text = "Don't you SEE?! I can just BURROW forever! GOOD LUCK GETTING ME HERE, BOZO!!"
+text = "SONIA_POST_FIGHT_5"
 
 [node name="StandardTextBox6" parent="SoniaFight/Dialogue/Crashout3" unique_id=1789683214 instance=ExtResource("24_rhjpj")]
-text = "wait whats that"
+text = "SONIA_POST_FIGHT_6"
 
 [node name="Crashout4" parent="SoniaFight/Dialogue" unique_id=939297424 instance=ExtResource("23_558cu")]
 
 [node name="StandardTextBox7" parent="SoniaFight/Dialogue/Crashout4" unique_id=1732791898 instance=ExtResource("24_rhjpj")]
-text = "<Somewhere, from above, or maybe below? A voice echoes...>"
+text = "SONIA_POST_FIGHT_7"
 move_always = true
 
 [node name="StandardTextBox8" parent="SoniaFight/Dialogue/Crashout4" unique_id=708985223 instance=ExtResource("24_rhjpj")]
-text = "Hm? Echo, are you there? Sorry if I'm late, I didn't realize you were fighting."
+text = "SONIA_POST_FIGHT_8"
 move_always = true
 
 [node name="StandardTextBox9" parent="SoniaFight/Dialogue/Crashout4" unique_id=396880213 instance=ExtResource("24_rhjpj")]
-text = "I caught her digging around a lot. I hope I helped."
+text = "SONIA_POST_FIGHT_9"
 move_always = true
 
 [node name="FightBridge" type="AnimatableBody2D" parent="SoniaFight" unique_id=1995299869]
@@ -3289,8 +3289,7 @@ offset_top = -63.0
 offset_right = -64.0
 offset_bottom = -40.0
 theme = ExtResource("8_7i75t")
-text = "SONIA
-Chief Excavation Officer"
+text = "SONIA_TITLE"
 
 [node name="BossSonia" parent="SoniaFight" unique_id=61862125 node_paths=PackedStringArray("door_reference_rect", "low_reference_rect", "left_reference_rect", "right_reference_rect", "top_reference_rect") instance=ExtResource("40_mr58l")]
 position = Vector2(3, -32)

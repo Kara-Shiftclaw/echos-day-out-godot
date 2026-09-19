@@ -116,61 +116,61 @@ activation_area = NodePath("..")
 [node name="FirstEncounter" parent="Dialogue" instance=ExtResource("4_x01y2")]
 
 [node name="StandardTextBox" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
-text = "Oh? Hello, little dragon."
+text = "BIG_GREEN_PRE_FIGHT_1"
 
 [node name="StandardTextBox2" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
-text = "I do wish we could meet under happier circumstances, but I am glad to meet regardless."
+text = "BIG_GREEN_PRE_FIGHT_2"
 
 [node name="StandardTextBox3" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
-text = "This cavern used to be an underground forest, but that horrid mole has been digging up our roots."
+text = "BIG_GREEN_PRE_FIGHT_3"
 
 [node name="StandardTextBox4" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
-text = "Were it not for her, we would be in a golden age!"
+text = "BIG_GREEN_PRE_FIGHT_4"
 
 [node name="StandardTextBox5" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
-text = "...Hm? You are chasing the same mole as well? She stole your powers?"
+text = "BIG_GREEN_PRE_FIGHT_5"
 
 [node name="StandardTextBox6" parent="Dialogue/FirstEncounter" instance=ExtResource("5_juuyi")]
-text = "Well, if our interests align, perhaps I can lend you what energy I have left."
+text = "BIG_GREEN_PRE_FIGHT_6"
 
 [node name="Repeat" parent="Dialogue" instance=ExtResource("4_x01y2")]
 
 [node name="StandardTextBox" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
-text = "Our flowers grant flight to those who touch them."
+text = "BIG_GREEN_PRE_FIGHT_7"
 
 [node name="StandardTextBox2" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
-text = "Their powers are weakened, and your mass may also prove an issue, but they may still help."
+text = "BIG_GREEN_PRE_FIGHT_8"
 
 [node name="StandardTextBox3" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
-text = "The mole's hideout is atop this tower. If you wish to reach it, you will need more help."
+text = "BIG_GREEN_PRE_FIGHT_9"
 
 [node name="StandardTextBox4" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
-text = "Seek out my sisters, red and blue in hue, deeper in these caverns. They can help more."
+text = "BIG_GREEN_PRE_FIGHT_10"
 
 [node name="StandardTextBox5" parent="Dialogue/Repeat" instance=ExtResource("5_juuyi")]
-text = "Thank you, kind dragon."
+text = "BIG_GREEN_PRE_FIGHT_11"
 
 [node name="PostSonia" parent="Dialogue" instance=ExtResource("4_x01y2")]
 
 [node name="StandardTextBox" parent="Dialogue/PostSonia" instance=ExtResource("5_juuyi")]
-text = "My apologies again for missing the fight. I hadn't realized the others were there."
+text = "BIG_GREEN_POST_FIGHT_1"
 
 [node name="StandardTextBox2" parent="Dialogue/PostSonia" instance=ExtResource("5_juuyi")]
-text = "I'm glad I could've helped out in the end, at least."
+text = "BIG_GREEN_POST_FIGHT_2"
 
 [node name="StandardTextBox3" parent="Dialogue/PostSonia" instance=ExtResource("5_juuyi")]
-text = "And you must admit, my contribution was... how you say, \"bad of ass?\""
+text = "BIG_GREEN_POST_FIGHT_3"
 
 [node name="StandardTextBox4" parent="Dialogue/PostSonia" instance=ExtResource("5_juuyi")]
-text = "I did kind-of save the day at the last second with that one, you must admit."
+text = "BIG_GREEN_POST_FIGHT_4"
 
 [node name="PostSoniaRepeat" parent="Dialogue" instance=ExtResource("4_x01y2")]
 
 [node name="StandardTextBox" parent="Dialogue/PostSoniaRepeat" instance=ExtResource("5_juuyi")]
-text = "Of course, I should thank you, too! My roots are safe now. And I found more, too!"
+text = "BIG_GREEN_POST_FIGHT_5"
 
 [node name="StandardTextBox2" parent="Dialogue/PostSoniaRepeat" instance=ExtResource("5_juuyi")]
-text = "Like this rectangle I found in Sonia's pocket. I'm told it's called a \"crebit card.\" Exciting!"
+text = "BIG_GREEN_POST_FIGHT_6"
 
 [node name="OpenTimer" type="Timer" parent="."]
 wait_time = 1.2

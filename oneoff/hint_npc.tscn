@@ -926,57 +926,57 @@ shape = SubResource("RectangleShape2D_ufbxm")
 [node name="FirstChat" parent="Text" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/FirstChat" instance=ExtResource("4_cqvfm")]
-text = "I sense a great energy from you! You must be the \"monster\" I've heard of, Echo, yes?"
+text = "AFFAMAE_INTRO_1"
 
 [node name="StandardTextBox2" parent="Text/FirstChat" instance=ExtResource("4_cqvfm")]
-text = "It's nice to find another great beast. Though, your size is... less than I had heard."
+text = "AFFAMAE_INTRO_2"
 
 [node name="StandardTextBox3" parent="Text/FirstChat" instance=ExtResource("4_cqvfm")]
-text = "I've sensed strange energy around here, is that yours?"
+text = "AFFAMAE_INTRO_3"
 
 [node name="StandardTextBox5" parent="Text/FirstChat" instance=ExtResource("4_cqvfm")]
-text = "Ah, of course!  I could help you find it... for a price."
+text = "AFFAMAE_INTRO_4"
 
 [node name="StandardTextBox4" parent="Text/FirstChat" instance=ExtResource("4_cqvfm")]
-text = "Don't get me wrong, I'd love to help for free, but I am ~FAMISHED~."
+text = "AFFAMAE_INTRO_5"
 
 [node name="StandardTextBox6" parent="Text/FirstChat" instance=ExtResource("4_cqvfm")]
-text = "If you help me feed, perhaps I can tell you what I sense?"
+text = "AFFAMAE_INTRO_6"
 
 [node name="FirstChatBlob" parent="Text" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/FirstChatBlob" instance=ExtResource("4_cqvfm")]
-text = "I sense a great energy from you! You must be the \"monster\" I've heard of, Echo, yes?"
+text = "AFFAMAE_INTRO_1"
 
 [node name="StandardTextBox2" parent="Text/FirstChatBlob" instance=ExtResource("4_cqvfm")]
-text = "It's nice to find another great beast. Especially one of such great weight!"
+text = "AFFAMAE_INTRO_MAX_1"
 
 [node name="StandardTextBox3" parent="Text/FirstChatBlob" instance=ExtResource("4_cqvfm")]
-text = "I'd love to join you in tubbiness, but my weight has been... diminished."
+text = "AFFAMAE_INTRO_MAX_2"
 
 [node name="StandardTextBox5" parent="Text/FirstChatBlob" instance=ExtResource("4_cqvfm")]
-text = "It pains me to offer scraps in return, but perhaps you could help me feed?"
+text = "AFFAMAE_INTRO_MAX_3"
 
 [node name="MainMenu" parent="Text" instance=ExtResource("3_ei62j")]
 
 [node name="MultipleChoiceBox" parent="Text/MainMenu" instance=ExtResource("5_cqvfm")]
-text = "How goes it, fellow beast?"
+text = "AFFAMAE_MAIN_MENU"
 
 [node name="Hint" parent="Text/MainMenu/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
-choice_text = "Ask For Help"
+choice_text = "AFFAMAE_OPT_ASK_FOR_HELP"
 
 [node name="Feed" parent="Text/MainMenu/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
-choice_text = "Give Food"
+choice_text = "AFFAMAE_OPT_GIVE_FOOD"
 
 [node name="Talk" parent="Text/MainMenu/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
 choice_text = "Chat"
 
 [node name="Leave" parent="Text/MainMenu/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
-choice_text = "Talk later!"
+choice_text = "AFFAMAE_OPT_LEAVE"
 enabled = true
 
 [node name="StandardTextBox" parent="Text/MainMenu" instance=ExtResource("4_cqvfm")]
-text = "See you around!"
+text = "AFFAMAE_LEAVE"
 
 [node name="Talk" type="Node" parent="Text"]
 
@@ -990,234 +990,234 @@ text = "Sorry, I don't mean to be rude, but it's hard to chat on an empty stomac
 [node name="Weight0" parent="Text/GiveFood" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
-text = "Ahahaa!!! I knew I could trust someone like you!"
+text = "AFFAMAE_WEIGHT_1_1"
 
 [node name="StandardTextBox5" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
-text = "Oh! I've not introduced myself, have I?"
+text = "AFFAMAE_WEIGHT_1_2"
 
 [node name="StandardTextBox6" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
-text = "My name is Affamae. I'm a traveller, of sorts."
+text = "AFFAMAE_WEIGHT_1_3"
 
 [node name="StandardTextBox7" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
-text = "Back home, I'm well-known for my appetite. Perhaps... too well known."
+text = "AFFAMAE_WEIGHT_1_4"
 
 [node name="StandardTextBox8" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
-text = "I've been looking for a better place to settle down, and this seems to fit nicely."
+text = "AFFAMAE_WEIGHT_1_5"
 
 [node name="StandardTextBox9" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
-text = "The air is warm, the creatures are rotund, the food is delicious..."
+text = "AFFAMAE_WEIGHT_1_6"
 
 [node name="StandardTextBox10" parent="Text/GiveFood/Weight0" instance=ExtResource("4_cqvfm")]
-text = "Speaking of, you wouldn't happen to have any more food for me, would you~?"
+text = "AFFAMAE_WEIGHT_1_7"
 
 [node name="Weight1" parent="Text/GiveFood" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
-text = "More food! You truly are a miracle worker, Echo."
+text = "AFFAMAE_WEIGHT_2_1"
 
 [node name="StandardTextBox2" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
-text = "My, another great meal! Thank you, fellow beast! I'm glad I never ate you."
+text = "AFFAMAE_WEIGHT_2_2"
 
 [node name="StandardTextBox3" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
-text = "What?! I AM a monster, after all! Besides, I decided against it!"
+text = "AFFAMAE_WEIGHT_2_3"
 
 [node name="StandardTextBox4" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
-text = "I do know your nature. A dragon made of pure energy."
+text = "AFFAMAE_WEIGHT_2_4"
 
 [node name="StandardTextBox7" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
-text = "Each pound of blubber for you is a million Calories for me, at least~."
+text = "AFFAMAE_WEIGHT_2_5"
 
 [node name="StandardTextBox5" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
-text = "If I had eaten you, I'd hit ten tons minimum~. Maybe more...~~ Completely immobile...~~"
+text = "AFFAMAE_WEIGHT_2_6"
 
 [node name="StandardTextBox6" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
-text = "...It'd surely break this cliff & send me falling to my doom. Hence why I didn't."
+text = "AFFAMAE_WEIGHT_2_7"
 
 [node name="StandardTextBox8" parent="Text/GiveFood/Weight1" instance=ExtResource("4_cqvfm")]
-text = "Besides, I'd never hurt a ~friend~! That preppy journalist, perhaps, but not you!"
+text = "AFFAMAE_WEIGHT_2_8"
 
 [node name="Weight2" parent="Text/GiveFood" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
-text = "My, you sure know how to keep a beast well-fed!"
+text = "AFFAMAE_WEIGHT_3_1"
 
 [node name="StandardTextBox2" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
-text = "Mhm... If I may, I'd like to clarify something."
+text = "AFFAMAE_WEIGHT_3_2"
 
 [node name="StandardTextBox3" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
-text = "Much like you, my sensory powers are... weight-related."
+text = "AFFAMAE_WEIGHT_3_3"
 
 [node name="StandardTextBox4" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
-text = "At my largest, I could pinpoint an energy signature 1000 miles away! Now, not quite."
+text = "AFFAMAE_WEIGHT_3_4"
 
 [node name="StandardTextBox5" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
-text = "That's only my simplest power, as well. They used to call me the Blob of Terror back home."
+text = "AFFAMAE_WEIGHT_3_5"
 
 [node name="StandardTextBox7" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
-text = "Who knows? Maybe I'll get fat enough to teleport again! It's only about a half-ton away."
+text = "AFFAMAE_WEIGHT_3_6"
 
 [node name="StandardTextBox8" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
-text = "...It certainly seems to be getting closer and closer.~"
+text = "AFFAMAE_WEIGHT_3_7"
 
 [node name="StandardTextBox6" parent="Text/GiveFood/Weight2" instance=ExtResource("4_cqvfm")]
-text = "Jokes aside, this food has been helping me feel more like myself. Thank you, Echo."
+text = "AFFAMAE_WEIGHT_3_8"
 
 [node name="Weight3" parent="Text/GiveFood" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/GiveFood/Weight3" instance=ExtResource("4_cqvfm")]
-text = "Another meal? Your generosity knows no bounds!"
+text = "AFFAMAE_WEIGHT_4_1"
 
 [node name="StandardTextBox2" parent="Text/GiveFood/Weight3" instance=ExtResource("4_cqvfm")]
-text = "Thank you for the meal! ...Though I do have a question."
+text = "AFFAMAE_WEIGHT_4_2"
 
 [node name="StandardTextBox3" parent="Text/GiveFood/Weight3" instance=ExtResource("4_cqvfm")]
-text = "You are clearly great at keeping yourself fed. Yet I sense you've been bringing me all your food."
+text = "AFFAMAE_WEIGHT_4_3"
 
 [node name="MultipleChoiceBox" parent="Text/GiveFood/Weight3" instance=ExtResource("5_cqvfm")]
-text = "Is there a reason you've not taken any for yourself?"
+text = "AFFAMAE_WEIGHT_4_4"
 
 [node name="NoTaste" parent="Text/GiveFood/Weight3/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
-choice_text = "I have no sense of taste"
+choice_text = "AFFAMAE_EAT_OPT_NO_TASTE"
 enabled = true
 
 [node name="NoTasteTextTree" parent="Text/GiveFood/Weight3/MultipleChoiceBox/NoTaste" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/GiveFood/Weight3/MultipleChoiceBox/NoTaste/NoTasteTextTree" instance=ExtResource("4_cqvfm")]
-text = "Wait, really? Tasting was one of your stolen powers? Or something even worse??"
+text = "AFFAMAE_NO_TASTE_1"
 
 [node name="StandardTextBox2" parent="Text/GiveFood/Weight3/MultipleChoiceBox/NoTaste/NoTasteTextTree" instance=ExtResource("4_cqvfm")]
-text = "I'm so sorry to hear that. I can hardly think of a fate so terrible."
+text = "AFFAMAE_NO_TASTE_2"
 
 [node name="StandardTextBox3" parent="Text/GiveFood/Weight3/MultipleChoiceBox/NoTaste/NoTasteTextTree" instance=ExtResource("4_cqvfm")]
-text = "...Even so, you should eat. I can't have you slimming down on me."
+text = "AFFAMAE_NO_TASTE_3"
 
 [node name="FattenYou" parent="Text/GiveFood/Weight3/MultipleChoiceBox" instance=ExtResource("6_lyahb")]
-choice_text = "Get you as fat as I can~"
+choice_text = "AFFAMAE_EAT_OPT_FEEDER"
 enabled = true
 
 [node name="FattenYouTextTree" parent="Text/GiveFood/Weight3/MultipleChoiceBox/FattenYou" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/GiveFood/Weight3/MultipleChoiceBox/FattenYou/FattenYouTextTree" instance=ExtResource("4_cqvfm")]
-text = "Wh-huh~??"
+text = "AFFAMAE_FEEDER_1"
 
 [node name="StandardTextBox2" parent="Text/GiveFood/Weight3/MultipleChoiceBox/FattenYou/FattenYouTextTree" instance=ExtResource("4_cqvfm")]
-text = "I mean, I appreciate the thoughts, truly~!"
+text = "AFFAMAE_FEEDER_2"
 
 [node name="StandardTextBox3" parent="Text/GiveFood/Weight3/MultipleChoiceBox/FattenYou/FattenYouTextTree" instance=ExtResource("4_cqvfm")]
-text = "However, I've always been one for mutual fattening~"
+text = "AFFAMAE_FEEDER_3"
 
 [node name="StandardTextBox4" parent="Text/GiveFood/Weight3" instance=ExtResource("4_cqvfm")]
-text = "Here, take some. We can share."
+text = "AFFAMAE_WEIGHT_4_5"
 
 [node name="StandardTextBox5" parent="Text/GiveFood/Weight3" instance=ExtResource("4_cqvfm")]
-text = "Mhm, it tastes better eating with a friend~"
+text = "AFFAMAE_WEIGHT_4_6"
 
 [node name="StandardTextBox6" parent="Text/GiveFood/Weight3" instance=ExtResource("4_cqvfm")]
-text = "If you do happen across any more, let me know. I'd love to share it with you."
+text = "AFFAMAE_WEIGHT_4_7"
 
 [node name="Weight4" parent="Text/GiveFood" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
-text = "You're taking some too, right?"
+text = "AFFAMAE_WEIGHT_5_1"
 
 [node name="StandardTextBox2" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
-text = "...Hrm. There's something that's been stuck in my mind."
+text = "AFFAMAE_WEIGHT_5_2"
 
 [node name="StandardTextBox3" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
-text = "You've brought me so much food. And with that, I've been able to locate your powers."
+text = "AFFAMAE_WEIGHT_5_3"
 
 [node name="StandardTextBox4" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
-text = "However, on the very edge of my senses, I swear I feel even more."
+text = "AFFAMAE_WEIGHT_5_4"
 
 [node name="StandardTextBox5" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
-text = "Guess I need to keep eating until I can locate it proper, huh?"
+text = "AFFAMAE_WEIGHT_5_5"
 
 [node name="StandardTextBox6" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
-text = "Hm... it's large. Leagues greater than what the others took."
+text = "AFFAMAE_WEIGHT_5_6"
 
 [node name="StandardTextBox7" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
-text = "It's almost as if they're trying to hide it from me..."
+text = "AFFAMAE_WEIGHT_5_7"
 
 [node name="StandardTextBox8" parent="Text/GiveFood/Weight4" instance=ExtResource("4_cqvfm")]
-text = "They must really want to keep it, huh?"
+text = "AFFAMAE_WEIGHT_5_8"
 
 [node name="Hint" type="Node" parent="Text"]
 
 [node name="Fireball" parent="Text/Hint" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/Hint/Fireball" instance=ExtResource("4_cqvfm")]
-text = "Now that you've helped me eat, it's only fair I help you!"
+text = "AFFAMAE_HINT_EDGAR_1"
 
 [node name="StandardTextBox2" parent="Text/Hint/Fireball" instance=ExtResource("4_cqvfm")]
-text = "The first shard of your energy is close... yet far. Due east of here, in that burning cavern."
+text = "AFFAMAE_HINT_EDGAR_2"
 
 [node name="StandardTextBox4" parent="Text/Hint/Fireball" instance=ExtResource("4_cqvfm")]
-text = "You'll need to enter from below to reach the thief, but he should pose little threat."
+text = "AFFAMAE_HINT_EDGAR_3"
 
 [node name="StandardTextBox5" parent="Text/Hint/Fireball" instance=ExtResource("4_cqvfm")]
-text = "Let me mark his lair on the map."
+text = "AFFAMAE_HINT_EDGAR_4"
 
 [node name="StandardTextBox6" parent="Text/Hint/Fireball" instance=ExtResource("4_cqvfm")]
-text = "I wish you luck, Echo! May you get to feast as well!"
+text = "AFFAMAE_HINT_EDGAR_5"
 
 [node name="DoubleJump" parent="Text/Hint" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/Hint/DoubleJump" instance=ExtResource("4_cqvfm")]
-text = "Your next shard of energy is underground. Also not far."
+text = "AFFAMAE_HINT_SONIA_1"
 
 [node name="StandardTextBox2" parent="Text/Hint/DoubleJump" instance=ExtResource("4_cqvfm")]
-text = "However, the mole with your power seems to have dug a labrynth."
+text = "AFFAMAE_HINT_SONIA_2"
 
 [node name="StandardTextBox3" parent="Text/Hint/DoubleJump" instance=ExtResource("4_cqvfm")]
-text = "You might need to dig down to dig back up, my friend... Good luck."
+text = "AFFAMAE_HINT_SONIA_3"
 
 [node name="StandardTextBox4" parent="Text/Hint/DoubleJump" instance=ExtResource("4_cqvfm")]
-text = "Let me mark her lair on the map."
+text = "AFFAMAE_HINT_SONIA_4"
 
 [node name="StandardTextBox5" parent="Text/Hint/DoubleJump" instance=ExtResource("4_cqvfm")]
-text = "Return to me stronger and softer, fellow beast!"
+text = "AFFAMAE_HINT_SONIA_5"
 
 [node name="Sprint" parent="Text/Hint" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/Hint/Sprint" instance=ExtResource("4_cqvfm")]
-text = "This time, your thief has climbed up. Above your very own cave, in fact! How rude!"
+text = "AFFAMAE_HINT_NIMBUS_1"
 
 [node name="StandardTextBox2" parent="Text/Hint/Sprint" instance=ExtResource("4_cqvfm")]
-text = "They appear to be a goat. No wonder they could climb at that size..."
+text = "AFFAMAE_HINT_NIMBUS_2"
 
 [node name="StandardTextBox3" parent="Text/Hint/Sprint" instance=ExtResource("4_cqvfm")]
-text = "Your own weight may make the ascent dangerous. Tread carefully."
+text = "AFFAMAE_HINT_NIMBUS_3"
 
 [node name="StandardTextBox5" parent="Text/Hint/Sprint" instance=ExtResource("4_cqvfm")]
-text = "Let me mark their lair on the map."
+text = "AFFAMAE_HINT_NIMBUS_4"
 
 [node name="StandardTextBox6" parent="Text/Hint/Sprint" instance=ExtResource("4_cqvfm")]
-text = "Stay safe! Don't topple the forest with your weight!"
+text = "AFFAMAE_HINT_NIMBUS_5"
 
 [node name="Crush" parent="Text/Hint" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/Hint/Crush" instance=ExtResource("4_cqvfm")]
-text = "Your next shard is down. Deep, deep, deep, deep down..."
+text = "AFFAMAE_HINT_CHARLE_1"
 
 [node name="StandardTextBox2" parent="Text/Hint/Crush" instance=ExtResource("4_cqvfm")]
-text = "Good hell, how deep did they go?! Either your power is that good, or they are that heavy..."
+text = "AFFAMAE_HINT_CHARLE_2"
 
 [node name="StandardTextBox3" parent="Text/Hint/Crush" instance=ExtResource("4_cqvfm")]
-text = "...They aren't alone. This place makes my fur stand on end. It seems... wrong."
+text = "AFFAMAE_HINT_CHARLE_3"
 
 [node name="StandardTextBox5" parent="Text/Hint/Crush" instance=ExtResource("4_cqvfm")]
-text = "I guess... let me mark their lair on the map."
+text = "AFFAMAE_HINT_CHARLE_4"
 
 [node name="StandardTextBox6" parent="Text/Hint/Crush" instance=ExtResource("4_cqvfm")]
-text = "Don't die down there, Echo. The world needs blobs like us."
+text = "AFFAMAE_HINT_CHARLE_5"
 
 [node name="NoMore" parent="Text/Hint" instance=ExtResource("3_ei62j")]
 
 [node name="StandardTextBox" parent="Text/Hint/NoMore" instance=ExtResource("4_cqvfm")]
-text = "I appreciate the meal, but I've no more help to give."
+text = "AFFAMAE_NO_HINT_1"
 
 [node name="StandardTextBox2" parent="Text/Hint/NoMore" instance=ExtResource("4_cqvfm")]
-text = "Perhaps we can just... chat? One fat beast to another?"
+text = "AFFAMAE_NO_HINT_2"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3

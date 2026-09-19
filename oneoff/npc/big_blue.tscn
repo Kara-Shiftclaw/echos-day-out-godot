@@ -104,49 +104,49 @@ activation_area = NodePath("..")
 [node name="FirstEncounter" parent="Dialogue" instance=ExtResource("4_wgfpl")]
 
 [node name="StandardTextBox" parent="Dialogue/FirstEncounter" instance=ExtResource("5_pt0vs")]
-text = "Hm? Is somebody there?"
+text = "BIG_BLUE_PRE_FIGHT_1"
 
 [node name="StandardTextBox2" parent="Dialogue/FirstEncounter" instance=ExtResource("5_pt0vs")]
-text = "Oh, a dragon. Hello."
+text = "BIG_BLUE_PRE_FIGHT_2"
 
 [node name="StandardTextBox3" parent="Dialogue/FirstEncounter" instance=ExtResource("5_pt0vs")]
-text = "I've felt your presence for some time. You are a friend."
+text = "BIG_BLUE_PRE_FIGHT_3"
 
 [node name="StandardTextBox4" parent="Dialogue/FirstEncounter" instance=ExtResource("5_pt0vs")]
-text = "You appear to be stuck as well. Let me lend you a hand."
+text = "BIG_BLUE_PRE_FIGHT_4"
 
 [node name="Repeat" parent="Dialogue" instance=ExtResource("4_wgfpl")]
 
 [node name="StandardTextBox" parent="Dialogue/Repeat" instance=ExtResource("5_pt0vs")]
-text = "The mole wants to destroy our home. Sonia is her name."
+text = "BIG_BLUE_PRE_FIGHT_5"
 
 [node name="StandardTextBox3" parent="Dialogue/Repeat" instance=ExtResource("5_pt0vs")]
-text = "She digs the caverns bare, all for worthless pyrite."
+text = "BIG_BLUE_PRE_FIGHT_6"
 
 [node name="StandardTextBox4" parent="Dialogue/Repeat" instance=ExtResource("5_pt0vs")]
-text = "If you are able, please stop her."
+text = "BIG_BLUE_PRE_FIGHT_7"
 
 [node name="PostSonia" parent="Dialogue" instance=ExtResource("4_wgfpl")]
 
 [node name="StandardTextBox" parent="Dialogue/PostSonia" instance=ExtResource("5_pt0vs")]
-text = "Hm? Who is there?"
+text = "BIG_BLUE_POST_FIGHT_1"
 
 [node name="StandardTextBox2" parent="Dialogue/PostSonia" instance=ExtResource("5_pt0vs")]
-text = "Dragon? Oh, welcome. I didn't recall you being so... large."
+text = "BIG_BLUE_POST_FIGHT_2"
 
 [node name="StandardTextBox3" parent="Dialogue/PostSonia" instance=ExtResource("5_pt0vs")]
-text = "You defeated Sonia? Amazing! Though, I hardly think eating her was needed."
+text = "BIG_BLUE_POST_FIGHT_3"
 
 [node name="StandardTextBox5" parent="Dialogue/PostSonia" instance=ExtResource("5_pt0vs")]
-text = "Hm? You gained weight for other reasons? Ah well."
+text = "BIG_BLUE_POST_FIGHT_4"
 
 [node name="PostSoniaRepeat" parent="Dialogue" instance=ExtResource("4_wgfpl")]
 
 [node name="StandardTextBox" parent="Dialogue/PostSoniaRepeat" instance=ExtResource("5_pt0vs")]
-text = "If Sonia is gone, then I do hope that handsome wolf with the hammer takes charge."
+text = "BIG_BLUE_POST_FIGHT_5"
 
 [node name="StandardTextBox2" parent="Dialogue/PostSoniaRepeat" instance=ExtResource("5_pt0vs")]
-text = "He seems the most responsible. He understands the power of a proper curse."
+text = "BIG_BLUE_POST_FIGHT_6"
 
 [node name="OpenTimer" type="Timer" parent="."]
 wait_time = 1.2

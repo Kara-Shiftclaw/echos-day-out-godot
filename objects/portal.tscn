@@ -699,66 +699,64 @@ autoplay = "bounce"
 [node name="Nothing" parent="Text" instance=ExtResource("3_tnatx")]
 
 [node name="StandardTextBox" parent="Text/Nothing" instance=ExtResource("4_djgvg")]
-text = "A wisp of air moves erratically..."
+text = "PORTAL_UNKNOWN"
 
 [node name="PortalCoreNoInject" parent="Text" instance=ExtResource("3_tnatx")]
 
 [node name="StandardTextBox" parent="Text/PortalCoreNoInject" instance=ExtResource("4_djgvg")]
-text = "A wisp of air moves erratically."
+text = "PORTAL_NO_INJECTOR_1"
 
 [node name="StandardTextBox2" parent="Text/PortalCoreNoInject" instance=ExtResource("4_djgvg")]
-text = "The Portal Core seems drawn to it, but it can't fit in the gap..."
+text = "PORTAL_NO_INJECTOR_2"
 
 [node name="InjectNoPortalCore" parent="Text" instance=ExtResource("3_tnatx")]
 
 [node name="StandardTextBox" parent="Text/InjectNoPortalCore" instance=ExtResource("4_djgvg")]
-text = "A wisp of air moves erratically. A Portal is present."
+text = "PORTAL_INTRO"
 
 [node name="StandardTextBox2" parent="Text/InjectNoPortalCore" instance=ExtResource("4_djgvg")]
-text = "If you find a Portal Core, you can slip inside."
+text = "PORTAL_NO_CORE"
 
 [node name="InjectPortalCore" parent="Text" instance=ExtResource("3_tnatx")]
 
 [node name="StandardTextBox" parent="Text/InjectPortalCore" instance=ExtResource("4_djgvg")]
-text = "A wisp of air moves erratically. A Portal is present."
+text = "PORTAL_INTRO"
 
 [node name="MultipleChoiceBox" parent="Text/InjectPortalCore" instance=ExtResource("5_djgvg")]
-text = "Do you want to inject a Portal Core?"
+text = "PORTAL_INJECT_CORE"
 
 [node name="Yes" parent="Text/InjectPortalCore/MultipleChoiceBox" instance=ExtResource("6_10cy8")]
-choice_text = "Yes"
+choice_text = "YES"
 enabled = true
 
 [node name="No" parent="Text/InjectPortalCore/MultipleChoiceBox" instance=ExtResource("6_10cy8")]
-choice_text = "No"
+choice_text = "NO"
 enabled = true
 
 [node name="PortalOpen" parent="Text" instance=ExtResource("3_tnatx")]
 
 [node name="StandardTextBox" parent="Text/PortalOpen" instance=ExtResource("4_djgvg")]
-text = "The Portal sprang open!"
+text = "PORTAL_OPEN"
 
 [node name="PortalUse" parent="Text" instance=ExtResource("3_tnatx")]
 
 [node name="MultipleChoiceBox" parent="Text/PortalUse" instance=ExtResource("5_djgvg")]
-text = "It's a Portal.
-
-Where will you go?"
+text = "PORTAL_POST_OPEN"
 
 [node name="Stay" parent="Text/PortalUse/MultipleChoiceBox" instance=ExtResource("6_10cy8")]
-choice_text = "Stay Here"
+choice_text = "PORTAL_OPT_STAY_HERE"
 enabled = true
 
 [node name="StandardTextBox" parent="Text/PortalUse" instance=ExtResource("4_djgvg")]
-text = "You decided to stay here."
+text = "PORTAL_STAY_HERE"
 
 [node name="TooFat" parent="Text" instance=ExtResource("3_tnatx")]
 
 [node name="StandardTextBox" parent="Text/TooFat" instance=ExtResource("4_djgvg")]
-text = "You tried to squeeze into the portal... but you're too fat!"
+text = "PORTAL_TOO_FAT_1"
 
 [node name="StandardTextBox2" parent="Text/TooFat" instance=ExtResource("4_djgvg")]
-text = "Maybe Kara can help widen the portals...?"
+text = "PORTAL_TOO_FAT_2"
 
 [node name="TooFatTimer" type="Timer" parent="."]
 process_mode = 3

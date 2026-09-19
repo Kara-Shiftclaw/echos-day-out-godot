@@ -128,7 +128,7 @@ func setup_buttons() -> void:
 func _input(event: InputEvent) -> void:
 	if cur_entry != ENTRY_NOT_OPEN:
 		if event.is_action_pressed("pause"):
-			get_parent().unpause()
+			get_parent().get_parent().unpause()
 			get_viewport().set_input_as_handled()
 		if event.is_action_pressed("ui_cancel"):
 			clear_entry_container()

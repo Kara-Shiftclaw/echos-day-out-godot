@@ -209,10 +209,10 @@ position = Vector2(0, -12)
 [node name="TextTree" parent="Objects/TutorialSign" unique_id=1595194924 instance=ExtResource("21_thdh3")]
 
 [node name="StandardTextBox" parent="Objects/TutorialSign/TextTree" unique_id=1150273872 instance=ExtResource("22_ntnjh")]
-text = "Woe, if the horrid beaste ever do wake! Her size and power are unmatched!"
+text = "TUTORIAL_1"
 
 [node name="StandardTextBox2" parent="Objects/TutorialSign/TextTree" unique_id=685062789 instance=ExtResource("22_ntnjh")]
-text = "Rumor says, she can jump with Z!!"
+text = "TUTORIAL_2"
 
 [node name="TutorialSign2" type="Area2D" parent="Objects" unique_id=142165998]
 position = Vector2(296, 92)
@@ -231,10 +231,10 @@ position = Vector2(0, -12)
 [node name="TextTree" parent="Objects/TutorialSign2" unique_id=360667807 instance=ExtResource("21_thdh3")]
 
 [node name="StandardTextBox" parent="Objects/TutorialSign2/TextTree" unique_id=1426655257 instance=ExtResource("22_ntnjh")]
-text = "Hark, the terrible beaste will be stopped here! "
+text = "TUTORIAL_3"
 
 [node name="StandardTextBox2" parent="Objects/TutorialSign2/TextTree" unique_id=1286300955 instance=ExtResource("22_ntnjh")]
-text = "Unless she learns to attack with X, these scare-drakes will subdue her!!"
+text = "TUTORIAL_4"
 
 [node name="TutorialSign3" type="Area2D" parent="Objects" unique_id=628875073]
 position = Vector2(724, -68)
@@ -253,10 +253,10 @@ position = Vector2(0, -12)
 [node name="TextTree" parent="Objects/TutorialSign3" unique_id=323114795 instance=ExtResource("21_thdh3")]
 
 [node name="StandardTextBox" parent="Objects/TutorialSign3/TextTree" unique_id=2037871254 instance=ExtResource("22_ntnjh")]
-text = "Alas, not even a poor sense of direction can stop a beaste so foul!"
+text = "TUTORIAL_5"
 
 [node name="StandardTextBox2" parent="Objects/TutorialSign3/TextTree" unique_id=734264557 instance=ExtResource("22_ntnjh")]
-text = "By pressing Esc, she has a map! She can go anywhere!!"
+text = "TUTORIAL_6"
 
 [node name="StageTransitions" type="Node2D" parent="." unique_id=2125765237]
 

@@ -10,14 +10,15 @@ for SCENE in $STANDARD_TEXT_SCENES; do
     TRANSLATION_TEXT="$(echo "$ESCAPED_TEXT" | sed -E -e 's/</(/g' -e 's/>/\)/g')"
     TRANSLATION_NAME="$(echo "${TRANSLATION}" | grep "$TRANSLATION_TEXT" | sed -E -e 's/^([A-Z0-9_]+),.*$/\1/g')"
 		if [ "$TRANSLATION_NAME" != '' ]; then
-      FILE="$(echo "$FILE" | sed -E -e "s/${ESCAPED_TEXT}/\"$TRANSLATION_NAME\"/g")"
+      SED_ESCAPED_TEXT="$(echo "$ESCAPED_TEXT" | sed -E -e 's/\?/\\?/g')"
+      FILE="$(echo "$FILE" | sed -E -e "s/text = ${SED_ESCAPED_TEXT}/text = \"$TRANSLATION_NAME\"/g")"
 	    echo "$ESCAPED_TEXT replaced with \"$TRANSLATION_NAME\""
     else
-      echo "No translation for $TEXT"
+      echo "No translation for $ESCAPED_TEXT"
 		fi
   done <<< "$TEXTS"
 
-  echo "$FILE" | sed -E -e 's/\\n/\
+  echo "$FILE" | sed -E -e 's/[\\n]+$//g' -e 's/\\n/\
 /g' > "$SCENE"
 done
   
