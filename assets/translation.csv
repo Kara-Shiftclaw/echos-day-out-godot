@@ -477,7 +477,7 @@ JOURNAL_BIG_PLANTS_DESC,"Three plants that have populated these caves for centur
 JOURNAL_BRAMBLE_BALL_NAME,"Bramble-Ball"
 JOURNAL_BRAMBLE_BALL_DESC,"A mindless clump of torn-up plant matter. Some people claim to see a face among the tangle... I can't see it."
 JOURNAL_CORVID_ROOK_NAME,"Corvid Rook"
-JOURNAL_CORVID_ROOK_DESC,"Mages in the corvid court, with a belly to match. Through my intense research, I've translated their name as \"Crow Crow\"."
+JOURNAL_CORVID_ROOK_DESC,"Mages in the corvid court, with a belly to match. Through my intense research, I've translated their name as ""Crow Crow""."
 JOURNAL_CRAB_NAME,"Clobber Crab"
 JOURNAL_CRAB_DESC,"As the Depths dried, these beasts became angry and territorial. They help Sonia with her tower in exchange for peace & quiet."
 JOURNAL_CROW_NAME,"Corvid Pawn"
@@ -497,7 +497,7 @@ JOURNAL_IMMOBILE_BEEORB_DESC,"The natural end-state of the Orbees' diet. I wonde
 JOURNAL_JOURNALIST_NAME,"Maxwell Flinthelm II"
 JOURNAL_JOURNALIST_DESC,"The handsome, amazing author of the very journal you're reading!\nBe sure to check out my other works if you enjoy this one!"
 JOURNAL_KARA_NAME,"Kara"
-JOURNAL_KARA_DESC,"She claims to be a cryptid called a \"Shift-Claw\". There are no recorded instances of this species. ????????"
+JOURNAL_KARA_DESC,"She claims to be a cryptid called a ""Shift-Claw"". There are no recorded instances of this species. ????????"
 JOURNAL_LIL_MUSHROOM_NAME,"Sporeling"
 JOURNAL_LIL_MUSHROOM_DESC,"What is it hiding? There is something strange happening with\nthese mushrooms, and I will get to the bottom of it."
 JOURNAL_MONGOOSE_NAME,"- Edgar -"
@@ -526,6 +526,74 @@ JOURNAL_SWORD_SPIRIT_NAME,"Spirit of the Sword"
 JOURNAL_SWORD_SPIRIT_DESC,"A tubby ghost that mocked me for being unable to free her sword. I hit it with a hammer a few times, it\nstill wouldn't budge!"
 JOURNAL_WOLF_NAME,"Hefthire Wolf"
 JOURNAL_WOLF_DESC,"Hired bodyguards, most\nof whom glut out while\nnothing of note happens. Their combat ability is... theoretical."
+
+
+#Inventory items
+ITEM_FOOD_NAME,Food
+ITEM_FOOD_1,Meal for flesh beings. Prepared by the best chef in Heftwind Hills.
+ITEM_FOOD_2,Meal for flesh beings. Cooked perfectly over magma. Somehow.
+ITEM_FOOD_3,Meal for flesh beings. Seared by Olhms in the Verdant Caverns.
+ITEM_FOOD_4,"Meal for flesh beings. Labeled ""Sonia's DO NOT STEAL."" Oops"
+ITEM_FOOD_5,"Meal for flesh beings. Cooled by mountain air, but still edible."
+ITEM_FOOD_6,Meal for flesh beings. A deceptively sublime vegan imitation meat.
+ITEM_FOOD_7,Meal for flesh beings. Slow-cooked over a toasty fire.
+ITEM_FOOD_8,"Meal for flesh beings. A little airborne, but still good."
+
+ITEM_ENERGY_NAME,"Draconic Energy"
+ITEM_ENERGY_1,A shred of power. Was hidden away by Edgar's predecessor.
+ITEM_ENERGY_2,A shred of power. It seeped into the Sporeways long ago.
+ITEM_ENERGY_3,A shred of power. Smells like freshly cut grass.
+ITEM_ENERGY_4,A shred of power. Made sticky & sweet with honey.
+ITEM_ENERGY_5,A shred of power. Sold at an outrageous price. Bought on sale.
+ITEM_ENERGY_6,"A shred of power. Is this yours, or the plants of the deep's?"
+
+ITEM_CORE_NAME,"Portal Core"
+ITEM_BROKEN_CORE_NAME,"Portal Core Scraps"
+ITEM_CORE_1,A mysterious object. Feels ice-cold to the touch.
+ITEM_CORE_2,A mysterious object. Shines with nary a scratch or blemish.
+ITEM_CORE_3,A mysterious object. An unfamiliar fungus grows on its shell.
+ITEM_CORE_4,A mysterious object. A faint mountain breeze whistles through it.
+ITEM_CORE_5,A mysterious object. A brown leaf is stuck on the inside.
+ITEM_CORE_6,A mysterious object. It radiates the warmth of a sunny day.
+ITEM_BROKEN_CORE,Broken when opening a portal. Refracted light dances off the shards.
+
+ITEM_ARTIFACT_NAME,"Artifact"
+ITEM_ARTIFACT,"Your heart, brain, lungs, everything.\nNot to be lost ever."
+
+ITEM_JOURNAL_1_NAME,"""Faces of the Valley"""
+ITEM_JOURNAL_1,A catalog of species and people. Read it in the Pause menu!
+ITEM_JOURNAL_2_NAME,"Echo's Journal"
+ITEM_JOURNAL_2,A diary from the past few years. Best read at Home.
+ITEM_JOURNAL_3_NAME,"Aged Journal"
+ITEM_JOURNAL_3,An old diary of the past few centuries. Best read at Home.
+
+ITEM_SWORD_BLADE_NAME,"Legend Sword (Blade)"
+ITEM_SWORD_HILT_NAME,"Legend Sword (Hilt)"
+ITEM_SWORD_BLADE,Blade of a broken sword. Increases attack damage. Badass
+ITEM_SWORD_HILT,Hilt of a broken sword. Increases attack range. Neato
+
+ITEM_MUSH_NAME,"Mycelium Map"
+ITEM_MUSH,Parasite that shows everything on the map. Questionable.
+ITEM_MUSH_MEAN_NAME,"Mush-Meal"
+ITEM_MUSH_MEAL,Mushroom food. Thankfully you have no sense of smell.
+ITEM_MUSH_IN_MEAL_NAME,"Mush-Meal (Occupied)"
+ITEM_MUSH_IN_MEAL,Happiest Sporecap. Shows everything on the map. Friend?
+
+ITEM_PYRITE_NAME,"Pyrite"
+ITEM_MAX_PYRITE_NAME,"Excessive Pyrite"
+ITEM_PYRITE,Utterly useless metal.\n\nYou have %d.
+ITEM_MAX_PYRITE,Why did you do this.\n\nYou have 500.
+
+ITEM_POISON_NAME,"Poisoned Soup"
+ITEM_POISON,Attempted murder meal. Gives corrosive fireballs instead.
+
+ITEM_CRUSHED_CLAW_NAME,"Crushed Claw"
+ITEM_CRUSHED_CLAW,The hand that feeds was bit. Increases attack damage.
+
+ITEM_INJECTOR_NAME,Portal Injector
+ITEM_INJECTOR_XL_NAME,Portal Injector XL
+ITEM_INJECTOR,Allows opening portals w/ a Portal Core. A sleek design.
+ITEM_INJECTOR_XL,Allows opening portals wide enough for your fat ass
 
 
 #New text engine
