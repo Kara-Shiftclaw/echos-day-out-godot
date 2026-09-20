@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsvmwudnsp4i1"]
+[gd_scene format=3 uid="uid://dsvmwudnsp4i1"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_om6o4"]
 [ext_resource type="Script" uid="uid://b7kuffkgvhs27" path="res://menu/scripts/accessibility_menu.gd" id="2_bf0ra"]
 [ext_resource type="PackedScene" uid="uid://8fy5ki5h86ek" path="res://menu/pause/augment_ability_select.tscn" id="3_bf0ra"]
 
-[node name="Accessibility" type="Control"]
+[node name="Accessibility" type="Control" unique_id=2037658500]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 8.0
@@ -14,7 +14,7 @@ offset_bottom = 120.0
 theme = ExtResource("1_om6o4")
 script = ExtResource("2_bf0ra")
 
-[node name="ACC" type="MarginContainer" parent="."]
+[node name="ACC" type="MarginContainer" parent="." unique_id=1991848143]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,101 +27,101 @@ theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 1
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ACC"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ACC" unique_id=1387481567]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("Fireball")
 focus_next = NodePath("Fireball")
 theme_override_constants/separation = 1
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer"]
+[node name="Label" type="Label" parent="ACC/VBoxContainer" unique_id=1089287088]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
-text = "Augments"
+text = "MENU_AUGMENTS"
 horizontal_alignment = 1
 
-[node name="Fireball" type="HSplitContainer" parent="ACC/VBoxContainer"]
+[node name="Fireball" type="HSplitContainer" parent="ACC/VBoxContainer" unique_id=1725665899]
 layout_mode = 2
 dragging_enabled = false
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer/Fireball"]
+[node name="Label" type="Label" parent="ACC/VBoxContainer/Fireball" unique_id=191872149]
 layout_mode = 2
 theme_type_variation = &"DarkLabel"
-text = "Fireball"
+text = "UPGRADE_FIREBALL"
 
-[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Fireball" instance=ExtResource("3_bf0ra")]
+[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Fireball" unique_id=596457068 instance=ExtResource("3_bf0ra")]
 layout_mode = 2
 size_flags_horizontal = 8
 ability_path = "fireball"
 
-[node name="DoubleJump" type="HSplitContainer" parent="ACC/VBoxContainer"]
+[node name="DoubleJump" type="HSplitContainer" parent="ACC/VBoxContainer" unique_id=1747159598]
 layout_mode = 2
 dragging_enabled = false
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer/DoubleJump"]
+[node name="Label" type="Label" parent="ACC/VBoxContainer/DoubleJump" unique_id=1773710846]
 layout_mode = 2
 theme_type_variation = &"DarkLabel"
-text = "Double Jump"
+text = "UPGRADE_DOUBLE_JUMP"
 
-[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/DoubleJump" instance=ExtResource("3_bf0ra")]
+[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/DoubleJump" unique_id=958771282 instance=ExtResource("3_bf0ra")]
 layout_mode = 2
 size_flags_horizontal = 8
 ability_path = "double_jump"
 
-[node name="Sprint" type="HSplitContainer" parent="ACC/VBoxContainer"]
+[node name="Sprint" type="HSplitContainer" parent="ACC/VBoxContainer" unique_id=1247365134]
 layout_mode = 2
 dragging_enabled = false
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer/Sprint"]
+[node name="Label" type="Label" parent="ACC/VBoxContainer/Sprint" unique_id=445324305]
 layout_mode = 2
 theme_type_variation = &"DarkLabel"
-text = "Sprint"
+text = "UPGRADE_SPRINT"
 
-[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Sprint" instance=ExtResource("3_bf0ra")]
+[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Sprint" unique_id=613923174 instance=ExtResource("3_bf0ra")]
 layout_mode = 2
 size_flags_horizontal = 8
 ability_path = "sprint"
 
-[node name="Crush" type="HSplitContainer" parent="ACC/VBoxContainer"]
+[node name="Crush" type="HSplitContainer" parent="ACC/VBoxContainer" unique_id=1242227745]
 layout_mode = 2
 dragging_enabled = false
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer/Crush"]
+[node name="Label" type="Label" parent="ACC/VBoxContainer/Crush" unique_id=1891539142]
 layout_mode = 2
 theme_type_variation = &"DarkLabel"
-text = "Crush"
+text = "UPGRADE_CRUSH"
 
-[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Crush" instance=ExtResource("3_bf0ra")]
+[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Crush" unique_id=1001814185 instance=ExtResource("3_bf0ra")]
 layout_mode = 2
 size_flags_horizontal = 8
 ability_path = "crush"
 
-[node name="MaxHealthDesc" type="Label" parent="ACC/VBoxContainer"]
+[node name="MaxHealthDesc" type="Label" parent="ACC/VBoxContainer" unique_id=738490537]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
-text = "Max Health Offset"
+text = "AUGMENTS_MAX_HEALTH_OFFSET"
 
-[node name="MaxHealth" type="HSplitContainer" parent="ACC/VBoxContainer"]
+[node name="MaxHealth" type="HSplitContainer" parent="ACC/VBoxContainer" unique_id=442961118]
 layout_mode = 2
 dragging_enabled = false
 dragger_visibility = 2
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer/MaxHealth"]
+[node name="Label" type="Label" parent="ACC/VBoxContainer/MaxHealth" unique_id=1028264219]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "+00"
 
-[node name="HSlider" type="HSlider" parent="ACC/VBoxContainer/MaxHealth"]
+[node name="HSlider" type="HSlider" parent="ACC/VBoxContainer/MaxHealth" unique_id=461877122]
 layout_mode = 2
 min_value = -14.0
 max_value = 15.0
 
-[node name="Smol" type="CheckBox" parent="ACC/VBoxContainer"]
+[node name="Smol" type="CheckBox" parent="ACC/VBoxContainer" unique_id=571239414]
 layout_mode = 2
-text = "Become Smol"
+text = "AUGMENTS_BECOME_SMOL"
 
-[node name="DebugPowers" type="CheckBox" parent="ACC/VBoxContainer"]
+[node name="DebugPowers" type="CheckBox" parent="ACC/VBoxContainer" unique_id=465472957]
 layout_mode = 2
-text = "Debug Powers"
+text = "AUGMENTS_DEBUG"
 
 [connection signal="value_changed" from="ACC/VBoxContainer/MaxHealth/HSlider" to="." method="max_hp_offset_changed"]
 [connection signal="pressed" from="ACC/VBoxContainer/Smol" to="." method="smol_pressed"]

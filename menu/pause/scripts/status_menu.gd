@@ -2,30 +2,26 @@ extends Control
 
 const Weight := Global.Weight
 const WEIGHT_NAMES := {
-	Weight.Thin: "Average",
-	Weight.Fat: "Fat",
-	Weight.Obese: "Tubby",
-	Weight.MorObese: "Obese",
-	Weight.Blob: "BLOB",
+	Weight.Thin: "STATUS_WEIGHT_THIN",
+	Weight.Fat: "STATUS_WEIGHT_FAT",
+	Weight.Obese: "STATUS_WEIGHT_OBESE",
+	Weight.MorObese: "STATUS_WEIGHT_MOROBESE",
+	Weight.Blob: "STATUS_WEIGHT_BLOB",
 }
-const SMOL_NAME := "Shrunken"
-const WEIGHT_FORMAT := "Weight:\n{0}"
-const FOOD_FORMAT := "{0} ({1}/8)"
-const HEALTH_UP_FORMAT := "{0}/6"
-const PORTAL_CORE_FORMAT := "{0} ({1}/6)"
+const SMOL_NAME := "STATUS_WEIGHT_SMOL"
 const NO_ABILITY_TEXT := "???"
 
 func _ready() -> void:
 	if Global.is_smol:
 		$Sprite2D.frame = 5
-		$OtherStatuses/Weight.text = WEIGHT_FORMAT.format([SMOL_NAME])
-		$MajorUpgrades/Fireball.text = "BONK"
-		$MajorUpgrades/DoubleJump.text = "HIGH JUMP"
-		$MajorUpgrades/Sprint.text = "SPRINT"
-		$MajorUpgrades/Crush.text = "SQUEEZE"
+		$OtherStatuses/Weight.text = tr("STATUS_WEIGHT") + tr("STATUS_WEIGHT_SMOL")
+		$MajorUpgrades/Fireball.text = "SMOL_UP_BONK_CAPS"
+		$MajorUpgrades/DoubleJump.text = "SMOL_UP_HIGH_JUMP_CAPS"
+		$MajorUpgrades/Sprint.text = "UPGRADE_SPRINT_CAPS"
+		$MajorUpgrades/Crush.text = "SMOL_UP_SQUEEZE_CAPS"
 	else:
 		$Sprite2D.frame = Global.weight as int
-		$OtherStatuses/Weight.text = WEIGHT_FORMAT.format([WEIGHT_NAMES[Global.weight]])
+		$OtherStatuses/Weight.text = tr("STATUS_WEIGHT") + WEIGHT_NAMES[Global.weight]
 	
 		maybe_disable($MajorUpgrades/Fireball, Global.has_fireball) 
 		maybe_disable($MajorUpgrades/DoubleJump, Global.has_double_jump)
@@ -43,7 +39,7 @@ func _input(event: InputEvent) -> void:
 
 func set_description(upgrade: Button) -> void:
 	if upgrade.disabled:
-		$OtherStatuses/Description.text = "UPGRADE NOT FOUND"
+		$OtherStatuses/Description.text = "UPGRADE_DESC_NOT_FOUND"
 		$OtherStatuses/FlavorText.text = ""
 	elif Global.is_smol:
 		$OtherStatuses/Description.text = upgrade.smol_description

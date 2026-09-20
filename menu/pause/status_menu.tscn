@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://f3mqixlhlmu"]
+[gd_scene format=3 uid="uid://f3mqixlhlmu"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_en44j"]
 [ext_resource type="Texture2D" uid="uid://bnopsqhhksiom" path="res://assets/gfx/status_echo.png" id="1_hhk6g"]
 [ext_resource type="Script" uid="uid://c4xgxi3dcnpwi" path="res://menu/pause/scripts/status_menu.gd" id="2_ttxs1"]
 [ext_resource type="Script" uid="uid://ckujnbg58y1su" path="res://menu/pause/scripts/status_description.gd" id="4_1jnkh"]
 
-[node name="StatusMenu" type="Control"]
+[node name="StatusMenu" type="Control" unique_id=471553017]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 8.0
@@ -17,13 +17,13 @@ grow_vertical = 2
 theme = ExtResource("1_en44j")
 script = ExtResource("2_ttxs1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=392083370]
 z_index = 1
 position = Vector2(88, 69)
 texture = ExtResource("1_hhk6g")
 hframes = 6
 
-[node name="MajorUpgrades" type="VBoxContainer" parent="."]
+[node name="MajorUpgrades" type="VBoxContainer" parent="." unique_id=1721786770]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -31,56 +31,43 @@ offset_bottom = 36.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 
-[node name="Fireball" type="Button" parent="MajorUpgrades"]
+[node name="Fireball" type="Button" parent="MajorUpgrades" unique_id=1845410961]
 layout_mode = 2
-text = "FIREBALL"
+text = "UPGRADE_FIREBALL_CAPS"
 script = ExtResource("4_1jnkh")
-description = "FIREBALL
-Press X in midair to fire!"
-flavor = "Flavor:Melted Ice Cream"
-smol_description = "BONK
-Press X for midair dash!"
-smol_flavor = "Flavor: Concussion"
+description = "UPGRADE_DESC_FIREBALL"
+flavor = "UPGRADE_FLAVOR_FIREBALL"
+smol_description = "UPGRADE_DESC_BONK"
+smol_flavor = "UPGRADE_FLAVOR_BONK"
 
-[node name="DoubleJump" type="Button" parent="MajorUpgrades"]
+[node name="DoubleJump" type="Button" parent="MajorUpgrades" unique_id=1877102634]
 layout_mode = 2
-text = "DOUBLE JUMP"
+text = "UPGRADE_DOUBLE_JUMP_CAPS"
 script = ExtResource("4_1jnkh")
-description = "DOUBLE JUMP
-Jump again in midair w/ Z!"
-flavor = "Flavor:Wrong
-Minerals"
-smol_description = "HIGH JUMP
-Jump really high!"
-smol_flavor = "Flavor:Fresh
-air"
+description = "UPGRADE_DESC_DOUBLE_JUMP"
+flavor = "UPGRADE_FLAVOR_DOUBLE_JUMP"
+smol_description = "UPGRADE_DESC_HIGH_JUMP"
+smol_flavor = "UPGRADE_FLAVOR_HIGH_JUMP"
 
-[node name="Sprint" type="Button" parent="MajorUpgrades"]
+[node name="Sprint" type="Button" parent="MajorUpgrades" unique_id=127455041]
 layout_mode = 2
-text = "SPRINT"
+text = "UPGRADE_SPRINT_CAPS"
 script = ExtResource("4_1jnkh")
-description = "SPRINT
-Hold Shift to move faster!"
-flavor = "Flavor:
-Snowman Guts"
-smol_description = "SPRINT
-Still hold Shift to run!"
-smol_flavor = "Flavor:
-Dehydration"
+description = "UPGRADE_DESC_SPRINT"
+flavor = "UPGRADE_FLAVOR_SPRINT"
+smol_description = "UPGRADE_DESC_SMOL_SPRINT"
+smol_flavor = "UPGRADE_FLAVOR_SMOL_SPRINT"
 
-[node name="Crush" type="Button" parent="MajorUpgrades"]
+[node name="Crush" type="Button" parent="MajorUpgrades" unique_id=1364866452]
 layout_mode = 2
-text = "CRUSH"
+text = "UPGRADE_CRUSH_CAPS"
 script = ExtResource("4_1jnkh")
-description = "CRUSH
-Press Down to
-slam ground!"
-flavor = "Flavor:Honey and Cheese"
-smol_description = "SQUEEZE
-Fit in small gaps!"
-smol_flavor = "Flavor:Haha small"
+description = "UPGRADE_DESC_CRUSH"
+flavor = "UPGRADE_FLAVOR_CRUSH"
+smol_description = "UPGRADE_DESC_SQUEEZE"
+smol_flavor = "UPGRADE_FLAVOR_SQUEEZE"
 
-[node name="OtherStatuses" type="VBoxContainer" parent="."]
+[node name="OtherStatuses" type="VBoxContainer" parent="." unique_id=363111972]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 2.0
@@ -89,20 +76,20 @@ offset_right = 70.0
 offset_bottom = 101.0
 theme_override_constants/separation = 5
 
-[node name="Weight" type="Label" parent="OtherStatuses"]
+[node name="Weight" type="Label" parent="OtherStatuses" unique_id=2140080891]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "Weight:
 Thin"
 
-[node name="Description" type="Label" parent="OtherStatuses"]
+[node name="Description" type="Label" parent="OtherStatuses" unique_id=1809520431]
 custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
-text = "SELECT AN ABILITY"
+text = "UPGRADE_DESC_SELECT"
 autowrap_mode = 2
 
-[node name="FlavorText" type="Label" parent="OtherStatuses"]
+[node name="FlavorText" type="Label" parent="OtherStatuses" unique_id=97611756]
 custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
