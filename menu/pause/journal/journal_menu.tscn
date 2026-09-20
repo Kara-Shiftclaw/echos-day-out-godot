@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj6gbqw7p5dh6"]
+[gd_scene format=3 uid="uid://dj6gbqw7p5dh6"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_84tiq"]
 [ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_eaky5"]
@@ -16,7 +16,7 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 region_rect = Rect2(26, 0, 17, 17)
 
-[node name="JournalMenu" type="Panel"]
+[node name="JournalMenu" type="Panel" unique_id=490559541]
 offset_left = 8.0
 offset_top = 21.0
 offset_right = 120.0
@@ -25,7 +25,7 @@ theme = ExtResource("1_84tiq")
 theme_override_styles/panel = SubResource("StyleBoxTexture_rtkn1")
 script = ExtResource("3_3c57c")
 
-[node name="Menu" type="ScrollContainer" parent="."]
+[node name="Menu" type="ScrollContainer" parent="." unique_id=1145545207]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -34,17 +34,17 @@ follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=929392632]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 1
 
-[node name="Label" type="Label" parent="Menu/VBoxContainer"]
+[node name="Label" type="Label" parent="Menu/VBoxContainer" unique_id=1492735522]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
 text = "- Faces of the Valley -"
 
-[node name="EntryContainer" type="Control" parent="."]
+[node name="EntryContainer" type="Control" parent="." unique_id=2039592212]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

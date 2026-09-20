@@ -44,72 +44,7 @@ var menu_node: VBoxContainer
 var cur_entry := ENTRY_NOT_OPEN
 
 func get_entry_name(entry: Entry) -> String:
-	match entry:
-		Entry.journalist:
-			return "Maxwell Flinthelm II"
-		Entry.artifact:
-			return "Artifact of Echo"
-		Entry.affamae:
-			return "Affamae"
-		Entry.scare_dragon:
-			return "Scaredrake"
-		Entry.hedgehog:
-			return "Hedgehog"
-		Entry.wolf:
-			return "Hefthire Wolf"
-		Entry.crow:
-			return "Corvid Pawn"
-		Entry.corvid_rook:
-			return "Corvid Rook"
-		Entry.fatbat:
-			return "Fat Bat"
-		Entry.spike_hedgehog:
-			return "Spike-hog"
-		Entry.small_lizard:
-			return "Geckito"
-		Entry.big_lizard:
-			return "Geckordo"
-		Entry.mongoose:
-			return "- Edgar -"
-		Entry.standard_mushroom:
-			return "Sporecap"
-		Entry.lil_mushroom:
-			return "Sporeling"
-		Entry.sporemother:
-			return "Sporemother"
-		Entry.spider:
-			return "Spider"
-		Entry.olhm:
-			return "Olhm"
-		Entry.bramble_ball:
-			return "Bramble-Ball"
-		Entry.snail:
-			return "Snail"
-		Entry.crab:
-			return "Clobber Crab"
-		Entry.flutterfish:
-			return "Flutterfish"
-		Entry.small_plants:
-			return "Chromatic Buds"
-		Entry.big_plants:
-			return "Chromatic Flora"
-		Entry.sonia:
-			return "- Sonia -"
-		Entry.daniel:
-			return "Daniel"
-		Entry.beeorb:
-			return "Orbee"
-		Entry.immobile_beeorb:
-			return "Orbee <Immobile>"
-		Entry.bee_cannon:
-			return "Wasp-Cannon"
-		Entry.kara:
-			return "Kara"
-		Entry.sword_spirit:
-			return "Spirit of the Sword"
-		Entry.hugehog:
-			return "Huge-hog"
-	return "UNKNOWN"
+	return tr("JOURNAL_" + Entry.find_key(entry).to_upper() + "_NAME")
 
 func _ready() -> void:
 	menu_node = $Menu/VBoxContainer
