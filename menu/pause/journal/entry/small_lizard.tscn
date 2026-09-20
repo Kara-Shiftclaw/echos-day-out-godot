@@ -67,7 +67,7 @@ offset_top = 35.0
 offset_right = 103.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
-text = "Geckito"
+text = "JOURNAL_SMALL_LIZARD_NAME"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
@@ -77,5 +77,5 @@ offset_top = 46.0
 offset_right = 112.0
 offset_bottom = 329.0
 theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
-text = "Anxious lizards who don't stray far from their resting grounds. The fires on their back keep them warm away from sunlight."
+text = "JOURNAL_SMALL_LIZARD_DESC"
 autowrap_mode = 2

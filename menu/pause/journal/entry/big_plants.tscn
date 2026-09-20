@@ -60,7 +60,7 @@ offset_top = 35.0
 offset_right = 103.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
-text = "Chromatic Flora"
+text = "JOURNAL_BIG_PLANTS_NAME"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
@@ -70,5 +70,5 @@ offset_top = 46.0
 offset_right = 112.0
 offset_bottom = 329.0
 theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
-text = "Three plants that have populated these caves for centuries. Even among flowers, it seems mass equals power in this valley."
+text = "JOURNAL_BIG_PLANTS_DESC"
 autowrap_mode = 2
