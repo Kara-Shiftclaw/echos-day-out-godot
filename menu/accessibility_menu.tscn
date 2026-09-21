@@ -15,6 +15,8 @@ theme = ExtResource("1_om6o4")
 script = ExtResource("2_bf0ra")
 
 [node name="ACC" type="MarginContainer" parent="." unique_id=1991848143]
+custom_minimum_size = Vector2(108, 98)
+custom_maximum_size = Vector2(108, 98)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,102 +29,129 @@ theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 1
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ACC" unique_id=1387481567]
+[node name="ScrollContainer" type="ScrollContainer" parent="ACC" unique_id=2097244074]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ACC/ScrollContainer" unique_id=1387481567]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("Fireball")
 focus_next = NodePath("Fireball")
 theme_override_constants/separation = 1
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer" unique_id=1089287088]
+[node name="Label" type="Label" parent="ACC/ScrollContainer/VBoxContainer" unique_id=1089287088]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "MENU_AUGMENTS"
 horizontal_alignment = 1
 
-[node name="Fireball" type="HSplitContainer" parent="ACC/VBoxContainer" unique_id=1725665899]
+[node name="Fireball" type="HSplitContainer" parent="ACC/ScrollContainer/VBoxContainer" unique_id=1725665899]
 layout_mode = 2
 dragging_enabled = false
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer/Fireball" unique_id=191872149]
+[node name="Label" type="Label" parent="ACC/ScrollContainer/VBoxContainer/Fireball" unique_id=191872149]
 layout_mode = 2
 theme_type_variation = &"DarkLabel"
 text = "UPGRADE_FIREBALL"
 
-[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Fireball" unique_id=596457068 instance=ExtResource("3_bf0ra")]
+[node name="AugmentAbilitySelect" parent="ACC/ScrollContainer/VBoxContainer/Fireball" unique_id=596457068 instance=ExtResource("3_bf0ra")]
 layout_mode = 2
 size_flags_horizontal = 8
 ability_path = "fireball"
 
-[node name="DoubleJump" type="HSplitContainer" parent="ACC/VBoxContainer" unique_id=1747159598]
+[node name="DoubleJump" type="HSplitContainer" parent="ACC/ScrollContainer/VBoxContainer" unique_id=1747159598]
 layout_mode = 2
 dragging_enabled = false
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer/DoubleJump" unique_id=1773710846]
+[node name="Label" type="Label" parent="ACC/ScrollContainer/VBoxContainer/DoubleJump" unique_id=1773710846]
 layout_mode = 2
 theme_type_variation = &"DarkLabel"
 text = "UPGRADE_DOUBLE_JUMP"
 
-[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/DoubleJump" unique_id=958771282 instance=ExtResource("3_bf0ra")]
+[node name="AugmentAbilitySelect" parent="ACC/ScrollContainer/VBoxContainer/DoubleJump" unique_id=958771282 instance=ExtResource("3_bf0ra")]
 layout_mode = 2
 size_flags_horizontal = 8
 ability_path = "double_jump"
 
-[node name="Sprint" type="HSplitContainer" parent="ACC/VBoxContainer" unique_id=1247365134]
+[node name="Sprint" type="HSplitContainer" parent="ACC/ScrollContainer/VBoxContainer" unique_id=1247365134]
 layout_mode = 2
 dragging_enabled = false
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer/Sprint" unique_id=445324305]
+[node name="Label" type="Label" parent="ACC/ScrollContainer/VBoxContainer/Sprint" unique_id=445324305]
 layout_mode = 2
 theme_type_variation = &"DarkLabel"
 text = "UPGRADE_SPRINT"
 
-[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Sprint" unique_id=613923174 instance=ExtResource("3_bf0ra")]
+[node name="AugmentAbilitySelect" parent="ACC/ScrollContainer/VBoxContainer/Sprint" unique_id=613923174 instance=ExtResource("3_bf0ra")]
 layout_mode = 2
 size_flags_horizontal = 8
 ability_path = "sprint"
 
-[node name="Crush" type="HSplitContainer" parent="ACC/VBoxContainer" unique_id=1242227745]
+[node name="Crush" type="HSplitContainer" parent="ACC/ScrollContainer/VBoxContainer" unique_id=1242227745]
 layout_mode = 2
 dragging_enabled = false
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer/Crush" unique_id=1891539142]
+[node name="Label" type="Label" parent="ACC/ScrollContainer/VBoxContainer/Crush" unique_id=1891539142]
 layout_mode = 2
 theme_type_variation = &"DarkLabel"
 text = "UPGRADE_CRUSH"
 
-[node name="AugmentAbilitySelect" parent="ACC/VBoxContainer/Crush" unique_id=1001814185 instance=ExtResource("3_bf0ra")]
+[node name="AugmentAbilitySelect" parent="ACC/ScrollContainer/VBoxContainer/Crush" unique_id=1001814185 instance=ExtResource("3_bf0ra")]
 layout_mode = 2
 size_flags_horizontal = 8
 ability_path = "crush"
 
-[node name="MaxHealthDesc" type="Label" parent="ACC/VBoxContainer" unique_id=738490537]
+[node name="MaxHealthDesc" type="Label" parent="ACC/ScrollContainer/VBoxContainer" unique_id=738490537]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "AUGMENTS_MAX_HEALTH_OFFSET"
 
-[node name="MaxHealth" type="HSplitContainer" parent="ACC/VBoxContainer" unique_id=442961118]
+[node name="MaxHealth" type="HSplitContainer" parent="ACC/ScrollContainer/VBoxContainer" unique_id=442961118]
 layout_mode = 2
+split_offsets = PackedInt32Array(14)
 dragging_enabled = false
 dragger_visibility = 2
+split_offset = 14
 
-[node name="Label" type="Label" parent="ACC/VBoxContainer/MaxHealth" unique_id=1028264219]
+[node name="Label" type="Label" parent="ACC/ScrollContainer/VBoxContainer/MaxHealth" unique_id=1028264219]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "+00"
 
-[node name="HSlider" type="HSlider" parent="ACC/VBoxContainer/MaxHealth" unique_id=461877122]
+[node name="HSlider" type="HSlider" parent="ACC/ScrollContainer/VBoxContainer/MaxHealth" unique_id=461877122]
 layout_mode = 2
 min_value = -14.0
 max_value = 15.0
 
-[node name="Smol" type="CheckBox" parent="ACC/VBoxContainer" unique_id=571239414]
+[node name="EnergyDesc" type="Label" parent="ACC/ScrollContainer/VBoxContainer" unique_id=1932955285]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+text = "AUGMENTS_ENERGY_STRENGTH"
+
+[node name="Energy" type="HSplitContainer" parent="ACC/ScrollContainer/VBoxContainer" unique_id=2109625907]
+layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 2
+
+[node name="Label" type="Label" parent="ACC/ScrollContainer/VBoxContainer/Energy" unique_id=177277594]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+text = " +3 "
+
+[node name="HSlider" type="HSlider" parent="ACC/ScrollContainer/VBoxContainer/Energy" unique_id=2089315362]
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+value = 3.0
+
+[node name="Smol" type="CheckBox" parent="ACC/ScrollContainer/VBoxContainer" unique_id=571239414]
 layout_mode = 2
 text = "AUGMENTS_BECOME_SMOL"
 
-[node name="DebugPowers" type="CheckBox" parent="ACC/VBoxContainer" unique_id=465472957]
+[node name="DebugPowers" type="CheckBox" parent="ACC/ScrollContainer/VBoxContainer" unique_id=465472957]
 layout_mode = 2
 text = "AUGMENTS_DEBUG"
 
-[connection signal="value_changed" from="ACC/VBoxContainer/MaxHealth/HSlider" to="." method="max_hp_offset_changed"]
-[connection signal="pressed" from="ACC/VBoxContainer/Smol" to="." method="smol_pressed"]
-[connection signal="pressed" from="ACC/VBoxContainer/DebugPowers" to="." method="debug_powers_pressed"]
+[connection signal="value_changed" from="ACC/ScrollContainer/VBoxContainer/MaxHealth/HSlider" to="." method="max_hp_offset_changed"]
+[connection signal="value_changed" from="ACC/ScrollContainer/VBoxContainer/Energy/HSlider" to="." method="energy_strength_changed"]
+[connection signal="pressed" from="ACC/ScrollContainer/VBoxContainer/Smol" to="." method="smol_pressed"]
+[connection signal="pressed" from="ACC/ScrollContainer/VBoxContainer/DebugPowers" to="." method="debug_powers_pressed"]

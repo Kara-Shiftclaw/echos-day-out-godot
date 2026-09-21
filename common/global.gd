@@ -310,12 +310,13 @@ func portal_to_new_stage(dest_name: String):
 func full_respawn():
 	get_tree().change_scene_to_file(last_save_stage)
 	get_tree().scene_changed.connect(func():
+		recalculate_max_hp()
+		restore_health()
 		print(get_tree().current_scene.is_node_ready())
 		var save_point := get_node(last_save_path)
 		echo.global_position = save_point.global_position
 		echo.play_anim("idle")
 		camera.recalculate_chunk()
-		health_bar.recalculate_health_bar(max_health)
 		
 		var transition := Echo.DeathScreen.instantiate()
 		camera.add_child(transition)
@@ -323,7 +324,7 @@ func full_respawn():
 	, ConnectFlags.CONNECT_ONE_SHOT)
 
 func restore_health():
-	health = max_health
+	self.health = max_health
 
 func grant_abilities(
 		grant_fireball: bool, 
@@ -364,7 +365,7 @@ func recalculate_weight() -> void:
 		echo.play_anim("idle")
 
 func recalculate_max_hp() -> void:
-	var gained_hp := flags.get("health_up_collected", 0) as int * 3
+	var gained_hp := flags.get("health_up_collected", 0) as int * Accessibility.energy_strength
 	max_health = clampf(STARTING_MAX_HEALTH + gained_hp + Accessibility.max_hp_offset, 1, 999)
 
 func max_health_mush_adjusted() -> float:

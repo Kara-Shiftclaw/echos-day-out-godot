@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://btmasjlcjnook"]
+[gd_scene format=3 uid="uid://btmasjlcjnook"]
 
 [ext_resource type="Script" uid="uid://cindr3jb0e7nq" path="res://objects/scripts/health_up.gd" id="1_0vnqo"]
 [ext_resource type="PackedScene" uid="uid://db3eeohmu8tk0" path="res://common/flicker.tscn" id="2_7e5uh"]
@@ -179,30 +179,28 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.53107345, 0.8079096)
 colors = PackedColorArray(1, 1, 1, 1, 0.6, 0.6509804, 0.9098039, 1, 0.46666667, 0.40392157, 0.7607843, 1)
 
-[node name="HealthUp" type="Area2D"]
+[node name="HealthUp" type="Area2D" unique_id=1015379981]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_0vnqo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=378714107]
 shape = SubResource("RectangleShape2D_5nx56")
 
-[node name="Flicker" parent="." instance=ExtResource("2_7e5uh")]
+[node name="Flicker" parent="." unique_id=1837391634 instance=ExtResource("2_7e5uh")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=56382261]
 material = ExtResource("3_jvinw")
 instance_shader_parameters/strength = 0
 texture = ExtResource("3_0vnqo")
 hframes = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_7i8bg")
-}
-autoplay = "bob"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=445952355]
+libraries/ = SubResource("AnimationLibrary_7i8bg")
+autoplay = &"bob"
 next/gift = &"bob"
 
-[node name="HurtParticles" type="CPUParticles2D" parent="."]
+[node name="HurtParticles" type="CPUParticles2D" parent="." unique_id=1160461807]
 z_index = 10
 emitting = false
 texture = ExtResource("4_7e5uh")

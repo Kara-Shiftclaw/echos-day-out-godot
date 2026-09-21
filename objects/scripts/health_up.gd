@@ -24,7 +24,7 @@ func do_health_up_get():
 		Global.flags[HEALTH_UP_COLLECTED_FLAG] += 1
 	else:
 		Global.flags[HEALTH_UP_COLLECTED_FLAG] = 1
-	Global.max_health += 3
+	Global.max_health += Accessibility.energy_strength
 	
 	var upgrade_get_popup: TextBoxView = UpgradeGetScene.instantiate()
 	Global.camera.add_child(upgrade_get_popup)
