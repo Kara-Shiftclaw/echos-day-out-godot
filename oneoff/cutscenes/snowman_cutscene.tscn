@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b58628jc5c4th"]
+[gd_scene format=3 uid="uid://b58628jc5c4th"]
 
 [ext_resource type="Script" uid="uid://csnvcknrm48y8" path="res://oneoff/cutscenes/scripts/snowman_cutscene.gd" id="1_35x5r"]
 [ext_resource type="Texture2D" uid="uid://dvwwluabgqpce" path="res://assets/gfx/snowman.png" id="1_bv2pm"]
@@ -208,6 +208,18 @@ tracks/15/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath(".:shader_strength")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_6h58m"]
 resource_name = "casual_toss"
@@ -365,6 +377,18 @@ tracks/6/keys = {
 "args": [],
 "method": &"start"
 }]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:shader_strength")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.4, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 3.0]
 }
 
 [sub_resource type="Animation" id="Animation_mp1wh"]
@@ -620,6 +644,18 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:shader_strength")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.0, 3.0, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_pdhcw"]
 resource_name = "yoink"
@@ -685,22 +721,22 @@ _data = {
 &"yoink": SubResource("Animation_pdhcw")
 }
 
-[node name="SnowmanCutscene" type="Node2D"]
+[node name="SnowmanCutscene" type="Node2D" unique_id=1656986868]
 script = ExtResource("1_35x5r")
 
-[node name="Snowman" type="Sprite2D" parent="."]
+[node name="Snowman" type="Sprite2D" parent="." unique_id=668743444]
 position = Vector2(5, -9)
 texture = ExtResource("1_bv2pm")
 hframes = 9
 
-[node name="Artifact" type="Sprite2D" parent="Snowman"]
+[node name="Artifact" type="Sprite2D" parent="Snowman" unique_id=112160705]
 visible = false
 position = Vector2(2, 1)
 texture = ExtResource("1_bv2pm")
 region_enabled = true
 region_rect = Rect2(225, 8, 4, 4)
 
-[node name="Arm" type="Sprite2D" parent="Snowman"]
+[node name="Arm" type="Sprite2D" parent="Snowman" unique_id=678149279]
 visible = false
 position = Vector2(0, 4)
 texture = ExtResource("1_bv2pm")
@@ -708,28 +744,29 @@ hframes = 3
 region_enabled = true
 region_rect = Rect2(225, 0, 24, 8)
 
-[node name="AnimSmear" type="Sprite2D" parent="."]
+[node name="AnimSmear" type="Sprite2D" parent="." unique_id=581348194]
 visible = false
 position = Vector2(35, -5)
 texture = ExtResource("1_bv2pm")
 region_enabled = true
 region_rect = Rect2(225, 14, 26, 6)
 
-[node name="Trigger" type="Area2D" parent="."]
+[node name="Trigger" type="Area2D" parent="." unique_id=1307142755]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger" unique_id=443253136]
 position = Vector2(8, -8)
 shape = SubResource("RectangleShape2D_bv2pm")
 
-[node name="EchoStopPos" type="Node2D" parent="."]
+[node name="EchoStopPos" type="Node2D" parent="." unique_id=657420446]
 position = Vector2(64, -9)
 
-[node name="EchoWalkBackPos" type="Node2D" parent="."]
+[node name="EchoWalkBackPos" type="Node2D" parent="." unique_id=1515445007]
 position = Vector2(48, 0)
 
-[node name="EchoDies" type="Sprite2D" parent="."]
+[node name="EchoDies" type="Sprite2D" parent="." unique_id=218641253]
+process_mode = 3
 visible = false
 position = Vector2(40, 0)
 texture = ExtResource("3_2k0ow")
@@ -738,57 +775,55 @@ hframes = 8
 region_enabled = true
 region_rect = Rect2(0, 0, 192, 20)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=845448059]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_6h58m")
-}
+libraries/ = SubResource("AnimationLibrary_6h58m")
 next/reveal_nimbus = &"casual_toss"
 
-[node name="Dialogue" type="Node" parent="."]
+[node name="Dialogue" type="Node" parent="." unique_id=1521517417]
 
-[node name="Taunt1" parent="Dialogue" instance=ExtResource("4_pdhcw")]
+[node name="Taunt1" parent="Dialogue" unique_id=1299519621 instance=ExtResource("4_pdhcw")]
 
-[node name="StandardTextBox" parent="Dialogue/Taunt1" instance=ExtResource("5_y0cys")]
+[node name="StandardTextBox" parent="Dialogue/Taunt1" unique_id=1656341143 instance=ExtResource("5_y0cys")]
 text = "NIMBUS_SPEECH_1"
 
-[node name="Taunt2" parent="Dialogue" instance=ExtResource("4_pdhcw")]
+[node name="Taunt2" parent="Dialogue" unique_id=602340080 instance=ExtResource("4_pdhcw")]
 
-[node name="StandardTextBox" parent="Dialogue/Taunt2" instance=ExtResource("5_y0cys")]
+[node name="StandardTextBox" parent="Dialogue/Taunt2" unique_id=170012836 instance=ExtResource("5_y0cys")]
 text = "NIMBUS_SPEECH_2"
 
-[node name="StandardTextBox2" parent="Dialogue/Taunt2" instance=ExtResource("5_y0cys")]
+[node name="StandardTextBox2" parent="Dialogue/Taunt2" unique_id=1222030596 instance=ExtResource("5_y0cys")]
 text = "NIMBUS_SPEECH_3"
 
-[node name="StandardTextBox3" parent="Dialogue/Taunt2" instance=ExtResource("5_y0cys")]
+[node name="StandardTextBox3" parent="Dialogue/Taunt2" unique_id=210727360 instance=ExtResource("5_y0cys")]
 text = "NIMBUS_SPEECH_4"
 
-[node name="StandardTextBox4" parent="Dialogue/Taunt2" instance=ExtResource("5_y0cys")]
+[node name="StandardTextBox4" parent="Dialogue/Taunt2" unique_id=1040446561 instance=ExtResource("5_y0cys")]
 text = "NIMBUS_SPEECH_5"
 
-[node name="DeathExp1" type="AudioStreamPlayer" parent="."]
+[node name="DeathExp1" type="AudioStreamPlayer" parent="." unique_id=2076838134]
 process_mode = 3
 stream = ExtResource("6_y0cys")
 volume_db = 8.0
 bus = &"Sfx"
 
-[node name="Snowfall" type="AudioStreamPlayer" parent="."]
+[node name="Snowfall" type="AudioStreamPlayer" parent="." unique_id=1225881468]
 process_mode = 3
 stream = ExtResource("7_nlhyi")
 bus = &"Sfx"
 
-[node name="Artifact" type="AudioStreamPlayer" parent="."]
+[node name="Artifact" type="AudioStreamPlayer" parent="." unique_id=1001032108]
 process_mode = 3
 stream = ExtResource("8_mp1wh")
 volume_db = 2.0
 bus = &"Sfx"
 
-[node name="FadingAway" type="AudioStreamPlayer" parent="."]
+[node name="FadingAway" type="AudioStreamPlayer" parent="." unique_id=185056707]
 process_mode = 3
 stream = ExtResource("7_7400n")
 bus = &"Music"
 
-[node name="CutsceneBars" parent="." instance=ExtResource("7_2dbv1")]
+[node name="CutsceneBars" parent="." unique_id=523834573 instance=ExtResource("7_2dbv1")]
 process_mode = 3
 offset_left = -48.0
 offset_top = -72.0

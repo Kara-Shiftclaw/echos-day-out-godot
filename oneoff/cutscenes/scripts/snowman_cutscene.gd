@@ -4,6 +4,12 @@ const SEEN_FLAG := "snowman_cutscene_seen"
 
 signal show_title()
 
+@export var shader_material: ShaderMaterial
+@export var shader_strength := 0.0:
+	set(value):
+		shader_strength = value
+		shader_material.set_shader_parameter("strength", value)
+
 func _ready() -> void:
 	if Global.flags.get(SEEN_FLAG, false):
 		queue_free()
@@ -11,10 +17,8 @@ func _ready() -> void:
 
 func triggered() -> void:
 	get_tree().paused = true
-	#var no_artifact_region_y := 0 if Global.weight <= Global.Weight.Fat \
-			#else 40 if Global.weight >= Global.Weight.MorObese else 20
-	var no_artifact_region_y := 0.
-	($EchoDies.region_rect as Rect2).position.y = no_artifact_region_y
+	var no_artifact_region_y := mini(20 * (Global.weight as int), 20 * 4)
+	$EchoDies.region_rect.position.y = no_artifact_region_y
 	
 	Global.flags.set(SEEN_FLAG, true)
 	var cutscene_walker := CutsceneWalker.instantiate()
