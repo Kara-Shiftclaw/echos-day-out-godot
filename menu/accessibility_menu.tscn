@@ -31,8 +31,11 @@ metadata/_tab_index = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ACC" unique_id=2097244074]
 layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ACC/ScrollContainer" unique_id=1387481567]
+custom_maximum_size = Vector2(100, -1)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("Fireball")
 focus_next = NodePath("Fireball")
@@ -104,6 +107,7 @@ ability_path = "crush"
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "AUGMENTS_MAX_HEALTH_OFFSET"
+autowrap_mode = 2
 
 [node name="MaxHealth" type="HSplitContainer" parent="ACC/ScrollContainer/VBoxContainer" unique_id=442961118]
 layout_mode = 2
@@ -126,6 +130,7 @@ max_value = 15.0
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "AUGMENTS_ENERGY_STRENGTH"
+autowrap_mode = 2
 
 [node name="Energy" type="HSplitContainer" parent="ACC/ScrollContainer/VBoxContainer" unique_id=2109625907]
 layout_mode = 2

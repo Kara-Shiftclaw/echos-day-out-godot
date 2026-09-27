@@ -21,7 +21,7 @@ func _ready() -> void:
 		$MajorUpgrades/Crush.text = "SMOL_UP_SQUEEZE_CAPS"
 	else:
 		$Sprite2D.frame = Global.weight as int
-		$OtherStatuses/Weight.text = tr("STATUS_WEIGHT") + WEIGHT_NAMES[Global.weight]
+		$OtherStatuses/Weight.text = tr("STATUS_WEIGHT") + tr(WEIGHT_NAMES[Global.weight])
 	
 		maybe_disable($MajorUpgrades/Fireball, Global.has_fireball) 
 		maybe_disable($MajorUpgrades/DoubleJump, Global.has_double_jump)

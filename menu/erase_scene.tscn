@@ -352,12 +352,12 @@ horizontal_alignment = 1
 [node name="No" type="Button" parent="VBoxContainer" unique_id=1350197919]
 visible = false
 layout_mode = 2
-text = "No"
+text = "NO"
 
 [node name="Yes" type="Button" parent="VBoxContainer" unique_id=1562384414]
 visible = false
 layout_mode = 2
-text = "Yes"
+text = "YES"
 
 [node name="DeathExp2" type="AudioStreamPlayer" parent="." unique_id=871554196]
 stream = ExtResource("1_ukl76")
@@ -378,8 +378,8 @@ bus = &"Sfx"
 position = Vector2(64, 64)
 zoom = Vector2(4, 4)
 
-[connection signal="pressed" from="VBoxContainer/No" to="." method="release_focus"]
 [connection signal="pressed" from="VBoxContainer/No" to="." method="return_to_title_screen"]
-[connection signal="pressed" from="VBoxContainer/Yes" to="." method="release_focus"]
+[connection signal="pressed" from="VBoxContainer/No" to="." method="release_focus"]
 [connection signal="pressed" from="VBoxContainer/Yes" to="." method="erase_save"]
+[connection signal="pressed" from="VBoxContainer/Yes" to="." method="release_focus"]
 [connection signal="pressed" from="VBoxContainer/Yes" to="AnimationPlayer" method="play" binds= [&"bruh"]]

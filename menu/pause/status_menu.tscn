@@ -84,6 +84,7 @@ Thin"
 
 [node name="Description" type="Label" parent="OtherStatuses" unique_id=1809520431]
 custom_minimum_size = Vector2(68, 0)
+custom_maximum_size = Vector2(68, -1)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 text = "UPGRADE_DESC_SELECT"
@@ -91,6 +92,7 @@ autowrap_mode = 2
 
 [node name="FlavorText" type="Label" parent="OtherStatuses" unique_id=97611756]
 custom_minimum_size = Vector2(68, 0)
+custom_maximum_size = Vector2(68, -1)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 autowrap_mode = 2
