@@ -117,6 +117,13 @@ func close_saved_games() -> void:
 	, ConnectFlags.CONNECT_ONE_SHOT)
 	$Options/VBoxContainer/Start.call_deferred("grab_focus")
 
+func open_language_select() -> void:
+	$AnimationPlayer.play("language_select")
+
+func set_language(locale: String) -> void:
+	TranslationServer.set_locale(locale)
+	$AnimationPlayer.play("close_language_select")
+
 func quick_load(save_id: int) -> void:
 	print("Quick load!")
 	last_save_id = save_id

@@ -5,6 +5,7 @@ NO,"No",No
 
 ANTI_SOFTLOCK,"Not implemented yet. Deploying anti-softlock.",Aún no implementado. Desplegando anti-softlock.
 LATIN_SUPPLEMENT_TEST,"¡¿ÁÉÍÑÓÚáéíñóú"
+LANGUAGE_SELECT,ENGLISH,ESPAÑOL
 
 
 #Text  present on images that'll need to be translated,"(These ones might not be necessary, since it's not a common practice in Spanish translations to translate assets or game titles)"

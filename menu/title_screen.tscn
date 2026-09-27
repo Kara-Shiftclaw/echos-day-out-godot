@@ -6,9 +6,14 @@
 [ext_resource type="AudioStream" uid="uid://co6wvp4ndh4iv" path="res://assets/music/Pixelin-It-Around-Town.ogg" id="2_88gnj"]
 [ext_resource type="Texture2D" uid="uid://c5wwe7c20hfl0" path="res://assets/gfx/ident.png" id="3_o0rbc"]
 [ext_resource type="Texture2D" uid="uid://bas5t6auv7wrh" path="res://assets/gfx/title_logo.png" id="4_w1y3c"]
+[ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="6_e3gr8"]
 [ext_resource type="PackedScene" uid="uid://b8chs2bkmuh5e" path="res://menu/credits.tscn" id="6_lnerq"]
 [ext_resource type="AudioStream" uid="uid://b7uuj2my7pwh2" path="res://assets/sfx/enemy_die.wav" id="8_sby7u"]
 [ext_resource type="AudioStream" uid="uid://c4a6u6dya08yv" path="res://assets/sfx/flower.mp3" id="9_e3gr8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i56ig"]
+atlas = ExtResource("6_e3gr8")
+region = Rect2(36, 36, 8, 8)
 
 [sub_resource type="Animation" id="Animation_w1y3c"]
 length = 0.001
@@ -55,6 +60,18 @@ tracks/3/path = NodePath("Options/UnderSaves:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Options/LanguageSelect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -116,6 +133,35 @@ tracks/3/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_d81vp"]
+resource_name = "close_language_select"
+length = 0.39999999999999997
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Options:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-56, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Options/LanguageSelect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_lnerq"]
 resource_name = "close_load_menu"
 length = 0.4
@@ -143,6 +189,76 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_q5w0x"]
+resource_name = "language_select"
+length = 0.39999999999999997
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Options:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-56, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Options/LanguageSelect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jbxsj"]
+resource_name = "language_select_to_load_menu"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Options:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-56, 0), Vector2(0, 95)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Options/UnderSaves:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Options/LanguageSelect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_7vnhg"]
@@ -272,7 +388,10 @@ tracks/3/keys = {
 _data = {
 &"RESET": SubResource("Animation_w1y3c"),
 &"begin": SubResource("Animation_88gnj"),
+&"close_language_select": SubResource("Animation_d81vp"),
 &"close_load_menu": SubResource("Animation_lnerq"),
+&"language_select": SubResource("Animation_q5w0x"),
+&"language_select_to_load_menu": SubResource("Animation_jbxsj"),
 &"load_menu": SubResource("Animation_7vnhg"),
 &"post_copy": SubResource("Animation_e3gr8"),
 &"quick_load": SubResource("Animation_sby7u")
@@ -323,7 +442,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 72.0
 offset_right = 199.99997
-offset_bottom = 96.000046
+offset_bottom = 96.00009
+theme = ExtResource("2_1hn3b")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=320411133]
 layout_mode = 1
@@ -339,34 +459,8 @@ theme_override_constants/separation = 2
 layout_mode = 2
 texture = ExtResource("4_w1y3c")
 
-[node name="Continue" type="Button" parent="Options/VBoxContainer" unique_id=1048848078]
-visible = false
-layout_mode = 2
-focus_neighbor_top = NodePath("../Credits")
-focus_neighbor_bottom = NodePath("../New Game")
-focus_next = NodePath("../New Game")
-focus_previous = NodePath("../Credits")
-accessibility_name = "Continue"
-accessibility_description = "This continues an existing save game."
-theme = ExtResource("2_1hn3b")
-text = "CONTINUE"
-
-[node name="New Game" type="Button" parent="Options/VBoxContainer" unique_id=723781357]
-visible = false
-layout_mode = 2
-focus_neighbor_top = NodePath("../Continue")
-focus_neighbor_bottom = NodePath("../Options")
-focus_next = NodePath("../Options")
-focus_previous = NodePath("../Continue")
-accessibility_name = "New Game"
-accessibility_description = "This starts a new game, overriding the save data."
-theme = ExtResource("2_1hn3b")
-text = "NEW GAME"
-
 [node name="Start" type="Button" parent="Options/VBoxContainer" unique_id=380006500]
 layout_mode = 2
-focus_neighbor_top = NodePath("../New Game")
-focus_previous = NodePath("../New Game")
 accessibility_name = "Options"
 accessibility_description = "This displays options for audio and accessibility."
 theme = ExtResource("2_1hn3b")
@@ -385,6 +479,11 @@ accessibility_name = "Options"
 accessibility_description = "This displays options for audio and accessibility."
 theme = ExtResource("2_1hn3b")
 text = "MENU_CREDITS"
+
+[node name="OpenLanguageSelect" type="Button" parent="Options/VBoxContainer" unique_id=641582405]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = SubResource("AtlasTexture_i56ig")
 
 [node name="UnderSaves" type="HBoxContainer" parent="Options" unique_id=691858899]
 visible = false
@@ -430,6 +529,24 @@ offset_right = 127.0
 offset_bottom = -11.0
 theme_override_constants/separation = 2
 
+[node name="LanguageSelect" type="VBoxContainer" parent="Options" unique_id=860536158]
+visible = false
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 0
+offset_left = 130.0
+offset_top = 34.0
+offset_right = 184.0
+offset_bottom = 74.0
+theme_override_constants/separation = 2
+
+[node name="English" type="Button" parent="Options/LanguageSelect" unique_id=1303154085]
+layout_mode = 2
+text = "ENGLISH"
+
+[node name="Spanish" type="Button" parent="Options/LanguageSelect" unique_id=548062121]
+layout_mode = 2
+text = "ESPAÑOL"
+
 [node name="Credits" parent="." unique_id=1645350712 instance=ExtResource("6_lnerq")]
 visible = false
 grow_horizontal = 1
@@ -460,8 +577,9 @@ offset_bottom = 28.0
 theme = ExtResource("2_1hn3b")
 text = "LATIN_SUPPLEMENT_TEST"
 
-[connection signal="pressed" from="Options/VBoxContainer/Continue" to="." method="continue_game"]
-[connection signal="pressed" from="Options/VBoxContainer/New Game" to="." method="new_game"]
 [connection signal="pressed" from="Options/VBoxContainer/Start" to="." method="open_saved_games"]
 [connection signal="pressed" from="Options/VBoxContainer/Options" to="." method="open_options_menu"]
 [connection signal="pressed" from="Options/VBoxContainer/Credits" to="." method="show_credits"]
+[connection signal="pressed" from="Options/VBoxContainer/OpenLanguageSelect" to="." method="open_language_select"]
+[connection signal="pressed" from="Options/LanguageSelect/English" to="." method="set_language" binds= [&"en_us"]]
+[connection signal="pressed" from="Options/LanguageSelect/Spanish" to="." method="set_language" binds= [&"es_sp"]]
