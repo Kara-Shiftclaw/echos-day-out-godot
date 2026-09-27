@@ -1888,9 +1888,6 @@ position = Vector2(0, -12)
 [node name="StandardTextBox" parent="Objects/TutorialSign2/TextTree" unique_id=1777492933 instance=ExtResource("32_k4qsy")]
 text = "SONIA_REFIGHT_SIGN_1"
 
-[node name="StandardTextBox2" parent="Objects/TutorialSign2/TextTree" unique_id=1273085064 instance=ExtResource("32_k4qsy")]
-text = "SONIA_REFIGHT_SIGN_2"
-
 [node name="StandardTextBox3" parent="Objects/TutorialSign2/TextTree" unique_id=1895393336 instance=ExtResource("32_k4qsy")]
 text = "SONIA_REFIGHT_SIGN_3"
 

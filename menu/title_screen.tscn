@@ -452,6 +452,14 @@ stream = ExtResource("9_e3gr8")
 volume_db = 2.0
 bus = &"Sfx"
 
+[node name="Label" type="Label" parent="." unique_id=32702892]
+offset_left = 262.0
+offset_top = 5.0
+offset_right = 374.0
+offset_bottom = 28.0
+theme = ExtResource("2_1hn3b")
+text = "LATIN_SUPPLEMENT_TEST"
+
 [connection signal="pressed" from="Options/VBoxContainer/Continue" to="." method="continue_game"]
 [connection signal="pressed" from="Options/VBoxContainer/New Game" to="." method="new_game"]
 [connection signal="pressed" from="Options/VBoxContainer/Start" to="." method="open_saved_games"]

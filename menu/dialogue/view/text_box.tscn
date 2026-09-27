@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_n1ic4"]
 [ext_resource type="Script" uid="uid://vdkkkqd3kh4b" path="res://menu/dialogue/view/scripts/text_box.gd" id="3_ifptj"]
 [ext_resource type="AudioStream" uid="uid://uclwdd1web11" path="res://assets/sfx/dialogue_blip.wav" id="4_ifptj"]
+[ext_resource type="Texture2D" uid="uid://6icbyhey3kpu" path="res://assets/gfx/text_arrow.png" id="5_vdxhg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifptj"]
 texture = ExtResource("2_n1ic4")
@@ -13,18 +14,147 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(21, 0, 5, 5)
 
-[node name="TextBox" type="Panel" unique_id=569193635]
+[sub_resource type="Animation" id="Animation_nwtad"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v681x"]
+resource_name = "next_ready"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5707963267948966]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.70000005, 0.8, 0.90000004, 1),
+"transitions": PackedFloat32Array(1, 0.5, 2, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ld6k5"]
+resource_name = "scroll_ready"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.70000005, 0.8, 0.90000004, 1),
+"transitions": PackedFloat32Array(1, 0.5, 2, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tl7t3"]
+_data = {
+&"RESET": SubResource("Animation_nwtad"),
+&"next_ready": SubResource("Animation_v681x"),
+&"scroll_ready": SubResource("Animation_ld6k5")
+}
+
+[node name="TextBox" type="Panel" unique_id=569193635 node_paths=PackedStringArray("label")]
 process_mode = 3
 z_index = 110
 offset_right = 128.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_bottom = 36.0
+size_flags_vertical = 3
 theme = ExtResource("1_8c1cq")
 theme_override_styles/panel = SubResource("StyleBoxTexture_ifptj")
 script = ExtResource("3_ifptj")
+label = NodePath("ScrollContainer/LabelHolder/Label")
+box_visible_size = 30
 
-[node name="Label" type="Label" parent="." unique_id=1189305797]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=284161301]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -35,11 +165,40 @@ offset_right = -3.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="LabelHolder" type="VBoxContainer" parent="ScrollContainer" unique_id=818036645]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/LabelHolder" unique_id=1189305797]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
 autowrap_mode = 3
 visible_characters = 0
 visible_characters_behavior = 1
+visible_ratio = 0.0
+
+[node name="Spacer" type="Control" parent="ScrollContainer/LabelHolder" unique_id=2020853240]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
 
 [node name="DialogueBlip" type="AudioStreamPlayer" parent="." unique_id=1137291512]
 stream = ExtResource("4_ifptj")
 volume_db = -2.0
 bus = &"Sfx"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1324553743]
+visible = false
+position = Vector2(123, 39)
+texture = ExtResource("5_vdxhg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1446924263]
+libraries/ = SubResource("AnimationLibrary_tl7t3")
+
+[connection signal="scroll_continue" from="." to="AnimationPlayer" method="play" binds= [&"RESET"]]
+[connection signal="scroll_finished" from="." to="AnimationPlayer" method="play" binds= [&"next_ready"]]
+[connection signal="scroll_ready" from="." to="AnimationPlayer" method="play" binds= [&"scroll_ready"]]

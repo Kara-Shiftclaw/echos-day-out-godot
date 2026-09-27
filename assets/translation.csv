@@ -1,730 +1,734 @@
-key,en_us
+﻿key,en_us,es_sp
 
-YES,"Yes"
-NO,"No"
+YES,"Yes",Si
+NO,"No",No
 
-ANTI_SOFTLOCK,"Not implemented yet. Deploying anti-softlock."
-
-
-#Text present on images that'll need to be translated
-IMG_KEEP_AWAY,"KEEP AWAY"
-IMG_DAED,"DAED."
-IMG_TITLE,"ECHO'S DAY OUT"
+ANTI_SOFTLOCK,"Not implemented yet. Deploying anti-softlock.",Aún no implementado. Desplegando anti-softlock.
+LATIN_SUPPLEMENT_TEST,"¡¿ÁÉÍÑÓÚáéíñóú"
 
 
-MENU_START,"START"
-MENU_OPTIONS,"OPTIONS"
-MENU_CREDITS,"CREDITS"
-MENU_COPY,"Copy"
-MENU_ERASE,"ERASE!!"
-MENU_DEMO,"DEMO"
-MENU_FILE,"File"
-MENU_INVENTORY,"Inventory"
-MENU_AUGMENTS,"Augments"
-
-CREDITS_CREATED_BY,"Game Created By"
-CREDITS_ENGINE,"(Using Godot 4)"
-CREDITS_GRAPHICS,"Graphics"
-CREDITS_ASEPRITE,"(Made w/ Aseprite)"
-CREDITS_SFX,"SFX"
-CREDITS_DAW,"(Made with too many things, check out LMMS)"
-CREDITS_SFX_SAMPLE,"Some SFX Sampled From"
-CREDITS_OSAMU_SATO,"""Deme Kume Chame-Go"" by Osamu Sato"
-CREDITS_MUSIC,"Music"
-CREDITS_ERIC,"All by Eric Matyas\n soundimage.org"
-CREDITS_FRIENDS,"Special thanks to Nox & Laz for enabling my obese dragon game hyperfixation"
-CREDITS_TRANSLATION,"Translation"
-CREDITS_SPANISH,"Spanish Translation"
-CREDITS_ANTI_AI,"Support human artists"
-CREDITS_FUN_1,"Eat and get very fat"
-CREDITS_FUN_2,"Keep watching the skiis"
-CREDITS_FUN_3,"That's it ok goodbye"
-
-OPTIONS_MASTER_VOL,"Master Vol."
-OPTIONS_MUSIC_VOL,"Music Vol."
-OPTIONS_SFX_VOL,"Sfx Vol."
-OPTIONS_QUIT,"Quit to Menu"
-OPTIONS_REALLY_QUIT,"Progress won't be saved!\nReally Quit?"
-
-UPGRADE_FIREBALL,"Fireball"
-UPGRADE_DOUBLE_JUMP,"Double Jump"
-UPGRADE_SPRINT,"Sprint"
-UPGRADE_CRUSH,"Crush"
-UPGRADE_FIREBALL_CAPS,"FIREBALL"
-UPGRADE_DOUBLE_JUMP_CAPS,"DOUBLE JUMP"
-UPGRADE_SPRINT_CAPS,"SPRINT"
-UPGRADE_CRUSH_CAPS,"CRUSH"
-UPGRADE_SIPHON_CAPS,"SIPHON"
-SMOL_UP_BONK_CAPS,"BONK"
-SMOL_UP_HIGH_JUMP_CAPS,"HIGH JUMP"
-SMOL_UP_SQUEEZE_CAPS,"SQUEEZE"
-
-STATUS_WEIGHT,"Weight: \n"
-STATUS_WEIGHT_THIN,"Average"
-STATUS_WEIGHT_FAT,"Fat"
-STATUS_WEIGHT_OBESE,"Tubby"
-STATUS_WEIGHT_MOROBESE,"Obese"
-STATUS_WEIGHT_BLOB,"BLOB"
-STATUS_WEIGHT_SMOL,"Shrunken"
-
-UPGRADE_DESC_SELECT,"SELECT AN ABILITY"
-UPGRADE_DESC_NOT_FOUND,"UPGRADE NOT FOUND"
-UPGRADE_DESC_FIREBALL,"FIREBALL\nPress X in\nmidair to fire!"
-UPGRADE_DESC_DOUBLE_JUMP,"DOUBLE JUMP\nJump again in midair w/ Z!"
-UPGRADE_DESC_SPRINT,"SPRINT\nHold Shift to move faster!"
-UPGRADE_DESC_CRUSH,"CRUSH\nPress Down to\nslam ground!"
-UPGRADE_DESC_BONK,"BONK\nPress X for midair dash!"
-UPGRADE_DESC_HIGH_JUMP,"HIGH JUMP\nJump really high!"
-UPGRADE_DESC_SMOL_SPRINT,"SPRINT\nStill hold Shift to run!"
-UPGRADE_DESC_SQUEEZE,"SQUEEZE\nFit in small gaps!"
-
-# Space after the column is kinda arbitrary based on how well text fits, dw about it
-UPGRADE_FLAVOR_FIREBALL,"Flavor:Melted\nIce Cream"
-UPGRADE_FLAVOR_DOUBLE_JUMP,"Flavor: Stupid\nMole's Gold"
-UPGRADE_FLAVOR_SPRINT,"Flavor:\nSnowman Guts"
-UPGRADE_FLAVOR_CRUSH,"Flavor: Honey \nand Cheese"
-UPGRADE_FLAVOR_BONK,"Flavor: Concussion"
-UPGRADE_FLAVOR_HIGH_JUMP,"Flavor:Fresh\nAir"
-UPGRADE_FLAVOR_SMOL_SPRINT,"Flavor: Dehydration"
-UPGRADE_FLAVOR_SQUEEZE,"Flavor:Haha small"
-
-AUGMENTS_MAX_HEALTH_OFFSET,"Max Health Offset"
-AUGMENTS_ENERGY_STRENGTH,"Energy Health Offset"
-AUGMENTS_FIREBALL_HEAL,"Heal From Fireball"
-AUGMENTS_HEALTH_DRAIN,"Health Drain"
-AUGMENTS_ENEMIES_SPICY,"Extra Enemies (Spicy)"
-AUGMENTS_ENEMIES_SWEET,"Extra Enemies (Sweet)"
-AUGMENTS_ENEMIES_SAVORY,"Extra Enemies (Savory)"
-AUGMENTS_BECOME_SMOL,"Become Smol"
-AUGMENTS_DEBUG,"Debug Powers"
-
-SILLY_MENU_ERASE,"ERASE HER ??"
-SILLY_MENU_CANT_COPY,"No profiles to copy to !!\nCan't copy that floppy !!"
-SILLY_MENU_GO_BACK,"Go Back"
+#Text  present on images that'll need to be translated,"(These ones might not be necessary, since it's not a common practice in Spanish translations to translate assets or game titles)"
+IMG_KEEP_AWAY,"KEEP AWAY",NO ACERCARSE
+IMG_DAED,"DAED.",MERTO.
+IMG_TITLE,"ECHO'S DAY OUT","LA ESCAPADA DE ECHO (""EL DÍA LIBRE DE ECHO"" is also a viable option)"
 
 
-SAVE_POINT,"SAVED!"
+MENU_START,"START",COMENZAR
+MENU_OPTIONS,"OPTIONS",OPCIONES
+MENU_CREDITS,"CREDITS",CRÉDITOS
+MENU_COPY,"Copy",Copiar
+MENU_ERASE,"ERASE!!",¡¡BORRAR!!
+MENU_DEMO,"DEMO",DEMO
+MENU_FILE,"File",Archivo
+MENU_INVENTORY,"Inventory",Inventario
+MENU_AUGMENTS,"Augments",Mejoras
 
-REGION_NAME_MT_ECHO,"Mt. Echo"
-REGION_NAME_HEFTWIND_HILLS,"Heftwind Hills"
-REGION_NAME_CHARRED_CAVERN,"Charred Cavern"
-REGION_NAME_SPOREWAYS,"The Sporeways"
-REGION_NAME_VERDANT_CAVERN,"Verdant Cavern"
-REGION_NAME_PYRITE_PLUNGE,"Pyrite Plunge"
-REGION_NAME_DISPHOTIC_DEPTHS,"Disphotic Depths"
-REGION_NAME_TREETOP_EXPANSE,"Treetop Expanse"
-REGION_NAME_THIEVES_ROAD,"Thieves' Road"
-REGION_NAME_BILLOWING_HEIGHTS,"Billowing Heights"
-REGION_NAME_GREYMARKET,"Greymarket"
-REGION_NAME_CRATER,"The Crater"
-REGION_NAME_BRAMBLE,"The Bramble"
-REGION_NAME_HOME,"Home"
+CREDITS_CREATED_BY,"Game Created By",Juego creado por
+CREDITS_ENGINE,"(Using Godot 4)",(Usando Godot 4)
+CREDITS_GRAPHICS,"Graphics",Gráficos
+CREDITS_ASEPRITE,"(Made w/ Aseprite)",(Hechos con Aseprite)
+CREDITS_SFX,"SFX",Effectos de Sonido
+CREDITS_DAW,"(Made with too many things, check out LMMS)","(Hecho a partir de demasiadas cosas, busca LMMS)"
+CREDITS_SFX_SAMPLE,"Some SFX Sampled From",Algunos Sonidos Tomados de
+CREDITS_OSAMU_SATO,"""Deme Kume Chame-Go"" by Osamu Sato","""Deme Kume Chame-Go"" hecho por Osamu Sato"
+CREDITS_MUSIC,"Music",Música
+CREDITS_ERIC,"All by Eric Matyas\n soundimage.org",Toda Hecha por Eric Matyas\n soundimage.org
+CREDITS_FRIENDS,"Special thanks to Nox & Laz for enabling my obese dragon game hyperfixation",Agradecimiento especial a Nox & Laz por fomentar mi hiperfijación con hacer un juego de una dragona obesa
+CREDITS_TRANSLATION,"Translation",Traducción
+CREDITS_SPANISH,"Spanish Translation",Traducción Española
+CREDITS_ANTI_AI,"Support human artists",Apoya a artistas humanos
+CREDITS_FUN_1,"Eat and get very fat",Come y vuélvete muy gordo
+CREDITS_FUN_2,"Keep watching the skiis",Sigan mirando al ciego
+CREDITS_FUN_3,"That's it ok goodbye",Eso es todo ok chao
 
-REGION_TAG_MT_ECHO,"MT\nECHO"
-REGION_TAG_HEFTWIND_HILLS,"HEFTWIND\nHILLS"
-REGION_TAG_CHARRED_CAVERN,"CHARRED\nCAVERN"
-REGION_TAG_SPOREWAYS,"THE\nSPOREWAYS"
-REGION_TAG_VERDANT_CAVERN,"VERDANT\nCAVERN"
-REGION_TAG_PYRITE_PLUNGE,"PYRITE\nPLUNGE"
-REGION_TAG_DISPHOTIC_DEPTHS,"DISPHOTIC\nDEPTHS"
-REGION_TAG_TREETOP_EXPANSE,"TREETOP\nEXPANSE"
-REGION_TAG_THIEVES_ROAD,"THIEVES\nROAD"
-REGION_TAG_BILLOWING_HEIGHTS,"BILLOWING\nHEIGHTS"
-REGION_TAG_GREYMARKET,"GREYMARKET"
-REGION_TAG_CRATER,"THE\nCRATER"
-REGION_TAG_BRAMBLE,"THE\nBRAMBLE"
-REGION_TAG_HOME,"HOME"
+OPTIONS_MASTER_VOL,"Master Vol.",Vol. Principal
+OPTIONS_MUSIC_VOL,"Music Vol.",Vol. Música
+OPTIONS_SFX_VOL,"Sfx Vol.",Vol. Sonidos
+OPTIONS_QUIT,"Quit to Menu",Salir al Menú
+OPTIONS_REALLY_QUIT,"Progress won't be saved!\nReally Quit?",¡Tu progreso no se guardará!\n¿Salir Igualmente?
 
+UPGRADE_FIREBALL,"Fireball",Bola de Fuego
+UPGRADE_DOUBLE_JUMP,"Double Jump",Salto Doble
+UPGRADE_SPRINT,"Sprint",Esprint
+UPGRADE_CRUSH,"Crush",Aplaste
+UPGRADE_FIREBALL_CAPS,"FIREBALL",BOLA DE FUEGO
+UPGRADE_DOUBLE_JUMP_CAPS,"DOUBLE JUMP",SALTO DOBLE
+UPGRADE_SPRINT_CAPS,"SPRINT",ESPRINT
+UPGRADE_CRUSH_CAPS,"CRUSH",APLASTE
+UPGRADE_SIPHON_CAPS,"SIPHON",SIFÓN
+SMOL_UP_BONK_CAPS,"BONK",BONK
+SMOL_UP_HIGH_JUMP_CAPS,"HIGH JUMP",SALTO DE ALTURA
+SMOL_UP_SQUEEZE_CAPS,"SQUEEZE",APRETUJE
 
-# Old Text Engine 
-TUTORIAL_1,"Woe, if the horrid beaste ever do wake! Her size and power are unmatched!"
-TUTORIAL_2,"Rumor says, she can jump with Z!!"
-TUTORIAL_3,"Hark, the terrible beaste will be stopped here!"
-TUTORIAL_4,"Unless she learns to attack with X, these scare-drakes will subdue her!!"
-TUTORIAL_5,"Alas, not even a poor sense of direction can stop a beaste so foul!"
-TUTORIAL_6,"By pressing Esc, she has a map! She can go anywhere!!"
+STATUS_WEIGHT,"Weight: \n",Peso: \n
+STATUS_WEIGHT_THIN,"Average",Medio
+STATUS_WEIGHT_FAT,"Fat",Gorda
+STATUS_WEIGHT_OBESE,"Tubby",Regordeta
+STATUS_WEIGHT_MOROBESE,"Obese",Obesa
+STATUS_WEIGHT_BLOB,"BLOB",BLOB
+STATUS_WEIGHT_SMOL,"Shrunken",Empequeñecida
 
-CHARRED_CAVERN_CRIT_TUTORIAL,"In the dance of combat\nHear the bell's ring\nFeel rhythm in your claws\nAnd you will dance faster"
+UPGRADE_DESC_SELECT,"SELECT AN ABILITY",SELECCIONA UNA HABILIDAD
+UPGRADE_DESC_NOT_FOUND,"UPGRADE NOT FOUND",MEJORA NO ENCONTRADA
+UPGRADE_DESC_FIREBALL,"FIREBALL\nPress X in\nmidair to fire!",BOLA DE FUEGO\n¡Presiona X en el\naire para disparar!
+UPGRADE_DESC_DOUBLE_JUMP,"DOUBLE JUMP\nJump again in midair w/ Z!",SALTO DOBLE\n¡Salta de nuevo en el aire con Z!
+UPGRADE_DESC_SPRINT,"SPRINT\nHold Shift to move faster!",ESPRINT\n¡Mantén presionado Shift para ir mas rápido!
+UPGRADE_DESC_CRUSH,"CRUSH\nPress Down to\nslam ground!",APLASTE\n¡Presiona Abajo para\nchocar contra el suelo!
+UPGRADE_DESC_BONK,"BONK\nPress X for midair dash!",BONK\n¡Presiona X para realizar un dash aéreo!
+UPGRADE_DESC_HIGH_JUMP,"HIGH JUMP\nJump really high!",SALTO DE ALTURA\n¡Salta muy alto!
+UPGRADE_DESC_SMOL_SPRINT,"SPRINT\nStill hold Shift to run!",ESPRINT\n¡Sigue manteniendo presionado Shift para correr!
+UPGRADE_DESC_SQUEEZE,"SQUEEZE\nFit in small gaps!",APRETUJE\n¡Entra por orificios pequeños!
 
-FOOD_GET,"Got some Food! Perhaps someone will want to eat it?"
-HEALTH_UP_GET,"Got Draconic Energy! It desparately wishes to rejoin you... +3 Max HP!"
-INJECTOR_GET,"You got the Portal\nInjector! If you get a Core, you can open portals!"
-INJECTOR_XL_GET,"You got the Portal\nInjector XL! It feels several times heavier than before..."
-JOURNAL_GET,"Found a journal! The corner has been lightly chewed on..."
-MYCELIUM_MAP_GET,"You got a Mycelium\nMap!\n\nYou see it all.\nYou FEEL it all."
-PORTAL_CORE_GET,"Got a Portal Core! It's indescribable...\nMaybe you should find a portal?"
-SWORD_BLADE_GET,"You got the Sword\nof Legend's Blade!\nYour attacks will deal 50% more damage!"
-SWORD_HILT_GET,"You got the Sword\nof Legend's Hilt! Your attacks will reach further than\never before!"
+# Space after the column is kinda arbitrary based on how well text fits, dw about it (Okay! Yay!)
+UPGRADE_FLAVOR_FIREBALL,"Flavor:Melted\nIce Cream",Flavor: Helado/nDerretido
+UPGRADE_FLAVOR_DOUBLE_JUMP,"Flavor: Stupid\nMole's Gold",Flavor: Oro de una\nTopa Tonta
+UPGRADE_FLAVOR_SPRINT,"Flavor:\nSnowman Guts",Flavor: Tripas de un\nMuñeco de Nieve
+UPGRADE_FLAVOR_CRUSH,"Flavor: Honey \nand Cheese",Flavor: Miel y\nQueso
+UPGRADE_FLAVOR_BONK,"Flavor: Concussion",Flavor:\nTraumatismo Craneal
+UPGRADE_FLAVOR_HIGH_JUMP,"Flavor:Fresh\nAir",Flavor:Aire\nFresco
+UPGRADE_FLAVOR_SMOL_SPRINT,"Flavor: Dehydration",Flavor: Deshidratación
+UPGRADE_FLAVOR_SQUEEZE,"Flavor:Haha small",Flavor:Jaja pequeñín
 
-FIREBALL_GET,"You unlocked the Fireball! Press the Attack button in midair to fire!"
-DOUBLE_JUMP_GET,"You unlocked the Double Jump! You can now jump in midair, even without a flower!"
+AUGMENTS_MAX_HEALTH_OFFSET,"Max Health Offset",Intervalo de Salud Máxima
+AUGMENTS_ENERGY_STRENGTH,"Energy Health Offset",Intervalo de Salud de Energías
+AUGMENTS_FIREBALL_HEAL,"Heal From Fireball",Curación de Bola de Fuego
+AUGMENTS_HEALTH_DRAIN,"Health Drain",Robo de Salud
+AUGMENTS_ENEMIES_SPICY,"Extra Enemies (Spicy)",Enemigos Extra (Picante)
+AUGMENTS_ENEMIES_SWEET,"Extra Enemies (Sweet)",Enemigos Extra (Dulce)
+AUGMENTS_ENEMIES_SAVORY,"Extra Enemies (Savory)",Enemigos Extra (Salado)
+AUGMENTS_BECOME_SMOL,"Become Smol",Vuélvete chiquitín
+AUGMENTS_DEBUG,"Debug Powers",Poderes Debug
 
-
-AFFAMAE_INTRO_1,"I sense a great energy from you! You must be the ""monster"" I've heard of, Echo, yes?"
-AFFAMAE_INTRO_2,"It's nice to find another great beast. Though, your size is... less than I had heard."
-AFFAMAE_INTRO_3,"I've sensed strange energy around here, is that yours?"
-AFFAMAE_INTRO_4,"Ah, of course!  I could help you find it... for a price."
-AFFAMAE_INTRO_5,"Don't get me wrong, I'd love to help for free, but I am ~FAMISHED~."
-AFFAMAE_INTRO_6,"If you help me feed, perhaps I can tell you what I sense?"
-AFFAMAE_INTRO_MAX_1,"It's nice to find another great beast. Especially one of such great weight!"
-AFFAMAE_INTRO_MAX_2,"I'd love to join you in tubbiness, but my weight has been... diminished."
-AFFAMAE_INTRO_MAX_3,"It pains me to offer scraps in return, but perhaps you could help me feed?"
-
-AFFAMAE_MAIN_MENU,"How goes it, fellow beast?"
-AFFAMAE_OPT_ASK_FOR_HELP,"Ask For Help"
-AFFAMAE_OPT_GIVE_FOOD,"Give Food"
-AFFAMAE_OPT_LEAVE,"Talk later!"
-AFFAMAE_LEAVE,"See you around!"
-
-AFFAMAE_WEIGHT_1_1,"Ahahaa!!! I knew I could trust someone like you!"
-AFFAMAE_WEIGHT_1_2,"Oh! I've not introduced myself, have I?"
-AFFAMAE_WEIGHT_1_3,"My name is Affamae. I'm a traveller, of sorts."
-AFFAMAE_WEIGHT_1_4,"Back home, I'm well-known for my appetite. Perhaps... too well known."
-AFFAMAE_WEIGHT_1_5,"I've been looking for a better place to settle down, and this seems to fit nicely."
-AFFAMAE_WEIGHT_1_6,"The air is warm, the creatures are rotund, the food is delicious..."
-AFFAMAE_WEIGHT_1_7,"Speaking of, you wouldn't happen to have any more food for me, would you~?"
-
-AFFAMAE_WEIGHT_2_1,"More food! You truly are a miracle worker, Echo."
-AFFAMAE_WEIGHT_2_2,"My, another great meal! Thank you, fellow beast! I'm glad I never ate you."
-AFFAMAE_WEIGHT_2_3,"What?! I AM a monster, after all! Besides, I decided against it!"
-AFFAMAE_WEIGHT_2_4,"I do know your nature. A dragon made of pure energy."
-AFFAMAE_WEIGHT_2_5,"Each pound of blubber for you is a million Calories for me, at least~."
-AFFAMAE_WEIGHT_2_6,"If I had eaten you, I'd hit ten tons minimum~. Maybe more...~~ Completely immobile...~~"
-AFFAMAE_WEIGHT_2_7,"...It'd surely break this cliff & send me falling to my doom. Hence why I didn't."
-AFFAMAE_WEIGHT_2_8,"Besides, I'd never hurt a ~friend~! That preppy journalist, perhaps, but not you!"
-
-AFFAMAE_WEIGHT_3_1,"My, you sure know how to keep a beast well-fed!"
-AFFAMAE_WEIGHT_3_2,"Mhm... If I may, I'd like to clarify something."
-AFFAMAE_WEIGHT_3_3,"Much like you, my sensory powers are... weight-related."
-AFFAMAE_WEIGHT_3_4,"At my largest, I could pinpoint an energy signature 1000 miles away! Now, not quite."
-AFFAMAE_WEIGHT_3_5,"That's only my simplest power, as well. They used to call me the Blob of Terror back home."
-AFFAMAE_WEIGHT_3_6,"Who knows? Maybe I'll get fat enough to teleport again! It's only about a half-ton away."
-AFFAMAE_WEIGHT_3_7,"...It certainly seems to be getting closer and closer.~"
-AFFAMAE_WEIGHT_3_8,"Jokes aside, this food has been helping me feel more like myself. Thank you, Echo."
-
-AFFAMAE_WEIGHT_4_1,"Another meal? Your generosity knows no bounds!"
-AFFAMAE_WEIGHT_4_2,"Thank you for the meal! ...Though I do have a question."
-AFFAMAE_WEIGHT_4_3,"You are clearly great at keeping yourself fed. Yet I sense you've been bringing me all your food."
-AFFAMAE_WEIGHT_4_4,"Is there a reason you've not taken any for yourself?"
-AFFAMAE_EAT_OPT_NO_TASTE,"I have no sense of taste"
-AFFAMAE_EAT_OPT_FEEDER,"Get you as fat as I can~"
-AFFAMAE_NO_TASTE_1,"Wait, really? Tasting was one of your stolen powers? Or something even worse??"
-AFFAMAE_NO_TASTE_2,"I'm so sorry to hear that. I can hardly think of a fate so terrible."
-AFFAMAE_NO_TASTE_3,"...Even so, you should eat. I can't have you slimming down on me."
-AFFAMAE_FEEDER_1,"Wh-huh~??"
-AFFAMAE_FEEDER_2,"I mean, I appreciate the thoughts, truly~!"
-AFFAMAE_FEEDER_3,"However, I've always been one for mutual fattening~"
-AFFAMAE_WEIGHT_4_5,"Here, take some. We can share."
-AFFAMAE_WEIGHT_4_6,"Mhm, it tastes better eating with a friend~"
-AFFAMAE_WEIGHT_4_7,"If you do happen across any more, let me know. I'd love to share it with you."
-AFFAMAE_WEIGHT_5_1,"You're taking some too, right?"
-AFFAMAE_WEIGHT_5_2,"...Hrm. There's something that's been stuck in my mind."
-AFFAMAE_WEIGHT_5_3,"You've brought me so much food. And with that, I've been able to locate your powers."
-AFFAMAE_WEIGHT_5_4,"However, on the very edge of my senses, I swear I feel even more."
-AFFAMAE_WEIGHT_5_5,"Guess I need to keep eating until I can locate it proper, huh?"
-AFFAMAE_WEIGHT_5_6,"Hm... it's large. Leagues greater than what the others took."
-AFFAMAE_WEIGHT_5_7,"It's almost as if they're trying to hide it from me..."
-AFFAMAE_WEIGHT_5_8,"They must really want to keep it, huh?"
-
-AFFAMAE_HINT_EDGAR_1,"Now that you've helped me eat, it's only fair I help you!"
-AFFAMAE_HINT_EDGAR_2,"The first shard of your energy is close... yet far. Due east of here, in that burning cavern."
-AFFAMAE_HINT_EDGAR_3,"You'll need to enter from below to reach the thief, but he should pose little threat."
-AFFAMAE_HINT_EDGAR_4,"Let me mark his lair on the map."
-AFFAMAE_HINT_EDGAR_5,"I wish you luck, Echo! May you get to feast as well!"
-AFFAMAE_HINT_SONIA_1,"Your next shard of energy is underground. Also not far."
-AFFAMAE_HINT_SONIA_2,"However, the mole with your power seems to have dug a labrynth."
-AFFAMAE_HINT_SONIA_3,"You might need to dig down to dig back up, my friend... Good luck."
-AFFAMAE_HINT_SONIA_4,"Let me mark her lair on the map."
-AFFAMAE_HINT_SONIA_5,"Return to me stronger and softer, fellow beast!"
-AFFAMAE_HINT_NIMBUS_1,"This time, your thief has climbed up. Above your very own cave, in fact! How rude!"
-AFFAMAE_HINT_NIMBUS_2,"They appear to be a goat. No wonder they could climb at that size..."
-AFFAMAE_HINT_NIMBUS_3,"Your own weight may make the ascent dangerous. Tread carefully."
-AFFAMAE_HINT_NIMBUS_4,"Let me mark their lair on the map."
-AFFAMAE_HINT_NIMBUS_5,"Stay safe! Don't topple the forest with your weight!"
-AFFAMAE_HINT_CHARLE_1,"Your next shard is down. Deep, deep, deep, deep down..."
-AFFAMAE_HINT_CHARLE_2,"Good hell, how deep did they go?! Either your power is that good, or they are that heavy..."
-AFFAMAE_HINT_CHARLE_3,"...They aren't alone. This place makes my fur stand on end. It seems... wrong."
-AFFAMAE_HINT_CHARLE_4,"I guess... let me mark their lair on the map."
-AFFAMAE_HINT_CHARLE_5,"Don't die down there, Echo. The world needs blobs like us."
-AFFAMAE_NO_HINT_1,"I appreciate the meal, but I've no more help to give."
-AFFAMAE_NO_HINT_2,"Perhaps we can just... chat? One fat beast to another?"
+SILLY_MENU_ERASE,"ERASE HER ??",¿¿ BORRARLA ??
+SILLY_MENU_CANT_COPY,"No profiles to copy to !!\nCan't copy that floppy !!",¡¡ No hay archivos en donde copiar !!\n Esa copia no se toca !!
+SILLY_MENU_GO_BACK,"Go Back",Atrás
 
 
-EDGAR_TITLE,"EDGAR\nThe Mongoose Monarch"
-EDGAR_PRE_FIGHT_1,"Temperature up 8 degrees, magma production is booming, ice cream 20% tastier..."
-EDGAR_PRE_FIGHT_2,"That old magpie was right, this Draconic Energy has made me the greatest king ever!"
-EDGAR_PRE_FIGHT_3,"I'm so much better at this than Ch-"
-EDGAR_PRE_FIGHT_4,"OH MY GOD YOUR REAL??"
+SAVE_POINT,"SAVED!",¡GUARDADO!
+
+REGION_NAME_MT_ECHO,"Mt. Echo",Monte Echo
+REGION_NAME_HEFTWIND_HILLS,"Heftwind Hills",Colinas Ventadas
+REGION_NAME_CHARRED_CAVERN,"Charred Cavern",Caverna Carbón
+REGION_NAME_SPOREWAYS,"The Sporeways",La Senda Espora
+REGION_NAME_VERDANT_CAVERN,"Verdant Cavern",Caverna Verdosa
+REGION_NAME_PYRITE_PLUNGE,"Pyrite Plunge",Acantilado Pirita
+REGION_NAME_DISPHOTIC_DEPTHS,"Disphotic Depths",Profundidades Disfóticas
+REGION_NAME_TREETOP_EXPANSE,"Treetop Expanse",Vasta Copa
+REGION_NAME_THIEVES_ROAD,"Thieves' Road",La Vía de Ladrones
+REGION_NAME_BILLOWING_HEIGHTS,"Billowing Heights",Cumbres Ondulantes
+REGION_NAME_GREYMARKET,"Greymarket",Mercado Gris
+REGION_NAME_CRATER,"The Crater",El Cráter
+REGION_NAME_BRAMBLE,"The Bramble",El Zarzal
+REGION_NAME_HOME,"Home",Hogar
+
+REGION_TAG_MT_ECHO,"MT\nECHO",MONTE\nECHO
+REGION_TAG_HEFTWIND_HILLS,"HEFTWIND\nHILLS",COLINAS\nVENTADAS
+REGION_TAG_CHARRED_CAVERN,"CHARRED\nCAVERN",CAVERNA\nCARBÓN
+REGION_TAG_SPOREWAYS,"THE\nSPOREWAYS",LA SENDA\nESPORA
+REGION_TAG_VERDANT_CAVERN,"VERDANT\nCAVERN",CAVERNA\nVERDOSA
+REGION_TAG_PYRITE_PLUNGE,"PYRITE\nPLUNGE",ACANTILADO\nPIRITA
+REGION_TAG_DISPHOTIC_DEPTHS,"DISPHOTIC\nDEPTHS",PROFUNDIDADES\nDISFÓTICAS
+REGION_TAG_TREETOP_EXPANSE,"TREETOP\nEXPANSE",VASTA\nCOPA
+REGION_TAG_THIEVES_ROAD,"THIEVES\nROAD",LA VÍA DE\nLOS LADRONES
+REGION_TAG_BILLOWING_HEIGHTS,"BILLOWING\nHEIGHTS",CUMBRES\nONDULANTES
+REGION_TAG_GREYMARKET,"GREYMARKET",MERCADO\nGRIS
+REGION_TAG_CRATER,"THE\nCRATER",EL\nCRÁTER
+REGION_TAG_BRAMBLE,"THE\nBRAMBLE",EL\nZarzal
+REGION_TAG_HOME,"HOME",HOGAR
 
 
-KARA_INTRO_1,"Oh, uh...\n\nHi..."
-KARA_INTRO_2,"My name's Kara...\n\nI'm not supposed to be here..."
-KARA_INTRO_3,"Uh...\n\nYou know about Portals?"
-KARA_INTRO_4,"They're hard to get working. you need a Portal Core, and also an Injector for it."
-KARA_INTRO_5,"Here, you can have mine. I'm not going anywhere soon."
-KARA_INTRO_6,"There's a Portal and a Core down beneath us, if you want to try it out."
-KARA_INTRO_7,"I, uh, hope you enjoy..."
+# Old Text Engine ,
+TUTORIAL_1,"Woe, if the horrid beaste ever do wake! Her size and power are unmatched!","¡Pobre de nosotros si la horrible beastia algún día despierta! ¡Su tamaño y poder son incomparable!"
+TUTORIAL_2,"Rumor says, she can jump with Z!!","¡¡Rumores dicen que es capaz de saltar con Z!!"
+TUTORIAL_3,"Hark, the terrible beaste will be stopped here!","¡Oid mi palabra, la beastia aquí será detenida!"
+TUTORIAL_4,"Unless she learns to attack with X, these scare-drakes will subdue her!!","¡¡A menos que aprenda a atacar con X, estos espanta-dracos la someterán!!"
+TUTORIAL_5,"Alas, not even a poor sense of direction can stop a beaste so foul!","¡Ay que desgracia, si siquiera un mal sentido de la orientación puede someter a una Beastia tan vil!"
+TUTORIAL_6,"By pressing Esc, she has a map! She can go anywhere!!","¡Al presionar Esc, tiene acceso a un mapa! ¡¡Puede ir a cualquier lugar!!"
 
-KARA_RANDOM_1_1,"I hope it's okay if I stay in your world a bit. I like it here."
-KARA_RANDOM_1_2,"The cold wind from the trees with the hot air of the caves..."
-KARA_RANDOM_1_3,"It beats the snowy woods I grew up in, that's for sure."
-KARA_RANDOM_2_1,"I didn't think this world would be so big."
-KARA_RANDOM_2_2,"I don't mean fat, I knew it would be very fat, just..."
-KARA_RANDOM_2_3,"I was expecting a short diversion, but this wound up being so much more."
-KARA_RANDOM_2_4,"I can't say i'm upset. I'm enjoying myself."
-KARA_RANDOM_3_1,"Do you like these flowers? I brought them with me here."
-KARA_RANDOM_3_2,"They're a kind of nightshade. I call them ""Toxen Flowers."""
-KARA_RANDOM_3_3,"They can be deadly, but if nurtured well, they can be truly beautiful."
-KARA_RANDOM_3_4,"Maybe someday I can show you more of them."
+CHARRED_CAVERN_CRIT_TUTORIAL,"In the dance of combat\nHear the bell's ring\nFeel rhythm in your claws\nAnd you will dance faster",En la coreografía que es el combate\nPresta atención a la campanada\nSiente el ritmo en tus garras\nY el tempo de tu baile será acelerado
+
+FOOD_GET,"Got some Food! Perhaps someone will want to eat it?",¡Obtuviste algo de Comida! ¿Tal vez alguien quiera comérselo?
+HEALTH_UP_GET,"Got Draconic Energy! It desparately wishes to rejoin you... +3 Max HP!",¡Obtuviste Energía Dragónica! Desea desesperadamente volver a tu ser... ¡+3 de Salud Máxima!
+INJECTOR_GET,"You got the Portal\nInjector! If you get a Core, you can open portals!","¡Obtuviste el Injector de\nPortales! ¡Si obtienes un núcleo, podrás abrir portales!"
+INJECTOR_XL_GET,"You got the Portal\nInjector XL! It feels several times heavier than before...",¡Obtuviste el Injector de\nPortales XL! Se siente varias veces mas pesado que antes...
+JOURNAL_GET,"Found a journal! The corner has been lightly chewed on...",¡Encontraste un Diario! ¿La esquina ha sido ligeramente mordisqueada?
+MYCELIUM_MAP_GET,"You got a Mycelium\nMap!\n\nYou see it all.\nYou FEEL it all.",¡Obtuviste un Mapa\nMicelio!\n\nLo ves todol.\nLo SIENTES todo.
+PORTAL_CORE_GET,"Got a Portal Core! It's indescribable...\nMaybe you should find a portal?",¡Obtuviste un Núcleo de Portal! ¿Es indescriptible?\n¿Tal vez deberías encontrar un portal?
+SWORD_BLADE_GET,"You got the Sword\nof Legend's Blade!\nYour attacks will deal 50% more damage!",¡Obtuviste la hoja de\nla Espada de Legenda!\n¡Tus ataques ahora hacen un 50% más de daño!
+SWORD_HILT_GET,"You got the Sword\nof Legend's Hilt! Your attacks will reach further than\never before!",¡Obtuviste la empuñadura de\nla Espada de Legenda! ¡Tus ataques llegarán mas\lejos que nunca!
+
+FIREBALL_GET,"You unlocked the Fireball! Press the Attack button in midair to fire!",¡Desbloqueaste la Bola de Fuego! ¡Presiona el botón de ataque en el aire para disparar!
+DOUBLE_JUMP_GET,"You unlocked the Double Jump! You can now jump in midair, even without a flower!","¡Desbloqueaste el Salto Doble! ¡Ahora puedes saltar en el aire, sin necesidad de una flor!"
+
+
+AFFAMAE_INTRO_1,"I sense a great energy from you! You must be the ""monster"" I've heard of, Echo, yes?","¡Siento una gran energía proveniente de tí! Tu debes ser el ""monstruo"" del que he oído hablar, ¿Echo, no?"
+AFFAMAE_INTRO_2,"It's nice to find another great beast. Though, your size is... less than I had heard.","Me alegra haber encontrado otra gran bestia. Aunque bueno, tu tamaño es...menor del que he oido."
+AFFAMAE_INTRO_3,"I've sensed strange energy around here, is that yours?","He estado detectando energía extraña por aquí, ¿Es tuya?"
+AFFAMAE_INTRO_4,"Ah, of course!  I could help you find it... for a price.","¡Ah, por supuesto! Podría ayudarte a encontrarla...a cambio de algo."
+AFFAMAE_INTRO_5,"Don't get me wrong, I'd love to help for free, but I am ~FAMISHED~.","No me malinterpretes, me encantaría ayudarte de forma gratuita, pero estoy ~HAMBRIENTO~."
+AFFAMAE_INTRO_6,"If you help me feed, perhaps I can tell you what I sense?","¿Si me ayudas alimentándome, tal vez pueda decirte lo que detecto?"
+AFFAMAE_INTRO_MAX_1,"It's nice to find another great beast. Especially one of such great weight!",Me alegra haber encontrado otra gran bestia. ¡Especialmente una de tanto tamaño!
+AFFAMAE_INTRO_MAX_2,"I'd love to join you in tubbiness, but my weight has been... diminished.","Me gustaría unirme a ti en regordura, pero mi tamaño ha sido...reducido."
+AFFAMAE_INTRO_MAX_3,"It pains me to offer scraps in return, but perhaps you could help me feed?","Me duele solo poder ofrecer migajas a cambio, pero crees que podrías alimentarme?"
+
+AFFAMAE_MAIN_MENU,"How goes it, fellow beast?","¿Como van las cosas, colega bestia?"
+AFFAMAE_OPT_ASK_FOR_HELP,"Ask For Help",Pedir Ayuda
+AFFAMAE_OPT_GIVE_FOOD,"Give Food",Dar Comida
+AFFAMAE_OPT_LEAVE,"Talk later!",¡Hablamos luego!
+AFFAMAE_LEAVE,"See you around!",¡Nos vemos!
+
+AFFAMAE_WEIGHT_1_1,"Ahahaa!!! I knew I could trust someone like you!",¡¡¡Ajajaa!!! ¡Sabía que podía confiar en alguien como tú!
+AFFAMAE_WEIGHT_1_2,"Oh! I've not introduced myself, have I?","¡Oh! ¿Aún no me he presentado, no?"
+AFFAMAE_WEIGHT_1_3,"My name is Affamae. I'm a traveller, of sorts.","Mi nombre es Affamae. Soy un viajero, más o menos."
+AFFAMAE_WEIGHT_1_4,"Back home, I'm well-known for my appetite. Perhaps... too well known.","En mi lugar natal, soy bien conocido por mi apetito. Tal vez...demasiado bien conocido."
+AFFAMAE_WEIGHT_1_5,"I've been looking for a better place to settle down, and this seems to fit nicely.","He estado buscando algún lugar mejor en el que quedarme, y este sitio parece ideal."
+AFFAMAE_WEIGHT_1_6,"The air is warm, the creatures are rotund, the food is delicious...","El aire es cálido, las criaturas son redondas, la comida es deliciosa?"
+AFFAMAE_WEIGHT_1_7,"Speaking of, you wouldn't happen to have any more food for me, would you~?","Hablando de eso, ¿No tendrás por casualidad algo más de comida para mí, no~?"
+
+AFFAMAE_WEIGHT_2_1,"More food! You truly are a miracle worker, Echo.","¡Más comida! Tu si que haces milagros, Echo."
+AFFAMAE_WEIGHT_2_2,"My, another great meal! Thank you, fellow beast! I'm glad I never ate you.","¡Vaya, otro delicioso almuerzo! ¡Muchas gracias, colega bestia! Me alegro de no haberte comido."
+AFFAMAE_WEIGHT_2_3,"What?! I AM a monster, after all! Besides, I decided against it!",¡¿Qué?! ¡Al fin y al cabo SOY un monstruo! ¡Además que decidí no hacerlo!
+AFFAMAE_WEIGHT_2_4,"I do know your nature. A dragon made of pure energy.",Desconozco tu naturaleza. Un dragon hecho de energía pura.
+AFFAMAE_WEIGHT_2_5,"Each pound of blubber for you is a million Calories for me, at least~.",Cada libra de grasa es por lo menos un millón de calorías para mí~
+AFFAMAE_WEIGHT_2_6,"If I had eaten you, I'd hit ten tons minimum~. Maybe more...~~ Completely immobile...~~","Si te hubiese comido, habría alcanzado las diez toneladas como mínimo~. Puede que incluso más...~~ Completamente inmóvil?~~"
+AFFAMAE_WEIGHT_2_7,"...It'd surely break this cliff & send me falling to my doom. Hence why I didn't.",...Seguramente rompería este acantilado y acabaría cayendo a mi muerte. De ahí el porque no lo hice.
+AFFAMAE_WEIGHT_2_8,"Besides, I'd never hurt a ~friend~! That preppy journalist, perhaps, but not you!","¡Además que jamás dañaría a una ~amiga~! ¡A ese reportero pijo tal vez, pero a ti no!"
+
+AFFAMAE_WEIGHT_3_1,"My, you sure know how to keep a beast well-fed!","¡Vaya, tu si que sabes mantener a una bestia bien alimentada!"
+AFFAMAE_WEIGHT_3_2,"Mhm... If I may, I'd like to clarify something.","Mhm... Si me lo permites, me gustaría clarificar una cosa."
+AFFAMAE_WEIGHT_3_3,"Much like you, my sensory powers are... weight-related.","Al igual que tú, mis poderes de detección...se basan en el peso."
+AFFAMAE_WEIGHT_3_4,"At my largest, I could pinpoint an energy signature 1000 miles away! Now, not quite.","¡En mi tamaño completo, soy capaz de detectar señales de energías a 1000 millas de distancia! Pero ahora mismo, no tanto."
+AFFAMAE_WEIGHT_3_5,"That's only my simplest power, as well. They used to call me the Blob of Terror back home.","Y encima ese es mi poder más simple. En mi lugar natal me solían llamar el Blob del Terror."
+AFFAMAE_WEIGHT_3_6,"Who knows? Maybe I'll get fat enough to teleport again! It's only about a half-ton away.",¿Quién sabe? ¡A lo mejor engordaré lo suficiente para poder teletransporatarme de nuevo! Solo estoy a media tonelada de distancia.
+AFFAMAE_WEIGHT_3_7,"...It certainly seems to be getting closer and closer.~",...Definitivamente se siente que se acerca cada vez más y más.~
+AFFAMAE_WEIGHT_3_8,"Jokes aside, this food has been helping me feel more like myself. Thank you, Echo.","Bromas aparte, toda esta comida me ha estado ayudando a sentirme más como yo mismo. Gracias, Echo."
+
+AFFAMAE_WEIGHT_4_1,"Another meal? Your generosity knows no bounds!",¿Otro almuerzo? ¡Tu generosidad no conoce límites!
+AFFAMAE_WEIGHT_4_2,"Thank you for the meal! ...Though I do have a question.",¡Gracias por el almuerzo! ...Aunque ahora tengo una pregunta.
+AFFAMAE_WEIGHT_4_3,"You are clearly great at keeping yourself fed. Yet I sense you've been bringing me all your food.",Claramente se te da bien alimentarte. Y aun así detecto que has estado trayendome toda tu comida.
+AFFAMAE_WEIGHT_4_4,"Is there a reason you've not taken any for yourself?",¿Hay alguna razón de porque no has comido nada por tu cuenta?
+AFFAMAE_EAT_OPT_NO_TASTE,"I have no sense of taste",No tengo sentido del gusto
+AFFAMAE_EAT_OPT_FEEDER,"Get you as fat as I can~",Para engordarte todo lo que pueda~
+AFFAMAE_NO_TASTE_1,"Wait, really? Tasting was one of your stolen powers? Or something even worse??","Espera, ¿en serio? ¿El gusto fue uno de los poderes que te robaron? ¿¿O algo incluso peor??"
+AFFAMAE_NO_TASTE_2,"I'm so sorry to hear that. I can hardly think of a fate so terrible.",Lamento mucho oír eso. No me puedo imaginar un futuro tan terrible.
+AFFAMAE_NO_TASTE_3,"...Even so, you should eat. I can't have you slimming down on me.","...Pero aun asi, deberías comer. No puedo dejar que te me endelgadeces."
+AFFAMAE_FEEDER_1,"Wh-huh~??",¿¿Qu-huh~??
+AFFAMAE_FEEDER_2,"I mean, I appreciate the thoughts, truly~!","A ver, aprecio la idea, ¡de verdad que sí~!"
+AFFAMAE_FEEDER_3,"However, I've always been one for mutual fattening~","Sin embargo, Siempre he sido alguien que prefiere engordamiento mutuo~"
+AFFAMAE_WEIGHT_4_5,"Here, take some. We can share.","Venga, aquí tienes. Podemos compartir."
+AFFAMAE_WEIGHT_4_6,"Mhm, it tastes better eating with a friend~","Mhm, sabe mejor cuando comes con una amiga~"
+AFFAMAE_WEIGHT_4_7,"If you do happen across any more, let me know. I'd love to share it with you.","Si encuentras alguno mas, tu dímelo. Me encantaría compartirlo contigo."
+AFFAMAE_WEIGHT_5_1,"You're taking some too, right?","Tu también tomaras un poco, ¿no?"
+AFFAMAE_WEIGHT_5_2,"...Hrm. There's something that's been stuck in my mind.",...Hrm. Hay algo que lleva un tiempo atascado en mi mente.
+AFFAMAE_WEIGHT_5_3,"You've brought me so much food. And with that, I've been able to locate your powers.","Me has traido tanta comida. Y gracias a ello, he sido capaz de localizar tus poderes."
+AFFAMAE_WEIGHT_5_4,"However, on the very edge of my senses, I swear I feel even more.","Sin embargo, justo al borde de mi deetección, te juro que siento incluso más."
+AFFAMAE_WEIGHT_5_5,"Guess I need to keep eating until I can locate it proper, huh?","Supongo que tendré que seguir comiendo hasta que pueda detectarlo al completo, ¿eh?"
+AFFAMAE_WEIGHT_5_6,"Hm... it's large. Leagues greater than what the others took.",Hm... es bastante grande. Casi otro mundo en comparación a lo que ya he encontrado.
+AFFAMAE_WEIGHT_5_7,"It's almost as if they're trying to hide it from me...",Es casi como si tratasen de esconderlo de mi...
+AFFAMAE_WEIGHT_5_8,"They must really want to keep it, huh?","Supongo que están tratando mucho de quedarselo, ¿eh?"
+
+AFFAMAE_HINT_EDGAR_1,"Now that you've helped me eat, it's only fair I help you!","¡Ahora que me has ayudado a comer, tengo que ser justo y ayudarte!"
+AFFAMAE_HINT_EDGAR_2,"The first shard of your energy is close... yet far. Due east of here, in that burning cavern.","El primer fragmento esta cerca... pero aún así lejos. Se encuentra al este de aquí, en aquella caverna ardiente."
+AFFAMAE_HINT_EDGAR_3,"You'll need to enter from below to reach the thief, but he should pose little threat.","Necesitarás entrar por debajo para llegar al ladrón, pero él no supondrá mucho problema."
+AFFAMAE_HINT_EDGAR_4,"Let me mark his lair on the map.",Deja que marque su guarida en el mapa.
+AFFAMAE_HINT_EDGAR_5,"I wish you luck, Echo! May you get to feast as well!","¡Te deseo suerte, Echo! ¡Ojala tu también puedas disfrutar de un banquete!"
+AFFAMAE_HINT_SONIA_1,"Your next shard of energy is underground. Also not far.",Tu siguiente fragmento de energía se encuentra bajo tierra. Tampoco está muy lejos.
+AFFAMAE_HINT_SONIA_2,"However, the mole with your power seems to have dug a labrynth.","Sin embargo, la topa con tus poderes parece haber cabado un laberinto."
+AFFAMAE_HINT_SONIA_3,"You might need to dig down to dig back up, my friend... Good luck.","Puede que tengas que cabar hacia abajo para poder cabar hacia arriba, amiga mía... Buena suerte."
+AFFAMAE_HINT_SONIA_4,"Let me mark her lair on the map.",Deja que marque su guarida en el mapa.
+AFFAMAE_HINT_SONIA_5,"Return to me stronger and softer, fellow beast!","¡Regresa a mí mas fuerte y suave, colega bestia!"
+AFFAMAE_HINT_NIMBUS_1,"This time, your thief has climbed up. Above your very own cave, in fact! How rude!","Esta vez, tu ladrón ha escalado hacia arriba. ¡Por encima de tu cueva! ¡Que maleducado!"
+AFFAMAE_HINT_NIMBUS_2,"They appear to be a goat. No wonder they could climb at that size...",Parecen ser una cabra. No es de extrañar que pueda escalar en tal tamaño...
+AFFAMAE_HINT_NIMBUS_3,"Your own weight may make the ascent dangerous. Tread carefully.",Tu propio peso puede que haga el ascenso peligroso. Procede con cuidado.
+AFFAMAE_HINT_NIMBUS_4,"Let me mark their lair on the map.",Deja que marque su guarida en el mapa.
+AFFAMAE_HINT_NIMBUS_5,"Stay safe! Don't topple the forest with your weight!",¡Mantente a salvo! ¡No desmorones el bosque con tu peso!
+AFFAMAE_HINT_CHARLE_1,"Your next shard is down. Deep, deep, deep, deep down...","Tu siguiente fragmento se encuentra abajo. Muy, muy, muy, muy abajo..."
+AFFAMAE_HINT_CHARLE_2,"Good hell, how deep did they go?! Either your power is that good, or they are that heavy...","¡¿Que demonios, como de profundo ha ido?! O tus poderes son así de eficaces, o el es así de pesado..."
+AFFAMAE_HINT_CHARLE_3,"...They aren't alone. This place makes my fur stand on end. It seems... wrong.",...No está solo. Este sitio me pone los pelos de punta. Se siente... mal.
+AFFAMAE_HINT_CHARLE_4,"I guess... let me mark their lair on the map.",Supongo que... marcaré su guarida en el mapa.
+AFFAMAE_HINT_CHARLE_5,"Don't die down there, Echo. The world needs blobs like us.","No te me mueras ahí abajo, Echo. El mundo necesita blobs como nosotros."
+AFFAMAE_NO_HINT_1,"I appreciate the meal, but I've no more help to give.","Aprecio el aperitivo, pero ya no me quedan mas ayudas que darte."
+AFFAMAE_NO_HINT_2,"Perhaps we can just... chat? One fat beast to another?",¿Tal vez podamos simplemente... charlar? ¿De una bestia gorda a otra?
+
+
+EDGAR_TITLE,"EDGAR\nThe Mongoose Monarch",EDGAR\nEl Monarca Mangosta
+EDGAR_PRE_FIGHT_1,"Temperature up 8 degrees, magma production is booming, ice cream 20% tastier...","La temperatura ha subido 8 grados, la produción de magma sube por las nubes, el helado es un 20% más delicioso..."
+EDGAR_PRE_FIGHT_2,"That old magpie was right, this Draconic Energy has made me the greatest king ever!","Esa vieja hurraca tenía razón, ¡esta Energía Dragónica me ha hecho el mejor rey de todos!"
+EDGAR_PRE_FIGHT_3,"I'm so much better at this than Ch-",Esto se me da muchísimo mejor que a Ch-
+EDGAR_PRE_FIGHT_4,"OH MY GOD YOUR REAL??","¡¡OH DIOS MIO, ES LA BEASTIA, ES REAL!!"
+
+
+KARA_INTRO_1,"Oh, uh...\n\nHi...","Oh, uh...\n\nHola..."
+KARA_INTRO_2,"My name's Kara...\n\nI'm not supposed to be here...",Mi nombre es Kara...\n\nNo debería estar aquí...
+KARA_INTRO_3,"Uh...\n\nYou know about Portals?",Uh...\n\n¿Sabes algo sobre Portales?
+KARA_INTRO_4,"They're hard to get working. you need a Portal Core, and also an Injector for it.","Cuesta hacer que funcionen. Primero necesitas un Nucleo de Portal, además de un Injector."
+KARA_INTRO_5,"Here, you can have mine. I'm not going anywhere soon.","Ten, puedes quedarte el mío. No creo que vaya a ningún sitio pronto."
+KARA_INTRO_6,"There's a Portal and a Core down beneath us, if you want to try it out.","Hay un Portal y un Núcleo debajo de nosotras, en caso de que quieras probarlo."
+KARA_INTRO_7,"I, uh, hope you enjoy...","Uh, espero que lo disfrutes..."
+
+KARA_RANDOM_1_1,"I hope it's okay if I stay in your world a bit. I like it here.",Espero que no te importe si me quedo en tu mundo por un tiempo. Me gusta este sitio.
+KARA_RANDOM_1_2,"The cold wind from the trees with the hot air of the caves...",El viento fresco que trae los arboles junto al aire cálido de las cuevas...
+KARA_RANDOM_1_3,"It beats the snowy woods I grew up in, that's for sure.","Le gana a los bosques nevados en los que me he criado, eso está claro."
+KARA_RANDOM_2_1,"I didn't think this world would be so big.",No pensé que este mundo sería tan enorme.
+KARA_RANDOM_2_2,"I don't mean fat, I knew it would be very fat, just...","No digo en plan gordura, ya sabía que iba a ser muy gordo, es solo que..."
+KARA_RANDOM_2_3,"I was expecting a short diversion, but this wound up being so much more.","Esperaba que fuera un simple desvío, pero al final acabó siendo mucho mas que eso."
+KARA_RANDOM_2_4,"I can't say i'm upset. I'm enjoying myself.",No puedo decir que esté mosqueada. Me lo estoy pasando bien.
+KARA_RANDOM_3_1,"Do you like these flowers? I brought them with me here.",¿Te gustan estas flores? Las he traido aquí conmigo.
+KARA_RANDOM_3_2,"They're a kind of nightshade. I call them ""Toxen Flowers.""","Son un tipo de solenaceas. Las llamo ""Flores Toxen."""
+KARA_RANDOM_3_3,"They can be deadly, but if nurtured well, they can be truly beautiful.","Pueden ser mortales, pero si las crías bien, pueden llegar a ser verdaderamente preciosas."
+KARA_RANDOM_3_4,"Maybe someday I can show you more of them.",Tal vez algún día pueda enseñarte mas de ellas.
 KARA_RANDOM_4_1,"Have i been repeating myself? If so, I'm sorry."
-KARA_RANDOM_4_1,"I tend to forget who I've discussed what with, and I only have so much to say..."
+KARA_RANDOM_4_1,"I tend to forget who I've discussed what with, and I only have so much to say...","¿Me he estado repitiendo? En ese caso, lo siento."
+KARA_RANDOM_4_1,"Have i been repeating myself? If so, I'm sorry."
+KARA_RANDOM_4_1,"I tend to forget who I've discussed what with, and I only have so much to say...","Me suelo olvidar de qué y quién a la hora de conversar, y tampoco hay mucho que pueda decir..."
 
-KARA_RESIZE_1,"What's that? You can't fit in the portals anymore?"
-KARA_RESIZE_2,"I sized them to the biggest guy I knew, but it looks like you need them bigger..."
-KARA_RESIZE_3,"Here, let me see your Injector real quick."
-KARA_RESIZE_4,"With this, all portals should now fit you through."
-KARA_RESIZE_5,"Just, don't grow too much more, if you can help it..."
-KARA_RESIZE_6,"(Holy shit she got FAT)"
+KARA_RESIZE_1,"What's that? You can't fit in the portals anymore?",¿Qué has dicho? ¿Ya no cabes en los portales?
+KARA_RESIZE_2,"I sized them to the biggest guy I knew, but it looks like you need them bigger...","Los medí a partir del tipo mas grande que conocía, pero parece que los necesitas incluso mas grandes..."
+KARA_RESIZE_3,"Here, let me see your Injector real quick.","Aquí, deja que vea tu Injector un segundín."
+KARA_RESIZE_4,"With this, all portals should now fit you through.","Con esto, todos los portales deberían ser mas a tu talla."
+KARA_RESIZE_5,"Just, don't grow too much more, if you can help it...","simplemente, no crezcas mucho mas, si puedes permitírtelo..."
+KARA_RESIZE_6,"(Holy shit she got FAT)",(Hostia puta se ha puesto GORDA)
 
-KARA_PLUME_HINT_1,"Y'know, I saw someone I thought was you earlier today."
-KARA_PLUME_HINT_2,"She was somehow even fatter, which... how?"
-KARA_PLUME_HINT_3,"She looked happy, but also scared of getting caught. Caught with what, I don't know."
-KARA_PLUME_HINT_4,"She flew up the mountain. Which didn't seem physically possible..."
-KARA_PLUME_HINT_5,"She might be a fan. Maybe you should check her out?"
-
-
-KARA_COMIC_CER_1,"You flip to a comic. Two doglike creatures slowly gain weight after moving to separate places."
-KARA_COMIC_CER_2,"One of them seems to be leaning into it, while the other seems to be in denial."
-KARA_COMIC_TOXEN_1,"You find a bunch of sketches of a fat purple creature in various poses."
-KARA_COMIC_TOXEN_2,"Surrounding the sketches are pictures of flowers and monsters."
-KARA_COMIC_ECHO_1,"You flip to a sketch of... Echo? The sketch shows her at a variety of sizes."
-KARA_COMIC_ECHO_2,"You decide to stop looking."
-KARA_COMIC,"It's a sketch book. Take a peek?"
-
-PORTAL_UNKNOWN,"A wisp of air moves erratically..."
-PORTAL_NO_INJECTOR_1,"A wisp of air moves erratically."
-PORTAL_NO_INJECTOR_2,"The Portal Core seems drawn to it, but it can't fit in the gap..."
-PORTAL_INTRO,"A wisp of air moves erratically. A Portal is present."
-PORTAL_NO_CORE,"If you find a Portal Core, you can slip inside."
-PORTAL_INJECT_CORE,"Do you want to inject a Portal Core?"
-PORTAL_OPEN,"The Portal sprang open!"
-PORTAL_STAY_HERE,"You decided to stay here."
-PORTAL_TOO_FAT_1,"You tried to squeeze into the portal... but you're too fat!"
-PORTAL_TOO_FAT_2,"Maybe Kara can help widen the portals...?"
-PORTAL_POST_OPEN,"It's a Portal.\n\nWhere will you go?"
-PORTAL_OPT_STAY_HERE,"Stay Here"
+KARA_PLUME_HINT_1,"Y'know, I saw someone I thought was you earlier today.","Sabes, a principios del día ví a alguien que confundí por tí."
+KARA_PLUME_HINT_2,"She was somehow even fatter, which... how?","De algún modo era incluso más gorda, lo cual es...¿Cómo?"
+KARA_PLUME_HINT_3,"She looked happy, but also scared of getting caught. Caught with what, I don't know.","Parecía feliz, aunque también parecía temer ser pillada. ¿Pillada con que? No lo sé."
+KARA_PLUME_HINT_4,"She flew up the mountain. Which didn't seem physically possible...","Voló la montaña, lo cual no parecía físicamente posible..."
+KARA_PLUME_HINT_5,"She might be a fan. Maybe you should check her out?",Puede que sea fan tuya. ¿Tal vez deberías echarle un vistazo?
 
 
-SONIA_TITLE,"SONIA\nChief Excavation Officer"
-SONIA_TAUNT_EARLY,"Well, someone's a bit early~`"
-SONIA_TAUNT_NORMAL,"Figures you'd get Edgar first~`"
-SONIA_TAUNT_LATE,"...Well SOMEONE took their sweet time~`"
-SONIA_TAUNT_2,"I take it introductions aren't necessary. Let's talk, one ~LEGEND~ to another."
-SONIA_TAUNT_3,"Do I have your powers? Yes. 
-SONIA_TAUNT_4,"What's that look for??
-SONIA_TAUNT_5,"I know you might be mad at me for that. Your feedback has been recieved."
-SONIA_TAUNT_6,"But have you considered, maybe you just weren't good enough to have them?"
-SONIA_TAUNT_7,"What about the age-old tradition, ""finders keepers losers weepers?"""
-SONIA_TAUNT_8,"What about the immense POWER I now hold over you?!?!`"
-SONIA_TAUNT_9,"Haha, okay, I think you get it. Goodbye, have fun dying! ~`"
+KARA_COMIC_CER_1,"You flip to a comic. Two doglike creatures slowly gain weight after moving to separate places.",Pasas página y llegas a un comic. Dos críaturas con aspecto de perro ganan peso lentamente a medida que viajan a distintos lugares.
+KARA_COMIC_CER_2,"One of them seems to be leaning into it, while the other seems to be in denial.","Uno de ellos parece disfrutar del hecho, mientras que el otro parece estar en negación."
+KARA_COMIC_TOXEN_1,"You find a bunch of sketches of a fat purple creature in various poses.",Encuentras un puñado de bocetos de una criatura gorda y purpura en varias poses.
+KARA_COMIC_TOXEN_2,"Surrounding the sketches are pictures of flowers and monsters.",Alrededor de los bocetos hay dibujos de flores y monstruos.
+KARA_COMIC_ECHO_1,"You flip to a sketch of... Echo? The sketch shows her at a variety of sizes.",Pasas página y llegas a un boceto de... ¿Echo? El boceto la enseña en una variedad de tamaños.
+KARA_COMIC_ECHO_2,"You decide to stop looking.",Decidiste dejar de mirar.
+KARA_COMIC,"It's a sketch book. Take a peek?",Es un libro de bocetos. ¿Echar un vistazo?
 
-SONIA_PRE_FIGHT_1,"Haha wow, back already? I didn't know you were such a fan~`"
-SONIA_PRE_FIGHT_2,"Honestly, I think it's kinda cute that you want to fight me so bad."
-SONIA_PRE_FIGHT_3,"It's cute how, despite these plants breaking MY tower, you think you're the victim here."
-SONIA_PRE_FIGHT_4,"Most of all, it's cute how you think you stand any chance at all.`"
-SONIA_PRE_FIGHT_5,"Hehehe, it'll be so rewarding to take the last of your power for GOOD``"
-SONIA_POST_FIGHT_1,"Heh."
-SONIA_POST_FIGHT_2,"Hahahaha."
-SONIA_POST_FIGHT_3,"AHAHAHAHAHA!!!!!!!"
-SONIA_POST_FIGHT_4,"You thought you BEAT ME? You thought you WON?!?`"
-SONIA_POST_FIGHT_5,"Don't you SEE?! I can just BURROW forever! GOOD LUCK GETTING ME HERE, BOZO!!"
-SONIA_POST_FIGHT_6,"wait whats that"
-SONIA_POST_FIGHT_7,"(Somewhere, from above, or maybe below? A voice echoes...)"
+PORTAL_UNKNOWN,"A wisp of air moves erratically...",Una voluta de viento se mueve de forma errática...
+PORTAL_NO_INJECTOR_1,"A wisp of air moves erratically.",Una voluta de viento se mueve de forma errática.
+PORTAL_NO_INJECTOR_2,"The Portal Core seems drawn to it, but it can't fit in the gap...","El Núcleo de Portal parece ser atraido a la voluta, pero no cabe en el hueco..."
+PORTAL_INTRO,"A wisp of air moves erratically. A Portal is present.",Una voluta de viento se mueve de forma errática. Hay un Portal presente.
+PORTAL_NO_CORE,"If you find a Portal Core, you can slip inside.","Si encuentras un Núcleo de Portal, puedes meterlo dentro."
+PORTAL_INJECT_CORE,"Do you want to inject a Portal Core?",¿Quieres injectar un Núcleo de Portal?
+PORTAL_OPEN,"The Portal sprang open!",¡Surgió un Portal abierto!
+PORTAL_STAY_HERE,"You decided to stay here.",Decidiste quedarte aquí.
+PORTAL_TOO_FAT_1,"You tried to squeeze into the portal... but you're too fat!",Trataste de meterte en el portal... ¡Pero estás demasiado gorda!
+PORTAL_TOO_FAT_2,"Maybe Kara can help widen the portals...?",¿Tal vez Kara pueda agrandar los portales...?
+PORTAL_POST_OPEN,"It's a Portal.\n\nWhere will you go?",Es un Portal.\n\n¿A donde irás?
+PORTAL_OPT_STAY_HERE,"Stay Here",Quedarme Aquí ,
+
+SONIA_TITLE,"SONIA\nChief Excavation Officer",SONIA\nDirectora Ejecutiva de Excavaciones
+SONIA_TAUNT_EARLY,"Well, someone's a bit early~`","Mira por donde, alguien ha llegado algo temprano~`"
+SONIA_TAUNT_NORMAL,"Figures you'd get Edgar first~`",Ya me imaginaba que te encargarías de Edgar primero~`
+SONIA_TAUNT_LATE,"...Well SOMEONE took their sweet time~`",...parece que ALGUIEN se tomo su querido tiempo~`
+SONIA_TAUNT_2,"I take it introductions aren't necessary. Let's talk, one ~LEGEND~ to another.","Imagino que no hay necesidad de introduciones. Hablemos, de una ~LEGENDA~ a otra."
+SONIA_TAUNT_3,"Do I have your powers? Yes. ,"¿Tengo tus poderes? Si. "
+SONIA_TAUNT_4,"What's that look for??,¿¿Para qué me miras de esa forma??
+SONIA_TAUNT_5,"I know you might be mad at me for that. Your feedback has been recieved.","Se que puede que estés enfadada conmigo por eso. Tu opinión ha sido recibida."
+SONIA_TAUNT_6,"But have you considered, maybe you just weren't good enough to have them?","¿Pero has pensado que a lo mejor, simplemente no eras lo suficientemente buena como para merecerlos?"
+SONIA_TAUNT_7,"What about the age-old tradition, ""finders keepers losers weepers?""","Que me dices de las vieja tradicion, ""¿El que lo encuentra se lo queda?"""
+SONIA_TAUNT_8,"What about the immense POWER I now hold over you?!?!`",¡¿¡¿Que me dices del INMENSO poder que ahora tengo sobre ti?!?!`
+SONIA_TAUNT_9,"Haha, okay, I think you get it. Goodbye, have fun dying! ~`","Jaja, vale, creo que ya te haces a la idea. ¡Chao, pasatelo bien muriendo! ~`"
+
+SONIA_PRE_FIGHT_1,"Haha wow, back already? I didn't know you were such a fan~`","Jaja guau, ¿Ya estás de vuelta? No sabía que eras tan fan mío~`"
+SONIA_PRE_FIGHT_2,"Honestly, I think it's kinda cute that you want to fight me so bad.","Siendo sincera, creo que es adorable que tengas tantas ganas de lucharme."
+SONIA_PRE_FIGHT_3,"It's cute how, despite these plants breaking MY tower, you think you're the victim here.","Es adorable que, pese a que estas plantas han destruido MI torre, te crees que aquí eres la vícitima."
+SONIA_PRE_FIGHT_4,"Most of all, it's cute how you think you stand any chance at all.`","Y por encima de todo, es adorable como te piensas que tendrás oportunidad alguna.`"
+SONIA_PRE_FIGHT_5,"Hehehe, it'll be so rewarding to take the last of your power for GOOD``","Jejeje, se va a sentir tan bien quitarte lo que te queda de poder DE UNA VEZ POR TODAS``"
+SONIA_POST_FIGHT_1,"Heh.",Jeje.
+SONIA_POST_FIGHT_2,"Hahahaha.",Jajajaja.
+SONIA_POST_FIGHT_3,"AHAHAHAHAHA!!!!!!!",¡¡¡¡AJAJAJAJAJA!!!!
+SONIA_POST_FIGHT_4,"You thought you BEAT ME? You thought you WON?!?`",¿Te crees que me HAS DERROTADO? ¿¡¿Te crees que has GANADO?!?`
+SONIA_POST_FIGHT_5,"Don't you SEE?! I can just BURROW forever! GOOD LUCK GETTING ME HERE, BOZO!!","¡¿No lo VES?! ¡Puedo mantenerme bajo tierra PARA SIEMPRE! ¡¡BUENA SUERTE ATRAPANDOME AQUÍ, PAYASA!!"
+SONIA_POST_FIGHT_6,"wait whats that",espera que es eso
+SONIA_POST_FIGHT_7,"(Somewhere, from above, or maybe below? A voice echoes...)","(En algún lugar, por encima, ¿O tal vez por debajo? Una voz resuena...)"
 # This line is spoken by the Big Green plant, not Sonia
-SONIA_POST_FIGHT_8,"Hm? Echo, are you there? Sorry if I'm late, I didn't realize you were fighting."
-SONIA_POST_FIGHT_9,"I caught her digging around a lot. I hope I helped."
+SONIA_POST_FIGHT_8,"Hm? Echo, are you there? Sorry if I'm late, I didn't realize you were fighting.","¿Hm? ¿Echo, estás ahí? Perdona si llego tarde, no me di cuenta de que estabais luchando."
+SONIA_POST_FIGHT_9,"I caught her digging around a lot. I hope I helped.",La pillé cavando mucho alrededor. Espero haber ayudado.
 
-BIG_BLUE_PRE_FIGHT_1,"Hm? Is somebody there?"
-BIG_BLUE_PRE_FIGHT_2,"Oh, a dragon. Hello."
-BIG_BLUE_PRE_FIGHT_3,"I've felt your presence for some time. You are a friend."
-BIG_BLUE_PRE_FIGHT_4,"You appear to be stuck as well. Let me lend you a hand."
-BIG_BLUE_PRE_FIGHT_5,"The mole wants to destroy our home. Sonia is her name."
-BIG_BLUE_PRE_FIGHT_6,"She digs the caverns bare, all for worthless pyrite."
-BIG_BLUE_PRE_FIGHT_7,"If you are able, please stop her."
-BIG_BLUE_POST_FIGHT_1,"Hm? Who is there?"
-BIG_BLUE_POST_FIGHT_2,"Dragon? Oh, welcome. I didn't recall you being so... large."
-BIG_BLUE_POST_FIGHT_3,"You defeated Sonia? Amazing! Though, I hardly think eating her was needed."
-BIG_BLUE_POST_FIGHT_4,"Hm? You gained weight for other reasons? Ah well."
-BIG_BLUE_POST_FIGHT_5,"If Sonia is gone, then I do hope that handsome wolf with the hammer takes charge."
-BIG_BLUE_POST_FIGHT_6,"He seems the most responsible. He understands the power of a proper curse."
+BIG_BLUE_PRE_FIGHT_1,"Hm? Is somebody there?",¿Hm? ¿Hay alguien ahí?
+BIG_BLUE_PRE_FIGHT_2,"Oh, a dragon. Hello.","Oh, una dragona. Hola."
+BIG_BLUE_PRE_FIGHT_3,"I've felt your presence for some time. You are a friend.",Llevo tiempo sintiendo tu presencia. Eres una amiga.
+BIG_BLUE_PRE_FIGHT_4,"You appear to be stuck as well. Let me lend you a hand.",Parece que tu también estás atascada. Deja que te eche una mano.
+BIG_BLUE_PRE_FIGHT_5,"The mole wants to destroy our home. Sonia is her name.",La topa quiere destruir nuestro hogar. Sonia es su nombre.
+BIG_BLUE_PRE_FIGHT_6,"She digs the caverns bare, all for worthless pyrite.","Cava hasta dejar las cuevas vacías, todo solo por pirita inútil."
+BIG_BLUE_PRE_FIGHT_7,"If you are able, please stop her.","Si eres capaz, porfavor detenla."
+BIG_BLUE_POST_FIGHT_1,"Hm? Who is there?",¿Hm? ¿Quién está ahí?
+BIG_BLUE_POST_FIGHT_2,"Dragon? Oh, welcome. I didn't recall you being so... large.","¿Dragona? Oh, bienvenida. No recuerdo que fueras tan...larga."
+BIG_BLUE_POST_FIGHT_3,"You defeated Sonia? Amazing! Though, I hardly think eating her was needed.","¿Derrotaste a Sonia? ¡Increíble! Aunque bueno, tampoco creo que fuera necesario comersela."
+BIG_BLUE_POST_FIGHT_4,"Hm? You gained weight for other reasons? Ah well.",¿Hm? ¿Ganaste peso por otro motivo? Ah bueno.
+BIG_BLUE_POST_FIGHT_5,"If Sonia is gone, then I do hope that handsome wolf with the hammer takes charge.","Si Sonia ya no está, entonces espero que ese hermoso lobo con el martillo tome las riendas."
+BIG_BLUE_POST_FIGHT_6,"He seems the most responsible. He understands the power of a proper curse.",Parece ser el más responsable. Comprende el poder de una maldición hecha y derecha.
 
-BIG_GREEN_PRE_FIGHT_1,"Oh? Hello, little dragon."
-BIG_GREEN_PRE_FIGHT_2,"I do wish we could meet under happier circumstances, but I am glad to meet regardless."
-BIG_GREEN_PRE_FIGHT_3,"This cavern used to be an underground forest, but that horrid mole has been digging up our roots."
-BIG_GREEN_PRE_FIGHT_4,"Were it not for her, we would be in a golden age!"
-BIG_GREEN_PRE_FIGHT_5,"...Hm? You are chasing the same mole as well? She stole your powers?"
-BIG_GREEN_PRE_FIGHT_6,"Well, if our interests align, perhaps I can lend you what energy I have left."
-BIG_GREEN_PRE_FIGHT_7,"Our flowers grant flight to those who touch them."
-BIG_GREEN_PRE_FIGHT_8,"Their powers are weakened, and your mass may also prove an issue, but they may still help."
-BIG_GREEN_PRE_FIGHT_9,"The mole's hideout is atop this tower. If you wish to reach it, you will need more help."
-BIG_GREEN_PRE_FIGHT_10,"Seek out my sisters, red and blue in hue, deeper in these caverns. They can help more."
-BIG_GREEN_PRE_FIGHT_11,"Thank you, kind dragon."
-BIG_GREEN_POST_FIGHT_1,"My apologies again for missing the fight. I hadn't realized the others were there."
-BIG_GREEN_POST_FIGHT_2,"I'm glad I could've helped out in the end, at least."
-BIG_GREEN_POST_FIGHT_3,"And you must admit, my contribution was... how you say, ""bad of ass?"""
-BIG_GREEN_POST_FIGHT_4,"I did kind-of save the day at the last second with that one, you must admit."
-BIG_GREEN_POST_FIGHT_5,"Of course, I should thank you, too! My roots are safe now. And I found more, too!"
-BIG_GREEN_POST_FIGHT_6,"Like this rectangle I found in Sonia's pocket. I'm told it's called a ""crebit card."" Exciting!"
+BIG_GREEN_PRE_FIGHT_1,"Oh? Hello, little dragon.","¿Oh? Hola, pequeña dragona."
+BIG_GREEN_PRE_FIGHT_2,"I do wish we could meet under happier circumstances, but I am glad to meet regardless.","Me habría gustado poder conocernos en circumstancias más alegres, pero me alegra haberte conocido igualmente."
+BIG_GREEN_PRE_FIGHT_3,"This cavern used to be an underground forest, but that horrid mole has been digging up our roots.","Esta cueva solía ser un bosque subterraneo, pero esa horrenda topa ha estado cavando nuestras raices."
+BIG_GREEN_PRE_FIGHT_4,"Were it not for her, we would be in a golden age!","¡Si no hubiese sido por ella, estaríamos en nuestra edad dorada!"
+BIG_GREEN_PRE_FIGHT_5,"...Hm? You are chasing the same mole as well? She stole your powers?",¿...Hm? ¿Tu también estás persiguiendo a la misma topa? ¿Te robó tus poderes?
+BIG_GREEN_PRE_FIGHT_6,"Well, if our interests align, perhaps I can lend you what energy I have left.","Bueno, si nuestros intereses son mutuos, tal vez pueda prestarte la energía que me queda."
+BIG_GREEN_PRE_FIGHT_7,"Our flowers grant flight to those who touch them.",Nuestras flores otorgan vuelo a aquellos que las toquen.
+BIG_GREEN_PRE_FIGHT_8,"Their powers are weakened, and your mass may also prove an issue, but they may still help.","Sus poderes están debilitados, y tu peso también podría suponer un problema, pero podrían seguir siendo de ayuda."
+BIG_GREEN_PRE_FIGHT_9,"The mole's hideout is atop this tower. If you wish to reach it, you will need more help.","La guarida secreta de la topa se encuentra encima de esta torre. Si deseas alcanzarla, necesitarás más ayuda."
+BIG_GREEN_PRE_FIGHT_10,"Seek out my sisters, red and blue in hue, deeper in these caverns. They can help more.","Busca a mis hermanas, roja y azul en tono, más profundo dentro de estas cuevas. Pueden otorgar más ayuda."
+BIG_GREEN_PRE_FIGHT_11,"Thank you, kind dragon.","Muchas gracias, amable dragona."
+BIG_GREEN_POST_FIGHT_1,"My apologies again for missing the fight. I hadn't realized the others were there.",Mis disculpas de nuevo por perderme la pelea. No me dí cuenta de que las otras estaban ahí.
+BIG_GREEN_POST_FIGHT_2,"I'm glad I could've helped out in the end, at least.",Almenos me alegra poder haberte ayudado al fin y al cabo.
+BIG_GREEN_POST_FIGHT_3,"And you must admit, my contribution was... how you say, ""bad of ass?""","Y tienes que admitirlo, mis contribuciones han sido...como decirlo, ""¿de Mal o Té?"""
+BIG_GREEN_POST_FIGHT_4,"I did kind-of save the day at the last second with that one, you must admit.","Como que más o menos he salvado el día en el último segundo, eso tienes que admitirlo."
+BIG_GREEN_POST_FIGHT_5,"Of course, I should thank you, too! My roots are safe now. And I found more, too!","¡Por supuesto, también debo agradecerte! Mis raizes están a salvo, ¡Y encima he encontrado más!"
+BIG_GREEN_POST_FIGHT_6,"Like this rectangle I found in Sonia's pocket. I'm told it's called a ""crebit card."" Exciting!","Como este rectangulo en el bolsillo de Sonia. Me han comentado que se llama una ""tarjeta de crebito."" ¡Qué excitante!"
 
-BIG_RED_PRE_FIGHT_1,"Oh thank Gaia, someone to TALK TO!"
-BIG_RED_PRE_FIGHT_2,"Look, don't question the life decisions that got me stuck down here, just know I regret them."
-BIG_RED_PRE_FIGHT_3,"I was trying to get away from this dumb mole that was destroying my roots, and now I'm here."
-BIG_RED_PRE_FIGHT_4,"I hate it here! It's too dry and I don't like seafood! ...But it does beat dying."
-BIG_RED_PRE_FIGHT_5,"Huh? You're trying to stop that same mole?"
-BIG_RED_PRE_FIGHT_6,"Hell yeah, cheers!"
-BIG_RED_PRE_FIGHT_7,"Hey, come let me know when you've kicked her ass, okay?"
-BIG_RED_PRE_FIGHT_8,"Bring someone who can help dig me out, too. But someone who won't give me a hard time about it."
-BIG_RED_PRE_FIGHT_9,"Oh!! Snacks too! There is NOBODY down here to eat!"
-BIG_RED_POST_FIGHT_1,"Whoa hey, you did it?!"
-BIG_RED_POST_FIGHT_2,"That's great news! I can finally leave this dumb hole and rejoin my sisters!"
-BIG_RED_POST_FIGHT_3,"...You did remember to find someone to help out right"
-BIG_RED_POST_FIGHT_4,"Eh, at least I got SOME of the food situation figured out. Some crabs like wandering down here."
-BIG_RED_POST_FIGHT_5,"It's not much, but...\n\nOkay I can't front get me out of here asap"
+BIG_RED_PRE_FIGHT_1,"Oh thank Gaia, someone to TALK TO!","Oh gracias a Gaia, ¡Alguien con quién HABLAR!"
+BIG_RED_PRE_FIGHT_2,"Look, don't question the life decisions that got me stuck down here, just know I regret them.","Mira, no me preguntes sobre mis decisiones de vida que al final me dejaron aquí atascada, solo que sepas que me arrepiento de ellas."
+BIG_RED_PRE_FIGHT_3,"I was trying to get away from this dumb mole that was destroying my roots, and now I'm here.","Trataba de huir de esa estupida topa que estaba destruyendo mis raizes, y ahora estoy aquí."
+BIG_RED_PRE_FIGHT_4,"I hate it here! It's too dry and I don't like seafood! ...But it does beat dying.",¡Odio este sitio! ¡Está demasiado seco y no me gusta el marisco! ...Pero mejor esto a estar muerta.
+BIG_RED_PRE_FIGHT_5,"Huh? You're trying to stop that same mole?",¿Huh? ¿Estás tratando de detener a esa misma topa?
+BIG_RED_PRE_FIGHT_6,"Hell yeah, cheers!","¡Vamonos, un brindis!"
+BIG_RED_PRE_FIGHT_7,"Hey, come let me know when you've kicked her ass, okay?","¿Hey, ahora vienes y me dices cuando le has pateado el culo, okay?"
+BIG_RED_PRE_FIGHT_8,"Bring someone who can help dig me out, too. But someone who won't give me a hard time about it.","También traete a alguien que me ayude a escapar. Pero que sea alguien que no sea muy brusco al respecto."
+BIG_RED_PRE_FIGHT_9,"Oh!! Snacks too! There is NOBODY down here to eat!",¡¡Oh!! ¡Aperitivos también! ¡Que aquí no hay NADIE a quién comerme!
+BIG_RED_POST_FIGHT_1,"Whoa hey, you did it?!","¡¿Oh hey, lo lograste?!"
+BIG_RED_POST_FIGHT_2,"That's great news! I can finally leave this dumb hole and rejoin my sisters!",¡Que buenas noticias! ¡Porfin puedo salir de este estúpido agujero y reunirme con mis hermanas!
+BIG_RED_POST_FIGHT_3,"...You did remember to find someone to help out right","...Te acordaste de traer a alguien para ayudarme, ¿no?"
+BIG_RED_POST_FIGHT_4,"Eh, at least I got SOME of the food situation figured out. Some crabs like wandering down here.","Eh, al menos descubrí ALGO respecto al asunto de la comida. A algunos cangrejos les gusta merondear por aquí."
+BIG_RED_POST_FIGHT_5,"It's not much, but...\n\nOkay I can't front get me out of here asap","No es mucho, pero...\n\nVale ya paso de fingir, sacamé de aquí cagando leches."
 
 # Keep the %d and the $0.00%03d, those get replaced with the pyrite the player has
-MINE_WORM_1,"You must be a new miner, eh? Lucky for you, we've struck riches!"
-MINE_WORM_2,"'Course, I can't mine it up myself, having no arms."
-MINE_WORM_3,"Looks like the treasure is all yours, friend!"
-MINE_WORM_R_1,"Oho! Looks like you've got something!"
-MINE_WORM_R_2,"You have %d pyrite chunks? That translates to about... $0.00%03d Craterian dollars!"
-MINE_WORM_R_3,"A hard day's work really does pay off, doesn't it?"
-MINE_WORM_FULL_1,"What's that? You can't hold more than 500 chunks of Pyrite?"
-MINE_WORM_FULL_2,"That's a shame. I was gonna sell my really cool hat for 750!"
+MINE_WORM_1,"You must be a new miner, eh? Lucky for you, we've struck riches!","¿Debes ser una minera nueva, eh? Por suerte para tí, ¡Nos ha salido el gordo!"
+MINE_WORM_2,"'Course, I can't mine it up myself, having no arms.","Po' supuesto, yo no lo puedo minar todo, no teniendo brazos y tal."
+MINE_WORM_3,"Looks like the treasure is all yours, friend!","¡Parece que el tesoro es todo tuyo amigita!"
+MINE_WORM_R_1,"Oho! Looks like you've got something!",¡Ojo! ¡Parece que ya tienes algo!
+MINE_WORM_R_2,"You have %d pyrite chunks? That translates to about... $0.00%03d Craterian dollars!",¿Has cavado %d fragmentos de pirita? Eso se traduciría a... $0.00%03d euros craterianos!
+MINE_WORM_R_3,"A hard day's work really does pay off, doesn't it?","¿Un largo día de trabajo al final compensa, no es así?"
+MINE_WORM_FULL_1,"What's that? You can't hold more than 500 chunks of Pyrite?",¿Qué dices? ¿No puedes sostener más de 500 fragmentos de pirita?
+MINE_WORM_FULL_2,"That's a shame. I was gonna sell my really cool hat for 750!",Que lástima. ¡Iba a venderte mi gorro super guay por 750!
 
 
-SWORD_SPIRIT_INTRO_1,"Oh, joyous day, joyous day! A new Hero has arisen!"
-SWORD_SPIRIT_INTRO_2,"Greetings, my corpulent savior! I am the ~Spirit of the Sword~!"
-SWORD_SPIRIT_INTRO_3,"I am here to guide you through your quest to-"
-SWORD_SPIRIT_INTRO_4,"Wait where's the sword"
-SWORD_SPIRIT_INTRO_5,"Y-you broke it."
-SWORD_SPIRIT_INTRO_6,"YOU SAT ON THE STONE OF THE SWORD AND BROKE IT."
-SWORD_SPIRIT_INTRO_7,"YOU ABSOLUTE FATAAAaantastic Hero of Legend! JOYOUS day INDEED!"
-SWORD_SPIRIT_INTRO_8,"I didn't think a fat ass could break my entire afterlife's PURPOSE, but WHAT DO I KNOW!"
-SWORD_SPIRIT_INTRO_9,"...\nExcuse me, I need to collect my thoughts. And my SWORD."
+SWORD_SPIRIT_INTRO_1,"Oh, joyous day, joyous day! A new Hero has arisen!","¡Oh glorioso, glorioso es este día! ¡Ha surgido una nueva heroína!"
+SWORD_SPIRIT_INTRO_2,"Greetings, my corpulent savior! I am the ~Spirit of the Sword~!","¡Saludos, mi salvadora corpulenta! ¡Soy el ~Espíritu de la Espada~!"
+SWORD_SPIRIT_INTRO_3,"I am here to guide you through your quest to-",Estoy aquí para guiarte en tu aventura par-
+SWORD_SPIRIT_INTRO_4,"Wait where's the sword",Espera donde está la espada
+SWORD_SPIRIT_INTRO_5,"Y-you broke it.",L-la rompiste.
+SWORD_SPIRIT_INTRO_6,"YOU SAT ON THE STONE OF THE SWORD AND BROKE IT.",TE SENTASTE EN LA PIEDRA DONDE YACÍA LA ESPADA Y LA ROMPISTE.
+SWORD_SPIRIT_INTRO_7,"YOU ABSOLUTE FATAAAaantastic Hero of Legend! JOYOUS day INDEED!",PEDAZO DE Gggg-loriosa Heroína de Legenda! SIN DUDA es un día MARAVILLOSO!
+SWORD_SPIRIT_INTRO_8,"I didn't think a fat ass could break my entire afterlife's PURPOSE, but WHAT DO I KNOW!","¡No pensé que una culo gordo hubiera podido cargarse MI PROPOSITO en el mas allá, pero QUE SABRÉ YO!"
+SWORD_SPIRIT_INTRO_9,"...\nExcuse me, I need to collect my thoughts. And my SWORD.","...\nDisculpame, Necesito tomar un descanso. Y mi ESPADA."
 
-SWORD_SPIRIT_FIRST_CHAT_1,"HHHHHHH-Hello, my Hefty Hero of Legend! It's me, the Spirit of the Sword!"
-SWORD_SPIRIT_FIRST_CHAT_2,"I must say, the power of your weight is impressive! You broke the sword clean in half!"
-SWORD_SPIRIT_FIRST_CHAT_3,"That's cool. I'm really okay with that. No really, it's fine. Really."
-SWORD_SPIRIT_FIRST_CHAT_4,"Aaaaanyways, in its current state, the sword is kinda useless. But I have an idea."
-SWORD_SPIRIT_FIRST_CHAT_5,"I'll let you take one half on your quest, and I'll keep the other half safe!"
-SWORD_SPIRIT_FIRST_CHAT_6,"(After all, you never know when some fatass will just crush swords nowadays...)"
-SWORD_SPIRIT_FIRST_CHAT_7,"Then if you ever change your mind, you can come back and swap them!"
-SWORD_SPIRIT_FIRST_CHAT_8,"If you take the blade half, you can... I dunno, cut enemies with it, deal some more damage?"
-SWORD_SPIRIT_FIRST_CHAT_9,"The hilt will... give you more range or something, maybe?"
-SWORD_SPIRIT_FIRST_CHAT_10,"Honestly I don't care at this point. Just take one."
-SWORD_SPIRIT_OPT_BLADE,"Blade"
-SWORD_SPIRIT_OPT_HILT,"Hilt"
-SWORD_SPIRIT_FIRST_CHAT_11,"A great choice, probably! Be sure not to sit on it this time."
+SWORD_SPIRIT_FIRST_CHAT_1,"HHHHHHH-Hello, my Hefty Hero of Legend! It's me, the Spirit of the Sword!","¡HHHHHHH-Hola, mi Enorme Heroína de Legenda! ¡Soy yo, la Espíritu de la Espada!"
+SWORD_SPIRIT_FIRST_CHAT_2,"I must say, the power of your weight is impressive! You broke the sword clean in half!","¡Debo admitir, el poder de tu peso es impresionante! ¡Partiste la espada justo por la mitad!"
+SWORD_SPIRIT_FIRST_CHAT_3,"That's cool. I'm really okay with that. No really, it's fine. Really.","Que guay. Me parece todo muy bien. No en serio, está bien. De verdad."
+SWORD_SPIRIT_FIRST_CHAT_4,"Aaaaanyways, in its current state, the sword is kinda useless. But I have an idea.","Eeeeeen fin, en su estado actual, la espada es algo inútil. Pero tengo una idea."
+SWORD_SPIRIT_FIRST_CHAT_5,"I'll let you take one half on your quest, and I'll keep the other half safe!","¡Dejaré que te lleves una mitad para tu aventura, y yo mantendré la otra mitad a salvo!"
+SWORD_SPIRIT_FIRST_CHAT_6,"(After all, you never know when some fatass will just crush swords nowadays...)","(Al fin y al cabo, hoy en día nunca se sabe cuando un culo gordo va a ir por ahí aplastando espadas...)"
+SWORD_SPIRIT_FIRST_CHAT_7,"Then if you ever change your mind, you can come back and swap them!","¡Y si en algún momento cambias de idea, puedes venir aquí e intercambiarlas!"
+SWORD_SPIRIT_FIRST_CHAT_8,"If you take the blade half, you can... I dunno, cut enemies with it, deal some more damage?","Si te llevas la mitad del filo, podrás... no se, ¿cortar enemigos con ella, hacer algo más de daño?"
+SWORD_SPIRIT_FIRST_CHAT_9,"The hilt will... give you more range or something, maybe?","La empuñadura te dará... ¿más rango o algo así, supongo?"
+SWORD_SPIRIT_FIRST_CHAT_10,"Honestly I don't care at this point. Just take one.","Siendo sincera, a estas alturas ya no me importa. Llevate una y punto."
+SWORD_SPIRIT_OPT_BLADE,"Blade",Filo
+SWORD_SPIRIT_OPT_HILT,"Hilt",Empuñadura
+SWORD_SPIRIT_FIRST_CHAT_11,"A great choice, probably! Be sure not to sit on it this time.","¡Una sabia elección, seguramente! Esta vez asegurate de no sentarte en ella."
 
-SWORD_SPIRIT_R_1,"Hello again, Hero of Legend! You're looking... well fed!"
-SWORD_SPIRIT_R_2,"Did you want to swap your sword piece?"
-SWORD_SPIRIT_OPT_SWAP_BLADE,"I want the blade"
-SWORD_SPIRIT_OPT_SWAP_HILT,"I want the hilt"
-SWORD_SPIRIT_R_NO,"N-no?! What,  were you just wanting to chat or something??"
-SWORD_SPIRIT_R_NO_NO,"Then why did you come here??"
-SWORD_SPIRIT_R_CHAT_1,"Oh, you were."
-SWORD_SPIRIT_R_CHAT_2,"Well that's unfortunate."
-
-
-DEMO_THANKS,"End of Demo\nThanks for Playing!"
-DEMO_1,"Hello sorry. I am the Detour-Envoking Motionless Orbee."
-DEMO_2,"Unfortunately, I will not let you past this point."
-DEMO_3,"I mean, I would love to. But it's impossible. I'm too $!*damn fat to move"
-DEMO_R_1,"I dunno what's behind me, but it's really cool."
-DEMO_R_2,"And by cool, I mean cold. I think I have hypothermia"
-NOT_DEMO_1,"Hello sorry. I'm not the Detour-Envoking Motionless Orbee."
-NOT_DEMO_2,"I was gifted size and thought from my creator."
-NOT_DEMO_3,"She told me things most strange. That I must block the ""truth."""
-NOT_DEMO_4,"Now I am ""stuck."" In middle of the ""path."" Goodbye."
-NOT_DEMO_R_1,"You want it. The ""truth."" Not of this world, but another."
-NOT_DEMO_R_2,"She said the road beyond is incomplete. Will it ever be complete? Unknown."
-NOT_DEMO_R_3,"Perhaps, if you find your way on another plane, you can get past."
-NOT_DEMO_R_4,"Another plane. Another world. Another dimension."
-NOT_DEMO_R_5,"Ha ha... it sounds impossible."
-NOT_DEMO_R_6,"...But when has something impossible ever stopped you?"
-
-NIMBUS_SPEECH_1,"...Missing something?"
-NIMBUS_SPEECH_2,"I heard the stories. Everyone has. A dragon of endless mass, but a body of pure energy."
-NIMBUS_SPEECH_3,"No matter... except for an artifact for a heart."
-NIMBUS_SPEECH_4,"Don't worry. I don't want to steal your heart. This is useless for me."
-NIMBUS_SPEECH_5,"Just, let this be a warning. This is what happens if you come after me."
+SWORD_SPIRIT_R_1,"Hello again, Hero of Legend! You're looking... well fed!","¡Hola de nuevo, Heroína de Legenda! ¡Se te vé... bien alimentada!"
+SWORD_SPIRIT_R_2,"Did you want to swap your sword piece?",¿Buscar intercambiar tu mitad de la espada?
+SWORD_SPIRIT_OPT_SWAP_BLADE,"I want the blade",Quiero el filo
+SWORD_SPIRIT_OPT_SWAP_HILT,"I want the hilt",Quiero la empuñadura
+SWORD_SPIRIT_R_NO,"N-no?! What,  were you just wanting to chat or something??","¡¿N-no?! ¿¿Entonces vienes solo a charlar o qué??"
+SWORD_SPIRIT_R_NO_NO,"Then why did you come here??",¿¿Entonces por qué has venido aquí??
+SWORD_SPIRIT_R_CHAT_1,"Oh, you were.","Oh, pues al final si era eso."
+SWORD_SPIRIT_R_CHAT_2,"Well that's unfortunate.",Pues vaya lástima.
 
 
-SPOREMOTHER_INTRO_1,"Hello, hello. I am Sporemother."
-SPOREMOTHER_INTRO_2,"The other is Sporemother too. Perhaps we are all Sporemother."
-SPOREMOTHER_INTRO_3,"Our hyphae reach across the entire valley. We see, feel, know all. Including you, Echo."
-SPOREMOTHER_INTRO_4,"We know things that would help you. We can share our knowledge, for a price."
-SPOREMOTHER_OPT_NO_NO_NO,"No No No No No"
-SPOREMOTHER_OPT_ELABORATE,"Elaborate"
-SPOREMOTHER_ELABORATE_1,"Hm, suspicious. Of course."
-SPOREMOTHER_ELABORATE_2,"To access our knowledge, you will need to watch a young sporeling."
-SPOREMOTHER_ELABORATE_3,"Give an offering, some energy, and it will tell you everything."
-SPOREMOTHER_ELABORATE_4,"Do you wish to help?"
-SPOREMOTHER_YES_1,"Wonderful. We knew you would."
-SPOREMOTHER_YES_2,"Be careful, it hungers."
-SPOREMOTHER_YES_MUSH_1,"Oh! You have MUSH-MEAL!"
-SPOREMOTHER_YES_MUSH_2,"We knew you to be a great host. You have arrived quite prepared."
-SPOREMOTHER_YES_3,"Take care of it, now."
-SPOREMOTHER_NO_1,"Hm, a shame."
-SPOREMOTHER_NO_2,"We will be here when you change your mind."
+DEMO_THANKS,"End of Demo\nThanks for Playing!",Fin de la Demo\n¡Gracias por Jugar!
+DEMO_1,"Hello sorry. I am the Detour-Envoking Motionless Orbee.",Hey perdona. Soy la Orbeeja Inmovible e Impasable.
+DEMO_2,"Unfortunately, I will not let you past this point.","Por desgracia, no puedo dejar que continues a partir de este punto."
+DEMO_3,"I mean, I would love to. But it's impossible. I'm too $!*damn fat to move","A ver, me encantaría poder hacerlo, pero es imposible. Estoy muy $!*mente gordo como para moverme."
+DEMO_R_1,"I dunno what's behind me, but it's really cool.","No sé que hay detrás mía, pero esta bastante fresco."
+DEMO_R_2,"And by cool, I mean cold. I think I have hypothermia","Y cuando digo fresco, me refiero en plan frío. Creo que tengo hipotermia"
+NOT_DEMO_1,"Hello sorry. I'm not the Detour-Envoking Motionless Orbee.",Hey perdona. No soy la Orbeeja Inmovible e Impasable.
+NOT_DEMO_2,"I was gifted size and thought from my creator.",Fui otorgado esta conciencia y tamaño gracias a mi creador.
+NOT_DEMO_3,"She told me things most strange. That I must block the ""truth.""","Me dijo cosas de gran extrañez. Que debía bloquear la ""verdad."""
+NOT_DEMO_4,"Now I am ""stuck."" In middle of the ""path."" Goodbye.","Y que ahora estaba ""atascado."" En mitad del ""camino."" Adiós."
+NOT_DEMO_R_1,"You want it. The ""truth."" Not of this world, but another.","¿Tu lo quieres, no?. La ""verdad."" No la de este mundo, sino la de otro."
+NOT_DEMO_R_2,"She said the road beyond is incomplete. Will it ever be complete? Unknown.",Me dijo que el camino mas allá de mí estaba incompleto. ¿Llegará a ser completado en alguna ocasión? Lo desconozco.
+NOT_DEMO_R_3,"Perhaps, if you find your way on another plane, you can get past.","Tal vez, si encuentras tu camino a partir de otro plano, podrás traspasarme."
+NOT_DEMO_R_4,"Another plane. Another world. Another dimension.",Otro plano. Otro mundo. Otra dimensión.
+NOT_DEMO_R_5,"Ha ha... it sounds impossible.",Ha ha... suena a algo imposible.
+NOT_DEMO_R_6,"...But when has something impossible ever stopped you?",¿...pero desde cuando lo imposible te ha detenido?
 
-SPOREMOTHER_R_WITH_1,"It's wonderful to see you! It looks like it's growing quite well, too."
-SPOREMOTHER_R_WITH_2,"You've been a wonderful host. I hope the knowledge has been kind to you."
-SPOREMOTHER_R_WITH_3,"How have been things?"
-SPOREMOTHER_OPT_REMOVE_NO_MUSH,"Please take it off"
-SPOREMOTHER_OPT_KEEP_NO_MUSH,"It's... great"
-SPOREMOTHER_KEEP_NO_MUSH_1,"Wonderful. I'm glad it has been treating you so well."
-SPOREMOTHER_KEEP_NO_MUSH_2,"The last host was less capable. Your fatty frame has proven far better."
-SPOREMOTHER_REMOVE_NO_MUSH_1,"Hm? You want it removed? A shame."
-SPOREMOTHER_REMOVE_NO_MUSH_2,"Oh well. Better no host than a resistant one."
-SPOREMOTHER_REMOVE_NO_MUSH_3,"It looks extremely well-fed in your care. I pray you will return at some point."
+NIMBUS_SPEECH_1,"...Missing something?",¿...perdiste algo?
+NIMBUS_SPEECH_2,"I heard the stories. Everyone has. A dragon of endless mass, but a body of pure energy.","He oido las historia. Igual que todos. Un dragón con masa incontable, pero con cuerpo de energía pura."
+NIMBUS_SPEECH_3,"No matter... except for an artifact for a heart.",No importa... excepto por un artifacto para un corazón.
+NIMBUS_SPEECH_4,"Don't worry. I don't want to steal your heart. This is useless for me.",No te preocupes. No quiero robarte el corazón. Para mí es inútil.
+NIMBUS_SPEECH_5,"Just, let this be a warning. This is what happens if you come after me.","Simplemente, tomate esto como un aviso. Esto es lo que pasa si tratas de perseguirme."
 
-SPOREMOTHER_R_WITH_MUSH_1,"It's wonderful to see you! It seems to be enjoying that MUSH-MEAL as well."
-SPOREMOTHER_R_WITH_MUSH_2,"We have been so lucky to have a responsible host like you."
-SPOREMOTHER_OPT_KEEP_MUSH,"It's great!"
-SPOREMOTHER_OPT_REMOVE_MUSH,"Here, take it back"
+
+SPOREMOTHER_INTRO_1,"Hello, hello. I am Sporemother.","Hola, hola. Soy la Madrespora."
+SPOREMOTHER_INTRO_2,"The other is Sporemother too. Perhaps we are all Sporemother.",La otra era también una Madrespora. Tal vez todos somos Madresporas.
+SPOREMOTHER_INTRO_3,"Our hyphae reach across the entire valley. We see, feel, know all. Including you, Echo.","Nuestras hifas se extender por todo el valle. Lo vemos, sentimos, sabemos todo. Incluida a ti, Echo."
+SPOREMOTHER_INTRO_4,"We know things that would help you. We can share our knowledge, for a price.","Sabemos cosas que podrian ayudarte. Podemos compartir nuestro conocimiento, con su debido coste."
+SPOREMOTHER_OPT_NO_NO_NO,"No No No No No",No No No No No
+SPOREMOTHER_OPT_ELABORATE,"Elaborate",Elabora
+SPOREMOTHER_ELABORATE_1,"Hm, suspicious. Of course.","Hm, sospechando. Por supuesto."
+SPOREMOTHER_ELABORATE_2,"To access our knowledge, you will need to watch a young sporeling.","Para acceder a nuestro conocimiento, necesitarás cuidar de un pequeño esporaño."
+SPOREMOTHER_ELABORATE_3,"Give an offering, some energy, and it will tell you everything.","Ofrecele algo, como parte de tu energía, y te lo dirá todo."
+SPOREMOTHER_ELABORATE_4,"Do you wish to help?",¿Deseas ayudarnos?
+SPOREMOTHER_YES_1,"Wonderful. We knew you would.",Maravilloso. Sabíamos que lo harías.
+SPOREMOTHER_YES_2,"Be careful, it hungers.","Ten cuidado, está hambriento."
+SPOREMOTHER_YES_MUSH_1,"Oh! You have MUSH-MEAL!",¡Oh! Tienes un SETA-LIMENTO!
+SPOREMOTHER_YES_MUSH_2,"We knew you to be a great host. You have arrived quite prepared.",Sabíamos que serias un gran huésped. Has llegado bien preparada.
+SPOREMOTHER_YES_3,"Take care of it, now.","Ahora, ten cuidado de ello."
+SPOREMOTHER_NO_1,"Hm, a shame.","Hm, una lástima."
+SPOREMOTHER_NO_2,"We will be here when you change your mind.",Estaremos aquí si en algún momento cambias de idea.
+
+SPOREMOTHER_R_WITH_1,"It's wonderful to see you! It looks like it's growing quite well, too.",¡Que maravilloso el verte por aquí! También parece que ha estado creciendo muy bien.
+SPOREMOTHER_R_WITH_2,"You've been a wonderful host. I hope the knowledge has been kind to you.",Has sido un huésped maravilloso. Espero que el conocimiento te haya sido agradable.
+SPOREMOTHER_R_WITH_3,"How have been things?",¿Cómo te han ido las cosas?
+SPOREMOTHER_OPT_REMOVE_NO_MUSH,"Please take it off",Porfavor quítamelo
+SPOREMOTHER_OPT_KEEP_NO_MUSH,"It's... great",Todo...genial
+SPOREMOTHER_KEEP_NO_MUSH_1,"Wonderful. I'm glad it has been treating you so well.",Maravilloso. Me alegra que te haya estado tratando tan bien.
+SPOREMOTHER_KEEP_NO_MUSH_2,"The last host was less capable. Your fatty frame has proven far better.",El huésped anterior fue menos capaz. Tu cuerpo gordete ha demostrado ser mucho mejor.
+SPOREMOTHER_REMOVE_NO_MUSH_1,"Hm? You want it removed? A shame.",¿Hm? ¿Quieres que sea quitado? Una lástima.
+SPOREMOTHER_REMOVE_NO_MUSH_2,"Oh well. Better no host than a resistant one.",Oh bueno. Mejor no huéspeds a uno que se resista.
+SPOREMOTHER_REMOVE_NO_MUSH_3,"It looks extremely well-fed in your care. I pray you will return at some point.",Parece bastante bien alimentado tras tu cuidado. Rezo a que regreses en alguna ocasión.
+
+SPOREMOTHER_R_WITH_MUSH_1,"It's wonderful to see you! It seems to be enjoying that MUSH-MEAL as well.",¡Que maravilloso el verte por aquí! Parece que también está disfrutando de ese SETA-LIMENTO.
+SPOREMOTHER_R_WITH_MUSH_2,"We have been so lucky to have a responsible host like you.",Hemos tenido tanta suerte de encontrar a un huésped tan responsable como tú.
+SPOREMOTHER_OPT_KEEP_MUSH,"It's great!",¡Es genial!
+SPOREMOTHER_OPT_REMOVE_MUSH,"Here, take it back","Toma, te lo devuelvo"
 SPOREMOTHER_KEEP_MUSH_1,"Wonderful. I'm glad it has been treating you so well."
-SPOREMOTHER_KEEP_MUSH_1,"The last host was less capable. Your feeding regimen has proven far better."
-SPOREMOTHER_REMOVE_MUSH_1,"Hm? You don't want to have it anymore? Even with the MUSH-MEAL?"
-SPOREMOTHER_REMOVE_MUSH_2,"Oh, I know what is happening. You need not say more."
-SPOREMOTHER_REMOVE_MUSH_3,"You must have a date with another Sporecap, and wish to give them the MUSH-MEAL as a gift."
-SPOREMOTHER_REMOVE_MUSH_4,"Of course, of course. We can take the sporeling back for now."
-SPOREMOTHER_REMOVE_MUSH_5,"We hope your romantic pursuits succeed as well as your parenting, Echo."
+SPOREMOTHER_KEEP_MUSH_1,"The last host was less capable. Your feeding regimen has proven far better.",Maravilloso. Me alegra que te haya estado tratando tan bien.
+SPOREMOTHER_KEEP_MUSH_1,"Wonderful. I'm glad it has been treating you so well."
+SPOREMOTHER_KEEP_MUSH_1,"The last host was less capable. Your feeding regimen has proven far better.",El huésped anterior fue menos capaz. Tu régimen de alimentación ha demostrado ser mucho mejor.
+SPOREMOTHER_REMOVE_MUSH_1,"Hm? You don't want to have it anymore? Even with the MUSH-MEAL?",¿Hm? ¿Ya no quieres tenerlo más? ¿Incluso con el SETA-LIMENTO?
+SPOREMOTHER_REMOVE_MUSH_2,"Oh, I know what is happening. You need not say more.","Oh, ya se que está ocurriendo. No hace falta que digas más."
+SPOREMOTHER_REMOVE_MUSH_3,"You must have a date with another Sporecap, and wish to give them the MUSH-MEAL as a gift.","Debes tener una cita con otra gorraespora, y buscas darle el SETA-LIMENTO como un regalo."
+SPOREMOTHER_REMOVE_MUSH_4,"Of course, of course. We can take the sporeling back for now.","Por supuesto, por supuesto. Podemos ocuparnos del esporaño por ahora."
+SPOREMOTHER_REMOVE_MUSH_5,"We hope your romantic pursuits succeed as well as your parenting, Echo.","Esperamos que tus avances románticos triunfen tanto como tus habilidades de crianza, Echo."
 
-SPOREMOTHER_R_WITHOUT,"Have you changed your mind? Will you take our knowledge?"
-
-
-CRATER_WORK_MICE,"They're hard at work."
-CRATER_WORK_MICE_R,"You don't know what they're doing, but they're doing a great job."
-
-SONIA_REFIGHT_HINT_1,"There is a sign hidden in the crevice. "
-SONIA_REFIGHT_HINT_2,"The only words you can make out are ""How to access my secret Second Office."""
-SONIA_REFIGHT_HINT_3,"Perhaps if you could get closer to the sign, you could learn the secret..."
-SONIA_REFIGHT_SIGN_1,"""How to access my secret Second Office"""
-SONIA_REFIGHT_SIGN_2,"""Like I'd tell YOU! AHAHAHAHA!!!!!\n\nLove, Sonia~`"""
-SONIA_REFIGHT_SIGN_3,"(...You get the feeling you have everything you need without her help.)"
-
-HILLS_SECRET,"...?? You see a path behind a thicket of branches, perfectly out of range..."
+SPOREMOTHER_R_WITHOUT,"Have you changed your mind? Will you take our knowledge?",¿Has cambiado de idea? ¿Tomarás nuestro conocimiento?
 
 
-#Journal entries
-JOURNAL_AFFAMAE_NAME,"Affamae"
-JOURNAL_AFFAMAE_DESC,"A one-armed monster obsessed with food. I get the feeling that, if I stick around, I will become their next meal..."
-JOURNAL_ARTIFACT_NAME,"Artifact of Echo"
-JOURNAL_ARTIFACT_DESC,"Believed to be the core of the legendary dragon, Echo. For a legendary being, its energy readings are very low..."
-JOURNAL_BEE_CANNON_NAME,"Wasp-Cannon"
-JOURNAL_BEE_CANNON_DESC,"While they look more active than the Orbees,\nthey just shoot problems with honey until the Orbees do it for them."
-JOURNAL_BEEORB_NAME,"Orbee"
-JOURNAL_BEEORB_DESC,"Lazy, gluttonous bees who do nothing without the promise of food. Very cute, and painfullly relatable."
-JOURNAL_BIG_LIZARD_NAME,"Geckordo"
-JOURNAL_BIG_LIZARD_DESC,"A Geckito that has explored the valley and been rewarded. They are strong, not in spite of, but due to their massive size."
-JOURNAL_BIG_PLANTS_NAME,"Chromatic Flora"
-JOURNAL_BIG_PLANTS_DESC,"Three plants that have populated these caves for centuries. Even among flowers, it seems mass equals power in this valley."
-JOURNAL_BRAMBLE_BALL_NAME,"Bramble-Ball"
-JOURNAL_BRAMBLE_BALL_DESC,"A mindless clump of torn-up plant matter. Some people claim to see a face among the tangle... I can't see it."
-JOURNAL_CORVID_ROOK_NAME,"Corvid Rook"
-JOURNAL_CORVID_ROOK_DESC,"Mages in the corvid court, with a belly to match. Through my intense research, I've translated their name as ""Crow Crow""."
-JOURNAL_CRAB_NAME,"Clobber Crab"
-JOURNAL_CRAB_DESC,"As the Depths dried, these beasts became angry and territorial. They help Sonia with her tower in exchange for peace & quiet."
-JOURNAL_CROW_NAME,"Corvid Pawn"
-JOURNAL_CROW_DESC,"Slimmest among the bird chivalry in the Valley, and lowest ranking. Moderately okay with a bow and a knife."
-JOURNAL_DANIEL_NAME,"Daniel"
-JOURNAL_DANIEL_DESC,"Top worker of the Pyrite Plunge, and the only one keeping anything running. He is\nthe most agreeable person I've met here."
-JOURNAL_FATBAT_NAME,"Fat Bat"
-JOURNAL_FATBAT_DESC,"A bat that is fat. Enjoys biting those who walk by. They annoy me greatly, and I wish they'd be fattened to immobility."
-JOURNAL_FLUTTERFISH_NAME,"Flutterfish"
-JOURNAL_FLUTTERFISH_DESC,"These caves dried up centuries ago, and yet\nthese fish persist. Nature is mysterious and scary. Also, very tasty."
-JOURNAL_HEDGEHOG_NAME,"Hedgehog"
-JOURNAL_HEDGEHOG_DESC,"A perfect specimen. They walk around aimlessly, hurting none\nbut those who dare interfere with their wander."
-JOURNAL_HUGEHOG_NAME,"Huge-hog"
-JOURNAL_HUGEHOG_DESC,"An immobile hedgehog, likely ten times my weight. It's staring at me hungrily. Perhaps I can feed it when I'm done with this page."
-JOURNAL_IMMOBILE_BEEORB_NAME,"Orbee (Immobile)"
-JOURNAL_IMMOBILE_BEEORB_DESC,"The natural end-state of the Orbees' diet. I wonder if science could get them fatter?\nFor research purposes,\nof course."
-JOURNAL_JOURNALIST_NAME,"Maxwell Flinthelm II"
-JOURNAL_JOURNALIST_DESC,"The handsome, amazing author of the very journal you're reading!\nBe sure to check out my other works if you enjoy this one!"
-JOURNAL_KARA_NAME,"Kara"
-JOURNAL_KARA_DESC,"She claims to be a cryptid called a ""Shift-Claw"". There are no recorded instances of this species. ????????"
-JOURNAL_LIL_MUSHROOM_NAME,"Sporeling"
-JOURNAL_LIL_MUSHROOM_DESC,"What is it hiding? There is something strange happening with\nthese mushrooms, and I will get to the bottom of it."
-JOURNAL_MONGOOSE_NAME,"- Edgar -"
-JOURNAL_MONGOOSE_DESC,"The local monarch. Claims to have ignited Charred Caverns (despite being a volcano for centuries). Addicted to ice cream."
-JOURNAL_OLHM_NAME,"Olhm"
-JOURNAL_OLHM_DESC,"Long, electrified olms who dart around under the Sporeways. Cursed with electricity\npowers, despite being mostly pacifistic."
-JOURNAL_SCARE_DRAGON_NAME,"Scaredrake"
-JOURNAL_SCARE_DRAGON_DESC,"Scarecrow designed to keep Echo away. At first they seem laughable, but then I realized, I haven't seen Echo near them..."
-JOURNAL_SMALL_LIZARD_NAME,"Geckito"
-JOURNAL_SMALL_LIZARD_DESC,"Anxious lizards who don't stray far from their resting grounds. The fires on their back keep them warm away from sunlight."
-JOURNAL_SMALL_PLANTS_NAME,"Chromatic Buds"
-JOURNAL_SMALL_PLANTS_DESC,"Far-flung buds of the Chromatic Flora found deep in the caves. Their power weakend\nas the tower overtook their domain."
-JOURNAL_SNAIL_NAME,"Snail"
-JOURNAL_SNAIL_DESC,"Perfect. Flawless. A being with naught but love in its heart and\na desire to do right by those around it."
-JOURNAL_SONIA_NAME,"- Sonia -"
-JOURNAL_SONIA_DESC,"The brilliant tycoon in charge of mining gold. A genius, and I'm not just saying that to get a book deal, but if she offered then"
-JOURNAL_SPIDER_NAME,"Spider"
-JOURNAL_SPIDER_DESC,"A welcome friend. Too fat & bloated from eating bugs to threaten someone my size. They make for a comfy seat as well."
-JOURNAL_SPIKE_HEDGEHOG_NAME,"Spike-hog"
-JOURNAL_SPIKE_HEDGEHOG_DESC,"King Edgar wanted to generate jobs, so he hired Hedgehogs to be spikes. Pay is 100g of Pyrite an hour, or about $0.001."
-JOURNAL_SPOREMOTHER_NAME,"Sporemother"
-JOURNAL_SPOREMOTHER_DESC,"I asked for answers on the Sporecaps, and she made me raise one\nto adulthood. It just gave me a map! It didn't answer anything!!"
-JOURNAL_STANDARD_MUSHROOM_NAME,"Sporecap"
-JOURNAL_STANDARD_MUSHROOM_DESC,"A mushroom. Are they sapient? Sentient? They has a face, do they have secrets? What won't they tell me??"
-JOURNAL_SWORD_SPIRIT_NAME,"Spirit of the Sword"
-JOURNAL_SWORD_SPIRIT_DESC,"A tubby ghost that mocked me for being unable to free her sword. I hit it with a hammer a few times, it\nstill wouldn't budge!"
-JOURNAL_WOLF_NAME,"Hefthire Wolf"
-JOURNAL_WOLF_DESC,"Hired bodyguards, most\nof whom glut out while\nnothing of note happens. Their combat ability is... theoretical."
+CRATER_WORK_MICE,"They're hard at work.",Lo están dando todo en el trabajo.
+CRATER_WORK_MICE_R,"You don't know what they're doing, but they're doing a great job.","No tienes ni idea de que están haciendo, pero están haciendo un gran trabajo."
+
+SONIA_REFIGHT_HINT_1,"There is a sign hidden in the crevice. ",Hay una señal oculta en la grieta.
+SONIA_REFIGHT_HINT_2,"The only words you can make out are ""How to access my secret Second Office.""","Las únicas palabras que puedes distingir son ""Como acceder a mi Segunda Officina secreta."""
+SONIA_REFIGHT_HINT_3,"Perhaps if you could get closer to the sign, you could learn the secret...","Tal vez si pudieras acercarte a la señal, podrías aprender el secreto..."
+SONIA_REFIGHT_SIGN_1,"""How to access my secret Second Office""\n\n\n""Like I'd tell YOU! AHAHAHAHA!!!!!\n\nLove, Sonia~`""","""Como acceder a mi Segunda Officina secreta""\n\n\n""¡Como si fuera a ir a decirtelo! AJAJAJAJA!!!!!\n\nCon cariño, Sonia~`"""
+SONIA_REFIGHT_SIGN_2,"""Like I'd tell YOU! AHAHAHAHA!!!!!\n\nLove, Sonia~`""","""¡Como si fuera a ir a decirtelo! AJAJAJAJA!!!!!\n\nCon cariño, Sonia~`"""
+SONIA_REFIGHT_SIGN_3,"(...You get the feeling you have everything you need without her help.)",(...Tienes el presentimiento de que ya tienes todo lo necesario sin su ayuda.)
+
+HILLS_SECRET,"...?? You see a path behind a thicket of branches, perfectly out of range...","¿¿...?? Ves un camino detrás de un matorral, justo fuera de tu rango..."
 
 
-#Inventory items
-ITEM_FOOD_NAME,Food
-ITEM_FOOD_1,Meal for flesh beings. Prepared by the best chef in Heftwind Hills.
-ITEM_FOOD_2,Meal for flesh beings. Cooked perfectly over magma. Somehow.
-ITEM_FOOD_3,Meal for flesh beings. Seared by Olhms in the Verdant Caverns.
-ITEM_FOOD_4,"Meal for flesh beings. Labeled ""Sonia's DO NOT STEAL."" Oops"
-ITEM_FOOD_5,"Meal for flesh beings. Cooled by mountain air, but still edible."
-ITEM_FOOD_6,Meal for flesh beings. A deceptively sublime vegan imitation meat.
-ITEM_FOOD_7,Meal for flesh beings. Slow-cooked over a toasty fire.
-ITEM_FOOD_8,"Meal for flesh beings. A little airborne, but still good."
-
-ITEM_ENERGY_NAME,"Draconic Energy"
-ITEM_ENERGY_1,A shred of power. Was hidden away by Edgar's predecessor.
-ITEM_ENERGY_2,A shred of power. It seeped into the Sporeways long ago.
-ITEM_ENERGY_3,A shred of power. Smells like freshly cut grass.
-ITEM_ENERGY_4,A shred of power. Made sticky & sweet with honey.
-ITEM_ENERGY_5,A shred of power. Sold at an outrageous price. Bought on sale.
-ITEM_ENERGY_6,"A shred of power. Is this yours, or the plants of the deep's?"
-
-ITEM_CORE_NAME,"Portal Core"
-ITEM_BROKEN_CORE_NAME,"Portal Core Scraps"
-ITEM_CORE_1,A mysterious object. Feels ice-cold to the touch.
-ITEM_CORE_2,A mysterious object. Shines with nary a scratch or blemish.
-ITEM_CORE_3,A mysterious object. An unfamiliar fungus grows on its shell.
-ITEM_CORE_4,A mysterious object. A faint mountain breeze whistles through it.
-ITEM_CORE_5,A mysterious object. A brown leaf is stuck on the inside.
-ITEM_CORE_6,A mysterious object. It radiates the warmth of a sunny day.
-ITEM_BROKEN_CORE,Broken when opening a portal. Refracted light dances off the shards.
-
-ITEM_ARTIFACT_NAME,"Artifact"
-ITEM_ARTIFACT,"Your heart, brain, lungs, everything.\nNot to be lost ever."
-
-ITEM_JOURNAL_1_NAME,"""Faces of the Valley"""
-ITEM_JOURNAL_1,A catalog of species and people. Read it in the Pause menu!
-ITEM_JOURNAL_2_NAME,"Echo's Journal"
-ITEM_JOURNAL_2,A diary from the past few years. Best read at Home.
-ITEM_JOURNAL_3_NAME,"Aged Journal"
-ITEM_JOURNAL_3,An old diary of the past few centuries. Best read at Home.
-
-ITEM_SWORD_BLADE_NAME,"Legend Sword (Blade)"
-ITEM_SWORD_HILT_NAME,"Legend Sword (Hilt)"
-ITEM_SWORD_BLADE,Blade of a broken sword. Increases attack damage. Badass
-ITEM_SWORD_HILT,Hilt of a broken sword. Increases attack range. Neato
-
-ITEM_MUSH_NAME,"Mycelium Map"
-ITEM_MUSH,Parasite that shows everything on the map. Questionable.
-ITEM_MUSH_MEAN_NAME,"Mush-Meal"
-ITEM_MUSH_MEAL,Mushroom food. Thankfully you have no sense of smell.
-ITEM_MUSH_IN_MEAL_NAME,"Mush-Meal (Occupied)"
-ITEM_MUSH_IN_MEAL,Happiest Sporecap. Shows everything on the map. Friend?
-
-ITEM_PYRITE_NAME,"Pyrite"
-ITEM_MAX_PYRITE_NAME,"Excessive Pyrite"
-ITEM_PYRITE,Utterly useless metal.\n\nYou have %d.
-ITEM_MAX_PYRITE,Why did you do this.\n\nYou have 500.
-
-ITEM_POISON_NAME,"Poisoned Soup"
-ITEM_POISON,Attempted murder meal. Gives corrosive fireballs instead.
-
-ITEM_CRUSHED_CLAW_NAME,"Crushed Claw"
-ITEM_CRUSHED_CLAW,The hand that feeds was bit. Increases attack damage.
-
-ITEM_INJECTOR_NAME,Portal Injector
-ITEM_INJECTOR_XL_NAME,Portal Injector XL
-ITEM_INJECTOR,Allows opening portals w/ a Portal Core. A sleek design.
-ITEM_INJECTOR_XL,Allows opening portals wide enough for your fat ass
-
-
-#New text engine
-DANIEL_1,"Heyo. Sorry about before. Name's Daniel."
-DANIEL_2,"When you ran in like that, we thought you were a pinkerton or something."
-DANIEL_3,"I remember seeing you in Sonia's office, though. You're the one that showed her what for!"
-DANIEL_4,"Only wish we had more to offer right now, we're kinda short on resouces."
-DANIEL_5,"Do you have any, like, favors you need help with?"
-DANIEL_C_BIG_RED,"Trapped flower"
-DANIEL_C_NOT_NOW,"Not right now"
-
-DANIEL_NOT_NOW_1,"Alright, well let me know if you can think of anything."
-DANIEL_NOT_NOW_2,"For now though, I'll let Frank release you back to society."
-DANIEL_NOT_NOW_R_1,"Hey there! Think up anything you'd like me to help with?"
-DANIEL_NOT_NOW_R_2,"No worries, take care!"
-
-DANIEL_BIG_RED_1,"A giant red flower wailing at the edge of the Depths? Oh, I think I heard about that!"
-DANIEL_BIG_RED_2,"I have been curious about them. They seem pretty great, especially if they bully Sonia."
-DANIEL_BIG_RED_3,"If she's calmed down, then yeah I'm certainly willing to help!"
-DANIEL_BIG_RED_4,"Anything you think I should know first?"
-DANIEL_C_DEITY,"She's a deity"
-DANIEL_C_FAT,"She's very very large"
-DANIEL_C_LOVE,"She's cute and kissable"
-DANIEL_C_VORE,"I think she eats people."
-
-DANIEL_BR_DEITY_1,"Oh, a deity, huh? Well, I'll be sure to be gentle with her foliage."
-DANIEL_BR_FAT_1,"Is she? Well, I don't have any qualms helping a fatter girl. That'd make me a hypocrite."
-DANIEL_BR_LOVE_1,"Huh??? Like, do you want to kiss her, or is this some twisted date thing???"
-DANIEL_BR_LOVE_2,"...'Cause like, I'm not opposed to a date-type thing, but I don't wanna take her from you-"
-DANIEL_BR_LOVE_3,"-Okay I'll just stop talking now."
-DANIEL_BR_GENERIC_END,"I should probably head over. Come on down to check out my work!"
-DANIEL_BR_FRANK,"Frank, could you get the door? I'm heading out with Echo."
-DANIEL_BR_WARNING_1,"...Huh. Y'know, I thought I heard someone crying out for some people to eat..."
-DANIEL_BR_WARNING_2,"Thanks for the heads up, Echo. I'll tread carefully around her."
-
-DANIEL_BR_BEFORE_LEAVE_1,"I'll meet you down there, alright?"
-DANIEL_BR_BEFORE_LEAVE_2,"Don't worry about me, I have my ways of getting around."
-
-DANIEL_DODGE_1,"Hey there, Echo! Turns out your warning was, very well-founded."
-DANIEL_DODGE_2,"While I was trying to break the rocks around her, she turned around and swallowed me whole!"
-DANIEL_DODGE_3,"But, thanks to you, I came prepared and found a way to slip out."
-DANIEL_DODGE_4,"Now I'm locking her in jail for Vore Crimes."
-DANIEL_DODGE_5,"Not only that, but when I was in her stomach, I saw she was hoarding this!"
-DANIEL_DODGE_6,"I think that's yours. It should be a proper payment, anyhow."
-DANIEL_DODGE_R_1,"I like to think I'm pretty open-minded, I don't judge what others are in to."
-DANIEL_DODGE_R_2,"But, people like her? Ugh, I can't even begin to understand it!"
-DANIEL_DODGE_R_3,"That humidity is killer! And she wanted MORE! I know plants like water, but isn't that overkill??"
-DANIEL_DODGE_R_4,"Wait what did you think I was talking about?"
-
-BIG_RED_JAIL_1,"...\n\nOh... Hi Echo..."
-BIG_RED_JAIL_2,"I... really screwed up here."
-BIG_RED_JAIL_3,"This super hot guy tried to free me, but he looked so tasty, I had to sneak a bite..."
-BIG_RED_JAIL_4,"I had him down for like, 5 seconds max. Next thing you know, he's locking me up."
-BIG_RED_JAIL_HUMID,"He didn't even respect my request to up the humidity! At least let me get a drink!!"
-BIG_RED_JAIL_5,"I think. I'm just gonna sit here a while. And think about what I did."
-BIG_RED_JAIL_R_1,"Y'know, he said something kinda weird before he jailed me."
-BIG_RED_JAIL_R_2,"He said, ""You wanted a taste?? You could've just asked!"""
-BIG_RED_JAIL_R_3,"Now what does that mean??"
-
-BIG_RED_VORE_1,"Urghhhh... H-hi, Echo."
-BIG_RED_VORE_2,"I just had the- urp- most wonderful encounter!"
-BIG_RED_VORE_3,"This super hot guy came down, saying you sent him here to set me free."
-BIG_RED_VORE_4,"And then he started working, and un-wedged me a little."
-BIG_RED_VORE_5,"I was so excited I- urp- lunged out to show my gratitude!"
-BIG_RED_VORE_6,"And jeez, I gotta say."
-BIG_RED_VORE_7,"A bit of freedom AND a free dinner? Echo, you spoil me!"
-BIG_RED_VORE_8,"I'd feel bad- hurp- just leaving you in the dust. So here, take this."
-BIG_RED_VORE_R_1,"I'm a bit worried I'll regret doing this."
-BIG_RED_VORE_R_2,"My stomach's been upset since I ate him. Like I'm getting with a mallet repeatedly."
-BIG_RED_VORE_R_3,"Also, he was really fatty. I think that, with him in here, I'm more stuck than before."
-BIG_RED_VORE_R_4,"...Could you, find someone else maybe? Someone stronger, a bit fatter, easier to digest too?"
+#Journal entries,
+JOURNAL_AFFAMAE_NAME,"Affamae",Affamae
+JOURNAL_AFFAMAE_DESC,"A one-armed monster obsessed with food. I get the feeling that, if I stick around, I will become their next meal...","Un monstruo con una sola mano y obsesionado con la comida. Tengo el presentimiente de que si me quedo por ahí, me convertiré en su siguiente aperitivo..."
+JOURNAL_ARTIFACT_NAME,"Artifact of Echo",Artefacto de Echo
+JOURNAL_ARTIFACT_DESC,"Believed to be the core of the legendary dragon, Echo. For a legendary being, its energy readings are very low...","Se cree que es el nucleo del legendario dragón, Echo. Para ser una criatura legendaria, sus señales de energía son bastante bajas..."
+JOURNAL_BEE_CANNON_NAME,"Wasp-Cannon",Avispa-ñon
+JOURNAL_BEE_CANNON_DESC,"While they look more active than the Orbees,\nthey just shoot problems with honey until the Orbees do it for them.","Aunque parecen ser más activos que las Orbejas,\nse limitan a disparar a sus problemas hasta que las Orbejas se encarguen de ello."
+JOURNAL_BEEORB_NAME,"Orbee",Orbeja
+JOURNAL_BEEORB_DESC,"Lazy, gluttonous bees who do nothing without the promise of food. Very cute, and painfullly relatable.","Abejas perezosas y glotonas que no hacen nada a menos que se les prometa comida a cambio. Muy adorables, y dolorosamente fácil de identificarse con ellas."
+JOURNAL_BIG_LIZARD_NAME,"Geckordo",Geckordo
+JOURNAL_BIG_LIZARD_DESC,"A Geckito that has explored the valley and been rewarded. They are strong, not in spite of, but due to their massive size.","A Geckito que ha explorado los valles y ha sido debidamente recompensado. Son fuertes, gracias a su gran tamaño en vez de pese a el."
+JOURNAL_BIG_PLANTS_NAME,"Chromatic Flora",Flora Chromática
+JOURNAL_BIG_PLANTS_DESC,"Three plants that have populated these caves for centuries. Even among flowers, it seems mass equals power in this valley.","Tres flores que han poblado estas cavernas durante siglos. Incluso en flores, parece ser que peso equivale a poder en este valle."
+JOURNAL_BRAMBLE_BALL_NAME,"Bramble-Ball",Zarza-Bola
+JOURNAL_BRAMBLE_BALL_DESC,"A mindless clump of torn-up plant matter. Some people claim to see a face among the tangle... I can't see it.",Un montón de materia vegetal rasgada sin consciencia alguna. Alguna gente afirma ver un rostro dentro del enrededo... Yo no lo veo.
+JOURNAL_CORVID_ROOK_NAME,"Corvid Rook",Córvido Torre
+JOURNAL_CORVID_ROOK_DESC,"Mages in the corvid court, with a belly to match. Through my intense research, I've translated their name as ""Crow Crow"".","Magos que forman parte de la corte córvida, con panza a juego. Gracias a mis intensas investigaciones, he traducido sus nombres como ""Cuervo Cuervo""."
+JOURNAL_CRAB_NAME,"Clobber Crab",Cangrejo Machacador
+JOURNAL_CRAB_DESC,"As the Depths dried, these beasts became angry and territorial. They help Sonia with her tower in exchange for peace & quiet.","Una vez las profundidades se secaron, estas bestias se volvieron furiosas y territoriales. Ayudan a Sonia con su torre a cambio de paz y tranquilidad."
+JOURNAL_CROW_NAME,"Corvid Pawn",Córvido Peón
+JOURNAL_CROW_DESC,"Slimmest among the bird chivalry in the Valley, and lowest ranking. Moderately okay with a bow and a knife.","Los mas delgados entre los caballeros pájaros en el Valle, y los de rango mas bajo. Moderadamente decentes con el arco y el cuchillo."
+JOURNAL_DANIEL_NAME,"Daniel",Daniel
+JOURNAL_DANIEL_DESC,"Top worker of the Pyrite Plunge, and the only one keeping anything running. He is\nthe most agreeable person I've met here.","Empleado estrella del Acantilado Pirita, y el único manteniendo las cosas en funcionamiento. Es\nla persona mas placentera que jamas he conocido."
+JOURNAL_FATBAT_NAME,"Fat Bat",Murcielago gordo
+JOURNAL_FATBAT_DESC,"A bat that is fat. Enjoys biting those who walk by. They annoy me greatly, and I wish they'd be fattened to immobility.","Un murcielago que está gordo. Les gusta morder a la gente que pasa por ahí. Me molestan mucho, y ojala engordasen hasta que no se puedan mover."
+JOURNAL_FLUTTERFISH_NAME,"Flutterfish",Pez Ala
+JOURNAL_FLUTTERFISH_DESC,"These caves dried up centuries ago, and yet\nthese fish persist. Nature is mysterious and scary. Also, very tasty.","Estas cuevas se secaron hace siglos, y aun asi\nestos peces persisten. Madre naturaleza es misteriosa y terrorífica. Y también muy deliciosa."
+JOURNAL_HEDGEHOG_NAME,"Hedgehog",Erizo
+JOURNAL_HEDGEHOG_DESC,"A perfect specimen. They walk around aimlessly, hurting none\nbut those who dare interfere with their wander.","El especimen perfecto. Caminan por ahí sin rumbo, sin dañar a nadie\nexcepto aquellos que interfieren con sus caminatas."
+JOURNAL_HUGEHOG_NAME,"Huge-hog",Gran-rizo
+JOURNAL_HUGEHOG_DESC,"An immobile hedgehog, likely ten times my weight. It's staring at me hungrily. Perhaps I can feed it when I'm done with this page.","Un erizo inmovible, seguramente diez veces mi peso. Me está mirando con pinta de hambriento. Tal vez pueda darle algo de comer en cuanto termine de escribir esta página."
+JOURNAL_IMMOBILE_BEEORB_NAME,"Orbee (Immobile)",Orbeja (Inmovible)
+JOURNAL_IMMOBILE_BEEORB_DESC,"The natural end-state of the Orbees' diet. I wonder if science could get them fatter?\nFor research purposes,\nof course.","La conclusión natural de la dieta de las Orbejas. ¿Me pregunto si la ciencia sería capaz de engordarlas aún más?\nPor tal de investigar,\npor supuesto."
+JOURNAL_JOURNALIST_NAME,"Maxwell Flinthelm II",Maxwell Flinthelm II
+JOURNAL_JOURNALIST_DESC,"The handsome, amazing author of the very journal you're reading!\nBe sure to check out my other works if you enjoy this one!","¡El hermoso, asombroso autor del mismo diario que estás leyendo ahora mismo!\n¡Asegurate de echar un vistazo a mis otras publicaciones si has disfrutado de esta!"
+JOURNAL_KARA_NAME,"Kara",Kara
+JOURNAL_KARA_DESC,"She claims to be a cryptid called a ""Shift-Claw"". There are no recorded instances of this species. ????????","Ella afirma ser una criptida llamada ""Shift-Claw"". No hay ni un solo record respecto a la existencia de tal especie. ¿¿¿¿????"
+JOURNAL_LIL_MUSHROOM_NAME,"Sporeling",Esporiño
+JOURNAL_LIL_MUSHROOM_DESC,"What is it hiding? There is something strange happening with\nthese mushrooms, and I will get to the bottom of it.","¿Qué es lo que esconde? Algo extraño ocurre con\nestos champiñones, y voy a tratar de averiguarlo."
+JOURNAL_MONGOOSE_NAME,"- Edgar -",- Edgar -
+JOURNAL_MONGOOSE_DESC,"The local monarch. Claims to have ignited Charred Caverns (despite being a volcano for centuries). Addicted to ice cream.",El monarca local. Afirma haber incendiado la caverna carbón (pese a haber sido un volcán durante siglos). Adicto al helado.
+JOURNAL_OLHM_NAME,"Olhm",Proteom
+JOURNAL_OLHM_DESC,"Long, electrified olms who dart around under the Sporeways. Cursed with electricity\npowers, despite being mostly pacifistic.","Proteos largos y electrificados que se mueven de un lado a otro en la Senda Espora. Fueron maldecidos con poderes\neléctricos, pese a ser en su mayoría pacifistas."
+JOURNAL_SCARE_DRAGON_NAME,"Scaredrake",Espanta-dracos
+JOURNAL_SCARE_DRAGON_DESC,"Scarecrow designed to keep Echo away. At first they seem laughable, but then I realized, I haven't seen Echo near them...","Espantapajaros diseñados para mantener alejada a Echo. Al principio me parecían de risa, pero luego me di cuenta de que jamás he visto a Echo cerca de ellos..."
+JOURNAL_SMALL_LIZARD_NAME,"Geckito",Geckito
+JOURNAL_SMALL_LIZARD_DESC,"Anxious lizards who don't stray far from their resting grounds. The fires on their back keep them warm away from sunlight.",Lagartos anxiosos que no suelen alejarse mucho de su lugar de descanso. Los fuegos en sus espaldas les mantienen calidos cuando no da la luz del sol.
+JOURNAL_SMALL_PLANTS_NAME,"Chromatic Buds",Brotes Chromáticos
+JOURNAL_SMALL_PLANTS_DESC,"Far-flung buds of the Chromatic Flora found deep in the caves. Their power weakend\nas the tower overtook their domain.",Brotes distantes de la Flora Chromática que se encuentran en las profundidades de la cueva. Sus poderes menguaron\na medida que la torre tomó control de sus regiones.
+JOURNAL_SNAIL_NAME,"Snail",Caracol
+JOURNAL_SNAIL_DESC,"Perfect. Flawless. A being with naught but love in its heart and\na desire to do right by those around it.",Perfecto. Infalible. Una criatura con nada más que amor en su corazón y\nla necesidad de hacer lo correcto a aquellos a su alrededor.
+JOURNAL_SONIA_NAME,"- Sonia -",- Sonia -
+JOURNAL_SONIA_DESC,"The brilliant tycoon in charge of mining gold. A genius, and I'm not just saying that to get a book deal, but if she offered then","La brillante empresaria encargada de minar oro. Una genia, y eso no lo digo solo para obtener un contrato editorial, pero si me lo ofrece..."
+JOURNAL_SPIDER_NAME,"Spider",Araña
+JOURNAL_SPIDER_DESC,"A welcome friend. Too fat & bloated from eating bugs to threaten someone my size. They make for a comfy seat as well.",Un amigo muy agradable. Demasiado gordo e inflado a partir de comer insectos como para amenazar a alguien de mi tamaño. También sirven como asientos cómodos.
+JOURNAL_SPIKE_HEDGEHOG_NAME,"Spike-hog",Pincherizo
+JOURNAL_SPIKE_HEDGEHOG_DESC,"King Edgar wanted to generate jobs, so he hired Hedgehogs to be spikes. Pay is 100g of Pyrite an hour, or about $0.001.","El Rey Edgar buscaba generar trabajos, asi que contrató a erizos para que fueran pinchos. El salario es 100g de pirita a la hora, o más o menos $0.001."
+JOURNAL_SPOREMOTHER_NAME,"Sporemother",Madrespora
+JOURNAL_SPOREMOTHER_DESC,"I asked for answers on the Sporecaps, and she made me raise one\nto adulthood. It just gave me a map! It didn't answer anything!!","Hice preguntas respecto a los Gorraesporas, y ella me hizo criar uno hasta que\nllegaron a la adultez. ¡Y al final solo me dió un mapa! ¡¡No me respondió nada!!"
+JOURNAL_STANDARD_MUSHROOM_NAME,"Sporecap",Gorraesporas
+JOURNAL_STANDARD_MUSHROOM_DESC,"A mushroom. Are they sapient? Sentient? They has a face, do they have secrets? What won't they tell me??","Un champiñon. ¿Son sapiens? ¿Conscientes? Tienen una cara, ¿Guardan secretos? ¿¿Qué es lo que me están ocultando??"
+JOURNAL_SWORD_SPIRIT_NAME,"Spirit of the Sword",Espíritu de la Espada
+JOURNAL_SWORD_SPIRIT_DESC,"A tubby ghost that mocked me for being unable to free her sword. I hit it with a hammer a few times, it\nstill wouldn't budge!","Una fantasma regordeta que se burlo de mí por ser incapaz de sacar su espada. Use un martillo para darle unas cuantas veces, ¡y\naun así ni se movió!"
+JOURNAL_WOLF_NAME,"Hefthire Wolf",Lobo Pesopesado
+JOURNAL_WOLF_DESC,"Hired bodyguards, most\nof whom glut out while\nnothing of note happens. Their combat ability is... theoretical.","Guardas que fueron contratados, la\nmayoría se atiborran de comida mientras\nno ocurre nada de interés. Sus capacidades de combate son... teoréticas."
 
 
-SWORD_MURAL_1,"BURIED DEEP IN THE LAND OF FUNGI LIES A GRAND TREASURE"
-SWORD_MURAL_2,"UNEARTH THE LEGENDARY BLADE FROM THE STONE AND BE A HERO"
-SWORD_MURAL_3,"(HEROES are liable for all damages to the sword. The Sword Spirit takes no responsibility for injuries dealt by the sword.)"
+#Inventory items,
+ITEM_FOOD_NAME,Food,Comida
+ITEM_FOOD_1,Meal for flesh beings. Prepared by the best chef in Heftwind Hills.,Merienda para seres de carne. Preparada por el mejor chef de las Colinas Ventadas.
+ITEM_FOOD_2,Meal for flesh beings. Cooked perfectly over magma. Somehow.,Merienda para seres de carne. Cocinada a la perfeción en el magma...de algún modo.
+ITEM_FOOD_3,Meal for flesh beings. Seared by Olhms in the Verdant Caverns.,Merienda para seres de carne. Quemada por Proteoms en la Caverna Verdosa.
+ITEM_FOOD_4,"Meal for flesh beings. Labeled ""Sonia's DO NOT STEAL."" Oops","Merienda para seres de carne. Etiquetada con ""De Sonia, NO ROBES."" Uups"
+ITEM_FOOD_5,"Meal for flesh beings. Cooled by mountain air, but still edible.","Merienda para seres de carne. Enfriada por el aire de las montañas, pero sigue siendo edible."
+ITEM_FOOD_6,Meal for flesh beings. A deceptively sublime vegan imitation meat.,Merienda para seres de carne. Una sorprendentemente sublime imitación vegana de carne.
+ITEM_FOOD_7,Meal for flesh beings. Slow-cooked over a toasty fire.,Merienda para seres de carne. Cocinada a fuego lento sobre una hogera calentita.
+ITEM_FOOD_8,"Meal for flesh beings. A little airborne, but still good.","Merienda para seres de carne. Un pelin flotante, pero sigue en buen estado."
 
-HOME_CQ_SIGN,"My greatest treasure lives past this gate. Guard it with your life.\n     -CQ `"
+ITEM_ENERGY_NAME,"Draconic Energy",Energía dragónica
+ITEM_ENERGY_1,A shred of power. Was hidden away by Edgar's predecessor.,Un fragmento de poder. Fué escondido por el predecesor de Edgar.
+ITEM_ENERGY_2,A shred of power. It seeped into the Sporeways long ago.,Un fragmento de poder. Hace mucho tiempo que se filtró dentro de la Senda Espora.
+ITEM_ENERGY_3,A shred of power. Smells like freshly cut grass.,Un fragmento de poder. Huele a cesped recien cortado.
+ITEM_ENERGY_4,A shred of power. Made sticky & sweet with honey.,Un fragmento de poder. Se ha vuelto dulce y pegadizo gracias a la miel.
+ITEM_ENERGY_5,A shred of power. Sold at an outrageous price. Bought on sale.,Un fragmento de poder. Vendido a precios desorbitados. Comprado en rebaja.
+ITEM_ENERGY_6,"A shred of power. Is this yours, or the plants of the deep's?","Un fragmento de poder. ¿Es tuyo, o de las plantas en las profundidades?"
+
+ITEM_CORE_NAME,"Portal Core",Nucleo de Portal
+ITEM_BROKEN_CORE_NAME,"Portal Core Scraps",Fragmentos de Nucleo de Portal
+ITEM_CORE_1,A mysterious object. Feels ice-cold to the touch.,Un objeto misterioso. Se siente frío al toque.
+ITEM_CORE_2,A mysterious object. Shines with nary a scratch or blemish.,Un objeto misterioso. Brilla sin ninguna clase de rasguños o defectos.
+ITEM_CORE_3,A mysterious object. An unfamiliar fungus grows on its shell.,Un objeto misterioso. Una clase de champiñon desconocido crece en su carcasa.
+ITEM_CORE_4,A mysterious object. A faint mountain breeze whistles through it.,Un objeto misterioso. Emana una ligera brisa de montaña.
+ITEM_CORE_5,A mysterious object. A brown leaf is stuck on the inside.,Un objeto misterioso. Hay una hoja marrón atascada dentro.
+ITEM_CORE_6,A mysterious object. It radiates the warmth of a sunny day.,Un objeto misterioso. Emite la calidez de un día soleado.
+ITEM_BROKEN_CORE,Broken when opening a portal. Refracted light dances off the shards.,Se rompió al abrir un portal. Luz refractada se desprente de los framgentos.
+
+ITEM_ARTIFACT_NAME,"Artifact",Artefacto
+ITEM_ARTIFACT,"Your heart, brain, lungs, everything.\nNot to be lost ever.","Tu corazón, cerebro, pulmones, todo tu ser.\nJamás debe perderse."
+
+ITEM_JOURNAL_1_NAME,"""Faces of the Valley""","""Las Caras del Valle"""
+ITEM_JOURNAL_1,A catalog of species and people. Read it in the Pause menu!,Un catálogo de especies y de gente. ¡Leelo en el menú de pausa!
+ITEM_JOURNAL_2_NAME,"Echo's Journal",Diario de Echo
+ITEM_JOURNAL_2,A diary from the past few years. Best read at Home.,Un diario sobre ocurrido estos últimos años. Mejor se lee en casa.
+ITEM_JOURNAL_3_NAME,"Aged Journal",Diario Viejo
+ITEM_JOURNAL_3,An old diary of the past few centuries. Best read at Home.,Un diario sobre lo ocurrido estos últimos siglos. Mejor se lee en casa.
+
+ITEM_SWORD_BLADE_NAME,"Legend Sword (Blade)",Espada de Legenda (Filo)
+ITEM_SWORD_HILT_NAME,"Legend Sword (Hilt)",Espada de Legenda (Empuñadura)
+ITEM_SWORD_BLADE,Blade of a broken sword. Increases attack damage. Badass,El filo de una espada rota. Aumenta el daño de tus ataques. Molón
+ITEM_SWORD_HILT,Hilt of a broken sword. Increases attack range. Neato,La empuñadura de una espada rota. Aumenta el rango de tus ataques. Chachi
+
+ITEM_MUSH_NAME,"Mycelium Map",Mapa Micelio
+ITEM_MUSH,Parasite that shows everything on the map. Questionable.,Parásito que te enseña todo en el mapa. Cuestionable.
+ITEM_MUSH_MEAN_NAME,"Mush-Meal",Seta-limento
+ITEM_MUSH_MEAL,Mushroom food. Thankfully you have no sense of smell.,Comida para champiñones. Por suerte no tienes sentido del olfato.
+ITEM_MUSH_IN_MEAL_NAME,"Mush-Meal (Occupied)",Seta-limento (Ocupado)
+ITEM_MUSH_IN_MEAL,Happiest Sporecap. Shows everything on the map. Friend?,Gorraespora feliz. Te enseña todo en el mapa. ¿Amigo?
+
+ITEM_PYRITE_NAME,"Pyrite",Pirita
+ITEM_MAX_PYRITE_NAME,"Excessive Pyrite",Pirita en exceso
+ITEM_PYRITE,Utterly useless metal.\n\nYou have %d.,Metal completamente inútil.\n\nTienes %d.
+ITEM_MAX_PYRITE,Why did you do this.\n\nYou have 500.,Por qué has hecho esto.\n\nTienes 500.
+
+ITEM_POISON_NAME,"Poisoned Soup",Sopa envenenada
+ITEM_POISON,Attempted murder meal. Gives corrosive fireballs instead.,Comida creada como intento de asesinato. En su lugar te proporciona Bolas de Fuego corrosivas.
+
+ITEM_CRUSHED_CLAW_NAME,"Crushed Claw",Garra Aplastada
+ITEM_CRUSHED_CLAW,The hand that feeds was bit. Increases attack damage.,La mano que alimentaba fue mordida. Aumenta el daño de tus ataques.
+
+ITEM_INJECTOR_NAME,Portal Injector,Injector de Portales
+ITEM_INJECTOR_XL_NAME,Portal Injector XL,Injector de Portales XL
+ITEM_INJECTOR,Allows opening portals w/ a Portal Core. A sleek design.,Te permite abrir portales con un Núcleo de Portal. Un diseño elegante.
+ITEM_INJECTOR_XL,Allows opening portals wide enough for your fat ass,Permite abrir portales lo suficientemente grandes para tu culo gordo
+
+
+#New text engine,
+DANIEL_1,"Heyo. Sorry about before. Name's Daniel.",Holi. Lo siento por lo de antes. Mi nombre es Daniel.
+DANIEL_2,"When you ran in like that, we thought you were a pinkerton or something.","Cuando entraste a prisas de esa forma, pensé que eras una pirkerton o algo asi."
+DANIEL_3,"I remember seeing you in Sonia's office, though. You're the one that showed her what for!","Aunque si recuerdo verte en la officina de Sonia. ¡Tu eres la que le enseño quien manda!"
+DANIEL_4,"Only wish we had more to offer right now, we're kinda short on resouces.","Me gustaría tener algo mas que ofrecer ahora mismo, estamos algo escasos en recursos."
+DANIEL_5,"Do you have any, like, favors you need help with?","¿Tienes algo, en plan, algún favor en el que te pueda ayudar?"
+DANIEL_C_BIG_RED,"Trapped flower",Flor atrapada
+DANIEL_C_NOT_NOW,"Not right now",Por ahora no
+
+DANIEL_NOT_NOW_1,"Alright, well let me know if you can think of anything.","Muy bien, en ese caso ya me dices si se te ocurre algo."
+DANIEL_NOT_NOW_2,"For now though, I'll let Frank release you back to society.","Aunque por ahora, dejaré que Frank te suelte de vuelta a la sociedad."
+DANIEL_NOT_NOW_R_1,"Hey there! Think up anything you'd like me to help with?",¡Hola! ¿Has pensado en algo en lo que te gustaría que ayudara?
+DANIEL_NOT_NOW_R_2,"No worries, take care!","¡Sin problema, cuidate!"
+
+DANIEL_BIG_RED_1,"A giant red flower wailing at the edge of the Depths? Oh, I think I heard about that!","¿Una flor gigante sollozando al borde de las profundidades? ¡Oh, creo que he oido hablar de ello!"
+DANIEL_BIG_RED_2,"I have been curious about them. They seem pretty great, especially if they bully Sonia.","LLevo tiempo algo curioso al respecto. Parecen bastante guay, especialmente si abusan de Sonia."
+DANIEL_BIG_RED_3,"If she's calmed down, then yeah I'm certainly willing to help!","Si ya esta algo más calmada, entonces si, ¡Estaría encantado de ayudar!"
+DANIEL_BIG_RED_4,"Anything you think I should know first?","Antes de nada, ¿Hay algo que crees que debería tener en cuenta?"
+DANIEL_C_DEITY,"She's a deity",Es una deidad
+DANIEL_C_FAT,"She's very very large",Es muy muy grande
+DANIEL_C_LOVE,"She's cute and kissable",Es muy adorable y besable
+DANIEL_C_VORE,"I think she eats people.",Creo que come gente.
+
+DANIEL_BR_DEITY_1,"Oh, a deity, huh? Well, I'll be sure to be gentle with her foliage.","Oh, ¿Una deidad huh? Bueno, me aseguraré de ser delicado con sus follaje."
+DANIEL_BR_FAT_1,"Is she? Well, I don't have any qualms helping a fatter girl. That'd make me a hypocrite.","¿Lo es? Bueno, tampoco tengo ningún problema con ayudar a una chica gorda. Eso me haría un hipócrita."
+DANIEL_BR_LOVE_1,"Huh??? Like, do you want to kiss her, or is this some twisted date thing???","¿¿¿Huh??? En plan, ¿¿¿tu quieres besarla, o es esto una clase de cita rara???"
+DANIEL_BR_LOVE_2,"...'Cause like, I'm not opposed to a date-type thing, but I don't wanna take her from you-","...Porque bueno, tampoco estoy opuesto a algo en plan cita, pero tampoco quiero quitartela de las manos-"
+DANIEL_BR_LOVE_3,"-Okay I'll just stop talking now.",-Mira mejor deberia callarme.
+DANIEL_BR_GENERIC_END,"I should probably head over. Come on down to check out my work!",Sera mejor que me diriga allí. ¡Ahora bajas y compruebas mi trabajo!
+DANIEL_BR_FRANK,"Frank, could you get the door? I'm heading out with Echo.","¿Frank, podrías habrirme la puerta? Que me marcho con Echo."
+DANIEL_BR_WARNING_1,"...Huh. Y'know, I thought I heard someone crying out for some people to eat...","...Huh. Sabes, pensaba que había oido a alguien rogar por gente a la que comer..."
+DANIEL_BR_WARNING_2,"Thanks for the heads up, Echo. I'll tread carefully around her.","Gracias por el aviso, Echo. Tendré cuidado cerca de ella."
+
+DANIEL_BR_BEFORE_LEAVE_1,"I'll meet you down there, alright?","Nos veremos ahí abajo, ¿suena bien?"
+DANIEL_BR_BEFORE_LEAVE_2,"Don't worry about me, I have my ways of getting around.","No te preocupes por mi, tengo mis métodos para moverme por ahí."
+
+DANIEL_DODGE_1,"Hey there, Echo! Turns out your warning was, very well-founded.","¡Hola Echo! Resulta que al final tu aviso, pues estaba bien fundado."
+DANIEL_DODGE_2,"While I was trying to break the rocks around her, she turned around and swallowed me whole!","¡Mientras estaba tratando de romper las rocas alrededor de ella, se dió la vuelta y me tragó entero!"
+DANIEL_DODGE_3,"But, thanks to you, I came prepared and found a way to slip out.","Pero gracias a ti, vine preparado y encontré un modo de escaquearme."
+DANIEL_DODGE_4,"Now I'm locking her in jail for Vore Crimes.",Y ahora la tengo entre rejas for Crímenes de Vore.
+DANIEL_DODGE_5,"Not only that, but when I was in her stomach, I saw she was hoarding this!","No solo eso, sino que también, mientras estaba en su estómago, ¡vi que se tenía guardada esto!"
+DANIEL_DODGE_6,"I think that's yours. It should be a proper payment, anyhow.","Creo que es tuyo. Igualmente debería servir como pago adecuado."
+DANIEL_DODGE_R_1,"I like to think I'm pretty open-minded, I don't judge what others are in to.","Me gusta pensar que soy una persona de mente abierta, no voy juzgando a la gente por cosas que no me van."
+DANIEL_DODGE_R_2,"But, people like her? Ugh, I can't even begin to understand it!","¿Pero gente como ella? ¡Ugh, ni siquiera puedo empezar a comprenderlo!"
+DANIEL_DODGE_R_3,"That humidity is killer! And she wanted MORE! I know plants like water, but isn't that overkill??","¡La humedad está que mata! ¡Y encima quería MÁS! Se que a las plantas les gusta el agua, ¿¿Pero no es esto pasarse??"
+DANIEL_DODGE_R_4,"Wait what did you think I was talking about?","Espera, ¿De qué te crees que estaba hablando?"
+
+BIG_RED_JAIL_1,"...\n\nOh... Hi Echo...",...\n\nOh... Hola Echo...
+BIG_RED_JAIL_2,"I... really screwed up here.",La he...fastidiado.
+BIG_RED_JAIL_3,"This super hot guy tried to free me, but he looked so tasty, I had to sneak a bite...","Este tipo super guapo trató de liberarme, pero parecía tan sabroso, tenía que probar un bocado..."
+BIG_RED_JAIL_4,"I had him down for like, 5 seconds max. Next thing you know, he's locking me up.","Le tuve ahí dentro unos, 5 segundos como mucho. Y antes de que uno se de cuenta, ya me puso entre rejas."
+BIG_RED_JAIL_HUMID,"He didn't even respect my request to up the humidity! At least let me get a drink!!",¡Ni siquiera respetó mi solicitud de subir la humedad! ¡¡Almenos deja que coja una bebida!!
+BIG_RED_JAIL_5,"I think. I'm just gonna sit here a while. And think about what I did.",Bueno. Me toca sentarme aquí por un buen tiempo. Y pensar en lo que he hecho.
+BIG_RED_JAIL_R_1,"Y'know, he said something kinda weird before he jailed me.","Sabes, él dijo algo raro antes de arrestarme."
+BIG_RED_JAIL_R_2,"He said, ""You wanted a taste?? You could've just asked!""","Me dijo, ""¿¿Querías probarme?? ¡Podrias haberme preguntado!"""
+BIG_RED_JAIL_R_3,"Now what does that mean??",¿¿Qué quería decir con eso??
+
+BIG_RED_VORE_1,"Urghhhh... H-hi, Echo.","Urghhhh... H-hola, Echo."
+BIG_RED_VORE_2,"I just had the- urp- most wonderful encounter!",¡Acabo de tener el- urp- mejor encuentro de mi vida!
+BIG_RED_VORE_3,"This super hot guy came down, saying you sent him here to set me free.","Bajó un tipo super guapo aquí, diciendo que le habías mandado a liberarme."
+BIG_RED_VORE_4,"And then he started working, and un-wedged me a little.","Y entonces se puso a trabajar, y me desatascó un poco."
+BIG_RED_VORE_5,"I was so excited I- urp- lunged out to show my gratitude!",¡Estaba tan emocionada q- urp- me lanzé contra el para enseñarle mi gratitud!
+BIG_RED_VORE_6,"And jeez, I gotta say.","Y puff, debo decir."
+BIG_RED_VORE_7,"A bit of freedom AND a free dinner? Echo, you spoil me!","¿Un poco de libertad Y cena gratuita? ¡Que mimada me tienes, Echo!"
+BIG_RED_VORE_8,"I'd feel bad- hurp- just leaving you in the dust. So here, take this.","Me sentiría mal- hurp- si te dejase comiendo polvo. Así que toma, aquí tienes."
+BIG_RED_VORE_R_1,"I'm a bit worried I'll regret doing this.",Me preocupa un poco que me vaya a arepentir de esto.
+BIG_RED_VORE_R_2,"My stomach's been upset since I ate him. Like I'm getting with a mallet repeatedly.",Mi estómago ha estado algo revoltoso desde que me lo comí. Es como si estuviera siendo golpeada por un mazo constantemente.
+BIG_RED_VORE_R_3,"Also, he was really fatty. I think that, with him in here, I'm more stuck than before.","Y encima, él era algo regordete. Creo que, con él aquí dentro, estoy mas atascada que antes."
+BIG_RED_VORE_R_4,"...Could you, find someone else maybe? Someone stronger, a bit fatter, easier to digest too?","¿...tal vez, podrias encontrar a alguien más? Alguien más fuerte, un poco mas gordo, ¿Tal vez más fácil de digerir?"
+
+
+SWORD_MURAL_1,"BURIED DEEP IN THE LAND OF FUNGI LIES A GRAND TREASURE",ENTERRADO EN EL FONDO DE LA TIERRA DE LOS CHAMPIÑONES YACE UN GRAN TESORO
+SWORD_MURAL_2,"UNEARTH THE LEGENDARY BLADE FROM THE STONE AND BE A HERO",SACA LA HOJA LEGENDARIA DE SU LÁPIDA Y SE UN HEROE
+SWORD_MURAL_3,"(HEROES are liable for all damages to the sword. The Sword Spirit takes no responsibility for injuries dealt by the sword.)",(HEROES son responsables de cualquier daño que sufra la espada. La Espíritu de la Espada no es responsable de cualquier herida causada por la espada.)
+
+HOME_CQ_SIGN,"My greatest treasure lives past this gate. Guard it with your life.\n     -CQ `",Mi mayor tesoro vive mas allá de este portón. Protégelo con tu vida.\n -CQ `

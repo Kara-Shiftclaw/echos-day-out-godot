@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nffkkoo0twbx" path="res://assets/gfx/hud_theme.png" id="2_q4pe8"]
 [ext_resource type="Script" uid="uid://bogmdlks60242" path="res://textengine/text_box.gd" id="3_cxfeq"]
 [ext_resource type="AudioStream" uid="uid://uclwdd1web11" path="res://assets/sfx/dialogue_blip.wav" id="4_nkgtc"]
+[ext_resource type="PackedScene" uid="uid://bapmwva7gsyd1" path="res://textengine/text_scroll_manager.tscn" id="4_q4pe8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifptj"]
 texture = ExtResource("2_q4pe8")
@@ -50,29 +51,35 @@ _data = {
 &"peek": SubResource("Animation_q4pe8")
 }
 
-[node name="TextBox" type="Panel" unique_id=639076187 groups=["TextBoxes"]]
+[node name="TextBox" type="Panel" unique_id=639076187 node_paths=PackedStringArray("label") groups=["TextBoxes"]]
 process_mode = 3
 z_index = 110
 offset_left = -64.0
-offset_bottom = 20.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ychec")
 theme_override_styles/panel = SubResource("StyleBoxTexture_ifptj")
 script = ExtResource("3_cxfeq")
 move_if_blocking_player = true
+label = NodePath("TextScrollManager/Label")
 
-[node name="Label" type="Label" parent="." unique_id=2129856254]
+[node name="TextScrollManager" parent="." unique_id=2071829660 instance=ExtResource("4_q4pe8")]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = -3.0
-offset_bottom = -3.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="TextScrollManager" unique_id=2129856254]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.9137255, 0.8235294, 0.22352941, 1)
 theme_override_constants/line_spacing = 1
 theme_override_font_sizes/font_size = 2
