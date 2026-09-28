@@ -4,6 +4,10 @@ const MAX_MOVEMENT_PER_SECOND := 72.
 const ACCELERATION := 192.
 
 const FOREGROUND_ANSWER := 16
+const BACKGROUND_ANSWER := 24
+
+@export var background_door: Node2D
+@export var background_puzzle: Sprite2D
 
 var velocity := 0.
 var dest_velocity := 0.
@@ -14,6 +18,7 @@ func _physics_process(delta: float) -> void:
 	if lock_in_tween == null:
 		velocity = move_toward(velocity, dest_velocity, ACCELERATION * delta)
 		set_region_x(region_rect.position.x + velocity * delta)
+	background_puzzle.region_rect.position.x = region_rect.position.x
 
 
 func attempt_activation() -> void:
@@ -22,6 +27,12 @@ func attempt_activation() -> void:
 		$Switch.confirm_activation()
 		$Door.open()
 		$Door2.open()
+
+func attempt_background_activation(switch: Node2D) -> void:
+	var current_panel := roundi(region_rect.position.x / 8.) * 8
+	if current_panel == BACKGROUND_ANSWER:
+		switch.confirm_activation()
+		background_door.open()
 
 
 func left_down() -> void:
