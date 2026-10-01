@@ -733,3 +733,59 @@ SWORD_MURAL_2,"UNEARTH THE LEGENDARY BLADE FROM THE STONE AND BE A HERO",SACA LA
 SWORD_MURAL_3,"(HEROES are liable for all damages to the sword. The Sword Spirit takes no responsibility for injuries dealt by the sword.)",(HEROES son responsables de cualquier daño que sufra la espada. La Espíritu de la Espada no es responsable de cualquier herida causada por la espada.)
 
 HOME_CQ_SIGN,"My greatest treasure lives past this gate. Guard it with your life.\n     -CQ `",Mi mayor tesoro vive mas allá de este portón. Protégelo con tu vida.\n -CQ `
+
+
+GREEN_ARENA_GRANDMA_1,"Ohhhh! Ohhhhhhh!! Help!!"
+GREEN_ARENA_GRANDMA_2,"These punks! They stole my purse!"
+GREEN_ARENA_GRANDMA_3,"Ohhhhh!! They're back!!"
+
+GREEN_ARENA_PURSE_GET,"You got a Purse! Now you can return-"
+GREEN_ARENA_GRANDMA_4,"Ohhhh! Ohhhhhhh!! Guards!!"
+GREEN_ARENA_GRANDMA_5,"This fat dragon stole my purse from the cats that stole it from me!!"
+
+GREEN_ARENA_GRANDMA_6,"Ohhhh! Please, leave me alone!! Just take a candy and leave the rest!!"
+GREEN_CATSEYE_GET,"You got a Green Catseye! Better leave while you have the chance..."
+
+GREEN_ARENA_GRANDMA_R_1,"Ohhhh!! Please don't hurt me!!"
+GREEN_ARENA_GRANDMA_R_2,"...You were never going to hurt me were you."
+GREEN_ARENA_GRANDMA_R_3,"Ohhhhhhh!! Help!! This dragon gaslit me into thinking she was a thief!!"
+
+RED_CATSEYE_GET,"You got a Red Catseye! It seems drawn to the door."
+
+ORANGE_CATSEYE_CAT_Q,"Hey bub. You'se the catering or what? I've gotta meeting in 5."
+ORANGE_CATSEYE_CAT_YES,"Right on, just leave the food here. Take that gem as a tip."
+ORANGE_CATSEYE_CAT_NO,"Then SCRAM! This is a serious place of business!"
+ORANGE_CATSEYE_CAT_YES_R,"Just hand the food to me. It's not that hard."
+ORANGE_CATSEYE_CAT_NO_R,"Are ya gonna go or are ya gonna gawk at me?"
+ORANGE_CATSEYE_GET,"You got an Orange Catseye! A sound investment!"
+
+ORANGE_CATSEYE_CAT_REALIZATION_YES,"Hey wait a second, I didn't order lunch yet!"
+ORANGE_CATSEYE_CAT_REALIZATION_NO,"Hey wait a second, where did my priceless gem go?"
+ORANGE_CATSEYE_CAT_REALIZATION_2,"Guard! Sieze her!"
+
+ORANGE_CATSEYE_CAT_DEFEAT_GUARD_1,"So you murdered my guard."
+ORANGE_CATSEYE_CAT_DEFEAT_GUARD_2,"Jokes on you, I wanted that! Now I can declare it a tax writeoff!"
+ORANGE_CATSEYE_CAT_DEFEAT_GUARD_3,"Even in my defeat, I get richer! Hahaa!!"
+
+ORANGE_CATSEYE_CAT_RUN_AWAY_1,"Ha, you got scared off by my guard? I knew it was a good investment!"
+ORANGE_CATSEYE_CAT_RUN_AWAY_2,"And it got my gem back too! Right?"
+ORANGE_CATSEYE_CAT_RUN_AWAY_3,"Damn it."
+
+ORANGE_CATSEYE_CAT_RETURN_1,"Oh hey, it's you! Here to return your stolen property?"
+ORANGE_CATSEYE_CAT_RETURN_2,"No? Ah well, it was worth a shot."
+
+ORANGE_CATSEYE_CAT_TALK_TOO_MUCH,"Can you just leave already."
+
+ORANGE_CATSEYE_PLAN_Q,"A folder labeled ""Evil Schemes."" Peek inside?"
+ORANGE_CATSEYE_PLAN_NO,"You resisted the temptation."
+ORANGE_CATSEYE_PLAN_YES_1,"It's a bunch of vague charts filled with buzzwords."
+ORANGE_CATSEYE_PLAN_YES_2,"According to Graph 21.4, more Malevolence correlates to more Money."
+ORANGE_CATSEYE_PLAN_YES_3,"There is no recognizable scheme present."
+
+ORANGE_CATSEYE_CAT_PLAN_Q,"How's the plan look to ya?"
+ORANGE_CATSEYE_CAT_PLAN_OPT_GOOD,"Wow, very good"
+ORANGE_CATSEYE_CAT_PLAN_OPT_MID,"Pretty mediocre"
+ORANGE_CATSEYE_CAT_PLAN_OPT_BAD,"It's so bad..."
+ORANGE_CATSEYE_CAT_PLAN_GOOD,"Keep talking like that, and you've got a future in the business business!"
+ORANGE_CATSEYE_CAT_PLAN_MID,"That's why they pay you the little bucks, miss."
+ORANGE_CATSEYE_CAT_PLAN_BAD,"Yes, it is quite bad (youth slang for good), isn't it?"
