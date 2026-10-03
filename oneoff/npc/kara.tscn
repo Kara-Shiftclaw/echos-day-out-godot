@@ -1,10 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://4q65cgic2843"]
+[gd_scene format=3 uid="uid://4q65cgic2843"]
 
 [ext_resource type="Script" uid="uid://cva61co7sd3m2" path="res://oneoff/npc/scripts/kara.gd" id="1_5fh0g"]
 [ext_resource type="Texture2D" uid="uid://cl0y5140oacvp" path="res://assets/gfx/kara.png" id="2_1j8ws"]
 [ext_resource type="Texture2D" uid="uid://so1fk1lylapi" path="res://assets/gfx/up_arrow.png" id="3_rjehe"]
 [ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="4_3av3l"]
 [ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="5_mawec"]
+
+[sub_resource type="Animation" id="Animation_u8hte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_rjehe"]
 resource_name = "idle"
@@ -22,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [3, 0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1]
-}
-
-[sub_resource type="Animation" id="Animation_u8hte"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3av3l"]
@@ -87,147 +87,141 @@ _data = {
 &"bounce": SubResource("Animation_8mtm4")
 }
 
-[node name="Kara" type="Area2D"]
+[node name="Kara" type="Area2D" unique_id=829385403]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_5fh0g")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=284726048]
 texture = ExtResource("2_1j8ws")
 hframes = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=554395844]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_3av3l")
-}
-autoplay = "idle"
+libraries/ = SubResource("AnimationLibrary_3av3l")
+autoplay = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2139549477]
 position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_mawec")
 
-[node name="UpArrow" type="Sprite2D" parent="."]
+[node name="UpArrow" type="Sprite2D" parent="." unique_id=169838270]
 process_mode = 3
 visible = false
 position = Vector2(0, -20)
 texture = ExtResource("3_rjehe")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UpArrow"]
-libraries = {
-&"": SubResource("AnimationLibrary_mbb31")
-}
-autoplay = "bounce"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UpArrow" unique_id=693939488]
+libraries/ = SubResource("AnimationLibrary_mbb31")
+autoplay = &"bounce"
 
-[node name="Text" type="Node" parent="."]
+[node name="Text" type="Node" parent="." unique_id=1978433058]
 
-[node name="PortalGet" parent="Text" instance=ExtResource("4_3av3l")]
+[node name="PortalGet" parent="Text" unique_id=280006784 instance=ExtResource("4_3av3l")]
 
-[node name="StandardTextBox" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
-text = "Oh, uh...
+[node name="StandardTextBox" parent="Text/PortalGet" unique_id=1701837519 instance=ExtResource("5_mawec")]
+text = "KARA_INTRO_1"
 
-Hi..."
-
-[node name="StandardTextBox2" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox2" parent="Text/PortalGet" unique_id=554196004 instance=ExtResource("5_mawec")]
 text = "KARA_INTRO_2"
 
-[node name="StandardTextBox3" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox3" parent="Text/PortalGet" unique_id=1064034776 instance=ExtResource("5_mawec")]
 text = "KARA_INTRO_3"
 
-[node name="StandardTextBox4" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox4" parent="Text/PortalGet" unique_id=1137921498 instance=ExtResource("5_mawec")]
 text = "KARA_INTRO_4"
 
-[node name="StandardTextBox5" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox5" parent="Text/PortalGet" unique_id=686249402 instance=ExtResource("5_mawec")]
 text = "KARA_INTRO_5"
 
-[node name="StandardTextBox6" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox6" parent="Text/PortalGet" unique_id=470012538 instance=ExtResource("5_mawec")]
 text = "KARA_INTRO_6"
 
-[node name="StandardTextBox7" parent="Text/PortalGet" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox7" parent="Text/PortalGet" unique_id=940168035 instance=ExtResource("5_mawec")]
 text = "KARA_INTRO_7"
 
-[node name="Chat" parent="Text" instance=ExtResource("4_3av3l")]
+[node name="Chat" parent="Text" unique_id=759262084 instance=ExtResource("4_3av3l")]
 
-[node name="StandardTextBox" parent="Text/Chat" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox" parent="Text/Chat" unique_id=2001736232 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_1_1"
 
-[node name="StandardTextBox2" parent="Text/Chat" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox2" parent="Text/Chat" unique_id=833983155 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_1_2"
 
-[node name="StandardTextBox3" parent="Text/Chat" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox3" parent="Text/Chat" unique_id=904094342 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_1_3"
 
-[node name="Chat2" parent="Text" instance=ExtResource("4_3av3l")]
+[node name="Chat2" parent="Text" unique_id=67183355 instance=ExtResource("4_3av3l")]
 
-[node name="StandardTextBox" parent="Text/Chat2" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox" parent="Text/Chat2" unique_id=1939687877 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_2_1"
 
-[node name="StandardTextBox2" parent="Text/Chat2" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox2" parent="Text/Chat2" unique_id=1029678440 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_2_2"
 
-[node name="StandardTextBox3" parent="Text/Chat2" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox3" parent="Text/Chat2" unique_id=1693208160 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_2_3"
 
-[node name="StandardTextBox4" parent="Text/Chat2" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox4" parent="Text/Chat2" unique_id=473461315 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_2_4"
 
-[node name="Chat3" parent="Text" instance=ExtResource("4_3av3l")]
+[node name="Chat3" parent="Text" unique_id=1245155180 instance=ExtResource("4_3av3l")]
 
-[node name="StandardTextBox" parent="Text/Chat3" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox" parent="Text/Chat3" unique_id=2137247635 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_3_1"
 
-[node name="StandardTextBox2" parent="Text/Chat3" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox2" parent="Text/Chat3" unique_id=1462292918 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_3_2"
 
-[node name="StandardTextBox3" parent="Text/Chat3" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox3" parent="Text/Chat3" unique_id=611924583 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_3_3"
 
-[node name="StandardTextBox4" parent="Text/Chat3" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox4" parent="Text/Chat3" unique_id=630258064 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_3_4"
 
-[node name="Chat4" parent="Text" instance=ExtResource("4_3av3l")]
+[node name="Chat4" parent="Text" unique_id=1605704451 instance=ExtResource("4_3av3l")]
 
-[node name="StandardTextBox" parent="Text/Chat4" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox" parent="Text/Chat4" unique_id=1727470550 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_4_1"
 
-[node name="StandardTextBox2" parent="Text/Chat4" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox2" parent="Text/Chat4" unique_id=2115069708 instance=ExtResource("5_mawec")]
 text = "KARA_RANDOM_4_1"
 
-[node name="ResizePortal" parent="Text" instance=ExtResource("4_3av3l")]
+[node name="ResizePortal" parent="Text" unique_id=384342333 instance=ExtResource("4_3av3l")]
 
-[node name="StandardTextBox" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox" parent="Text/ResizePortal" unique_id=431737138 instance=ExtResource("5_mawec")]
 text = "KARA_RESIZE_1"
 
-[node name="StandardTextBox2" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox2" parent="Text/ResizePortal" unique_id=13801316 instance=ExtResource("5_mawec")]
 text = "KARA_RESIZE_2"
 
-[node name="StandardTextBox3" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox3" parent="Text/ResizePortal" unique_id=655670585 instance=ExtResource("5_mawec")]
 text = "KARA_RESIZE_3"
 
-[node name="StandardTextBox4" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox4" parent="Text/ResizePortal" unique_id=983634822 instance=ExtResource("5_mawec")]
 text = "KARA_RESIZE_4"
 
-[node name="StandardTextBox5" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox5" parent="Text/ResizePortal" unique_id=727102658 instance=ExtResource("5_mawec")]
 text = "KARA_RESIZE_5"
 
-[node name="StandardTextBox6" parent="Text/ResizePortal" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox6" parent="Text/ResizePortal" unique_id=485111366 instance=ExtResource("5_mawec")]
 text = "KARA_RESIZE_6"
 
-[node name="Chat5" parent="Text" instance=ExtResource("4_3av3l")]
+[node name="Chat5" parent="Text" unique_id=1016391382 instance=ExtResource("4_3av3l")]
 
-[node name="StandardTextBox" parent="Text/Chat5" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox" parent="Text/Chat5" unique_id=1284965476 instance=ExtResource("5_mawec")]
 text = "KARA_PLUME_HINT_1"
 
-[node name="StandardTextBox2" parent="Text/Chat5" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox2" parent="Text/Chat5" unique_id=1843607534 instance=ExtResource("5_mawec")]
 text = "KARA_PLUME_HINT_2"
 
-[node name="StandardTextBox3" parent="Text/Chat5" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox3" parent="Text/Chat5" unique_id=1371255098 instance=ExtResource("5_mawec")]
 text = "KARA_PLUME_HINT_3"
 
-[node name="StandardTextBox4" parent="Text/Chat5" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox4" parent="Text/Chat5" unique_id=670545150 instance=ExtResource("5_mawec")]
 text = "KARA_PLUME_HINT_4"
 
-[node name="StandardTextBox5" parent="Text/Chat5" instance=ExtResource("5_mawec")]
+[node name="StandardTextBox5" parent="Text/Chat5" unique_id=2068906300 instance=ExtResource("5_mawec")]
 text = "KARA_PLUME_HINT_5"
 
 [connection signal="area_entered" from="." to="." method="entered"]

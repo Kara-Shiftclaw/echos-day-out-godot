@@ -2828,15 +2828,11 @@ text = "SONIA_TAUNT_2"
 move_always = true
 
 [node name="StandardTextBox5" parent="Objects/Row1/Dialogue/Monologue" unique_id=738249680 instance=ExtResource("24_rhjpj")]
-text = "Do I have your powers? Yes. 
-Do I regret it?
-No."
+text = "SONIA_TAUNT_3"
 move_always = true
 
 [node name="StandardTextBox4" parent="Objects/Row1/Dialogue/Monologue" unique_id=706592890 instance=ExtResource("24_rhjpj")]
-text = "What's that look for??
-
-Hey. Echo. Echo. LISTEN."
+text = "SONIA_TAUNT_4"
 move_always = true
 
 [node name="StandardTextBox2" parent="Objects/Row1/Dialogue/Monologue" unique_id=1008249100 instance=ExtResource("24_rhjpj")]
@@ -2992,7 +2988,7 @@ collision_mask = 2
 process_mode = 3
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_kk7ad")
-frame_progress = 0.13598613
+frame_progress = 0.6096882
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/MineWorm" unique_id=605034632]
 position = Vector2(-3, -1)

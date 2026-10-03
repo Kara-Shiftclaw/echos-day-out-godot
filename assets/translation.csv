@@ -137,6 +137,10 @@ REGION_TAG_CRATER,"THE\nCRATER",EL\nCRÁTER
 REGION_TAG_BRAMBLE,"THE\nBRAMBLE",EL\nZarzal
 REGION_TAG_HOME,"HOME",HOGAR
 
+# Other portal names are standard area names
+PORTAL_LOC_MT_ECHO_BEFORE,"Mt. ???"
+PORTAL_LOC_CHARWIND,"Char-Wind Pass"
+
 
 # Old Text Engine ,
 TUTORIAL_1,"Woe, if the horrid beaste ever do wake! Her size and power are unmatched!","¡Pobre de nosotros si la horrible beastia algún día despierta! ¡Su tamaño y poder son incomparable!"

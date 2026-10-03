@@ -88,5 +88,5 @@ func mine_worm_dialogue() -> void:
 	elif pyrite == 500:
 		$Objects/MineWorm/Dialogue/MaxHeld.render()
 	else:
-		$Objects/MineWorm/Dialogue/Default/MinerMessageTextBox.text = MINER_MESSAGE % [pyrite, pyrite]
+		$Objects/MineWorm/Dialogue/Default/MinerMessageTextBox.text = tr(MINER_MESSAGE) % [pyrite, pyrite]
 		$Objects/MineWorm/Dialogue/Default.render()
