@@ -3,6 +3,9 @@
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_wp78b"]
 [ext_resource type="Script" uid="uid://bqpa8e30ossd2" path="res://menu/scripts/credits.gd" id="2_nidem"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i56ig"]
+bg_color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
 [node name="Credits" type="Control" unique_id=1185391876]
 z_index = 5
 layout_mode = 3
@@ -15,11 +18,14 @@ focus_mode = 2
 theme = ExtResource("1_wp78b")
 script = ExtResource("2_nidem")
 
-[node name="CreatedBy" type="Label" parent="." unique_id=667669921]
+[node name="CreatedByOLD" type="Label" parent="." unique_id=667669921]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 469.0
+offset_left = 129.0
+offset_right = 129.0
+offset_bottom = 537.0
 grow_horizontal = 2
 text = "
 Game Created By
@@ -95,7 +101,7 @@ Thats it ok goodbye
 "
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="CreatedBy" unique_id=844864307]
+[node name="ColorRect" type="ColorRect" parent="CreatedByOLD" unique_id=844864307]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
@@ -104,3 +110,326 @@ offset_right = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
+
+[node name="CreatedBy" type="PanelContainer" parent="." unique_id=1747426770]
+custom_minimum_size = Vector2(128, 0)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i56ig")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CreatedBy" unique_id=350006895]
+custom_minimum_size = Vector2(128, 128)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="List" type="VBoxContainer" parent="CreatedBy/ScrollContainer" unique_id=592818094]
+custom_minimum_size = Vector2(128, 0)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=280928409]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Credit" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=668969725]
+layout_mode = 2
+text = "CREDITS_CREATED_BY"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer2" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=419058657]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Credit2" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1701220491]
+layout_mode = 2
+text = "KaraShiftclaw"
+horizontal_alignment = 1
+
+[node name="Credit3" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1787219005]
+layout_mode = 2
+text = "CREDITS_ENGINE"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MainSection" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=207852585]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CreatedBy/ScrollContainer/List/MainSection" unique_id=56204578]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credit4" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1038751245]
+layout_mode = 2
+text = "CREDITS_GRAPHICS"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer3" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=441586185]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Credit5" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=664744293]
+layout_mode = 2
+text = "KaraShiftclaw"
+horizontal_alignment = 1
+
+[node name="Credit6" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1753681527]
+layout_mode = 2
+text = "CREDITS_ASEPRITE"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MainSection6" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=321094757]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CreatedBy/ScrollContainer/List/MainSection6" unique_id=720346524]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credit16" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=503239063]
+layout_mode = 2
+text = "CREDITS_TRANSLATION"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer7" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=982792380]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Credit17" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=179785345]
+layout_mode = 2
+text = "CREDITS_SPANISH"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Credit18" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1794756214]
+layout_mode = 2
+text = "Flora"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MainSection2" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=2083649056]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CreatedBy/ScrollContainer/List/MainSection2" unique_id=622942435]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credit7" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=704952513]
+layout_mode = 2
+text = "CREDITS_SFX"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer4" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=102935602]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Credit8" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1922561562]
+layout_mode = 2
+text = "KaraShiftclaw"
+horizontal_alignment = 1
+
+[node name="Credit9" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1099380355]
+layout_mode = 2
+text = "CREDITS_DAW"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MainSection3" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=1217204998]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CreatedBy/ScrollContainer/List/MainSection3" unique_id=915584105]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credit10" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=603038509]
+layout_mode = 2
+text = "CREDITS_SFX_SAMPLE"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer5" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=1783947098]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Credit11" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=93120511]
+layout_mode = 2
+text = "CREDITS_OSAMU_SATO"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MainSection4" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=2091712834]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CreatedBy/ScrollContainer/List/MainSection4" unique_id=479544431]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credit12" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=771511545]
+layout_mode = 2
+text = "CREDITS_MUSIC"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer6" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=73214132]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Credit13" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1580581977]
+layout_mode = 2
+text = "Arcade Drama 2
+
+Funky Chiptune
+
+Pixelin' It Around Town
+
+Something Freaky This
+Way Comes
+
+The 8-Bit Circus
+
+The Arcade Detective
+
+Invasion of the Giant
+Disco Ants
+
+Quirky Runner
+
+TechnoTronic
+
+TechnoTronic 2
+
+The Jazz Man
+
+Dangerous Descent
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Credit14" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1422913559]
+layout_mode = 2
+text = "CREDITS_ERIC"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MainSection5" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=733625380]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CreatedBy/ScrollContainer/List/MainSection5" unique_id=1858488792]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credit15" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=129072672]
+layout_mode = 2
+text = "CREDITS_FRIENDS"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MainSection7" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=410572201]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CreatedBy/ScrollContainer/List/MainSection7" unique_id=269612861]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = -2.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credit19" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1921872262]
+layout_mode = 2
+text = "CREDITS_ANTI_AI"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer8" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=24892917]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Credit20" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1993039075]
+layout_mode = 2
+text = "CREDITS_FUN_1"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer9" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=1512433579]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Credit21" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1404031077]
+layout_mode = 2
+text = "CREDITS_FUN_2"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer10" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=680629472]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Credit22" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1431376677]
+layout_mode = 2
+text = "CREDITS_FUN_3"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer11" type="Control" parent="CreatedBy/ScrollContainer/List" unique_id=1895885033]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
