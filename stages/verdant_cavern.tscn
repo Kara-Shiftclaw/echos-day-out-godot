@@ -35,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://caxbh33al4mat" path="res://oneoff/npc/big_blue.tscn" id="24_ophye"]
 [ext_resource type="PackedScene" uid="uid://c8quq3x1mj85h" path="res://objects/painted_wall.tscn" id="25_ophye"]
 [ext_resource type="PackedScene" uid="uid://d2xooyv6ei5dj" path="res://objects/portal.tscn" id="27_futco"]
-[ext_resource type="PackedScene" uid="uid://bvdabuywaew36" path="res://oneoff/npc/sporemother.tscn" id="28_2rqtf"]
+[ext_resource type="PackedScene" path="res://oneoff/npc/sporemother.tscn" id="28_2rqtf"]
 [ext_resource type="PackedScene" uid="uid://ykdr2tavj7v7" path="res://objects/sprint_wall.tscn" id="34_h8uxt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g7rv1"]
@@ -628,7 +628,7 @@ scale = Vector2(-1, 1)
 
 [node name="Portal" parent="Objects" unique_id=1908683272 instance=ExtResource("27_futco")]
 position = Vector2(312, 743)
-portal_name = "Verdant Cavern"
+title = 3
 
 [node name="Sporemother" parent="Objects" unique_id=423148744 instance=ExtResource("28_2rqtf")]
 position = Vector2(222, 157)

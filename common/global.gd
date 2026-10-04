@@ -114,7 +114,7 @@ var music_player: AudioStreamPlayer
 var flags := {}
 var explored_spaces := {}
 var journal_entries := {"journalist": true, "artifact": true, "hugehog": true}
-var portals := {}
+var portals: Dictionary[Portal.Title, Dictionary] = {}
 var can_pause := true
 
 func _ready() -> void:
@@ -204,7 +204,16 @@ func load_data(load_id: int) -> void:
 	flags.erase("")
 	if load_json.has("journal_entries"):
 		journal_entries = load_json["journal_entries"]
-	portals = load_json.get("portals", {})
+	portals = {}
+	var load_portals: Dictionary = load_json.get("portals", {})
+	for k: String in load_portals:
+		var maybe_title := Portal.from_legacy_title(k)
+		if maybe_title != Portal.Title.UndefinedTitle:
+			print("Updating legacy portal ", k, " to enum")
+			portals[maybe_title] = load_portals[k]
+		else:
+			maybe_title = k.to_int() as Portal.Title
+			portals[maybe_title] = load_portals[k]
 	Util.deserialize(load_json.get("augments", {}), Accessibility)
 	
 	explored_spaces = {}
@@ -285,8 +294,8 @@ func load_new_stage(stage: String,
 		transition.fade_in()
 	, ConnectFlags.CONNECT_ONE_SHOT)
 
-func portal_to_new_stage(dest_name: String):
-	var portal_details: Dictionary = portals[dest_name]
+func portal_to_new_stage(dest_title: Portal.Title):
+	var portal_details: Dictionary = portals[dest_title]
 	var stage: String = portal_details["scene_file_path"]
 	var path: String = portal_details["path"]
 	
@@ -305,6 +314,7 @@ func portal_to_new_stage(dest_name: String):
 		camera.add_child(transition)
 		transition.fade_in()
 		get_tree().paused = false
+		call_deferred("load_chunk", camera.chunk.x, camera.chunk.y)
 	, ConnectFlags.CONNECT_ONE_SHOT)
 
 func full_respawn():

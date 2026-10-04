@@ -521,7 +521,7 @@ position = Vector2(53, -446)
 
 [node name="Portal" parent="Objects" unique_id=708327257 instance=ExtResource("33_ioabt")]
 position = Vector2(-56, -281)
-portal_name = "Char-Wind Pass"
+title = 2
 
 [node name="TutorialSign" type="Area2D" parent="Objects" unique_id=58845106]
 position = Vector2(864, 108)

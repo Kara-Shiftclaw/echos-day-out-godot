@@ -1,11 +1,22 @@
+class_name Portal
 extends Area2D
 
 const EchoCutsceneWalker := preload("res://objects/echo/cutscene_walker.tscn")
 const Choice := preload("res://menu/dialogue/model/choice.tscn")
 
-@export var portal_name: String
+enum Title {
+	UndefinedTitle,
+	MtEcho,
+	Charwind,
+	VerdantCavern,
+	ThievesRoad,
+	Crater,
+	Bramble,
+}
+
+@export var title: Title
 var echo_inside := false
-var chosen_dest := ""
+var chosen_dest := Title.UndefinedTitle
 
 func _ready() -> void:
 	if Global.has_node_flag(self, "open"):
@@ -52,7 +63,7 @@ func open() -> void:
 	Global.set_node_flag(self, "open")
 	Global.flags["core_on_hand"] -= 1
 	Global.flags[InventoryMenu.used_flag(InventoryMenu.get_unused_portal_core())] = true
-	Global.portals.set(portal_name, get_scene_data())
+	Global.portals.set(title, get_scene_data())
 
 func get_scene_data() -> Dictionary:
 	return {
@@ -61,8 +72,9 @@ func get_scene_data() -> Dictionary:
 	}
 
 func add_destinations() -> void:
-	for dest_name in Global.portals:
-		if !$Text/PortalUse/MultipleChoiceBox.has_node(dest_name) and dest_name != portal_name:
+	for dest_title in Global.portals:
+		var dest_name := readable_title(dest_title)
+		if !$Text/PortalUse/MultipleChoiceBox.has_node(dest_name) and dest_title != title:
 			var choice: Node = Choice.instantiate()
 			choice.choice_text = dest_name
 			choice.enabled = true
@@ -70,7 +82,7 @@ func add_destinations() -> void:
 			$Text/PortalUse/MultipleChoiceBox.move_child(choice, -2)
 			choice.name = dest_name
 			choice.chosen.connect(func():
-				chosen_dest = dest_name
+				chosen_dest = dest_title
 				begin_portal_animation()
 			)
 
@@ -115,3 +127,30 @@ func too_fat_reset() -> void:
 	Global.echo.show()
 	$AnimationPlayer.play("too_fat_to_use")
 	$Echo/AnimationPlayer.play("RESET")
+
+
+static func from_legacy_title(legacy_title: String) -> Title:
+	if legacy_title == "Char-Wind Pass":
+		return Title.Charwind
+	elif legacy_title == "Mt ???":
+		return Title.MtEcho
+	elif legacy_title == "Verdant Cavern":
+		return Title.VerdantCavern
+	else:
+		return Title.UndefinedTitle
+
+func readable_title(dest_title: Title) -> String:
+	match dest_title:
+		Title.MtEcho:
+			return tr("PORTAL_LOC_MT_ECHO_BEFORE")
+		Title.Charwind:
+			return tr("PORTAL_LOC_CHARWIND")
+		Title.VerdantCavern:
+			return tr("REGION_NAME_VERDANT_CAVERN")
+		Title.ThievesRoad:
+			return tr("REGION_NAME_THIEVES_ROAD")
+		Title.Crater:
+			return tr("REGION_NAME_CRATER")
+		Title.Bramble:
+			return tr("REGION_NAME_BRAMBLE")
+	return "UNKNOWN"

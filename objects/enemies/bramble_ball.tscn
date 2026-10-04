@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bw2h76gm0i5fq"]
+[gd_scene format=3 uid="uid://bw2h76gm0i5fq"]
 
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="1_g7m5r"]
 [ext_resource type="Script" uid="uid://dowxpxt3iph46" path="res://objects/enemies/scripts/bramble_ball.gd" id="1_h475o"]
@@ -146,41 +146,39 @@ _data = {
 &"roll_right": SubResource("Animation_ofi5c")
 }
 
-[node name="BrambleBall" type="CharacterBody2D"]
+[node name="BrambleBall" type="CharacterBody2D" unique_id=1545160859]
 collision_layer = 4
 floor_block_on_wall = false
 script = ExtResource("1_h475o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=910063819]
 shape = SubResource("CircleShape2D_vyow7")
 
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("shader_nodes") instance=ExtResource("1_g7m5r")]
+[node name="EnemyManager" parent="." unique_id=960102452 node_paths=PackedStringArray("shader_nodes") instance=ExtResource("1_g7m5r")]
 max_health = 8
 energy_on_death = 0
 journal_entry = "bramble_ball"
 parent_save_properties = Array[String](["position", "facing_right"])
 shader_nodes = [NodePath("../Sprite2D")]
 
-[node name="Damage" type="Node" parent="."]
+[node name="Damage" type="Node" parent="." unique_id=822075041]
 script = ExtResource("1_tekq8")
 damage = 3
 metadata/_custom_type_script = "uid://cd06ykx2xlfww"
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1594059717]
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1604734403]
 shape = SubResource("CircleShape2D_vyow7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1244835409]
 material = ExtResource("4_ofi5c")
 texture = ExtResource("2_h7jie")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ln0y6")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=795218332]
+libraries/ = SubResource("AnimationLibrary_ln0y6")
 
 [connection signal="chunk_entered_alive" from="EnemyManager" to="." method="reload_alive"]
 [connection signal="chunk_left" from="EnemyManager" to="." method="hide"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d2xooyv6ei5dj"]
+[gd_scene format=3 uid="uid://d2xooyv6ei5dj"]
 
 [ext_resource type="Texture2D" uid="uid://dei0ds3iyahl8" path="res://assets/gfx/compound/portal/portal.png" id="1_ch4u6"]
 [ext_resource type="Script" uid="uid://mj72d2bww1x5" path="res://objects/scripts/portal.gd" id="1_i8dkg"]
@@ -640,130 +640,124 @@ _data = {
 &"bounce": SubResource("Animation_8mtm4")
 }
 
-[node name="Portal" type="Area2D"]
+[node name="Portal" type="Area2D" unique_id=441479692]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_i8dkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1768788648]
 position = Vector2(0, -1)
 texture = ExtResource("1_ch4u6")
 hframes = 9
 vframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1097019525]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_i8dkg")
-}
-autoplay = "closed_idle"
+libraries/ = SubResource("AnimationLibrary_i8dkg")
+autoplay = &"closed_idle"
 next/open = &"idle"
 next/too_fat_to_use = &"idle"
 next/use = &"use_idle"
 next/use_xl = &"use_xl_idle"
 
-[node name="Echo" type="Sprite2D" parent="."]
+[node name="Echo" type="Sprite2D" parent="." unique_id=2056552239]
 process_mode = 3
 visible = false
 texture = ExtResource("3_10cy8")
 hframes = 26
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Echo"]
-libraries = {
-&"": SubResource("AnimationLibrary_h2a3j")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Echo" unique_id=1902245371]
+libraries/ = SubResource("AnimationLibrary_h2a3j")
 
-[node name="Spark" type="Sprite2D" parent="Echo"]
+[node name="Spark" type="Sprite2D" parent="Echo" unique_id=326738234]
 visible = false
 texture = ExtResource("4_ueub8")
 hframes = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1945035569]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ch4u6")
 
-[node name="UpArrow" type="Sprite2D" parent="."]
+[node name="UpArrow" type="Sprite2D" parent="." unique_id=1691664466]
 process_mode = 3
 visible = false
 position = Vector2(0, -20)
 texture = ExtResource("4_dlkhy")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UpArrow"]
-libraries = {
-&"": SubResource("AnimationLibrary_mbb31")
-}
-autoplay = "bounce"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UpArrow" unique_id=1472559800]
+libraries/ = SubResource("AnimationLibrary_mbb31")
+autoplay = &"bounce"
 
-[node name="Text" type="Node" parent="."]
+[node name="Text" type="Node" parent="." unique_id=2135978728]
 
-[node name="Nothing" parent="Text" instance=ExtResource("3_tnatx")]
+[node name="Nothing" parent="Text" unique_id=22753231 instance=ExtResource("3_tnatx")]
 
-[node name="StandardTextBox" parent="Text/Nothing" instance=ExtResource("4_djgvg")]
+[node name="StandardTextBox" parent="Text/Nothing" unique_id=1846532406 instance=ExtResource("4_djgvg")]
 text = "PORTAL_UNKNOWN"
 
-[node name="PortalCoreNoInject" parent="Text" instance=ExtResource("3_tnatx")]
+[node name="PortalCoreNoInject" parent="Text" unique_id=1216317484 instance=ExtResource("3_tnatx")]
 
-[node name="StandardTextBox" parent="Text/PortalCoreNoInject" instance=ExtResource("4_djgvg")]
+[node name="StandardTextBox" parent="Text/PortalCoreNoInject" unique_id=2108559556 instance=ExtResource("4_djgvg")]
 text = "PORTAL_NO_INJECTOR_1"
 
-[node name="StandardTextBox2" parent="Text/PortalCoreNoInject" instance=ExtResource("4_djgvg")]
+[node name="StandardTextBox2" parent="Text/PortalCoreNoInject" unique_id=1359992803 instance=ExtResource("4_djgvg")]
 text = "PORTAL_NO_INJECTOR_2"
 
-[node name="InjectNoPortalCore" parent="Text" instance=ExtResource("3_tnatx")]
+[node name="InjectNoPortalCore" parent="Text" unique_id=569244794 instance=ExtResource("3_tnatx")]
 
-[node name="StandardTextBox" parent="Text/InjectNoPortalCore" instance=ExtResource("4_djgvg")]
+[node name="StandardTextBox" parent="Text/InjectNoPortalCore" unique_id=1192032544 instance=ExtResource("4_djgvg")]
 text = "PORTAL_INTRO"
 
-[node name="StandardTextBox2" parent="Text/InjectNoPortalCore" instance=ExtResource("4_djgvg")]
+[node name="StandardTextBox2" parent="Text/InjectNoPortalCore" unique_id=1230042967 instance=ExtResource("4_djgvg")]
 text = "PORTAL_NO_CORE"
 
-[node name="InjectPortalCore" parent="Text" instance=ExtResource("3_tnatx")]
+[node name="InjectPortalCore" parent="Text" unique_id=1119597803 instance=ExtResource("3_tnatx")]
 
-[node name="StandardTextBox" parent="Text/InjectPortalCore" instance=ExtResource("4_djgvg")]
+[node name="StandardTextBox" parent="Text/InjectPortalCore" unique_id=136625594 instance=ExtResource("4_djgvg")]
 text = "PORTAL_INTRO"
 
-[node name="MultipleChoiceBox" parent="Text/InjectPortalCore" instance=ExtResource("5_djgvg")]
+[node name="MultipleChoiceBox" parent="Text/InjectPortalCore" unique_id=259725606 instance=ExtResource("5_djgvg")]
 text = "PORTAL_INJECT_CORE"
 
-[node name="Yes" parent="Text/InjectPortalCore/MultipleChoiceBox" instance=ExtResource("6_10cy8")]
+[node name="Yes" parent="Text/InjectPortalCore/MultipleChoiceBox" unique_id=1043266807 instance=ExtResource("6_10cy8")]
 choice_text = "YES"
 enabled = true
 
-[node name="No" parent="Text/InjectPortalCore/MultipleChoiceBox" instance=ExtResource("6_10cy8")]
+[node name="No" parent="Text/InjectPortalCore/MultipleChoiceBox" unique_id=1332867527 instance=ExtResource("6_10cy8")]
 choice_text = "NO"
 enabled = true
 
-[node name="PortalOpen" parent="Text" instance=ExtResource("3_tnatx")]
+[node name="PortalOpen" parent="Text" unique_id=247962346 instance=ExtResource("3_tnatx")]
 
-[node name="StandardTextBox" parent="Text/PortalOpen" instance=ExtResource("4_djgvg")]
+[node name="StandardTextBox" parent="Text/PortalOpen" unique_id=442632702 instance=ExtResource("4_djgvg")]
 text = "PORTAL_OPEN"
 
-[node name="PortalUse" parent="Text" instance=ExtResource("3_tnatx")]
+[node name="PortalUse" parent="Text" unique_id=1217467908 instance=ExtResource("3_tnatx")]
 
-[node name="MultipleChoiceBox" parent="Text/PortalUse" instance=ExtResource("5_djgvg")]
+[node name="MultipleChoiceBox" parent="Text/PortalUse" unique_id=305975770 instance=ExtResource("5_djgvg")]
 text = "PORTAL_POST_OPEN"
 
-[node name="Stay" parent="Text/PortalUse/MultipleChoiceBox" instance=ExtResource("6_10cy8")]
+[node name="Stay" parent="Text/PortalUse/MultipleChoiceBox" unique_id=1559659548 instance=ExtResource("6_10cy8")]
 choice_text = "PORTAL_OPT_STAY_HERE"
 enabled = true
 
-[node name="StandardTextBox" parent="Text/PortalUse" instance=ExtResource("4_djgvg")]
+[node name="StandardTextBox" parent="Text/PortalUse" unique_id=2045473384 instance=ExtResource("4_djgvg")]
 text = "PORTAL_STAY_HERE"
 
-[node name="TooFat" parent="Text" instance=ExtResource("3_tnatx")]
+[node name="TooFat" parent="Text" unique_id=865855430 instance=ExtResource("3_tnatx")]
 
-[node name="StandardTextBox" parent="Text/TooFat" instance=ExtResource("4_djgvg")]
+[node name="StandardTextBox" parent="Text/TooFat" unique_id=1646132730 instance=ExtResource("4_djgvg")]
 text = "PORTAL_TOO_FAT_1"
 
-[node name="StandardTextBox2" parent="Text/TooFat" instance=ExtResource("4_djgvg")]
+[node name="StandardTextBox2" parent="Text/TooFat" unique_id=2003794085 instance=ExtResource("4_djgvg")]
 text = "PORTAL_TOO_FAT_2"
 
-[node name="TooFatTimer" type="Timer" parent="."]
+[node name="TooFatTimer" type="Timer" parent="." unique_id=604694433]
 process_mode = 3
 wait_time = 1.5
 one_shot = true
 
-[node name="PortalNoise" type="AudioStreamPlayer" parent="."]
+[node name="PortalNoise" type="AudioStreamPlayer" parent="." unique_id=266588387]
 stream = ExtResource("10_v5dss")
 bus = &"Sfx"
 

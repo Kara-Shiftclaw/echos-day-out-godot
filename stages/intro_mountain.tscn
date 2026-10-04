@@ -190,7 +190,7 @@ position = Vector2(924, -69)
 
 [node name="Portal" parent="Objects" unique_id=2084832872 instance=ExtResource("15_a3grp")]
 position = Vector2(469, 159)
-portal_name = "Mt ???"
+title = 1
 
 [node name="TutorialSign" type="Area2D" parent="Objects" unique_id=819296629]
 position = Vector2(148, 100)
