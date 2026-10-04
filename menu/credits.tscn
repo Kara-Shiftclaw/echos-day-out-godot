@@ -225,7 +225,7 @@ autowrap_mode = 3
 
 [node name="Credit18" type="Label" parent="CreatedBy/ScrollContainer/List" unique_id=1794756214]
 layout_mode = 2
-text = "Flora"
+text = "Flora (7s7_v6)"
 horizontal_alignment = 1
 autowrap_mode = 3
 
