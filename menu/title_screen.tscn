@@ -135,7 +135,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_d81vp"]
 resource_name = "close_language_select"
-length = 0.39999999999999997
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -207,7 +207,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_q5w0x"]
 resource_name = "language_select"
-length = 0.39999999999999997
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false

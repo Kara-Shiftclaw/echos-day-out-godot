@@ -15,8 +15,6 @@ func _ready() -> void:
 	var last_save_file_contents := FileAccess.get_file_as_string(LAST_SAVE_FILE)
 	if !last_save_file_contents.is_empty():
 		last_save_id = last_save_file_contents.to_int()
-	if !Global.has_saved_data(1):
-		$Options/VBoxContainer/Continue.disabled = true
 	if !Global.IS_DEMO_BUILD:
 		$Sprite2D/DemoLabel.queue_free()
 
