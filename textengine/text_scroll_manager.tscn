@@ -2,11 +2,18 @@
 
 [ext_resource type="Script" uid="uid://be0xsflu83qrp" path="res://textengine/text_scroll_manager.gd" id="1_lojab"]
 
-[node name="TextScrollManager" type="ScrollContainer" unique_id=2071829660]
+[node name="TextScrollManager" type="ScrollContainer" unique_id=2071829660 node_paths=PackedStringArray("vbox_container")]
 vertical_scroll_mode = 3
 script = ExtResource("1_lojab")
+vbox_container = NodePath("MarginContainer/VBoxContainer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=882728397]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=954365072]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=882728397]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

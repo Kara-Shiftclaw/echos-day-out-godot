@@ -26,12 +26,12 @@ func do_health_up_get():
 		Global.flags[HEALTH_UP_COLLECTED_FLAG] = 1
 	Global.max_health += Accessibility.energy_strength
 	
-	var upgrade_get_popup: TextBoxView = UpgradeGetScene.instantiate()
-	Global.camera.add_child(upgrade_get_popup)
-	upgrade_get_popup.close_signaled.connect(Global.unpause)
+	#var upgrade_get_popup: TextBoxView = UpgradeGetScene.instantiate()
+	#Global.camera.add_child(upgrade_get_popup)
+	#upgrade_get_popup.close_signaled.connect(Global.unpause)
+	await $TextengineUpgradeAdapter.start()
 	
 	Global.set_node_flag(self, "collected")
-	get_tree().paused = true
 	collected.emit()
 	queue_free()
 

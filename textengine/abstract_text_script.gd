@@ -34,7 +34,8 @@ func start() -> void:
 	await script()
 	
 	for textbox in registered_textboxes:
-		textbox.queue_free()
+		if textbox.auto_free:
+			textbox.queue_free()
 	default_textbox = null
 	registered_textboxes = []
 	text_ended.emit()

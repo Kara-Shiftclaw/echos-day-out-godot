@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c33bntsur11oh"]
+
+[ext_resource type="Script" uid="uid://w3hm8ephm4i8" path="res://menu/dialogue/view/scripts/textengine_upgrade_adapter.gd" id="1_cxweh"]
+
+[node name="TextengineUpgradeAdapter" type="Node" unique_id=140295166]
+script = ExtResource("1_cxweh")
+metadata/_custom_type_script = "uid://cim4peaccojq3"

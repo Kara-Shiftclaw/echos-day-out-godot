@@ -1,10 +1,12 @@
 extends ScrollContainer
 
+@export var vbox_container: VBoxContainer
+
 func _ready() -> void:
 	for child_idx in range(1, get_child_count()):
 		var child := get_child(child_idx)
-		child.reparent($VBoxContainer)
-	$VBoxContainer.add_spacer(false)
+		child.reparent(vbox_container)
+	vbox_container.add_spacer(false)
 
 func reset() -> void:
 	scroll_vertical = 0

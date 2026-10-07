@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://njpgspcc7uld"]
+[gd_scene format=3 uid="uid://njpgspcc7uld"]
 
 [ext_resource type="PackedScene" uid="uid://db3eeohmu8tk0" path="res://common/flicker.tscn" id="1_5nx56"]
 [ext_resource type="Texture2D" uid="uid://tfdkke2abk2f" path="res://assets/gfx/food.png" id="1_hwnna"]
 [ext_resource type="Script" uid="uid://dhnvyyk1nn3bf" path="res://objects/scripts/food.gd" id="1_icymm"]
+[ext_resource type="PackedScene" uid="uid://c33bntsur11oh" path="res://menu/dialogue/view/textengine_upgrade_adapter.tscn" id="4_7i8bg"]
+[ext_resource type="Texture2D" uid="uid://d1ncvi3oo1jr1" path="res://assets/gfx/food_get.png" id="5_eqhte"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nx56"]
 size = Vector2(8, 8)
@@ -46,24 +48,26 @@ _data = {
 &"bob": SubResource("Animation_icymm")
 }
 
-[node name="Food" type="Area2D"]
+[node name="Food" type="Area2D" unique_id=1013492282]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_icymm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=817192536]
 shape = SubResource("RectangleShape2D_5nx56")
 
-[node name="Flicker" parent="." instance=ExtResource("1_5nx56")]
+[node name="Flicker" parent="." unique_id=459761104 instance=ExtResource("1_5nx56")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1088225879]
 texture = ExtResource("1_hwnna")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_7i8bg")
-}
-autoplay = "bob"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=125760705]
+libraries/ = SubResource("AnimationLibrary_7i8bg")
+autoplay = &"bob"
+
+[node name="TextengineUpgradeAdapter" parent="." unique_id=140295166 instance=ExtResource("4_7i8bg")]
+text_translation = "FOOD_GET"
+icon_texture = ExtResource("5_eqhte")
 
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="body_entered" from="." to="." method="entered"]

@@ -1758,6 +1758,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SoniaName:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_fqhla"]
 resource_name = "begin_fight"
@@ -1825,6 +1837,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SoniaName:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_yltau"]
@@ -2230,6 +2254,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -12)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SoniaName:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_hxwph"]
@@ -2988,7 +3024,7 @@ collision_mask = 2
 process_mode = 3
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_kk7ad")
-frame_progress = 0.6096882
+frame_progress = 0.9193794
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/MineWorm" unique_id=605034632]
 position = Vector2(-3, -1)
@@ -3277,15 +3313,18 @@ region_enabled = true
 region_rect = Rect2(0, 0, 24, 24)
 
 [node name="SoniaName" type="Node2D" parent="SoniaFight" unique_id=516084142]
+visible = false
 z_index = 91
 
 [node name="Label" type="Label" parent="SoniaFight/SoniaName" unique_id=342626995]
+custom_maximum_size = Vector2(128, -1)
 offset_left = -172.0
 offset_top = -63.0
 offset_right = -64.0
 offset_bottom = -40.0
 theme = ExtResource("8_7i75t")
 text = "SONIA_TITLE"
+autowrap_mode = 3
 
 [node name="BossSonia" parent="SoniaFight" unique_id=61862125 node_paths=PackedStringArray("door_reference_rect", "low_reference_rect", "left_reference_rect", "right_reference_rect", "top_reference_rect") instance=ExtResource("40_mr58l")]
 position = Vector2(3, -32)

@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bh0u7ex3ntotl" path="res://assets/gfx/health_up.png" id="3_0vnqo"]
 [ext_resource type="Material" uid="uid://dlc7sag5j6vek" path="res://assets/damage_flash_shader.tres" id="3_jvinw"]
 [ext_resource type="Texture2D" uid="uid://dqhuhiwecxvx8" path="res://assets/gfx/orb.png" id="4_7e5uh"]
+[ext_resource type="PackedScene" uid="uid://c33bntsur11oh" path="res://menu/dialogue/view/textengine_upgrade_adapter.tscn" id="6_1pq6q"]
+[ext_resource type="Texture2D" uid="uid://ddc44idvvplcv" path="res://assets/gfx/health_up_get.png" id="7_717jy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nx56"]
 size = Vector2(8, 8)
@@ -213,6 +215,10 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 150.0
 initial_velocity_max = 250.0
 color_ramp = SubResource("Gradient_vr2sk")
+
+[node name="TextengineUpgradeAdapter" parent="." unique_id=140295166 instance=ExtResource("6_1pq6q")]
+text_translation = "HEALTH_UP_GET"
+icon_texture = ExtResource("7_717jy")
 
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="body_entered" from="." to="." method="entered"]

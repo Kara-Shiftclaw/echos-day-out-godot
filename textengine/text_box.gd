@@ -13,6 +13,7 @@ signal started()
 @export var move_always := false
 @export var label: Label
 @export var box_visible_size := 8 * 5
+@export var auto_free := true
 var visible_characters_float := 0.
 var scrolling := true
 var dialogue_blip: AudioStreamPlayer
