@@ -26,10 +26,7 @@ func do_core_get():
 		Global.flags[CORE_ON_HAND_FLAG] = 1
 		Global.flags[CORE_COLLECTED_FLAG] = 1
 	
-	var upgrade_get_popup: TextBoxView = UpgradeGetScene.instantiate()
-	Global.camera.add_child(upgrade_get_popup)
-	upgrade_get_popup.close_signaled.connect(Global.unpause)
+	await $TextengineUpgradeAdapter.start()
 	
 	Global.set_node_flag(self, "collected")
-	get_tree().paused = true
 	queue_free()

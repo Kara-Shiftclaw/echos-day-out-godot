@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://e6v53h5l7ead"]
+[gd_scene format=3 uid="uid://e6v53h5l7ead"]
 
 [ext_resource type="Script" uid="uid://dachik37myo6g" path="res://oneoff/npc/scripts/sword_spirit.gd" id="1_cw2ww"]
 [ext_resource type="Texture2D" uid="uid://bd8rp274rmx2j" path="res://assets/gfx/sword_spirit.png" id="1_t4oip"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="3_oa6gw"]
 [ext_resource type="PackedScene" uid="uid://dlpq327smiwuo" path="res://menu/dialogue/model/multiple_choice_box.tscn" id="4_affx3"]
 [ext_resource type="PackedScene" uid="uid://dnup6pmbimhsl" path="res://menu/dialogue/model/choice.tscn" id="5_cw2ww"]
+[ext_resource type="PackedScene" uid="uid://c33bntsur11oh" path="res://menu/dialogue/view/textengine_upgrade_adapter.tscn" id="8_5547l"]
+[ext_resource type="Texture2D" uid="uid://cqfq6mg60x0ar" path="res://assets/gfx/sword_blade_get.png" id="9_reyq2"]
 
 [sub_resource type="Animation" id="Animation_affx3"]
 length = 0.001
@@ -228,151 +230,163 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8phw2"]
 size = Vector2(32, 3)
 
-[node name="SwordSpirit" type="Area2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnln3"]
+atlas = ExtResource("9_reyq2")
+region = Rect2(0, 40, 0, 40)
+
+[node name="SwordSpirit" type="Area2D" unique_id=1367301252]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_cw2ww")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=201867375]
 visible = false
 texture = ExtResource("1_t4oip")
 hframes = 7
 vframes = 2
 frame = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=916271510]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_p6u48")
-}
+libraries/ = SubResource("AnimationLibrary_p6u48")
 next/summon = &"happy"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=473052348]
 position = Vector2(-8, 22.5)
 shape = SubResource("RectangleShape2D_8phw2")
 disabled = true
 
-[node name="NpcArrow" parent="." node_paths=PackedStringArray("activation_area") instance=ExtResource("3_oa6gw")]
+[node name="NpcArrow" parent="." unique_id=1737037483 node_paths=PackedStringArray("activation_area") instance=ExtResource("3_oa6gw")]
 position = Vector2(0, -13)
 activation_area = NodePath("..")
 
-[node name="Text" type="Node" parent="."]
+[node name="Text" type="Node" parent="." unique_id=1404899104]
 
-[node name="Summon" parent="Text" instance=ExtResource("2_8phw2")]
+[node name="Summon" parent="Text" unique_id=777869322 instance=ExtResource("2_8phw2")]
 
-[node name="StandardTextBox" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox" parent="Text/Summon" unique_id=684156890 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_INTRO_1"
 
-[node name="StandardTextBox2" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox2" parent="Text/Summon" unique_id=1493793926 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_INTRO_2"
 
-[node name="StandardTextBox3" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox3" parent="Text/Summon" unique_id=2054021435 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_INTRO_3"
 
-[node name="StandardTextBox4" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox4" parent="Text/Summon" unique_id=1854633970 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_INTRO_4"
 
-[node name="StandardTextBox5" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox5" parent="Text/Summon" unique_id=2122821660 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_INTRO_5"
 
-[node name="StandardTextBox6" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox6" parent="Text/Summon" unique_id=695517981 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_INTRO_6"
 
-[node name="StandardTextBox7" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox7" parent="Text/Summon" unique_id=395602230 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_INTRO_7"
 
-[node name="StandardTextBox8" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox8" parent="Text/Summon" unique_id=899388163 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_INTRO_8"
 
-[node name="StandardTextBox9" parent="Text/Summon" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox9" parent="Text/Summon" unique_id=1525169914 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_INTRO_9"
 
-[node name="FirstChat" parent="Text" instance=ExtResource("2_8phw2")]
+[node name="FirstChat" parent="Text" unique_id=1580107975 instance=ExtResource("2_8phw2")]
 
-[node name="StandardTextBox" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox" parent="Text/FirstChat" unique_id=232504656 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_FIRST_CHAT_1"
 
-[node name="StandardTextBox2" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox2" parent="Text/FirstChat" unique_id=1591357913 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_FIRST_CHAT_2"
 
-[node name="StandardTextBox3" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox3" parent="Text/FirstChat" unique_id=290185764 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_FIRST_CHAT_3"
 
-[node name="StandardTextBox4" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox4" parent="Text/FirstChat" unique_id=2131847349 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_FIRST_CHAT_4"
 
-[node name="StandardTextBox5" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox5" parent="Text/FirstChat" unique_id=1871919536 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_FIRST_CHAT_5"
 
-[node name="StandardTextBox6" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox6" parent="Text/FirstChat" unique_id=1458449455 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_FIRST_CHAT_6"
 
-[node name="StandardTextBox9" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox9" parent="Text/FirstChat" unique_id=1341852803 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_FIRST_CHAT_7"
 
-[node name="StandardTextBox7" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox7" parent="Text/FirstChat" unique_id=1383742506 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_FIRST_CHAT_8"
 
-[node name="StandardTextBox8" parent="Text/FirstChat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox8" parent="Text/FirstChat" unique_id=416107173 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_FIRST_CHAT_9"
 
-[node name="MultipleChoiceBox" parent="Text/FirstChat" instance=ExtResource("4_affx3")]
+[node name="MultipleChoiceBox" parent="Text/FirstChat" unique_id=1334594617 instance=ExtResource("4_affx3")]
 text = "SWORD_SPIRIT_FIRST_CHAT_10"
 
-[node name="Blade" parent="Text/FirstChat/MultipleChoiceBox" instance=ExtResource("5_cw2ww")]
+[node name="Blade" parent="Text/FirstChat/MultipleChoiceBox" unique_id=336126326 instance=ExtResource("5_cw2ww")]
 choice_text = "SWORD_SPIRIT_OPT_BLADE"
 enabled = true
 
-[node name="Hilt" parent="Text/FirstChat/MultipleChoiceBox" instance=ExtResource("5_cw2ww")]
+[node name="Hilt" parent="Text/FirstChat/MultipleChoiceBox" unique_id=405644434 instance=ExtResource("5_cw2ww")]
 choice_text = "SWORD_SPIRIT_OPT_HILT"
 enabled = true
 
-[node name="Chosen" parent="Text" instance=ExtResource("2_8phw2")]
+[node name="Chosen" parent="Text" unique_id=1790391976 instance=ExtResource("2_8phw2")]
 
-[node name="StandardTextBox" parent="Text/Chosen" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox" parent="Text/Chosen" unique_id=1165380583 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_FIRST_CHAT_11"
 
-[node name="Swap" parent="Text" instance=ExtResource("2_8phw2")]
+[node name="Swap" parent="Text" unique_id=985996664 instance=ExtResource("2_8phw2")]
 
-[node name="StandardTextBox" parent="Text/Swap" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox" parent="Text/Swap" unique_id=2014961753 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_R_1"
 
-[node name="MultipleChoiceBox2" parent="Text/Swap" instance=ExtResource("4_affx3")]
+[node name="MultipleChoiceBox2" parent="Text/Swap" unique_id=1276390189 instance=ExtResource("4_affx3")]
 text = "SWORD_SPIRIT_R_2"
 
-[node name="YesBlade" parent="Text/Swap/MultipleChoiceBox2" instance=ExtResource("5_cw2ww")]
+[node name="YesBlade" parent="Text/Swap/MultipleChoiceBox2" unique_id=269281915 instance=ExtResource("5_cw2ww")]
 choice_text = "SWORD_SPIRIT_OPT_SWAP_BLADE"
 enabled = true
 
-[node name="YesHilt" parent="Text/Swap/MultipleChoiceBox2" instance=ExtResource("5_cw2ww")]
+[node name="YesHilt" parent="Text/Swap/MultipleChoiceBox2" unique_id=1552119775 instance=ExtResource("5_cw2ww")]
 choice_text = "SWORD_SPIRIT_OPT_SWAP_HILT"
 enabled = true
 
-[node name="No" parent="Text/Swap/MultipleChoiceBox2" instance=ExtResource("5_cw2ww")]
+[node name="No" parent="Text/Swap/MultipleChoiceBox2" unique_id=963404825 instance=ExtResource("5_cw2ww")]
 choice_text = "NO"
 enabled = true
 
-[node name="MultipleChoiceBox3" parent="Text/Swap" instance=ExtResource("4_affx3")]
+[node name="MultipleChoiceBox3" parent="Text/Swap" unique_id=1164397313 instance=ExtResource("4_affx3")]
 text = "SWORD_SPIRIT_R_NO"
 
-[node name="Yes" parent="Text/Swap/MultipleChoiceBox3" instance=ExtResource("5_cw2ww")]
+[node name="Yes" parent="Text/Swap/MultipleChoiceBox3" unique_id=1814363182 instance=ExtResource("5_cw2ww")]
 choice_text = "YES"
 enabled = true
 
-[node name="No" parent="Text/Swap/MultipleChoiceBox3" instance=ExtResource("5_cw2ww")]
+[node name="No" parent="Text/Swap/MultipleChoiceBox3" unique_id=195076976 instance=ExtResource("5_cw2ww")]
 choice_text = "NO"
 enabled = true
 
-[node name="StandardTextBox2" parent="Text/Swap" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox2" parent="Text/Swap" unique_id=813718643 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_R_NO_NO"
 
-[node name="Chat" parent="Text" instance=ExtResource("2_8phw2")]
+[node name="Chat" parent="Text" unique_id=1509603796 instance=ExtResource("2_8phw2")]
 
-[node name="StandardTextBox" parent="Text/Chat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox" parent="Text/Chat" unique_id=1831091676 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_R_CHAT_1"
 
-[node name="StandardTextBox2" parent="Text/Chat" instance=ExtResource("3_ag11b")]
+[node name="StandardTextBox2" parent="Text/Chat" unique_id=222257381 instance=ExtResource("3_ag11b")]
 text = "SWORD_SPIRIT_R_CHAT_2"
+
+[node name="BladeGetPopup" parent="." unique_id=140295166 instance=ExtResource("8_5547l")]
+text_translation = "SWORD_BLADE_GET"
+icon_texture = ExtResource("9_reyq2")
+pause_unpause = false
+
+[node name="HiltGetPopup" parent="." unique_id=445955000 instance=ExtResource("8_5547l")]
+text_translation = "SWORD_BLADE_GET"
+icon_texture = SubResource("AtlasTexture_jnln3")
+pause_unpause = false
 
 [connection signal="activated" from="NpcArrow" to="." method="talk"]
 [connection signal="next" from="Text/Summon" to="." method="unpause"]

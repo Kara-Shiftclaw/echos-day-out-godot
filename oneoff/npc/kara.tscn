@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://so1fk1lylapi" path="res://assets/gfx/up_arrow.png" id="3_rjehe"]
 [ext_resource type="PackedScene" uid="uid://bahtjtxfsb283" path="res://menu/dialogue/model/text_tree.tscn" id="4_3av3l"]
 [ext_resource type="PackedScene" uid="uid://m8ek7va3jerp" path="res://menu/dialogue/model/standard_text_box.tscn" id="5_mawec"]
+[ext_resource type="PackedScene" uid="uid://c33bntsur11oh" path="res://menu/dialogue/view/textengine_upgrade_adapter.tscn" id="6_mawec"]
+[ext_resource type="Texture2D" uid="uid://crp2vsre3tix6" path="res://assets/gfx/injector_get.png" id="7_g4ljv"]
 
 [sub_resource type="Animation" id="Animation_u8hte"]
 length = 0.001
@@ -86,6 +88,10 @@ _data = {
 &"RESET": SubResource("Animation_s00tr"),
 &"bounce": SubResource("Animation_8mtm4")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4x8k"]
+atlas = ExtResource("7_g4ljv")
+region = Rect2(200, 0, 40, 40)
 
 [node name="Kara" type="Area2D" unique_id=829385403]
 collision_layer = 0
@@ -224,16 +230,27 @@ text = "KARA_PLUME_HINT_4"
 [node name="StandardTextBox5" parent="Text/Chat5" unique_id=2068906300 instance=ExtResource("5_mawec")]
 text = "KARA_PLUME_HINT_5"
 
+[node name="InjectorPopup" parent="." unique_id=140295166 instance=ExtResource("6_mawec")]
+text_translation = "INJECTOR_GET"
+icon_texture = ExtResource("7_g4ljv")
+
+[node name="InjectorXLPopup" parent="." unique_id=58193058 instance=ExtResource("6_mawec")]
+choose_icon_by_weight = false
+text_translation = "INJECTOR_XL_GET"
+icon_texture = SubResource("AtlasTexture_k4x8k")
+
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="area_exited" from="." to="." method="exited"]
 [connection signal="body_entered" from="." to="." method="entered"]
 [connection signal="body_exited" from="." to="." method="exited"]
 [connection signal="next" from="Text/PortalGet" to="." method="unpause"]
-[connection signal="before_next" from="Text/PortalGet/StandardTextBox5" to="." method="injector_get_popup"]
+[connection signal="before_next" from="Text/PortalGet/StandardTextBox5" to="InjectorPopup" method="start"]
 [connection signal="next" from="Text/Chat" to="." method="update_chat"]
 [connection signal="next" from="Text/Chat2" to="." method="update_chat"]
 [connection signal="next" from="Text/Chat3" to="." method="update_chat"]
 [connection signal="next" from="Text/Chat4" to="." method="update_chat"]
 [connection signal="next" from="Text/ResizePortal" to="." method="unpause"]
-[connection signal="before_next" from="Text/ResizePortal/StandardTextBox3" to="." method="injector_xl_get_popup"]
+[connection signal="before_next" from="Text/ResizePortal/StandardTextBox3" to="InjectorXLPopup" method="start"]
 [connection signal="next" from="Text/Chat5" to="." method="update_chat"]
+[connection signal="text_ended" from="InjectorPopup" to="Text/PortalGet/StandardTextBox5" method="emit_next"]
+[connection signal="text_ended" from="InjectorXLPopup" to="Text/ResizePortal/StandardTextBox3" method="emit_next"]

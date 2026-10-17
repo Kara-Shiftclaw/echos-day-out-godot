@@ -36,20 +36,18 @@ func talk() -> void:
 	)
 
 func give_blade() -> void:
-	var blade_get := BladeGet.instantiate()
-	blade_get.close_signaled.connect($Text/Chosen.render)
-	Global.camera.add_child(blade_get)
+	await $BladeGetPopup.start()
 	
 	Global.flags[Echo.SWORD_BLADE_FLAG] = true
 	Global.flags.erase(Echo.SWORD_HILT_FLAG)
+	$Text/Chosen.render()
 
 func give_hilt() -> void:
-	var hilt_get := HiltGet.instantiate()
-	hilt_get.close_signaled.connect($Text/Chosen.render)
-	Global.camera.add_child(hilt_get)
+	await $HiltGetPopup.start()
 	
 	Global.flags[Echo.SWORD_HILT_FLAG] = true
 	Global.flags.erase(Echo.SWORD_BLADE_FLAG)
+	$Text/Chosen.render()
 
 func happy() -> void:
 	$AnimationPlayer.play("happy")

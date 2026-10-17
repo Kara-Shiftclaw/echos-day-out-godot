@@ -62,9 +62,11 @@ func remove() -> void:
 	recalculate_health_bar()
 
 func render_map_popup() -> void:
-	var popup: TextBoxView = MYCELIUM_MAP_POPUP.instantiate()
-	Global.camera.add_child(popup)
-	popup.close_signaled.connect($Dialogue/YesTakeCare.render)
+	if Global.flags.get(MUSH_MEAL_FLAG, false):
+		await $WithGetPopup.start()
+	else:
+		await $WithoutGetPopup.start()
+	$Dialogue/YesTakeCare.render()
 
 func hide_echo() -> void:
 	Global.echo.hide()

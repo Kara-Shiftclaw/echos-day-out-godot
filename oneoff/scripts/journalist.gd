@@ -22,8 +22,5 @@ func entered(other: Node2D) -> void:
 			do_journal_get()
 
 func do_journal_get() -> void:
-	get_tree().paused = true
-	var upgrade_get_popup: TextBoxView = UpgradeGetScene.instantiate()
-	Global.camera.add_child(upgrade_get_popup)
-	upgrade_get_popup.close_signaled.connect(Global.unpause)
+	await $TextengineUpgradeAdapter.start()
 	Global.flags["has_journal"] = true

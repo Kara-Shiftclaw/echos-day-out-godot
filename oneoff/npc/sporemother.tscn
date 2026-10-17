@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bvdabuywaew36"]
+[gd_scene format=3 uid="uid://vtcq4q0dcytf"]
 
 [ext_resource type="Texture2D" uid="uid://gcghaneic3w3" path="res://assets/gfx/sporemother.png" id="1_38ufg"]
 [ext_resource type="Script" uid="uid://0iv1blki3n35" path="res://oneoff/npc/scripts/sporemother.gd" id="1_rvn50"]
@@ -13,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://bttpjvc2g8aui" path="res://assets/sfx/death_exp_1.wav" id="7_1yngj"]
 [ext_resource type="AudioStream" uid="uid://gcp6wjnj10sv" path="res://assets/sfx/death_exp_2.wav" id="8_1kvaw"]
 [ext_resource type="AudioStream" uid="uid://b6ywtjw60d7a" path="res://assets/sfx/tension.wav" id="9_1yngj"]
+[ext_resource type="PackedScene" uid="uid://c33bntsur11oh" path="res://menu/dialogue/view/textengine_upgrade_adapter.tscn" id="14_s7xms"]
+[ext_resource type="Texture2D" uid="uid://d03bo7kgb8now" path="res://assets/gfx/mycelium_map_get.png" id="15_p1iy8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oogrh"]
 size = Vector2(16, 2)
@@ -1052,33 +1054,39 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvn50"]
 size = Vector2(32, 40)
 
-[node name="Sporemother" type="Area2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieskd"]
+atlas = ExtResource("15_p1iy8")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7xms"]
+atlas = ExtResource("15_p1iy8")
+region = Rect2(40, 0, 40, 40)
+
+[node name="Sporemother" type="Area2D" unique_id=105632623]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_rvn50")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2074118491]
 texture = ExtResource("1_38ufg")
 offset = Vector2(0.5, 0)
 hframes = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=399653304]
 position = Vector2(-22, 26)
 shape = SubResource("RectangleShape2D_oogrh")
 
-[node name="NpcArrow" parent="." instance=ExtResource("2_thkck")]
+[node name="NpcArrow" parent="." unique_id=159644448 instance=ExtResource("2_thkck")]
 position = Vector2(0, -21)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1622374453]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_gc6gr")
-}
-autoplay = "idle"
+libraries/ = SubResource("AnimationLibrary_gc6gr")
+autoplay = &"idle"
 
-[node name="EchoAnim" type="Node2D" parent="."]
+[node name="EchoAnim" type="Node2D" parent="." unique_id=1950736611]
 
-[node name="Tendril" type="Sprite2D" parent="EchoAnim"]
+[node name="Tendril" type="Sprite2D" parent="EchoAnim" unique_id=543703525]
 visible = false
 z_index = -11
 position = Vector2(-36, 0)
@@ -1086,7 +1094,7 @@ texture = ExtResource("4_gc6gr")
 region_enabled = true
 region_rect = Rect2(29, 24, 26, 40)
 
-[node name="Echo" type="Sprite2D" parent="EchoAnim"]
+[node name="Echo" type="Sprite2D" parent="EchoAnim" unique_id=1386394979]
 visible = false
 z_index = 1
 position = Vector2(-22, 18)
@@ -1094,20 +1102,18 @@ texture = ExtResource("4_gc6gr")
 region_enabled = true
 region_rect = Rect2(0, 66, 12, 18)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EchoAnim"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EchoAnim" unique_id=1288940198]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_2e7w0")
-}
+libraries/ = SubResource("AnimationLibrary_2e7w0")
 
-[node name="Yellow" type="Sprite2D" parent="EchoAnim"]
+[node name="Yellow" type="Sprite2D" parent="EchoAnim" unique_id=1293585117]
 visible = false
 position = Vector2(-24, 17)
 texture = ExtResource("4_gc6gr")
 region_enabled = true
 region_rect = Rect2(36, 0, 18, 18)
 
-[node name="MushMealDrop" type="Sprite2D" parent="EchoAnim"]
+[node name="MushMealDrop" type="Sprite2D" parent="EchoAnim" unique_id=1027516146]
 visible = false
 z_index = -11
 position = Vector2(-22, -27)
@@ -1115,231 +1121,243 @@ texture = ExtResource("5_q6hro")
 region_enabled = true
 region_rect = Rect2(0, 1, 8, 7)
 
-[node name="SporeShake" type="AudioStreamPlayer" parent="EchoAnim"]
+[node name="SporeShake" type="AudioStreamPlayer" parent="EchoAnim" unique_id=1751793876]
 stream = ExtResource("6_2e7w0")
 
-[node name="DeathExp1" type="AudioStreamPlayer" parent="EchoAnim"]
+[node name="DeathExp1" type="AudioStreamPlayer" parent="EchoAnim" unique_id=1017574075]
 stream = ExtResource("7_1yngj")
 volume_db = 8.0
 bus = &"Sfx"
 
-[node name="DeathExp2" type="AudioStreamPlayer" parent="EchoAnim"]
+[node name="DeathExp2" type="AudioStreamPlayer" parent="EchoAnim" unique_id=787764640]
 stream = ExtResource("8_1kvaw")
 volume_db = 8.0
 bus = &"Sfx"
 
-[node name="Tension" type="AudioStreamPlayer" parent="EchoAnim"]
+[node name="Tension" type="AudioStreamPlayer" parent="EchoAnim" unique_id=365724906]
 stream = ExtResource("9_1yngj")
 
-[node name="Dialogue" type="Node" parent="."]
+[node name="Dialogue" type="Node" parent="." unique_id=1627258504]
 
-[node name="FirstChat" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="FirstChat" parent="Dialogue" unique_id=898710538 instance=ExtResource("3_oogrh")]
 
-[node name="StandardTextBox" parent="Dialogue/FirstChat" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox" parent="Dialogue/FirstChat" unique_id=46365037 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_INTRO_1"
 move_always = true
 
-[node name="StandardTextBox2" parent="Dialogue/FirstChat" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox2" parent="Dialogue/FirstChat" unique_id=1369703406 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_INTRO_2"
 move_always = true
 
-[node name="StandardTextBox3" parent="Dialogue/FirstChat" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox3" parent="Dialogue/FirstChat" unique_id=831074621 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_INTRO_3"
 move_always = true
 
-[node name="MultipleChoiceBox" parent="Dialogue/FirstChat" instance=ExtResource("5_sym7a")]
+[node name="MultipleChoiceBox" parent="Dialogue/FirstChat" unique_id=763111888 instance=ExtResource("5_sym7a")]
 text = "SPOREMOTHER_INTRO_4"
 move_always = true
 
-[node name="Yes" parent="Dialogue/FirstChat/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="Yes" parent="Dialogue/FirstChat/MultipleChoiceBox" unique_id=39061884 instance=ExtResource("6_rvn50")]
 choice_text = "YES"
 enabled = true
 
-[node name="No" parent="Dialogue/FirstChat/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="No" parent="Dialogue/FirstChat/MultipleChoiceBox" unique_id=152570727 instance=ExtResource("6_rvn50")]
 choice_text = "SPOREMOTHER_OPT_NO_NO_NO"
 enabled = true
 
-[node name="Elaborate" parent="Dialogue/FirstChat/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="Elaborate" parent="Dialogue/FirstChat/MultipleChoiceBox" unique_id=1000639562 instance=ExtResource("6_rvn50")]
 choice_text = "SPOREMOTHER_OPT_ELABORATE"
 enabled = true
 
-[node name="Elaborate" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="Elaborate" parent="Dialogue" unique_id=1580038816 instance=ExtResource("3_oogrh")]
 
-[node name="StandardTextBox" parent="Dialogue/Elaborate" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox" parent="Dialogue/Elaborate" unique_id=404751934 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_ELABORATE_1"
 move_always = true
 
-[node name="StandardTextBox2" parent="Dialogue/Elaborate" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox2" parent="Dialogue/Elaborate" unique_id=1530064609 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_ELABORATE_2"
 move_always = true
 
-[node name="StandardTextBox3" parent="Dialogue/Elaborate" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox3" parent="Dialogue/Elaborate" unique_id=118007689 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_ELABORATE_3"
 move_always = true
 
-[node name="MultipleChoiceBox" parent="Dialogue/Elaborate" instance=ExtResource("5_sym7a")]
+[node name="MultipleChoiceBox" parent="Dialogue/Elaborate" unique_id=335744175 instance=ExtResource("5_sym7a")]
 text = "SPOREMOTHER_ELABORATE_4"
 move_always = true
 
-[node name="Yes" parent="Dialogue/Elaborate/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="Yes" parent="Dialogue/Elaborate/MultipleChoiceBox" unique_id=1448488330 instance=ExtResource("6_rvn50")]
 choice_text = "YES"
 enabled = true
 
-[node name="No" parent="Dialogue/Elaborate/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="No" parent="Dialogue/Elaborate/MultipleChoiceBox" unique_id=1525597045 instance=ExtResource("6_rvn50")]
 choice_text = "NO"
 enabled = true
 
-[node name="Yes" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="Yes" parent="Dialogue" unique_id=941569399 instance=ExtResource("3_oogrh")]
 
-[node name="StandardTextBox" parent="Dialogue/Yes" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox" parent="Dialogue/Yes" unique_id=1420422543 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_YES_1"
 move_always = true
 
-[node name="StandardTextBox2" parent="Dialogue/Yes" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox2" parent="Dialogue/Yes" unique_id=1785468645 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_YES_2"
 move_always = true
 
-[node name="YesWithMushMeal" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="YesWithMushMeal" parent="Dialogue" unique_id=2054945171 instance=ExtResource("3_oogrh")]
 
-[node name="StandardTextBox" parent="Dialogue/YesWithMushMeal" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox" parent="Dialogue/YesWithMushMeal" unique_id=1661800233 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_YES_MUSH_1"
 move_always = true
 
-[node name="StandardTextBox2" parent="Dialogue/YesWithMushMeal" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox2" parent="Dialogue/YesWithMushMeal" unique_id=2133191089 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_YES_MUSH_2"
 move_always = true
 
-[node name="YesTakeCare" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="YesTakeCare" parent="Dialogue" unique_id=3356625 instance=ExtResource("3_oogrh")]
 
-[node name="StandardTextBox" parent="Dialogue/YesTakeCare" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox" parent="Dialogue/YesTakeCare" unique_id=602074191 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_YES_3"
 move_always = true
 
-[node name="No" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="No" parent="Dialogue" unique_id=1124080259 instance=ExtResource("3_oogrh")]
 
-[node name="StandardTextBox" parent="Dialogue/No" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox" parent="Dialogue/No" unique_id=1086638793 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_NO_1"
 move_always = true
 
-[node name="StandardTextBox2" parent="Dialogue/No" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox2" parent="Dialogue/No" unique_id=1032248888 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_NO_2"
 move_always = true
 
-[node name="TalkAgainWithout" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="TalkAgainWithout" parent="Dialogue" unique_id=36205995 instance=ExtResource("3_oogrh")]
 
-[node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWithout" instance=ExtResource("5_sym7a")]
+[node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWithout" unique_id=1921165090 instance=ExtResource("5_sym7a")]
 text = "SPOREMOTHER_R_WITHOUT"
 move_always = true
 
-[node name="Yes" parent="Dialogue/TalkAgainWithout/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="Yes" parent="Dialogue/TalkAgainWithout/MultipleChoiceBox" unique_id=2095603305 instance=ExtResource("6_rvn50")]
 choice_text = "YES"
 enabled = true
 
-[node name="No" parent="Dialogue/TalkAgainWithout/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="No" parent="Dialogue/TalkAgainWithout/MultipleChoiceBox" unique_id=355655116 instance=ExtResource("6_rvn50")]
 choice_text = "NO"
 enabled = true
 
-[node name="TalkAgainWith" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="TalkAgainWith" parent="Dialogue" unique_id=618003075 instance=ExtResource("3_oogrh")]
 
-[node name="StandardTextBox" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox" parent="Dialogue/TalkAgainWith" unique_id=1453179508 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_R_WITH_1"
 move_always = true
 
-[node name="StandardTextBox2" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox2" parent="Dialogue/TalkAgainWith" unique_id=463884239 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_R_WITH_2"
 move_always = true
 
-[node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWith" instance=ExtResource("5_sym7a")]
+[node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWith" unique_id=222212709 instance=ExtResource("5_sym7a")]
 text = "SPOREMOTHER_R_WITH_3"
 move_always = true
 
-[node name="Remove" parent="Dialogue/TalkAgainWith/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="Remove" parent="Dialogue/TalkAgainWith/MultipleChoiceBox" unique_id=1656453300 instance=ExtResource("6_rvn50")]
 choice_text = "SPOREMOTHER_OPT_REMOVE_NO_MUSH"
 enabled = true
 
-[node name="Keep" parent="Dialogue/TalkAgainWith/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="Keep" parent="Dialogue/TalkAgainWith/MultipleChoiceBox" unique_id=978166067 instance=ExtResource("6_rvn50")]
 choice_text = "SPOREMOTHER_OPT_KEEP_NO_MUSH"
 enabled = true
 
-[node name="StandardTextBox3" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox3" parent="Dialogue/TalkAgainWith" unique_id=1487913365 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_KEEP_NO_MUSH_1"
 move_always = true
 
-[node name="StandardTextBox4" parent="Dialogue/TalkAgainWith" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox4" parent="Dialogue/TalkAgainWith" unique_id=518393837 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_KEEP_NO_MUSH_2"
 move_always = true
 
-[node name="TalkAgainWithMush" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="TalkAgainWithMush" parent="Dialogue" unique_id=1147688773 instance=ExtResource("3_oogrh")]
 
-[node name="StandardTextBox" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox" parent="Dialogue/TalkAgainWithMush" unique_id=15146618 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_R_WITH_MUSH_1"
 move_always = true
 
-[node name="StandardTextBox2" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox2" parent="Dialogue/TalkAgainWithMush" unique_id=913444710 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_R_WITH_MUSH_2"
 move_always = true
 
-[node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("5_sym7a")]
+[node name="MultipleChoiceBox" parent="Dialogue/TalkAgainWithMush" unique_id=41483961 instance=ExtResource("5_sym7a")]
 text = "SPOREMOTHER_R_WITH_3"
 move_always = true
 
-[node name="Keep" parent="Dialogue/TalkAgainWithMush/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="Keep" parent="Dialogue/TalkAgainWithMush/MultipleChoiceBox" unique_id=369544917 instance=ExtResource("6_rvn50")]
 choice_text = "SPOREMOTHER_OPT_KEEP_MUSH"
 enabled = true
 
-[node name="Remove" parent="Dialogue/TalkAgainWithMush/MultipleChoiceBox" instance=ExtResource("6_rvn50")]
+[node name="Remove" parent="Dialogue/TalkAgainWithMush/MultipleChoiceBox" unique_id=1350257905 instance=ExtResource("6_rvn50")]
 choice_text = "SPOREMOTHER_OPT_REMOVE_MUSH"
 enabled = true
 
-[node name="StandardTextBox3" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox3" parent="Dialogue/TalkAgainWithMush" unique_id=1511856234 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_KEEP_NO_MUSH_1"
 move_always = true
 
-[node name="StandardTextBox4" parent="Dialogue/TalkAgainWithMush" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox4" parent="Dialogue/TalkAgainWithMush" unique_id=987671480 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_KEEP_MUSH_1"
 move_always = true
 
-[node name="OnRemove" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="OnRemove" parent="Dialogue" unique_id=1033516074 instance=ExtResource("3_oogrh")]
 
-[node name="StandardTextBox" parent="Dialogue/OnRemove" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox" parent="Dialogue/OnRemove" unique_id=1244609360 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_REMOVE_NO_MUSH_1"
 move_always = true
 
-[node name="StandardTextBox2" parent="Dialogue/OnRemove" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox2" parent="Dialogue/OnRemove" unique_id=1532836927 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_REMOVE_NO_MUSH_2"
 move_always = true
 
-[node name="StandardTextBox3" parent="Dialogue/OnRemove" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox3" parent="Dialogue/OnRemove" unique_id=207972788 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_REMOVE_NO_MUSH_3"
 move_always = true
 
-[node name="OnRemoveMush" parent="Dialogue" instance=ExtResource("3_oogrh")]
+[node name="OnRemoveMush" parent="Dialogue" unique_id=1345573956 instance=ExtResource("3_oogrh")]
 
-[node name="StandardTextBox" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox" parent="Dialogue/OnRemoveMush" unique_id=941513635 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_REMOVE_MUSH_1"
 move_always = true
 
-[node name="StandardTextBox2" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox2" parent="Dialogue/OnRemoveMush" unique_id=613545923 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_REMOVE_MUSH_2"
 move_always = true
 
-[node name="StandardTextBox3" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox3" parent="Dialogue/OnRemoveMush" unique_id=489335424 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_REMOVE_MUSH_3"
 move_always = true
 
-[node name="StandardTextBox4" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox4" parent="Dialogue/OnRemoveMush" unique_id=1631224561 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_REMOVE_MUSH_4"
 move_always = true
 
-[node name="StandardTextBox5" parent="Dialogue/OnRemoveMush" instance=ExtResource("4_jlah5")]
+[node name="StandardTextBox5" parent="Dialogue/OnRemoveMush" unique_id=1803729807 instance=ExtResource("4_jlah5")]
 text = "SPOREMOTHER_REMOVE_MUSH_5"
 move_always = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1424820234]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1443142057]
 position = Vector2(2, -1)
 shape = SubResource("RectangleShape2D_rvn50")
+
+[node name="WithoutGetPopup" parent="." unique_id=140295166 instance=ExtResource("14_s7xms")]
+choose_icon_by_weight = false
+text_translation = "MYCELIUM_MAP_GET"
+icon_texture = SubResource("AtlasTexture_ieskd")
+pause_unpause = false
+
+[node name="WithGetPopup" parent="." unique_id=1804244900 instance=ExtResource("14_s7xms")]
+choose_icon_by_weight = false
+text_translation = "MYCELIUM_MAP_GET"
+icon_texture = SubResource("AtlasTexture_s7xms")
+pause_unpause = false
 
 [connection signal="activated" from="NpcArrow" to="." method="on_talk"]
 [connection signal="chosen" from="Dialogue/FirstChat/MultipleChoiceBox/Yes" to="." method="yes_chosen"]

@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bskg6itv6601v"]
+[gd_scene format=3 uid="uid://bskg6itv6601v"]
 
 [ext_resource type="Script" uid="uid://ci05xr6y1ne0" path="res://oneoff/scripts/journalist.gd" id="1_2j5ei"]
 [ext_resource type="Texture2D" uid="uid://db5a2my6fg55a" path="res://assets/gfx/journalist.png" id="1_3wv46"]
 [ext_resource type="PackedScene" uid="uid://dbye3c0x71u8s" path="res://objects/enemies/enemy_manager.tscn" id="3_am636"]
 [ext_resource type="Texture2D" uid="uid://bhup7mykegg0q" path="res://assets/gfx/journal.png" id="4_78efw"]
 [ext_resource type="PackedScene" uid="uid://db3eeohmu8tk0" path="res://common/flicker.tscn" id="5_6u747"]
+[ext_resource type="PackedScene" uid="uid://c33bntsur11oh" path="res://menu/dialogue/view/textengine_upgrade_adapter.tscn" id="6_6u747"]
+[ext_resource type="Texture2D" uid="uid://dtotf5xuwvsgo" path="res://assets/gfx/journal_get.png" id="7_ieskd"]
 
 [sub_resource type="Animation" id="Animation_2j5ei"]
 length = 0.001
@@ -19,6 +21,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3wv46"]
+resource_name = "ate"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_ky37u"]
@@ -38,22 +56,6 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_3wv46"]
-resource_name = "ate"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_am636"]
 _data = {
 &"RESET": SubResource("Animation_2j5ei"),
@@ -63,6 +65,21 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2j5ei"]
 size = Vector2(8, 8)
+
+[sub_resource type="Animation" id="Animation_rld8y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ieskd"]
 resource_name = "bob"
@@ -82,60 +99,45 @@ tracks/0/keys = {
 "values": [0.0, 1.0, 0.0, -1.0]
 }
 
-[sub_resource type="Animation" id="Animation_rld8y"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w2dhs"]
 _data = {
 &"RESET": SubResource("Animation_rld8y"),
 &"bob": SubResource("Animation_ieskd")
 }
 
-[node name="Journalist" type="Area2D"]
+[node name="Journalist" type="Area2D" unique_id=399406342]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_2j5ei")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=517837895]
 texture = ExtResource("1_3wv46")
 flip_h = true
 hframes = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_am636")
-}
-autoplay = "small_idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1008376398]
+libraries/ = SubResource("AnimationLibrary_am636")
+autoplay = &"small_idle"
 
-[node name="EnemyManager" parent="." instance=ExtResource("3_am636")]
+[node name="EnemyManager" parent="." unique_id=1858242026 instance=ExtResource("3_am636")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658152434]
 shape = SubResource("RectangleShape2D_2j5ei")
 
-[node name="Journal" type="Sprite2D" parent="."]
+[node name="Journal" type="Sprite2D" parent="." unique_id=1659675361]
 visible = false
 texture = ExtResource("4_78efw")
 
-[node name="Flicker" parent="Journal" instance=ExtResource("5_6u747")]
+[node name="Flicker" parent="Journal" unique_id=1225390237 instance=ExtResource("5_6u747")]
 show_behind_parent = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Journal"]
-libraries = {
-&"": SubResource("AnimationLibrary_w2dhs")
-}
-autoplay = "bob"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Journal" unique_id=1343811902]
+libraries/ = SubResource("AnimationLibrary_w2dhs")
+autoplay = &"bob"
+
+[node name="TextengineUpgradeAdapter" parent="." unique_id=140295166 instance=ExtResource("6_6u747")]
+text_translation = "JOURNAL_GET"
+icon_texture = ExtResource("7_ieskd")
 
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="body_entered" from="." to="." method="entered"]
