@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://7h2f5xq73pwe"]
+[gd_scene format=3 uid="uid://7h2f5xq73pwe"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_vjdui"]
 [ext_resource type="Texture2D" uid="uid://b4buj8tfsbulq" path="res://assets/gfx/hint_npc.png" id="2_vjdui"]
+[ext_resource type="PackedScene" uid="uid://nvsrgf321lag" path="res://menu/pause/pause_scroll.tscn" id="3_d1bvw"]
 
-[node name="Entry" type="Control"]
+[node name="Entry" type="Control" unique_id=758426182]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_vjdui")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1150254608]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 3.0
@@ -21,7 +22,7 @@ offset_right = 109.0
 offset_bottom = 34.0
 color = Color(0.54509807, 0.3529412, 0.28235295, 1)
 
-[node name="Baseline" type="ColorRect" parent="Background"]
+[node name="Baseline" type="ColorRect" parent="Background" unique_id=91526924]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -32,13 +33,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=266059991]
 position = Vector2(56, 21)
 texture = ExtResource("2_vjdui")
 region_enabled = true
 region_rect = Rect2(4, 0, 26, 24)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=438216454]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 35.0
@@ -48,12 +49,18 @@ theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
 text = "JOURNAL_AFFAMAE_NAME"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="PauseScroll" parent="." unique_id=552810401 instance=ExtResource("3_d1bvw")]
+custom_minimum_size = Vector2(104, 42)
+custom_maximum_size = Vector2(104, 42)
 layout_mode = 0
 offset_left = 4.0
 offset_top = 46.0
-offset_right = 112.0
-offset_bottom = 329.0
+offset_right = 108.0
+offset_bottom = 88.0
+
+[node name="Label2" type="Label" parent="PauseScroll" unique_id=475213373]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
 text = "JOURNAL_AFFAMAE_DESC"
 autowrap_mode = 2

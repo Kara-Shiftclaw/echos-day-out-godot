@@ -11,6 +11,9 @@ const WEIGHT_NAMES := {
 const SMOL_NAME := "STATUS_WEIGHT_SMOL"
 const NO_ABILITY_TEXT := "???"
 
+@onready var description: Label = $OtherStatuses/PauseScroll/VBoxContainer/Description
+@onready var flavor_text: Label = $OtherStatuses/PauseScroll/VBoxContainer/FlavorText
+
 func _ready() -> void:
 	if Global.is_smol:
 		$Sprite2D.frame = 5
@@ -39,14 +42,15 @@ func _input(event: InputEvent) -> void:
 
 func set_description(upgrade: Button) -> void:
 	if upgrade.disabled:
-		$OtherStatuses/Description.text = "UPGRADE_DESC_NOT_FOUND"
-		$OtherStatuses/FlavorText.text = ""
+		description.text = "UPGRADE_DESC_NOT_FOUND"
+		flavor_text.text = ""
 	elif Global.is_smol:
-		$OtherStatuses/Description.text = upgrade.smol_description
-		$OtherStatuses/FlavorText.text = upgrade.smol_flavor
+		description.text = upgrade.smol_description
+		flavor_text.text = upgrade.smol_flavor
 	else:
-		$OtherStatuses/Description.text = upgrade.description
-		$OtherStatuses/FlavorText.text = upgrade.flavor
+		description.text = upgrade.description
+		flavor_text.text = upgrade.flavor
+	$OtherStatuses/PauseScroll.reset()
 
 static func maybe_disable(button: Button, has_ability: bool):
 	button.disabled = !has_ability
