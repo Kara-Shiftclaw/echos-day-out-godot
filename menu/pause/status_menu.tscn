@@ -75,7 +75,7 @@ offset_left = 2.0
 offset_top = 37.0
 offset_right = 70.0
 offset_bottom = 96.0
-theme_override_constants/separation = 5
+theme_override_constants/separation = 4
 
 [node name="Weight" type="Label" parent="OtherStatuses" unique_id=2140080891]
 layout_mode = 2
