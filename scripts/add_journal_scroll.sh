@@ -2,12 +2,17 @@
 
 PAUSE_SCROLL_EXT_RESOURCE='[ext_resource type="PackedScene" uid="uid://nvsrgf321lag" path="res://menu/pause/pause_scroll.tscn" id="3_d1bvw"]'
 PAUSE_SCROLL_NODE='[node name="PauseScroll" parent="." instance=ExtResource("3_d1bvw")]
-custom_minimum_size = Vector2(104, 42)
-custom_maximum_size = Vector2(104, 42)'
+custom_minimum_size = Vector2(104, 50)
+custom_maximum_size = Vector2(104, 50)'
 PAUSE_SCROLL_RIGHT='offset_right = 108.0'
-PAUSE_SCROLL_BOTTOM_LABEL_2='offset_bottom = 88.0
+PAUSE_SCROLL_BOTTOM_LABEL_2='offset_bottom = 96.0
 
-[node name="Label2" type="Label" parent="PauseScroll"]
+[node name="MarginContainer" type="MarginContainer" parent="PauseScroll" unique_id=757879934]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 1
+
+[node name="Label2" type="Label" parent="PauseScroll/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3'
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx522m2l3qgg3"]
+[gd_scene format=3 uid="uid://cx522m2l3qgg3"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_lrmay"]
 [ext_resource type="Texture2D" uid="uid://bxvm5okhok4x5" path="res://assets/gfx/crab.png" id="2_lrmay"]
+[ext_resource type="PackedScene" uid="uid://nvsrgf321lag" path="res://menu/pause/pause_scroll.tscn" id="3_d1bvw"]
 
 [node name="Entry" type="Control"]
 layout_mode = 3
@@ -48,12 +49,23 @@ theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
 text = "JOURNAL_CRAB_NAME"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="PauseScroll" parent="." instance=ExtResource("3_d1bvw")]
+custom_minimum_size = Vector2(104, 50)
+custom_maximum_size = Vector2(104, 50)
 layout_mode = 0
 offset_left = 4.0
 offset_top = 46.0
-offset_right = 112.0
-offset_bottom = 329.0
+offset_right = 108.0
+offset_bottom = 96.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseScroll" unique_id=757879934]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 1
+
+[node name="Label2" type="Label" parent="PauseScroll/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
 text = "JOURNAL_CRAB_DESC"
 autowrap_mode = 2

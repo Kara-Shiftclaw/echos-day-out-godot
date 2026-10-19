@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://24l22tgg0gr8"]
+[gd_scene format=3 uid="uid://24l22tgg0gr8"]
 
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_u1jjo"]
 [ext_resource type="Texture2D" uid="uid://b6oxgmklryqi1" path="res://assets/gfx/spike_hedgehog.png" id="2_u1jjo"]
+[ext_resource type="PackedScene" uid="uid://nvsrgf321lag" path="res://menu/pause/pause_scroll.tscn" id="3_d1bvw"]
 
-[node name="Entry" type="Control"]
+[node name="Entry" type="Control" unique_id=1803527179]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_u1jjo")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=2088957391]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 3.0
@@ -21,7 +22,7 @@ offset_right = 109.0
 offset_bottom = 34.0
 color = Color(0.54509807, 0.3529412, 0.28235295, 1)
 
-[node name="Baseline" type="ColorRect" parent="Background"]
+[node name="Baseline" type="ColorRect" parent="Background" unique_id=1866200449]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -32,13 +33,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1890861943]
 position = Vector2(56, 29)
 texture = ExtResource("2_u1jjo")
 region_enabled = true
 region_rect = Rect2(1, 0, 10, 8)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=525530609]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 35.0
@@ -48,12 +49,23 @@ theme_override_colors/font_color = Color(0.4117647, 0.21960784, 0.18039216, 1)
 text = "JOURNAL_SPIKE_HEDGEHOG_NAME"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="PauseScroll" parent="." unique_id=118300324 instance=ExtResource("3_d1bvw")]
+custom_minimum_size = Vector2(104, 50)
+custom_maximum_size = Vector2(104, 50)
 layout_mode = 0
 offset_left = 4.0
 offset_top = 46.0
-offset_right = 112.0
-offset_bottom = 329.0
+offset_right = 108.0
+offset_bottom = 96.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseScroll" unique_id=757879934]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 1
+
+[node name="Label2" type="Label" parent="PauseScroll/MarginContainer" unique_id=2007276177]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.54509807, 0.3529412, 0.28235295, 1)
-text = "King Edgar wanted to generate jobs, so he hired Hedgehogs to be spikes. Pay is 100g of Pyrite an hour, or about $0.001."
+text = "JOURNAL_SPIKE_HEDGEHOG_DESC"
 autowrap_mode = 2
