@@ -233,24 +233,26 @@ text = "KARA_PLUME_HINT_5"
 [node name="InjectorPopup" parent="." unique_id=140295166 instance=ExtResource("6_mawec")]
 text_translation = "INJECTOR_GET"
 icon_texture = ExtResource("7_g4ljv")
+pause_unpause = false
 
 [node name="InjectorXLPopup" parent="." unique_id=58193058 instance=ExtResource("6_mawec")]
 choose_icon_by_weight = false
 text_translation = "INJECTOR_XL_GET"
 icon_texture = SubResource("AtlasTexture_k4x8k")
+pause_unpause = false
 
 [connection signal="area_entered" from="." to="." method="entered"]
 [connection signal="area_exited" from="." to="." method="exited"]
 [connection signal="body_entered" from="." to="." method="entered"]
 [connection signal="body_exited" from="." to="." method="exited"]
 [connection signal="next" from="Text/PortalGet" to="." method="unpause"]
-[connection signal="before_next" from="Text/PortalGet/StandardTextBox5" to="InjectorPopup" method="start"]
+[connection signal="before_next" from="Text/PortalGet/StandardTextBox5" to="InjectorPopup" method="start" unbinds=1]
 [connection signal="next" from="Text/Chat" to="." method="update_chat"]
 [connection signal="next" from="Text/Chat2" to="." method="update_chat"]
 [connection signal="next" from="Text/Chat3" to="." method="update_chat"]
 [connection signal="next" from="Text/Chat4" to="." method="update_chat"]
 [connection signal="next" from="Text/ResizePortal" to="." method="unpause"]
-[connection signal="before_next" from="Text/ResizePortal/StandardTextBox3" to="InjectorXLPopup" method="start"]
+[connection signal="before_next" from="Text/ResizePortal/StandardTextBox3" to="InjectorXLPopup" method="start" unbinds=1]
 [connection signal="next" from="Text/Chat5" to="." method="update_chat"]
 [connection signal="text_ended" from="InjectorPopup" to="Text/PortalGet/StandardTextBox5" method="emit_next"]
 [connection signal="text_ended" from="InjectorXLPopup" to="Text/ResizePortal/StandardTextBox3" method="emit_next"]
