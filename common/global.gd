@@ -261,6 +261,7 @@ func load_data(load_id: int) -> void:
 		recalculate_max_hp()
 		max_health = load_json["max_health"]
 		health = max_health
+		Global.emit_health_changed()
 	, ConnectFlags.CONNECT_ONE_SHOT)
 	get_tree().change_scene_to_file(load_json["stage"])
 
@@ -377,6 +378,9 @@ func recalculate_weight() -> void:
 func recalculate_max_hp() -> void:
 	var gained_hp := flags.get("health_up_collected", 0) as int * Accessibility.energy_strength
 	max_health = clampf(STARTING_MAX_HEALTH + gained_hp + Accessibility.max_hp_offset, 1, 999)
+
+func emit_health_changed() -> void:
+	echo_health_changed.emit(health)
 
 func max_health_mush_adjusted() -> float:
 	if has_mush_curse():

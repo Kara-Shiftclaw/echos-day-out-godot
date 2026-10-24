@@ -39,10 +39,13 @@ func new_game(load_id: int) -> void:
 		$CantErase.play()
 	else:
 		Global.save_id = load_id
+		Global.flags = {}
+		Global.explored_spaces = {}
 		write_last_save_id(load_id)
 		get_tree().scene_changed.connect(func():
 			Global.load_abilities(false, false, false, false, false)
 			Global.recalculate_max_hp()
+			Global.emit_health_changed()
 		, ConnectFlags.CONNECT_ONE_SHOT)
 		get_tree().change_scene_to_packed(FirstStage)
 		queue_free()

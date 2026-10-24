@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2jt4trsgdkws"]
+[gd_scene format=3 uid="uid://d2jt4trsgdkws"]
 
 [ext_resource type="Script" uid="uid://dh464crspljv0" path="res://oneoff/cutscenes/scripts/intro.gd" id="1_cesr1"]
 [ext_resource type="PackedScene" uid="uid://bdkeka5ulrpns" path="res://menu/cutscene_bars.tscn" id="1_vqtwt"]
@@ -222,40 +222,38 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqiw1"]
 size = Vector2(2, 2)
 
-[node name="Intro" type="Node2D"]
+[node name="Intro" type="Node2D" unique_id=987834522]
 process_mode = 3
 script = ExtResource("1_cesr1")
 
-[node name="CutsceneBars" parent="." instance=ExtResource("1_vqtwt")]
+[node name="CutsceneBars" parent="." unique_id=838884289 instance=ExtResource("1_vqtwt")]
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8vupb")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=340450729]
+libraries/ = SubResource("AnimationLibrary_8vupb")
 
-[node name="CutsceneEcho" type="Sprite2D" parent="."]
+[node name="CutsceneEcho" type="Sprite2D" parent="." unique_id=1732884561]
 position = Vector2(24, 95)
 texture = ExtResource("3_lqiw1")
 hframes = 9
 region_enabled = true
 region_rect = Rect2(0, 0, 198, 20)
 
-[node name="Bell" type="AudioStreamPlayer" parent="."]
+[node name="Bell" type="AudioStreamPlayer" parent="." unique_id=520766235]
 stream = ExtResource("4_lqiw1")
 pitch_scale = 1.5
 bus = &"Sfx"
 
-[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+[node name="AttackSound" type="AudioStreamPlayer" parent="." unique_id=884231570]
 stream = ExtResource("5_3273p")
 volume_db = 4.0
 bus = &"Sfx"
 
-[node name="EnergyOrbCollector" type="StaticBody2D" parent="."]
+[node name="EnergyOrbCollector" type="StaticBody2D" parent="." unique_id=1093503974]
 position = Vector2(27, 78)
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnergyOrbCollector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnergyOrbCollector" unique_id=180650408]
 shape = SubResource("RectangleShape2D_lqiw1")

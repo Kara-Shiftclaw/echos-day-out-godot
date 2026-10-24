@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0kiufe6wem6i"]
+[gd_scene format=3 uid="uid://d0kiufe6wem6i"]
 
 [ext_resource type="Script" uid="uid://de5lrm7uu02ab" path="res://objects/echo/scripts/health_bar.gd" id="1_h2tek"]
 [ext_resource type="Texture2D" uid="uid://od4i7ihp6dhl" path="res://assets/gfx/health.png" id="1_j3ijx"]
@@ -58,14 +58,14 @@ _data = {
 &"rotate": SubResource("Animation_h2tek")
 }
 
-[node name="HealthBar" type="Node2D"]
+[node name="HealthBar" type="Node2D" unique_id=1878895301]
 z_index = 100
 script = ExtResource("1_h2tek")
 
-[node name="Back" type="Node2D" parent="."]
+[node name="Back" type="Node2D" parent="." unique_id=702216464]
 position = Vector2(6, 2)
 
-[node name="OneHp" type="Sprite2D" parent="Back"]
+[node name="OneHp" type="Sprite2D" parent="Back" unique_id=94314017]
 visible = false
 position = Vector2(-2, 3)
 texture = ExtResource("1_j3ijx")
@@ -73,81 +73,81 @@ offset = Vector2(0.5, 0)
 region_enabled = true
 region_rect = Rect2(24, 0, 5, 6)
 
-[node name="LeftBlock" type="Sprite2D" parent="Back/OneHp"]
+[node name="LeftBlock" type="Sprite2D" parent="Back/OneHp" unique_id=456778427]
 z_index = 1
 position = Vector2(-1, -3)
 texture = SubResource("AtlasTexture_xf05w")
 offset = Vector2(0.5, 3)
 
-[node name="RightBlock" type="Sprite2D" parent="Back/OneHp"]
+[node name="RightBlock" type="Sprite2D" parent="Back/OneHp" unique_id=1068504337]
 z_index = 1
 position = Vector2(1, -3)
 texture = SubResource("AtlasTexture_xf05w")
 offset = Vector2(0.5, 3)
 
-[node name="LeftEnd" type="Sprite2D" parent="Back"]
+[node name="LeftEnd" type="Sprite2D" parent="Back" unique_id=179391014]
 position = Vector2(-4, 0)
 texture = SubResource("AtlasTexture_h2tek")
 offset = Vector2(2, 3)
 
-[node name="LeftBlock" type="Sprite2D" parent="Back/LeftEnd"]
+[node name="LeftBlock" type="Sprite2D" parent="Back/LeftEnd" unique_id=2025521440]
 z_index = 1
 position = Vector2(1, 0)
 texture = SubResource("AtlasTexture_xf05w")
 offset = Vector2(0.5, 3)
 
-[node name="DangerArea" type="ColorRect" parent="Back"]
+[node name="DangerArea" type="ColorRect" parent="Back" unique_id=207300754]
 offset_right = 10.0
 offset_bottom = 6.0
 color = Color(0.67058825, 0.17254902, 0.26666668, 1)
 
-[node name="Divider" type="Sprite2D" parent="Back"]
+[node name="Divider" type="Sprite2D" parent="Back" unique_id=1845070299]
 position = Vector2(10, 0)
 texture = SubResource("AtlasTexture_2gxpw")
 offset = Vector2(1, 3)
 
-[node name="PrimaryArea" type="ColorRect" parent="Back"]
+[node name="PrimaryArea" type="ColorRect" parent="Back" unique_id=1616113507]
 offset_left = 12.0
 offset_right = 40.0
 offset_bottom = 6.0
 color = Color(0.13333334, 0.1254902, 0.20392157, 1)
 
-[node name="RightEnd" type="Sprite2D" parent="Back"]
+[node name="RightEnd" type="Sprite2D" parent="Back" unique_id=1275304143]
 position = Vector2(40, 0)
 texture = ExtResource("1_j3ijx")
 offset = Vector2(2, 3)
 region_enabled = true
 region_rect = Rect2(6, 0, 4, 6)
 
-[node name="RightBlock" type="Sprite2D" parent="Back/RightEnd"]
+[node name="RightBlock" type="Sprite2D" parent="Back/RightEnd" unique_id=335047560]
 z_index = 1
 position = Vector2(2, 0)
 texture = SubResource("AtlasTexture_immof")
 offset = Vector2(0.5, 3)
 
-[node name="MushCurse" type="Node2D" parent="Back"]
+[node name="MushCurse" type="Node2D" parent="Back" unique_id=588050454]
 
-[node name="MushEnd" type="Sprite2D" parent="Back/MushCurse"]
+[node name="MushEnd" type="Sprite2D" parent="Back/MushCurse" unique_id=472548323]
 position = Vector2(31, 0)
 texture = ExtResource("1_j3ijx")
 centered = false
 region_enabled = true
 region_rect = Rect2(32, 0, 12, 6)
 
-[node name="MushTip" type="Sprite2D" parent="Back/MushCurse"]
+[node name="MushTip" type="Sprite2D" parent="Back/MushCurse" unique_id=1321466235]
 position = Vector2(31, 3)
 texture = ExtResource("1_j3ijx")
 offset = Vector2(-1.5, 0)
 region_enabled = true
 region_rect = Rect2(29, 0, 3, 6)
 
-[node name="HealthBarPrimary" type="ColorRect" parent="."]
+[node name="HealthBarPrimary" type="ColorRect" parent="." unique_id=2022102403]
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 33.0
 offset_bottom = 7.0
 
-[node name="HealthBarEnd" type="Sprite2D" parent="."]
+[node name="HealthBarEnd" type="Sprite2D" parent="." unique_id=1905437712]
 position = Vector2(35, 2)
 texture = ExtResource("1_j3ijx")
 offset = Vector2(-1, 3)
@@ -155,10 +155,8 @@ region_enabled = true
 region_rect = Rect2(12, 0, 2, 4)
 region_filter_clip_enabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1096531378]
 process_mode = 3
 root_node = NodePath("../HealthBarEnd")
-libraries = {
-&"": SubResource("AnimationLibrary_xf05w")
-}
-autoplay = "rotate"
+libraries/ = SubResource("AnimationLibrary_xf05w")
+autoplay = &"rotate"
