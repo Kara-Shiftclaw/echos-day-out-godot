@@ -59,20 +59,20 @@ STATUS_WEIGHT_BLOB,BLOB,BLOB
 STATUS_WEIGHT_SMOL,Shrunken,Empequeñecida
 UPGRADE_DESC_SELECT,SELECT AN ABILITY,SELECCIONA UNA HABILIDAD
 UPGRADE_DESC_NOT_FOUND,UPGRADE NOT FOUND,MEJORA NO ENCONTRADA
-UPGRADE_DESC_FIREBALL,FIREBALL\nPress X in\nmidair to fire!,BOLA DE FUEGO\n¡Presiona X en el\naire para disparar!
+UPGRADE_DESC_FIREBALL,FIREBALL\nPress X in\nmidair to fire!,BOLA DE FUEGO\n¡Presiona X en el aire para disparar!
 UPGRADE_DESC_DOUBLE_JUMP,DOUBLE JUMP\nJump again in midair w/ Z!,SALTO DOBLE\n¡Salta de nuevo en el aire con Z!
 UPGRADE_DESC_SPRINT,SPRINT\nHold Shift to move faster!,ESPRINT\n¡Mantén presionado Shift para ir mas rápido!
-UPGRADE_DESC_CRUSH,CRUSH\nPress Down to\nslam ground!,APLASTE\n¡Presiona Abajo para\nchocar contra el suelo!
+UPGRADE_DESC_CRUSH,CRUSH\nPress Down to\nslam ground!,APLASTE\n¡Presiona Abajo para chocar contra el suelo!
 UPGRADE_DESC_BONK,BONK\nPress X for midair dash!,BONK\n¡Presiona X para realizar un dash aéreo!
 UPGRADE_DESC_HIGH_JUMP,HIGH JUMP\nJump really high!,SALTO DE ALTURA\n¡Salta muy alto!
 UPGRADE_DESC_SMOL_SPRINT,SPRINT\nStill hold Shift to run!,ESPRINT\n¡Sigue manteniendo presionado Shift para correr!
 UPGRADE_DESC_SQUEEZE,SQUEEZE\nFit in small gaps!,APRETUJE\n¡Entra por orificios pequeños!
-UPGRADE_FLAVOR_FIREBALL,Flavor:Melted\nIce Cream,Sabor: Helado\nDerretido
-UPGRADE_FLAVOR_DOUBLE_JUMP,Flavor: Stupid\nMole's Gold,Sabor: Oro de una\nTopa Tonta
-UPGRADE_FLAVOR_SPRINT,Flavor:\nSnowman Guts,Sabor: Tripas de un\nMuñeco de Nieve
-UPGRADE_FLAVOR_CRUSH,Flavor: Honey \nand Cheese,Sabor: Miel y\nQueso
+UPGRADE_FLAVOR_FIREBALL,Flavor:Melted\nIce Cream,Sabor: Helado Derretido
+UPGRADE_FLAVOR_DOUBLE_JUMP,Flavor: Stupid\nMole's Gold,Sabor: Oro de una Topa Tonta
+UPGRADE_FLAVOR_SPRINT,Flavor:\nSnowman Guts,Sabor: Tripas de un Muñeco de Nieve
+UPGRADE_FLAVOR_CRUSH,Flavor: Honey \nand Cheese,Sabor: Miel y Queso
 UPGRADE_FLAVOR_BONK,Flavor: Concussion,Sabor:\nTraumatismo Craneal
-UPGRADE_FLAVOR_HIGH_JUMP,Flavor:Fresh\nAir,Sabor:Aire\nFresco
+UPGRADE_FLAVOR_HIGH_JUMP,Flavor:Fresh\nAir,Sabor:Aire Fresco
 UPGRADE_FLAVOR_SMOL_SPRINT,Flavor: Dehydration,Sabor: Deshidratación
 UPGRADE_FLAVOR_SQUEEZE,Flavor:Haha small,Sabor:Jaja pequeñín
 AUGMENTS_MAX_HEALTH_OFFSET,Max Health Offset,Intervalo de Salud Máxima
@@ -467,7 +467,7 @@ JOURNAL_AFFAMAE_DESC,"A one-armed monster obsessed with food. I get the feeling 
 JOURNAL_ARTIFACT_NAME,Artifact of Echo,Artefacto de Echo
 JOURNAL_ARTIFACT_DESC,"Believed to be the core of the legendary dragon, Echo. For a legendary being, its energy readings are very low...","Se cree que es el núcleo del legendario dragón, Echo. Para ser una criatura legendaria, sus señales de energía son bastante bajas..."
 JOURNAL_BEE_CANNON_NAME,Wasp-Cannon,Avispa-ñon
-JOURNAL_BEE_CANNON_DESC,"While they look more active than the Orbees,\nthey just shoot problems with honey until the Orbees do it for them.","Aunque parecen ser más activos que las Orbejas,\nse limitan a disparar a sus problemas hasta que las Orbejas se encarguen de ello."
+JOURNAL_BEE_CANNON_DESC,"While they look more active than the Orbees,\nthey just shoot problems with honey until the Orbees do it for them.","Aunque parecen ser más activos que las Orbejas, se limitan a disparar a sus problemas hasta que las Orbejas se encarguen de ello."
 JOURNAL_BEEORB_NAME,Orbee,Orbeja
 JOURNAL_BEEORB_DESC,"Lazy, gluttonous bees who do nothing without the promise of food. Very cute, and painfullly relatable.","Abejas perezosas y glotonas que no hacen nada a menos que se les prometa comida a cambio. Muy adorables, y dolorosamente fácil de identificarse con ellas."
 JOURNAL_BIG_LIZARD_NAME,Geckordo,Geckordo
@@ -483,35 +483,35 @@ JOURNAL_CRAB_DESC,"As the Depths dried, these beasts became angry and territoria
 JOURNAL_CROW_NAME,Corvid Pawn,Córvido Peón
 JOURNAL_CROW_DESC,"Slimmest among the bird chivalry in the Valley, and lowest ranking. Moderately okay with a bow and a knife.","Los mas delgados entre los caballeros pájaros en el Valle, y los de rango mas bajo. Moderadamente decentes con el arco y el cuchillo."
 JOURNAL_DANIEL_NAME,Daniel,Daniel
-JOURNAL_DANIEL_DESC,"Top worker of the Pyrite Plunge, and the only one keeping anything running. He is\nthe most agreeable person I've met here.","Empleado estrella del Acantilado Pirita, y el único manteniendo las cosas en funcionamiento. Es\nla persona mas placentera que jamas he conocido."
+JOURNAL_DANIEL_DESC,"Top worker of the Pyrite Plunge, and the only one keeping anything running. He is\nthe most agreeable person I've met here.","Empleado estrella del Acantilado Pirita, y el único manteniendo las cosas en funcionamiento. Es la persona mas placentera que jamas he conocido."
 JOURNAL_FATBAT_NAME,Fat Bat,Murciélago gordo
 JOURNAL_FATBAT_DESC,"A bat that is fat. Enjoys biting those who walk by. They annoy me greatly, and I wish they'd be fattened to immobility.","Un murciélago que está gordo. Les gusta morder a la gente que pasa por ahí. Me molestan mucho, y ojala engordasen hasta que no se puedan mover."
 JOURNAL_FLUTTERFISH_NAME,Flutterfish,Pez Ala
-JOURNAL_FLUTTERFISH_DESC,"These caves dried up centuries ago, and yet\nthese fish persist. Nature is mysterious and scary. Also, very tasty.","Estas cuevas se secaron hace siglos, y aun así\nestos peces persisten. Madre naturaleza es misteriosa y terrorífica. Y también muy deliciosa."
+JOURNAL_FLUTTERFISH_DESC,"These caves dried up centuries ago, and yet\nthese fish persist. Nature is mysterious and scary. Also, very tasty.","Estas cuevas se secaron hace siglos, y aun así estos peces persisten. Madre naturaleza es misteriosa y terrorífica. Y también muy deliciosa."
 JOURNAL_HEDGEHOG_NAME,Hedgehog,Erizo
-JOURNAL_HEDGEHOG_DESC,"A perfect specimen. They walk around aimlessly, hurting none\nbut those who dare interfere with their wander.","El espécimen perfecto. Caminan por ahí sin rumbo, sin dañar a nadie\nexcepto aquellos que interfieren con sus caminatas."
+JOURNAL_HEDGEHOG_DESC,"A perfect specimen. They walk around aimlessly, hurting none\nbut those who dare interfere with their wander.","El espécimen perfecto. Caminan por ahí sin rumbo, sin dañar a nadie excepto aquellos que interfieren con sus caminatas."
 JOURNAL_HUGEHOG_NAME,Huge-hog,Gran-rizo
 JOURNAL_HUGEHOG_DESC,"An immobile hedgehog, likely ten times my weight. It's staring at me hungrily. Perhaps I can feed it when I'm done with this page.","Un erizo inmovible, seguramente diez veces mi peso. Me está mirando con pinta de hambriento. Tal vez pueda darle algo de comer en cuanto termine de escribir esta página."
 JOURNAL_IMMOBILE_BEEORB_NAME,Orbee (Immobile),Orbeja (Inmovible)
-JOURNAL_IMMOBILE_BEEORB_DESC,"The natural end-state of the Orbees' diet. I wonder if science could get them fatter?\nFor research purposes,\nof course.","La conclusión natural de la dieta de las Orbejas. ¿Me pregunto si la ciencia sería capaz de engordarlas aún más?\nPor tal de investigar,\npor supuesto."
+JOURNAL_IMMOBILE_BEEORB_DESC,"The natural end-state of the Orbees' diet. I wonder if science could get them fatter?\nFor research purposes,\nof course.","La conclusión natural de la dieta de las Orbejas. ¿Me pregunto si la ciencia sería capaz de engordarlas aún más? Por tal de investigar, por supuesto."
 JOURNAL_JOURNALIST_NAME,Maxwell Flinthelm II,Maxwell Flinthelm II
-JOURNAL_JOURNALIST_DESC,"The handsome, amazing author of the very journal you're reading!\nBe sure to check out my other works if you enjoy this one!","¡El hermoso, asombroso autor del mismo diario que estás leyendo ahora mismo!\n¡Asegurate de echar un vistazo a mis otras publicaciones si has disfrutado de esta!"
+JOURNAL_JOURNALIST_DESC,"The handsome, amazing author of the very journal you're reading!\nBe sure to check out my other works if you enjoy this one!","¡El hermoso, asombroso autor del mismo diario que estás leyendo ahora mismo! ¡Asegurate de echar un vistazo a mis otras publicaciones si has disfrutado de esta!"
 JOURNAL_KARA_NAME,Kara,Kara
 JOURNAL_KARA_DESC,"She claims to be a cryptid called a ""Shift-Claw"". There are no recorded instances of this species. ????????","Ella afirma ser una críptida llamada ""Shift-Claw"". No hay ni un solo record respecto a la existencia de tal especie. ¿¿¿¿????"
 JOURNAL_LIL_MUSHROOM_NAME,Sporeling,Esporiño
-JOURNAL_LIL_MUSHROOM_DESC,"What is it hiding? There is something strange happening with\nthese mushrooms, and I will get to the bottom of it.","¿Qué es lo que esconde? Algo extraño ocurre con\nestos champiñones, y voy a tratar de averiguarlo."
+JOURNAL_LIL_MUSHROOM_DESC,"What is it hiding? There is something strange happening with\nthese mushrooms, and I will get to the bottom of it.","¿Qué es lo que esconde? Algo extraño ocurre con estos champiñones, y voy a tratar de averiguarlo."
 JOURNAL_MONGOOSE_NAME,- Edgar -,- Edgar -
 JOURNAL_MONGOOSE_DESC,The local monarch. Claims to have ignited Charred Caverns (despite being a volcano for centuries). Addicted to ice cream.,El monarca local. Afirma haber incendiado la caverna carbón (pese a haber sido un volcán durante siglos). Adicto al helado.
 JOURNAL_OLHM_NAME,Olhm,Proteom
-JOURNAL_OLHM_DESC,"Long, electrified olms who dart around under the Sporeways. Cursed with electricity\npowers, despite being mostly pacifistic.","Proteos largos y electrificados que se mueven de un lado a otro en la Senda Espora. Fueron maldecidos con poderes\neléctricos, pese a ser en su mayoría pacifistas."
+JOURNAL_OLHM_DESC,"Long, electrified olms who dart around under the Sporeways. Cursed with electricity\npowers, despite being mostly pacifistic.","Proteos largos y electrificados que se mueven de un lado a otro en la Senda Espora. Fueron maldecidos con poderes eléctricos, pese a ser en su mayoría pacifistas."
 JOURNAL_SCARE_DRAGON_NAME,Scaredrake,Espanta-dracos
 JOURNAL_SCARE_DRAGON_DESC,"Scarecrow designed to keep Echo away. At first they seem laughable, but then I realized, I haven't seen Echo near them...","Espantapajaros diseñados para mantener alejada a Echo. Al principio me parecían de risa, pero luego me di cuenta de que jamás he visto a Echo cerca de ellos..."
 JOURNAL_SMALL_LIZARD_NAME,Geckito,Geckito
 JOURNAL_SMALL_LIZARD_DESC,Anxious lizards who don't stray far from their resting grounds. The fires on their back keep them warm away from sunlight.,Lagartos ansiosos que no suelen alejarse mucho de su lugar de descanso. Los fuegos en sus espaldas les mantienen cálidos cuando no da la luz del sol.
 JOURNAL_SMALL_PLANTS_NAME,Chromatic Buds,Brotes Chromáticos
-JOURNAL_SMALL_PLANTS_DESC,Far-flung buds of the Chromatic Flora found deep in the caves. Their power weakend\nas the tower overtook their domain.,Brotes distantes de la Flora Cromática que se encuentran en las profundidades de la cueva. Sus poderes menguaron\na medida que la torre tomó control de sus regiones.
+JOURNAL_SMALL_PLANTS_DESC,Far-flung buds of the Chromatic Flora found deep in the caves. Their power weakend\nas the tower overtook their domain.,Brotes distantes de la Flora Cromática que se encuentran en las profundidades de la cueva. Sus poderes menguaron a medida que la torre tomó control de sus regiones.
 JOURNAL_SNAIL_NAME,Snail,Caracol
-JOURNAL_SNAIL_DESC,Perfect. Flawless. A being with naught but love in its heart and\na desire to do right by those around it.,Perfecto. Infalible. Una criatura con nada más que amor en su corazón y\nla necesidad de hacer lo correcto a aquellos a su alrededor.
+JOURNAL_SNAIL_DESC,Perfect. Flawless. A being with naught but love in its heart and\na desire to do right by those around it.,Perfecto. Infalible. Una criatura con nada más que amor en su corazón y la necesidad de hacer lo correcto a aquellos a su alrededor.
 JOURNAL_SONIA_NAME,- Sonia -,- Sonia -
 JOURNAL_SONIA_DESC,"The brilliant tycoon in charge of mining gold. A genius, and I'm not just saying that to get a book deal, but if she offered then","La brillante empresaria encargada de minar oro. Una genia, y eso no lo digo solo para obtener un contrato editorial, pero si me lo ofrece..."
 JOURNAL_SPIDER_NAME,Spider,Araña
@@ -519,13 +519,13 @@ JOURNAL_SPIDER_DESC,A welcome friend. Too fat & bloated from eating bugs to thre
 JOURNAL_SPIKE_HEDGEHOG_NAME,Spike-hog,Pincherizo
 JOURNAL_SPIKE_HEDGEHOG_DESC,"King Edgar wanted to generate jobs, so he hired Hedgehogs to be spikes. Pay is 100g of Pyrite an hour, or about $0.001.","El Rey Edgar buscaba generar trabajos, así que contrató a erizos para que fueran pinchos. El salario es 100g de pirita a la hora, o más o menos $0.001."
 JOURNAL_SPOREMOTHER_NAME,Sporemother,Madrespora
-JOURNAL_SPOREMOTHER_DESC,"I asked for answers on the Sporecaps, and she made me raise one\nto adulthood. It just gave me a map! It didn't answer anything!!","Hice preguntas respecto a los Oronjasporas, y ella me hizo criar uno hasta que\nllegaron a la adultez. ¡Y al final solo me dió un mapa! ¡¡No me respondió nada!!"
+JOURNAL_SPOREMOTHER_DESC,"I asked for answers on the Sporecaps, and she made me raise one\nto adulthood. It just gave me a map! It didn't answer anything!!","Hice preguntas respecto a los Oronjasporas, y ella me hizo criar uno hasta que llegaron a la adultez. ¡Y al final solo me dió un mapa! ¡¡No me respondió nada!!"
 JOURNAL_STANDARD_MUSHROOM_NAME,Sporecap,Oronjasporas
 JOURNAL_STANDARD_MUSHROOM_DESC,"A mushroom. Are they sapient? Sentient? They has a face, do they have secrets? What won't they tell me??","Un champiñón. ¿Son sapiens? ¿Conscientes? Tienen una cara, ¿Guardan secretos? ¿¿Qué es lo que me están ocultando??"
 JOURNAL_SWORD_SPIRIT_NAME,Spirit of the Sword,Espíritu de la Espada
-JOURNAL_SWORD_SPIRIT_DESC,"A tubby ghost that mocked me for being unable to free her sword. I hit it with a hammer a few times, it\nstill wouldn't budge!","Una fantasma regordeta que se burlo de mí por ser incapaz de sacar su espada. Use un martillo para darle unas cuantas veces, ¡y\naun así ni se movió!"
+JOURNAL_SWORD_SPIRIT_DESC,"A tubby ghost that mocked me for being unable to free her sword. I hit it with a hammer a few times, it\nstill wouldn't budge!","Una fantasma regordeta que se burlo de mí por ser incapaz de sacar su espada. Use un martillo para darle unas cuantas veces, ¡y aun así ni se movió!"
 JOURNAL_WOLF_NAME,Hefthire Wolf,Lobo Pesopesado
-JOURNAL_WOLF_DESC,"Hired bodyguards, most\nof whom glut out while\nnothing of note happens. Their combat ability is... theoretical.","Guardas que fueron contratados, la\nmayoría se atiborran de comida mientras\nno ocurre nada de interés. Sus capacidades de combate son... teoréticas."
+JOURNAL_WOLF_DESC,"Hired bodyguards, most\nof whom glut out while\nnothing of note happens. Their combat ability is... theoretical.","Guardas que fueron contratados, la mayoría se atiborran de comida mientras no ocurre nada de interés. Sus capacidades de combate son... teoréticas."
 ITEM_FOOD_NAME,Food,Comida
 ITEM_FOOD_1,Meal for flesh beings. Prepared by the best chef in Heftwind Hills.,Merienda para seres de carne. Preparada por el mejor chef de las Colinas Ventadas.
 ITEM_FOOD_2,Meal for flesh beings. Cooked perfectly over magma. Somehow.,Merienda para seres de carne. Cocinada a la perfección en el magma...de algún modo.
