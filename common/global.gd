@@ -1,7 +1,7 @@
 extends Node
 
 
-const IS_DEMO_BUILD := false
+const IS_DEMO_BUILD := true
 
 
 enum Weight {
