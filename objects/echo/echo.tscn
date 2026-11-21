@@ -1592,6 +1592,11 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="PostLoadTimer" type="Timer" parent="." unique_id=468046448]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=481193885]
 libraries/ = SubResource("AnimationLibrary_w5cui")
 
@@ -1665,16 +1670,19 @@ bus = &"Sfx"
 [node name="DoubleJumpSound" type="AudioStreamPlayer" parent="." unique_id=1617024521]
 stream = ExtResource("11_mt7je")
 volume_db = 8.0
+bus = &"Sfx"
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1218749104]
 stream = ExtResource("13_1tnjc")
 volume_db = 2.0
+bus = &"Sfx"
 
 [node name="LandSound" type="AudioStreamPlayer" parent="." unique_id=1377964462]
 stream = ExtResource("14_fbjf1")
 volume_db = -4.0
+bus = &"Sfx"
 
-[connection signal="land_on_floor" from="." to="LandSound" method="play"]
+[connection signal="land_on_floor" from="." to="." method="play_land_sound"]
 [connection signal="body_entered" from="StageHurtbox" to="." method="stage_hurtbox_hit"]
 [connection signal="body_entered" from="BindingHurtbox" to="." method="binding_hurtbox_hit"]
 [connection signal="area_entered" from="EnemyHurtbox" to="." method="on_hit"]

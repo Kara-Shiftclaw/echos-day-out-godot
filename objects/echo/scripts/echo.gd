@@ -179,6 +179,10 @@ func _physics_process(delta: float) -> void:
 			if move_and_slide() and is_on_wall():
 				velocity.x = 0.
 
+func play_land_sound() -> void:
+	if $PostLoadTimer.is_stopped():
+		$LandSound.play()
+
 func new_stage_jump():
 	$JumpTimer.start(NEW_STAGE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
 	jump_locked = true
