@@ -155,6 +155,7 @@ func _physics_process(delta: float) -> void:
 				if !$CoyoteTimeTimer.is_stopped():
 					$CoyoteTimeTimer.stop()
 					$JumpTimer.start(JUMP_TIME_MAP[Global.weight])
+					$JumpSound.play()
 					play_anim("jump", 1)
 				elif can_double_jump:
 					$JumpTimer.start(DOUBLE_JUMP_HEIGHT / -JUMP_VELOCITY_MAP[Global.weight])
