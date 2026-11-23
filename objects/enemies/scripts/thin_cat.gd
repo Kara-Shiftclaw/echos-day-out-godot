@@ -26,6 +26,7 @@ const JUMP_HEIGHT := 24.
 		facing_right = value
 		sync_facing_right()
 @export var should_hide := false
+@export var should_arena_standby := false
 var last_attack := Attack.JumpKnives
 var jump: Util.QuadraticJump = null
 var platform_edge_l: float
@@ -59,16 +60,20 @@ func on_load_alive() -> void:
 	show()
 	last_attack = Attack.JumpKnives
 	$AnimationPlayer.play("idle")
-	if should_hide:
+	if should_hide or should_arena_standby:
 		last_attack = Attack.Hide
 		$AnimationPlayer.play("hide")
 		$AnimationPlayer.call_deferred("seek", 0., true)
-		$AppearDetector/AppearDetectorShape.set_deferred("disabled", false)
+		if !should_arena_standby:
+			$AppearDetector/AppearDetectorShape.set_deferred("disabled", false)
 
 func detect_player(other: Node2D) -> void:
 	if other is Player and should_hide and $Hurtbox/CollisionShape2D.disabled:
-		$AnimationPlayer.play("appear")
-		$AppearDetector/AppearDetectorShape.set_deferred("disabled", true)
+		arena_start()
+
+func arena_start() -> void:
+	$AnimationPlayer.play("appear")
+	$AppearDetector/AppearDetectorShape.set_deferred("disabled", true)
 
 
 func decision_point() -> void:

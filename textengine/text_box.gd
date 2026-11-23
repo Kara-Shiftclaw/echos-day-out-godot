@@ -14,6 +14,8 @@ signal started()
 @export var label: Label
 @export var box_visible_size := 8 * 5
 @export var auto_free := true
+@export var characters_per_second := CHARACTERS_PER_SECOND
+@export var speedup_rate := 3.
 var visible_characters_float := 0.
 var scrolling := true
 var dialogue_blip: AudioStreamPlayer
@@ -48,9 +50,9 @@ func _process(delta: float) -> void:
 			visible_characters_float = label.text.length()
 
 		if scrolling:
-			var visible_delta = CHARACTERS_PER_SECOND * delta
+			var visible_delta = characters_per_second * delta
 			if Input.is_action_pressed("ui_skip_text"):
-				visible_delta *= 3.
+				visible_delta *= speedup_rate
 			visible_characters_float += visible_delta
 			
 			if visible_characters_float > label.text.length():

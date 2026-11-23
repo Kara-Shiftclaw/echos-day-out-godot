@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4fx5qcmjiotm"]
+[gd_scene format=3 uid="uid://c4fx5qcmjiotm"]
 
 [ext_resource type="Script" uid="uid://d3ksx55wdrmc6" path="res://textengine/option_box.gd" id="1_fhspy"]
 [ext_resource type="Theme" uid="uid://dpdcai43puqjs" path="res://assets/theme.tres" id="1_njo3c"]
 
-[node name="TextengineOptionBox" type="Control" node_paths=PackedStringArray("buttons_parent", "description")]
+[node name="TextengineOptionBox" type="Control" unique_id=810711950 node_paths=PackedStringArray("buttons_parent", "description")]
 z_index = 111
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 3
@@ -14,8 +14,9 @@ buttons_parent = NodePath("HBoxContainer/ButtonsParent")
 description = NodePath("HBoxContainer/DescContainer/MarginContainer/Label")
 metadata/_custom_type_script = "uid://d3ksx55wdrmc6"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1424942337]
 process_mode = 3
+custom_maximum_size = Vector2(128, -1)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -23,35 +24,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 
-[node name="ButtonsParent" type="VBoxContainer" parent="HBoxContainer"]
+[node name="ButtonsParent" type="VBoxContainer" parent="HBoxContainer" unique_id=155772953]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="HBoxContainer/ButtonsParent"]
+[node name="Button" type="Button" parent="HBoxContainer/ButtonsParent" unique_id=605239521]
 layout_mode = 2
 text = "A"
+autowrap_mode = 3
 
-[node name="Button2" type="Button" parent="HBoxContainer/ButtonsParent"]
+[node name="Button2" type="Button" parent="HBoxContainer/ButtonsParent" unique_id=2068741722]
 layout_mode = 2
 text = "B"
+autowrap_mode = 3
 
-[node name="Button3" type="Button" parent="HBoxContainer/ButtonsParent"]
+[node name="Button3" type="Button" parent="HBoxContainer/ButtonsParent" unique_id=1279518149]
 layout_mode = 2
 text = "C"
+autowrap_mode = 3
 
-[node name="Button4" type="Button" parent="HBoxContainer/ButtonsParent"]
+[node name="Button4" type="Button" parent="HBoxContainer/ButtonsParent" unique_id=1959444790]
 layout_mode = 2
 text = "D"
+autowrap_mode = 3
 
-[node name="DescContainer" type="PanelContainer" parent="HBoxContainer"]
+[node name="DescContainer" type="PanelContainer" parent="HBoxContainer" unique_id=277924348]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/DescContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/DescContainer" unique_id=455264641]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/DescContainer/MarginContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/DescContainer/MarginContainer" unique_id=556934352]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Test"

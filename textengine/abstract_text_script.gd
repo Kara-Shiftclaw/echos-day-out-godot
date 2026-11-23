@@ -34,7 +34,7 @@ func start() -> void:
 	await script()
 	
 	for textbox in registered_textboxes:
-		if textbox.auto_free:
+		if is_instance_valid(textbox) and textbox.auto_free:
 			textbox.queue_free()
 	default_textbox = null
 	registered_textboxes = []
@@ -58,7 +58,7 @@ func txt(translation: String, textbox: TextBox = null) -> void:
 		textbox.show()
 		
 	textbox.set_text(tr(translation))
-	textbox.close_signaled.connect(next_impulse, CONNECT_ONE_SHOT)
+	textbox.close_signaled.connect(next_impulse, CONNECT_ONE_SHOT | CONNECT_DEFERRED)
 	
 	await _self_impulse
 

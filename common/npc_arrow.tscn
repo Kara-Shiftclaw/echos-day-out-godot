@@ -51,3 +51,5 @@ script = ExtResource("2_1yn22")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=972024911]
 libraries/ = SubResource("AnimationLibrary_mbb31")
 autoplay = &"bounce"
+
+[connection signal="activated" from="." to="." method="hide"]

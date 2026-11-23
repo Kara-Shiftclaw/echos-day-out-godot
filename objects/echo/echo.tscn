@@ -1669,17 +1669,17 @@ bus = &"Sfx"
 
 [node name="DoubleJumpSound" type="AudioStreamPlayer" parent="." unique_id=1617024521]
 stream = ExtResource("11_mt7je")
-volume_db = 8.0
+volume_db = 10.0
 bus = &"Sfx"
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1218749104]
 stream = ExtResource("13_1tnjc")
-volume_db = 2.0
+volume_db = 4.0
 bus = &"Sfx"
 
 [node name="LandSound" type="AudioStreamPlayer" parent="." unique_id=1377964462]
 stream = ExtResource("14_fbjf1")
-volume_db = -4.0
+volume_db = -2.0
 bus = &"Sfx"
 
 [connection signal="land_on_floor" from="." to="." method="play_land_sound"]

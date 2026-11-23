@@ -26,6 +26,7 @@ func add_option(option: TextEngine.Option) -> void:
 		var option_id := buttons_parent.get_child_count()
 		var option_button: Button = option_button_scene.instantiate() if option_button_scene != null else Button.new()
 		option_button.text = tr(option.display_text)
+		option_button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		
 		option_button.pressed.connect(func():
 			print("Option chosen")

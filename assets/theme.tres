@@ -133,6 +133,7 @@ default_font_size = 7
 Button/colors/font_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 Button/colors/font_focus_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
 Button/colors/font_hover_color = Color(0.3882353, 0.10980392, 0.3137255, 1)
+Button/constants/line_spacing = 2
 Button/styles/disabled = SubResource("StyleBoxTexture_wl1kw")
 Button/styles/focus = SubResource("StyleBoxTexture_e8htd")
 Button/styles/hover = SubResource("StyleBoxTexture_lu33j")
