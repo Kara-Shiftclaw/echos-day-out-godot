@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c4t6wf5tn5f4k" path="res://oneoff/background/scripts/foreground_background_door.gd" id="1_3ttmg"]
 [ext_resource type="PackedScene" uid="uid://cl77glyl0yump" path="res://common/npc_arrow.tscn" id="1_20q3s"]
 [ext_resource type="Texture2D" uid="uid://c0voi1fr5t7mc" path="res://assets/gfx/background_door.png" id="3_ivuuh"]
+[ext_resource type="PackedScene" uid="uid://3jpuhtpuk4j4" path="res://menu/dialogue/view/text_script_base.tscn" id="4_lld3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ttmg"]
 size = Vector2(8, 2)
@@ -124,6 +125,8 @@ shape = SubResource("RectangleShape2D_3ttmg")
 z_index = 10
 position = Vector2(0, -30)
 activation_area = NodePath("..")
+
+[node name="TextScriptBase" parent="." unique_id=1294854447 instance=ExtResource("4_lld3t")]
 
 [connection signal="activated" from="NpcArrow" to="." method="activated"]
 [connection signal="activated" from="BackReturn/NpcArrow" to="." method="activated"]
