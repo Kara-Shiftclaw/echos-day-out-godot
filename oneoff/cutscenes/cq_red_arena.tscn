@@ -195,7 +195,7 @@ tracks/14/keys = {
 
 [sub_resource type="Animation" id="Animation_foy7k"]
 resource_name = "cq_shock"
-length = 0.39999999999999997
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -696,7 +696,7 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id="Animation_mhtfm"]
 resource_name = "wink"
-length = 0.39999999999999997
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -847,6 +847,7 @@ echo_dest = NodePath("../Echo")
 one_shot = true
 
 [node name="HideFlyover" parent="." unique_id=386153020 instance=ExtResource("9_mhtfm")]
+z_index = 5
 
 [connection signal="activated" from="NpcArrow" to="Cutscene" method="start"]
 [connection signal="timeout" from="Cutscene/PostWinTimer" to="Cutscene" method="start"]

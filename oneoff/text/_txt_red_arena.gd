@@ -16,7 +16,7 @@ signal shake_proceed
 
 func _ready() -> void:
 	if Global.flags.get(FLAG, false):
-		queue_free()
+		get_parent().queue_free()
 
 func script() -> void:
 	await txt("RED_ARENA_CQ_1")
@@ -86,13 +86,17 @@ func script() -> void:
 	await txt("RED_ARENA_CQ_11")
 	cq_anim.play("echo_mad")
 	cq.frame = 0
-	await opt_txt("RED_ARENA_CQ_12", [
+	var choice = await opt_txt("RED_ARENA_CQ_12", [
 		opt("RED_ARENA_POPUP_4"),
 		opt("RED_ARENA_POPUP_5"),
+		opt("RED_ARENA_POPUP_NIMBUS"),
 		opt("RED_ARENA_POPUP_6"),
 	], option_box)
 	cq_anim.play("cq_shock")
-	await txt("RED_ARENA_CQ_13")
+	if choice == 2:
+		await txt("RED_ARENA_CQ_NIMBUS")
+	else:
+		await txt("RED_ARENA_CQ_13")
 	cq.frame = 4
 	await txt("RED_ARENA_CQ_14")
 	Global.echo.show()
