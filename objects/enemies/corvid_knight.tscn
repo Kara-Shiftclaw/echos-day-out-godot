@@ -108,7 +108,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_6o452"]
 resource_name = "die"
-loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -117,10 +116,10 @@ tracks/0/path = NodePath("FacingHolder/RFSprite2Dv2:current_frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [4, 5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -263,17 +262,21 @@ offset = Vector2(0.5, 0.5)
 region_enabled = true
 region_rect = Rect2(0, 0, 27, 21)
 script = ExtResource("2_1di12")
-frame_count = 4
-frame_regions = Array[Rect2]([Rect2(0, 0, 27, 21), Rect2(28, 0, 25, 21), Rect2(0, 22, 34, 22), Rect2(34, 22, 28, 21)])
-frame_offsets = Array[Vector2]([Vector2(0.5, 0.5), Vector2(1.5, 0.5), Vector2(0, 0), Vector2(0, 0.5)])
+frame_count = 6
+frame_regions = Array[Rect2]([Rect2(0, 0, 27, 21), Rect2(28, 0, 25, 21), Rect2(0, 22, 34, 22), Rect2(35, 22, 27, 21), Rect2(0, 45, 25, 21), Rect2(26, 45, 27, 20)])
+frame_offsets = Array[Vector2]([Vector2(0.5, 0.5), Vector2(1.5, 0.5), Vector2(0, 0), Vector2(-0.5, 0.5), Vector2(-0.5, 0.5), Vector2(-0.5, 1)])
 frame_0_region = Rect2(0, 0, 27, 21)
 frame_0_offset = Vector2(0.5, 0.5)
 frame_1_region = Rect2(28, 0, 25, 21)
 frame_1_offset = Vector2(1.5, 0.5)
 frame_2_region = Rect2(0, 22, 34, 22)
 frame_2_offset = Vector2(0, 0)
-frame_3_region = Rect2(34, 22, 28, 21)
-frame_3_offset = Vector2(0, 0.5)
+frame_3_region = Rect2(35, 22, 27, 21)
+frame_3_offset = Vector2(-0.5, 0.5)
+frame_4_region = Rect2(0, 45, 25, 21)
+frame_4_offset = Vector2(-0.5, 0.5)
+frame_5_region = Rect2(26, 45, 27, 20)
+frame_5_offset = Vector2(-0.5, 1)
 metadata/_custom_type_script = "uid://byf8cwr2ke4ky"
 
 [node name="EchoSight" type="RayCast2D" parent="FacingHolder" unique_id=915450706]
