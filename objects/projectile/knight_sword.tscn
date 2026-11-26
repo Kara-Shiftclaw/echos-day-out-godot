@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://dwywnd11wegtb"]
+
+[ext_resource type="Texture2D" uid="uid://dl7qe237elay4" path="res://assets/gfx/corvid_knight.png" id="1_d3afb"]
+[ext_resource type="Script" uid="uid://dtst8f1q0iahw" path="res://objects/projectile/scripts/knight_sword.gd" id="1_s0ysw"]
+[ext_resource type="Script" uid="uid://byf8cwr2ke4ky" path="res://common/rf_sprite_2d_v2.gd" id="2_s0ysw"]
+[ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="4_wejay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl52f"]
+size = Vector2(12, 12)
+
+[sub_resource type="Animation" id="Animation_d3afb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RFSprite2Dv2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RFSprite2Dv2:current_frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RFSprite2Dv2:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Damage:active")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wejay"]
+resource_name = "land"
+length = 0.19999999999999998
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RFSprite2Dv2:current_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RFSprite2Dv2:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RFSprite2Dv2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Damage:active")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_s0ysw"]
+resource_name = "spin"
+length = 0.19999999999999998
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RFSprite2Dv2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.5707963267948966, 3.141592653589793, 4.71238898038469]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RFSprite2Dv2:current_frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wejay"]
+_data = {
+&"RESET": SubResource("Animation_d3afb"),
+&"land": SubResource("Animation_wejay"),
+&"spin": SubResource("Animation_s0ysw")
+}
+
+[node name="KnightSword" type="CharacterBody2D" unique_id=266346504]
+collision_layer = 8
+script = ExtResource("1_s0ysw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1231669536]
+shape = SubResource("RectangleShape2D_xl52f")
+
+[node name="RFSprite2Dv2" type="Sprite2D" parent="." unique_id=2042602691]
+texture = ExtResource("1_d3afb")
+offset = Vector2(-0.5, -1)
+region_enabled = true
+region_rect = Rect2(32, 67, 5, 14)
+script = ExtResource("2_s0ysw")
+current_frame = 2
+frame_count = 3
+frame_regions = Array[Rect2]([Rect2(0, 67, 17, 13), Rect2(19, 67, 11, 14), Rect2(32, 67, 5, 14)])
+frame_offsets = Array[Vector2]([Vector2(0.5, 0.5), Vector2(0.5, -1), Vector2(-0.5, -1)])
+frame_0_region = Rect2(0, 67, 17, 13)
+frame_0_offset = Vector2(0.5, 0.5)
+frame_1_region = Rect2(19, 67, 11, 14)
+frame_1_offset = Vector2(0.5, -1)
+frame_2_region = Rect2(32, 67, 5, 14)
+frame_2_offset = Vector2(-0.5, -1)
+metadata/_custom_type_script = "uid://byf8cwr2ke4ky"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=849626959]
+libraries/ = SubResource("AnimationLibrary_wejay")
+autoplay = &"spin"
+
+[node name="Damage" type="Node" parent="." unique_id=1978537771]
+script = ExtResource("4_wejay")
+damage = 3
+metadata/_custom_type_script = "uid://cd06ykx2xlfww"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=886634948]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=803431740]
+shape = SubResource("RectangleShape2D_xl52f")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1821127648]
+rect = Rect2(-6, -6, 12, 12)
+
+[node name="DisableHitTimer" type="Timer" parent="." unique_id=684639879]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="on_hit"]
+[connection signal="body_entered" from="Area2D" to="." method="on_hit"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="queue_free"]

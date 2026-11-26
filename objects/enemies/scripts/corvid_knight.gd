@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+const SWORD_SCENE := preload("res://objects/projectile/knight_sword.tscn")
 const DASH_SPEED := 20. * 8.
 const DASH_TIME := 0.2
 const DASH_DECELERATION := DASH_SPEED * DASH_TIME
@@ -46,6 +47,13 @@ func on_damage() -> void:
 func turn_if_on_edge() -> void:
 	if Util.off_edge_in_direction(facing_right, $Left, $Right):
 		$AnimationPlayer.play("turn")
+
+func spawn_sword() -> void:
+	var sword: CharacterBody2D = SWORD_SCENE.instantiate()
+	await get_tree().process_frame
+	add_child(sword)
+	sword.position = Vector2(0., -8)
+	sword.velocity.x = -32. * Util.sign(facing_right)
 
 
 func sync_facing_right() -> void:
