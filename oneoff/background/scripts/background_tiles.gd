@@ -6,7 +6,8 @@ extends Node2D
 @export var only_background: Array[Node] = []
 @export var sub_viewport: SubViewport
 @export var sub_viewport_camera: Camera2D
-@export var renderer: Sprite2D
+@export var renderer_circle: Sprite2D
+@export var renderer_sub_viewport: Sprite2D
 @export var in_background := false:
 	set(value):
 		if in_background != value:
@@ -31,7 +32,7 @@ func _ready() -> void:
 		layer_copies.append(layer_copy)
 	for node in only_background:
 		node.reparent(sub_viewport)
-	#sync_in_background()
+	Global.chunk_loaded.connect(on_chunk_loaded)
 
 func add_node_to_background(node: Node2D, node_global_position: Vector2) -> void:
 	if node.get_parent() != null:
@@ -40,9 +41,12 @@ func add_node_to_background(node: Node2D, node_global_position: Vector2) -> void
 		layer_copies.get(0).add_child(node)
 		node.global_position = node_global_position
 
+func on_chunk_loaded(cx: int, cy: int) -> void:
+	sub_viewport_camera.global_position = Util.ROOM_SIZE * Vector2(cx, cy)
+
 func _process(_delta: float) -> void:
-	sub_viewport_camera.global_position = Global.echo.global_position.round()
-	renderer.global_position = Global.echo.global_position.round()
+	renderer_circle.global_position = Global.echo.global_position.round()
+	renderer_sub_viewport.global_position = sub_viewport_camera.global_position + Vector2(64, 64)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if in_background:
@@ -53,7 +57,7 @@ func sync_in_background() -> void:
 		Global.echo.reparent(sub_viewport)
 	else:
 		Global.echo.reparent(get_parent())
-	#renderer.visible = in_background
+	#renderer_circle.visible = in_background
 	#for layer in tile_map_layers:
 		#layer.collision_enabled = in_background
 	#for layer in foreground_col_layers:

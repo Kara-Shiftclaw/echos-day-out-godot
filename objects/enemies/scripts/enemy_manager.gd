@@ -38,6 +38,7 @@ func _ready() -> void:
 		health = max_health
 		if animation_player != null:
 			animation_player.play(reset_animation)
+			await get_tree().process_frame
 			animation_player.seek(0., true)
 		respawn.emit()
 	)
