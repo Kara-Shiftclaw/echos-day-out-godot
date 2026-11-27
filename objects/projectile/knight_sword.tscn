@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cd06ykx2xlfww" path="res://common/damage.gd" id="4_wejay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xl52f"]
-size = Vector2(12, 12)
+size = Vector2(8, 12)
 
 [sub_resource type="Animation" id="Animation_d3afb"]
 length = 0.001

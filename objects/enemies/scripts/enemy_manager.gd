@@ -44,10 +44,7 @@ func _ready() -> void:
 	chunk = Vector2i(floori(parent.global_position.x / Util.ROOM_SIZE), floori(parent.global_position.y / Util.ROOM_SIZE))
 	Global.chunk_loaded.connect(func(cx: int, cy: int) -> void:
 		if chunk.x == cx and chunk.y == cy:
-			chunk_entered.emit()
-			if health > 0:
-				chunk_entered_alive.emit()
-			parent.process_mode = Node.PROCESS_MODE_INHERIT
+			chunk_load()
 		elif parent.can_process():
 			chunk_left.emit()
 			parent.process_mode = Node.PROCESS_MODE_DISABLED
@@ -99,6 +96,13 @@ func take_damage(damage: Damage) -> void:
 				EnergyOrb.create_n(energy_on_death, get_parent().global_position, Global.echo)
 				if journal_entry != "":
 					Global.journal_entries.set(journal_entry, true)
+
+func chunk_load() -> void:
+	chunk_entered.emit()
+	if health > 0:
+		chunk_entered_alive.emit()
+	var parent: Node2D = get_parent()
+	parent.process_mode = Node.PROCESS_MODE_INHERIT
 
 func reset() -> void:
 	post_load_frame = true
